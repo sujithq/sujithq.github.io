@@ -11,7 +11,7 @@
 
 
 
-    <title>About</title>
+    <title>Azure - Sujith Quintelier's Blog</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -25,31 +25,28 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="Blog about Azure - .NET - ..." />
     <link rel="shortcut icon" href="http://localhost:4000/assets/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="http://localhost:4000/about/" />
+    <link rel="canonical" href="http://localhost:4000/tag/azure/" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="Sujith Quintelier's Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="About" />
-    <meta property="og:description" content="Hi, I am Sujith Quintelier and I currently work as an Azure Consultant for [Euricom](https://www.euri.com). Previously I worked as a .NET Architect and Dev Lead and Coach. The purpose of this blog is to write down my personal and working experience and to share my findings. There is no affiliation" />
-    <meta property="og:url" content="http://localhost:4000/about/" />
+    <meta property="og:title" content="Azure - Sujith Quintelier's Blog" />
+    <meta property="og:description" content="Blog about Azure - .NET - ..." />
+    <meta property="og:url" content="http://localhost:4000/tag/azure/" />
     <meta property="og:image" content="http://localhost:4000/assets/images/blog-cover.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/sujith.quintelier" />
-    <meta property="article:author" content="https://www.facebook.com/sujith.quintelier" />
-    <meta property="article:published_time" content="" />
-    <meta property="article:modified_time" content="" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="About" />
-    <meta name="twitter:description" content="Hi, I am Sujith Quintelier and I currently work as an Azure Consultant for [Euricom](https://www.euri.com). Previously I worked as a .NET Architect and Dev Lead and Coach. The purpose of this blog is to write down my personal and working experience and to share my findings. There is no affiliation" />
+    <meta name="twitter:title" content="Azure - Sujith Quintelier's Blog" />
+    <meta name="twitter:description" content="Blog about Azure - .NET - ..." />
     <meta name="twitter:url" content="http://localhost:4000/" />
     <meta name="twitter:image" content="http://localhost:4000/assets/images/blog-cover.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Sujith Quintelier's Blog" />
     <meta name="twitter:site" content="@SujithQ" />
     <meta name="twitter:creator" content="@SujithQ" />
-    <meta property="og:image:width" content="1400" />
-    <meta property="og:image:height" content="933" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="666" />
 
     <script type="application/ld+json">
 {
@@ -60,7 +57,7 @@
         "name": "Sujith Quintelier's Blog",
         "logo": "http://localhost:4000/assets/images/blog-icon.png"
     },
-    "url": "http://localhost:4000/about/",
+    "url": "http://localhost:4000/tag/azure/",
     "image": {
         "@type": "ImageObject",
         "url": "http://localhost:4000/assets/images/blog-cover.jpg",
@@ -69,9 +66,9 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://localhost:4000/about/"
+        "@id": "http://localhost:4000/tag/azure/"
     },
-    "description": "Hi, I am Sujith Quintelier and I currently work as an Azure Consultant for [Euricom](https://www.euri.com). Previously I worked as a .NET Architect and Dev Lead and Coach. The purpose of this blog is to write down my personal and working experience and to share my findings. There is no affiliation"
+    "description": "Blog about Azure - .NET - ..."
 }
     </script>
 
@@ -84,20 +81,23 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="About" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Tag Page" href="/feed.xml" />
 
 
 </head>
-<body class="page-template">
+<body class="tag-template">
 
     <div class="site-wrapper">
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- < default -->
-<!-- The tag above means: insert everything in this file
-into the {body} of the default.hbs template -->
+        <!-- default -->
+<!-- The tag above means - insert everything in this file into the {body} of the default.hbs template -->
 
 <!-- The big featured header, it uses blog cover image as a BG if available -->
-<header class="site-header outer">
+<!-- #tag -->
+<!-- dynamically loading backgrounds for tags,  descriptions and page titles -->
+
+
+<header class="site-header outer no-cover">
     <div class="inner">
         <nav class="site-nav">
     <div class="site-nav-left">
@@ -135,58 +135,96 @@ into the {body} of the default.hbs template -->
     </div>
 </nav>
 
+        <div class="site-header-content">
+            <h1 class="site-title">Azure</h1>
+            <h2 class="site-description">
+                
+    			    A collection of 1 posts
+                
+            </h2>
+        </div>
     </div>
 </header>
+<!-- tag -->
 
-<!-- Everything inside the #post tags pulls data from the post -->
-<!-- #post -->
-
+<!-- The main content area -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
-
-        <article class="post-full post page no-image">
-
-            <header class="post-full-header">
-                <h1 class="post-full-title">About</h1>
-            </header>
-
+        <div class="post-feed">
+            <!-- The tag below includes the markup for each post - partials/post-card.hbs -->
             
+    <article class="post-card tag-template">
+        
+            <a class="post-card-image-link" href="/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy">
+                <div class="post-card-image" style="background-image: url(/assets/images/2018-09-13/cover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy">
+                <header class="post-card-header">
+                    
+                        
+                            
+                               <span class="post-card-tags">Azure</span>
+                            
+                        
+                            
+                               <span class="post-card-tags">Functions</span>
+                            
+                        
+                            
+                               <span class="post-card-tags">Visual studio</span>
+                            
+                        
+                            
+                               <span class="post-card-tags">Teamcity</span>
+                            
+                        
+                            
+                                <span class="post-card-tags">Octopus deploy</span>
+                            
+                        
+                    
 
-            <section class="post-full-content">
-                <p>Hi, I am Sujith Quintelier and I currently work as an Azure Consultant for <a href="https://www.euri.com">Euricom</a>. Previously I worked as a .NET Architect and Dev Lead and Coach.</p>
+                    <h2 class="post-card-title">Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    <p>Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus</p>
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/sujith.jpg" alt="Sujith Quintelier" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/sujith/">Sujith Quintelier</a>
+                        </span>
+                    
+                
+            </footer>
+        </div>
+    </article>
 
-<p>The purpose of this blog is to write down my personal and working experience and to share my findings. There is no affiliation with my employer or any other software vendor.</p>
 
-<p>If you have any question you can always send me a message via <a href="mailto:sujith.quintelier@gmail.com?SUBJECT=Question">mail</a>.</p>
-
-<form action="https://formspree.io/sujith.quintelier@euri.com" method="POST">
-    <input type="text" name="name" />
-    <input rows="4" cols="50" name="_subject" />
-<textarea rows="4" cols="50" name="message">
-Message
-</textarea>
-    <input type="email" name="_replyto" />
-    <input name="_gotcha" />
-    <input type="submit" value="Send" />
-</form>
-
-            </section>
-
-        </article>
-
+        </div>
     </div>
 </main>
-
-<!-- /post -->
-
-<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
-<script>
-$(function() {
-    var $postContent = $(".post-full-content");
-    $postContent.fitVids();
-});
-</script>
-
 
 
         <!-- Previous/next page links - displayed on every page -->
@@ -236,7 +274,7 @@ $(function() {
     <!-- Paginator increased to "infinit" in _config.yml -->
     <!-- if paginator.posts  -->
     <!-- <script>
-        var maxPages = parseInt('');
+        var maxPages = parseInt('1');
     </script>
     <script src="/assets/js/infinitescroll.js"></script> -->
     <!-- /endif -->
@@ -259,14 +297,6 @@ $(function() {
 
 
     <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
-    
-        <script>
-$(function() {
-    var $postContent = $(".post-full-content");
-    $postContent.fitVids();
-});
-</script>
-
     
 
     <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
