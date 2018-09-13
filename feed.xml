@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-13T21:27:14+02:00</updated><id>http://localhost:4000/</id><title type="html">Sujith Quintelier’s Blog</title><subtitle>Blog about Azure - .NET - ...</subtitle><entry><title type="html">Setup Blazor development environment</title><link href="http://localhost:4000/Setup-Blazor-development-environment" rel="alternate" type="text/html" title="Setup Blazor development environment" /><published>2018-07-12T12:00:00+02:00</published><updated>2018-07-12T12:00:00+02:00</updated><id>http://localhost:4000/Setup-Blazor-development-environment</id><content type="html" xml:base="http://localhost:4000/Setup-Blazor-development-environment">&lt;p&gt;This guide helps you setting up your &lt;a href=&quot;https://blazor.net/&quot;&gt;Blazor&lt;/a&gt; development environment without messing up your current development machine with beta releases.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-09-13T22:16:59+02:00</updated><id>http://localhost:4000/</id><title type="html">Sujith Quintelier’s Blog</title><subtitle>Blog about Azure - .NET - ...</subtitle><entry><title type="html">Setup Blazor development environment</title><link href="http://localhost:4000/Setup-Blazor-development-environment" rel="alternate" type="text/html" title="Setup Blazor development environment" /><published>2018-07-12T12:00:00+02:00</published><updated>2018-07-12T12:00:00+02:00</updated><id>http://localhost:4000/Setup-Blazor-development-environment</id><content type="html" xml:base="http://localhost:4000/Setup-Blazor-development-environment">&lt;p&gt;This guide helps you setting up your &lt;a href=&quot;https://blazor.net/&quot;&gt;Blazor&lt;/a&gt; development environment without messing up your current development machine with beta releases.&lt;/p&gt;
 
 &lt;p&gt;We will use these tools&lt;/p&gt;
 
@@ -13,7 +13,7 @@
 
 &lt;p&gt;Create a local directory with one subdirectory app.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;assets/images/2018-06-22/create_directory.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/images/2018-07-12/create_directory.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;create-dockerfile&quot;&gt;Create Dockerfile&lt;/h1&gt;
 
@@ -49,7 +49,7 @@ Copy the raw content and store it in a file Dockerfile. Modify it by appending `
 &lt;p&gt;The creation of the image can be verified by &lt;code class=&quot;highlighter-rouge&quot;&gt;docker images&lt;/code&gt;
 You should see 2 images. Base image and the one you just created.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;assets/images/2018-06-22/docker_images.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/images/2018-07-12/docker_images.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;start-a-container-instance&quot;&gt;Start a container instance&lt;/h1&gt;
 &lt;p&gt;At the prompt run &lt;code class=&quot;highlighter-rouge&quot;&gt;docker run -it --rm --name blazortest -p 8000:80 -v H:\Euricom\Blazor\app\:/app  -w=&quot;/app&quot; blazor:latest&lt;/code&gt;&lt;/p&gt;
@@ -75,7 +75,7 @@ You should see 2 images. Base image and the one you just created.&lt;/p&gt;
 &lt;h2 id=&quot;verify-1&quot;&gt;verify&lt;/h2&gt;
 &lt;p&gt;In another terminal you should see named instance blazortest&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;assets/images/2018-06-22/docker_running_instances.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/images/2018-07-12/docker_running_instances.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;create-a-new-blazor-project&quot;&gt;Create a new blazor project&lt;/h1&gt;
 &lt;p&gt;You can create a new Blazor project the volume created earlier by running this command &lt;code class=&quot;highlighter-rouge&quot;&gt;dotnet new blazor&lt;/code&gt;.&lt;/p&gt;
@@ -104,14 +104,14 @@ You should see 2 images. Base image and the one you just created.&lt;/p&gt;
 &lt;h1 id=&quot;start-the-application&quot;&gt;Start the application&lt;/h1&gt;
 &lt;p&gt;Start the application via &lt;code class=&quot;highlighter-rouge&quot;&gt;dotnet watch run&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;assets/images/2018-06-22/dotnet_watch_run.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/images/2018-07-12/dotnet_watch_run.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;launch-the-application&quot;&gt;Launch the application&lt;/h1&gt;
 &lt;p&gt;Open a browser and launch &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:8000&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;assets/images/2018-06-22/launch_chrome.png&quot; alt=&quot;&quot; title=&quot;Chrome&quot; /&gt;
-&lt;img src=&quot;assets/images/2018-06-22/launch_edge.png&quot; alt=&quot;&quot; title=&quot;Edge&quot; /&gt;
-&lt;img src=&quot;assets/images/2018-06-22/launch_ff.png&quot; alt=&quot;&quot; title=&quot;Firefox&quot; /&gt;&lt;/p&gt;</content><author><name>Sujith Quintelier</name></author><category term="Blazor" /><category term="Docker" /><summary type="html">This guide helps you setting up your Blazor development environment without messing up your current development machine with beta releases.</summary></entry><entry><title type="html">Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</title><link href="http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy" rel="alternate" type="text/html" title="Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy" /><published>2018-06-22T12:00:00+02:00</published><updated>2018-06-22T12:00:00+02:00</updated><id>http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy</id><content type="html" xml:base="http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy">&lt;p&gt;Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;assets/images/2018-07-12/launch_chrome.png&quot; alt=&quot;&quot; title=&quot;Chrome&quot; /&gt;
+&lt;img src=&quot;assets/images/2018-07-12/launch_edge.png&quot; alt=&quot;&quot; title=&quot;Edge&quot; /&gt;
+&lt;img src=&quot;assets/images/2018-07-12/launch_ff.png&quot; alt=&quot;&quot; title=&quot;Firefox&quot; /&gt;&lt;/p&gt;</content><author><name>Sujith Quintelier</name></author><category term="Blazor" /><category term="Docker" /><summary type="html">This guide helps you setting up your Blazor development environment without messing up your current development machine with beta releases.</summary></entry><entry><title type="html">Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</title><link href="http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy" rel="alternate" type="text/html" title="Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy" /><published>2018-06-22T12:00:00+02:00</published><updated>2018-06-22T12:00:00+02:00</updated><id>http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy</id><content type="html" xml:base="http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy">&lt;p&gt;Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed.&lt;/p&gt;
 
 &lt;h1 id=&quot;setup&quot;&gt;Setup&lt;/h1&gt;
 &lt;h2 id=&quot;tools&quot;&gt;Tools&lt;/h2&gt;

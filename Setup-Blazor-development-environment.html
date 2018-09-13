@@ -190,7 +190,7 @@ into the {body} of the default.hbs template -->
 
 <p>Create a local directory with one subdirectory app.</p>
 
-<p><img src="assets/images/2018-06-22/create_directory.png" alt="" /></p>
+<p><img src="assets/images/2018-07-12/create_directory.png" alt="" /></p>
 
 <h1 id="create-dockerfile">Create Dockerfile</h1>
 
@@ -226,7 +226,7 @@ Copy the raw content and store it in a file Dockerfile. Modify it by appending `
 <p>The creation of the image can be verified by <code class="highlighter-rouge">docker images</code>
 You should see 2 images. Base image and the one you just created.</p>
 
-<p><img src="assets/images/2018-06-22/docker_images.png" alt="" /></p>
+<p><img src="assets/images/2018-07-12/docker_images.png" alt="" /></p>
 
 <h1 id="start-a-container-instance">Start a container instance</h1>
 <p>At the prompt run <code class="highlighter-rouge">docker run -it --rm --name blazortest -p 8000:80 -v H:\Euricom\Blazor\app\:/app  -w="/app" blazor:latest</code></p>
@@ -252,7 +252,7 @@ You should see 2 images. Base image and the one you just created.</p>
 <h2 id="verify-1">verify</h2>
 <p>In another terminal you should see named instance blazortest</p>
 
-<p><img src="assets/images/2018-06-22/docker_running_instances.png" alt="" /></p>
+<p><img src="assets/images/2018-07-12/docker_running_instances.png" alt="" /></p>
 
 <h1 id="create-a-new-blazor-project">Create a new blazor project</h1>
 <p>You can create a new Blazor project the volume created earlier by running this command <code class="highlighter-rouge">dotnet new blazor</code>.</p>
@@ -281,14 +281,14 @@ You should see 2 images. Base image and the one you just created.</p>
 <h1 id="start-the-application">Start the application</h1>
 <p>Start the application via <code class="highlighter-rouge">dotnet watch run</code></p>
 
-<p><img src="assets/images/2018-06-22/dotnet_watch_run.png" alt="" /></p>
+<p><img src="assets/images/2018-07-12/dotnet_watch_run.png" alt="" /></p>
 
 <h1 id="launch-the-application">Launch the application</h1>
 <p>Open a browser and launch <code class="highlighter-rouge">http://localhost:8000</code></p>
 
-<p><img src="assets/images/2018-06-22/launch_chrome.png" alt="" title="Chrome" />
-<img src="assets/images/2018-06-22/launch_edge.png" alt="" title="Edge" />
-<img src="assets/images/2018-06-22/launch_ff.png" alt="" title="Firefox" /></p>
+<p><img src="assets/images/2018-07-12/launch_chrome.png" alt="" title="Chrome" />
+<img src="assets/images/2018-07-12/launch_edge.png" alt="" title="Edge" />
+<img src="assets/images/2018-07-12/launch_ff.png" alt="" title="Firefox" /></p>
 
                 </div>
             </section>
