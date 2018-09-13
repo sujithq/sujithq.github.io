@@ -11,7 +11,7 @@
 
 
 
-    <title>Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</title>
+    <title>Setup Blazor development environment</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
@@ -25,30 +25,30 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="Blog about Azure - .NET - ..." />
     <link rel="shortcut icon" href="http://localhost:4000/assets/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy" />
+    <link rel="canonical" href="http://localhost:4000/Setup-Blazor-development-environment" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="Sujith Quintelier's Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy" />
-    <meta property="og:description" content="Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed. Setup Tools Visual Studio 2017 v15.7.4 (VS). TeamCity" />
-    <meta property="og:url" content="http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy" />
-    <meta property="og:image" content="http://localhost:4000/assets/images/2018-06-22/cover.jpg" />
+    <meta property="og:title" content="Setup Blazor development environment" />
+    <meta property="og:description" content="This guide helps you setting up your Blazor development environment without messing up your current development machine with beta releases. We will use these tools Docker Community Edition Visual Studio Code Create a local directory with one subdirectory app. Create Dockerfile First download the latest dockerfile version. Look at the" />
+    <meta property="og:url" content="http://localhost:4000/Setup-Blazor-development-environment" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/2018-07-12/cover.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/sujith.quintelier" />
     <meta property="article:author" content="https://www.facebook.com/sujith.quintelier" />
-    <meta property="article:published_time" content="2018-06-22T12:00:00+02:00" />
-    <meta property="article:modified_time" content="2018-06-22T12:00:00+02:00" />
-    <meta property="article:tag" content="Azure" />
+    <meta property="article:published_time" content="2018-07-12T12:00:00+02:00" />
+    <meta property="article:modified_time" content="2018-07-12T12:00:00+02:00" />
+    <meta property="article:tag" content="Blazor" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy" />
-    <meta name="twitter:description" content="Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed. Setup Tools Visual Studio 2017 v15.7.4 (VS). TeamCity" />
+    <meta name="twitter:title" content="Setup Blazor development environment" />
+    <meta name="twitter:description" content="This guide helps you setting up your Blazor development environment without messing up your current development machine with beta releases. We will use these tools Docker Community Edition Visual Studio Code Create a local directory with one subdirectory app. Create Dockerfile First download the latest dockerfile version. Look at the" />
     <meta name="twitter:url" content="http://localhost:4000/" />
-    <meta name="twitter:image" content="http://localhost:4000/assets/images/2018-06-22/cover.jpg" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/2018-07-12/cover.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Sujith Quintelier's Blog" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Azure" />
+    <meta name="twitter:data2" content="Blazor" />
     <meta name="twitter:site" content="@SujithQ" />
     <meta name="twitter:creator" content="@SujithQ" />
     <meta property="og:image:width" content="1400" />
@@ -63,18 +63,18 @@
         "name": "Sujith Quintelier's Blog",
         "logo": "http://localhost:4000/assets/images/blog-icon.png"
     },
-    "url": "http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy",
+    "url": "http://localhost:4000/Setup-Blazor-development-environment",
     "image": {
         "@type": "ImageObject",
-        "url": "http://localhost:4000/assets/images/2018-06-22/cover.jpg",
+        "url": "http://localhost:4000/assets/images/2018-07-12/cover.jpg",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy"
+        "@id": "http://localhost:4000/Setup-Blazor-development-environment"
     },
-    "description": "Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed. Setup Tools Visual Studio 2017 v15.7.4 (VS). TeamCity"
+    "description": "This guide helps you setting up your Blazor development environment without messing up your current development machine with beta releases. We will use these tools Docker Community Edition Visual Studio Code Create a local directory with one subdirectory app. Create Dockerfile First download the latest dockerfile version. Look at the"
 }
     </script>
 
@@ -87,7 +87,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Setup Blazor development environment" href="/feed.xml" />
 
 
 </head>
@@ -151,306 +151,144 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="22 June 2018">22 June 2018</time>
+                    <time class="post-full-meta-date" datetime="12 July 2018">12 July 2018</time>
                     
                     <span class="date-divider">/</span>
                     
                     
-                    <a href='/tag/azure/'>AZURE</a>,
+                    <a href='/tag/blazor/'>BLAZOR</a>,
                     
                     
                     
-                    <a href='/tag/functions/'>FUNCTIONS</a>,
-                    
-                    
-                    
-                    <a href='/tag/visual-studio/'>VISUAL STUDIO</a>,
-                    
-                    
-                    
-                    <a href='/tag/teamcity/'>TEAMCITY</a>,
-                    
-                    
-                    
-                    <a href='/tag/octopus-deploy/'>OCTOPUS DEPLOY</a>
+                    <a href='/tag/docker/'>DOCKER</a>
                     
                     
                     
                 </section>
-                <h1 class="post-full-title">Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</h1>
+                <h1 class="post-full-title">Setup Blazor development environment</h1>
             </header>
 
             
-            <figure class="post-full-image" style="background-image: url(/assets/images/2018-06-22/cover.jpg)">
+            <figure class="post-full-image" style="background-image: url(/assets/images/2018-07-12/cover.jpg)">
             </figure>
             
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p>Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed.</p>
+                    <p>This guide helps you setting up your <a href="https://blazor.net/">Blazor</a> development environment without messing up your current development machine with beta releases.</p>
 
-<h1 id="setup">Setup</h1>
-<h2 id="tools">Tools</h2>
-
-<ul>
-  <li>Visual Studio 2017 v15.7.4 (VS).</li>
-  <li>TeamCity v2017.2.4 (TC).</li>
-  <li>Octopus Deploy v2018.6.2 (OD).</li>
-</ul>
-
-<p>For this purpose I deployed a Azure VM using this [template] (https://portal.azure.com/#create/octopus.octopusdeployoctopus-deploy), installed an OD Tentacle, a TC Agent and OD cli (in <code class="highlighter-rouge">C:\Programs\Octo</code>). OD downloads can be found [here] (https://octopus.com/downloads). Also install the correct .NET version via this [link] (https://www.microsoft.com/web/downloads/platform.aspx) and set the DOTNET_HOME environment variable in TC to <code class="highlighter-rouge">C:\Program Files\dotnet\</code></p>
-
-<p>Make sure you have installed the Azure development workload in VS. Check via TOOLS\Get Tools and Features…
-<img src="assets/images/2018-06-22/ZuinKne.png" alt="" /></p>
-
-<p>On Workloads tab check Azure development</p>
-
-<p><img src="assets/images/2018-06-22/oojIgPk.png" alt="" /></p>
-
-<h1 id="create">Create</h1>
-<p>We use VS for developing the Function. Store the project in a source control system supported by TC.</p>
-
-<h2 id="function">Function</h2>
-<p>Add new Project, search for Azure Functions and give it a name. It is a basic http trigger. Nothing fancy. Modify if needed.</p>
-
-<p>Install Nuget package <code class="highlighter-rouge">Microsoft.NET.Sdk.Functions</code>.</p>
-
-<h2 id="arm-template">ARM Template</h2>
-<p>Deploying an Azure Function needs 3 Azure Resources:</p>
+<p>We will use these tools</p>
 
 <ul>
-  <li>Storage Account (Microsoft.Storage/storageAccounts)</li>
-  <li>Hosting Plan (Microsoft.We<span>b/serverfarms)</span></li>
-  <li>Function App (Microsoft.We<span>b/sites)</span></li>
+  <li>
+    <p><a href="https://www.docker.com/community-edition">Docker Community Edition</a></p>
+  </li>
+  <li>
+    <p><a href="https://code.visualstudio.com/">Visual Studio Code</a></p>
+  </li>
 </ul>
 
-<p>Below you will find a basic ARM Template with these 3 resources and a parameters Template. Set Copy to Output Directory to <code class="highlighter-rouge">Copy if Newer</code>. Add those templates to your project and name them azuredeploy.json and azuredeploy.parameters.json.</p>
+<p>Create a local directory with one subdirectory app.</p>
 
-<p>The project structure should look like</p>
+<p><img src="assets/images/2018-06-22/create_directory.png" alt="" /></p>
 
-<p><img src="assets/images/2018-06-22/2yV3WSe.png" alt="" /></p>
+<h1 id="create-dockerfile">Create Dockerfile</h1>
 
-<h3 id="template">Template</h3>
+<p>First download the latest <a href="https://hub.docker.com/r/microsoft/dotnet/" title="dockerfile">dockerfile</a> version.
+Look at the latest version of <a href="https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/stretch/amd64/Dockerfile">Linux amd64</a>. 
+Copy the raw content and store it in a file Dockerfile. Modify it by appending ` ` and <code class="highlighter-rouge">&amp;&amp; dotnet new -i Microsoft.AspNetCore.Blazor.Templates</code> at the second RUN command.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "appName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the function app that you wish to create."
-      }
-    },
-    "sku": {
-      "type": "string",
-      "allowedValues": [
-        "Free",
-        "Shared",
-        "Basic",
-        "Standard"
-      ],
-      "defaultValue": "Standard",
-      "metadata": {
-        "description": "The pricing tier for the hosting plan."
-      }
-    },
-    "workerSize": {
-      "type": "string",
-      "allowedValues": [
-        "0",
-        "1",
-        "2"
-      ],
-      "defaultValue": "0",
-      "metadata": {
-        "description": "The instance size of the hosting plan (small, medium, or large)."
-      }
-    },
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_RAGRS"
-      ],
-      "metadata": {
-        "description": "Storage Account type"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    }
-  },
-  "variables": {
-    "functionAppName": "[parameters('appName')]",
-    "hostingPlanName": "[parameters('appName')]",
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'functions')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-12-01",
-      "location": "[parameters('location')]",
-      "kind": "Storage",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      }
-    },
-    {
-      "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2015-04-01",
-      "name": "[variables('hostingPlanName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "sku": "[parameters('sku')]",
-        "workerSize": "[parameters('workerSize')]",
-        "hostingEnvironment": "",
-        "numberOfWorkers": 1
-      }
-    },
-    {
-      "apiVersion": "2015-04-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[variables('functionAppName')]",
-      "location": "[parameters('location')]",
-      "kind": "functionapp",
-      "properties": {
-        "name": "[variables('functionAppName')]",
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "hostingEnvironment": "",
-        "clientAffinityEnabled": false,
-        "siteConfig": {
-          "alwaysOn": true
-        }
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-      ],
-      "resources": [
-        {
-          "apiVersion": "2016-03-01",
-          "name": "appsettings",
-          "type": "config",
-          "dependsOn": [
-            "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
-            "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-          ],
-          "properties": {
-            "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';    AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),     '2015-05-01-preview').key1,';')]",
-            "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';    AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),     '2015-05-01-preview').key1,';')]",
-            "FUNCTIONS_EXTENSION_VERSION": "~1"
-          }
-        }
-      ]
-    }
-  ]
-}
+<p>It should look like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RUN curl <span class="nt">-SL</span> <span class="nt">--output</span> dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/<span class="nv">$DOTNET_SDK_VERSION</span>/dotnet-sdk-<span class="nv">$DOTNET_SDK_VERSION</span><span class="nt">-linux-x64</span>.tar.gz <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> <span class="nv">dotnet_sha512</span><span class="o">=</span><span class="s1">'2166986e360f1c3456a33723edb80349e6ede115be04a6331bfbfd0f412494684d174a0cfb21d2feb00d509ce342030160a4b5b445e393ad83bedb613a64bc66'</span> <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> sha512sum dotnet.tar.gz <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$dotnet_sha512</span><span class="s2"> dotnet.tar.gz"</span> | sha512sum <span class="nt">-c</span> - <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> mkdir <span class="nt">-p</span> /usr/share/dotnet <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> <span class="nb">tar</span> <span class="nt">-zxf</span> dotnet.tar.gz <span class="nt">-C</span> /usr/share/dotnet <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> rm dotnet.tar.gz <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> ln <span class="nt">-s</span> /usr/share/dotnet/dotnet /usr/bin/dotnet <span class="se">\</span>
+	<span class="o">&amp;&amp;</span> dotnet new <span class="nt">-i</span> Microsoft.AspNetCore.Blazor.Templates
 </code></pre></div></div>
 
-<h3 id="parameters">Parameters</h3>
+<h1 id="create-the-docker-image">Create the docker image</h1>
+<p>Open a terminal and go to the location of the Dockerfile and run <code class="highlighter-rouge">docker build -t blazor:latest .</code>. This will build the docker image.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "appName": {
-      "value": "#{AzureFunctionName}"
-    }
-  }
-}
+<p>If this fails, just restart your docker and rerun previous command.</p>
+
+<h2 id="build">build</h2>
+<p>This builds the image.</p>
+
+<h2 id="-t">-t</h2>
+<p>This adds a label <code class="highlighter-rouge">latest</code>.</p>
+
+<h2 id="verify">verify</h2>
+<p>The creation of the image can be verified by <code class="highlighter-rouge">docker images</code>
+You should see 2 images. Base image and the one you just created.</p>
+
+<p><img src="assets/images/2018-06-22/docker_images.png" alt="" /></p>
+
+<h1 id="start-a-container-instance">Start a container instance</h1>
+<p>At the prompt run <code class="highlighter-rouge">docker run -it --rm --name blazortest -p 8000:80 -v H:\Euricom\Blazor\app\:/app  -w="/app" blazor:latest</code></p>
+
+<h2 id="run">run</h2>
+<p>This runs the container:</p>
+
+<h2 id="-it">-it</h2>
+<p>This runs an interactive container.</p>
+
+<h2 id="rm">–rm</h2>
+<p>This removes the container after stopping the container.</p>
+
+<h2 id="-p">-p</h2>
+<p>This maps the internal port (80) to an external port (8000).</p>
+
+<h2 id="-v">-v</h2>
+<p>This maps a local path <code class="highlighter-rouge">H:\Euricom\Blazor\app\</code> to this volume <code class="highlighter-rouge">/app</code></p>
+
+<h2 id="-w">-w</h2>
+<p>This sets the working directory to <code class="highlighter-rouge">/app</code></p>
+
+<h2 id="verify-1">verify</h2>
+<p>In another terminal you should see named instance blazortest</p>
+
+<p><img src="assets/images/2018-06-22/docker_running_instances.png" alt="" /></p>
+
+<h1 id="create-a-new-blazor-project">Create a new blazor project</h1>
+<p>You can create a new Blazor project the volume created earlier by running this command <code class="highlighter-rouge">dotnet new blazor</code>.</p>
+
+<p>Open the project file app.csproj and add this node <code class="highlighter-rouge">&lt;Watch Include="**\*.cshtml" /&gt;</code>. This makes it possible to make changes on the fly.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Project</span> <span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk.Web"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;PropertyGroup&gt;</span>
+    <span class="nt">&lt;TargetFramework&gt;</span>netstandard2.0<span class="nt">&lt;/TargetFramework&gt;</span>
+    <span class="nt">&lt;RunCommand&gt;</span>dotnet<span class="nt">&lt;/RunCommand&gt;</span>
+    <span class="nt">&lt;RunArguments&gt;</span>blazor serve<span class="nt">&lt;/RunArguments&gt;</span>
+    <span class="nt">&lt;LangVersion&gt;</span>7.3<span class="nt">&lt;/LangVersion&gt;</span>
+  <span class="nt">&lt;/PropertyGroup&gt;</span>
+
+  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">"Microsoft.AspNetCore.Blazor.Browser"</span> <span class="na">Version=</span><span class="s">"0.4.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">"Microsoft.AspNetCore.Blazor.Build"</span> <span class="na">Version=</span><span class="s">"0.4.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DotNetCliToolReference</span> <span class="na">Include=</span><span class="s">"Microsoft.AspNetCore.Blazor.Cli"</span> <span class="na">Version=</span><span class="s">"0.4.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Watch</span> <span class="na">Include=</span><span class="s">"**\*.cshtml"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+
+<span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></div>
 
-<h1 id="build">Build</h1>
-<p>In TC Create a new project, add a new Build Configuration with 3 Build Steps.</p>
+<h1 id="start-the-application">Start the application</h1>
+<p>Start the application via <code class="highlighter-rouge">dotnet watch run</code></p>
 
-<h2 id="parameters-1">Parameters</h2>
-<p>These are use in TC in scripts, variable names, …</p>
-<ul>
-  <li>apikey (generated in OD)</li>
-  <li>packageId (<code class="highlighter-rouge">tc-od</code>)</li>
-  <li>server (url to OD)</li>
-  <li>version (semantic version nr like <code class="highlighter-rouge">1.0.%build.number%</code>)</li>
-</ul>
+<p><img src="assets/images/2018-06-22/dotnet_watch_run.png" alt="" /></p>
 
-<h2 id="publish">publish</h2>
-<p>This runner type is .NET CLI (dotnet). Give a Step name. Choose publish as Command. Select the project. Set Configuration and Output directory to bin\Release\PublishOutput
-<img src="assets/images/2018-06-22/bsGq2cx.png" alt="" /></p>
+<h1 id="launch-the-application">Launch the application</h1>
+<p>Open a browser and launch <code class="highlighter-rouge">http://localhost:8000</code></p>
 
-<h2 id="pack">pack</h2>
-<p>This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd tc-od\bin\Release\PublishOutput
-C:\Programs\Octo\octo pack --id=%packageId% --format=zip --outFolder=../dist --version=%version%
-</code></pre></div></div>
-
-<h2 id="push">push</h2>
-<p>This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.</p>
-
-<p>This pushed the zip file to OD.</p>
-
-<pre><code class="language-Batchfile">cd tc-od\bin\Release\dist
-C:\Programs\Octo\octo push --server=%server% --apiKey=%apikey% --package=%packageId%.%version%.zip
-</code></pre>
-
-<h1 id="deploy">Deploy</h1>
-<p>In OD make sure you have setup</p>
-
-<ul>
-  <li>an Environment</li>
-  <li>a Deployment target(in our case a Azure Web App)</li>
-  <li>a Lifecycle with automatic deploy after release creation</li>
-  <li>an Azure Subscription (this is needed to deploy)</li>
-</ul>
-
-<p>Add a project.</p>
-
-<p>Under Process add 2 steps:</p>
-
-<ul>
-  <li>Deploy Resources</li>
-  <li>Deploy Function</li>
-</ul>
-
-<h2 id="deploy-resources">Deploy Resources</h2>
-<p>In this step we deploy the ARM template.</p>
-
-<p>Search for <code class="highlighter-rouge">resource Group</code> and select Deploy an Azure resource Group.</p>
-
-<ul>
-  <li>Set Step Name</li>
-  <li>Select Execution Plan</li>
-  <li>Select an Azure Account and Resource Group</li>
-  <li>Select File inside a package</li>
-  <li>Select Package</li>
-  <li>Set Paths</li>
-</ul>
-
-<h2 id="deploy-function">Deploy Function</h2>
-<p>In this step we deploy the Function.</p>
-
-<p>Search for <code class="highlighter-rouge">azure web</code> and select Deploy an Azure Web App.</p>
-
-<ul>
-  <li>Set Step Name</li>
-  <li>Select Package</li>
-</ul>
-
-<p>This is it. Happy coding!</p>
-
-<h1 id="resources">Resources</h1>
-
-<ul>
-  <li>https://octopus.com/blog/azure-functions</li>
-</ul>
+<p><img src="assets/images/2018-06-22/launch_chrome.png" alt="" title="Chrome" />
+<img src="assets/images/2018-06-22/launch_edge.png" alt="" title="Edge" />
+<img src="assets/images/2018-06-22/launch_ff.png" alt="" title="Firefox" /></p>
 
                 </div>
             </section>
@@ -519,32 +357,47 @@ C:\Programs\Octo\octo push --server=%server% --apiKey=%apikey% --package=%packag
 
             <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
             
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
             
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/Setup-Blazor-development-environment">
-                <div class="post-card-image" style="background-image: url(/assets/images/2018-07-12/cover.jpg)"></div>
+            <a class="post-card-image-link" href="/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy">
+                <div class="post-card-image" style="background-image: url(/assets/images/2018-06-22/cover.jpg)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/Setup-Blazor-development-environment">
+            <a class="post-card-content-link" href="/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy">
                 <header class="post-card-header">
                     
                         
                             
-                               <span class="post-card-tags">Blazor</span>
+                               <span class="post-card-tags">Azure</span>
                             
                         
                             
-                                <span class="post-card-tags">Docker</span>
+                               <span class="post-card-tags">Functions</span>
+                            
+                        
+                            
+                               <span class="post-card-tags">Visual studio</span>
+                            
+                        
+                            
+                               <span class="post-card-tags">Teamcity</span>
+                            
+                        
+                            
+                                <span class="post-card-tags">Octopus deploy</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Setup Blazor development environment</h2>
+                    <h2 class="post-card-title">Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>This guide helps you setting up your [Blazor](https://blazor.net/) development environment without messing up your current development machine with beta releases. We will use these tools * [Docker Community Edition](https://www.docker.com/community-edition) * [Visual Studio Code](https://code.visualstudio.com/)</p>
+                    <p>Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus</p>
                 </section>
             </a>
             <footer class="post-card-meta">
@@ -578,9 +431,6 @@ C:\Programs\Octo\octo push --server=%server% --apiKey=%apikey% --package=%packag
 
             
 
-            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
-            
-
         </div>
     </div>
 </aside>
@@ -598,21 +448,21 @@ C:\Programs\Octo\octo push --server=%server% --apiKey=%apikey% --package=%packag
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</div>
+    <div class="floating-header-title">Setup Blazor development environment</div>
     <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Create%2C+build+and+deploy+Azure+Functions+with+Visual+Studio%2C+Teamcity+and+Octopus+Deploy&amp;url=https://sujithq.github.io/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Setup+Blazor+development+environment&amp;url=https://sujithq.github.io/Setup-Blazor-development-environment"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg viewBox="0 -47 512.00004 512" xmlns="http://www.w3.org/2000/svg"><path d="m512 55.964844c-32.207031 1.484375-31.503906 1.363281-35.144531 1.667968l19.074219-54.472656s-59.539063 21.902344-74.632813 25.820313c-39.640625-35.628907-98.5625-37.203125-140.6875-11.3125-34.496094 21.207031-53.011719 57.625-46.835937 100.191406-67.136719-9.316406-123.703126-41.140625-168.363282-94.789063l-14.125-16.964843-10.554687 19.382812c-13.339844 24.492188-17.769531 52.496094-12.476563 78.851563 2.171875 10.8125 5.863282 21.125 10.976563 30.78125l-12.117188-4.695313-1.4375 20.246094c-1.457031 20.566406 5.390625 44.574219 18.320313 64.214844 3.640625 5.53125 8.328125 11.605469 14.269531 17.597656l-6.261719-.960937 7.640625 23.199218c10.042969 30.480469 30.902344 54.0625 57.972657 67.171875-27.035157 11.472657-48.875 18.792969-84.773438 30.601563l-32.84375 10.796875 30.335938 16.585937c11.566406 6.324219 52.4375 27.445313 92.820312 33.78125 89.765625 14.078125 190.832031 2.613282 258.871094-58.664062 57.308594-51.613282 76.113281-125.03125 72.207031-201.433594-.589844-11.566406 2.578125-22.605469 8.921875-31.078125 12.707031-16.964844 48.765625-66.40625 48.84375-66.519531zm-72.832031 48.550781c-10.535157 14.066406-15.8125 32.03125-14.867188 50.578125 3.941407 77.066406-17.027343 136.832031-62.328125 177.628906-52.917968 47.660156-138.273437 66.367188-234.171875 51.324219-17.367187-2.722656-35.316406-8.820313-50.171875-14.910156 30.097656-10.355469 53.339844-19.585938 90.875-37.351563l52.398438-24.800781-57.851563-3.703125c-27.710937-1.773438-50.785156-15.203125-64.96875-37.007812 7.53125-.4375 14.792969-1.65625 22.023438-3.671876l55.175781-15.367187-55.636719-13.625c-27.035156-6.621094-42.445312-22.796875-50.613281-35.203125-5.363281-8.152344-8.867188-16.503906-10.96875-24.203125 5.578125 1.496094 12.082031 2.5625 22.570312 3.601563l51.496094 5.09375-40.800781-31.828126c-29.398437-22.929687-41.179687-57.378906-32.542969-90.496093 91.75 95.164062 199.476563 88.011719 210.320313 90.527343-2.386719-23.183593-2.449219-23.238281-3.074219-25.445312-13.886719-49.089844 16.546875-74.015625 30.273438-82.453125 28.671874-17.621094 74.183593-20.277344 105.707031 8.753906 6.808593 6.265625 16.015625 8.730469 24.632812 6.589844 7.734375-1.921875 14.082031-3.957031 20.296875-6.171875l-12.9375 36.945312 16.515625.011719c-3.117187 4.179688-6.855469 9.183594-11.351562 15.183594zm0 0"/></svg>
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://sujithq.github.io/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://sujithq.github.io/Setup-Blazor-development-environment"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m75 512h167v-182h-60v-60h60v-75c0-41.355469 33.644531-75 75-75h75v60h-60c-16.542969 0-30 13.457031-30 30v60h87.292969l-10 60h-77.292969v182h135c41.355469 0 75-33.644531 75-75v-362c0-41.355469-33.644531-75-75-75h-362c-41.355469 0-75 33.644531-75 75v362c0 41.355469 33.644531 75 75 75zm-45-437c0-24.8125 20.1875-45 45-45h362c24.8125 0 45 20.1875 45 45v362c0 24.8125-20.1875 45-45 45h-105v-122h72.707031l20-120h-92.707031v-30h90v-120h-105c-57.898438 0-105 47.101562-105 105v45h-60v120h60v122h-137c-24.8125 0-45-20.1875-45-45zm0 0"/></svg>
         </a>
-        <a class="floating-header-share-li" href="https://www.linkedin.com/shareArticle?mini=true&url=https://sujithq.github.io/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy&title=Create%2C+build+and+deploy+Azure+Functions+with+Visual+Studio%2C+Teamcity+and+Octopus+Deploy&summary=Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed. Setup Tools Visual Studio 2017 v15.7.4 (VS). TeamCity&source="
+        <a class="floating-header-share-li" href="https://www.linkedin.com/shareArticle?mini=true&url=https://sujithq.github.io/Setup-Blazor-development-environment&title=Setup+Blazor+development+environment&summary=This guide helps you setting up your Blazor development environment without messing up your current development machine with beta releases. We will use these tools Docker Community Edition Visual Studio Code Create a local directory with one subdirectory app. Create Dockerfile First download the latest dockerfile version. Look at the&source="
             onclick="window.open(this.href, 'share-linkedin','width=580,height=296');return false;">
             <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m437 0h-362c-41.355469 0-75 33.644531-75 75v362c0 41.355469 33.644531 75 75 75h362c41.355469 0 75-33.644531 75-75v-362c0-41.355469-33.644531-75-75-75zm45 437c0 24.8125-20.1875 45-45 45h-362c-24.8125 0-45-20.1875-45-45v-362c0-24.8125 20.1875-45 45-45h362c24.8125 0 45 20.1875 45 45zm0 0"/><path d="m91 422h90v-212h-90zm30-182h30v152h-30zm0 0"/><path d="m331.085938 210c-.027344 0-.058594 0-.085938 0-10.371094 0-20.472656 1.734375-30 5.101562v-5.101562h-90v212h90v-107c0-8.269531 6.730469-15 15-15s15 6.730469 15 15v107h90v-117.3125c0-48.546875-39.382812-94.640625-89.914062-94.6875zm59.914062 182h-30v-77c0-24.8125-20.1875-45-45-45s-44.996094 20.1875-45 44.996094v77.003906h-30v-152h30v30.019531l24.007812-18.03125c10.441407-7.84375 22.886719-11.988281 35.992188-11.988281h.058594c31.929687.03125 59.941406 30.257812 59.941406 64.6875zm0 0"/><path d="m91 180h90v-90h-90zm30-60h30v30h-30zm0 0"/></svg>
         </a>

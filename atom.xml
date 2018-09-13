@@ -8,13 +8,28 @@
     
       
       <item>
+        <title>Setup Blazor development environment</title>
+        
+          <description>&lt;p&gt;This guide helps you setting up your &lt;a href=&quot;https://blazor.net/&quot;&gt;Blazor&lt;/a&gt; development environment without messing up your current development machine with beta releases.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Thu, 12 Jul 2018 10:00:00 +0000</pubDate>
+        <link>
+        http://localhost:4000/Setup-Blazor-development-environment</link>
+        <guid isPermaLink="true">http://localhost:4000/Setup-Blazor-development-environment</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</title>
         
           <description>&lt;p&gt;Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed.&lt;/p&gt;
 
 </description>
         
-        <pubDate>Thu, 13 Sep 2018 10:00:00 +0000</pubDate>
+        <pubDate>Fri, 22 Jun 2018 10:00:00 +0000</pubDate>
         <link>
         http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy</link>
         <guid isPermaLink="true">http://localhost:4000/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy</guid>
