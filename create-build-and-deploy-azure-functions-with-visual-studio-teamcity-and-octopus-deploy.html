@@ -16,7 +16,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Styles'n'Scripts -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
@@ -237,144 +237,141 @@ into the {body} of the default.hbs template -->
 <p><img src="assets/images/2018-06-22/2yV3WSe.png" alt="" /></p>
 
 <h3 id="template">Template</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "appName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the function app that you wish to create."
-      }
-    },
-    "sku": {
-      "type": "string",
-      "allowedValues": [
-        "Free",
-        "Shared",
-        "Basic",
-        "Standard"
-      ],
-      "defaultValue": "Standard",
-      "metadata": {
-        "description": "The pricing tier for the hosting plan."
-      }
-    },
-    "workerSize": {
-      "type": "string",
-      "allowedValues": [
-        "0",
-        "1",
-        "2"
-      ],
-      "defaultValue": "0",
-      "metadata": {
-        "description": "The instance size of the hosting plan (small, medium, or large)."
-      }
-    },
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_RAGRS"
-      ],
-      "metadata": {
-        "description": "Storage Account type"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    }
-  },
-  "variables": {
-    "functionAppName": "[parameters('appName')]",
-    "hostingPlanName": "[parameters('appName')]",
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'functions')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-12-01",
-      "location": "[parameters('location')]",
-      "kind": "Storage",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      }
-    },
-    {
-      "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2015-04-01",
-      "name": "[variables('hostingPlanName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "sku": "[parameters('sku')]",
-        "workerSize": "[parameters('workerSize')]",
-        "hostingEnvironment": "",
-        "numberOfWorkers": 1
-      }
-    },
-    {
-      "apiVersion": "2015-04-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[variables('functionAppName')]",
-      "location": "[parameters('location')]",
-      "kind": "functionapp",
-      "properties": {
-        "name": "[variables('functionAppName')]",
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "hostingEnvironment": "",
-        "clientAffinityEnabled": false,
-        "siteConfig": {
-          "alwaysOn": true
-        }
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-      ],
-      "resources": [
-        {
-          "apiVersion": "2016-03-01",
-          "name": "appsettings",
-          "type": "config",
-          "dependsOn": [
-            "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]",
-            "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
-          ],
-          "properties": {
-            "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';    AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),     '2015-05-01-preview').key1,';')]",
-            "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';    AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),     '2015-05-01-preview').key1,';')]",
-            "FUNCTIONS_EXTENSION_VERSION": "~1"
-          }
-        }
-      ]
-    }
-  ]
-}
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contentVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"appName"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The name of the function app that you wish to create."</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"allowedValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Free"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Shared"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Basic"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Standard"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"defaultValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standard"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The pricing tier for the hosting plan."</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"workerSize"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"allowedValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"2"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"defaultValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The instance size of the hosting plan (small, medium, or large)."</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"storageAccountType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"defaultValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standard_LRS"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"allowedValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Standard_LRS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Standard_GRS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Standard_RAGRS"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Storage Account type"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"defaultValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[resourceGroup().location]"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location for all resources."</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"variables"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"functionAppName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[parameters('appName')]"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hostingPlanName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[parameters('appName')]"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"storageAccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[concat(uniquestring(resourceGroup().id), 'functions')]"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Microsoft.Storage/storageAccounts"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[variables('storageAccountName')]"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"apiVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[parameters('location')]"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Storage"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[parameters('storageAccountType')]"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Microsoft.Web/serverfarms"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"apiVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-01"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[variables('hostingPlanName')]"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[parameters('location')]"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[variables('hostingPlanName')]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[parameters('sku')]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"workerSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[parameters('workerSize')]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"hostingEnvironment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"numberOfWorkers"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"apiVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-01"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Microsoft.Web/sites"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[variables('functionAppName')]"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[parameters('location')]"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"functionapp"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[variables('functionAppName')]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"serverFarmId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"hostingEnvironment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"clientAffinityEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"siteConfig"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"alwaysOn"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"dependsOn"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"resources"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"apiVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-01"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"appsettings"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"config"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"dependsOn"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"</span><span class="w">
+              </span><span class="p">],</span><span class="w">
+              </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"AzureWebJobsStorage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';    AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),     '2015-05-01-preview').key1,';')]"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"AzureWebJobsDashboard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';    AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),     '2015-05-01-preview').key1,';')]"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"FUNCTIONS_EXTENSION_VERSION"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~1"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h3 id="parameters">Parameters</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "appName": {
-      "value": "#{AzureFunctionName}"
-    }
-  }
-}
-</code></pre></div></div>
-
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contentVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"appName"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#{AzureFunctionName}"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 <h1 id="build">Build</h1>
 <p>In TC Create a new project, add a new Build Configuration with 3 Build Steps.</p>
 
@@ -394,16 +391,16 @@ into the {body} of the default.hbs template -->
 <h2 id="pack">pack</h2>
 <p>This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd tc-od\bin\Release\PublishOutput
+<pre><code class="language-batch">cd tc-od\bin\Release\PublishOutput
 C:\Programs\Octo\octo pack --id=%packageId% --format=zip --outFolder=../dist --version=%version%
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="push">push</h2>
 <p>This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.</p>
 
 <p>This pushed the zip file to OD.</p>
 
-<pre><code class="language-Batchfile">cd tc-od\bin\Release\dist
+<pre><code class="language-batch">cd tc-od\bin\Release\dist
 C:\Programs\Octo\octo push --server=%server% --apiKey=%apikey% --package=%packageId%.%version%.zip
 </code></pre>
 
@@ -697,7 +694,7 @@ C:\Programs\Octo\octo push --server=%server% --apiKey=%apikey% --package=%packag
     <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
 
     <!-- highlight.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js.map"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
     <script>$(document).ready(function () {
             $('pre code').each(function (i, block) {
                 hljs.highlightBlock(block);
