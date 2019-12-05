@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blazor | Sujith Quintelier</title>
+    <link>/tags/blazor/</link>
+      <atom:link href="/tags/blazor/index.xml" rel="self" type="application/rss+xml" />
+    <description>Blazor</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2019</copyright><lastBuildDate>Thu, 12 Jul 2018 10:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/Quintelier_Sujith</url>
+      <title>Blazor</title>
+      <link>/tags/blazor/</link>
+    </image>
+    
+    <item>
+      <title>Setup Blazor development environment</title>
+      <link>/post/setupblazordevenv/</link>
+      <pubDate>Thu, 12 Jul 2018 10:00:00 +0000</pubDate>
+      <guid>/post/setupblazordevenv/</guid>
+      <description>
+
+&lt;p&gt;This guide helps you setting up your &lt;a href=&#34;https://blazor.net/&#34; target=&#34;_blank&#34;&gt;Blazor&lt;/a&gt; development environment without messing up your current development machine with beta releases.&lt;/p&gt;
+
+&lt;p&gt;We will use these tools&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.docker.com/community-edition&#34; target=&#34;_blank&#34;&gt;Docker Community Edition&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Create a local directory with one subdirectory app.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/create_directory.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;create-dockerfile&#34;&gt;Create Dockerfile&lt;/h1&gt;
+
+&lt;p&gt;First download the latest &lt;a href=&#34;https://hub.docker.com/r/microsoft/dotnet/&#34; title=&#34;dockerfile&#34; target=&#34;_blank&#34;&gt;dockerfile&lt;/a&gt; version.
+Look at the latest version of &lt;a href=&#34;https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/stretch/amd64/Dockerfile&#34; target=&#34;_blank&#34;&gt;Linux amd64&lt;/a&gt;.
+Copy the raw content and store it in a file Dockerfile. Modify it by appending &lt;code&gt;\&lt;/code&gt; and &lt;code&gt;&amp;amp;&amp;amp; dotnet new -i Microsoft.AspNetCore.Blazor.Templates&lt;/code&gt; at the second RUN command.&lt;/p&gt;
+
+&lt;p&gt;It should look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;RUN curl -SL --output dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz \
+    &amp;amp;&amp;amp; dotnet_sha512=&#39;2166986e360f1c3456a33723edb80349e6ede115be04a6331bfbfd0f412494684d174a0cfb21d2feb00d509ce342030160a4b5b445e393ad83bedb613a64bc66&#39; \
+    &amp;amp;&amp;amp; sha512sum dotnet.tar.gz \
+    &amp;amp;&amp;amp; echo &amp;quot;$dotnet_sha512 dotnet.tar.gz&amp;quot; | sha512sum -c - \
+    &amp;amp;&amp;amp; mkdir -p /usr/share/dotnet \
+    &amp;amp;&amp;amp; tar -zxf dotnet.tar.gz -C /usr/share/dotnet \
+    &amp;amp;&amp;amp; rm dotnet.tar.gz \
+    &amp;amp;&amp;amp; ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet \
+	&amp;amp;&amp;amp; dotnet new -i Microsoft.AspNetCore.Blazor.Templates
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;create-the-docker-image&#34;&gt;Create the docker image&lt;/h1&gt;
+
+&lt;p&gt;Open a terminal and go to the location of the Dockerfile and run &lt;code&gt;docker build -t blazor:latest .&lt;/code&gt;. This will build the docker image.&lt;/p&gt;
+
+&lt;p&gt;If this fails, just restart your docker and rerun previous command.&lt;/p&gt;
+
+&lt;h2 id=&#34;build&#34;&gt;build&lt;/h2&gt;
+
+&lt;p&gt;This builds the image.&lt;/p&gt;
+
+&lt;h2 id=&#34;t&#34;&gt;-t&lt;/h2&gt;
+
+&lt;p&gt;This adds a label &lt;code&gt;latest&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;verify&#34;&gt;verify&lt;/h2&gt;
+
+&lt;p&gt;The creation of the image can be verified by &lt;code&gt;docker images&lt;/code&gt;
+You should see 2 images. Base image and the one you just created.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/docker_images.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;start-a-container-instance&#34;&gt;Start a container instance&lt;/h1&gt;
+
+&lt;p&gt;At the prompt run &lt;code&gt;docker run -it --rm --name blazortest -p 8000:80 -v H:\Euricom\Blazor\app\:/app  -w=&amp;quot;/app&amp;quot; blazor:latest&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;run&#34;&gt;run&lt;/h2&gt;
+
+&lt;p&gt;This runs the container:&lt;/p&gt;
+
+&lt;h2 id=&#34;it&#34;&gt;-it&lt;/h2&gt;
+
+&lt;p&gt;This runs an interactive container.&lt;/p&gt;
+
+&lt;h2 id=&#34;rm&#34;&gt;&amp;ndash;rm&lt;/h2&gt;
+
+&lt;p&gt;This removes the container after stopping the container.&lt;/p&gt;
+
+&lt;h2 id=&#34;p&#34;&gt;-p&lt;/h2&gt;
+
+&lt;p&gt;This maps the internal port (80) to an external port (8000).&lt;/p&gt;
+
+&lt;h2 id=&#34;v&#34;&gt;-v&lt;/h2&gt;
+
+&lt;p&gt;This maps a local path &lt;code&gt;H:\Euricom\Blazor\app\&lt;/code&gt; to this volume &lt;code&gt;/app&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;w&#34;&gt;-w&lt;/h2&gt;
+
+&lt;p&gt;This sets the working directory to &lt;code&gt;/app&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;verify-1&#34;&gt;verify&lt;/h2&gt;
+
+&lt;p&gt;In another terminal you should see named instance blazortest&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/docker_running_instances.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;create-a-new-blazor-project&#34;&gt;Create a new blazor project&lt;/h1&gt;
+
+&lt;p&gt;You can create a new Blazor project the volume created earlier by running this command &lt;code&gt;dotnet new blazor&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Open the project file app.csproj and add this node &lt;code&gt;&amp;lt;Watch Include=&amp;quot;**\*.cshtml&amp;quot; /&amp;gt;&lt;/code&gt;. This makes it possible to make changes on the fly.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;Project Sdk=&amp;quot;Microsoft.NET.Sdk.Web&amp;quot;&amp;gt;
+
+  &amp;lt;PropertyGroup&amp;gt;
+    &amp;lt;TargetFramework&amp;gt;netstandard2.0&amp;lt;/TargetFramework&amp;gt;
+    &amp;lt;RunCommand&amp;gt;dotnet&amp;lt;/RunCommand&amp;gt;
+    &amp;lt;RunArguments&amp;gt;blazor serve&amp;lt;/RunArguments&amp;gt;
+    &amp;lt;LangVersion&amp;gt;7.3&amp;lt;/LangVersion&amp;gt;
+  &amp;lt;/PropertyGroup&amp;gt;
+
+  &amp;lt;ItemGroup&amp;gt;
+    &amp;lt;PackageReference Include=&amp;quot;Microsoft.AspNetCore.Blazor.Browser&amp;quot; Version=&amp;quot;0.4.0&amp;quot; /&amp;gt;
+    &amp;lt;PackageReference Include=&amp;quot;Microsoft.AspNetCore.Blazor.Build&amp;quot; Version=&amp;quot;0.4.0&amp;quot; /&amp;gt;
+    &amp;lt;DotNetCliToolReference Include=&amp;quot;Microsoft.AspNetCore.Blazor.Cli&amp;quot; Version=&amp;quot;0.4.0&amp;quot; /&amp;gt;
+    &amp;lt;Watch Include=&amp;quot;**\*.cshtml&amp;quot; /&amp;gt;
+  &amp;lt;/ItemGroup&amp;gt;
+
+&amp;lt;/Project&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;start-the-application&#34;&gt;Start the application&lt;/h1&gt;
+
+&lt;p&gt;Start the application via &lt;code&gt;dotnet watch run&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/dotnet_watch_run.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;launch-the-application&#34;&gt;Launch the application&lt;/h1&gt;
+
+&lt;p&gt;Open a browser and launch &lt;code&gt;http://localhost:8000&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/launch_chrome.png&#34; alt=&#34;&#34; title=&#34;Chrome&#34; /&gt;
+&lt;img src=&#34;img/launch_edge.png&#34; alt=&#34;&#34; title=&#34;Edge&#34; /&gt;
+&lt;img src=&#34;img/launch_ff.png&#34; alt=&#34;&#34; title=&#34;Firefox&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

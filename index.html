@@ -1,366 +1,883 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 
 <head>
 
-    <!-- Document Settings -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.6.2">
 
-    <!-- Base Meta -->
-    <!-- dynamically fixing the title for tag/author pages -->
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Sujith Quintelier">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Cloud Solutions Architect @ Arxus">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#3f51b5">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
 
 
 
-    <title>Sujith Quintelier's Blog</title>
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Styles'n'Scripts -->
-    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
-    <!-- highlight.js -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-    <style>.hljs { background: none; }</style>
+  
 
-    <!-- This tag outputs SEO meta+structured data and other important settings -->
-    <meta name="description" content="Blog about Azure - .NET - ..." />
-    <link rel="shortcut icon" href="https://sujithq.github.io/assets/images/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://sujithq.github.io/" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
 
-     <!--title below is coming from _includes/dynamic_title-->
-    <meta property="og:site_name" content="Sujith Quintelier's Blog" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Sujith Quintelier's Blog" />
-    <meta property="og:description" content="Blog about Azure - .NET - ..." />
-    <meta property="og:url" content="https://sujithq.github.io/" />
-    <meta property="og:image" content="https://sujithq.github.io/assets/images/blog-cover.jpg" />
-    <meta property="article:publisher" content="https://www.facebook.com/sujith.quintelier" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Sujith Quintelier's Blog" />
-    <meta name="twitter:description" content="Blog about Azure - .NET - ..." />
-    <meta name="twitter:url" content="https://sujithq.github.io" />
-    <meta name="twitter:image" content="https://sujithq.github.io/assets/images/blog-cover.jpg" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="Sujith Quintelier's Blog" />
-    <meta name="twitter:site" content="@SujithQ" />
-    <meta name="twitter:creator" content="@SujithQ" />
-    <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="666" />
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Sujith Quintelier">
+  
 
-    <script type="application/ld+json">
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@SujithQ">
+  <meta property="twitter:creator" content="@SujithQ">
+  
+  <meta property="og:site_name" content="Sujith Quintelier">
+  <meta property="og:url" content="/">
+  <meta property="og:title" content="Sujith Quintelier">
+  <meta property="og:description" content="Cloud Solutions Architect @ Arxus"><meta property="og:image" content="/img/Quintelier_Sujith">
+  <meta property="twitter:image" content="/img/Quintelier_Sujith"><meta property="og:locale" content="en-us">
+  
+    <meta property="og:updated_time" content="2018-07-12T10:00:00&#43;00:00">
+  
+
+  
+
+<script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Website",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Sujith Quintelier's Blog",
-        "logo": "https://sujithq.github.io/assets/images/blog-icon.png"
-    },
-    "url": "https://sujithq.github.io/",
-    "image": {
-        "@type": "ImageObject",
-        "url": "https://sujithq.github.io/assets/images/blog-cover.jpg",
-        "width": 2000,
-        "height": 666
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://sujithq.github.io/"
-    },
-    "description": "Blog about Azure - .NET - ..."
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "url": "/"
 }
-    </script>
+</script>
 
-    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
-    <script type="text/javascript">
-    ghost.init({
-    	clientId: "ghost-frontend",
-    	clientSecret: "f84a07a72b17"
-    });
-    </script> -->
 
-    <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Sujith Quintelier's Blog" href="/feed.xml" />
+  
 
+
+  
+
+
+  
+
+
+
+
+
+  <title>Sujith Quintelier</title>
 
 </head>
 
-<body class="home-template">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" >
 
-    <div class="site-wrapper">
-        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- < default -->
-<!-- The tag above means: insert everything in this file
-into the {body} of the default.hbs template -->
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
 
-<!-- The big featured header, it uses blog cover image as a BG if available -->
-<header class="site-header outer " style="background-image:  url(/assets/images/blog-cover.jpg) ">
-    <div class="inner">
-        <div class="site-header-content">
-            <h1 class="site-title">
-                
-                    <img class="site-logo" src="/assets/images/blog-icon.png" alt="Sujith Quintelier's Blog"/>
-                
-            </h1>
-            <h2 class="site-description">Blog about Azure - .NET - ...</h2>
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
         </div>
-        <nav class="site-nav">
-    <div class="site-nav-left">
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
         
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
         
-            <ul class="nav" role="menu">
-    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
-    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
-    <li class="nav-contact" role="menuitem"><a href="/contact/">Contact</a></li>
-    <!-- <li class="nav-getting-started" role="menuitem"><a href="/tag/getting-started/">Getting Started</a></li> -->
-    <!-- <li class="nav-try-ghost" role="menuitem"><a href="https://ghost.org">Try Ghost</a></li> -->
-</ul>
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    
+    
+      <a class="navbar-brand" href="/">Sujith Quintelier</a>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
 
         
-    </div>
-    <div class="site-nav-right">
-        <div class="social-links">
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>CV</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
             
-                <a class="social-link social-link-fb" href="https://facebook.com/sujith.quintelier" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m75 512h167v-182h-60v-60h60v-75c0-41.355469 33.644531-75 75-75h75v60h-60c-16.542969 0-30 13.457031-30 30v60h87.292969l-10 60h-77.292969v182h135c41.355469 0 75-33.644531 75-75v-362c0-41.355469-33.644531-75-75-75h-362c-41.355469 0-75 33.644531-75 75v362c0 41.355469 33.644531 75 75 75zm-45-437c0-24.8125 20.1875-45 45-45h362c24.8125 0 45 20.1875 45 45v362c0 24.8125-20.1875 45-45 45h-105v-122h72.707031l20-120h-92.707031v-30h90v-120h-105c-57.898438 0-105 47.101562-105 105v45h-60v120h60v122h-137c-24.8125 0-45-20.1875-45-45zm0 0"/></svg></a>
+              <a class="dropdown-item" href="/cv/#about" data-target="/cv/#about"><span>Biography</span></a>
             
+              <a class="dropdown-item" href="/cv/#experience" data-target="/cv/#experience"><span>Experience</span></a>
             
-                <a class="social-link social-link-tw" href="https://twitter.com/SujithQ" target="_blank" rel="noopener"><svg viewBox="0 -47 512.00004 512" xmlns="http://www.w3.org/2000/svg"><path d="m512 55.964844c-32.207031 1.484375-31.503906 1.363281-35.144531 1.667968l19.074219-54.472656s-59.539063 21.902344-74.632813 25.820313c-39.640625-35.628907-98.5625-37.203125-140.6875-11.3125-34.496094 21.207031-53.011719 57.625-46.835937 100.191406-67.136719-9.316406-123.703126-41.140625-168.363282-94.789063l-14.125-16.964843-10.554687 19.382812c-13.339844 24.492188-17.769531 52.496094-12.476563 78.851563 2.171875 10.8125 5.863282 21.125 10.976563 30.78125l-12.117188-4.695313-1.4375 20.246094c-1.457031 20.566406 5.390625 44.574219 18.320313 64.214844 3.640625 5.53125 8.328125 11.605469 14.269531 17.597656l-6.261719-.960937 7.640625 23.199218c10.042969 30.480469 30.902344 54.0625 57.972657 67.171875-27.035157 11.472657-48.875 18.792969-84.773438 30.601563l-32.84375 10.796875 30.335938 16.585937c11.566406 6.324219 52.4375 27.445313 92.820312 33.78125 89.765625 14.078125 190.832031 2.613282 258.871094-58.664062 57.308594-51.613282 76.113281-125.03125 72.207031-201.433594-.589844-11.566406 2.578125-22.605469 8.921875-31.078125 12.707031-16.964844 48.765625-66.40625 48.84375-66.519531zm-72.832031 48.550781c-10.535157 14.066406-15.8125 32.03125-14.867188 50.578125 3.941407 77.066406-17.027343 136.832031-62.328125 177.628906-52.917968 47.660156-138.273437 66.367188-234.171875 51.324219-17.367187-2.722656-35.316406-8.820313-50.171875-14.910156 30.097656-10.355469 53.339844-19.585938 90.875-37.351563l52.398438-24.800781-57.851563-3.703125c-27.710937-1.773438-50.785156-15.203125-64.96875-37.007812 7.53125-.4375 14.792969-1.65625 22.023438-3.671876l55.175781-15.367187-55.636719-13.625c-27.035156-6.621094-42.445312-22.796875-50.613281-35.203125-5.363281-8.152344-8.867188-16.503906-10.96875-24.203125 5.578125 1.496094 12.082031 2.5625 22.570312 3.601563l51.496094 5.09375-40.800781-31.828126c-29.398437-22.929687-41.179687-57.378906-32.542969-90.496093 91.75 95.164062 199.476563 88.011719 210.320313 90.527343-2.386719-23.183593-2.449219-23.238281-3.074219-25.445312-13.886719-49.089844 16.546875-74.015625 30.273438-82.453125 28.671874-17.621094 74.183593-20.277344 105.707031 8.753906 6.808593 6.265625 16.015625 8.730469 24.632812 6.589844 7.734375-1.921875 14.082031-3.957031 20.296875-6.171875l-12.9375 36.945312 16.515625.011719c-3.117187 4.179688-6.855469 9.183594-11.351562 15.183594zm0 0"/></svg></a>
+              <a class="dropdown-item" href="/cv/#accomplishments" data-target="/cv/#accomplishments"><span>Accomplishments</span></a>
             
+              <a class="dropdown-item" href="/cv/#badges" data-target="/cv/#badges"><span>Badges</span></a>
             
-                <a class="social-link social-link-li" href="https://www.linkedin.com/in/sujithquintelier" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m437 0h-362c-41.355469 0-75 33.644531-75 75v362c0 41.355469 33.644531 75 75 75h362c41.355469 0 75-33.644531 75-75v-362c0-41.355469-33.644531-75-75-75zm45 437c0 24.8125-20.1875 45-45 45h-362c-24.8125 0-45-20.1875-45-45v-362c0-24.8125 20.1875-45 45-45h362c24.8125 0 45 20.1875 45 45zm0 0"/><path d="m91 422h90v-212h-90zm30-182h30v152h-30zm0 0"/><path d="m331.085938 210c-.027344 0-.058594 0-.085938 0-10.371094 0-20.472656 1.734375-30 5.101562v-5.101562h-90v212h90v-107c0-8.269531 6.730469-15 15-15s15 6.730469 15 15v107h90v-117.3125c0-48.546875-39.382812-94.640625-89.914062-94.6875zm59.914062 182h-30v-77c0-24.8125-20.1875-45-45-45s-44.996094 20.1875-45 44.996094v77.003906h-30v-152h30v30.019531l24.007812-18.03125c10.441407-7.84375 22.886719-11.988281 35.992188-11.988281h.058594c31.929687.03125 59.941406 30.257812 59.941406 64.6875zm0 0"/><path d="m91 180h90v-90h-90zm30-60h30v30h-30zm0 0"/></svg></a>
+              <a class="dropdown-item" href="/cv/#skills" data-target="/cv/#skills"><span>Skills</span></a>
             
-            
-                <a class="social-link social-link-gh" href="https://github.com/sujithq" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m256 0c-140.699219 0-256 116.300781-256 257 0 139.882812 114.25 255 256 255 141.574219 0 256-114.945312 256-255 0-140.699219-115.300781-257-256-257zm45 477.5c-14.398438 3-29.699219 4.5-45 4.5s-30.601562-1.5-45-4.5v-70.199219c0-16.800781 4.5-22.800781 10.5-30.902343 3.054688-3.492188 4.898438-6.625 18.597656-27.296876l-23.097656-3.601562c-59.402344-8.699219-82.800781-39.601562-92.101562-63.601562-12-32.097657-5.699219-72.300782 15.902343-97.796876 3.300781-3.902343 6-10.503906 3.601563-17.402343-4.503906-13.800781-3.902344-35.699219-.902344-44.101563 15.90625 2.273438 32.261719 13.667969 45.902344 21.902344 6.285156 3.667969 9.582031 2.699219 12.597656 3 10.960938-2.28125 28.058594-7.800781 54.300781-7.800781 16.199219 0 33.300781 2.398437 50.101563 7.199219 3.003906-.070313 7.832031 2.484374 16.199218-2.398438 14.257813-8.6875 30.058594-19.691406 45.898438-21.902344 3 8.402344 3.601562 30.300782-.898438 44.101563-2.402343 6.898437.296876 13.5 3.601563 17.402343 21.597656 25.5 27.898437 65.699219 15.898437 97.796876-9.300781 24-32.699218 54.902343-92.101562 63.601562l-23.097656 3.601562c14.160156 21.367188 15.652344 23.929688 18.601562 27.296876 5.996094 8.101562 10.496094 14.101562 10.496094 30.902343zm30-8.699219v-61.5c0-17.101562-3.601562-28.5-8.402344-36.902343 45.601563-12.296876 78.003906-39.300782 92.402344-78 15.300781-40.796876 8.402344-89.398438-17.101562-123 4.503906-20.097657 4.503906-52.199219-6.296876-67.199219-4.800781-6.597657-11.402343-10.199219-19.800781-10.199219-.300781 0-.300781 0-.300781 0-23.261719 1.257812-41.570312 12.972656-61.199219 24.898438-18-4.800782-36.300781-7.199219-54.601562-7.199219-18.597657 0-37.199219 2.699219-53.695313 7.199219-20.664062-12.460938-38.796875-23.671876-62.703125-24.898438-7.5 0-14.101562 3.601562-18.902343 10.199219-10.796876 15-10.796876 47.101562-6.296876 67.199219-25.503906 33.601562-32.402343 82.5-17.101562 123 14.398438 38.699218 46.800781 65.703124 92.402344 78-3.722656 6.511718-6.667969 14.914062-7.828125 26.285156-9.210938 3.175781-17.199219 4.210937-24.628907 2.027344-7.835937-2.316407-13.941406-7.546876-19.246093-16.46875-11.914063-20.015626-32.207031-36.355469-55.3125-34.230469l2.636719 29.882812c10.699218-.980469 21.347656 10.339844 26.878906 19.671875 9.125 15.367188 21.417968 25.445313 36.546875 29.914063 11.230469 3.308593 21.496093 3.230469 32.550781.871093v40.449219c-87.300781-30.601562-151-114-151-211.800781 0-124.199219 101.800781-227 226-227s226 102.800781 226 227c0 97.800781-63.699219 181.199219-151 211.800781zm0 0"/></svg></a>
-            
-        </div>
+          </div>
+        </li>
+
         
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
     </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item">
+        <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
 </nav>
 
-    </div>
-</header>
 
-<!-- The main content area -->
-<main id="site-main" class="site-main outer" role="main">
-    <div class="inner">
-
-        <div class="post-feed">
-            <!-- The tag below includes the markup for each post - partials/post-card.hbs -->
-            
-    <article class="post-card home-template">
-        
-            <a class="post-card-image-link" href="/Setup-Blazor-development-environment">
-                <div class="post-card-image" style="background-image: url(/assets/images/2018-07-12/cover.jpg)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/Setup-Blazor-development-environment">
-                <header class="post-card-header">
-                    
-                        
-                            
-                               <span class="post-card-tags">Blazor</span>
-                            
-                        
-                            
-                                <span class="post-card-tags">Docker</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">Setup Blazor development environment</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    <p>This guide helps you setting up your Blazor development environment without messing up your current development machine with beta releases. We will use these tools Docker Community Edition Visual Studio Code Create a</p>
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/images/sujith.jpg" alt="Sujith Quintelier" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/sujith/">Sujith Quintelier</a>
-                        </span>
-                    
-                
-            </footer>
-        </div>
-    </article>
-
-    <article class="post-card home-template">
-        
-            <a class="post-card-image-link" href="/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy">
-                <div class="post-card-image" style="background-image: url(/assets/images/2018-06-22/cover.jpg)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/create-build-and-deploy-azure-functions-with-visual-studio-teamcity-and-octopus-deploy">
-                <header class="post-card-header">
-                    
-                        
-                            
-                               <span class="post-card-tags">Azure</span>
-                            
-                        
-                            
-                               <span class="post-card-tags">Azure-functions</span>
-                            
-                        
-                            
-                               <span class="post-card-tags">Visual-studio</span>
-                            
-                        
-                            
-                               <span class="post-card-tags">Teamcity</span>
-                            
-                        
-                            
-                                <span class="post-card-tags">Octopus-deploy</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    <p>Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus</p>
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/images/sujith.jpg" alt="Sujith Quintelier" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/sujith/">Sujith Quintelier</a>
-                        </span>
-                    
-                
-            </footer>
-        </div>
-    </article>
+  
 
 
-        </div>
-
-    </div>
-</main>
 
 
-        <!-- Previous/next page links - displayed on every page -->
+
+
+
+
+
+
+
+<span class="js-widget-page d-none"></span>
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="posts" class="home-section wg-pages   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Recent Posts</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+
+    
+
+    
+      
         
 
-        <!-- The footer at the very bottom of the screen -->
-        <footer class="site-footer outer">
-            <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://sujithq.github.io">Sujith Quintelier's Blog</a> &copy; 2019</section>
-                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
-                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
-                    <a href="https://github.com/jekyller/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
-                <nav class="site-footer-nav">
-                    <a href="/">Latest Posts</a>
-                    <a href="https://facebook.com/sujith.quintelier" target="_blank" rel="noopener">Facebook</a>
-                    <a href="https://twitter.com/SujithQ" target="_blank" rel="noopener">Twitter</a>
-                    <a href="https://www.linkedin.com/in/sujithquintelier" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://github.com/sujithq" target="_blank" rel="noopener">GitHub</a>
-                    <!-- <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a> -->
-                </nav>
-            </div>
-        </footer>
 
-    </div>
 
-    <!-- The big email subscribe modal content -->
+
+
+
+
+
+
+  
+
+
+<div class="card-simple">
+
+  
     
 
 
-    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+<div class="article-metadata">
 
-    <!-- highlight.js -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
-    <script>$(document).ready(function () {
-            $('pre code').each(function (i, block) {
-                hljs.highlightBlock(block);
-            });
-        });</script>
+  
+  
+  
+  
+  <div>
+    
 
 
 
-    <!-- Paginator increased to "infinit" in _config.yml -->
-    <!-- if paginator.posts  -->
-    <!-- <script>
-        var maxPages = parseInt('1');
+  
+  <span><a href="/authors/admin/">Sujith Quintelier</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Thursday, 05 Dec 2019
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/development/">Development</a></span>
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/setupblazordevenv/">
+      <img src="/post/setupblazordevenv/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_2048659_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3">
+    <a href="/post/setupblazordevenv/">Setup Blazor development environment</a>
+  </h3>
+
+  
+  <div class="article-style">
+    <p>Setup Blazor development environment</p>
+  </div>
+  
+
+  
+
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="card-simple">
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  
+  <span><a href="/authors/admin/">Sujith Quintelier</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Thursday, 05 Dec 2019
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/development/">Development</a></span>
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/createbuildazfvstcod/">
+      <img src="/post/createbuildazfvstcod/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_1676729_918x517_fill_q90_lanczos_smart1.jpg" class="article-banner" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3">
+    <a href="/post/createbuildazfvstcod/">Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</a>
+  </h3>
+
+  
+  <div class="article-style">
+    <p>Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</p>
+  </div>
+  
+
+  
+
+</div>
+
+      
+    
+
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="tags" class="home-section wg-tag-cloud   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Popular Topics</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+    
+
+    
+
+      
+      
+      
+      
+      
+
+      <div class="tag-cloud">
+        
+          
+          
+          
+          <a href="/tags/azure/" style="font-size:0.7rem">Azure</a>
+        
+          
+          
+          
+          <a href="/tags/azure-function/" style="font-size:0.7rem">Azure Function</a>
+        
+          
+          
+          
+          <a href="/tags/blazor/" style="font-size:0.7rem">Blazor</a>
+        
+          
+          
+          
+          <a href="/tags/docker/" style="font-size:0.7rem">Docker</a>
+        
+          
+          
+          
+          <a href="/tags/octopus-deploy/" style="font-size:0.7rem">Octopus Deploy</a>
+        
+          
+          
+          
+          <a href="/tags/teamcity/" style="font-size:0.7rem">Teamcity</a>
+        
+          
+          
+          
+          <a href="/tags/visual-studio/" style="font-size:0.7rem">Visual Studio</a>
+        
+      </div>
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" integrity="sha256-1zu+3BnLYV9LdiY85uXMzii3bdrkelyp37e0ZyTAQh0=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
     </script>
-    <script src="/assets/js/infinitescroll.js"></script> -->
-    <!-- /endif -->
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.bcfae8267aba63cc55af53a503896bd9.js"></script>
 
     
 
 
-    <!-- Add Google Analytics  -->
-    <!-- Google Analytics Tracking code -->
- <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'false', 'auto');
-  ga('send', 'pageview');
-
- </script>
 
 
-    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy;2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
     
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
 
-    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
-    <!-- ghost_foot -->
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
-
 </html>

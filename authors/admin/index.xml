@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sujith Quintelier</title>
+    <link>/authors/admin/</link>
+      <atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    <description>Sujith Quintelier</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2019</copyright><lastBuildDate>Thu, 12 Jul 2018 10:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/Quintelier_Sujith</url>
+      <title>Sujith Quintelier</title>
+      <link>/authors/admin/</link>
+    </image>
+    
+    <item>
+      <title>Setup Blazor development environment</title>
+      <link>/post/setupblazordevenv/</link>
+      <pubDate>Thu, 12 Jul 2018 10:00:00 +0000</pubDate>
+      <guid>/post/setupblazordevenv/</guid>
+      <description>
+
+&lt;p&gt;This guide helps you setting up your &lt;a href=&#34;https://blazor.net/&#34; target=&#34;_blank&#34;&gt;Blazor&lt;/a&gt; development environment without messing up your current development machine with beta releases.&lt;/p&gt;
+
+&lt;p&gt;We will use these tools&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.docker.com/community-edition&#34; target=&#34;_blank&#34;&gt;Docker Community Edition&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Create a local directory with one subdirectory app.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/create_directory.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;create-dockerfile&#34;&gt;Create Dockerfile&lt;/h1&gt;
+
+&lt;p&gt;First download the latest &lt;a href=&#34;https://hub.docker.com/r/microsoft/dotnet/&#34; title=&#34;dockerfile&#34; target=&#34;_blank&#34;&gt;dockerfile&lt;/a&gt; version.
+Look at the latest version of &lt;a href=&#34;https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/stretch/amd64/Dockerfile&#34; target=&#34;_blank&#34;&gt;Linux amd64&lt;/a&gt;.
+Copy the raw content and store it in a file Dockerfile. Modify it by appending &lt;code&gt;\&lt;/code&gt; and &lt;code&gt;&amp;amp;&amp;amp; dotnet new -i Microsoft.AspNetCore.Blazor.Templates&lt;/code&gt; at the second RUN command.&lt;/p&gt;
+
+&lt;p&gt;It should look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;RUN curl -SL --output dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz \
+    &amp;amp;&amp;amp; dotnet_sha512=&#39;2166986e360f1c3456a33723edb80349e6ede115be04a6331bfbfd0f412494684d174a0cfb21d2feb00d509ce342030160a4b5b445e393ad83bedb613a64bc66&#39; \
+    &amp;amp;&amp;amp; sha512sum dotnet.tar.gz \
+    &amp;amp;&amp;amp; echo &amp;quot;$dotnet_sha512 dotnet.tar.gz&amp;quot; | sha512sum -c - \
+    &amp;amp;&amp;amp; mkdir -p /usr/share/dotnet \
+    &amp;amp;&amp;amp; tar -zxf dotnet.tar.gz -C /usr/share/dotnet \
+    &amp;amp;&amp;amp; rm dotnet.tar.gz \
+    &amp;amp;&amp;amp; ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet \
+	&amp;amp;&amp;amp; dotnet new -i Microsoft.AspNetCore.Blazor.Templates
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;create-the-docker-image&#34;&gt;Create the docker image&lt;/h1&gt;
+
+&lt;p&gt;Open a terminal and go to the location of the Dockerfile and run &lt;code&gt;docker build -t blazor:latest .&lt;/code&gt;. This will build the docker image.&lt;/p&gt;
+
+&lt;p&gt;If this fails, just restart your docker and rerun previous command.&lt;/p&gt;
+
+&lt;h2 id=&#34;build&#34;&gt;build&lt;/h2&gt;
+
+&lt;p&gt;This builds the image.&lt;/p&gt;
+
+&lt;h2 id=&#34;t&#34;&gt;-t&lt;/h2&gt;
+
+&lt;p&gt;This adds a label &lt;code&gt;latest&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;verify&#34;&gt;verify&lt;/h2&gt;
+
+&lt;p&gt;The creation of the image can be verified by &lt;code&gt;docker images&lt;/code&gt;
+You should see 2 images. Base image and the one you just created.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/docker_images.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;start-a-container-instance&#34;&gt;Start a container instance&lt;/h1&gt;
+
+&lt;p&gt;At the prompt run &lt;code&gt;docker run -it --rm --name blazortest -p 8000:80 -v H:\Euricom\Blazor\app\:/app  -w=&amp;quot;/app&amp;quot; blazor:latest&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;run&#34;&gt;run&lt;/h2&gt;
+
+&lt;p&gt;This runs the container:&lt;/p&gt;
+
+&lt;h2 id=&#34;it&#34;&gt;-it&lt;/h2&gt;
+
+&lt;p&gt;This runs an interactive container.&lt;/p&gt;
+
+&lt;h2 id=&#34;rm&#34;&gt;&amp;ndash;rm&lt;/h2&gt;
+
+&lt;p&gt;This removes the container after stopping the container.&lt;/p&gt;
+
+&lt;h2 id=&#34;p&#34;&gt;-p&lt;/h2&gt;
+
+&lt;p&gt;This maps the internal port (80) to an external port (8000).&lt;/p&gt;
+
+&lt;h2 id=&#34;v&#34;&gt;-v&lt;/h2&gt;
+
+&lt;p&gt;This maps a local path &lt;code&gt;H:\Euricom\Blazor\app\&lt;/code&gt; to this volume &lt;code&gt;/app&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;w&#34;&gt;-w&lt;/h2&gt;
+
+&lt;p&gt;This sets the working directory to &lt;code&gt;/app&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;verify-1&#34;&gt;verify&lt;/h2&gt;
+
+&lt;p&gt;In another terminal you should see named instance blazortest&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/docker_running_instances.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;create-a-new-blazor-project&#34;&gt;Create a new blazor project&lt;/h1&gt;
+
+&lt;p&gt;You can create a new Blazor project the volume created earlier by running this command &lt;code&gt;dotnet new blazor&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Open the project file app.csproj and add this node &lt;code&gt;&amp;lt;Watch Include=&amp;quot;**\*.cshtml&amp;quot; /&amp;gt;&lt;/code&gt;. This makes it possible to make changes on the fly.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;Project Sdk=&amp;quot;Microsoft.NET.Sdk.Web&amp;quot;&amp;gt;
+
+  &amp;lt;PropertyGroup&amp;gt;
+    &amp;lt;TargetFramework&amp;gt;netstandard2.0&amp;lt;/TargetFramework&amp;gt;
+    &amp;lt;RunCommand&amp;gt;dotnet&amp;lt;/RunCommand&amp;gt;
+    &amp;lt;RunArguments&amp;gt;blazor serve&amp;lt;/RunArguments&amp;gt;
+    &amp;lt;LangVersion&amp;gt;7.3&amp;lt;/LangVersion&amp;gt;
+  &amp;lt;/PropertyGroup&amp;gt;
+
+  &amp;lt;ItemGroup&amp;gt;
+    &amp;lt;PackageReference Include=&amp;quot;Microsoft.AspNetCore.Blazor.Browser&amp;quot; Version=&amp;quot;0.4.0&amp;quot; /&amp;gt;
+    &amp;lt;PackageReference Include=&amp;quot;Microsoft.AspNetCore.Blazor.Build&amp;quot; Version=&amp;quot;0.4.0&amp;quot; /&amp;gt;
+    &amp;lt;DotNetCliToolReference Include=&amp;quot;Microsoft.AspNetCore.Blazor.Cli&amp;quot; Version=&amp;quot;0.4.0&amp;quot; /&amp;gt;
+    &amp;lt;Watch Include=&amp;quot;**\*.cshtml&amp;quot; /&amp;gt;
+  &amp;lt;/ItemGroup&amp;gt;
+
+&amp;lt;/Project&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;start-the-application&#34;&gt;Start the application&lt;/h1&gt;
+
+&lt;p&gt;Start the application via &lt;code&gt;dotnet watch run&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/dotnet_watch_run.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;launch-the-application&#34;&gt;Launch the application&lt;/h1&gt;
+
+&lt;p&gt;Open a browser and launch &lt;code&gt;http://localhost:8000&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/launch_chrome.png&#34; alt=&#34;&#34; title=&#34;Chrome&#34; /&gt;
+&lt;img src=&#34;img/launch_edge.png&#34; alt=&#34;&#34; title=&#34;Edge&#34; /&gt;
+&lt;img src=&#34;img/launch_ff.png&#34; alt=&#34;&#34; title=&#34;Firefox&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</title>
+      <link>/post/createbuildazfvstcod/</link>
+      <pubDate>Fri, 22 Jun 2018 10:00:00 +0000</pubDate>
+      <guid>/post/createbuildazfvstcod/</guid>
+      <description>
+
+&lt;p&gt;Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed.&lt;/p&gt;
+
+&lt;h1 id=&#34;setup&#34;&gt;Setup&lt;/h1&gt;
+
+&lt;h2 id=&#34;tools&#34;&gt;Tools&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Visual Studio 2017 v15.7.4 (VS).&lt;/li&gt;
+&lt;li&gt;TeamCity v2017.2.4 (TC).&lt;/li&gt;
+&lt;li&gt;Octopus Deploy v2018.6.2 (OD).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For this purpose I deployed a Azure VM using this &lt;a href=&#34;https://portal.azure.com/#create/octopus.octopusdeployoctopus-deploy&#34; target=&#34;_blank&#34;&gt;template&lt;/a&gt;, installed an OD Tentacle, a TC Agent and OD cli (in &lt;code&gt;C:\Programs\Octo&lt;/code&gt;). OD downloads can be found &lt;a href=&#34;https://octopus.com/downloads&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. Also install the correct .NET version via this &lt;a href=&#34;https://www.microsoft.com/web/downloads/platform.aspx&#34; target=&#34;_blank&#34;&gt;link&lt;/a&gt; and set the DOTNET_HOME environment variable in TC to &lt;code&gt;C:\Program Files\dotnet\&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Make sure you have installed the Azure development workload in VS. Check via TOOLS\Get Tools and Features&amp;hellip;
+&lt;img src=&#34;img/ZuinKne.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On Workloads tab check Azure development&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/oojIgPk.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;create&#34;&gt;Create&lt;/h1&gt;
+
+&lt;p&gt;We use VS for developing the Function. Store the project in a source control system supported by TC.&lt;/p&gt;
+
+&lt;h2 id=&#34;function&#34;&gt;Function&lt;/h2&gt;
+
+&lt;p&gt;Add new Project, search for Azure Functions and give it a name. It is a basic http trigger. Nothing fancy. Modify if needed.&lt;/p&gt;
+
+&lt;p&gt;Install Nuget package &lt;code&gt;Microsoft.NET.Sdk.Functions&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;arm-template&#34;&gt;ARM Template&lt;/h2&gt;
+
+&lt;p&gt;Deploying an Azure Function needs 3 Azure Resources:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Storage Account (Microsoft.Storage/storageAccounts)&lt;/li&gt;
+&lt;li&gt;Hosting Plan (Microsoft.We&lt;span&gt;b/serverfarms)&lt;/li&gt;
+&lt;li&gt;Function App (Microsoft.We&lt;span&gt;b/sites)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Below you will find a basic ARM Template with these 3 resources and a parameters Template. Set Copy to Output Directory to &lt;code&gt;Copy if Newer&lt;/code&gt;. Add those templates to your project and name them azuredeploy.json and azuredeploy.parameters.json.&lt;/p&gt;
+
+&lt;p&gt;The project structure should look like&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;img/2yV3WSe.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;template&#34;&gt;Template&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;    {
+      &amp;quot;$schema&amp;quot;: &amp;quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&amp;quot;,
+      &amp;quot;contentVersion&amp;quot;: &amp;quot;1.0.0.0&amp;quot;,
+      &amp;quot;parameters&amp;quot;: {
+        &amp;quot;appName&amp;quot;: {
+          &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
+          &amp;quot;metadata&amp;quot;: {
+            &amp;quot;description&amp;quot;: &amp;quot;The name of the function app that you wish to create.&amp;quot;
+          }
+        },
+        &amp;quot;sku&amp;quot;: {
+          &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
+          &amp;quot;allowedValues&amp;quot;: [
+            &amp;quot;Free&amp;quot;,
+            &amp;quot;Shared&amp;quot;,
+            &amp;quot;Basic&amp;quot;,
+            &amp;quot;Standard&amp;quot;
+          ],
+          &amp;quot;defaultValue&amp;quot;: &amp;quot;Standard&amp;quot;,
+          &amp;quot;metadata&amp;quot;: {
+            &amp;quot;description&amp;quot;: &amp;quot;The pricing tier for the hosting plan.&amp;quot;
+          }
+        },
+        &amp;quot;workerSize&amp;quot;: {
+          &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
+          &amp;quot;allowedValues&amp;quot;: [
+            &amp;quot;0&amp;quot;,
+            &amp;quot;1&amp;quot;,
+            &amp;quot;2&amp;quot;
+          ],
+          &amp;quot;defaultValue&amp;quot;: &amp;quot;0&amp;quot;,
+          &amp;quot;metadata&amp;quot;: {
+            &amp;quot;description&amp;quot;: &amp;quot;The instance size of the hosting plan (small, medium, or large).&amp;quot;
+          }
+        },
+        &amp;quot;storageAccountType&amp;quot;: {
+          &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
+          &amp;quot;defaultValue&amp;quot;: &amp;quot;Standard_LRS&amp;quot;,
+          &amp;quot;allowedValues&amp;quot;: [
+            &amp;quot;Standard_LRS&amp;quot;,
+            &amp;quot;Standard_GRS&amp;quot;,
+            &amp;quot;Standard_RAGRS&amp;quot;
+          ],
+          &amp;quot;metadata&amp;quot;: {
+            &amp;quot;description&amp;quot;: &amp;quot;Storage Account type&amp;quot;
+          }
+        },
+        &amp;quot;location&amp;quot;: {
+          &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
+          &amp;quot;defaultValue&amp;quot;: &amp;quot;[resourceGroup().location]&amp;quot;,
+          &amp;quot;metadata&amp;quot;: {
+            &amp;quot;description&amp;quot;: &amp;quot;Location for all resources.&amp;quot;
+          }
+        }
+      },
+      &amp;quot;variables&amp;quot;: {
+        &amp;quot;functionAppName&amp;quot;: &amp;quot;[parameters(&#39;appName&#39;)]&amp;quot;,
+        &amp;quot;hostingPlanName&amp;quot;: &amp;quot;[parameters(&#39;appName&#39;)]&amp;quot;,
+        &amp;quot;storageAccountName&amp;quot;: &amp;quot;[concat(uniquestring(resourceGroup().id), &#39;functions&#39;)]&amp;quot;
+      },
+      &amp;quot;resources&amp;quot;: [
+        {
+          &amp;quot;type&amp;quot;: &amp;quot;Microsoft.Storage/storageAccounts&amp;quot;,
+          &amp;quot;name&amp;quot;: &amp;quot;[variables(&#39;storageAccountName&#39;)]&amp;quot;,
+          &amp;quot;apiVersion&amp;quot;: &amp;quot;2016-12-01&amp;quot;,
+          &amp;quot;location&amp;quot;: &amp;quot;[parameters(&#39;location&#39;)]&amp;quot;,
+          &amp;quot;kind&amp;quot;: &amp;quot;Storage&amp;quot;,
+          &amp;quot;sku&amp;quot;: {
+            &amp;quot;name&amp;quot;: &amp;quot;[parameters(&#39;storageAccountType&#39;)]&amp;quot;
+          }
+        },
+        {
+          &amp;quot;type&amp;quot;: &amp;quot;Microsoft.Web/serverfarms&amp;quot;,
+          &amp;quot;apiVersion&amp;quot;: &amp;quot;2015-04-01&amp;quot;,
+          &amp;quot;name&amp;quot;: &amp;quot;[variables(&#39;hostingPlanName&#39;)]&amp;quot;,
+          &amp;quot;location&amp;quot;: &amp;quot;[parameters(&#39;location&#39;)]&amp;quot;,
+          &amp;quot;properties&amp;quot;: {
+            &amp;quot;name&amp;quot;: &amp;quot;[variables(&#39;hostingPlanName&#39;)]&amp;quot;,
+            &amp;quot;sku&amp;quot;: &amp;quot;[parameters(&#39;sku&#39;)]&amp;quot;,
+            &amp;quot;workerSize&amp;quot;: &amp;quot;[parameters(&#39;workerSize&#39;)]&amp;quot;,
+            &amp;quot;hostingEnvironment&amp;quot;: &amp;quot;&amp;quot;,
+            &amp;quot;numberOfWorkers&amp;quot;: 1
+          }
+        },
+        {
+          &amp;quot;apiVersion&amp;quot;: &amp;quot;2015-04-01&amp;quot;,
+          &amp;quot;type&amp;quot;: &amp;quot;Microsoft.Web/sites&amp;quot;,
+          &amp;quot;name&amp;quot;: &amp;quot;[variables(&#39;functionAppName&#39;)]&amp;quot;,
+          &amp;quot;location&amp;quot;: &amp;quot;[parameters(&#39;location&#39;)]&amp;quot;,
+          &amp;quot;kind&amp;quot;: &amp;quot;functionapp&amp;quot;,
+          &amp;quot;properties&amp;quot;: {
+            &amp;quot;name&amp;quot;: &amp;quot;[variables(&#39;functionAppName&#39;)]&amp;quot;,
+            &amp;quot;serverFarmId&amp;quot;: &amp;quot;[resourceId(&#39;Microsoft.Web/serverfarms&#39;, variables(&#39;hostingPlanName&#39;))]&amp;quot;,
+            &amp;quot;hostingEnvironment&amp;quot;: &amp;quot;&amp;quot;,
+            &amp;quot;clientAffinityEnabled&amp;quot;: false,
+            &amp;quot;siteConfig&amp;quot;: {
+              &amp;quot;alwaysOn&amp;quot;: true
+            }
+          },
+          &amp;quot;dependsOn&amp;quot;: [
+            &amp;quot;[resourceId(&#39;Microsoft.Web/serverfarms&#39;, variables(&#39;hostingPlanName&#39;))]&amp;quot;,
+            &amp;quot;[resourceId(&#39;Microsoft.Storage/storageAccounts&#39;, variables(&#39;storageAccountName&#39;))]&amp;quot;
+          ],
+          &amp;quot;resources&amp;quot;: [
+            {
+              &amp;quot;apiVersion&amp;quot;: &amp;quot;2016-03-01&amp;quot;,
+              &amp;quot;name&amp;quot;: &amp;quot;appsettings&amp;quot;,
+              &amp;quot;type&amp;quot;: &amp;quot;config&amp;quot;,
+              &amp;quot;dependsOn&amp;quot;: [
+                &amp;quot;[resourceId(&#39;Microsoft.Web/sites&#39;, variables(&#39;functionAppName&#39;))]&amp;quot;,
+                &amp;quot;[resourceId(&#39;Microsoft.Storage/storageAccounts&#39;, variables(&#39;storageAccountName&#39;))]&amp;quot;
+              ],
+              &amp;quot;properties&amp;quot;: {
+                &amp;quot;AzureWebJobsStorage&amp;quot;: &amp;quot;[concat(&#39;DefaultEndpointsProtocol=https;AccountName=&#39;,variables(&#39;storageAccountName&#39;),&#39;;    AccountKey=&#39;,listkeys(resourceId(&#39;Microsoft.Storage/storageAccounts&#39;, variables(&#39;storageAccountName&#39;)),     &#39;2015-05-01-preview&#39;).key1,&#39;;&#39;)]&amp;quot;,
+                &amp;quot;AzureWebJobsDashboard&amp;quot;: &amp;quot;[concat(&#39;DefaultEndpointsProtocol=https;AccountName=&#39;,variables(&#39;storageAccountName&#39;),&#39;;    AccountKey=&#39;,listkeys(resourceId(&#39;Microsoft.Storage/storageAccounts&#39;, variables(&#39;storageAccountName&#39;)),     &#39;2015-05-01-preview&#39;).key1,&#39;;&#39;)]&amp;quot;,
+                &amp;quot;FUNCTIONS_EXTENSION_VERSION&amp;quot;: &amp;quot;~1&amp;quot;
+              }
+            }
+          ]
+        }
+      ]
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;parameters&#34;&gt;Parameters&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;    {
+      &amp;quot;$schema&amp;quot;: &amp;quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#&amp;quot;,
+      &amp;quot;contentVersion&amp;quot;: &amp;quot;1.0.0.0&amp;quot;,
+      &amp;quot;parameters&amp;quot;: {
+        &amp;quot;appName&amp;quot;: {
+          &amp;quot;value&amp;quot;: &amp;quot;#{AzureFunctionName}&amp;quot;
+        }
+      }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;build&#34;&gt;Build&lt;/h1&gt;
+
+&lt;p&gt;In TC Create a new project, add a new Build Configuration with 3 Build Steps.&lt;/p&gt;
+
+&lt;h2 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h2&gt;
+
+&lt;p&gt;These are use in TC in scripts, variable names, &amp;hellip;
+* apikey (generated in OD)
+* packageId (&lt;code&gt;tc-od&lt;/code&gt;)
+* server (url to OD)
+* version (semantic version nr like &lt;code&gt;1.0.%build.number%&lt;/code&gt;)&lt;/p&gt;
+
+&lt;h2 id=&#34;publish&#34;&gt;publish&lt;/h2&gt;
+
+&lt;p&gt;This runner type is .NET CLI (dotnet). Give a Step name. Choose publish as Command. Select the project. Set Configuration and Output directory to bin\Release\PublishOutput
+&lt;img src=&#34;img/bsGq2cx.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;pack&#34;&gt;pack&lt;/h2&gt;
+
+&lt;p&gt;This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-batch&#34;&gt;cd tc-od\bin\Release\PublishOutput
+C:\Programs\Octo\octo pack --id=%packageId% --format=zip --outFolder=../dist --version=%version%
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;push&#34;&gt;push&lt;/h2&gt;
+
+&lt;p&gt;This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.&lt;/p&gt;
+
+&lt;p&gt;This pushed the zip file to OD.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-batch&#34;&gt;cd tc-od\bin\Release\dist
+C:\Programs\Octo\octo push --server=%server% --apiKey=%apikey% --package=%packageId%.%version%.zip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;deploy&#34;&gt;Deploy&lt;/h1&gt;
+
+&lt;p&gt;In OD make sure you have setup&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;an Environment&lt;/li&gt;
+&lt;li&gt;a Deployment target(in our case a Azure Web App)&lt;/li&gt;
+&lt;li&gt;a Lifecycle with automatic deploy after release creation&lt;/li&gt;
+&lt;li&gt;an Azure Subscription (this is needed to deploy)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Add a project.&lt;/p&gt;
+
+&lt;p&gt;Under Process add 2 steps:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Deploy Resources&lt;/li&gt;
+&lt;li&gt;Deploy Function&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;deploy-resources&#34;&gt;Deploy Resources&lt;/h2&gt;
+
+&lt;p&gt;In this step we deploy the ARM template.&lt;/p&gt;
+
+&lt;p&gt;Search for &lt;code&gt;resource Group&lt;/code&gt; and select Deploy an Azure resource Group.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Set Step Name&lt;/li&gt;
+&lt;li&gt;Select Execution Plan&lt;/li&gt;
+&lt;li&gt;Select an Azure Account and Resource Group&lt;/li&gt;
+&lt;li&gt;Select File inside a package&lt;/li&gt;
+&lt;li&gt;Select Package&lt;/li&gt;
+&lt;li&gt;Set Paths&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;deploy-function&#34;&gt;Deploy Function&lt;/h2&gt;
+
+&lt;p&gt;In this step we deploy the Function.&lt;/p&gt;
+
+&lt;p&gt;Search for &lt;code&gt;azure web&lt;/code&gt; and select Deploy an Azure Web App.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Set Step Name&lt;/li&gt;
+&lt;li&gt;Select Package&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is it. Happy coding!&lt;/p&gt;
+
+&lt;h1 id=&#34;resources&#34;&gt;Resources&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://octopus.com/blog/azure-functions&#34; target=&#34;_blank&#34;&gt;https://octopus.com/blog/azure-functions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

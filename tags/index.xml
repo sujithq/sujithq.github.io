@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags | Sujith Quintelier</title>
+    <link>/tags/</link>
+      <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tags</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2019</copyright><lastBuildDate>Thu, 12 Jul 2018 10:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/Quintelier_Sujith</url>
+      <title>Tags</title>
+      <link>/tags/</link>
+    </image>
+    
+    <item>
+      <title>Blazor</title>
+      <link>/tags/blazor/</link>
+      <pubDate>Thu, 12 Jul 2018 10:00:00 +0000</pubDate>
+      <guid>/tags/blazor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>/tags/docker/</link>
+      <pubDate>Thu, 12 Jul 2018 10:00:00 +0000</pubDate>
+      <guid>/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure</title>
+      <link>/tags/azure/</link>
+      <pubDate>Fri, 22 Jun 2018 10:00:00 +0000</pubDate>
+      <guid>/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure Function</title>
+      <link>/tags/azure-function/</link>
+      <pubDate>Fri, 22 Jun 2018 10:00:00 +0000</pubDate>
+      <guid>/tags/azure-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Octopus Deploy</title>
+      <link>/tags/octopus-deploy/</link>
+      <pubDate>Fri, 22 Jun 2018 10:00:00 +0000</pubDate>
+      <guid>/tags/octopus-deploy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Teamcity</title>
+      <link>/tags/teamcity/</link>
+      <pubDate>Fri, 22 Jun 2018 10:00:00 +0000</pubDate>
+      <guid>/tags/teamcity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visual Studio</title>
+      <link>/tags/visual-studio/</link>
+      <pubDate>Fri, 22 Jun 2018 10:00:00 +0000</pubDate>
+      <guid>/tags/visual-studio/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
