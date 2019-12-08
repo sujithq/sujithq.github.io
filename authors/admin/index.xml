@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sujith Quintelier</title><link>/authors/admin/</link><atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml"/><description>Sujith Quintelier</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2019</copyright><lastBuildDate>Thu, 12 Jul 2018 10:00:00 +0000</lastBuildDate><image><url>/img/Quintelier_Sujith</url><title>Sujith Quintelier</title><link>/authors/admin/</link></image><item><title>Setup Blazor development environment</title><link>/post/setupblazordevenv/</link><pubDate>Thu, 12 Jul 2018 10:00:00 +0000</pubDate><guid>/post/setupblazordevenv/</guid><description>
-&lt;p&gt;This guide helps you setting up your &lt;a href=&#34;https://blazor.net/&#34; target=&#34;_blank&#34;&gt;Blazor&lt;/a&gt; development environment without messing up your current development machine with beta releases.&lt;/p&gt;
+&lt;p&gt;This guide helps you set up your &lt;a href=&#34;https://blazor.net/&#34; target=&#34;_blank&#34;&gt;Blazor&lt;/a&gt; development environment without messing up your current development machine with beta releases.&lt;/p&gt;
 &lt;p&gt;We will use these tools&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.docker.com/community-edition&#34; target=&#34;_blank&#34;&gt;Docker Community Edition&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Create a local directory with one subdirectory app.&lt;/p&gt;
+&lt;h1 id=&#34;let-s-get-started&#34;&gt;Let&amp;rsquo;s get started&lt;/h1&gt;
+&lt;p&gt;Create a local directory with one subdirectory named &amp;ldquo;app&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;img/create_directory.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;create-dockerfile&#34;&gt;Create Dockerfile&lt;/h1&gt;
 &lt;p&gt;First download the latest &lt;a href=&#34;https://hub.docker.com/r/microsoft/dotnet/&#34; title=&#34;dockerfile&#34; target=&#34;_blank&#34;&gt;dockerfile&lt;/a&gt; version.
