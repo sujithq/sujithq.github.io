@@ -1,223 +1,220 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Azure Function | Sujith Quintelier</title><link>/tags/azure-function/</link><atom:link href="/tags/azure-function/index.xml" rel="self" type="application/rss+xml"/><description>Azure Function</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2019</copyright><lastBuildDate>Fri, 22 Jun 2018 10:00:00 +0000</lastBuildDate><image><url>/img/Quintelier_Sujith</url><title>Azure Function</title><link>/tags/azure-function/</link></image><item><title>Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</title><link>/post/createbuildazfvstcod/</link><pubDate>Fri, 22 Jun 2018 10:00:00 +0000</pubDate><guid>/post/createbuildazfvstcod/</guid><description>
-&lt;p&gt;Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed.&lt;/p&gt;
-&lt;h1 id=&#34;setup&#34;&gt;Setup&lt;/h1&gt;
-&lt;h2 id=&#34;tools&#34;&gt;Tools&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Visual Studio 2017 v15.7.4 (VS).&lt;/li&gt;
-&lt;li&gt;TeamCity v2017.2.4 (TC).&lt;/li&gt;
-&lt;li&gt;Octopus Deploy v2018.6.2 (OD).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For this purpose I deployed a Azure VM using this &lt;a href=&#34;https://portal.azure.com/#create/octopus.octopusdeployoctopus-deploy&#34; target=&#34;_blank&#34;&gt;template&lt;/a&gt;, installed an OD Tentacle, a TC Agent and OD cli (in &lt;code&gt;C:\Programs\Octo&lt;/code&gt;). OD downloads can be found &lt;a href=&#34;https://octopus.com/downloads&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. Also install the correct .NET version via this &lt;a href=&#34;https://www.microsoft.com/web/downloads/platform.aspx&#34; target=&#34;_blank&#34;&gt;link&lt;/a&gt; and set the DOTNET_HOME environment variable in TC to &lt;code&gt;C:\Program Files\dotnet\&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Make sure you have installed the Azure development workload in VS. Check via TOOLS\Get Tools and Features&amp;hellip;
-&lt;img src=&#34;img/ZuinKne.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;On Workloads tab check Azure development&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;img/oojIgPk.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h1 id=&#34;create&#34;&gt;Create&lt;/h1&gt;
-&lt;p&gt;We use VS for developing the Function. Store the project in a source control system supported by TC.&lt;/p&gt;
-&lt;h2 id=&#34;function&#34;&gt;Function&lt;/h2&gt;
-&lt;p&gt;Add new Project, search for Azure Functions and give it a name. It is a basic http trigger. Nothing fancy. Modify if needed.&lt;/p&gt;
-&lt;p&gt;Install Nuget package &lt;code&gt;Microsoft.NET.Sdk.Functions&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;arm-template&#34;&gt;ARM Template&lt;/h2&gt;
-&lt;p&gt;Deploying an Azure Function needs 3 Azure Resources:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Storage Account (Microsoft.Storage/storageAccounts)&lt;/li&gt;
-&lt;li&gt;Hosting Plan (Microsoft.We&lt;span&gt;b/serverfarms)&lt;/li&gt;
-&lt;li&gt;Function App (Microsoft.We&lt;span&gt;b/sites)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Below you will find a basic ARM Template with these 3 resources and a parameters Template. Set Copy to Output Directory to &lt;code&gt;Copy if Newer&lt;/code&gt;. Add those templates to your project and name them azuredeploy.json and azuredeploy.parameters.json.&lt;/p&gt;
-&lt;p&gt;The project structure should look like&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;img/2yV3WSe.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h3 id=&#34;template&#34;&gt;Template&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt; {
-&amp;quot;$schema&amp;quot;: &amp;quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&amp;quot;,
-&amp;quot;contentVersion&amp;quot;: &amp;quot;1.0.0.0&amp;quot;,
-&amp;quot;parameters&amp;quot;: {
-&amp;quot;appName&amp;quot;: {
-&amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
-&amp;quot;metadata&amp;quot;: {
-&amp;quot;description&amp;quot;: &amp;quot;The name of the function app that you wish to create.&amp;quot;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Azure Function | Sujith Quintelier</title><link>/tags/azure-function/</link><atom:link href="/tags/azure-function/index.xml" rel="self" type="application/rss+xml"/><description>Azure Function</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2020</copyright><lastBuildDate>Fri, 22 Jun 2018 10:00:00 +0000</lastBuildDate><image><url>/img/Quintelier_Sujith</url><title>Azure Function</title><link>/tags/azure-function/</link></image><item><title>Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</title><link>/post/createbuildazfvstcod/</link><pubDate>Fri, 22 Jun 2018 10:00:00 +0000</pubDate><guid>/post/createbuildazfvstcod/</guid><description>&lt;p>Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed.&lt;/p>
+&lt;h1 id="setup">Setup&lt;/h1>
+&lt;h2 id="tools">Tools&lt;/h2>
+&lt;ul>
+&lt;li>Visual Studio 2017 v15.7.4 (VS).&lt;/li>
+&lt;li>TeamCity v2017.2.4 (TC).&lt;/li>
+&lt;li>Octopus Deploy v2018.6.2 (OD).&lt;/li>
+&lt;/ul>
+&lt;p>For this purpose I deployed a Azure VM using this [template] (&lt;a href="https://portal.azure.com/#create/octopus.octopusdeployoctopus-deploy),">https://portal.azure.com/#create/octopus.octopusdeployoctopus-deploy),&lt;/a> installed an OD Tentacle, a TC Agent and OD cli (in &lt;code>C:\Programs\Octo&lt;/code>). OD downloads can be found [here] (&lt;a href="https://octopus.com/downloads)">https://octopus.com/downloads)&lt;/a>. Also install the correct .NET version via this [link] (&lt;a href="https://www.microsoft.com/web/downloads/platform.aspx">https://www.microsoft.com/web/downloads/platform.aspx&lt;/a>) and set the DOTNET_HOME environment variable in TC to &lt;code>C:\Program Files\dotnet\&lt;/code>&lt;/p>
+&lt;p>Make sure you have installed the Azure development workload in VS. Check via TOOLS\Get Tools and Features&amp;hellip;
+&lt;img src="img/ZuinKne.png" alt="">&lt;/p>
+&lt;p>On Workloads tab check Azure development&lt;/p>
+&lt;p>&lt;img src="img/oojIgPk.png" alt="">&lt;/p>
+&lt;h1 id="create">Create&lt;/h1>
+&lt;p>We use VS for developing the Function. Store the project in a source control system supported by TC.&lt;/p>
+&lt;h2 id="function">Function&lt;/h2>
+&lt;p>Add new Project, search for Azure Functions and give it a name. It is a basic http trigger. Nothing fancy. Modify if needed.&lt;/p>
+&lt;p>Install Nuget package &lt;code>Microsoft.NET.Sdk.Functions&lt;/code>.&lt;/p>
+&lt;h2 id="arm-template">ARM Template&lt;/h2>
+&lt;p>Deploying an Azure Function needs 3 Azure Resources:&lt;/p>
+&lt;ul>
+&lt;li>Storage Account (Microsoft.Storage/storageAccounts)&lt;/li>
+&lt;li>Hosting Plan (Microsoft.We&lt;!-- raw HTML omitted -->b/serverfarms)&lt;/li>
+&lt;li>Function App (Microsoft.We&lt;!-- raw HTML omitted -->b/sites)&lt;/li>
+&lt;/ul>
+&lt;p>Below you will find a basic ARM Template with these 3 resources and a parameters Template. Set Copy to Output Directory to &lt;code>Copy if Newer&lt;/code>. Add those templates to your project and name them azuredeploy.json and azuredeploy.parameters.json.&lt;/p>
+&lt;p>The project structure should look like&lt;/p>
+&lt;p>&lt;img src="img/2yV3WSe.png" alt="">&lt;/p>
+&lt;h3 id="template">Template&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json"> {
+&lt;span style="color:#f92672">&amp;#34;$schema&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;contentVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;1.0.0.0&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;parameters&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;appName&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;string&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;metadata&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;The name of the function app that you wish to create.&amp;#34;&lt;/span>
 }
 },
-&amp;quot;sku&amp;quot;: {
-&amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
-&amp;quot;allowedValues&amp;quot;: [
-&amp;quot;Free&amp;quot;,
-&amp;quot;Shared&amp;quot;,
-&amp;quot;Basic&amp;quot;,
-&amp;quot;Standard&amp;quot;
+&lt;span style="color:#f92672">&amp;#34;sku&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;string&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;allowedValues&amp;#34;&lt;/span>: [
+&lt;span style="color:#e6db74">&amp;#34;Free&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;Shared&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;Basic&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;Standard&amp;#34;&lt;/span>
 ],
-&amp;quot;defaultValue&amp;quot;: &amp;quot;Standard&amp;quot;,
-&amp;quot;metadata&amp;quot;: {
-&amp;quot;description&amp;quot;: &amp;quot;The pricing tier for the hosting plan.&amp;quot;
+&lt;span style="color:#f92672">&amp;#34;defaultValue&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Standard&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;metadata&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;The pricing tier for the hosting plan.&amp;#34;&lt;/span>
 }
 },
-&amp;quot;workerSize&amp;quot;: {
-&amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
-&amp;quot;allowedValues&amp;quot;: [
-&amp;quot;0&amp;quot;,
-&amp;quot;1&amp;quot;,
-&amp;quot;2&amp;quot;
+&lt;span style="color:#f92672">&amp;#34;workerSize&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;string&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;allowedValues&amp;#34;&lt;/span>: [
+&lt;span style="color:#e6db74">&amp;#34;0&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;1&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;2&amp;#34;&lt;/span>
 ],
-&amp;quot;defaultValue&amp;quot;: &amp;quot;0&amp;quot;,
-&amp;quot;metadata&amp;quot;: {
-&amp;quot;description&amp;quot;: &amp;quot;The instance size of the hosting plan (small, medium, or large).&amp;quot;
+&lt;span style="color:#f92672">&amp;#34;defaultValue&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;0&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;metadata&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;The instance size of the hosting plan (small, medium, or large).&amp;#34;&lt;/span>
 }
 },
-&amp;quot;storageAccountType&amp;quot;: {
-&amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
-&amp;quot;defaultValue&amp;quot;: &amp;quot;Standard_LRS&amp;quot;,
-&amp;quot;allowedValues&amp;quot;: [
-&amp;quot;Standard_LRS&amp;quot;,
-&amp;quot;Standard_GRS&amp;quot;,
-&amp;quot;Standard_RAGRS&amp;quot;
+&lt;span style="color:#f92672">&amp;#34;storageAccountType&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;string&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;defaultValue&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Standard_LRS&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;allowedValues&amp;#34;&lt;/span>: [
+&lt;span style="color:#e6db74">&amp;#34;Standard_LRS&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;Standard_GRS&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;Standard_RAGRS&amp;#34;&lt;/span>
 ],
-&amp;quot;metadata&amp;quot;: {
-&amp;quot;description&amp;quot;: &amp;quot;Storage Account type&amp;quot;
+&lt;span style="color:#f92672">&amp;#34;metadata&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Storage Account type&amp;#34;&lt;/span>
 }
 },
-&amp;quot;location&amp;quot;: {
-&amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;,
-&amp;quot;defaultValue&amp;quot;: &amp;quot;[resourceGroup().location]&amp;quot;,
-&amp;quot;metadata&amp;quot;: {
-&amp;quot;description&amp;quot;: &amp;quot;Location for all resources.&amp;quot;
+&lt;span style="color:#f92672">&amp;#34;location&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;string&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;defaultValue&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[resourceGroup().location]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;metadata&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Location for all resources.&amp;#34;&lt;/span>
 }
 }
 },
-&amp;quot;variables&amp;quot;: {
-&amp;quot;functionAppName&amp;quot;: &amp;quot;[parameters(&#39;appName&#39;)]&amp;quot;,
-&amp;quot;hostingPlanName&amp;quot;: &amp;quot;[parameters(&#39;appName&#39;)]&amp;quot;,
-&amp;quot;storageAccountName&amp;quot;: &amp;quot;[concat(uniquestring(resourceGroup().id), &#39;functions&#39;)]&amp;quot;
+&lt;span style="color:#f92672">&amp;#34;variables&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;functionAppName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;appName&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;hostingPlanName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;appName&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;storageAccountName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[concat(uniquestring(resourceGroup().id), &amp;#39;functions&amp;#39;)]&amp;#34;&lt;/span>
 },
-&amp;quot;resources&amp;quot;: [
+&lt;span style="color:#f92672">&amp;#34;resources&amp;#34;&lt;/span>: [
 {
-&amp;quot;type&amp;quot;: &amp;quot;Microsoft.Storage/storageAccounts&amp;quot;,
-&amp;quot;name&amp;quot;: &amp;quot;[variables(&#39;storageAccountName&#39;)]&amp;quot;,
-&amp;quot;apiVersion&amp;quot;: &amp;quot;2016-12-01&amp;quot;,
-&amp;quot;location&amp;quot;: &amp;quot;[parameters(&#39;location&#39;)]&amp;quot;,
-&amp;quot;kind&amp;quot;: &amp;quot;Storage&amp;quot;,
-&amp;quot;sku&amp;quot;: {
-&amp;quot;name&amp;quot;: &amp;quot;[parameters(&#39;storageAccountType&#39;)]&amp;quot;
-}
-},
-{
-&amp;quot;type&amp;quot;: &amp;quot;Microsoft.Web/serverfarms&amp;quot;,
-&amp;quot;apiVersion&amp;quot;: &amp;quot;2015-04-01&amp;quot;,
-&amp;quot;name&amp;quot;: &amp;quot;[variables(&#39;hostingPlanName&#39;)]&amp;quot;,
-&amp;quot;location&amp;quot;: &amp;quot;[parameters(&#39;location&#39;)]&amp;quot;,
-&amp;quot;properties&amp;quot;: {
-&amp;quot;name&amp;quot;: &amp;quot;[variables(&#39;hostingPlanName&#39;)]&amp;quot;,
-&amp;quot;sku&amp;quot;: &amp;quot;[parameters(&#39;sku&#39;)]&amp;quot;,
-&amp;quot;workerSize&amp;quot;: &amp;quot;[parameters(&#39;workerSize&#39;)]&amp;quot;,
-&amp;quot;hostingEnvironment&amp;quot;: &amp;quot;&amp;quot;,
-&amp;quot;numberOfWorkers&amp;quot;: 1
+&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Microsoft.Storage/storageAccounts&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[variables(&amp;#39;storageAccountName&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;apiVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;2016-12-01&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;location&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;location&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;kind&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Storage&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;sku&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;storageAccountType&amp;#39;)]&amp;#34;&lt;/span>
 }
 },
 {
-&amp;quot;apiVersion&amp;quot;: &amp;quot;2015-04-01&amp;quot;,
-&amp;quot;type&amp;quot;: &amp;quot;Microsoft.Web/sites&amp;quot;,
-&amp;quot;name&amp;quot;: &amp;quot;[variables(&#39;functionAppName&#39;)]&amp;quot;,
-&amp;quot;location&amp;quot;: &amp;quot;[parameters(&#39;location&#39;)]&amp;quot;,
-&amp;quot;kind&amp;quot;: &amp;quot;functionapp&amp;quot;,
-&amp;quot;properties&amp;quot;: {
-&amp;quot;name&amp;quot;: &amp;quot;[variables(&#39;functionAppName&#39;)]&amp;quot;,
-&amp;quot;serverFarmId&amp;quot;: &amp;quot;[resourceId(&#39;Microsoft.Web/serverfarms&#39;, variables(&#39;hostingPlanName&#39;))]&amp;quot;,
-&amp;quot;hostingEnvironment&amp;quot;: &amp;quot;&amp;quot;,
-&amp;quot;clientAffinityEnabled&amp;quot;: false,
-&amp;quot;siteConfig&amp;quot;: {
-&amp;quot;alwaysOn&amp;quot;: true
+&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Microsoft.Web/serverfarms&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;apiVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;2015-04-01&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[variables(&amp;#39;hostingPlanName&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;location&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;location&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;properties&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[variables(&amp;#39;hostingPlanName&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;sku&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;sku&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;workerSize&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;workerSize&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;hostingEnvironment&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;numberOfWorkers&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
 }
 },
-&amp;quot;dependsOn&amp;quot;: [
-&amp;quot;[resourceId(&#39;Microsoft.Web/serverfarms&#39;, variables(&#39;hostingPlanName&#39;))]&amp;quot;,
-&amp;quot;[resourceId(&#39;Microsoft.Storage/storageAccounts&#39;, variables(&#39;storageAccountName&#39;))]&amp;quot;
-],
-&amp;quot;resources&amp;quot;: [
 {
-&amp;quot;apiVersion&amp;quot;: &amp;quot;2016-03-01&amp;quot;,
-&amp;quot;name&amp;quot;: &amp;quot;appsettings&amp;quot;,
-&amp;quot;type&amp;quot;: &amp;quot;config&amp;quot;,
-&amp;quot;dependsOn&amp;quot;: [
-&amp;quot;[resourceId(&#39;Microsoft.Web/sites&#39;, variables(&#39;functionAppName&#39;))]&amp;quot;,
-&amp;quot;[resourceId(&#39;Microsoft.Storage/storageAccounts&#39;, variables(&#39;storageAccountName&#39;))]&amp;quot;
+&lt;span style="color:#f92672">&amp;#34;apiVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;2015-04-01&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Microsoft.Web/sites&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[variables(&amp;#39;functionAppName&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;location&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;location&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;kind&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;functionapp&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;properties&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[variables(&amp;#39;functionAppName&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;serverFarmId&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[resourceId(&amp;#39;Microsoft.Web/serverfarms&amp;#39;, variables(&amp;#39;hostingPlanName&amp;#39;))]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;hostingEnvironment&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;clientAffinityEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;siteConfig&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;alwaysOn&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
+}
+},
+&lt;span style="color:#f92672">&amp;#34;dependsOn&amp;#34;&lt;/span>: [
+&lt;span style="color:#e6db74">&amp;#34;[resourceId(&amp;#39;Microsoft.Web/serverfarms&amp;#39;, variables(&amp;#39;hostingPlanName&amp;#39;))]&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;[resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;))]&amp;#34;&lt;/span>
 ],
-&amp;quot;properties&amp;quot;: {
-&amp;quot;AzureWebJobsStorage&amp;quot;: &amp;quot;[concat(&#39;DefaultEndpointsProtocol=https;AccountName=&#39;,variables(&#39;storageAccountName&#39;),&#39;; AccountKey=&#39;,listkeys(resourceId(&#39;Microsoft.Storage/storageAccounts&#39;, variables(&#39;storageAccountName&#39;)), &#39;2015-05-01-preview&#39;).key1,&#39;;&#39;)]&amp;quot;,
-&amp;quot;AzureWebJobsDashboard&amp;quot;: &amp;quot;[concat(&#39;DefaultEndpointsProtocol=https;AccountName=&#39;,variables(&#39;storageAccountName&#39;),&#39;; AccountKey=&#39;,listkeys(resourceId(&#39;Microsoft.Storage/storageAccounts&#39;, variables(&#39;storageAccountName&#39;)), &#39;2015-05-01-preview&#39;).key1,&#39;;&#39;)]&amp;quot;,
-&amp;quot;FUNCTIONS_EXTENSION_VERSION&amp;quot;: &amp;quot;~1&amp;quot;
+&lt;span style="color:#f92672">&amp;#34;resources&amp;#34;&lt;/span>: [
+{
+&lt;span style="color:#f92672">&amp;#34;apiVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;2016-03-01&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;appsettings&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;config&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;dependsOn&amp;#34;&lt;/span>: [
+&lt;span style="color:#e6db74">&amp;#34;[resourceId(&amp;#39;Microsoft.Web/sites&amp;#39;, variables(&amp;#39;functionAppName&amp;#39;))]&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;[resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;))]&amp;#34;&lt;/span>
+],
+&lt;span style="color:#f92672">&amp;#34;properties&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;AzureWebJobsStorage&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[concat(&amp;#39;DefaultEndpointsProtocol=https;AccountName=&amp;#39;,variables(&amp;#39;storageAccountName&amp;#39;),&amp;#39;; AccountKey=&amp;#39;,listkeys(resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;)), &amp;#39;2015-05-01-preview&amp;#39;).key1,&amp;#39;;&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;AzureWebJobsDashboard&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[concat(&amp;#39;DefaultEndpointsProtocol=https;AccountName=&amp;#39;,variables(&amp;#39;storageAccountName&amp;#39;),&amp;#39;; AccountKey=&amp;#39;,listkeys(resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;)), &amp;#39;2015-05-01-preview&amp;#39;).key1,&amp;#39;;&amp;#39;)]&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;FUNCTIONS_EXTENSION_VERSION&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;~1&amp;#34;&lt;/span>
 }
 }
 ]
 }
 ]
 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;parameters&#34;&gt;Parameters&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt; {
-&amp;quot;$schema&amp;quot;: &amp;quot;https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#&amp;quot;,
-&amp;quot;contentVersion&amp;quot;: &amp;quot;1.0.0.0&amp;quot;,
-&amp;quot;parameters&amp;quot;: {
-&amp;quot;appName&amp;quot;: {
-&amp;quot;value&amp;quot;: &amp;quot;#{AzureFunctionName}&amp;quot;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="parameters">Parameters&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json"> {
+&lt;span style="color:#f92672">&amp;#34;$schema&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;contentVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;1.0.0.0&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;parameters&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;appName&amp;#34;&lt;/span>: {
+&lt;span style="color:#f92672">&amp;#34;value&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;#{AzureFunctionName}&amp;#34;&lt;/span>
 }
 }
 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id=&#34;build&#34;&gt;Build&lt;/h1&gt;
-&lt;p&gt;In TC Create a new project, add a new Build Configuration with 3 Build Steps.&lt;/p&gt;
-&lt;h2 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h2&gt;
-&lt;p&gt;These are use in TC in scripts, variable names, &amp;hellip;
-* apikey (generated in OD)
-* packageId (&lt;code&gt;tc-od&lt;/code&gt;)
-* server (url to OD)
-* version (semantic version nr like &lt;code&gt;1.0.%build.number%&lt;/code&gt;)&lt;/p&gt;
-&lt;h2 id=&#34;publish&#34;&gt;publish&lt;/h2&gt;
-&lt;p&gt;This runner type is .NET CLI (dotnet). Give a Step name. Choose publish as Command. Select the project. Set Configuration and Output directory to bin\Release\PublishOutput
-&lt;img src=&#34;img/bsGq2cx.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h2 id=&#34;pack&#34;&gt;pack&lt;/h2&gt;
-&lt;p&gt;This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-batch&#34;&gt;cd tc-od\bin\Release\PublishOutput
-C:\Programs\Octo\octo pack --id=%packageId% --format=zip --outFolder=../dist --version=%version%
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;push&#34;&gt;push&lt;/h2&gt;
-&lt;p&gt;This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.&lt;/p&gt;
-&lt;p&gt;This pushed the zip file to OD.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-batch&#34;&gt;cd tc-od\bin\Release\dist
-C:\Programs\Octo\octo push --server=%server% --apiKey=%apikey% --package=%packageId%.%version%.zip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id=&#34;deploy&#34;&gt;Deploy&lt;/h1&gt;
-&lt;p&gt;In OD make sure you have setup&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;an Environment&lt;/li&gt;
-&lt;li&gt;a Deployment target(in our case a Azure Web App)&lt;/li&gt;
-&lt;li&gt;a Lifecycle with automatic deploy after release creation&lt;/li&gt;
-&lt;li&gt;an Azure Subscription (this is needed to deploy)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Add a project.&lt;/p&gt;
-&lt;p&gt;Under Process add 2 steps:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Deploy Resources&lt;/li&gt;
-&lt;li&gt;Deploy Function&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;deploy-resources&#34;&gt;Deploy Resources&lt;/h2&gt;
-&lt;p&gt;In this step we deploy the ARM template.&lt;/p&gt;
-&lt;p&gt;Search for &lt;code&gt;resource Group&lt;/code&gt; and select Deploy an Azure resource Group.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Set Step Name&lt;/li&gt;
-&lt;li&gt;Select Execution Plan&lt;/li&gt;
-&lt;li&gt;Select an Azure Account and Resource Group&lt;/li&gt;
-&lt;li&gt;Select File inside a package&lt;/li&gt;
-&lt;li&gt;Select Package&lt;/li&gt;
-&lt;li&gt;Set Paths&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;deploy-function&#34;&gt;Deploy Function&lt;/h2&gt;
-&lt;p&gt;In this step we deploy the Function.&lt;/p&gt;
-&lt;p&gt;Search for &lt;code&gt;azure web&lt;/code&gt; and select Deploy an Azure Web App.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Set Step Name&lt;/li&gt;
-&lt;li&gt;Select Package&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This is it. Happy coding!&lt;/p&gt;
-&lt;h1 id=&#34;resources&#34;&gt;Resources&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://octopus.com/blog/azure-functions&#34; target=&#34;_blank&#34;&gt;https://octopus.com/blog/azure-functions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item></channel></rss>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="build">Build&lt;/h1>
+&lt;p>In TC Create a new project, add a new Build Configuration with 3 Build Steps.&lt;/p>
+&lt;h2 id="parameters-1">Parameters&lt;/h2>
+&lt;p>These are use in TC in scripts, variable names, &amp;hellip;&lt;/p>
+&lt;ul>
+&lt;li>apikey (generated in OD)&lt;/li>
+&lt;li>packageId (&lt;code>tc-od&lt;/code>)&lt;/li>
+&lt;li>server (url to OD)&lt;/li>
+&lt;li>version (semantic version nr like &lt;code>1.0.%build.number%&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;h2 id="publish">publish&lt;/h2>
+&lt;p>This runner type is .NET CLI (dotnet). Give a Step name. Choose publish as Command. Select the project. Set Configuration and Output directory to bin\Release\PublishOutput
+&lt;img src="img/bsGq2cx.png" alt="">&lt;/p>
+&lt;h2 id="pack">pack&lt;/h2>
+&lt;p>This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-batch" data-lang="batch">&lt;span style="color:#66d9ef">cd&lt;/span> tc-od\bin\Release\PublishOutput
+C:\Programs\Octo\octo&lt;span style="color:#75715e"> pack --id=%packageId% --format=zip --outFolder=../dist --version=%version%&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="push">push&lt;/h2>
+&lt;p>This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.&lt;/p>
+&lt;p>This pushed the zip file to OD.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-batch" data-lang="batch">&lt;span style="color:#66d9ef">cd&lt;/span> tc-od\bin\Release\dist
+C:\Programs\Octo\octo&lt;span style="color:#75715e"> push --server=%server% --apiKey=%apikey% --package=%packageId%.%version%.zip&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="deploy">Deploy&lt;/h1>
+&lt;p>In OD make sure you have setup&lt;/p>
+&lt;ul>
+&lt;li>an Environment&lt;/li>
+&lt;li>a Deployment target(in our case a Azure Web App)&lt;/li>
+&lt;li>a Lifecycle with automatic deploy after release creation&lt;/li>
+&lt;li>an Azure Subscription (this is needed to deploy)&lt;/li>
+&lt;/ul>
+&lt;p>Add a project.&lt;/p>
+&lt;p>Under Process add 2 steps:&lt;/p>
+&lt;ul>
+&lt;li>Deploy Resources&lt;/li>
+&lt;li>Deploy Function&lt;/li>
+&lt;/ul>
+&lt;h2 id="deploy-resources">Deploy Resources&lt;/h2>
+&lt;p>In this step we deploy the ARM template.&lt;/p>
+&lt;p>Search for &lt;code>resource Group&lt;/code> and select Deploy an Azure resource Group.&lt;/p>
+&lt;ul>
+&lt;li>Set Step Name&lt;/li>
+&lt;li>Select Execution Plan&lt;/li>
+&lt;li>Select an Azure Account and Resource Group&lt;/li>
+&lt;li>Select File inside a package&lt;/li>
+&lt;li>Select Package&lt;/li>
+&lt;li>Set Paths&lt;/li>
+&lt;/ul>
+&lt;h2 id="deploy-function">Deploy Function&lt;/h2>
+&lt;p>In this step we deploy the Function.&lt;/p>
+&lt;p>Search for &lt;code>azure web&lt;/code> and select Deploy an Azure Web App.&lt;/p>
+&lt;ul>
+&lt;li>Set Step Name&lt;/li>
+&lt;li>Select Package&lt;/li>
+&lt;/ul>
+&lt;p>This is it. Happy coding!&lt;/p>
+&lt;h1 id="resources">Resources&lt;/h1>
+&lt;ul>
+&lt;li>&lt;a href="https://octopus.com/blog/azure-functions">https://octopus.com/blog/azure-functions&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
