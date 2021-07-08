@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sujith Quintelier</title><link>/</link><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><description>Sujith Quintelier</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2021</copyright><lastBuildDate>Thu, 12 Jul 2018 10:00:00 +0000</lastBuildDate><image><url>/img/Quintelier_Sujith</url><title>Sujith Quintelier</title><link>/</link></image><item><title>Setup Blazor development environment</title><link>/post/setupblazordevenv/</link><pubDate>Thu, 12 Jul 2018 10:00:00 +0000</pubDate><guid>/post/setupblazordevenv/</guid><description>&lt;p>This guide helps you set up your &lt;a href="https://blazor.net/">Blazor&lt;/a> development environment without messing up your current development machine with beta releases.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sujith Quintelier</title><link>/</link><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><description>Sujith Quintelier</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2021</copyright><image><url>/img/Quintelier_Sujith</url><title>Sujith Quintelier</title><link>/</link></image><item><title>Setup Blazor development environment</title><link>/post/setupblazordevenv/</link><pubDate>Thu, 12 Jul 2018 10:00:00 +0000</pubDate><guid>/post/setupblazordevenv/</guid><description>&lt;p>This guide helps you set up your &lt;a href="https://blazor.net/">Blazor&lt;/a> development environment without messing up your current development machine with beta releases.&lt;/p>
 &lt;p>We will use these tools&lt;/p>
 &lt;ul>
 &lt;li>
@@ -17,14 +17,22 @@ Look at the latest version of &lt;a href="https://github.com/dotnet/dotnet-docke
 Copy the raw content and store it in a file Dockerfile. Modify it by appending &lt;code> \&lt;/code> and &lt;code>&amp;amp;&amp;amp; dotnet new -i Microsoft.AspNetCore.Blazor.Templates&lt;/code> at the second RUN command.&lt;/p>
 &lt;p>It should look like this:&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">RUN curl -SL --output dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> dotnet_sha512&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;2166986e360f1c3456a33723edb80349e6ede115be04a6331bfbfd0f412494684d174a0cfb21d2feb00d509ce342030160a4b5b445e393ad83bedb613a64bc66&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sha512sum dotnet.tar.gz &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$dotnet_sha512&lt;span style="color:#e6db74"> dotnet.tar.gz&amp;#34;&lt;/span> | sha512sum -c - &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> mkdir -p /usr/share/dotnet &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> tar -zxf dotnet.tar.gz -C /usr/share/dotnet &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> rm dotnet.tar.gz &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> dotnet new -i Microsoft.AspNetCore.Blazor.Templates
+&lt;/span>
+&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> dotnet_sha512&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;2166986e360f1c3456a33723edb80349e6ede115be04a6331bfbfd0f412494684d174a0cfb21d2feb00d509ce342030160a4b5b445e393ad83bedb613a64bc66&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>
+&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sha512sum dotnet.tar.gz &lt;span style="color:#ae81ff">\
+&lt;/span>
+&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$dotnet_sha512&lt;span style="color:#e6db74"> dotnet.tar.gz&amp;#34;&lt;/span> | sha512sum -c - &lt;span style="color:#ae81ff">\
+&lt;/span>
+&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> mkdir -p /usr/share/dotnet &lt;span style="color:#ae81ff">\
+&lt;/span>
+&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> tar -zxf dotnet.tar.gz -C /usr/share/dotnet &lt;span style="color:#ae81ff">\
+&lt;/span>
+&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> rm dotnet.tar.gz &lt;span style="color:#ae81ff">\
+&lt;/span>
+&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet &lt;span style="color:#ae81ff">\
+&lt;/span>
+&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> dotnet new -i Microsoft.AspNetCore.Blazor.Templates
 &lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="create-the-docker-image">Create the docker image&lt;/h1>
 &lt;p>Open a terminal and go to the location of the Dockerfile and run &lt;code>docker build -t blazor:latest .&lt;/code>. This will build the docker image.&lt;/p>
 &lt;p>If this fails, just restart your docker and rerun previous command.&lt;/p>
@@ -254,12 +262,14 @@ You should see 2 images. Base image and the one you just created.&lt;/p>
 &lt;h2 id="pack">pack&lt;/h2>
 &lt;p>This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-batch" data-lang="batch">&lt;span style="color:#66d9ef">cd&lt;/span> tc-od\bin\Release\PublishOutput
-C:\Programs\Octo\octo&lt;span style="color:#75715e"> pack --id=%packageId% --format=zip --outFolder=../dist --version=%version%&lt;/span>
+C:\Programs\Octo\octo&lt;span style="color:#75715e"> pack --id=%packageId% --format=zip --outFolder=../dist --version=%version%
+&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="push">push&lt;/h2>
 &lt;p>This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.&lt;/p>
 &lt;p>This pushed the zip file to OD.&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-batch" data-lang="batch">&lt;span style="color:#66d9ef">cd&lt;/span> tc-od\bin\Release\dist
-C:\Programs\Octo\octo&lt;span style="color:#75715e"> push --server=%server% --apiKey=%apikey% --package=%packageId%.%version%.zip&lt;/span>
+C:\Programs\Octo\octo&lt;span style="color:#75715e"> push --server=%server% --apiKey=%apikey% --package=%packageId%.%version%.zip
+&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="deploy">Deploy&lt;/h1>
 &lt;p>In OD make sure you have setup&lt;/p>
 &lt;ul>
