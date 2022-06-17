@@ -9,9 +9,176 @@
 &lt;h3 id="azure-load-balancer">Azure Load Balancer&lt;/h3>
 &lt;p>&lt;img src="img/azure-load-balancer.png" alt="Azure Load Balancer">&lt;/p>
 &lt;p>High-performance, ultra-low-latency &lt;strong>Layer 4&lt;/strong> load-balancing service (inbound and outbound) for all &lt;strong>UDP&lt;/strong> and &lt;strong>TCP&lt;/strong> protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is &lt;strong>zone-redundant&lt;/strong>, ensuring high availability across &lt;strong>Availability Zones&lt;/strong>.&lt;/p>
+&lt;h4 id="type">Type&lt;/h4>
+&lt;p>They can be public (aka external) or internal (aka private).&lt;/p>
+&lt;p>&lt;strong>Public&lt;/strong> - Provide outbound connections for virtual machines (VMs) inside your virtual network. These connections are accomplished by translating their private IP addresses to public IP addresses. External load balancers are used to distribute client traffic from the internet across your VMs. That internet traffic might come from web browsers, module apps, or other sources.&lt;/p>
+&lt;p>&lt;strong>Internal&lt;/strong> - Is used where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic from internal Azure resources to other Azure resources inside a virtual network. A load balancer frontend can also be accessed from an on-premises network in a hybrid scenario.&lt;/p>
+&lt;p>&lt;img src="img/alb-public-internal.png" alt="ALB Public vs Internal">&lt;/p>
+&lt;h4 id="availability-zones">Availability zones&lt;/h4>
+&lt;p>Azure Load Balancer can be either zone redundant, zonal or non-zonal.&lt;/p>
+&lt;p>&lt;strong>Zone redundant&lt;/strong> - The traffic s served by a single IP address and it survives zone failure. The frontend IP may be used to reach all non-impacted backend pool members no matter the zone. One or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.&lt;/p>
+&lt;p>&lt;img src="img/alb-zone-redundant.png" alt="ALB Zone Redundant">&lt;/p>
+&lt;p>&lt;strong>Zonal&lt;/strong> - The frontend is guaranteed to a single zone. Any inbound or outbound flow is served by a single zone in a region. Your frontend shares fate with the health of the zone. The data path is unaffected by failures in zones other than where it was guaranteed. You can use zonal front-ends to expose an IP address per Availability Zone.&lt;/p>
+&lt;p>Additionally, the use of zonal front-ends directly for load balanced endpoints within each zone is supported. You can use this configuration to expose per zone load-balanced endpoints to individually monitor each zone. For public endpoints, you can integrate them with a DNS load-balancing product like Traffic Manager and use a single DNS name.&lt;/p>
+&lt;p>&lt;img src="img/alb-zonal.png" alt="ALB Zonal">&lt;/p>
+&lt;h4 id="sku">SKU&lt;/h4>
+&lt;p>There are 2 SKUs available: Standard and basic.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Features&lt;/th>
+&lt;th>Standard Load Balancer&lt;/th>
+&lt;th>Basic Load Balancer&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Backend pool size&lt;/td>
+&lt;td>Supports up to 1000 instances.&lt;/td>
+&lt;td>Supports up to 300 instances.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Backend pool endpoints&lt;/td>
+&lt;td>Any virtual machines or virtual machine scale sets in a single virtual network.&lt;/td>
+&lt;td>Virtual machines in a single availability set or virtual machine scale set.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Health probes&lt;/td>
+&lt;td>TCP, HTTP, HTTPS&lt;/td>
+&lt;td>TCP, HTTP&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Health probe down behavior&lt;/td>
+&lt;td>TCP connections stay alive on an instance probe down and on all probes down.&lt;/td>
+&lt;td>TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Availability Zones&lt;/td>
+&lt;td>Zone-redundant and zonal front-ends for inbound and outbound traffic.&lt;/td>
+&lt;td>Not available&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Diagnostics&lt;/td>
+&lt;td>Azure Monitor multi-dimensional metrics&lt;/td>
+&lt;td>Azure Monitor logs&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>HA Ports&lt;/td>
+&lt;td>Available for Internal Load Balancer&lt;/td>
+&lt;td>Not available&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Secure by default&lt;/td>
+&lt;td>Closed to inbound flows unless allowed by a network security group. Internal traffic from the virtual network to the internal load balancer is allowed.&lt;/td>
+&lt;td>Open by default. Network security group optional.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Outbound Rules&lt;/td>
+&lt;td>Declarative outbound NAT configuration&lt;/td>
+&lt;td>Not available&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>TCP Reset on Idle&lt;/td>
+&lt;td>Available on any rule&lt;/td>
+&lt;td>Not available&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Multiple front ends&lt;/td>
+&lt;td>Inbound and outbound&lt;/td>
+&lt;td>Inbound only&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Management Operations&lt;/td>
+&lt;td>Most operations &amp;lt; 30 seconds&lt;/td>
+&lt;td>60-90+ seconds typical&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SLA&lt;/td>
+&lt;td>99.99%&lt;/td>
+&lt;td>Not available&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h3 id="traffic-manager">Traffic Manager&lt;/h3>
 &lt;p>&lt;img src="img/azure-traffic-manager.png" alt="Azure Traffic Manager">&lt;/p>
 &lt;p>&lt;strong>DNS-based&lt;/strong> traffic load balancer that enables you to distribute traffic optimally to services across &lt;strong>global Azure regions&lt;/strong>, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load-balances only at the &lt;strong>domain level&lt;/strong>. For that reason, it can&amp;rsquo;t fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS time-to-live values (TTLs).&lt;/p>
+&lt;p>&lt;img src="img/tm-setup.png" alt="Azure Traffic Manager Setup">&lt;/p>
+&lt;p>&lt;img src="img/tm-working.png" alt="Azure Traffic Manager Working">&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>The client sends a DNS query to its configured recursive DNS service to resolve the name ‘partners.contoso.com’. A recursive DNS service, sometimes called a &amp;lsquo;local DNS&amp;rsquo; service, does not host DNS domains directly. Rather, the client off-loads the work of contacting the various authoritative DNS services across the Internet needed to resolve a DNS name.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>To resolve the DNS name, the recursive DNS service finds the name servers for the ‘contoso.com’ domain. It then contacts those name servers to request the &amp;lsquo;partners.contoso.com&amp;rsquo; DNS record. The contoso.com DNS servers return the CNAME record which points to contoso.trafficmanager.net.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Next, the recursive DNS service finds the name servers for the ‘trafficmanager.net’ domain, which are provided by the Azure Traffic Manager service. It then sends a request for the &amp;lsquo;contoso.trafficmanager.net&amp;rsquo; DNS record to those DNS servers.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The Traffic Manager name servers receive the request. They choose an endpoint based on:&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>The configured state of each endpoint (disabled endpoints are not returned)&lt;/li>
+&lt;li>The current health of each endpoint, as determined by the Traffic Manager health checks.&lt;/li>
+&lt;li>The chosen traffic-routing method.&lt;/li>
+&lt;/ul>
+&lt;ol start="5">
+&lt;li>
+&lt;p>The chosen endpoint is returned as another DNS CNAME record. In this case, let us suppose contoso-eu.cloudapp.net is returned.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Next, the recursive DNS service finds the name servers for the ‘cloudapp.net’ domain. It contacts those name servers to request the &amp;lsquo;contoso-eu.cloudapp.net&amp;rsquo; DNS record. A DNS ‘A’ record containing the IP address of the EU-based service endpoint is returned.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The recursive DNS service consolidates the results and returns a single DNS response to the client.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The client receives the DNS results and connects to the given IP address. The client connects to the application service endpoint directly, not through Traffic Manager. Since it is an HTTPS endpoint, the client performs the necessary SSL/TLS handshake, and then makes an HTTP GET request for the ‘/login.aspx’ page.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="routing-methods">Routing methods&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Routing method&lt;/th>
+&lt;th>When to use&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Priority&lt;/td>
+&lt;td>Select this routing method when you want to have a primary service endpoint for all traffic. You can provide multiple backup endpoints in case the primary or one of the backup endpoints is unavailable.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Weighted&lt;/td>
+&lt;td>Select this routing method when you want to distribute traffic across a set of endpoints based on their weight. Set the weight the same to distribute evenly across all endpoints.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Performance&lt;/td>
+&lt;td>Select the routing method when you have endpoints in different geographic locations, and you want end users to use the &amp;ldquo;closest&amp;rdquo; endpoint for the lowest network latency.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Geographic&lt;/td>
+&lt;td>Select this routing method to direct users to specific endpoints (Azure, External, or Nested) based on where their DNS queries originate from geographically. With this routing method, it enables you to be compliant with scenarios such as data sovereignty mandates, localization of content &amp;amp; user experience and measuring traffic from different regions.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MultiValue&lt;/td>
+&lt;td>Select this routing method for Traffic Manager profiles that can only have IPv4/IPv6 addresses as endpoints. When a query is received for this profile, all healthy endpoints are returned.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Subnet&lt;/td>
+&lt;td>Select this routing method to map sets of end-user IP address ranges to a specific endpoint. When a request is received, the endpoint returned will be the one mapped for that request’s source IP address.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Examples&lt;/p>
+&lt;p>&lt;img src="img/tm-priority.png" alt="Azure Traffic Manager Priority">
+&lt;img src="img/tm-weighted.png" alt="Azure Traffic Manager Weighted">
+&lt;img src="img/tm-performance.png" alt="Azure Traffic Manager Performance">
+&lt;img src="img/tm-geo.png" alt="Azure Traffic Manager Geo">&lt;/p>
+&lt;p>Profiles can be nested&lt;/p>
+&lt;p>&lt;img src="img/tm-nested.png" alt="Azure Traffic Manager Nested">&lt;/p>
 &lt;h3 id="azure-application-gateway">Azure Application Gateway&lt;/h3>
 &lt;p>&lt;img src="img/azure-application-gateway.png" alt="Azure Application Gateway">&lt;/p>
 &lt;p>Provides application delivery controller (ADC) as a service, offering various &lt;strong>Layer 7&lt;/strong> load-balancing capabilities. Use it to optimize web farm productivity by &lt;strong>offloading&lt;/strong> CPU-intensive &lt;strong>SSL termination&lt;/strong> to the gateway.&lt;/p>
