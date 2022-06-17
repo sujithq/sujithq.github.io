@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Load Balancing | Sujith Quintelier</title><link>/categories/load-balancing/</link><atom:link href="/categories/load-balancing/index.xml" rel="self" type="application/rss+xml"/><description>Load Balancing</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2022</copyright><lastBuildDate>Fri, 17 Jun 2022 06:00:00 +0000</lastBuildDate><image><url>/img/Quintelier_Sujith</url><title>Load Balancing</title><link>/categories/load-balancing/</link></image><item><title>Azure Load Balancing options</title><link>/post/2022-06-17-azure-load-balancing-options/</link><pubDate>Fri, 17 Jun 2022 06:00:00 +0000</pubDate><guid>/post/2022-06-17-azure-load-balancing-options/</guid><description>&lt;p>The term load balancing refers to the even distribution of workloads (that is, incoming network traffic), across a group of backend computing resources or servers. Load balancing aims to optimize resource use, maximize throughput, minimize response time, and avoid overloading any single resource. It can also improve availability by sharing a workload across redundant computing resources.&lt;/p>
+&lt;h2 id="options">Options&lt;/h2>
+&lt;ul>
+&lt;li>Azure Load Balancer&lt;/li>
+&lt;li>Traffic Manager&lt;/li>
+&lt;li>Azure Application Gateway&lt;/li>
+&lt;li>Azure Front Door&lt;/li>
+&lt;/ul>
+&lt;h3 id="azure-load-balancer">Azure Load Balancer&lt;/h3>
+&lt;p>&lt;img src="img/azure-load-balancer.png" alt="Azure Load Balancer">&lt;/p>
+&lt;p>High-performance, ultra-low-latency &lt;strong>Layer 4&lt;/strong> load-balancing service (inbound and outbound) for all &lt;strong>UDP&lt;/strong> and &lt;strong>TCP&lt;/strong> protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is &lt;strong>zone-redundant&lt;/strong>, ensuring high availability across &lt;strong>Availability Zones&lt;/strong>.&lt;/p>
+&lt;h3 id="traffic-manager">Traffic Manager&lt;/h3>
+&lt;p>&lt;img src="img/azure-traffic-manager.png" alt="Azure Traffic Manager">&lt;/p>
+&lt;p>&lt;strong>DNS-based&lt;/strong> traffic load balancer that enables you to distribute traffic optimally to services across &lt;strong>global Azure regions&lt;/strong>, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load-balances only at the &lt;strong>domain level&lt;/strong>. For that reason, it can&amp;rsquo;t fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS time-to-live values (TTLs).&lt;/p>
+&lt;h3 id="azure-application-gateway">Azure Application Gateway&lt;/h3>
+&lt;p>&lt;img src="img/azure-application-gateway.png" alt="Azure Application Gateway">&lt;/p>
+&lt;p>Provides application delivery controller (ADC) as a service, offering various &lt;strong>Layer 7&lt;/strong> load-balancing capabilities. Use it to optimize web farm productivity by &lt;strong>offloading&lt;/strong> CPU-intensive &lt;strong>SSL termination&lt;/strong> to the gateway.&lt;/p>
+&lt;h3 id="azure-front-door">Azure Front Door&lt;/h3>
+&lt;p>&lt;img src="img/azure-front-door.png" alt="Azure Front Door">&lt;/p>
+&lt;p>Application delivery network that provides &lt;strong>global&lt;/strong> load balancing and site acceleration service for &lt;strong>web applications&lt;/strong>. It offers &lt;strong>Layer 7&lt;/strong> capabilities for your application like &lt;strong>SSL offload&lt;/strong>, &lt;strong>path-based routing&lt;/strong>, fast failover, caching, etc. to improve performance and high-availability of your applications.&lt;/p>
+&lt;h2 id="global-vs-regional">Global vs regional&lt;/h2>
+&lt;p>&lt;strong>Global&lt;/strong> load-balancing services distribute traffic across regional backends, clouds, or hybrid on-premises services. These services route end-user traffic to the closest available backend. They also react to changes in service reliability or performance, in order to maximize availability and performance. You can think of them as systems that load balance between application stamps, endpoints, or scale-units hosted across different regions/geographies.&lt;/p>
+&lt;p>In contrast, &lt;strong>Regional&lt;/strong> load-balancing services distribute traffic within virtual networks across virtual machines (VMs) or zonal and zone-redundant service endpoints within a region. You can think of them as systems that load balance between VMs, containers, or clusters within a region in a virtual network.&lt;/p>
+&lt;h2 id="https-vs-non-https">HTTP(S) vs non-HTTP(S)&lt;/h2>
+&lt;p>&lt;strong>HTTP(S)&lt;/strong> load-balancing services are Layer 7 load balancers that only accept HTTP(S) traffic. They are intended for web applications or other HTTP(S) endpoints. They include features such as SSL offload, web application firewall, path-based load balancing, and session affinity.&lt;/p>
+&lt;p>In contrast, &lt;strong>non-HTTP(S)&lt;/strong> load-balancing services can handle non-HTTP(S) traffic and are recommended for non-web workloads.&lt;/p>
+&lt;h2 id="summary">Summary&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Service&lt;/th>
+&lt;th>Global/regional&lt;/th>
+&lt;th>Recommended traffic&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Azure Front Door&lt;/td>
+&lt;td>Global&lt;/td>
+&lt;td>HTTP(S)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Traffic Manager&lt;/td>
+&lt;td>Global&lt;/td>
+&lt;td>non-HTTP(S)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Application Gateway&lt;/td>
+&lt;td>Regional&lt;/td>
+&lt;td>HTTP(S)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Azure Load Balancer&lt;/td>
+&lt;td>Regional&lt;/td>
+&lt;td>non-HTTP(S)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="choosing-a-load-balancing-option">Choosing a load balancing option&lt;/h2>
+&lt;p>&lt;img src="img/load-balancing-decision-tree.png" alt="Load Balancing Decision Tree">&lt;/p></description></item></channel></rss>
