@@ -182,6 +182,8 @@
 &lt;h3 id="azure-application-gateway">Azure Application Gateway&lt;/h3>
 &lt;p>&lt;img src="img/azure-application-gateway.png" alt="Azure Application Gateway">&lt;/p>
 &lt;p>Provides application delivery controller (ADC) as a service, offering various &lt;strong>Layer 7&lt;/strong> load-balancing capabilities. Use it to optimize web farm productivity by &lt;strong>offloading&lt;/strong> CPU-intensive &lt;strong>SSL termination&lt;/strong> to the gateway.&lt;/p>
+&lt;p>Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port.&lt;/p>
+&lt;p>&lt;img src="img/apg-general.png" alt="Application Gateway Flow">&lt;/p>
 &lt;h3 id="azure-front-door">Azure Front Door&lt;/h3>
 &lt;p>&lt;img src="img/azure-front-door.png" alt="Azure Front Door">&lt;/p>
 &lt;p>Application delivery network that provides &lt;strong>global&lt;/strong> load balancing and site acceleration service for &lt;strong>web applications&lt;/strong>. It offers &lt;strong>Layer 7&lt;/strong> capabilities for your application like &lt;strong>SSL offload&lt;/strong>, &lt;strong>path-based routing&lt;/strong>, fast failover, caching, etc. to improve performance and high-availability of your applications.&lt;/p>
