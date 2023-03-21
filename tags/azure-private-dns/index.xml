@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Azure Private DNS | Sujith Quintelier</title><link>/tags/azure-private-dns/</link><atom:link href="/tags/azure-private-dns/index.xml" rel="self" type="application/rss+xml"/><description>Azure Private DNS</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2023</copyright><lastBuildDate>Fri, 03 Jun 2022 06:00:00 +0000</lastBuildDate><image><url>/img/Quintelier_Sujith</url><title>Azure Private DNS</title><link>/tags/azure-private-dns/</link></image><item><title>AZ-700 Prep Highlights</title><link>/post/2022-06-03-az-700-prep/</link><pubDate>Fri, 03 Jun 2022 06:00:00 +0000</pubDate><guid>/post/2022-06-03-az-700-prep/</guid><description>&lt;blockquote>
+&lt;p>Work in progress&lt;/p>
+&lt;/blockquote>
+&lt;p>This blog post summarizes my notes on my course on az-700: the course teaches Network Engineers how to design, implement, and maintain Azure networking solutions. The course covers the process of designing, implementing, and managing core Azure networking infrastructure, Hybrid Networking connections, load balancing traffic, network routing, private access to Azure services, network security and monitoring.&lt;/p>
+&lt;h2 id="virtual-networks">Virtual Networks&lt;/h2>
+&lt;h3 id="capabilities">Capabilities&lt;/h3>
+&lt;ul>
+&lt;li>Communication with the internet&lt;/li>
+&lt;li>Communication between Azure resources&lt;/li>
+&lt;li>Communication between on-premises resources&lt;/li>
+&lt;li>Filtering network traffic&lt;/li>
+&lt;li>Routing network traffic&lt;/li>
+&lt;/ul>
+&lt;h3 id="address-spaces-to-be-used">Address spaces to be used&lt;/h3>
+&lt;ul>
+&lt;li>10.0.0.0 - 10.255.255.255 (10/8 prefix)&lt;/li>
+&lt;li>172.16.0.0 - 172.31.255.255 (172.16/12 prefix)&lt;/li>
+&lt;li>192.168.0.0 - 192.168.255.255 (192.168/16 prefix)&lt;/li>
+&lt;/ul>
+&lt;h3 id="subnets">Subnets&lt;/h3>
+&lt;p>Azure reserves 5 IP addresses within each subnet.&lt;/p>
+&lt;ul>
+&lt;li>x.x.x.0: Network address&lt;/li>
+&lt;li>x.x.x.1: Reserved by Azure for the default gateway&lt;/li>
+&lt;li>x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space&lt;/li>
+&lt;li>x.x.x.255: Network broadcast address&lt;/li>
+&lt;/ul>
+&lt;h2 id="scopes">Scopes&lt;/h2>
+&lt;p>All Azure resource types have a scope that defines the level that resource names must be unique. A resource must have a unique name within its scope. There are four levels you can specify a scope:&lt;/p>
+&lt;ul>
+&lt;li>Global (Azure Storage Account)&lt;/li>
+&lt;li>Management Group&lt;/li>
+&lt;li>Subscription&lt;/li>
+&lt;li>Resource Group (Azure Virtual Network)&lt;/li>
+&lt;li>Resource&lt;/li>
+&lt;/ul>
+&lt;h2 id="regions-and-subscriptions">Regions and Subscriptions&lt;/h2>
+&lt;p>A resource can be created in a virtual network in the same region and subscription but virtual network can be connected from different subscriptions and regions&lt;/p>
+&lt;h2 id="availability-zones">Availability Zones&lt;/h2>
+&lt;p>An Azure Availability Zone enables you to define unique physical locations within a region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. Designed to ensure high-availability of your Azure services, the physical separation of Availability Zones within a region protects applications and data from data center failures.&lt;/p>
+&lt;ul>
+&lt;li>Zonal services: Resources can be pinned to a specific zone&lt;/li>
+&lt;li>Zone-Redundant services: Resources are replicated across zones automatically&lt;/li>
+&lt;li>Non-Regional services: services are always available and are resilient to zone-wide and region-wide outages.&lt;/li>
+&lt;/ul>
+&lt;h2 id="public-ip">Public IP&lt;/h2>
+&lt;p>Public IP addresses enable Internet resources to communicate with Azure resources and enable Azure resources to communicate outbound with Internet and public-facing Azure services. A public IP address in Azure is dedicated to a specific resource, until it&amp;rsquo;s unassigned by a network engineer. A resource without a public IP assigned can communicate outbound through network address translation services, where Azure dynamically assigns an available IP address that isn&amp;rsquo;t dedicated to the resource.&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>A &lt;strong>dynamic&lt;/strong> public IP address is an assigned address that can change over the lifespan of the Azure resource. The dynamic IP address is allocated when you create or start a VM. The IP address is released when you stop or delete the VM. In each Azure region, public IP addresses are assigned from a unique pool of addresses. The default allocation method is dynamic.&lt;/li>
+&lt;li>A &lt;strong>static&lt;/strong> public IP address is an assigned address that will not change over the lifespan of the Azure resource. To ensure that the IP address for the resource remains the same, set the allocation method explicitly to static. In this case, an IP address is assigned immediately. It is released only when you delete the resource or change the IP allocation method to dynamic.&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;ul>
+&lt;li>Basic SKU: can be assigned by using static or dynamic allocation methods, are open by default, use of NSG is recommended but optional for restricting inbound or outbound traffic. Assignable to to any Azure resource that can be assigned a public IP address, such as network interfaces, VPN gateways, application gateways, and internet-facing load balancers. Availability zone scenarios not supported&lt;/li>
+&lt;li>Standard SKU: always use the static allocation method, are secure by default and closed to inbound traffic, must explicitly allow inbound traffic by using a NSG. Assignable to network interfaces, Standard public load balancers, application gateways, or VPN gateways. Zone-redundant by default and optionally zonal (they can be created zonal and guaranteed in a specific availability zone).&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h2 id="dns-resolutions">DNS resolutions&lt;/h2>
+&lt;p>Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you might need to allow the virtual machines (VMs), and other resources deployed in a virtual network to communicate with each other. Although you can enable communication by using IP addresses, it is much simpler to use names that can be easily remembered, and do not change.&lt;/p>
+&lt;p>&lt;img src="img/hybrid-dns-infra.png" alt="DNS Resolution">&lt;/p>
+&lt;p>DNS is split into two areas: Public, and Private DNS for resources accessible from your own internal networks.&lt;/p>
+&lt;h3 id="public-dns-services">Public DNS Services&lt;/h3>
+&lt;p>Public DNS services resolve names and IP addresses for resources and services accessible over the internet such as web servers. Azure DNS is a hosting service for DNS domain that provides name resolution by using Microsoft Azure infrastructure. DNS domains in Azure DNS are hosted on Azure&amp;rsquo;s global network of DNS name servers. Azure DNS uses anycast networking. Each DNS query is answered by the closest available DNS server to provide fast performance and high availability for your domain.&lt;/p>
+&lt;p>In Azure DNS, you can create address records manually within relevant zones. The records most frequently used will be:&lt;/p>
+&lt;ul>
+&lt;li>Host records: A/AAAA (IPv4/IPv6)&lt;/li>
+&lt;li>Alias records: CNAME&lt;/li>
+&lt;/ul>
+&lt;p>Azure DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without needing to add a custom DNS solution.&lt;/p>
+&lt;p>A DNS zone hosts the DNS records for a domain. So, to start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone.&lt;/p>
+&lt;p>You do not have to own a domain name to create a DNS zone with that domain name in Azure DNS. However, you do need to own the domain to configure the domain.&lt;/p>
+&lt;h3 id="delegate-dns-domains">Delegate DNS Domains&lt;/h3>
+&lt;p>To delegate your domain to Azure DNS, you first need to know the name server names for your zone. Each time a DNS zone is created Azure DNS allocates name servers from a pool. Once the Name Servers are assigned, Azure DNS automatically creates authoritative NS records in your zone.&lt;/p>
+&lt;p>Once the DNS zone is created, and you have the name servers, you need to update the parent domain. Each registrar has their own DNS management tools to change the name server records for a domain. In the registrar’s DNS management page, edit the NS records and replace the NS records with the ones Azure DNS created.&lt;/p>
+&lt;p>Note: When delegating a domain to Azure DNS, you must use the name server names provided by Azure DNS. You should always use all four name server names, regardless of the name of your domain.&lt;/p>
+&lt;h3 id="private-dns-services">Private DNS Services&lt;/h3>
+&lt;p>Private DNS services resolve names and IP addresses for resources and services&lt;/p>
+&lt;p>When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one the three methods:&lt;/p>
+&lt;ul>
+&lt;li>Azure DNS Private Zones&lt;/li>
+&lt;li>Azure-provided name resolution&lt;/li>
+&lt;li>Name resolution that uses your own DNS server&lt;/li>
+&lt;/ul>
+&lt;p>The type of name resolution you use depends on how your resources need to communicate with each other.&lt;/p>
+&lt;p>Your name resolution needs might go beyond the features provided by Azure. For example, you might need to use Microsoft Windows Server Active Directory domains, resolve DNS names between virtual networks. To cover these scenarios, Azure provides the ability for you to use your own DNS servers.&lt;/p>
+&lt;p>DNS servers within a virtual network can forward DNS queries to the recursive resolvers in Azure. This enables you to resolve host names within that virtual network. For example, a domain controller (DC) running in Azure can respond to DNS queries for its domains and forward all other queries to Azure. Forwarding queries allows VMs to see both your on-premises resources (via the DC) and Azure-provided host names (via the forwarder). Access to the recursive resolvers in Azure is provided via the virtual IP 168.63.129.16.&lt;/p>
+&lt;p>DNS forwarding also enables DNS resolution between virtual networks and allows your on-premises machines to resolve Azure-provided host names. In order to resolve a VM&amp;rsquo;s host name, the DNS server VM must reside in the same virtual network and be configured to forward host name queries to Azure. Because the DNS suffix is different in each virtual network, you can use conditional forwarding rules to send DNS queries to the correct virtual network for resolution.&lt;/p>
+&lt;h2 id="cross-virtual-network-connectivity-with-peering">Cross-virtual network connectivity with peering&lt;/h2>
+&lt;p>Organizations with large scale operations will often need to create connections between different parts of their virtual network infrastructure. Virtual network peering enables you to seamlessly connect separate VNets with optimal network performance, whether they are in the same Azure region (VNet peering) or in different regions (Global VNet peering). Network traffic between peered virtual networks is private. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure, and no public Internet, gateways, or encryption is required in the communication between the virtual networks.&lt;/p>
+&lt;p>Virtual network peering enables you to seamlessly connect two Azure virtual networks. Once peered, the virtual networks appear as one, for connectivity purposes. There are two types of VNet peering.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Regional peering&lt;/strong> connects Azure virtual networks in the same region.&lt;/li>
+&lt;li>&lt;strong>Global peering&lt;/strong> connects Azure virtual networks in different regions. When creating a global peering, the peered virtual networks can exist in any Azure public cloud region or China cloud regions, but not in Government cloud regions. You can only peer virtual networks in the same region in Azure Government cloud regions.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="img/peering.jpg" alt="Peering">&lt;/p>
+&lt;p>Benefits:&lt;/p>
+&lt;ul>
+&lt;li>A low-latency, high-bandwidth connection between resources in different virtual networks.&lt;/li>
+&lt;li>The ability to apply network security groups in either virtual network to block access to other virtual networks or subnets.&lt;/li>
+&lt;li>The ability to transfer data between virtual networks across Azure subscriptions, Azure Active Directory tenants, deployment models, and Azure regions.&lt;/li>
+&lt;li>The ability to peer virtual networks created through the Azure Resource Manager.&lt;/li>
+&lt;li>The ability to peer a virtual network created through Resource Manager to one created through the classic deployment model.&lt;/li>
+&lt;li>No downtime to resources in either virtual network is required when creating the peering, or after the peering is created.&lt;/li>
+&lt;/ul>
+&lt;h2 id="gateway-transit">Gateway Transit&lt;/h2>
+&lt;p>Is a peering property that lets one virtual network use the VPN gateway in the peered virtual network for cross-premises or VNet-to-VNet connectivity.&lt;/p>
+&lt;p>&lt;img src="img/gatewaytransit.png" alt="Gateway Transit">&lt;/p>
+&lt;h2 id="traffic-routing">Traffic routing&lt;/h2>
+&lt;ul>
+&lt;li>System routes&lt;/li>
+&lt;li>Default routes&lt;/li>
+&lt;li>custom routes&lt;/li>
+&lt;/ul>
+&lt;p>Default routes&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Source&lt;/th>
+&lt;th>Address prefixes&lt;/th>
+&lt;th>Next hop type&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Default&lt;/td>
+&lt;td>Unique to the virtual network&lt;/td>
+&lt;td>Virtual network&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Default&lt;/td>
+&lt;td>0.0.0.0/0&lt;/td>
+&lt;td>Internet&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Default&lt;/td>
+&lt;td>10.0.0.0/8&lt;/td>
+&lt;td>None&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Default&lt;/td>
+&lt;td>192.168.0.0/16&lt;/td>
+&lt;td>None&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Default&lt;/td>
+&lt;td>100.64.0.0/10&lt;/td>
+&lt;td>None&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>

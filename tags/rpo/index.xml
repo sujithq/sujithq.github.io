@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>RPO | Sujith Quintelier</title><link>/tags/rpo/</link><atom:link href="/tags/rpo/index.xml" rel="self" type="application/rss+xml"/><description>RPO</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2023</copyright><lastBuildDate>Mon, 20 Mar 2023 06:00:00 +0000</lastBuildDate><image><url>/img/Quintelier_Sujith</url><title>RPO</title><link>/tags/rpo/</link></image><item><title>Azure Storage redundancy</title><link>/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/</link><pubDate>Mon, 20 Mar 2023 06:00:00 +0000</pubDate><guid>/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/</guid><description>&lt;p>Azure Storage always stores multiple copies of your data so that it&amp;rsquo;s protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures.&lt;/p>
+&lt;h2 id="redundancy-primary-region">Redundancy Primary Region&lt;/h2>
+&lt;p>Data in an Azure Storage account is always replicated three times in the primary region. Azure Storage offers two options for how your data is replicated in the primary region:&lt;/p>
+&lt;ul>
+&lt;li>LRS&lt;/li>
+&lt;li>ZRS&lt;/li>
+&lt;/ul>
+&lt;h3 id="lrs">LRS&lt;/h3>
+&lt;p>Copies your data &lt;strong>synchronously&lt;/strong> three times within a single physical location in the primary region. LRS is the least expensive replication option, but isn&amp;rsquo;t recommended for applications requiring high availability or durability.&lt;/p>
+&lt;p>&lt;img src="img/lrs.png" alt="lrs">&lt;/p>
+&lt;h3 id="zrs">ZRS&lt;/h3>
+&lt;p>Copies your data &lt;strong>synchronously&lt;/strong> across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region.&lt;/p>
+&lt;p>&lt;img src="img/zrs.png" alt="zrs">&lt;/p>
+&lt;h2 id="redundancy-secondary-region">Redundancy Secondary Region&lt;/h2>
+&lt;p>For applications requiring high durability, you can choose to additionally copy the data in your storage account to a secondary region that is hundreds of miles away from the primary region. If your storage account is copied to a secondary region, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn&amp;rsquo;t recoverable.&lt;/p>
+&lt;p>When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can&amp;rsquo;t be changed.&lt;/p>
+&lt;p>Azure Storage offers two options for copying your data to a secondary region:&lt;/p>
+&lt;ul>
+&lt;li>GRS&lt;/li>
+&lt;li>GZRS&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>The primary difference between GRS and GZRS is how data is replicated in the primary region. Within the secondary region, data is always replicated synchronously three times using LRS. LRS in the secondary region protects your data against hardware failures.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="grs">GRS&lt;/h3>
+&lt;p>Copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.&lt;/p>
+&lt;p>&lt;img src="img/ra-grs.png" alt="grs">&lt;/p>
+&lt;h3 id="gzrs">GZRS&lt;/h3>
+&lt;p>Copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.&lt;/p>
+&lt;p>&lt;img src="img/ra-gzrs.png" alt="gzrs">&lt;/p>
+&lt;h3 id="read-access-to-data-in-the-secondary-region">Read access to data in the secondary region&lt;/h3>
+&lt;p>Geo-redundant storage (with GRS or GZRS) replicates your data to another physical location in the secondary region to protect against regional outages. With an account configured for GRS or GZRS, data in the secondary region is not directly accessible to users or applications, unless a failover occurs. The failover process updates the DNS entry provided by Azure Storage so that the secondary endpoint becomes the new primary endpoint for your storage account. During the failover process, your data is inaccessible. After the failover is complete, you can read and write data to the new primary region.&lt;/p>
+&lt;p>If your applications require high availability, then you can configure your storage account for read access to the secondary region. When you enable read access to the secondary region, then your data is always available to be read from the secondary, including in a situation where the primary region becomes unavailable. Read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS) configurations permit read access to the secondary region.&lt;/p>
+&lt;blockquote>
+&lt;p>Because data is replicated asynchronously from the primary to the secondary region, the secondary region is typically behind the primary region in terms of write operations. If a disaster were to strike the primary region, it&amp;rsquo;s likely that some data would be lost.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="summaries">Summaries&lt;/h2>
+&lt;h3 id="durability-and-availability-parameters">Durability and availability parameters&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Parameter&lt;/th>
+&lt;th>LRS&lt;/th>
+&lt;th>ZRS&lt;/th>
+&lt;th>(RA-)GRS&lt;/th>
+&lt;th>(RA-)GZRS&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Percent durability of objects over a given year&lt;/td>
+&lt;td>at least 11 9&amp;rsquo;s&lt;/td>
+&lt;td>at least 12 9&amp;rsquo;s&lt;/td>
+&lt;td>at least 16 9&amp;rsquo;s&lt;/td>
+&lt;td>at least 16 9&amp;rsquo;s&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Availability for read requests&lt;/td>
+&lt;td>At least 99.9% (99% for Cool or Archive access tiers)&lt;/td>
+&lt;td>At least 99.9% (99% for Cool or Archive access tiers)&lt;/td>
+&lt;td>At least 99.9% (99% for Cool or Archive access tiers) for GRS&lt;/td>
+&lt;td>At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GRS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>At least 99.9% (99% for Cool or Archive access tiers) for GZRS&lt;/td>
+&lt;td>At least 99.99% (99.9% for Cool or Archive access tiers) for RA-GZRS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Availability for write requests&lt;/td>
+&lt;td>At least 99.9% (99% for Cool or Archive access tiers)&lt;/td>
+&lt;td>At least 99.9% (99% for Cool or Archive access tiers)&lt;/td>
+&lt;td>At least 99.9% (99% for Cool or Archive access tiers)&lt;/td>
+&lt;td>At least 99.9% (99% for Cool or Archive access tiers)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Number of copies of data maintained on separate nodes&lt;/td>
+&lt;td>Three copies within a single region&lt;/td>
+&lt;td>Three copies across separate availability zones within a single region&lt;/td>
+&lt;td>Six copies total, including three in the primary region and three in the secondary region&lt;/td>
+&lt;td>Six copies total, including three across separate availability zones in the primary region and three locally redundant copies in the secondary region&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="durability-and-availability-by-outage-scenario">Durability and availability by outage scenario&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Parameter&lt;/th>
+&lt;th>LRS&lt;/th>
+&lt;th>ZRS&lt;/th>
+&lt;th>(RA-)GRS&lt;/th>
+&lt;th>(RA-)GZRS&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>A node within a data center becomes unavailable&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>An entire data center (zonal or non-zonal) becomes unavailable&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>A region-wide outage occurs in the primary region&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;td>Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Read access to the secondary region is available if the primary region becomes unavailable&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>Yes (with RA-GRS)&lt;/td>
+&lt;td>Yes (with RA-GZRS)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>
