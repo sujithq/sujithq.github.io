@@ -1,50 +1,76 @@
-# [Hugo Academic Theme](https://github.com/wowchemy/starter-hugo-academic)
+# sujithq.github.io
 
-[![Screenshot](./preview.png)](https://wowchemy.com/hugo-themes/)
+[![Deploy Hugo site to Pages](https://github.com/sujithq/sujithq.github.io/actions/workflows/hugo.yml/badge.svg)](https://github.com/sujithq/sujithq.github.io/actions/workflows/hugo.yml)
 
-The Hugo **Academic Resumé Template** empowers you to easily create your job-winning online resumé, showcase your academic publications, and create online courses or knowledge bases to grow your audience.
 
-[![Get Started](https://img.shields.io/badge/-Get%20started-ff4655?style=for-the-badge)](https://wowchemy.com/hugo-themes/)
-[![Discord](https://img.shields.io/discord/722225264733716590?style=for-the-badge)](https://discord.com/channels/722225264733716590/742892432458252370/742895548159492138)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/wowchemy?label=Follow%20on%20Twitter)](https://twitter.com/wowchemy)
+Welcome to my personal [site](https://sujithq.github.io)! This repository contains the code and assets for my personal website, where I showcase my cv, blog, and other information about myself.
 
-️**Trusted by 250,000+ researchers, educators, and students.** Highly customizable via the integrated **no-code, widget-based Wowchemy page builder**, making every site truly personalized ⭐⭐⭐⭐⭐
+## Table of Contents
 
-Easily write technical content with plain text Markdown, LaTeX math, diagrams, RMarkdown, or Jupyter, and import publications from BibTeX.
+- [About](#about)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-[Check out the latest demo](https://academic-demo.netlify.app/) of what you'll get in less than 10 minutes, or [get inspired by our academics and research groups](https://wowchemy.com/creators/).
+## About
 
-The integrated [**Wowchemy**](https://wowchemy.com) website builder and CMS makes it easy to create a beautiful website for free. Edit your site in the CMS (or your favorite editor), generate it with [Hugo](https://github.com/gohugoio/hugo), and deploy with GitHub or Netlify. Customize anything on your site with widgets, light/dark themes, and language packs.
+This personal site serves as a hub for sharing my work, thoughts, and experiences. Visitors can explore my cv, read my blog posts, and get in touch with me through the provided contact information.
 
-- 👉 [**Get Started**](https://wowchemy.com/hugo-themes/)
-- 📚 [View the **documentation**](https://wowchemy.com/docs/)
-- 💬 [Chat with the **Wowchemy research community**](https://discord.gg/z8wNYzb) or [**Hugo community**](https://discourse.gohugo.io)
-- 🐦 Twitter: [@wowchemy](https://twitter.com/wowchemy) [@GeorgeCushen](https://twitter.com/GeorgeCushen) [#MadeWithWowchemy](https://twitter.com/search?q=%23MadeWithWowchemy&src=typed_query)
-- ⬇️ **Automatically import your publications from BibTeX** with the [Hugo Academic CLI](https://github.com/wowchemy/hugo-academic-cli)
-- 💡 [Suggest an improvement](https://github.com/wowchemy/wowchemy-hugo-themes/issues)
-- ⬆️ **Updating?** View the [Update Guide](https://wowchemy.com/docs/hugo-tutorials/update/) and [Release Notes](https://github.com/wowchemy/wowchemy-hugo-themes/releases)
+## Features
 
-## We ask you, humbly, to support this open source movement
+- **Biography:** A detailed overview of my background, skills, and professional experience, resembling a CV.
+- **Experiences:** Showcasing my professional experiences.
+- **Accomplishments:** Highlighting my achieved certificates and qualifications.
+- **Badges:** Displaying any earned badges or certifications to provide additional recognition.
+- **Blog:** Sharing my thoughts, experiences, and insights through blog posts on various topics.
+- **Contact:** Providing a way for visitors to get in touch with me through email or social media platforms.
 
-Today we ask you to defend the open source independence of the Wowchemy website builder and themes 🐧
+## Technologies Used
 
-We're an open source movement that depends on your support to stay online and thriving, but 99.9% of our creators don't give; they simply look the other way.
+The following technologies were used to build this personal site:
 
-### [❤️ Click here to become a GitHub Sponsor, unlocking awesome perks such as _exclusive academic templates and widgets_](https://github.com/sponsors/gcushen)
+- [Hugo](https://gohugo.io/): A fast and flexible static site generator written in Go.
+- [GitHub](https://github.com/): Version control system for managing code and collaboration.
+- [GitHub Pages](https://pages.github.com/): Hosting service to publish the site directly from the 
+- [GitHub Actions](https://docs.github.com/en/actions): Automating tasks such as building and deploying the site.
+- Markdown: A lightweight markup language used for content creation.
+- HTML5 and CSS3 for the structure, layout, and styling.
+repository.
+- YAML: A human-readable data serialization format used for configuration files.
+- TOML: A configuration file format used by Hugo.
+- [Go](https://go.dev/): The programming language used by Hugo.
 
-<p align="center"><a href="https://wowchemy.com/templates/" target="_blank" rel="noopener"><img src="https://wowchemy.com/uploads/readmes/academic_logo_200px.png" alt="Hugo Academic Theme for Wowchemy Website Builder"></a></p>
+## Installation
 
-## Demo image credits
+To run this personal site locally, follow these steps:
 
-- [Open book](https://unsplash.com/photos/J4kK8b9Fgj8)
-- [Course](https://unsplash.com/photos/JKUTrJ4vK00)
+1. Clone this repository: `git clone https://github.com/sujithq/sujithq.github.io.git`.
+2. Navigate to the project's directory: `cd sujithq.github.io.git`.
+3. Install any necessary dependencies: `go, hugo cli, dart-sass-embedded`.
+4. Start a local development server: `hugo server -p 1234`.
+5. Open your web browser and visit `http://localhost:1234` to view the site.
 
-## Latest news
+## Usage
 
-<!--START_SECTION:news-->
-* [Easily make an academic CV website to get more cites and grow your audience 🚀](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;easily-make-academic-website&#x2F;)
-* [What&#39;s new in v5.2?](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;whats-new-in-v5.2&#x2F;)
-* [What&#39;s new in v5.1?](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;whats-new-in-v5.1&#x2F;)
-* [Version 5.0 (February 2021)](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;version-5.0-february-2021&#x2F;)
-* [Version 5.0 Beta 3 (February 2021)](https:&#x2F;&#x2F;wowchemy.com&#x2F;blog&#x2F;version-5.0-beta-3-february-2021&#x2F;)
-<!--END_SECTION:news-->
+Once the site is up and running, you can navigate through different sections using the navigation menu. The blog section contains a list of blog posts that can be read individually. In the contact section, you can find my email address and links to my social media profiles.
+
+Feel free to explore the site and get in touch if you have any questions, feedback, or opportunities for collaboration!
+
+## Contributing
+
+I appreciate contributions to improve this personal site. If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature-name`.
+3. Make your changes and commit them: `git commit -am 'Add new feature'`.
+4. Push to the branch: `git push origin feature-name`.
+5. Submit a pull request detailing your changes and their purpose.
+
+## License
+
+This personal site is licensed under the [MIT License](LICENSE). Feel free to use the code, styles, and content as a reference or template for your own personal site. However, please do not use my personal information or assets without permission.
+
+---
