@@ -31,7 +31,7 @@ interests:
 - DevOps
 - GitHub
 - Kubernetes
-- IoC
+- IoC(Terraform, Bicep)
 - Security
 - NOSQL
 - Programming Languages
