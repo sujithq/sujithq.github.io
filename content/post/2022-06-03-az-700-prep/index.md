@@ -10,6 +10,7 @@
 #subclass: 'post'
 #author: sujith
 #disqus: False
+share: true
 title: 'AZ-700 Prep Highlights'
 subtitle: 'AZ-700 Prep Highlights'
 summary: 'AZ-700 Prep Highlights'
