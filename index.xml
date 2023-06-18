@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sujith Quintelier</title><link>/</link><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><description>Sujith Quintelier</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>©2023</copyright><image><url>/img/Quintelier_Sujith</url><title>Sujith Quintelier</title><link>/</link></image><item><title>Azure Storage redundancy</title><link>/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/</link><pubDate>Mon, 20 Mar 2023 06:00:00 +0000</pubDate><guid>/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/</guid><description>&lt;p>Azure Storage always stores multiple copies of your data so that it&amp;rsquo;s protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sujith Quintelier</title><link>/</link><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><description>Sujith Quintelier</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 24 Oct 2022 00:00:00 +0000</lastBuildDate><image><url>/media/icon_hu5e15e861ad43a166b29f0ae919c910d4_1990_512x512_fill_lanczos_center_3.png</url><title>Sujith Quintelier</title><link>/</link></image><item><title>Example Talk</title><link>/talk/example-talk/</link><pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate><guid>/talk/example-talk/</guid><description>&lt;div class="alert alert-note">
+&lt;div>
+Click on the &lt;strong>Slides&lt;/strong> button above to view the built-in slides feature.
+&lt;/div>
+&lt;/div>
+&lt;p>Slides can be added in a few ways:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Create&lt;/strong> slides using Wowchemy&amp;rsquo;s &lt;a href="https://wowchemy.com/docs/managing-content/#create-slides" target="_blank" rel="noopener">&lt;em>Slides&lt;/em>&lt;/a> feature and link using &lt;code>slides&lt;/code> parameter in the front matter of the talk file&lt;/li>
+&lt;li>&lt;strong>Upload&lt;/strong> an existing slide deck to &lt;code>static/&lt;/code> and link using &lt;code>url_slides&lt;/code> parameter in the front matter of the talk file&lt;/li>
+&lt;li>&lt;strong>Embed&lt;/strong> your slides (e.g. Google Slides) or presentation video on this page using &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">shortcodes&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>Azure Storage redundancy</title><link>/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/</link><pubDate>Mon, 20 Mar 2023 06:00:00 +0000</pubDate><guid>/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/</guid><description>&lt;p>Azure Storage always stores multiple copies of your data so that it&amp;rsquo;s protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures.&lt;/p>
 &lt;h2 id="redundancy-primary-region">Redundancy Primary Region&lt;/h2>
 &lt;p>Data in an Azure Storage account is always replicated three times in the primary region. Azure Storage offers two options for how your data is replicated in the primary region:&lt;/p>
 &lt;ul>
@@ -7,10 +18,34 @@
 &lt;/ul>
 &lt;h3 id="lrs">LRS&lt;/h3>
 &lt;p>Copies your data &lt;strong>synchronously&lt;/strong> three times within a single physical location in the primary region. LRS is the least expensive replication option, but isn&amp;rsquo;t recommended for applications requiring high availability or durability.&lt;/p>
-&lt;p>&lt;img src="img/lrs.png" alt="lrs">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="lrs" srcset="
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/lrs_hu7d122d694831eb2558b0219dd6567d84_40338_de9de33a98e0899f21f61e710112c22f.webp 400w,
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/lrs_hu7d122d694831eb2558b0219dd6567d84_40338_08f9989cd58efcca84ceeba11ae32486.webp 760w,
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/lrs_hu7d122d694831eb2558b0219dd6567d84_40338_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/lrs_hu7d122d694831eb2558b0219dd6567d84_40338_de9de33a98e0899f21f61e710112c22f.webp"
+width="434"
+height="390"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h3 id="zrs">ZRS&lt;/h3>
 &lt;p>Copies your data &lt;strong>synchronously&lt;/strong> across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region.&lt;/p>
-&lt;p>&lt;img src="img/zrs.png" alt="zrs">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="zrs" srcset="
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/zrs_hu036a7f574b7f0fdc9cb24d5ba81118c3_102675_d20fb8353bfeb0943c66e456e95464a0.webp 400w,
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/zrs_hu036a7f574b7f0fdc9cb24d5ba81118c3_102675_8c3474364e49894f83e614826c75c207.webp 760w,
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/zrs_hu036a7f574b7f0fdc9cb24d5ba81118c3_102675_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/zrs_hu036a7f574b7f0fdc9cb24d5ba81118c3_102675_d20fb8353bfeb0943c66e456e95464a0.webp"
+width="760"
+height="335"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h2 id="redundancy-secondary-region">Redundancy Secondary Region&lt;/h2>
 &lt;p>For applications requiring high durability, you can choose to additionally copy the data in your storage account to a secondary region that is hundreds of miles away from the primary region. If your storage account is copied to a secondary region, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn&amp;rsquo;t recoverable.&lt;/p>
 &lt;p>When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can&amp;rsquo;t be changed.&lt;/p>
@@ -24,10 +59,34 @@
 &lt;/blockquote>
 &lt;h3 id="grs">GRS&lt;/h3>
 &lt;p>Copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.&lt;/p>
-&lt;p>&lt;img src="img/ra-grs.png" alt="grs">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="grs" srcset="
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/ra-grs_hudeaefb5d0ce36850c8c2aa6d320c5d58_101067_f8b92abafdfbc5c25b731785467f1749.webp 400w,
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/ra-grs_hudeaefb5d0ce36850c8c2aa6d320c5d58_101067_ecceef7efa9b081723756f82479008bb.webp 760w,
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/ra-grs_hudeaefb5d0ce36850c8c2aa6d320c5d58_101067_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/ra-grs_hudeaefb5d0ce36850c8c2aa6d320c5d58_101067_f8b92abafdfbc5c25b731785467f1749.webp"
+width="760"
+height="239"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h3 id="gzrs">GZRS&lt;/h3>
 &lt;p>Copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.&lt;/p>
-&lt;p>&lt;img src="img/ra-gzrs.png" alt="gzrs">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="gzrs" srcset="
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/ra-gzrs_hu587523af2b973fa376b1ece99c304289_180205_89123ba47ccd1041f0a064e2b7e84a39.webp 400w,
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/ra-gzrs_hu587523af2b973fa376b1ece99c304289_180205_412d39c9c15bb4473a51fcbb791b2781.webp 760w,
+/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/ra-gzrs_hu587523af2b973fa376b1ece99c304289_180205_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2023-03-20-lrs-zrs-ra-grs-ra-gzrs/img/ra-gzrs_hu587523af2b973fa376b1ece99c304289_180205_89123ba47ccd1041f0a064e2b7e84a39.webp"
+width="760"
+height="219"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h3 id="read-access-to-data-in-the-secondary-region">Read access to data in the secondary region&lt;/h3>
 &lt;p>Geo-redundant storage (with GRS or GZRS) replicates your data to another physical location in the secondary region to protect against regional outages. With an account configured for GRS or GZRS, data in the secondary region is not directly accessible to users or applications, unless a failover occurs. The failover process updates the DNS entry provided by Azure Storage so that the secondary endpoint becomes the new primary endpoint for your storage account. During the failover process, your data is inaccessible. After the failover is complete, you can read and write data to the new primary region.&lt;/p>
 &lt;p>If your applications require high availability, then you can configure your storage account for read access to the secondary region. When you enable read access to the secondary region, then your data is always available to be read from the secondary, including in a situation where the primary region becomes unavailable. Read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS) configurations permit read access to the secondary region.&lt;/p>
@@ -134,20 +193,68 @@
 &lt;li>Azure Front Door&lt;/li>
 &lt;/ul>
 &lt;h3 id="azure-load-balancer">Azure Load Balancer&lt;/h3>
-&lt;p>&lt;img src="img/azure-load-balancer.png" alt="Azure Load Balancer">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Azure Load Balancer" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/azure-load-balancer_hu70709c2effb19e4b47f238acf31b43f8_3696_e522967642a651ed2699cc4aee39fbde.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/azure-load-balancer_hu70709c2effb19e4b47f238acf31b43f8_3696_f548d13e95bb82c121d8d5b665bdfd60.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/azure-load-balancer_hu70709c2effb19e4b47f238acf31b43f8_3696_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/azure-load-balancer_hu70709c2effb19e4b47f238acf31b43f8_3696_e522967642a651ed2699cc4aee39fbde.webp"
+width="151"
+height="151"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;p>High-performance, ultra-low-latency &lt;strong>Layer 4&lt;/strong> load-balancing service (inbound and outbound) for all &lt;strong>UDP&lt;/strong> and &lt;strong>TCP&lt;/strong> protocols. It is built to handle millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is &lt;strong>zone-redundant&lt;/strong>, ensuring high availability across &lt;strong>Availability Zones&lt;/strong>.&lt;/p>
 &lt;h4 id="type">Type&lt;/h4>
 &lt;p>They can be public (aka external) or internal (aka private).&lt;/p>
 &lt;p>&lt;strong>Public&lt;/strong> - Provide outbound connections for virtual machines (VMs) inside your virtual network. These connections are accomplished by translating their private IP addresses to public IP addresses. External load balancers are used to distribute client traffic from the internet across your VMs. That internet traffic might come from web browsers, module apps, or other sources.&lt;/p>
 &lt;p>&lt;strong>Internal&lt;/strong> - Is used where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic from internal Azure resources to other Azure resources inside a virtual network. A load balancer frontend can also be accessed from an on-premises network in a hybrid scenario.&lt;/p>
-&lt;p>&lt;img src="img/alb-public-internal.png" alt="ALB Public vs Internal">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="ALB Public vs Internal" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/alb-public-internal_hua16c224744d6e183dfd6032cff4b0104_43862_3a271513a3107d5d16e8155e875f6c56.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/alb-public-internal_hua16c224744d6e183dfd6032cff4b0104_43862_34817728064a8486594a54362522837f.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/alb-public-internal_hua16c224744d6e183dfd6032cff4b0104_43862_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/alb-public-internal_hua16c224744d6e183dfd6032cff4b0104_43862_3a271513a3107d5d16e8155e875f6c56.webp"
+width="491"
+height="760"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h4 id="availability-zones">Availability zones&lt;/h4>
 &lt;p>Azure Load Balancer can be either zone redundant, zonal or non-zonal.&lt;/p>
 &lt;p>&lt;strong>Zone redundant&lt;/strong> - The traffic s served by a single IP address and it survives zone failure. The frontend IP may be used to reach all non-impacted backend pool members no matter the zone. One or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.&lt;/p>
-&lt;p>&lt;img src="img/alb-zone-redundant.png" alt="ALB Zone Redundant">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="ALB Zone Redundant" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/alb-zone-redundant_hu43040aa210de286bc876f56474e254af_59248_10c29670caf32765863fa8d72ed609e0.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/alb-zone-redundant_hu43040aa210de286bc876f56474e254af_59248_ae85d594de9ffe9d24eec045b5bf8023.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/alb-zone-redundant_hu43040aa210de286bc876f56474e254af_59248_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/alb-zone-redundant_hu43040aa210de286bc876f56474e254af_59248_10c29670caf32765863fa8d72ed609e0.webp"
+width="515"
+height="354"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;p>&lt;strong>Zonal&lt;/strong> - The frontend is guaranteed to a single zone. Any inbound or outbound flow is served by a single zone in a region. Your frontend shares fate with the health of the zone. The data path is unaffected by failures in zones other than where it was guaranteed. You can use zonal front-ends to expose an IP address per Availability Zone.&lt;/p>
 &lt;p>Additionally, the use of zonal front-ends directly for load balanced endpoints within each zone is supported. You can use this configuration to expose per zone load-balanced endpoints to individually monitor each zone. For public endpoints, you can integrate them with a DNS load-balancing product like Traffic Manager and use a single DNS name.&lt;/p>
-&lt;p>&lt;img src="img/alb-zonal.png" alt="ALB Zonal">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="ALB Zonal" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/alb-zonal_hu53005c69c3061ac16fd4bbe5c38acea1_28451_742e54d5a3894ac2bf1856613d42f89b.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/alb-zonal_hu53005c69c3061ac16fd4bbe5c38acea1_28451_28a7e7367f8b80a86918724d94f097f8.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/alb-zonal_hu53005c69c3061ac16fd4bbe5c38acea1_28451_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/alb-zonal_hu53005c69c3061ac16fd4bbe5c38acea1_28451_742e54d5a3894ac2bf1856613d42f89b.webp"
+width="611"
+height="374"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h4 id="sku">SKU&lt;/h4>
 &lt;p>There are 2 SKUs available: Standard and basic.&lt;/p>
 &lt;table>
@@ -227,13 +334,49 @@
 &lt;/tbody>
 &lt;/table>
 &lt;h3 id="traffic-manager">Traffic Manager&lt;/h3>
-&lt;p>&lt;img src="img/azure-traffic-manager.png" alt="Azure Traffic Manager">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Azure Traffic Manager" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/azure-traffic-manager_hu3e13d4f5cf64c047ff07cfef6e07b25f_4710_306ebb64439308241ba8c965810a8e5c.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/azure-traffic-manager_hu3e13d4f5cf64c047ff07cfef6e07b25f_4710_154e09ca2e4211a31266151625155d13.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/azure-traffic-manager_hu3e13d4f5cf64c047ff07cfef6e07b25f_4710_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/azure-traffic-manager_hu3e13d4f5cf64c047ff07cfef6e07b25f_4710_306ebb64439308241ba8c965810a8e5c.webp"
+width="151"
+height="151"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;p>&lt;strong>DNS-based&lt;/strong> traffic load balancer that enables you to distribute traffic optimally to services across &lt;strong>global Azure regions&lt;/strong>, while providing high availability and responsiveness. Because Traffic Manager is a DNS-based load-balancing service, it load-balances only at the &lt;strong>domain level&lt;/strong>. For that reason, it can&amp;rsquo;t fail over as quickly as Front Door, because of common challenges around DNS caching and systems not honoring DNS time-to-live values (TTLs).&lt;/p>
-&lt;p>&lt;img src="img/tm-setup.png" alt="Azure Traffic Manager Setup">&lt;/p>
-&lt;p>&lt;img src="img/tm-working.png" alt="Azure Traffic Manager Working">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Azure Traffic Manager Setup" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/tm-setup_hu6e650e304f36a2c910f999077026d35b_10705_1aaabb0615c9ae27743ba9fd16b2658c.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-setup_hu6e650e304f36a2c910f999077026d35b_10705_baa5a79a270bb99910568fdfd5f1ec2a.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-setup_hu6e650e304f36a2c910f999077026d35b_10705_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/tm-setup_hu6e650e304f36a2c910f999077026d35b_10705_1aaabb0615c9ae27743ba9fd16b2658c.webp"
+width="708"
+height="369"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Azure Traffic Manager Working" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/tm-working_hua2bb1e2bfa7a83848ca961418adbdf0c_26783_2273657fe2097e50d250fb1054a1e197.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-working_hua2bb1e2bfa7a83848ca961418adbdf0c_26783_9fe5f6f862d4ee6a2bd429a5d8db85bb.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-working_hua2bb1e2bfa7a83848ca961418adbdf0c_26783_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/tm-working_hua2bb1e2bfa7a83848ca961418adbdf0c_26783_2273657fe2097e50d250fb1054a1e197.webp"
+width="760"
+height="561"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;ol>
 &lt;li>
-&lt;p>The client sends a DNS query to its configured recursive DNS service to resolve the name ‘partners.contoso.com’. A recursive DNS service, sometimes called a &amp;lsquo;local DNS&amp;rsquo; service, does not host DNS domains directly. Rather, the client off-loads the work of contacting the various authoritative DNS services across the Internet needed to resolve a DNS name.&lt;/p>
+&lt;p>The client sends a DNS query to its configured recursive DNS service to resolve the name ‘partners.contoso.com’. A recursive DNS service, sometimes called a &amp;rsquo;local DNS&amp;rsquo; service, does not host DNS domains directly. Rather, the client off-loads the work of contacting the various authoritative DNS services across the Internet needed to resolve a DNS name.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>To resolve the DNS name, the recursive DNS service finds the name servers for the ‘contoso.com’ domain. It then contacts those name servers to request the &amp;lsquo;partners.contoso.com&amp;rsquo; DNS record. The contoso.com DNS servers return the CNAME record which points to contoso.trafficmanager.net.&lt;/p>
@@ -300,19 +443,109 @@
 &lt;/tbody>
 &lt;/table>
 &lt;p>Examples&lt;/p>
-&lt;p>&lt;img src="img/tm-priority.png" alt="Azure Traffic Manager Priority">
-&lt;img src="img/tm-weighted.png" alt="Azure Traffic Manager Weighted">
-&lt;img src="img/tm-performance.png" alt="Azure Traffic Manager Performance">
-&lt;img src="img/tm-geo.png" alt="Azure Traffic Manager Geo">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Azure Traffic Manager Priority" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/tm-priority_hu33cf287460db086f405d7f99aae740f5_27353_feb16d58b70b360fe8cab014cf30ed02.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-priority_hu33cf287460db086f405d7f99aae740f5_27353_4ee67b1fff969689cdd068b2164a56b1.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-priority_hu33cf287460db086f405d7f99aae740f5_27353_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/tm-priority_hu33cf287460db086f405d7f99aae740f5_27353_feb16d58b70b360fe8cab014cf30ed02.webp"
+width="676"
+height="586"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Azure Traffic Manager Weighted" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/tm-weighted_hude7647ad3e0cdcd07e1d68135df7c4dc_28798_d48cf447ad02703ae80a7057b47212dc.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-weighted_hude7647ad3e0cdcd07e1d68135df7c4dc_28798_2aa8d711a749b582d06a4f20b13969b2.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-weighted_hude7647ad3e0cdcd07e1d68135df7c4dc_28798_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/tm-weighted_hude7647ad3e0cdcd07e1d68135df7c4dc_28798_d48cf447ad02703ae80a7057b47212dc.webp"
+width="653"
+height="576"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Azure Traffic Manager Performance" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/tm-performance_hu59934587fc9a2f014b9af2d50ccba7a0_29054_3af33013c8035c8af40572f11b1834b0.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-performance_hu59934587fc9a2f014b9af2d50ccba7a0_29054_efdf60466323c2108b03ebb8cfbcb005.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-performance_hu59934587fc9a2f014b9af2d50ccba7a0_29054_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/tm-performance_hu59934587fc9a2f014b9af2d50ccba7a0_29054_3af33013c8035c8af40572f11b1834b0.webp"
+width="755"
+height="569"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Azure Traffic Manager Geo" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/tm-geo_hue6bc46eb9d5530c1179cd578c3d22cec_44012_e4645d97f3786c016e86c87cf90f985f.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-geo_hue6bc46eb9d5530c1179cd578c3d22cec_44012_4a40d88255a89a069504a1807b817807.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-geo_hue6bc46eb9d5530c1179cd578c3d22cec_44012_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/tm-geo_hue6bc46eb9d5530c1179cd578c3d22cec_44012_e4645d97f3786c016e86c87cf90f985f.webp"
+width="666"
+height="542"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;p>Profiles can be nested&lt;/p>
-&lt;p>&lt;img src="img/tm-nested.png" alt="Azure Traffic Manager Nested">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Azure Traffic Manager Nested" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/tm-nested_hu8432e47899fdb30ed02870d6396f3b1d_8242_77f83a296ebfae857404a37092fa3934.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-nested_hu8432e47899fdb30ed02870d6396f3b1d_8242_6172dce924773c018ff7672acd9c5268.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/tm-nested_hu8432e47899fdb30ed02870d6396f3b1d_8242_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/tm-nested_hu8432e47899fdb30ed02870d6396f3b1d_8242_77f83a296ebfae857404a37092fa3934.webp"
+width="577"
+height="428"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h3 id="azure-application-gateway">Azure Application Gateway&lt;/h3>
-&lt;p>&lt;img src="img/azure-application-gateway.png" alt="Azure Application Gateway">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Azure Application Gateway" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/azure-application-gateway_huf6dae108543240bb9b86d1b41a0ff930_4101_0d44d6f2f60cf1d86a42ca4258d433ca.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/azure-application-gateway_huf6dae108543240bb9b86d1b41a0ff930_4101_64c2769e49989a28d99129965c5704df.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/azure-application-gateway_huf6dae108543240bb9b86d1b41a0ff930_4101_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/azure-application-gateway_huf6dae108543240bb9b86d1b41a0ff930_4101_0d44d6f2f60cf1d86a42ca4258d433ca.webp"
+width="151"
+height="151"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;p>Provides application delivery controller (ADC) as a service, offering various &lt;strong>Layer 7&lt;/strong> load-balancing capabilities. Use it to optimize web farm productivity by &lt;strong>offloading&lt;/strong> CPU-intensive &lt;strong>SSL termination&lt;/strong> to the gateway.&lt;/p>
 &lt;p>Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port.&lt;/p>
-&lt;p>&lt;img src="img/apg-general.png" alt="Application Gateway Flow">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Application Gateway Flow" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/apg-general_hu767841c83e0933175a9999351a944a50_56306_706617c9e28db85f76a0562332188d44.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/apg-general_hu767841c83e0933175a9999351a944a50_56306_ebac6db61ea3f164bcd177b10a371b6b.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/apg-general_hu767841c83e0933175a9999351a944a50_56306_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/apg-general_hu767841c83e0933175a9999351a944a50_56306_706617c9e28db85f76a0562332188d44.webp"
+width="760"
+height="305"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h3 id="azure-front-door">Azure Front Door&lt;/h3>
-&lt;p>&lt;img src="img/azure-front-door.png" alt="Azure Front Door">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Azure Front Door" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/azure-front-door_hu3012181bc66bf71ea3b1da5ea3af2dbd_3107_cc185804d455e2f535b248267d09bacc.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/azure-front-door_hu3012181bc66bf71ea3b1da5ea3af2dbd_3107_f851f8595833b4f0b77b6b1fce201328.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/azure-front-door_hu3012181bc66bf71ea3b1da5ea3af2dbd_3107_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/azure-front-door_hu3012181bc66bf71ea3b1da5ea3af2dbd_3107_cc185804d455e2f535b248267d09bacc.webp"
+width="151"
+height="151"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;p>Application delivery network that provides &lt;strong>global&lt;/strong> load balancing and site acceleration service for &lt;strong>web applications&lt;/strong>. It offers &lt;strong>Layer 7&lt;/strong> capabilities for your application like &lt;strong>SSL offload&lt;/strong>, &lt;strong>path-based routing&lt;/strong>, fast failover, caching, etc. to improve performance and high-availability of your applications.&lt;/p>
 &lt;h2 id="global-vs-regional">Global vs regional&lt;/h2>
 &lt;p>&lt;strong>Global&lt;/strong> load-balancing services distribute traffic across regional backends, clouds, or hybrid on-premises services. These services route end-user traffic to the closest available backend. They also react to changes in service reliability or performance, in order to maximize availability and performance. You can think of them as systems that load balance between application stamps, endpoints, or scale-units hosted across different regions/geographies.&lt;/p>
@@ -353,7 +586,19 @@
 &lt;/tbody>
 &lt;/table>
 &lt;h2 id="choosing-a-load-balancing-option">Choosing a load balancing option&lt;/h2>
-&lt;p>&lt;img src="img/load-balancing-decision-tree.png" alt="Load Balancing Decision Tree">&lt;/p></description></item><item><title>AZ-700 Prep Highlights</title><link>/post/2022-06-03-az-700-prep/</link><pubDate>Fri, 03 Jun 2022 06:00:00 +0000</pubDate><guid>/post/2022-06-03-az-700-prep/</guid><description>&lt;blockquote>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Load Balancing Decision Tree" srcset="
+/post/2022-06-17-azure-load-balancing-options/img/load-balancing-decision-tree_hua17e697e861a04e1231929048c1b9e67_79517_0eb185a31d7553b0ab45b7dee55517e9.webp 400w,
+/post/2022-06-17-azure-load-balancing-options/img/load-balancing-decision-tree_hua17e697e861a04e1231929048c1b9e67_79517_8a5f0f30612047156663b4954270ff5b.webp 760w,
+/post/2022-06-17-azure-load-balancing-options/img/load-balancing-decision-tree_hua17e697e861a04e1231929048c1b9e67_79517_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-17-azure-load-balancing-options/img/load-balancing-decision-tree_hua17e697e861a04e1231929048c1b9e67_79517_0eb185a31d7553b0ab45b7dee55517e9.webp"
+width="752"
+height="760"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p></description></item><item><title>AZ-700 Prep Highlights</title><link>/post/2022-06-03-az-700-prep/</link><pubDate>Fri, 03 Jun 2022 06:00:00 +0000</pubDate><guid>/post/2022-06-03-az-700-prep/</guid><description>&lt;blockquote>
 &lt;p>Work in progress&lt;/p>
 &lt;/blockquote>
 &lt;p>This blog post summarizes my notes on my course on az-700: the course teaches Network Engineers how to design, implement, and maintain Azure networking solutions. The course covers the process of designing, implementing, and managing core Azure networking infrastructure, Hybrid Networking connections, load balancing traffic, network routing, private access to Azure services, network security and monitoring.&lt;/p>
@@ -414,7 +659,19 @@
 &lt;/blockquote>
 &lt;h2 id="dns-resolutions">DNS resolutions&lt;/h2>
 &lt;p>Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you might need to allow the virtual machines (VMs), and other resources deployed in a virtual network to communicate with each other. Although you can enable communication by using IP addresses, it is much simpler to use names that can be easily remembered, and do not change.&lt;/p>
-&lt;p>&lt;img src="img/hybrid-dns-infra.png" alt="DNS Resolution">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="DNS Resolution" srcset="
+/post/2022-06-03-az-700-prep/img/hybrid-dns-infra_hu63b19ca236c078a66b28b977bebccc33_95301_b22d9049a6f308c3f0387eb8405bfe80.webp 400w,
+/post/2022-06-03-az-700-prep/img/hybrid-dns-infra_hu63b19ca236c078a66b28b977bebccc33_95301_7f2c0b0965146527facb642dea797aa9.webp 760w,
+/post/2022-06-03-az-700-prep/img/hybrid-dns-infra_hu63b19ca236c078a66b28b977bebccc33_95301_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-03-az-700-prep/img/hybrid-dns-infra_hu63b19ca236c078a66b28b977bebccc33_95301_b22d9049a6f308c3f0387eb8405bfe80.webp"
+width="760"
+height="473"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;p>DNS is split into two areas: Public, and Private DNS for resources accessible from your own internal networks.&lt;/p>
 &lt;h3 id="public-dns-services">Public DNS Services&lt;/h3>
 &lt;p>Public DNS services resolve names and IP addresses for resources and services accessible over the internet such as web servers. Azure DNS is a hosting service for DNS domain that provides name resolution by using Microsoft Azure infrastructure. DNS domains in Azure DNS are hosted on Azure&amp;rsquo;s global network of DNS name servers. Azure DNS uses anycast networking. Each DNS query is answered by the closest available DNS server to provide fast performance and high availability for your domain.&lt;/p>
@@ -449,7 +706,19 @@
 &lt;li>&lt;strong>Regional peering&lt;/strong> connects Azure virtual networks in the same region.&lt;/li>
 &lt;li>&lt;strong>Global peering&lt;/strong> connects Azure virtual networks in different regions. When creating a global peering, the peered virtual networks can exist in any Azure public cloud region or China cloud regions, but not in Government cloud regions. You can only peer virtual networks in the same region in Azure Government cloud regions.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="img/peering.jpg" alt="Peering">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Peering" srcset="
+/post/2022-06-03-az-700-prep/img/peering_hua3bab3642a80690b2b9264271c5f4300_29044_fd0b17b8d9560fb078bb22820e9ebb16.webp 400w,
+/post/2022-06-03-az-700-prep/img/peering_hua3bab3642a80690b2b9264271c5f4300_29044_2d49ec2b1bc38adac8027d645ac438e0.webp 760w,
+/post/2022-06-03-az-700-prep/img/peering_hua3bab3642a80690b2b9264271c5f4300_29044_1200x1200_fit_q75_h2_lanczos.webp 1200w"
+src="/post/2022-06-03-az-700-prep/img/peering_hua3bab3642a80690b2b9264271c5f4300_29044_fd0b17b8d9560fb078bb22820e9ebb16.webp"
+width="760"
+height="141"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;p>Benefits:&lt;/p>
 &lt;ul>
 &lt;li>A low-latency, high-bandwidth connection between resources in different virtual networks.&lt;/li>
@@ -461,7 +730,19 @@
 &lt;/ul>
 &lt;h2 id="gateway-transit">Gateway Transit&lt;/h2>
 &lt;p>Is a peering property that lets one virtual network use the VPN gateway in the peered virtual network for cross-premises or VNet-to-VNet connectivity.&lt;/p>
-&lt;p>&lt;img src="img/gatewaytransit.png" alt="Gateway Transit">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Gateway Transit" srcset="
+/post/2022-06-03-az-700-prep/img/GatewayTransit_hu8d13bd399cd7e62c117521588655201f_33490_759a4d0da7d9b5abf8344b187becb5aa.webp 400w,
+/post/2022-06-03-az-700-prep/img/GatewayTransit_hu8d13bd399cd7e62c117521588655201f_33490_7e3f6788dc38ccfd07d572edfe53bff7.webp 760w,
+/post/2022-06-03-az-700-prep/img/GatewayTransit_hu8d13bd399cd7e62c117521588655201f_33490_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/2022-06-03-az-700-prep/img/GatewayTransit_hu8d13bd399cd7e62c117521588655201f_33490_759a4d0da7d9b5abf8344b187becb5aa.webp"
+width="600"
+height="266"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h2 id="traffic-routing">Traffic routing&lt;/h2>
 &lt;ul>
 &lt;li>System routes&lt;/li>
@@ -506,80 +787,209 @@
 &lt;/tbody>
 &lt;/table></description></item><item><title>Illegal option when executing a script</title><link>/post/wsl-illegal-option/</link><pubDate>Fri, 29 Apr 2022 10:00:00 +0000</pubDate><guid>/post/wsl-illegal-option/</guid><description>&lt;p>Sometimes when you run a script, you get this this error like &lt;code>set: Illegal option -&lt;/code>:&lt;/p>
 &lt;p>Run&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sh filename
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Error&lt;/p>
-&lt;pre>&lt;code class="language-console" data-lang="console">: not found: 2:
-: not found: 4:
-filename: 6: set: Illegal option -
-&lt;/code>&lt;/pre>&lt;p>This means there is something wrong with the line endings in your script. This can easily be resolved by running this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sh filename
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Error&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="go">: not found: 2:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">: not found: 4:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">filename: 6: set: Illegal option -
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This means there is something wrong with the line endings in your script. This can easily be resolved by running this:&lt;/p>
 &lt;p>Run&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sed -i &lt;span style="color:#e6db74">&amp;#39;s/\r$//&amp;#39;&lt;/span> filename
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>After that rerun your script.&lt;/p></description></item><item><title>Update, Upgrade and Clean WSL</title><link>/post/wsl-update/</link><pubDate>Fri, 29 Apr 2022 09:00:00 +0000</pubDate><guid>/post/wsl-update/</guid><description>&lt;p>When you are using WSL, once in a while you get this message at start up stating your environment is out of date:&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.10.102.1-microsoft-standard-WSL2 x86_64)
-* Documentation: https://help.ubuntu.com
-* Management: https://landscape.canonical.com
-* Support: https://ubuntu.com/advantage
-System information as of Thu Apr 28 08:26:12 CEST 2022
-System load: 0.0 Processes: 8
-Usage of /: 11.0% of 250.98GB Users logged in: 0
-Memory usage: 1% IPv4 address for eth0: 172.31.68.164
-Swap usage: 0%
-0 updates can be applied immediately.
-The list of available updates is more than a week old.
-To check for new updates run: sudo apt update
-This message is shown once a day. To disable it please create the
-/home/&amp;lt;username&amp;gt;/.hushlogin file.
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>You could run this set of commands or this one line to update your WSL&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sed -i &lt;span class="s1">&amp;#39;s/\r$//&amp;#39;&lt;/span> filename
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>After that rerun your script.&lt;/p></description></item><item><title>Update, Upgrade and Clean WSL</title><link>/post/wsl-update/</link><pubDate>Fri, 29 Apr 2022 09:00:00 +0000</pubDate><guid>/post/wsl-update/</guid><description>&lt;p>When you are using WSL, once in a while you get this message at start up stating your environment is out of date:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">Welcome to Ubuntu 20.04.4 LTS (GNU/Linux 5.10.102.1-microsoft-standard-WSL2 x86_64)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> * Documentation: https://help.ubuntu.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> * Management: https://landscape.canonical.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> * Support: https://ubuntu.com/advantage
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> System information as of Thu Apr 28 08:26:12 CEST 2022
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> System load: 0.0 Processes: 8
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Usage of /: 11.0% of 250.98GB Users logged in: 0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Memory usage: 1% IPv4 address for eth0: 172.31.68.164
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Swap usage: 0%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">0 updates can be applied immediately.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">The list of available updates is more than a week old.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">To check for new updates run: sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">This message is shown once a day. To disable it please create the
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/home/&amp;lt;username&amp;gt;/.hushlogin file.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You could run this set of commands or this one line to update your WSL&lt;/p>
 &lt;p>Set&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sudo apt-get update -y
-sudo apt-get upgrade -y
-sudo apt-get autoremove -y
-sudo apt-get clean -y
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>One line&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sudo apt-get update -y &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sudo apt-get upgrade -y &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sudo apt-get autoremove -y &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sudo apt-get clean -y
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can actually create a script &lt;strong>wsl-update.sh&lt;/strong> in the user&amp;rsquo;s root folder and just execute it using &lt;code>sh ~/wsl-update.sh&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt-get update -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get upgrade -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get autoremove -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get clean -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>One line&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt-get update -y &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt-get upgrade -y &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt-get autoremove -y &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt-get clean -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can actually create a script &lt;strong>wsl-update.sh&lt;/strong> in the user&amp;rsquo;s root folder and just execute it using &lt;code>sh ~/wsl-update.sh&lt;/code>&lt;/p>
 &lt;p>Use this script to create wsl-update.sh and make it executable.&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cat &lt;span style="color:#e6db74">&amp;lt;&amp;lt;EOT &amp;gt;&amp;gt; ~/wsl-update.sh
-&lt;/span>&lt;span style="color:#e6db74">#!/bin/sh
-&lt;/span>&lt;span style="color:#e6db74">sudo apt-get update -y &amp;amp;&amp;amp; sudo apt-get upgrade -y &amp;amp;&amp;amp; sudo apt-get autoremove -y &amp;amp;&amp;amp; sudo apt-get clean -y
-&lt;/span>&lt;span style="color:#e6db74">EOT&lt;/span>
-chmod +X ~/wsl-update.sh
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Update post</title><link>/post/update/</link><pubDate>Thu, 28 Apr 2022 09:00:00 +0000</pubDate><guid>/post/update/</guid><description>&lt;p>It has been a while since my last post but I am working on new content. In the beginning it will be just some short notes about things happened in the past week.&lt;/p></description></item><item><title>Setup Blazor development environment</title><link>/post/setupblazordevenv/</link><pubDate>Thu, 12 Jul 2018 10:00:00 +0000</pubDate><guid>/post/setupblazordevenv/</guid><description>&lt;p>This guide helps you set up your &lt;a href="https://blazor.net/">Blazor&lt;/a> development environment without messing up your current development machine with beta releases.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">cat &lt;span class="s">&amp;lt;&amp;lt;EOT &amp;gt;&amp;gt; ~/wsl-update.sh
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">#!/bin/sh
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">sudo apt-get update -y &amp;amp;&amp;amp; sudo apt-get upgrade -y &amp;amp;&amp;amp; sudo apt-get autoremove -y &amp;amp;&amp;amp; sudo apt-get clean -y
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOT&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod +X ~/wsl-update.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Update post</title><link>/post/update/</link><pubDate>Thu, 28 Apr 2022 09:00:00 +0000</pubDate><guid>/post/update/</guid><description>&lt;p>It has been a while since my last post but I am working on new content. In the beginning it will be just some short notes about things happened in the past week.&lt;/p></description></item><item><title>An example preprint / working paper</title><link>/publication/preprint/</link><pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate><guid>/publication/preprint/</guid><description>&lt;div class="alert alert-note">
+&lt;div>
+Create your slides in Markdown - click the &lt;em>Slides&lt;/em> button to check out the example.
+&lt;/div>
+&lt;/div>
+&lt;p>Supplementary notes can be added here, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">code, math, and images&lt;/a>.&lt;/p></description></item><item><title>Slides</title><link>/slides/example/</link><pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate><guid>/slides/example/</guid><description>&lt;h1 id="create-slides-in-markdown-with-wowchemy">Create slides in Markdown with Wowchemy&lt;/h1>
+&lt;p>&lt;a href="https://wowchemy.com/" target="_blank" rel="noopener">Wowchemy&lt;/a> | &lt;a href="https://wowchemy.com/docs/content/slides/" target="_blank" rel="noopener">Documentation&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;ul>
+&lt;li>Efficiently write slides in Markdown&lt;/li>
+&lt;li>3-in-1: Create, Present, and Publish your slides&lt;/li>
+&lt;li>Supports speaker notes&lt;/li>
+&lt;li>Mobile friendly slides&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="controls">Controls&lt;/h2>
+&lt;ul>
+&lt;li>Next: &lt;code>Right Arrow&lt;/code> or &lt;code>Space&lt;/code>&lt;/li>
+&lt;li>Previous: &lt;code>Left Arrow&lt;/code>&lt;/li>
+&lt;li>Start: &lt;code>Home&lt;/code>&lt;/li>
+&lt;li>Finish: &lt;code>End&lt;/code>&lt;/li>
+&lt;li>Overview: &lt;code>Esc&lt;/code>&lt;/li>
+&lt;li>Speaker notes: &lt;code>S&lt;/code>&lt;/li>
+&lt;li>Fullscreen: &lt;code>F&lt;/code>&lt;/li>
+&lt;li>Zoom: &lt;code>Alt + Click&lt;/code>&lt;/li>
+&lt;li>&lt;a href="https://revealjs.com/pdf-export/" target="_blank" rel="noopener">PDF Export&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="code-highlighting">Code Highlighting&lt;/h2>
+&lt;p>Inline code: &lt;code>variable&lt;/code>&lt;/p>
+&lt;p>Code block:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">porridge&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;blueberry&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">porridge&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;blueberry&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Eating...&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="math">Math&lt;/h2>
+&lt;p>In-line math: $x + y = z$&lt;/p>
+&lt;p>Block math:&lt;/p>
+&lt;p>$$
+f\left( x \right) = ;\frac{{2\left( {x + 4} \right)\left( {x - 4} \right)}}{{\left( {x + 4} \right)\left( {x + 1} \right)}}
+$$&lt;/p>
+&lt;hr>
+&lt;h2 id="fragments">Fragments&lt;/h2>
+&lt;p>Make content appear incrementally&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">{{% fragment %}} One {{% /fragment %}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{% fragment %}} **Two** {{% /fragment %}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{% fragment %}} Three {{% /fragment %}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Press &lt;code>Space&lt;/code> to play!&lt;/p>
+&lt;span class="fragment " >
+One
+&lt;/span>
+&lt;span class="fragment " >
+&lt;strong>Two&lt;/strong>
+&lt;/span>
+&lt;span class="fragment " >
+Three
+&lt;/span>
+&lt;hr>
+&lt;p>A fragment can accept two optional parameters:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>class&lt;/code>: use a custom style (requires definition in custom CSS)&lt;/li>
+&lt;li>&lt;code>weight&lt;/code>: sets the order in which a fragment appears&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="speaker-notes">Speaker Notes&lt;/h2>
+&lt;p>Add speaker notes to your presentation&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{% speaker_note %}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Only the speaker can read these notes
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> Press &lt;span class="sb">`S`&lt;/span> key to view
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {{% /speaker_note %}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Press the &lt;code>S&lt;/code> key to view the speaker notes!&lt;/p>
+&lt;aside class="notes">
+&lt;ul>
+&lt;li>Only the speaker can read these notes&lt;/li>
+&lt;li>Press &lt;code>S&lt;/code> key to view&lt;/li>
+&lt;/ul>
+&lt;/aside>
+&lt;hr>
+&lt;h2 id="themes">Themes&lt;/h2>
+&lt;ul>
+&lt;li>black: Black background, white text, blue links (default)&lt;/li>
+&lt;li>white: White background, black text, blue links&lt;/li>
+&lt;li>league: Gray background, white text, blue links&lt;/li>
+&lt;li>beige: Beige background, dark text, brown links&lt;/li>
+&lt;li>sky: Blue background, thin dark text, blue links&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>night: Black background, thick white text, orange links&lt;/li>
+&lt;li>serif: Cappuccino background, gray text, brown links&lt;/li>
+&lt;li>simple: White background, black text, blue links&lt;/li>
+&lt;li>solarized: Cream-colored background, dark green text, blue links&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;section data-noprocess data-shortcode-slide
+data-background-image="/media/boards.jpg"
+>
+&lt;h2 id="custom-slide">Custom Slide&lt;/h2>
+&lt;p>Customize the slide style and background&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">{{&lt;span class="p">&amp;lt;&lt;/span> &lt;span class="nt">slide&lt;/span> &lt;span class="na">background-image&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;/media/boards.jpg&amp;#34;&lt;/span> &lt;span class="p">&amp;gt;&lt;/span>}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{&lt;span class="p">&amp;lt;&lt;/span> &lt;span class="nt">slide&lt;/span> &lt;span class="na">background-color&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;#0000FF&amp;#34;&lt;/span> &lt;span class="p">&amp;gt;&lt;/span>}}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{{&lt;span class="p">&amp;lt;&lt;/span> &lt;span class="nt">slide&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;my-style&amp;#34;&lt;/span> &lt;span class="p">&amp;gt;&lt;/span>}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="custom-css-example">Custom CSS Example&lt;/h2>
+&lt;p>Let&amp;rsquo;s make headers navy colored.&lt;/p>
+&lt;p>Create &lt;code>assets/css/reveal_custom.css&lt;/code> with:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">reveal&lt;/span> &lt;span class="nt">section&lt;/span> &lt;span class="nt">h1&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">reveal&lt;/span> &lt;span class="nt">section&lt;/span> &lt;span class="nt">h2&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">reveal&lt;/span> &lt;span class="nt">section&lt;/span> &lt;span class="nt">h3&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">navy&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h1 id="questions">Questions?&lt;/h1>
+&lt;p>&lt;a href="https://discord.gg/z8wNYzb" target="_blank" rel="noopener">Ask&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://wowchemy.com/docs/content/slides/" target="_blank" rel="noopener">Documentation&lt;/a>&lt;/p></description></item><item><title>Setup Blazor development environment</title><link>/post/setupblazordevenv/</link><pubDate>Thu, 12 Jul 2018 10:00:00 +0000</pubDate><guid>/post/setupblazordevenv/</guid><description>&lt;p>This guide helps you set up your &lt;a href="https://blazor.net/" target="_blank" rel="noopener">Blazor&lt;/a> development environment without messing up your current development machine with beta releases.&lt;/p>
 &lt;p>We will use these tools&lt;/p>
 &lt;ul>
 &lt;li>
-&lt;p>&lt;a href="https://www.docker.com/community-edition">Docker Community Edition&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.docker.com/community-edition" target="_blank" rel="noopener">Docker Community Edition&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;a href="https://code.visualstudio.com/">Visual Studio Code&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h1 id="lets-get-started">Let&amp;rsquo;s get started&lt;/h1>
 &lt;p>Create a local directory with one subdirectory named &amp;ldquo;app&amp;rdquo;.&lt;/p>
-&lt;p>&lt;img src="img/create_directory.png" alt="">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/setupblazordevenv/img/create_directory_huc42c86725c5e30842cb8bcbb05bc598e_20634_f79738db02e041a6b5bf9ed39c95eccb.webp 400w,
+/post/setupblazordevenv/img/create_directory_huc42c86725c5e30842cb8bcbb05bc598e_20634_2891cb1ac859315ef12d4a72911c294e.webp 760w,
+/post/setupblazordevenv/img/create_directory_huc42c86725c5e30842cb8bcbb05bc598e_20634_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/create_directory_huc42c86725c5e30842cb8bcbb05bc598e_20634_f79738db02e041a6b5bf9ed39c95eccb.webp"
+width="324"
+height="613"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h1 id="create-dockerfile">Create Dockerfile&lt;/h1>
-&lt;p>First download the latest &lt;a href="https://hub.docker.com/r/microsoft/dotnet/" title="dockerfile">dockerfile&lt;/a> version.
-Look at the latest version of &lt;a href="https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/stretch/amd64/Dockerfile">Linux amd64&lt;/a>.
+&lt;p>First download the latest &lt;a href="https://hub.docker.com/r/microsoft/dotnet/" title="dockerfile" target="_blank" rel="noopener">dockerfile&lt;/a> version.
+Look at the latest version of &lt;a href="https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/stretch/amd64/Dockerfile" target="_blank" rel="noopener">Linux amd64&lt;/a>.
 Copy the raw content and store it in a file Dockerfile. Modify it by appending &lt;code> \&lt;/code> and &lt;code>&amp;amp;&amp;amp; dotnet new -i Microsoft.AspNetCore.Blazor.Templates&lt;/code> at the second RUN command.&lt;/p>
 &lt;p>It should look like this:&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">RUN curl -SL --output dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz &lt;span style="color:#ae81ff">\
-&lt;/span>
-&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> dotnet_sha512&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;2166986e360f1c3456a33723edb80349e6ede115be04a6331bfbfd0f412494684d174a0cfb21d2feb00d509ce342030160a4b5b445e393ad83bedb613a64bc66&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>
-&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sha512sum dotnet.tar.gz &lt;span style="color:#ae81ff">\
-&lt;/span>
-&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$dotnet_sha512&lt;span style="color:#e6db74"> dotnet.tar.gz&amp;#34;&lt;/span> | sha512sum -c - &lt;span style="color:#ae81ff">\
-&lt;/span>
-&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> mkdir -p /usr/share/dotnet &lt;span style="color:#ae81ff">\
-&lt;/span>
-&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> tar -zxf dotnet.tar.gz -C /usr/share/dotnet &lt;span style="color:#ae81ff">\
-&lt;/span>
-&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> rm dotnet.tar.gz &lt;span style="color:#ae81ff">\
-&lt;/span>
-&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet &lt;span style="color:#ae81ff">\
-&lt;/span>
-&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> dotnet new -i Microsoft.AspNetCore.Blazor.Templates
-&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="create-the-docker-image">Create the docker image&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">RUN curl -SL --output dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/&lt;span class="nv">$DOTNET_SDK_VERSION&lt;/span>/dotnet-sdk-&lt;span class="nv">$DOTNET_SDK_VERSION&lt;/span>-linux-x64.tar.gz &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nv">dotnet_sha512&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;2166986e360f1c3456a33723edb80349e6ede115be04a6331bfbfd0f412494684d174a0cfb21d2feb00d509ce342030160a4b5b445e393ad83bedb613a64bc66&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sha512sum dotnet.tar.gz &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$dotnet_sha512&lt;/span>&lt;span class="s2"> dotnet.tar.gz&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sha512sum -c - &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> mkdir -p /usr/share/dotnet &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> tar -zxf dotnet.tar.gz -C /usr/share/dotnet &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> rm dotnet.tar.gz &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> dotnet new -i Microsoft.AspNetCore.Blazor.Templates
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="create-the-docker-image">Create the docker image&lt;/h1>
 &lt;p>Open a terminal and go to the location of the Dockerfile and run &lt;code>docker build -t blazor:latest .&lt;/code>. This will build the docker image.&lt;/p>
 &lt;p>If this fails, just restart your docker and rerun previous command.&lt;/p>
 &lt;h2 id="build">build&lt;/h2>
@@ -589,7 +999,19 @@ Copy the raw content and store it in a file Dockerfile. Modify it by appending &
 &lt;h2 id="verify">verify&lt;/h2>
 &lt;p>The creation of the image can be verified by &lt;code>docker images&lt;/code>
 You should see 2 images. Base image and the one you just created.&lt;/p>
-&lt;p>&lt;img src="img/docker_images.png" alt="">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/setupblazordevenv/img/docker_images_hu24a0cb676f7cfbce3c1584ae236df962_5594_ce621d16603d061d24a761d625aa36bd.webp 400w,
+/post/setupblazordevenv/img/docker_images_hu24a0cb676f7cfbce3c1584ae236df962_5594_5654d4515a6547f41f4b91a16f871357.webp 760w,
+/post/setupblazordevenv/img/docker_images_hu24a0cb676f7cfbce3c1584ae236df962_5594_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/docker_images_hu24a0cb676f7cfbce3c1584ae236df962_5594_ce621d16603d061d24a761d625aa36bd.webp"
+width="760"
+height="105"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h1 id="start-a-container-instance">Start a container instance&lt;/h1>
 &lt;p>At the prompt run &lt;code>docker run -it --rm --name blazortest -p 8000:80 -v H:\Euricom\Blazor\app\:/app -w=&amp;quot;/app&amp;quot; blazor:latest&lt;/code>&lt;/p>
 &lt;h2 id="run">run&lt;/h2>
@@ -606,32 +1028,97 @@ You should see 2 images. Base image and the one you just created.&lt;/p>
 &lt;p>This sets the working directory to &lt;code>/app&lt;/code>&lt;/p>
 &lt;h2 id="verify-1">verify&lt;/h2>
 &lt;p>In another terminal you should see named instance blazortest&lt;/p>
-&lt;p>&lt;img src="img/docker_running_instances.png" alt="">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/setupblazordevenv/img/docker_running_instances_hua3de91e0315ef2f8aca204def9eef31f_5424_8df3adb04cb5cd68296f8fe93f634b82.webp 400w,
+/post/setupblazordevenv/img/docker_running_instances_hua3de91e0315ef2f8aca204def9eef31f_5424_b87309089ed06d10e8df21df1010d8dc.webp 760w,
+/post/setupblazordevenv/img/docker_running_instances_hua3de91e0315ef2f8aca204def9eef31f_5424_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/docker_running_instances_hua3de91e0315ef2f8aca204def9eef31f_5424_8df3adb04cb5cd68296f8fe93f634b82.webp"
+width="760"
+height="61"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h1 id="create-a-new-blazor-project">Create a new blazor project&lt;/h1>
 &lt;p>You can create a new Blazor project the volume created earlier by running this command &lt;code>dotnet new blazor&lt;/code>.&lt;/p>
 &lt;p>Open the project file app.csproj and add this node &lt;code>&amp;lt;Watch Include=&amp;quot;**\*.cshtml&amp;quot; /&amp;gt;&lt;/code>. This makes it possible to make changes on the fly.&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-xml" data-lang="xml">&lt;span style="color:#f92672">&amp;lt;Project&lt;/span> &lt;span style="color:#a6e22e">Sdk=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Microsoft.NET.Sdk.Web&amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;PropertyGroup&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;TargetFramework&amp;gt;&lt;/span>netstandard2.0&lt;span style="color:#f92672">&amp;lt;/TargetFramework&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;RunCommand&amp;gt;&lt;/span>dotnet&lt;span style="color:#f92672">&amp;lt;/RunCommand&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;RunArguments&amp;gt;&lt;/span>blazor serve&lt;span style="color:#f92672">&amp;lt;/RunArguments&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;LangVersion&amp;gt;&lt;/span>7.3&lt;span style="color:#f92672">&amp;lt;/LangVersion&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;/PropertyGroup&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;ItemGroup&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;PackageReference&lt;/span> &lt;span style="color:#a6e22e">Include=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Microsoft.AspNetCore.Blazor.Browser&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">Version=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;0.4.0&amp;#34;&lt;/span> &lt;span style="color:#f92672">/&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;PackageReference&lt;/span> &lt;span style="color:#a6e22e">Include=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Microsoft.AspNetCore.Blazor.Build&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">Version=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;0.4.0&amp;#34;&lt;/span> &lt;span style="color:#f92672">/&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;DotNetCliToolReference&lt;/span> &lt;span style="color:#a6e22e">Include=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Microsoft.AspNetCore.Blazor.Cli&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">Version=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;0.4.0&amp;#34;&lt;/span> &lt;span style="color:#f92672">/&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;Watch&lt;/span> &lt;span style="color:#a6e22e">Include=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;**\*.cshtml&amp;#34;&lt;/span> &lt;span style="color:#f92672">/&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;/ItemGroup&amp;gt;&lt;/span>
-&lt;span style="color:#f92672">&amp;lt;/Project&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="start-the-application">Start the application&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;Project&lt;/span> &lt;span class="na">Sdk=&lt;/span>&lt;span class="s">&amp;#34;Microsoft.NET.Sdk.Web&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;PropertyGroup&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;TargetFramework&amp;gt;&lt;/span>netstandard2.0&lt;span class="nt">&amp;lt;/TargetFramework&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;RunCommand&amp;gt;&lt;/span>dotnet&lt;span class="nt">&amp;lt;/RunCommand&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;RunArguments&amp;gt;&lt;/span>blazor serve&lt;span class="nt">&amp;lt;/RunArguments&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;LangVersion&amp;gt;&lt;/span>7.3&lt;span class="nt">&amp;lt;/LangVersion&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/PropertyGroup&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;ItemGroup&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;PackageReference&lt;/span> &lt;span class="na">Include=&lt;/span>&lt;span class="s">&amp;#34;Microsoft.AspNetCore.Blazor.Browser&amp;#34;&lt;/span> &lt;span class="na">Version=&lt;/span>&lt;span class="s">&amp;#34;0.4.0&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;PackageReference&lt;/span> &lt;span class="na">Include=&lt;/span>&lt;span class="s">&amp;#34;Microsoft.AspNetCore.Blazor.Build&amp;#34;&lt;/span> &lt;span class="na">Version=&lt;/span>&lt;span class="s">&amp;#34;0.4.0&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;DotNetCliToolReference&lt;/span> &lt;span class="na">Include=&lt;/span>&lt;span class="s">&amp;#34;Microsoft.AspNetCore.Blazor.Cli&amp;#34;&lt;/span> &lt;span class="na">Version=&lt;/span>&lt;span class="s">&amp;#34;0.4.0&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;Watch&lt;/span> &lt;span class="na">Include=&lt;/span>&lt;span class="s">&amp;#34;**\*.cshtml&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/ItemGroup&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/Project&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="start-the-application">Start the application&lt;/h1>
 &lt;p>Start the application via &lt;code>dotnet watch run&lt;/code>&lt;/p>
-&lt;p>&lt;img src="img/dotnet_watch_run.png" alt="">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/setupblazordevenv/img/dotnet_watch_run_hubcfcac032d1b46a0e21da194550c18e8_9878_9da4b644477e4007643a3ae0a1d07947.webp 400w,
+/post/setupblazordevenv/img/dotnet_watch_run_hubcfcac032d1b46a0e21da194550c18e8_9878_a03854a72c0e5d72b4436b8c2685662e.webp 760w,
+/post/setupblazordevenv/img/dotnet_watch_run_hubcfcac032d1b46a0e21da194550c18e8_9878_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/dotnet_watch_run_hubcfcac032d1b46a0e21da194550c18e8_9878_9da4b644477e4007643a3ae0a1d07947.webp"
+width="760"
+height="181"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h1 id="launch-the-application">Launch the application&lt;/h1>
 &lt;p>Open a browser and launch &lt;code>http://localhost:8000&lt;/code>&lt;/p>
-&lt;p>&lt;img src="img/launch_chrome.png" alt="" title="Chrome">
-&lt;img src="img/launch_edge.png" alt="" title="Edge">
-&lt;img src="img/launch_ff.png" alt="" title="Firefox">&lt;/p></description></item><item><title>Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</title><link>/post/createbuildazfvstcod/</link><pubDate>Fri, 22 Jun 2018 10:00:00 +0000</pubDate><guid>/post/createbuildazfvstcod/</guid><description>&lt;p>Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed.&lt;/p>
+&lt;p>
+&lt;figure id="figure-chrome">
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Chrome" srcset="
+/post/setupblazordevenv/img/launch_chrome_hu541aaed4bb2a1dd2b8f474abc4d9cb7b_50893_7a7794434098e818c2f1c4073fc64bdd.webp 400w,
+/post/setupblazordevenv/img/launch_chrome_hu541aaed4bb2a1dd2b8f474abc4d9cb7b_50893_caa8d076ede2f6f1b11aaded3c7c1aae.webp 760w,
+/post/setupblazordevenv/img/launch_chrome_hu541aaed4bb2a1dd2b8f474abc4d9cb7b_50893_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/launch_chrome_hu541aaed4bb2a1dd2b8f474abc4d9cb7b_50893_7a7794434098e818c2f1c4073fc64bdd.webp"
+width="760"
+height="411"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Chrome
+&lt;/figcaption>&lt;/figure>
+&lt;figure id="figure-edge">
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Edge" srcset="
+/post/setupblazordevenv/img/launch_edge_hu995261f3128bd6d32847ec8f340b3d21_40628_fc7a1d38fa809d6a8d3268865f863f7b.webp 400w,
+/post/setupblazordevenv/img/launch_edge_hu995261f3128bd6d32847ec8f340b3d21_40628_e70250825460d849f93513d5eca20f0c.webp 760w,
+/post/setupblazordevenv/img/launch_edge_hu995261f3128bd6d32847ec8f340b3d21_40628_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/launch_edge_hu995261f3128bd6d32847ec8f340b3d21_40628_fc7a1d38fa809d6a8d3268865f863f7b.webp"
+width="760"
+height="324"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Edge
+&lt;/figcaption>&lt;/figure>
+&lt;figure id="figure-firefox">
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Firefox" srcset="
+/post/setupblazordevenv/img/launch_ff_hud562a033933dfa5d21f04f6b1a17f6ca_32598_c4a283b496d10d0efe95e7dcd45f0858.webp 400w,
+/post/setupblazordevenv/img/launch_ff_hud562a033933dfa5d21f04f6b1a17f6ca_32598_385077925615af0013bd8454833f0e34.webp 760w,
+/post/setupblazordevenv/img/launch_ff_hud562a033933dfa5d21f04f6b1a17f6ca_32598_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/launch_ff_hud562a033933dfa5d21f04f6b1a17f6ca_32598_c4a283b496d10d0efe95e7dcd45f0858.webp"
+width="760"
+height="403"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Firefox
+&lt;/figcaption>&lt;/figure>
+&lt;/p></description></item><item><title>Create, build and deploy Azure Functions with Visual Studio, Teamcity and Octopus Deploy</title><link>/post/createbuildazfvstcod/</link><pubDate>Fri, 22 Jun 2018 10:00:00 +0000</pubDate><guid>/post/createbuildazfvstcod/</guid><description>&lt;p>Following this note you will be able to Create, Build and Deploy a simple Azure Function App. You create it in Visual Studio. Let it build with Teamcity and deploy it with Octopus Deploy. The needed Azure Resources will also be deployed.&lt;/p>
 &lt;h1 id="setup">Setup&lt;/h1>
 &lt;h2 id="tools">Tools&lt;/h2>
 &lt;ul>
@@ -639,11 +1126,34 @@ You should see 2 images. Base image and the one you just created.&lt;/p>
 &lt;li>TeamCity v2017.2.4 (TC).&lt;/li>
 &lt;li>Octopus Deploy v2018.6.2 (OD).&lt;/li>
 &lt;/ul>
-&lt;p>For this purpose I deployed a Azure VM using this [template] (&lt;a href="https://portal.azure.com/#create/octopus.octopusdeployoctopus-deploy),">https://portal.azure.com/#create/octopus.octopusdeployoctopus-deploy),&lt;/a> installed an OD Tentacle, a TC Agent and OD cli (in &lt;code>C:\Programs\Octo&lt;/code>). OD downloads can be found [here] (&lt;a href="https://octopus.com/downloads)">https://octopus.com/downloads)&lt;/a>. Also install the correct .NET version via this [link] (&lt;a href="https://www.microsoft.com/web/downloads/platform.aspx">https://www.microsoft.com/web/downloads/platform.aspx&lt;/a>) and set the DOTNET_HOME environment variable in TC to &lt;code>C:\Program Files\dotnet\&lt;/code>&lt;/p>
+&lt;p>For this purpose I deployed a Azure VM using this [template] (&lt;a href="https://portal.azure.com/#create/octopus.octopusdeployoctopus-deploy%29" target="_blank" rel="noopener">https://portal.azure.com/#create/octopus.octopusdeployoctopus-deploy)&lt;/a>, installed an OD Tentacle, a TC Agent and OD cli (in &lt;code>C:\Programs\Octo&lt;/code>). OD downloads can be found [here] (&lt;a href="https://octopus.com/downloads%29" target="_blank" rel="noopener">https://octopus.com/downloads)&lt;/a>. Also install the correct .NET version via this [link] (&lt;a href="https://www.microsoft.com/web/downloads/platform.aspx" target="_blank" rel="noopener">https://www.microsoft.com/web/downloads/platform.aspx&lt;/a>) and set the DOTNET_HOME environment variable in TC to &lt;code>C:\Program Files\dotnet\&lt;/code>&lt;/p>
 &lt;p>Make sure you have installed the Azure development workload in VS. Check via TOOLS\Get Tools and Features&amp;hellip;
-&lt;img src="img/ZuinKne.png" alt="">&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/createbuildazfvstcod/img/ZuinKne_hu5d699083d977f18c1d484ac740809174_3029_0f8f1ad0c3deb1e03a839ddc41090338.webp 400w,
+/post/createbuildazfvstcod/img/ZuinKne_hu5d699083d977f18c1d484ac740809174_3029_5aea3217e821f901af5384f64f833d6c.webp 760w,
+/post/createbuildazfvstcod/img/ZuinKne_hu5d699083d977f18c1d484ac740809174_3029_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/createbuildazfvstcod/img/ZuinKne_hu5d699083d977f18c1d484ac740809174_3029_0f8f1ad0c3deb1e03a839ddc41090338.webp"
+width="471"
+height="84"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;p>On Workloads tab check Azure development&lt;/p>
-&lt;p>&lt;img src="img/oojIgPk.png" alt="">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/createbuildazfvstcod/img/oojIgPk_huecce51a1b071624e9eee7453ef07a61a_19517_d15787157742999a726dffa3ce9ff0fa.webp 400w,
+/post/createbuildazfvstcod/img/oojIgPk_huecce51a1b071624e9eee7453ef07a61a_19517_85ba7c1de61022920ecb6e679fac6afa.webp 760w,
+/post/createbuildazfvstcod/img/oojIgPk_huecce51a1b071624e9eee7453ef07a61a_19517_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/createbuildazfvstcod/img/oojIgPk_huecce51a1b071624e9eee7453ef07a61a_19517_d15787157742999a726dffa3ce9ff0fa.webp"
+width="760"
+height="288"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h1 id="create">Create&lt;/h1>
 &lt;p>We use VS for developing the Function. Store the project in a source control system supported by TC.&lt;/p>
 &lt;h2 id="function">Function&lt;/h2>
@@ -653,146 +1163,158 @@ You should see 2 images. Base image and the one you just created.&lt;/p>
 &lt;p>Deploying an Azure Function needs 3 Azure Resources:&lt;/p>
 &lt;ul>
 &lt;li>Storage Account (Microsoft.Storage/storageAccounts)&lt;/li>
-&lt;li>Hosting Plan (Microsoft.We&lt;!-- raw HTML omitted -->b/serverfarms)&lt;/li>
-&lt;li>Function App (Microsoft.We&lt;!-- raw HTML omitted -->b/sites)&lt;/li>
+&lt;li>Hosting Plan (Microsoft.We&lt;span>b/serverfarms)&lt;/li>
+&lt;li>Function App (Microsoft.We&lt;span>b/sites)&lt;/li>
 &lt;/ul>
 &lt;p>Below you will find a basic ARM Template with these 3 resources and a parameters Template. Set Copy to Output Directory to &lt;code>Copy if Newer&lt;/code>. Add those templates to your project and name them azuredeploy.json and azuredeploy.parameters.json.&lt;/p>
 &lt;p>The project structure should look like&lt;/p>
-&lt;p>&lt;img src="img/2yV3WSe.png" alt="">&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/createbuildazfvstcod/img/2yV3WSe_hu28f04dd0b2a7a20d6a1fe44213b07218_46012_43a441aa1fbe0748d251803cdfde287f.webp 400w,
+/post/createbuildazfvstcod/img/2yV3WSe_hu28f04dd0b2a7a20d6a1fe44213b07218_46012_e7b8a9f4c715e2aea1c00179fcc63273.webp 760w,
+/post/createbuildazfvstcod/img/2yV3WSe_hu28f04dd0b2a7a20d6a1fe44213b07218_46012_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/createbuildazfvstcod/img/2yV3WSe_hu28f04dd0b2a7a20d6a1fe44213b07218_46012_43a441aa1fbe0748d251803cdfde287f.webp"
+width="760"
+height="711"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h3 id="template">Template&lt;/h3>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json"> {
-&lt;span style="color:#f92672">&amp;#34;$schema&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;contentVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;1.0.0.0&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;parameters&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;appName&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;string&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;metadata&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;The name of the function app that you wish to create.&amp;#34;&lt;/span>
-}
-},
-&lt;span style="color:#f92672">&amp;#34;sku&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;string&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;allowedValues&amp;#34;&lt;/span>: [
-&lt;span style="color:#e6db74">&amp;#34;Free&amp;#34;&lt;/span>,
-&lt;span style="color:#e6db74">&amp;#34;Shared&amp;#34;&lt;/span>,
-&lt;span style="color:#e6db74">&amp;#34;Basic&amp;#34;&lt;/span>,
-&lt;span style="color:#e6db74">&amp;#34;Standard&amp;#34;&lt;/span>
-],
-&lt;span style="color:#f92672">&amp;#34;defaultValue&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Standard&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;metadata&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;The pricing tier for the hosting plan.&amp;#34;&lt;/span>
-}
-},
-&lt;span style="color:#f92672">&amp;#34;workerSize&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;string&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;allowedValues&amp;#34;&lt;/span>: [
-&lt;span style="color:#e6db74">&amp;#34;0&amp;#34;&lt;/span>,
-&lt;span style="color:#e6db74">&amp;#34;1&amp;#34;&lt;/span>,
-&lt;span style="color:#e6db74">&amp;#34;2&amp;#34;&lt;/span>
-],
-&lt;span style="color:#f92672">&amp;#34;defaultValue&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;0&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;metadata&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;The instance size of the hosting plan (small, medium, or large).&amp;#34;&lt;/span>
-}
-},
-&lt;span style="color:#f92672">&amp;#34;storageAccountType&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;string&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;defaultValue&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Standard_LRS&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;allowedValues&amp;#34;&lt;/span>: [
-&lt;span style="color:#e6db74">&amp;#34;Standard_LRS&amp;#34;&lt;/span>,
-&lt;span style="color:#e6db74">&amp;#34;Standard_GRS&amp;#34;&lt;/span>,
-&lt;span style="color:#e6db74">&amp;#34;Standard_RAGRS&amp;#34;&lt;/span>
-],
-&lt;span style="color:#f92672">&amp;#34;metadata&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Storage Account type&amp;#34;&lt;/span>
-}
-},
-&lt;span style="color:#f92672">&amp;#34;location&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;string&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;defaultValue&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[resourceGroup().location]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;metadata&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;description&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Location for all resources.&amp;#34;&lt;/span>
-}
-}
-},
-&lt;span style="color:#f92672">&amp;#34;variables&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;functionAppName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;appName&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;hostingPlanName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;appName&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;storageAccountName&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[concat(uniquestring(resourceGroup().id), &amp;#39;functions&amp;#39;)]&amp;#34;&lt;/span>
-},
-&lt;span style="color:#f92672">&amp;#34;resources&amp;#34;&lt;/span>: [
-{
-&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Microsoft.Storage/storageAccounts&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[variables(&amp;#39;storageAccountName&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;apiVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;2016-12-01&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;location&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;location&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;kind&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Storage&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;sku&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;storageAccountType&amp;#39;)]&amp;#34;&lt;/span>
-}
-},
-{
-&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Microsoft.Web/serverfarms&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;apiVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;2015-04-01&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[variables(&amp;#39;hostingPlanName&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;location&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;location&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;properties&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[variables(&amp;#39;hostingPlanName&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;sku&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;sku&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;workerSize&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;workerSize&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;hostingEnvironment&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;numberOfWorkers&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>
-}
-},
-{
-&lt;span style="color:#f92672">&amp;#34;apiVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;2015-04-01&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;Microsoft.Web/sites&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[variables(&amp;#39;functionAppName&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;location&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[parameters(&amp;#39;location&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;kind&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;functionapp&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;properties&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[variables(&amp;#39;functionAppName&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;serverFarmId&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[resourceId(&amp;#39;Microsoft.Web/serverfarms&amp;#39;, variables(&amp;#39;hostingPlanName&amp;#39;))]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;hostingEnvironment&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;clientAffinityEnabled&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;siteConfig&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;alwaysOn&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
-}
-},
-&lt;span style="color:#f92672">&amp;#34;dependsOn&amp;#34;&lt;/span>: [
-&lt;span style="color:#e6db74">&amp;#34;[resourceId(&amp;#39;Microsoft.Web/serverfarms&amp;#39;, variables(&amp;#39;hostingPlanName&amp;#39;))]&amp;#34;&lt;/span>,
-&lt;span style="color:#e6db74">&amp;#34;[resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;))]&amp;#34;&lt;/span>
-],
-&lt;span style="color:#f92672">&amp;#34;resources&amp;#34;&lt;/span>: [
-{
-&lt;span style="color:#f92672">&amp;#34;apiVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;2016-03-01&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;name&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;appsettings&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;config&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;dependsOn&amp;#34;&lt;/span>: [
-&lt;span style="color:#e6db74">&amp;#34;[resourceId(&amp;#39;Microsoft.Web/sites&amp;#39;, variables(&amp;#39;functionAppName&amp;#39;))]&amp;#34;&lt;/span>,
-&lt;span style="color:#e6db74">&amp;#34;[resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;))]&amp;#34;&lt;/span>
-],
-&lt;span style="color:#f92672">&amp;#34;properties&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;AzureWebJobsStorage&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[concat(&amp;#39;DefaultEndpointsProtocol=https;AccountName=&amp;#39;,variables(&amp;#39;storageAccountName&amp;#39;),&amp;#39;; AccountKey=&amp;#39;,listkeys(resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;)), &amp;#39;2015-05-01-preview&amp;#39;).key1,&amp;#39;;&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;AzureWebJobsDashboard&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;[concat(&amp;#39;DefaultEndpointsProtocol=https;AccountName=&amp;#39;,variables(&amp;#39;storageAccountName&amp;#39;),&amp;#39;; AccountKey=&amp;#39;,listkeys(resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;)), &amp;#39;2015-05-01-preview&amp;#39;).key1,&amp;#39;;&amp;#39;)]&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;FUNCTIONS_EXTENSION_VERSION&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;~1&amp;#34;&lt;/span>
-}
-}
-]
-}
-]
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="parameters">Parameters&lt;/h3>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json"> {
-&lt;span style="color:#f92672">&amp;#34;$schema&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;contentVersion&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;1.0.0.0&amp;#34;&lt;/span>,
-&lt;span style="color:#f92672">&amp;#34;parameters&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;appName&amp;#34;&lt;/span>: {
-&lt;span style="color:#f92672">&amp;#34;value&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;#{AzureFunctionName}&amp;#34;&lt;/span>
-}
-}
-}
-&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="build">Build&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;$schema&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;contentVersion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;1.0.0.0&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;parameters&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;appName&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;string&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;metadata&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;description&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;The name of the function app that you wish to create.&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;sku&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;string&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;allowedValues&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;Free&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;Shared&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;Basic&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;Standard&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;defaultValue&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Standard&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;metadata&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;description&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;The pricing tier for the hosting plan.&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;workerSize&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;string&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;allowedValues&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;0&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;1&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;defaultValue&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;0&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;metadata&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;description&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;The instance size of the hosting plan (small, medium, or large).&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;storageAccountType&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;string&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;defaultValue&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Standard_LRS&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;allowedValues&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;Standard_LRS&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;Standard_GRS&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;Standard_RAGRS&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;metadata&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;description&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Storage Account type&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;location&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;string&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;defaultValue&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[resourceGroup().location]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;metadata&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;description&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Location for all resources.&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;variables&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;functionAppName&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[parameters(&amp;#39;appName&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;hostingPlanName&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[parameters(&amp;#39;appName&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;storageAccountName&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[concat(uniquestring(resourceGroup().id), &amp;#39;functions&amp;#39;)]&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;resources&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Microsoft.Storage/storageAccounts&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[variables(&amp;#39;storageAccountName&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;apiVersion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2016-12-01&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;location&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[parameters(&amp;#39;location&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;kind&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Storage&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;sku&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[parameters(&amp;#39;storageAccountType&amp;#39;)]&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Microsoft.Web/serverfarms&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;apiVersion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2015-04-01&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[variables(&amp;#39;hostingPlanName&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;location&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[parameters(&amp;#39;location&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;properties&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[variables(&amp;#39;hostingPlanName&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;sku&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[parameters(&amp;#39;sku&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;workerSize&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[parameters(&amp;#39;workerSize&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;hostingEnvironment&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;numberOfWorkers&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;apiVersion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2015-04-01&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Microsoft.Web/sites&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[variables(&amp;#39;functionAppName&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;location&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[parameters(&amp;#39;location&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;kind&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;functionapp&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;properties&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[variables(&amp;#39;functionAppName&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;serverFarmId&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[resourceId(&amp;#39;Microsoft.Web/serverfarms&amp;#39;, variables(&amp;#39;hostingPlanName&amp;#39;))]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;hostingEnvironment&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;clientAffinityEnabled&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;siteConfig&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;alwaysOn&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;dependsOn&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;[resourceId(&amp;#39;Microsoft.Web/serverfarms&amp;#39;, variables(&amp;#39;hostingPlanName&amp;#39;))]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;[resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;))]&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;resources&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;apiVersion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2016-03-01&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;appsettings&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;config&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;dependsOn&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;[resourceId(&amp;#39;Microsoft.Web/sites&amp;#39;, variables(&amp;#39;functionAppName&amp;#39;))]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;[resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;))]&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;properties&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;AzureWebJobsStorage&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[concat(&amp;#39;DefaultEndpointsProtocol=https;AccountName=&amp;#39;,variables(&amp;#39;storageAccountName&amp;#39;),&amp;#39;; AccountKey=&amp;#39;,listkeys(resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;)), &amp;#39;2015-05-01-preview&amp;#39;).key1,&amp;#39;;&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;AzureWebJobsDashboard&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;[concat(&amp;#39;DefaultEndpointsProtocol=https;AccountName=&amp;#39;,variables(&amp;#39;storageAccountName&amp;#39;),&amp;#39;; AccountKey=&amp;#39;,listkeys(resourceId(&amp;#39;Microsoft.Storage/storageAccounts&amp;#39;, variables(&amp;#39;storageAccountName&amp;#39;)), &amp;#39;2015-05-01-preview&amp;#39;).key1,&amp;#39;;&amp;#39;)]&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;FUNCTIONS_EXTENSION_VERSION&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;~1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="parameters">Parameters&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;$schema&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;contentVersion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;1.0.0.0&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;parameters&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;appName&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;value&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#{AzureFunctionName}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="build">Build&lt;/h1>
 &lt;p>In TC Create a new project, add a new Build Configuration with 3 Build Steps.&lt;/p>
 &lt;h2 id="parameters-1">Parameters&lt;/h2>
 &lt;p>These are use in TC in scripts, variable names, &amp;hellip;&lt;/p>
@@ -804,19 +1326,28 @@ You should see 2 images. Base image and the one you just created.&lt;/p>
 &lt;/ul>
 &lt;h2 id="publish">publish&lt;/h2>
 &lt;p>This runner type is .NET CLI (dotnet). Give a Step name. Choose publish as Command. Select the project. Set Configuration and Output directory to bin\Release\PublishOutput
-&lt;img src="img/bsGq2cx.png" alt="">&lt;/p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/createbuildazfvstcod/img/bsGq2cx_hu305ec8edf5f5b4fb8a682d8dd48992ba_12346_517a6aa4287d111920c6b05f978a4898.webp 400w,
+/post/createbuildazfvstcod/img/bsGq2cx_hu305ec8edf5f5b4fb8a682d8dd48992ba_12346_5829830d82f352c09303fe2ebaedee06.webp 760w,
+/post/createbuildazfvstcod/img/bsGq2cx_hu305ec8edf5f5b4fb8a682d8dd48992ba_12346_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/createbuildazfvstcod/img/bsGq2cx_hu305ec8edf5f5b4fb8a682d8dd48992ba_12346_517a6aa4287d111920c6b05f978a4898.webp"
+width="388"
+height="308"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
 &lt;h2 id="pack">pack&lt;/h2>
 &lt;p>This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-batch" data-lang="batch">&lt;span style="color:#66d9ef">cd&lt;/span> tc-od\bin\Release\PublishOutput
-C:\Programs\Octo\octo&lt;span style="color:#75715e"> pack --id=%packageId% --format=zip --outFolder=../dist --version=%version%
-&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="push">push&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">&lt;span class="k">cd&lt;/span> tc-od\bin\Release\PublishOutput
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">C&lt;span class="p">:&lt;/span>&lt;span class="nl">\Programs\Octo\octo&lt;/span>&lt;span class="c1"> pack --id=%packageId% --format=zip --outFolder=../dist --version=%version%&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="push">push&lt;/h2>
 &lt;p>This runner type is Command Line. Give a Step name. Choose Custom script and enter script below.&lt;/p>
 &lt;p>This pushed the zip file to OD.&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-batch" data-lang="batch">&lt;span style="color:#66d9ef">cd&lt;/span> tc-od\bin\Release\dist
-C:\Programs\Octo\octo&lt;span style="color:#75715e"> push --server=%server% --apiKey=%apikey% --package=%packageId%.%version%.zip
-&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="deploy">Deploy&lt;/h1>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">&lt;span class="k">cd&lt;/span> tc-od\bin\Release\dist
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">C&lt;span class="p">:&lt;/span>&lt;span class="nl">\Programs\Octo\octo&lt;/span>&lt;span class="c1"> push --server=%server% --apiKey=%apikey% --package=%packageId%.%version%.zip&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="deploy">Deploy&lt;/h1>
 &lt;p>In OD make sure you have setup&lt;/p>
 &lt;ul>
 &lt;li>an Environment&lt;/li>
@@ -851,5 +1382,29 @@ C:\Programs\Octo\octo&lt;span style="color:#75715e"> push --server=%server% --ap
 &lt;p>This is it. Happy coding!&lt;/p>
 &lt;h1 id="resources">Resources&lt;/h1>
 &lt;ul>
-&lt;li>&lt;a href="https://octopus.com/blog/azure-functions">https://octopus.com/blog/azure-functions&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title/><link>/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/contact/</guid><description/></item><item><title/><link>/cv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cv/</guid><description/></item></channel></rss>
+&lt;li>&lt;a href="https://octopus.com/blog/azure-functions" target="_blank" rel="noopener">https://octopus.com/blog/azure-functions&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Example Project</title><link>/project/example/</link><pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate><guid>/project/example/</guid><description>&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p>
+&lt;p>Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p>
+&lt;p>Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p>
+&lt;p>Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p>
+&lt;p>Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p></description></item><item><title>External Project</title><link>/project/external-project/</link><pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate><guid>/project/external-project/</guid><description/></item><item><title>An example journal article</title><link>/publication/journal-article/</link><pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate><guid>/publication/journal-article/</guid><description>&lt;div class="alert alert-note">
+&lt;div>
+Click the &lt;em>Cite&lt;/em> button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+&lt;/div>
+&lt;/div>
+&lt;div class="alert alert-note">
+&lt;div>
+Create your slides in Markdown - click the &lt;em>Slides&lt;/em> button to check out the example.
+&lt;/div>
+&lt;/div>
+&lt;p>Supplementary notes can be added here, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">code, math, and images&lt;/a>.&lt;/p></description></item><item><title>An example conference paper</title><link>/publication/conference-paper/</link><pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate><guid>/publication/conference-paper/</guid><description>&lt;div class="alert alert-note">
+&lt;div>
+Click the &lt;em>Cite&lt;/em> button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+&lt;/div>
+&lt;/div>
+&lt;div class="alert alert-note">
+&lt;div>
+Create your slides in Markdown - click the &lt;em>Slides&lt;/em> button to check out the example.
+&lt;/div>
+&lt;/div>
+&lt;p>Supplementary notes can be added here, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">code, math, and images&lt;/a>.&lt;/p></description></item><item><title/><link>/admin/config.yml</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/admin/config.yml</guid><description/></item><item><title/><link>/cv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/cv/</guid><description/></item></channel></rss>

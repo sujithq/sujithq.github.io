@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blazor | Sujith Quintelier</title><link>/tag/blazor/</link><atom:link href="/tag/blazor/index.xml" rel="self" type="application/rss+xml"/><description>Blazor</description><generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 12 Jul 2018 10:00:00 +0000</lastBuildDate><image><url>/media/icon_hu5e15e861ad43a166b29f0ae919c910d4_1990_512x512_fill_lanczos_center_3.png</url><title>Blazor</title><link>/tag/blazor/</link></image><item><title>Setup Blazor development environment</title><link>/post/setupblazordevenv/</link><pubDate>Thu, 12 Jul 2018 10:00:00 +0000</pubDate><guid>/post/setupblazordevenv/</guid><description>&lt;p>This guide helps you set up your &lt;a href="https://blazor.net/" target="_blank" rel="noopener">Blazor&lt;/a> development environment without messing up your current development machine with beta releases.&lt;/p>
+&lt;p>We will use these tools&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://www.docker.com/community-edition" target="_blank" rel="noopener">Docker Community Edition&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="lets-get-started">Let&amp;rsquo;s get started&lt;/h1>
+&lt;p>Create a local directory with one subdirectory named &amp;ldquo;app&amp;rdquo;.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/setupblazordevenv/img/create_directory_huc42c86725c5e30842cb8bcbb05bc598e_20634_f79738db02e041a6b5bf9ed39c95eccb.webp 400w,
+/post/setupblazordevenv/img/create_directory_huc42c86725c5e30842cb8bcbb05bc598e_20634_2891cb1ac859315ef12d4a72911c294e.webp 760w,
+/post/setupblazordevenv/img/create_directory_huc42c86725c5e30842cb8bcbb05bc598e_20634_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/create_directory_huc42c86725c5e30842cb8bcbb05bc598e_20634_f79738db02e041a6b5bf9ed39c95eccb.webp"
+width="324"
+height="613"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;h1 id="create-dockerfile">Create Dockerfile&lt;/h1>
+&lt;p>First download the latest &lt;a href="https://hub.docker.com/r/microsoft/dotnet/" title="dockerfile" target="_blank" rel="noopener">dockerfile&lt;/a> version.
+Look at the latest version of &lt;a href="https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/stretch/amd64/Dockerfile" target="_blank" rel="noopener">Linux amd64&lt;/a>.
+Copy the raw content and store it in a file Dockerfile. Modify it by appending &lt;code> \&lt;/code> and &lt;code>&amp;amp;&amp;amp; dotnet new -i Microsoft.AspNetCore.Blazor.Templates&lt;/code> at the second RUN command.&lt;/p>
+&lt;p>It should look like this:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">RUN curl -SL --output dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Sdk/&lt;span class="nv">$DOTNET_SDK_VERSION&lt;/span>/dotnet-sdk-&lt;span class="nv">$DOTNET_SDK_VERSION&lt;/span>-linux-x64.tar.gz &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nv">dotnet_sha512&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;2166986e360f1c3456a33723edb80349e6ede115be04a6331bfbfd0f412494684d174a0cfb21d2feb00d509ce342030160a4b5b445e393ad83bedb613a64bc66&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sha512sum dotnet.tar.gz &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$dotnet_sha512&lt;/span>&lt;span class="s2"> dotnet.tar.gz&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sha512sum -c - &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> mkdir -p /usr/share/dotnet &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> tar -zxf dotnet.tar.gz -C /usr/share/dotnet &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> rm dotnet.tar.gz &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> dotnet new -i Microsoft.AspNetCore.Blazor.Templates
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="create-the-docker-image">Create the docker image&lt;/h1>
+&lt;p>Open a terminal and go to the location of the Dockerfile and run &lt;code>docker build -t blazor:latest .&lt;/code>. This will build the docker image.&lt;/p>
+&lt;p>If this fails, just restart your docker and rerun previous command.&lt;/p>
+&lt;h2 id="build">build&lt;/h2>
+&lt;p>This builds the image.&lt;/p>
+&lt;h2 id="-t">-t&lt;/h2>
+&lt;p>This adds a label &lt;code>latest&lt;/code>.&lt;/p>
+&lt;h2 id="verify">verify&lt;/h2>
+&lt;p>The creation of the image can be verified by &lt;code>docker images&lt;/code>
+You should see 2 images. Base image and the one you just created.&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/setupblazordevenv/img/docker_images_hu24a0cb676f7cfbce3c1584ae236df962_5594_ce621d16603d061d24a761d625aa36bd.webp 400w,
+/post/setupblazordevenv/img/docker_images_hu24a0cb676f7cfbce3c1584ae236df962_5594_5654d4515a6547f41f4b91a16f871357.webp 760w,
+/post/setupblazordevenv/img/docker_images_hu24a0cb676f7cfbce3c1584ae236df962_5594_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/docker_images_hu24a0cb676f7cfbce3c1584ae236df962_5594_ce621d16603d061d24a761d625aa36bd.webp"
+width="760"
+height="105"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;h1 id="start-a-container-instance">Start a container instance&lt;/h1>
+&lt;p>At the prompt run &lt;code>docker run -it --rm --name blazortest -p 8000:80 -v H:\Euricom\Blazor\app\:/app -w=&amp;quot;/app&amp;quot; blazor:latest&lt;/code>&lt;/p>
+&lt;h2 id="run">run&lt;/h2>
+&lt;p>This runs the container:&lt;/p>
+&lt;h2 id="-it">-it&lt;/h2>
+&lt;p>This runs an interactive container.&lt;/p>
+&lt;h2 id="--rm">&amp;ndash;rm&lt;/h2>
+&lt;p>This removes the container after stopping the container.&lt;/p>
+&lt;h2 id="-p">-p&lt;/h2>
+&lt;p>This maps the internal port (80) to an external port (8000).&lt;/p>
+&lt;h2 id="-v">-v&lt;/h2>
+&lt;p>This maps a local path &lt;code>H:\Euricom\Blazor\app\&lt;/code> to this volume &lt;code>/app&lt;/code>&lt;/p>
+&lt;h2 id="-w">-w&lt;/h2>
+&lt;p>This sets the working directory to &lt;code>/app&lt;/code>&lt;/p>
+&lt;h2 id="verify-1">verify&lt;/h2>
+&lt;p>In another terminal you should see named instance blazortest&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/setupblazordevenv/img/docker_running_instances_hua3de91e0315ef2f8aca204def9eef31f_5424_8df3adb04cb5cd68296f8fe93f634b82.webp 400w,
+/post/setupblazordevenv/img/docker_running_instances_hua3de91e0315ef2f8aca204def9eef31f_5424_b87309089ed06d10e8df21df1010d8dc.webp 760w,
+/post/setupblazordevenv/img/docker_running_instances_hua3de91e0315ef2f8aca204def9eef31f_5424_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/docker_running_instances_hua3de91e0315ef2f8aca204def9eef31f_5424_8df3adb04cb5cd68296f8fe93f634b82.webp"
+width="760"
+height="61"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;h1 id="create-a-new-blazor-project">Create a new blazor project&lt;/h1>
+&lt;p>You can create a new Blazor project the volume created earlier by running this command &lt;code>dotnet new blazor&lt;/code>.&lt;/p>
+&lt;p>Open the project file app.csproj and add this node &lt;code>&amp;lt;Watch Include=&amp;quot;**\*.cshtml&amp;quot; /&amp;gt;&lt;/code>. This makes it possible to make changes on the fly.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;Project&lt;/span> &lt;span class="na">Sdk=&lt;/span>&lt;span class="s">&amp;#34;Microsoft.NET.Sdk.Web&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;PropertyGroup&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;TargetFramework&amp;gt;&lt;/span>netstandard2.0&lt;span class="nt">&amp;lt;/TargetFramework&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;RunCommand&amp;gt;&lt;/span>dotnet&lt;span class="nt">&amp;lt;/RunCommand&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;RunArguments&amp;gt;&lt;/span>blazor serve&lt;span class="nt">&amp;lt;/RunArguments&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;LangVersion&amp;gt;&lt;/span>7.3&lt;span class="nt">&amp;lt;/LangVersion&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/PropertyGroup&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;ItemGroup&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;PackageReference&lt;/span> &lt;span class="na">Include=&lt;/span>&lt;span class="s">&amp;#34;Microsoft.AspNetCore.Blazor.Browser&amp;#34;&lt;/span> &lt;span class="na">Version=&lt;/span>&lt;span class="s">&amp;#34;0.4.0&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;PackageReference&lt;/span> &lt;span class="na">Include=&lt;/span>&lt;span class="s">&amp;#34;Microsoft.AspNetCore.Blazor.Build&amp;#34;&lt;/span> &lt;span class="na">Version=&lt;/span>&lt;span class="s">&amp;#34;0.4.0&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;DotNetCliToolReference&lt;/span> &lt;span class="na">Include=&lt;/span>&lt;span class="s">&amp;#34;Microsoft.AspNetCore.Blazor.Cli&amp;#34;&lt;/span> &lt;span class="na">Version=&lt;/span>&lt;span class="s">&amp;#34;0.4.0&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;Watch&lt;/span> &lt;span class="na">Include=&lt;/span>&lt;span class="s">&amp;#34;**\*.cshtml&amp;#34;&lt;/span> &lt;span class="nt">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/ItemGroup&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/Project&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="start-the-application">Start the application&lt;/h1>
+&lt;p>Start the application via &lt;code>dotnet watch run&lt;/code>&lt;/p>
+&lt;p>
+&lt;figure >
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/post/setupblazordevenv/img/dotnet_watch_run_hubcfcac032d1b46a0e21da194550c18e8_9878_9da4b644477e4007643a3ae0a1d07947.webp 400w,
+/post/setupblazordevenv/img/dotnet_watch_run_hubcfcac032d1b46a0e21da194550c18e8_9878_a03854a72c0e5d72b4436b8c2685662e.webp 760w,
+/post/setupblazordevenv/img/dotnet_watch_run_hubcfcac032d1b46a0e21da194550c18e8_9878_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/dotnet_watch_run_hubcfcac032d1b46a0e21da194550c18e8_9878_9da4b644477e4007643a3ae0a1d07947.webp"
+width="760"
+height="181"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;h1 id="launch-the-application">Launch the application&lt;/h1>
+&lt;p>Open a browser and launch &lt;code>http://localhost:8000&lt;/code>&lt;/p>
+&lt;p>
+&lt;figure id="figure-chrome">
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Chrome" srcset="
+/post/setupblazordevenv/img/launch_chrome_hu541aaed4bb2a1dd2b8f474abc4d9cb7b_50893_7a7794434098e818c2f1c4073fc64bdd.webp 400w,
+/post/setupblazordevenv/img/launch_chrome_hu541aaed4bb2a1dd2b8f474abc4d9cb7b_50893_caa8d076ede2f6f1b11aaded3c7c1aae.webp 760w,
+/post/setupblazordevenv/img/launch_chrome_hu541aaed4bb2a1dd2b8f474abc4d9cb7b_50893_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/launch_chrome_hu541aaed4bb2a1dd2b8f474abc4d9cb7b_50893_7a7794434098e818c2f1c4073fc64bdd.webp"
+width="760"
+height="411"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Chrome
+&lt;/figcaption>&lt;/figure>
+&lt;figure id="figure-edge">
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Edge" srcset="
+/post/setupblazordevenv/img/launch_edge_hu995261f3128bd6d32847ec8f340b3d21_40628_fc7a1d38fa809d6a8d3268865f863f7b.webp 400w,
+/post/setupblazordevenv/img/launch_edge_hu995261f3128bd6d32847ec8f340b3d21_40628_e70250825460d849f93513d5eca20f0c.webp 760w,
+/post/setupblazordevenv/img/launch_edge_hu995261f3128bd6d32847ec8f340b3d21_40628_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/launch_edge_hu995261f3128bd6d32847ec8f340b3d21_40628_fc7a1d38fa809d6a8d3268865f863f7b.webp"
+width="760"
+height="324"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Edge
+&lt;/figcaption>&lt;/figure>
+&lt;figure id="figure-firefox">
+&lt;div class="d-flex justify-content-center">
+&lt;div class="w-100" >&lt;img alt="Firefox" srcset="
+/post/setupblazordevenv/img/launch_ff_hud562a033933dfa5d21f04f6b1a17f6ca_32598_c4a283b496d10d0efe95e7dcd45f0858.webp 400w,
+/post/setupblazordevenv/img/launch_ff_hud562a033933dfa5d21f04f6b1a17f6ca_32598_385077925615af0013bd8454833f0e34.webp 760w,
+/post/setupblazordevenv/img/launch_ff_hud562a033933dfa5d21f04f6b1a17f6ca_32598_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+src="/post/setupblazordevenv/img/launch_ff_hud562a033933dfa5d21f04f6b1a17f6ca_32598_c4a283b496d10d0efe95e7dcd45f0858.webp"
+width="760"
+height="403"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Firefox
+&lt;/figcaption>&lt;/figure>
+&lt;/p></description></item></channel></rss>
