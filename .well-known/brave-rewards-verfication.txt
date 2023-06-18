@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: sujithq.github.io
-Token: 3fdb2009685bb05729de1e5c400880eb596c8fe7614a15745759487670454735
