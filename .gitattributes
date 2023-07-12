@@ -1,0 +1,9 @@
+*.ipynb linguist-detectable=false
+*.cs linguist-detectable=true
+*.md linguist-detectable=true
+*.toml linguist-detectable=true
+*.go linguist-detectable=true
+*.html linguist-detectable=true
+*.yml linguist-detectable=true
+*.yaml linguist-detectable=true
+*.css linguist-detectable=true
