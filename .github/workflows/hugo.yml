@@ -44,10 +44,9 @@ jobs:
         with:
           # submodules: recursive
           fetch-depth: 0
-      - uses: gitleaks/gitleaks-action@v2
-        enabled: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}      
+#      - uses: gitleaks/gitleaks-action@v2
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.TOKEN }}      
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
