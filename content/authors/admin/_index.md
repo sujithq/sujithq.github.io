@@ -28,10 +28,10 @@ bio: My interests include Azure (IaaS, PaaS, Saas, Faas, CAF, WAF, Architecture,
 # Interests to show in About widget
 interests:
 - Azure
-- DevOps
+- Dev(Sec)Ops
 - GitHub
 - Kubernetes
-- IoC(Terraform, Bicep)
+- IaC(Terraform, Bicep)
 - Security
 - NOSQL
 - Programming Languages
