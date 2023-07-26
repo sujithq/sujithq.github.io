@@ -100,6 +100,8 @@ As a certified **Azure Cosmos DB Developer** he shows subject matter expertise d
 
 As a certified partner for **GitHub Actions** he validates subject matter expertise with applying continuous integration/continuous delivery (CI/CD) patterns and practices using GitHub Actions in the enterprise.
 
+As a certified partner for **GitHub Avanced Security** he validates subject matter expertise with applying software supply chain security patterns and practices with GitHub Advanced Security in the enterprise.
+
 As a certified **Azure Identity and Access Administrator** he validates the skills and knowledge to design, implement, and operate an organization’s identity and access management systems using Azure AD. He provides a seamless experience and self-service management capabilities for all users. He is responsible for troubleshooting, monitoring, and reporting of the identity and access environment.
 
 As a certified **Azure Network Engineer** he validates skills and subject matter expertise in planning, implementing, and maintaining Azure networking solutions, including hybrid networking, connectivity, routing, security, and private access to Azure services. He deploys networking solutions using Azure Portal and other methods, including PowerShell, Azure Command-Line Interface (CLI), and Azure Resource Manager templates (ARM templates).
