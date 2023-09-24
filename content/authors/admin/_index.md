@@ -19,7 +19,7 @@ role: Azure Cloud Solutions & Cybersecurity Architect | Azure (Identity and Acce
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: "Xpirit"
+  - name: "Xebia|Xpirit"
     url: https://xpirit.com/
 
 # Short bio (displayed in user profile at end of posts)
