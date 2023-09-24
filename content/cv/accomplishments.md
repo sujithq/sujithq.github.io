@@ -44,6 +44,30 @@ date_format = "Jan 2006"
   """
 
 [[item]]
+  organization = "GitHub"
+  organization_url = "https://www.github.com"
+  title = "GitHub Certified Partner: GitHub Admin"
+  url = "https://examregistration.github.com/certification/ADMIN/"
+  certificate_url = "https://www.credly.com/badges/ff8dd9da-f68f-4529-802f-3ae1ce302ce4"
+  date_start = "2023-09-24"
+  date_end = ""
+  description = """
+  Passing the GitHub Administration certification exam validates subject matter expertise with the deployment and administration of GitHub Enterprise as well as how to provide support for GitHub users in the enterprise.
+  """
+
+  [[item]]
+  organization = "GitHub"
+  organization_url = "https://www.github.com"
+  title = "GitHub Certified Partner: GitHub Advanced Security"
+  url = "https://examregistration.github.com/certification/GHAS/"
+  certificate_url = "https://www.credly.com/badges/4f384409-135f-49a6-8455-f2c3e8511a0b"
+  date_start = "2023-06-26"
+  date_end = ""
+  description = """
+  Passing the GitHub Advanced Security certification exam validates subject matter expertise with applying software supply chain security patterns and practices with GitHub Advanced Security in the enterprise.
+  """
+
+[[item]]
   organization = "Microsoft"
   organization_url = "https://www.microsoft.com"
   title = "Microsoft Certified: Cybersecurity Architect Expert"
