@@ -14,7 +14,7 @@ status:
 superuser: true
 
 # Role/position/tagline
-role: Azure Cloud Solutions & Cybersecurity Architect | Azure (Identity and Access) Administrator | Azure DevOps, AI, Security & Network Engineer | Azure (Cosmos DB) Developer
+role: Azure Cloud Solutions & Cybersecurity Architect | Azure (Identity and Access) Administrator | Azure DevOps, AI, Security & Network Engineer | Azure (Cosmos DB) Developer | GitHub Accredited Trainer for Delivering GitHub Actions-GitHub for Developers-GitHub Administration-GitHub Advanced Security Gettings Started training
 
 
 # Organizations/Affiliations to show in About widget
@@ -23,7 +23,7 @@ organizations:
     url: https://xpirit.com/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My interests include Azure (IaaS, PaaS, Saas, Faas, CAF, WAF, Architecture, Cognitive Services), DevOps (People, Process and Products), Kubernetes, Application Development (.NET), NOSQL (CosmosDB, RavenDB, ...), AI, ML, Programming Languages (C#, Python, Go, ...), Cloud Native, IoC (Terraform, Biceps, ARM, Pulumi, ...)
+bio: My interests include Azure (IaaS, PaaS, Saas, Faas, CAF, WAF, Architecture, Cognitive Services), DevOps (People, Process and Products), GitHub, Kubernetes, Application Development (.NET), NOSQL (CosmosDB, RavenDB, ...), AI, ML, Programming Languages (C#, Python, Go, ...), Cloud Native, IoC (Terraform, Biceps, ARM, Pulumi, ...)
 
 # Interests to show in About widget
 interests:
@@ -101,6 +101,8 @@ As a certified **Azure Cosmos DB Developer** he shows subject matter expertise d
 As a certified partner for **GitHub Actions** he validates subject matter expertise with applying continuous integration/continuous delivery (CI/CD) patterns and practices using GitHub Actions in the enterprise.
 
 As a certified partner for **GitHub Advanced Security** he validates subject matter expertise with applying software supply chain security patterns and practices with GitHub Advanced Security in the enterprise.
+
+As a certified partner for **GitHub Administration** he validates subject matter expertise with the deployment and administration of GitHub Enterprise as well as how to provide support for GitHub users in the enterprise.
 
 As a certified **Azure Identity and Access Administrator** he validates the skills and knowledge to design, implement, and operate an organization’s identity and access management systems using Azure AD. He provides a seamless experience and self-service management capabilities for all users. He is responsible for troubleshooting, monitoring, and reporting of the identity and access environment.
 
