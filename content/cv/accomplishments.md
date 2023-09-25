@@ -363,7 +363,7 @@ He has solid knowledge and experience developing apps for Azure and working with
   [[item]]
   organization = "GitHub"
   organization_url = "https://github.com"
-  title = "Accreditations"
+  title = "GitHub Accreditations"
   url = ""
   certificate_url = ""
   date_start = "2023-06-01"
