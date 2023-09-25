@@ -359,4 +359,22 @@ He has solid knowledge and experience developing apps for Azure and working with
   The Security Journey Yellow Belt advances the organizational security foundation by diving deeper into the core concepts and principals of the White Belt. Developers and technical teams examine security truths and vulnerabilities necessary to improving code security.
   Our Green Belts train developers to infuse security into their everyday development environments. From C#, TypeScript, DevSecOps, API, Containerization and Web App Testing, these belts apply the core principles, vocabulary, tools and concepts to specific code languages while offering hands-on experiments the implement what is learned.
   """
+
+  [[item]]
+  organization = "GitHub"
+  organization_url = "https://github.com"
+  title = "Accreditations"
+  url = ""
+  certificate_url = ""
+  date_start = "2023-06-01"
+  date_end = "2026-06-01"
+  description = """
+  These accreditations allows you to give training for GitHub Actions, GitHub for Developers, GitHub Administration, GitHub Advanced Security Getting Started and GitHub Copilot for Business Fundamentals.
+
+  They also allow you to handle migrations processes from GHES, GHEC, Azure DevOps Server/Cloud, Gitlab, Bitbucket Server/Cloud, Any Git repository, Any Mercurial repository, Any Subversion repository, Any Team Foundation Version Control repository, Any Perforce repository, Any other repository to GHEC.
+  
+  They also allow you to handle migrations processes from GHES, GHEC, Azure DevOps, Gitlab, Bitbucket Server/Cloud, Any Git repository, Any Mercurial repository, Any Subversion repository, Any Team Foundation Version Control repository (TFVC), Any Perforce repository, Any other repository to GHES.
+
+  They also allow you to handle migrations from Azure DevOps, Bitbucket Server, GHES, GHEC  using GitHub Enterprise Importer.
+  """
 +++
