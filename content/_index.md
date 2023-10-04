@@ -264,7 +264,7 @@ sections:
           icon_pack: fab
           name: GiHub
           link: 'https://github.com/sujithq'
-        - icon: twitter
+        - icon: x-twitter
           icon_pack: fab
           name: Twitter
           link: 'https://twitter.com/SujithQ'

@@ -14,7 +14,7 @@ status:
 superuser: true
 
 # Role/position/tagline
-role: Azure Cloud Solutions & Cybersecurity Architect | Azure (Identity and Access) Administrator | Azure DevOps, AI, Security & Network Engineer | Azure (Cosmos DB) Developer | GitHub Accredited Trainer for Delivering GitHub Actions-GitHub for Developers-GitHub Administration-GitHub Advanced Security Gettings Started training
+role: Azure Cloud Solutions & Cybersecurity Architect | Azure (Identity and Access) Administrator | Azure DevOps, AI, Security & Network Engineer | Azure (Cosmos DB) Developer | GitHub Accredited Trainer for Delivering GitHub Actions - GitHub for Developers - GitHub Administration - GitHub Advanced Security Gettings Started training - GitHub Migrations - GitHub Enterprise Importer - Github Copilot for Business Fundamentals
 
 
 # Organizations/Affiliations to show in About widget
@@ -23,7 +23,7 @@ organizations:
     url: https://xpirit.com/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My interests include Azure (IaaS, PaaS, Saas, Faas, CAF, WAF, Architecture, Cognitive Services), DevOps (People, Process and Products), GitHub, Kubernetes, Application Development (.NET), NOSQL (CosmosDB, RavenDB, ...), AI, ML, Programming Languages (C#, Python, Go, ...), Cloud Native, IoC (Terraform, Biceps, ARM, Pulumi, ...)
+bio: My interests include Azure (IaaS, PaaS, Saas, Faas, CAF, WAF, Architecture, Cognitive Services), DevOps (People, Process and Products), GitHub (Actions, Administration, GHAS, Migrations, Copilot), Kubernetes, Application Development (.NET), NOSQL (CosmosDB, RavenDB, ...), AI, ML, Programming Languages (C#, Python, Go, ...), Cloud Native, IoC (Terraform, Biceps, ARM, Pulumi, ...)
 
 # Interests to show in About widget
 interests:
@@ -68,7 +68,7 @@ social:
   - icon: github
     icon_pack: fab
     link: https://github.com/sujithq
-  - icon: twitter
+  - icon: x-twitter
     icon_pack: fab
     link: https://twitter.com/SujithQ
     label: Follow me on Twitter
