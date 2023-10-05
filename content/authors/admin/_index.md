@@ -68,7 +68,7 @@ social:
   - icon: github
     icon_pack: fab
     link: https://github.com/sujithq
-  - icon: x-twitter
+  - icon: twitter
     icon_pack: fab
     link: https://twitter.com/SujithQ
     label: Follow me on Twitter
