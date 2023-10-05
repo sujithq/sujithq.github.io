@@ -83,3 +83,8 @@
 /* GenericTraceback */ .chroma .gt {  }
 /* GenericUnderline */ .chroma .gl { text-decoration: underline }
 /* TextWhitespace */ .chroma .w {  }
+
+.card .card-text p + ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
