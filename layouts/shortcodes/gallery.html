@@ -26,8 +26,8 @@
 {{ $sort_order := .Get "order" | default "asc" }}
 {{ $resize_options := printf "%s webp icon" (.Get "resize_options" | default "750x750") }}
 
-<div class="gallery-grid">
-
+<div class="container">
+  <div class="row">
   {{/* Attempt to automatically load gallery images from page bundle */}}
   {{ $images := resources.Match $album_path }}
   {{ range (sort $images "Name" $sort_order) }}
@@ -48,7 +48,7 @@
   {{else if in .Name "-l." }}
     {{ $image_size = "gallery-item--large" }}
   {{end}}
-  <div class="gallery-item {{$image_size}}">
+  <div class="col-sm-2">
     <a data-fancybox="gallery-{{$album}}" href="{{ .RelPermalink }}" {{ with $caption }}data-caption="{{.|markdownify|emojify|safeHTMLAttr}}"{{ end }}>
         <img src="{{ $image.RelPermalink }}" loading="lazy" alt="{{ plainify $caption | default $filename }}" width="{{ $image.Width }}" height="{{ $image.Height }}">
         <!-- <img src="{{ $image.RelPermalink }}" loading="lazy" alt="{{ plainify $caption | default $filename }}" width="100" height="100"> -->
@@ -57,5 +57,5 @@
   {{else}}
     {{ errorf "Unable to load gallery `%s` in `%s`." $album_path .Page.File.Filename }}
   {{end}}
-
+</div>
 </div>
