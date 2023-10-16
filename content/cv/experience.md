@@ -19,14 +19,25 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
-  title = "Azure Architect | DevOps Enabler"
-  company = "Xpirit"
+  title = "Azure Architect | DevOps Enabler | GitHub Enthousiast"
+  company = "Xebia|Xpirit"
   company_url = "https://xpirit.com"
-  location = "De Pinte"
+  location = "Antwerp"
   date_start = "2023-06-12"
   date_end = ""
   description = """
 Authority, Focus and Values. These principles guide every decision made by both management and staff. Authority means becoming the best in our field, individually and as a company. It’s an audacious goal that keeps us striving and fighting. That’s why we only hire people who are driven by the same mission!
+
+Helping clients with:
+
+* Azure
+* GitHub
+* DevOps
+* Cloud Native
+* Assessments
+* CI/CD
+* IaC
+* Trainings
 """
 
 [[experience]]

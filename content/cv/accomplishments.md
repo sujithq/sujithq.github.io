@@ -68,6 +68,18 @@ date_format = "Jan 2006"
   """
 
 [[item]]
+  organization = "GitHub"
+  organization_url = "https://www.github.com"
+  title = "GitHub Certified Partner: GitHub Foundations"
+  url = "https://examregistration.github.com/certification/GHF/"
+  certificate_url = "https://www.credly.com/badges/f2af80ea-f871-40e7-8ea7-ac135bf9a961"
+  date_start = "2022-10-16"
+  date_end = ""
+  description = """
+  Passing the GitHub Foundations certification exam validates subject matter expertise by measuring entry-level skills with GitHub basics like repositories, commits, branching, markdowns, and project management.
+  """
+
+[[item]]
   organization = "Microsoft"
   organization_url = "https://www.microsoft.com"
   title = "Microsoft Certified: Cybersecurity Architect Expert"
