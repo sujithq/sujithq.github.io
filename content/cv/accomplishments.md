@@ -73,7 +73,7 @@ date_format = "Jan 2006"
   title = "GitHub Certified Partner: GitHub Foundations"
   url = "https://examregistration.github.com/certification/GHF/"
   certificate_url = "https://www.credly.com/badges/f2af80ea-f871-40e7-8ea7-ac135bf9a961"
-  date_start = "2022-10-16"
+  date_start = "2023-10-16"
   date_end = ""
   description = """
   Passing the GitHub Foundations certification exam validates subject matter expertise by measuring entry-level skills with GitHub basics like repositories, commits, branching, markdowns, and project management.
