@@ -20,7 +20,7 @@ date_format = "Jan 2006"
 
 [[experience]]
   title = "Azure Architect | DevOps Enabler | GitHub Enthousiast"
-  company = "Xebia|Xpirit"
+  company = "Xebia FKA Xebia|Xpirit FKA Xpirit"
   company_url = "https://xpirit.com"
   location = "Antwerp"
   date_start = "2023-06-12"
