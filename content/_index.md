@@ -262,7 +262,7 @@ sections:
           link: 'https://www.linkedin.com/in/sujithquintelier/'
         - icon: github
           icon_pack: fab
-          name: GiHub
+          name: GitHub
           link: 'https://github.com/sujithq'
         - icon: twitter
           icon_pack: fab
