@@ -96,13 +96,25 @@ As a certified **Cybersecurity Architect** he has subject matter expertise in de
 
 As a certified **DevOps Engineer** he demonstrates the ability to combine people, process, and technologies to continuously deliver valuable products and services that meet end user needs and business objectives. He streamlines delivery by optimizing practices, improving communications and collaboration, and creating automation.
 
-As a certified **Azure Cosmos DB Developer** he shows subject matter expertise designing, implementing, and monitoring cloud-native applications that store and manage data. His responsibilities include designing and implementing data models and data distribution, loading data into an Azure Cosmos DB database, and optimizing and maintaining the solution. He integrates the solution with other Azure services. He also designs, implements, and monitors solutions that consider security, availability, resilience, and performance requirements. He has solid knowledge and experience developing apps for Azure and working with Azure Cosmos DB database technologies. He should be proficient at developing applications by using the Core (SQL) API and SDKs, writing efficient queries and creating appropriate index policies, provisioning and managing resources in Azure, and creating server-side objects with JavaScript. He should be able to interpret JSON, read C# or Java code, and use PowerShell.
-
 As a certified partner for **GitHub Actions** he validates subject matter expertise with applying continuous integration/continuous delivery (CI/CD) patterns and practices using GitHub Actions in the enterprise.
 
 As a certified partner for **GitHub Advanced Security** he validates subject matter expertise with applying software supply chain security patterns and practices with GitHub Advanced Security in the enterprise.
 
 As a certified partner for **GitHub Administration** he validates subject matter expertise with the deployment and administration of GitHub Enterprise as well as how to provide support for GitHub users in the enterprise.
+
+As a certified partner for **GitHub Foundations** he validates subject matter expertise by measuring entry-level skills with GitHub basics like repositories, commits, branching, markdowns, and project management.
+
+As an **Accredited Trainer** for GitHub he is allowed to give training for
+
+* GitHub Actions
+* GitHub for Developers
+* GitHub Advanced Security Getting Started
+* GitHub Administration
+* GitHub Migrations
+* GitHub Enterprise Importer
+* GitHub Copilot for Business Fundamentals
+
+As a certified **Azure Cosmos DB Developer** he shows subject matter expertise designing, implementing, and monitoring cloud-native applications that store and manage data. His responsibilities include designing and implementing data models and data distribution, loading data into an Azure Cosmos DB database, and optimizing and maintaining the solution. He integrates the solution with other Azure services. He also designs, implements, and monitors solutions that consider security, availability, resilience, and performance requirements. He has solid knowledge and experience developing apps for Azure and working with Azure Cosmos DB database technologies. He should be proficient at developing applications by using the Core (SQL) API and SDKs, writing efficient queries and creating appropriate index policies, provisioning and managing resources in Azure, and creating server-side objects with JavaScript. He should be able to interpret JSON, read C# or Java code, and use PowerShell.
 
 As a certified **Azure Identity and Access Administrator** he validates the skills and knowledge to design, implement, and operate an organization’s identity and access management systems using Azure AD. He provides a seamless experience and self-service management capabilities for all users. He is responsible for troubleshooting, monitoring, and reporting of the identity and access environment.
 
@@ -116,8 +128,8 @@ As a certified **Azure Security Engineer** he demonstrates the skills and knowle
 
 As a certified **Azure Developer** he demonstrates the skills and knowledge to design, build, test, and maintain cloud applications and services on Microsoft Azure. He participates in all phases of cloud development from requirements definition and design, to development, deployment, and maintenance.
 
-As an **AWS Cloud Quest Cloud Practitioner** he has demonstrated basic solution building knowledge using AWS services and has a fundamental understanding of AWS Cloud concepts. He has acquired hands-on experience with compute, networking, database and security services.
+As **Lead developer**, he has carried the full weight of software development in medium-sized software firms in the past few years. As such he is guiding other developers, streamlining development, defining standards, organizing code reviews, exploring new technologies, etc. Having worked on the same products for several years, he has developed a deeper understanding of the evolution of software.
 
-As **lead developer**, he has carried the full weight of software development in medium-sized software firms in the past few years. As such he is guiding other developers, streamlining development, defining standards, organizing code reviews, exploring new technologies, etc. Having worked on the same products for several years, he has developed a deeper understanding of the evolution of software.
+As an **AWS Cloud Quest Cloud Practitioner** he has demonstrated basic solution building knowledge using AWS services and has a fundamental understanding of AWS Cloud concepts. He has acquired hands-on experience with compute, networking, database and security services.
 
 He is an excellent team player, capable of working under pressure and without supervision. He is well organized, self-motivated, and has demonstrated important skills in dealing with issues and resolving them prior to becoming problems. He is an easy learning person used to acquire new knowledge about customer systems, standards, tools and trends. He is eager to learn new technologies and is continuously extending his knowledge.
