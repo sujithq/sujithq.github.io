@@ -11,14 +11,14 @@
 /* Line */ .chroma .line { display: flex; }
 /* Keyword */ .chroma .k { color: #ff79c6 }
 /* KeywordConstant */ .chroma .kc { color: #ff79c6 }
-/* KeywordDeclaration */ .chroma .kd { color: #6c1d5f; font-style: italic }
+/* KeywordDeclaration */ .chroma .kd { color: #8be9fd; font-style: italic }
 /* KeywordNamespace */ .chroma .kn { color: #ff79c6 }
 /* KeywordPseudo */ .chroma .kp { color: #ff79c6 }
 /* KeywordReserved */ .chroma .kr { color: #ff79c6 }
-/* KeywordType */ .chroma .kt { color: #6c1d5f }
+/* KeywordType */ .chroma .kt { color: #8be9fd }
 /* Name */ .chroma .n {  }
 /* NameAttribute */ .chroma .na { color: #50fa7b }
-/* NameBuiltin */ .chroma .nb { color: #6c1d5f; font-style: italic }
+/* NameBuiltin */ .chroma .nb { color: #8be9fd; font-style: italic }
 /* NameBuiltinPseudo */ .chroma .bp {  }
 /* NameClass */ .chroma .nc { color: #50fa7b }
 /* NameConstant */ .chroma .no {  }
@@ -27,15 +27,15 @@
 /* NameException */ .chroma .ne {  }
 /* NameFunction */ .chroma .nf { color: #50fa7b }
 /* NameFunctionMagic */ .chroma .fm {  }
-/* NameLabel */ .chroma .nl { color: #6c1d5f; font-style: italic }
+/* NameLabel */ .chroma .nl { color: #8be9fd; font-style: italic }
 /* NameNamespace */ .chroma .nn {  }
 /* NameOther */ .chroma .nx {  }
 /* NameProperty */ .chroma .py {  }
 /* NameTag */ .chroma .nt { color: #ff79c6 }
-/* NameVariable */ .chroma .nv { color: #6c1d5f; font-style: italic }
-/* NameVariableClass */ .chroma .vc { color: #6c1d5f; font-style: italic }
-/* NameVariableGlobal */ .chroma .vg { color: #6c1d5f; font-style: italic }
-/* NameVariableInstance */ .chroma .vi { color: #6c1d5f; font-style: italic }
+/* NameVariable */ .chroma .nv { color: #8be9fd; font-style: italic }
+/* NameVariableClass */ .chroma .vc { color: #8be9fd; font-style: italic }
+/* NameVariableGlobal */ .chroma .vg { color: #8be9fd; font-style: italic }
+/* NameVariableInstance */ .chroma .vi { color: #8be9fd; font-style: italic }
 /* NameVariableMagic */ .chroma .vm {  }
 /* Literal */ .chroma .l {  }
 /* LiteralDate */ .chroma .ld {  }
