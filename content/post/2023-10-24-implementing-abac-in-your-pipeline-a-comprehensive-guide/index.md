@@ -8,27 +8,26 @@ cover: img/cover.png
 #tags: [azure, azure-functions, visual-studio, teamcity, octopus-deploy]
 #class: post-template
 #subclass: 'post'
-#author: sujith
 #disqus: False
 share: true
 title: 'Implementing ABAC in Your Pipeline: A Comprehensive Guide'
 subtitle: 'Fine-tuning Access Controls for Seamless and Secure Pipeline Operations'
-summary: 'In today's complex IT environments, ensuring secure access to resources is paramount. Attribute-Based Access Control (ABAC) offers a flexible and dynamic approach to manage user permissions within a pipeline. This guide delves deep into how ABAC can be effectively incorporated in pipeline setups, providing a granular level of access based on user attributes, environmental conditions, and other contextual factors. Whether you're setting up a new pipeline or refining an existing one, this post will equip you with the knowledge and strategies needed to ensure both efficiency and security in your operations.'
+summary: "In today's complex IT environments, ensuring secure access to resources is paramount. Attribute-Based Access Control (ABAC) offers a flexible and dynamic approach to manage user permissions within a pipeline. This guide delves deep into how ABAC can be effectively incorporated in pipeline setups, providing a granular level of access based on user attributes, environmental conditions, and other contextual factors. Whether you're setting up a new pipeline or refining an existing one, this post will equip you with the knowledge and strategies needed to ensure both efficiency and security in your operations."
 authors:
-- admin
+  - admin
 tags:
-- Azure
-- RBAC
-- ABAC
-- Role Assignment
-- Service Principal
+  - Azure
+  - RBAC
+  - ABAC
+  - Role Assignment
+  - Service Principal
 categories:
-- Azure
-- RBAC
-- Security
-- Least Privileged Access
-date: "2022-10-24 06:00:00Z"
-lastmod: "2022-10-24 06:00:00Z"
+  - Azure
+  - RBAC
+  - Security
+  - Least Privileged Access
+date: "2023-10-24 06:00:00Z"
+lastmod: "2023-10-24 06:00:00Z"
 featured: true
 draft: true
 
@@ -51,4 +50,3 @@ projects: []
 ---
 
 > Work in progress
-
