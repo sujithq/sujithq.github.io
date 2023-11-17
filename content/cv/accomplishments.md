@@ -19,6 +19,54 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[item]]
+  organization = "Microsoft"
+  organization_url = "https://www.microsoft.com"
+  title = "Applied Skills  - Secure storage for Azure Files and Azure Blob Storage"
+  url = "https://learn.microsoft.com/en-us/credentials/applied-skills/secure-storage-azure-files-azure-blob-storage/"
+  certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQuintelier/B8BA947FCE07FE20?sharingId=B2D5696D597C46D3"
+  date_start = "2023-11-14"
+  date_end = ""
+  description = """
+  Learners demonstrate the ability to securely store business data by using Azure Blob Storage and Azure Files.
+  """
+
+[[item]]
+  organization = "Microsoft"
+  organization_url = "https://www.microsoft.com"
+  title = "Applied Skills  - Configure secure access to your workloads using Azure networking"
+  url = "https://learn.microsoft.com/en-us/credentials/applied-skills/configure-secure-workloads-use-azure-virtual-networking/"
+  certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQuintelier/D2A5F7C1E7A3804B?sharingId=B2D5696D597C46D3"
+  date_start = "2023-11-13"
+  date_end = ""
+  description = """
+  Learners demonstrate the ability to secure resources by using Azure virtual networking solutions.
+  """
+
+[[item]]
+  organization = "Microsoft"
+  organization_url = "https://www.microsoft.com"
+  title = "Applied Skills  - Develop an ASP.NET Core web app that consumes an API"
+  url = "https://learn.microsoft.com/en-us/users/sujithquintelier/credentials/applied-skill/develop-an-aspnet-core-web-app-that-consumes-an-api/"
+  certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQuintelier/24CCA82D9F5E4E74?sharingId=B2D5696D597C46D3"
+  date_start = "2023-11-13"
+  date_end = ""
+  description = """
+  Learners demonstrate the ability to develop an ASP.NET Core Razor Pages app that consumes an API to retrieve, create, and update data.
+  """
+
+[[item]]
+  organization = "Microsoft"
+  organization_url = "https://www.microsoft.com"
+  title = "Applied Skills  - Deploy containers by using Azure Kubernetes Service"
+  url = "https://learn.microsoft.com/en-us/users/sujithquintelier/credentials/applied-skill/deploy-containers-by-using-azure-kubernetes-service/"
+  certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQuintelier/D2A5F7C1E7A3804B?sharingId=B2D5696D597C46D3"
+  date_start = "2023-11-13"
+  date_end = ""
+  description = """
+  Learners demonstrate the ability to work with containers, container orchestration with Kubernetes, and manage clusters on Azure Kubernetes Service (AKS).
+  """
+
+[[item]]
   organization = "AWS Cloud Quest"
   organization_url = "https://aws.amazon.com/training/"
   title = "AWS Cloud Quest: Cloud Practitioner"
