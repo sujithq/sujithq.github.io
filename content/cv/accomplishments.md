@@ -21,6 +21,18 @@ date_format = "Jan 2006"
 [[item]]
   organization = "Microsoft"
   organization_url = "https://www.microsoft.com"
+  title = "Applied Skills  - Deploy and configure Azure Monitor"
+  url = "https://learn.microsoft.com/en-us/credentials/applied-skills/deploy-and-configure-azure-monitor/"
+  certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQ/81524D266CA86AA6?sharingId=7E02E186AF4FAF6D"
+  date_start = "2023-11-17"
+  date_end = ""
+  description = """
+  Learners demonstrate the ability to deploy and configure monitoring for Azure infrastructure.
+  """
+
+[[item]]
+  organization = "Microsoft"
+  organization_url = "https://www.microsoft.com"
   title = "Applied Skills  - Secure storage for Azure Files and Azure Blob Storage"
   url = "https://learn.microsoft.com/en-us/credentials/applied-skills/secure-storage-azure-files-azure-blob-storage/"
   certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQuintelier/B8BA947FCE07FE20?sharingId=B2D5696D597C46D3"
