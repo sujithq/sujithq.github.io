@@ -21,6 +21,18 @@ date_format = "Jan 2006"
 [[item]]
   organization = "Microsoft"
   organization_url = "https://www.microsoft.com"
+  title = "Applied Skills  - Build a natural language processing solution with Azure AI Language"
+  url = "https://learn.microsoft.com/en-us/credentials/applied-skills/build-natural-language-solution-azure-ai/"
+  certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQuintelier/8975AA062F21AEE2?sharingId=B2D5696D597C46D3"
+  date_start = "2023-11-20"
+  date_end = ""
+  description = """
+  Learners demonstrate the ability to create a natural language processing (NLP) solution by using Azure AI Language.
+  """
+
+[[item]]
+  organization = "Microsoft"
+  organization_url = "https://www.microsoft.com"
   title = "Applied Skills  - Deploy and configure Azure Monitor"
   url = "https://learn.microsoft.com/en-us/credentials/applied-skills/deploy-and-configure-azure-monitor/"
   certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQ/81524D266CA86AA6?sharingId=7E02E186AF4FAF6D"
