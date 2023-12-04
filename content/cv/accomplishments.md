@@ -21,6 +21,18 @@ date_format = "Jan 2006"
 [[item]]
   organization = "Microsoft"
   organization_url = "https://www.microsoft.com"
+  title = "Applied Skills  - Build an Azure AI Vision solution"
+  url = "https://learn.microsoft.com/en-us/credentials/applied-skills/build-azure-ai-vision-solution/"
+  certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQuintelier/78424700D5CCDF7?sharingId=B2D5696D597C46D3"
+  date_start = "2023-12-04"
+  date_end = ""
+  description = """
+  Learners demonstrate the ability to build computer vision solutions by using Azure AI Vision.
+  """
+
+[[item]]
+  organization = "Microsoft"
+  organization_url = "https://www.microsoft.com"
   title = "Applied Skills  - Create an intelligent document processing solution with Azure AI Document Intelligence"
   url = "https://learn.microsoft.com/en-us/credentials/applied-skills/create-intelligent-document-solution-azure-ai/"
   certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQuintelier/36CC4D565FA0900B?sharingId=B2D5696D597C46D3"
