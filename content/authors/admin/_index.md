@@ -19,8 +19,8 @@ role: Azure Cloud Solutions & Cybersecurity Architect | Azure (Identity and Acce
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: "Xebia|Xpirit"
-    url: https://xpirit.com/
+  - name: "Xebia|Microsoft Services"
+    url: https://xebia.com/digital-transformation/microsoft-services/
 
 # Short bio (displayed in user profile at end of posts)
 bio: My interests include Azure (IaaS, PaaS, Saas, Faas, CAF, WAF, Architecture, Cognitive Services), DevOps (People, Process and Products), GitHub (Actions, Administration, GHAS, Migrations, Copilot), Kubernetes, Application Development (.NET), NOSQL (CosmosDB, RavenDB, ...), AI, ML, Programming Languages (C#, Python, Go, ...), Cloud Native, IoC (Terraform, Biceps, ARM, Pulumi, ...)
@@ -88,7 +88,7 @@ email: 'sujith.quintelier@gmail.com'
 highlight_name: true
 ---
 
-Sujith brings more then 23 years of IT experience, combined with excellent communication and presentation skills. He is an efficient, analytical, positive thinking professional who has successfully demonstrated the ability of understanding business requirements, specifying systems, developing working software and designing Azure solutions.
+Sujith brings more then 24 years of IT experience, combined with excellent communication and presentation skills. He is an efficient, analytical, positive thinking professional who has successfully demonstrated the ability of understanding business requirements, specifying systems, developing working software and designing Azure solutions.
 
 As a certified **Azure Solutions Architect** he demonstrates skills and knowledge to advise stakeholders and translate business requirements into secure, scalable, and reliable solutions. He has advanced experience and knowledge across various aspects of IT operations, including networking, virtualization, identity, security, business continuity, disaster recovery, data management, budgeting, and governance. He also understands how managing decisions in each area affect an overall solution.
 

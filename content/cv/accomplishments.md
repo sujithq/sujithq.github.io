@@ -18,6 +18,19 @@ date_format = "Jan 2006"
 #   Leave other parameters empty if not required.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
+
+[[item]]
+  organization = "Microsoft"
+  organization_url = "https://www.microsoft.com"
+  title = "Applied Skills  - Implement security through a pipeline using Azure DevOps"
+  url = "https://learn.microsoft.com/en-us/credentials/applied-skills/implement-security-through-pipeline-using-devops/"
+  certificate_url = "https://learn.microsoft.com/en-us/users/sujithq/credentials/8ebf6803f8a567c0?sharingId=8EBF6803F8A567C0"
+  date_start = "2024-01-08"
+  date_end = ""
+  description = """
+  Learners demonstrate the ability to implement secure Azure Pipelines.
+  """
+
 [[item]]
   organization = "Microsoft"
   organization_url = "https://www.microsoft.com"
