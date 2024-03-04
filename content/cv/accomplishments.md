@@ -227,7 +227,7 @@ date_format = "Jan 2006"
 [[item]]
   organization = "HashiCorp"
   organization_url = "https://www.hashicorp.com"
-  title = "HashiCorp Certified: Terraform Associate"
+  title = "HashiCorp Certified: Terraform Associate (002)"
   url = "https://www.hashicorp.com/certification/terraform-associate"
   certificate_url = "https://www.credly.com/badges/17ed3835-f672-4919-bd71-bc6ac76e9547"
   date_start = "2021-07-08"
@@ -235,6 +235,20 @@ date_format = "Jan 2006"
   description = """
   The Terraform Associate certification is for Cloud Engineers specializing in operations, IT, or development who know the basic concepts and skills associated with open source HashiCorp Terraform. This person understands which enterprise features exist and what can and cannot be done using the open source offering.
   """
+
+[[item]]
+  organization = "HashiCorp"
+  organization_url = "https://www.hashicorp.com"
+  title = "HashiCorp Certified: Terraform Associate (003)"
+  url = "https://www.hashicorp.com/certification/terraform-associate"
+  certificate_url = "https://www.credly.com/badges/f229e81a-feef-4ddb-a16a-bb95642bc15a"
+  date_start = "2021-07-08"
+  date_end = ""
+  description = """
+  The Terraform Associate certification is for Cloud Engineers specializing in operations, IT, or development who know the basic concepts and skills associated with open source HashiCorp Terraform. This person understands which enterprise features exist and what can and cannot be done using the open source offering.
+  """
+
+
 
 [[item]]
   organization = "Microsoft"
