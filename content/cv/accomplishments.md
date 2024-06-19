@@ -18,6 +18,17 @@ date_format = "Jan 2006"
 #   Leave other parameters empty if not required.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
+[[item]]
+  organization = "GitHUb"
+  organization_url = "https://www.github.com"
+  title = "GitHub Sales Professional"
+  url = ""
+  certificate_url = "https://github.com/sujithq/sujithq/raw/master/assets/github/GHSP.pdf"
+  date_start = "2024-06-12"
+  date_end = ""
+  description = """
+  Learners demonstrate to position and sell GitHub Enterprise solutions.
+  """
 
 [[item]]
   organization = "Microsoft"
