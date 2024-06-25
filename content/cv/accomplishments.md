@@ -19,7 +19,31 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[item]]
-  organization = "GitHUb"
+  organization = "Microsoft"
+  organization_url = "https://www.Microsoft.com"
+  title = "Microsoft Certified: Azure AI Fundamentals"
+  url = "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/"
+  certificate_url = ""
+  date_start = "2024-06-21"
+  date_end = ""
+  description = """
+  Learners demonstrate fundamental AI concepts related to the development of software and services of Microsoft Azure to create AI solutions.
+  """
+
+[[item]]
+  organization = "Microsoft"
+  organization_url = "https://www.Microsoft.com"
+  title = "Microsoft Certified: Azure Fundamentals"
+  url = "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals"
+  certificate_url = ""
+  date_start = "2024-05-02"
+  date_end = ""
+  description = """
+  Learners demonstrate foundational knowledge of cloud concepts, core Azure services, plus Azure management and governance features and tools.
+  """
+
+[[item]]
+  organization = "GitHub"
   organization_url = "https://www.github.com"
   title = "GitHub Sales Professional"
   url = ""
