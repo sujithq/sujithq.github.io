@@ -19,7 +19,7 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[experience]]
-  title = "Azure Architect | DevOps Enabler | GitHub Enthousiast"
+  title = "Azure Architect | DevOps Enabler | GitHub Enthousiast | Trainer"
   company = "Xebia FKA Xebia|Xpirit FKA Xpirit"
   company_url = "https://xebia.com"
   location = "Antwerp"
