@@ -234,6 +234,17 @@ date_format = "Jan 2006"
   description = """
   Passing the GitHub Foundations certification exam validates subject matter expertise by measuring entry-level skills with GitHub basics like repositories, commits, branching, markdowns, and project management.
   """
+[[item]]
+  organization = "GitHub"
+  organization_url = "https://www.github.com"
+  title = "GitHub Sales Professional: Sales Validation"
+  url = ""
+  certificate_url = "https://www.credly.com/badges/a61c8cb7-0861-4a8e-9b56-5b3a06c86c8e"
+  date_start = "2024-12-05"
+  date_end = ""
+  description = """
+  Build the foundational sales knowledge needed to position GitHub Enterprise solutions to customers.
+  """
 
 [[item]]
   organization = "Microsoft"
