@@ -1,0 +1,26 @@
+{
+  "name": "sujithq.github.io",
+  "version": "1.0.0",
+  "description": "Sujith Quintelier\r https://sujithq.github.io/",
+  "main": "index.js",
+  "scripts": {
+    "copy-files": "node scripts/copy-files.js",
+    "postinstall": "npm run copy-files"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.4"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "glob": "^11.0.1",
+    "gray-matter": "^4.0.3",
+    "prismjs": "^1.29.0",
+    "swiper": "^11.2.4"
+  }
+}

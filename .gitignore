@@ -1,10 +1,35 @@
-# IDEs
-.idea/
+public
+resources
+.hugo_build.lock
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
 
 # Hugo
-resources/
-public/
-jsconfig.json
-node_modules/
-go.sum
-.hugo_build.lock
+assets/vendor
+static/vendor
+static/components
+static/scss/fonts/bootstrap-icons.woff*
+
+# ### VisualStudioCode ###
+# .vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+# !.vscode/*.code-snippets
+
+# # Local History for Visual Studio Code
+# .history/
+
+# # Built Visual Studio Code Extensions
+# *.vsix
+
+# ### VisualStudioCode Patch ###
+# # Ignore all local history of files
+# .history
+# .ionide

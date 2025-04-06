@@ -1,0 +1,97 @@
+languageCode = "en-us"
+title = "Sujith Quintelier"
+theme = ["github.com/sujithq/ideal-octo-guacamole"]
+resourceDir = "../resources"
+baseURL = "http://localhost:1313/"
+
+[params]
+  description = "A blog about Azure, cloud computing, and technology by Sujith Quintelier. Find tutorials, guides, and insights on various topics like GitHub, Azure, Terraform and more."
+  tags = ['Azure', 'GitHub', 'Blog', 'Resume', 'Sujith', 'Quintelier', 'sujithq']
+  twitter = "@sujithq"
+  themeColor = "#6a1d57"
+  socialImage = "/images/Sujith_Quintelier.jpg"
+  author = "Sujith Quintelier"
+  prismjsTheme = "default"
+
+[params.days]
+  new = 7       # Days threshold for "New" label
+  updated = 14  # Days threshold for "Updated" label
+
+[params.widgets]
+  [params.widgets.archives]
+    enabled = true
+    limit = 5
+  [params.widgets.about]
+    enabled = true
+  [params.widgets.taxonomy]
+    enabled = true
+  [params.widgets.recentPosts]
+    enabled = true
+  [params.widgets.subscribe]
+    enabled = true
+
+[permalinks]
+  posts = "/posts/:year/:month/:slug/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = 'monokai'
+
+[taxonomies]
+  categories = 'categories'
+  tags = 'tags'
+  series = 'series'
+
+[menu]
+ [[menu.main]]
+   identifier = "blog"
+   name = "Blog"
+   url = "/"
+   weight = 1
+ [[menu.main]]
+   identifier = "resume"
+   name = "Resume"
+   url = "/resume"
+   weight = 2
+ [[menu.main]]
+   identifier = "archives"
+   name = "Archives"
+   url = "/posts"
+   weight = 3
+ [[menu.main]]
+   identifier = "taxonomy"
+   name = "Taxonomy"
+   weight = 4
+ [[menu.main]]
+   identifier = "tags"
+   name = "Tags"
+   url = "/tags"
+   weight = 1
+   parent = "taxonomy"
+ [[menu.main]]
+   identifier = "categories"
+   name = "Categories"
+   url = "/categories"
+   weight = 2
+   parent = "taxonomy"
+ [[menu.main]]
+   identifier = "series"
+   name = "Series"
+   url = "/series"
+   weight = 3
+   parent = "taxonomy"
+
+[services]
+    [services.disqus]
+    shortname = 'sujithq'
+
+[pagination]
+  disableAliases = false
+  pagerSize = 10
+  path = 'page'
+
+[frontmatter]
+  lastmod = ["lastmod", "git", "date"]

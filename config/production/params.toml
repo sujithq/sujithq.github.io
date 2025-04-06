@@ -1,0 +1,4 @@
+[params]
+  theme = "light"
+  themes = ["light"]
+  environment = "production"
