@@ -84,6 +84,18 @@ baseURL = "http://localhost:1313/"
    weight = 3
    parent = "taxonomy"
 
+ [[menu.main]]
+   identifier = "tools"
+   name = "Tools"
+   weight = 5
+
+ [[menu.main]]
+   identifier = "cidr-calculator"
+   name = "CIDR Calculator"
+   url = "/tools/cidr-calculator"
+   weight = 1
+   parent = "tools"
+
 [services]
     [services.disqus]
     shortname = 'sujithq'

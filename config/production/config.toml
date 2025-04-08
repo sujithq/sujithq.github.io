@@ -23,6 +23,7 @@ baseURL = "/"
    identifier = "taxonomy"
    name = "Taxonomy"
    weight = 4
+
  [[menu.main]]
    identifier = "tags"
    name = "Tags"
@@ -41,6 +42,17 @@ baseURL = "/"
    url = "/series"
    weight = 3
    parent = "taxonomy"
+
+ [[menu.main]]
+   identifier = "tools"
+   name = "Tools"
+   weight = 5
+ [[menu.main]]
+   identifier = "cidr-calculator"
+   name = "CIDR Calculator"
+   url = "/tools/cidr-calculator"
+   weight = 1
+   parent = "tools"
 
 [params]
   prismjsTheme = "okaidia"
