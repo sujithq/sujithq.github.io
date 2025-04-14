@@ -4,7 +4,7 @@ slug = 'github-copilot-agent-mode'
 date = '2025-04-10 06:00:00Z'
 draft = false
 tags = ["GitHub Copilot", "VS Code", "AI Programming", "Dev Productivity", "Pair Programming", "Copilot Agent Mode"]
-categories = ["AI", "Development Tools"]
+categories = ["AI", "Development Tools", "GitHub"]
 series = [ ]
 
 layout = 'single'
