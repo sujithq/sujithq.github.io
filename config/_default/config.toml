@@ -5,8 +5,8 @@ resourceDir = "../resources"
 baseURL = "http://localhost:1313/"
 
 [params]
-  description = "A blog about Azure, cloud computing, and technology by Sujith Quintelier. Find tutorials, guides, and insights on various topics like GitHub, Azure, Terraform and more."
-  tags = ['Azure', 'GitHub', 'Blog', 'Resume', 'Sujith', 'Quintelier', 'sujithq']
+  description = "A blog about Azure, cloud computing, and technology by Sujith Quintelier. Find tutorials, guides, and insights on various topics like GitHub, Azure, Terraform , DevOps and more."
+  tags = ['Azure', 'GitHub', 'Blog', 'Resume', 'Sujith', 'Quintelier', 'sujithq', 'DevOps']
   twitter = "@sujithq"
   themeColor = "#6a1d57"
   socialImage = "/images/Sujith_Quintelier.jpg"
@@ -47,24 +47,21 @@ baseURL = "http://localhost:1313/"
 
 [menu]
  [[menu.main]]
-   identifier = "blog"
-   name = "Blog"
-   url = "/"
-   weight = 1
- [[menu.main]]
    identifier = "resume"
    name = "Resume"
    url = "/resume"
-   weight = 2
+   weight = 1
+
  [[menu.main]]
    identifier = "archives"
    name = "Archives"
    url = "/posts"
-   weight = 3
+   weight = 2
+
  [[menu.main]]
    identifier = "taxonomy"
    name = "Taxonomy"
-   weight = 4
+   weight = 3
  [[menu.main]]
    identifier = "tags"
    name = "Tags"
@@ -87,8 +84,7 @@ baseURL = "http://localhost:1313/"
  [[menu.main]]
    identifier = "tools"
    name = "Tools"
-   weight = 5
-
+   weight = 4
  [[menu.main]]
    identifier = "cidr-calculator"
    name = "CIDR Calculator"
