@@ -91,6 +91,12 @@ baseURL = "http://localhost:1313/"
    url = "/tools/cidr-calculator"
    weight = 1
    parent = "tools"
+ [[menu.main]]
+   identifier = "cert-renewal"
+   name = "Azure Certification Renewal"
+   url = "/tools/cert-renewal"
+   weight = 2
+   parent = "tools"
 
 [services]
     [services.disqus]
