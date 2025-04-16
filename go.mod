@@ -4,4 +4,4 @@ go 1.21
 
 replace github.com/sujithq/sujithq.github.io => ../
 
-require github.com/sujithq/ideal-octo-guacamole v0.0.5 // indirect
+require github.com/sujithq/ideal-octo-guacamole v0.0.6 // indirect
