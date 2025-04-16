@@ -6,5 +6,5 @@ layout = 'single'
 [params]
     author = 'sujith'
 description = "Explore my professional resume, showcasing my skills, experiences, accomplishments, and certifications. Learn more about my career journey and achievements."
-
+aliases = ['/cv/']
 +++
