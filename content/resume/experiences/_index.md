@@ -11,7 +11,7 @@ layout = 'experience'
   location = "Antwerp"
   date_start = "2023-06-12"
   date_end = ""
-  short_description = "Empowering customers with Azure, DevOps, and Cloud Native solutions while driving internal excellence through innovation, training, and strategic growth."
+  short_description = "Empowering customers with Azure, DevOps, GitHub and Cloud Native solutions while driving internal excellence through innovation, training, and strategic growth."
   description = """Authority, Focus and Values. These principles guide every decision made by both management and staff. Authority means becoming the best in our field, individually and as a company. It’s an audacious goal that keeps us striving and fighting. That’s why we only hire people who are driven by the same mission!
 
 Helping clients with:
