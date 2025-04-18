@@ -32,16 +32,21 @@ Kubenet is a simple and traditional networking approach in AKS, suitable for sce
 
 [Configure Kubenet networking →](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet)
 
-> On 31 March 2028, kubenet networking for Azure Kubernetes Service (AKS) will be retired.
-> After this date, you will not be able to create new AKS clusters with kubenet networking. Existing clusters will continue to work, but you will not be able to create new node pools with kubenet networking. You can migrate existing clusters to Azure CNI or Azure CNI Overlay.
+{{< notice warning >}}
 
-> For more information, see [Kubenet retirement announcement](https://learn.microsoft.com/en-us/azure/aks/kubenet-retirement).
+On 31 March 2028, kubenet networking for Azure Kubernetes Service (AKS) will be retired.
 
-> For more information on how to migrate your existing clusters to Azure CNI or Azure CNI Overlay, see [Migrate from kubenet to Azure CNI](https://learn.microsoft.com/en-us/azure/aks/migrate-kubenet-to-azure-cni).
+After this date, you will not be able to create new AKS clusters with kubenet networking. Existing clusters will continue to work, but you will not be able to create new node pools with kubenet networking. You can migrate existing clusters to Azure CNI or Azure CNI Overlay.
 
-> For more information on how to migrate your existing clusters to Azure CNI Overlay, see [Migrate from kubenet to Azure CNI Overlay](https://learn.microsoft.com/en-us/azure/aks/migrate-kubenet-to-azure-cni-overlay).
+For more information, see [Kubenet retirement announcement](https://azure.microsoft.com/en-us/updates?id=485172).
 
-> For more information on how to migrate your existing clusters to Azure CNI powered by Cilium, see [Migrate from kubenet to Azure CNI powered by Cilium](https://learn.microsoft.com/en-us/azure/aks/migrate-kubenet-to-azure-cni-powered-by-cilium).
+For more information on how to migrate your existing clusters to Azure CNI or Azure CNI Overlay, see [Migrate from kubenet to Azure CNI](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni).
+
+For more information on how to migrate your existing clusters to Azure CNI Overlay, see [Migrate from kubenet to Azure CNI Overlay](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay).
+
+For more information on how to migrate your existing clusters to Azure CNI powered by Cilium, see [Migrate from kubenet to Azure CNI powered by Cilium](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium).
+
+{{< /notice >}}
 
 ### Azure CNI
 

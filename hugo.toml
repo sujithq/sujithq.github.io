@@ -49,3 +49,7 @@
   name = "instagram"
   url = "https://www.instagram.com/sujithquintelier"
   icon = "bi bi-instagram"
+
+[module]
+  [[module.imports]]
+    path = "github.com/martignoni/hugo-notice"
