@@ -1,12 +1,6 @@
 github.com/martignoni/hugo-notice v0.0.0-20250320135530-d7e24b0222d4 h1:rrCIACq6uJVIVqQNSBNukxW4KbH/Hv9VN3nfLbYwClI=
 github.com/martignoni/hugo-notice v0.0.0-20250320135530-d7e24b0222d4/go.mod h1:MIQPOMgEcbyRC0gNLzQFSgrS+wIy3RuQ/HbaZYtTOKU=
-github.com/sujithq/ideal-octo-guacamole v0.0.2 h1:LbV2vjJiW0BKCxgJ4g9humpJ+Luz4CIMJ/D2Bx2ubOc=
-github.com/sujithq/ideal-octo-guacamole v0.0.2/go.mod h1:VT/kU//6UXVWJtGrCjVkK9zV9Dm6c2ZKC0dxWLxTIjE=
-github.com/sujithq/ideal-octo-guacamole v0.0.3 h1:jizQzOkUe693sJoQ92QpAPrS9Gycd2+uIWf2t9UUagM=
-github.com/sujithq/ideal-octo-guacamole v0.0.3/go.mod h1:VT/kU//6UXVWJtGrCjVkK9zV9Dm6c2ZKC0dxWLxTIjE=
-github.com/sujithq/ideal-octo-guacamole v0.0.4 h1:jV2m9oz/23f/D1Sm12W7cjtj4e1QcQiX9LsGyGGnZ7o=
-github.com/sujithq/ideal-octo-guacamole v0.0.4/go.mod h1:VT/kU//6UXVWJtGrCjVkK9zV9Dm6c2ZKC0dxWLxTIjE=
-github.com/sujithq/ideal-octo-guacamole v0.0.5 h1:TiRt9vN5qL0hwJhTvETa1uWfyTegFfRIWGXdewaahPA=
-github.com/sujithq/ideal-octo-guacamole v0.0.5/go.mod h1:VT/kU//6UXVWJtGrCjVkK9zV9Dm6c2ZKC0dxWLxTIjE=
-github.com/sujithq/ideal-octo-guacamole v0.0.6 h1:Cqs0Xh67ESd2kI08Fp+BdXJS8KL1xeg6VKvQCgD18kQ=
-github.com/sujithq/ideal-octo-guacamole v0.0.6/go.mod h1:VT/kU//6UXVWJtGrCjVkK9zV9Dm6c2ZKC0dxWLxTIjE=
+github.com/sujithq/ideal-octo-guacamole v0.0.7 h1:GbImvbQF3+mwwovaGFL96gL+J9qI34XrnxyI+cyZKe8=
+github.com/sujithq/ideal-octo-guacamole v0.0.7/go.mod h1:VT/kU//6UXVWJtGrCjVkK9zV9Dm6c2ZKC0dxWLxTIjE=
+github.com/sujithq/ideal-octo-guacamole v0.0.9 h1:ZtaETVe/AA2OVJKhji6uO81NB70VGkU8PwQOVz1ZdhE=
+github.com/sujithq/ideal-octo-guacamole v0.0.9/go.mod h1:VT/kU//6UXVWJtGrCjVkK9zV9Dm6c2ZKC0dxWLxTIjE=
