@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div  class="container">
+  <div class="row mt-5">
+    <div class="col-lg">
+      <div class="card border-primary mb-3">
+        <div class="card-body">
+          <h1 class="card-title"><i class="bi bi-{{if eq .Type "tags" }}tags{{else if eq .Type "categories" }}folder{{else}}stack{{end}} mx-1"></i>{{ .Title }}</h1c:\Users\SujithQuintelier\test\Hugo\ideal-octo-guacamole\layouts\_default\terms.html>
+          {{ range .Pages }}
+          <a href="{{ .RelPermalink }}">
+            <div class="card mb-3 border-0">
+              <div class="row g-0">
+                <div class="col-lg-4">
+                  {{ $cover := "" }}
+                  {{ if .Params.cover }}
+                    {{ $cover = printf "%scover.jpg" .RelPermalink }}
+                  {{ else }}
+                    {{ $cover = "img/default-cover.jpg" }}
+                  {{ end }}
+                  <img src="{{ $cover }}" class="img-fluid rounded-start h-100 " alt="{{ .Title }}">
+                </div>
+                <div class="col-lg-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ .Title }}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
