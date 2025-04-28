@@ -31,7 +31,7 @@ baseURL = "http://localhost:1313/"
     enabled = true
 
 [permalinks]
-  posts = "/posts/:year/:month/:slug/"
+  posts = "/posts/:year/:month/:slug"
 
 [markup]
   [markup.goldmark]
