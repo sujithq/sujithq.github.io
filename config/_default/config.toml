@@ -5,7 +5,7 @@ resourceDir = "../resources"
 baseURL = "http://localhost:1313/"
 
 [params]
-  description = "A blog about Azure, cloud computing, and technology by Sujith Quintelier. Find tutorials, guides, and insights on various topics like GitHub, Azure, Terraform , DevOps and more."
+  description = "Azure, cloud, and tech blog by Sujith Quintelier. Find tutorials, guides, and insights on GitHub, Azure, Terraform, DevOps, and more."
   tags = ['Azure', 'GitHub', 'Blog', 'Resume', 'Sujith', 'Quintelier', 'sujithq', 'DevOps']
   twitter = "@sujithq"
   themeColor = "#6a1d57"
