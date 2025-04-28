@@ -513,9 +513,9 @@ He has solid knowledge and experience developing apps for Azure and working with
 [[item]]
   organization = "The Linux Foundation"
   organization_url = "https://portal.linuxfoundation.org/"
-  title = "LFS259 Kubernetes Fundamentals"
+  title = "LFD259 Kubernetes for Developers"
   url = "https://training.linuxfoundation.org/training/kubernetes-fundamentals/"
-  certificate_url = "pdf/courses/LFS259.pdf"
+  certificate_url = "pdf/courses/LFD259.pdf"
   date_start = "2018-11-28"
   date_end = ""
   description = """
