@@ -6,4 +6,5 @@ layout = 'documentation'
 # menu.main.identifier = "docs"
 # menu.main.weight = 5       
 # menu.main.url = "/documentation/"  
+robots = "noindex"
 +++
