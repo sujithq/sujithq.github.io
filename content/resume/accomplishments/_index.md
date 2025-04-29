@@ -4,6 +4,7 @@ draft = false
 title = 'Accomplishments'
 layout = 'accomplishment'
 robots = "noindex"
+outputs = ["HTML"]
 
 [[item]]
   organization = "Microsoft"

@@ -4,6 +4,7 @@ draft = false
 title = 'Badges'
 layout = 'badge'
 robots = "noindex"
+outputs = ["HTML"]
 +++
 
 {{< gallery >}}

@@ -4,6 +4,7 @@ draft = false
 title = 'Experiences'
 layout = 'experience'
 robots = "noindex"
+outputs = ["HTML"]
 
 [[item]]
   title = "Azure Architect | DevOps Enabler | GitHub Enthousiast | Trainer"
