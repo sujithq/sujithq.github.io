@@ -1,0 +1,71 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+<!-- meta keywords -->
+{{ $tags := or .Params.tags .Site.Params.tags }}
+{{ if $tags }}
+  <meta name="keywords" content="{{ delimit $tags ", " }}">
+{{ end }}
+
+
+<!-- meta description -->
+<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+<meta name="author" content="{{ .Site.Params.author }}">
+
+
+
+{{- if eq hugo.Environment "development" }}
+  <meta name="robots" content="noindex, nofollow">
+{{- else }}
+    {{ if gt .Paginator.PageNumber 1 }}
+      <meta name="robots" content="noindex,follow">
+    {{ else }}
+      <meta name="robots" content="index, follow">
+    {{ end }}
+{{- end }}
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
+<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:image" content="{{ with .Params.image }}{{ . }}{{ else }}{{ .Site.Params.socialImage }}{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}">
+<meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="twitter:image" content="{{ if .Params.cover }}img/cover.jpg{{ else if .Params.image }}{{ .Params.image }}{{ else }}{{ .Site.Params.socialImage }}{{ end }}">
+<meta name="twitter:site" content="{{ .Site.Params.twitter }}">
+
+<!-- Theme color -->
+<meta name="theme-color" content="{{ .Site.Params.themeColor }}">
+
+<!-- Canonical -->
+<link rel="canonical" href="{{ .Permalink }}">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ .Site.BaseURL }}index.xml" />
+
+
+{{ partial "favicons" . }}
+
+{{ partial "fonts" . }}
+
+{{ partial "stylesheets" . }}
+
+<script>
+  (function() {
+      let savedTheme = localStorage.getItem("theme") || document.documentElement.getAttribute("data-bs-theme") || "light";
+      document.documentElement.setAttribute("data-bs-theme", savedTheme);
+  })();
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "r6adwowhcc");
+</script>
