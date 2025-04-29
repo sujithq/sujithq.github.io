@@ -14,16 +14,22 @@
 
 <meta name="author" content="{{ .Site.Params.author }}">
 
-
-
 {{- if eq hugo.Environment "development" }}
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="noindex,nofollow">
 {{- else }}
-    {{ if gt .Paginator.PageNumber 1 }}
-      <meta name="robots" content="noindex,follow">
-    {{ else }}
-      <meta name="robots" content="index, follow">
-    {{ end }}
+  {{- if .IsHome }}
+    {{- if .Paginator }}
+      {{- if gt .Paginator.PageNumber 1 }}
+        <meta name="robots" content="noindex,follow">
+      {{- else }}
+        <meta name="robots" content="index,follow">
+      {{- end }}
+    {{- else }}
+      <meta name="robots" content="index,follow">
+    {{- end }}
+  {{- else }}
+    <meta name="robots" content="index,follow">
+  {{- end }}
 {{- end }}
 
 <!-- Open Graph -->
