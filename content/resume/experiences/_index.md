@@ -3,6 +3,7 @@ date = '2025-02-13T13:01:28+01:00'
 draft = false
 title = 'Experiences'
 layout = 'experience'
+robots = "noindex"
 
 [[item]]
   title = "Azure Architect | DevOps Enabler | GitHub Enthousiast | Trainer"
