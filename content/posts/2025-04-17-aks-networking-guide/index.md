@@ -32,7 +32,7 @@ Kubenet is a simple and traditional networking approach in AKS, suitable for sce
 
 [Configure Kubenet networking →](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet)
 
-{{< notice warning >}}
+{{< notice-card warning >}}
 
 On 31 March 2028, kubenet networking for Azure Kubernetes Service (AKS) will be retired.
 
@@ -46,7 +46,7 @@ For more information on how to migrate your existing clusters to Azure CNI Overl
 
 For more information on how to migrate your existing clusters to Azure CNI powered by Cilium, see [Migrate from kubenet to Azure CNI powered by Cilium](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium).
 
-{{< /notice >}}
+{{< /notice-card >}}
 
 ### Azure CNI
 

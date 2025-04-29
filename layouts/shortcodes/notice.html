@@ -1,0 +1,37 @@
+{{/* notice.html - Bootstrap 5 alert with smart default icons */}}
+
+{{- $noticeType := .Get 0 | default "info" -}}
+{{- $customTitle := .Get 1 | default $noticeType -}}
+{{- $manualIcon := .Get 2 | default "" -}}
+
+{{/* Auto-select icon if none given */}}
+{{- $defaultIcon := dict
+    "primary" "star-fill"
+    "secondary" "info-circle"
+    "success" "check-circle"
+    "danger" "exclamation-triangle"
+    "warning" "exclamation-triangle"
+    "info" "info-circle"
+    "light" "info-circle"
+    "dark" "info-circle"
+-}}
+{{- $iconName := cond (ne $manualIcon "") $manualIcon (index $defaultIcon $noticeType | default "info-circle") -}}
+
+{{- $raw := (markdownify .Inner | chomp) -}}
+{{- $block := findRE "(?is)^<(?:address|article|aside|blockquote|canvas|dd|div|dl|dt|fieldset|figcaption|figure|footer|form|h(?:1|2|3|4|5|6)|header|hgroup|hr|li|main|nav|noscript|ol|output|p|pre|section|table|tfoot|ul|video)\\b" $raw 1 -}}
+
+<div class="alert alert-{{ $noticeType }} mb-4 d-flex align-items-start" role="alert">
+    <div class="me-2">
+        <h4><i class="bi bi-{{ $iconName }}"></i></h4>
+    </div>
+    <div>
+        {{- if $customTitle }}
+        <h4 class="alert-heading">{{ $customTitle }}</h4>
+        {{- end }}
+        {{- if or $block (not $raw) }}
+            {{ $raw }}
+        {{- else }}
+            <p>{{ $raw }}</p>
+        {{- end }}
+    </div>
+</div>
