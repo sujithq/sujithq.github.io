@@ -23,10 +23,10 @@ tags = [
 categories = [
   'Professional Experience',
   'Technical Skills',
-  # 'Certifications & Training',
+  # 'Certifications And Training',
   # 'Projects & Contributions',
   # 'Speaking & Training',
-  'Publications & Writing',
+  'Publications And Writing',
   # 'Education',
   # 'Community Engagement'
 ]
@@ -37,7 +37,7 @@ series = [
   'Optimizing Cloud Deployments',
   # 'Building & Deploying .NET Apps',
   # 'GitHub & DevOps',
-  'Performance & Scaling in the Cloud',
+  'Performance And Scaling in the Cloud',
   # 'Advent of Code Solutions',
   # 'Hugo Website Development',
   # 'PowerShell for DevOps',

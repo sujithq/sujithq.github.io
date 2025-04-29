@@ -22,7 +22,7 @@ tags = [
   "Cloud Networking",
   "Azure Certification"
 ]
-categories = [ 'Certifications & Training' ]
+categories = [ 'Certifications And Training' ]
 series = [ 'Workshops and Training' ]
 
 layout = 'single'
