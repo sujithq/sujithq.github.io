@@ -18,7 +18,7 @@
           <lastmod>{{ .UTC.Format "2006-01-02T15:04:05Z" }}</lastmod>
         {{- end }}
         <changefreq>monthly</changefreq>
-        <priority>{{ if eq .Type "tools" }}0.6{{ else }}0.5{{ end }}</priority>
+        <priority>{{ if .IsHome }}1.0{{ else if eq .Section "posts" }}0.8{{ else }}0.5{{ end }}</priority>
         <!--
         <info>
           <kind>{{ .Kind }}</kind>
