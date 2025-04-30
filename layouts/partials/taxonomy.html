@@ -2,7 +2,7 @@
     <div class="d-flex align-items-center flex-wrap">
         <span class="mx-1"><i class="bi bi-stack"></i></span>
         {{ range .page.Params.series }}
-            <a href="{{ printf "%sseries/%s" site.BaseURL (. | urlize) | absLangURL }}"><span class="badge rounded-pill bg-primary mx-1">{{ . }}</span></a>
+            <a href="{{ printf "%sseries/%s/" site.BaseURL (. | urlize) | absLangURL }}"><span class="badge rounded-pill bg-primary mx-1">{{ . }}</span></a>
         {{ end }}
     </div>
 {{ end }}
@@ -10,7 +10,7 @@
     <div class="d-flex align-items-center flex-wrap">
         <span class="mx-1"><i class="bi bi-folder"></i></span>
         {{ range .page.Params.categories }}
-            <a href="{{ printf "%scategories/%s" site.BaseURL (. | urlize) | absLangURL }}"><span class="badge rounded-pill bg-secondary mx-1">{{ . }}</span></a>
+            <a href="{{ printf "%scategories/%s/" site.BaseURL (. | urlize) | absLangURL }}"><span class="badge rounded-pill bg-secondary mx-1">{{ . }}</span></a>
         {{ end }}
     </div>
 {{ end }}
@@ -18,7 +18,7 @@
     <div class="d-flex align-items-center flex-wrap">
         <span class="mx-1"><i class="bi bi-tags"></i></span>
         {{ range .page.Params.tags }}
-            <a href="{{ printf "%stags/%s" site.BaseURL (. | urlize) | absLangURL }}"><span class="badge rounded-pill bg-success mx-1">{{ . }}</span></a>
+            <a href="{{ printf "%stags/%s/" site.BaseURL (. | urlize) | absLangURL }}"><span class="badge rounded-pill bg-success mx-1">{{ . }}</span></a>
         {{ end }}
     </div>
 {{ end }}
