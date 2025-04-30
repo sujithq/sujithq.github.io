@@ -1,42 +1,32 @@
 {{- $pages := slice }}
-{{- $pages = $pages | append .Site.RegularPages }}
-{{- $sections := where .Site.Pages "Kind" "section" }}
-{{- $pages = $pages | append $sections }}
-
+{{- $pages = $pages | append .Site.Pages }}
 
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {{- range $pages }}
-  {{- $robots := lower (default "index, follow" .Params.robots) }}
-  {{- $isPaginated := and (isset . "Paginator") (gt .Paginator.PageNumber 1) }}
-  {{- if and (not (in $robots "noindex")) (not $isPaginated) }}
-    <url>
-      <loc>{{ .Permalink }}</loc>
-      {{- with .Lastmod }}
-        <lastmod>{{ .UTC.Format "2006-01-02T15:04:05Z" }}</lastmod>
-      {{- end }}
-      <changefreq>monthly</changefreq>
-      <priority>{{ if .IsHome }}1.0{{ else if eq .Section "posts" }}0.8{{ else }}0.5{{ end }}</priority>
-    </url>
-  {{- end }}
-{{- end }}
-
-{{- range $taxonomyName, $taxonomy := .Site.Taxonomies }}
-    {{- range $term, $termPages := $taxonomy }}
-      {{- $termPage := site.GetPage (printf "%s/%s" $taxonomyName (urlize $term)) }}
-      {{- $robots := lower (default "index, follow" $termPage.Params.robots) }}
-      {{- if and $termPage (not (in $robots "noindex")) }}
-        <url>
-          <loc>{{ $termPage.Permalink }}</loc>
-          {{- with $termPage.Lastmod }}
-            <lastmod>{{ .UTC.Format "2006-01-02T15:04:05Z" }}</lastmod>
-          {{- end }}
-          <changefreq>monthly</changefreq>
-          <priority>0.6</priority>
-        </url>
-      {{- end }}
+    {{- $robots := lower (default "index, follow" .Params.robots) }}
+    {{- $filePath := "" }}
+    {{- $isToolsRoot := false }}
+    {{- with .File }}
+      {{- $filePath = replace .Path "\\" "/" }}
+      {{- $isToolsRoot = eq $filePath "tools/_index.md" }}
+    {{- end }}
+    {{- if and (not $isToolsRoot) (not (in $robots "noindex")) }}
+      <url>
+        <loc>{{ .Permalink }}</loc>
+        {{- with .Lastmod }}
+          <lastmod>{{ .UTC.Format "2006-01-02T15:04:05Z" }}</lastmod>
+        {{- end }}
+        <changefreq>monthly</changefreq>
+        <priority>{{ if eq .Type "tools" }}0.6{{ else }}0.5{{ end }}</priority>
+        <!--
+        <info>
+          <kind>{{ .Kind }}</kind>
+          <filePath>{{ $filePath }}</filePath>
+          <type>{{ .Type }}</type>
+        </info>
+        -->
+      </url>
     {{- end }}
   {{- end }}
-
 </urlset>
-
