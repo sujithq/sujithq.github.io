@@ -17,35 +17,35 @@
 
 [[params.socials]]
   name = "linkedin"
-  url = "https://www.linkedin.com/in/sujithquintelier"
+  url = "https://www.linkedin.com/in/sujithquintelier/"
   icon = "bi bi-linkedin"
 
 [[params.socials]]
   name = "github"
-  url = "https://github.com/sujithq"
+  url = "https://github.com/sujithq/"
   icon = "bi bi-github"
 
 [[params.socials]]
   name = "twitter"
-  url = "https://x.com/SujithQ"
+  url = "https://x.com/SujithQ/"
   icon = "bi bi-twitter-x"
 
 [[params.socials]]
   name = "mastodon"
-  url = "https://mastodon.com/in/sujithq"
+  url = "https://mastodon.com/in/sujithq/"
   icon = "bi bi-mastodon"
 
 [[params.socials]]
   name = "bsky"
-  url = "https://bsky.app/profile/sujithq.bsky.social"
+  url = "https://bsky.app/profile/sujithq.bsky.social/"
   icon = "fa-brands fa-bluesky"
 
 [[params.socials]]
   name = "facebook"
-  url = "https://www.facebook.com/sujith.quintelier"
+  url = "https://www.facebook.com/sujith.quintelier/"
   icon = "bi bi-facebook"
 
 [[params.socials]]
   name = "instagram"
-  url = "https://www.instagram.com/sujithquintelier"
+  url = "https://www.instagram.com/sujithquintelier/"
   icon = "bi bi-instagram"
