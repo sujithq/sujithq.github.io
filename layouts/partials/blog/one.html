@@ -1,0 +1,30 @@
+<div class="card border-0">
+  <div class="row g-0">
+    <div class="col-md-8">
+      {{ if .page.Params.cover }}
+        {{ $cover := printf "%scover.jpg" .page.RelPermalink }}
+        <a href="{{ .page.RelPermalink }}">
+          <img src="{{ $cover }}" alt="{{ .page.description }}" class="img-fluid rounded" />
+        </a>
+      {{ end }}
+    </div>
+    <div class="col-md-4 d-flex align-items-center">
+      <div class="card-body pe-0 pt-0 pb-0">
+        <div class="d-flex align-items-center">
+          {{ partial "newUpdate.html" (dict "page" .page) }}
+          <span>{{ .page.Date | time.Format .page.Site.Params.dateFormat }}</span>
+        </div>
+        <h6 class="card-title"><strong>{{ .page.Title}}</strong></h6>
+        <div>
+          {{ .page.Params.description }}
+        </div>
+        <div>
+          <a href="{{ .page.Permalink }}" class="text-info">Read more<span><i class="bi bi-arrow-right mx-1"></i></span></a>
+        </div>
+        {{ if .showTaxonomy }}
+          {{ partial "taxonomy.html" (dict "page" .page) }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
