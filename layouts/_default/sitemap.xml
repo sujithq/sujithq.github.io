@@ -1,17 +1,15 @@
 {{- $pages := slice }}
 {{- $pages = $pages | append .Site.Pages }}
+{{- $excludedTypes := slice "tools" }} <!-- Define excluded types -->
 
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {{- range $pages }}
     {{- $robots := lower (default "index, follow" .Params.robots) }}
     {{- $filePath := "" }}
-    {{- $isToolsRoot := false }}
-    {{- with .File }}
-      {{- $filePath = replace .Path "\\" "/" }}
-      {{- $isToolsRoot = eq $filePath "tools/_index.md" }}
-    {{- end }}
-    {{- if and (not $isToolsRoot) (not (in $robots "noindex")) }}
+    {{- $isExcluded := true }}
+  	{{- $isExcluded := and (in $excludedTypes .Type) (not .File) }} <!-- Updated logic -->
+    {{- if and (not $isExcluded) (not (in $robots "noindex")) }}
       <url>
         <loc>{{ .Permalink }}</loc>
         {{- with .Lastmod }}
@@ -19,13 +17,12 @@
         {{- end }}
         <changefreq>monthly</changefreq>
         <priority>{{ if .IsHome }}1.0{{ else if eq .Section "posts" }}0.8{{ else }}0.5{{ end }}</priority>
-        <!--
+
         <info>
           <kind>{{ .Kind }}</kind>
           <filePath>{{ $filePath }}</filePath>
           <type>{{ .Type }}</type>
         </info>
-        -->
       </url>
     {{- end }}
   {{- end }}
