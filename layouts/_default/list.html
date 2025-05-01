@@ -19,7 +19,7 @@
                             <h3 id="{{ $KeyYear }}{{ .Key }}" class="ms-2 mb-0">{{ .Key }}({{ len $it.Pages }})</h3>
                             {{ range $inx, $itm := ($it.Pages) }}
                                 {{- $image := $itm.Resources.Get "cover.jpg" -}}
-                                <h4 class="ms-3 mb-1"><span class="mx-1"><img src="{{ ($image.Fill "50x50 q100 Center").RelPermalink }}"></span><a href="{{ $itm.RelPermalink }}">{{ $itm.Title }}</a></h4>
+                                <h4 class="ms-3 mb-1"><span class="mx-1"><img src="{{ ($image.Fill "50x50 q100 Center").RelPermalink }}" alt="{{$itm.description}}"></span><a href="{{ $itm.RelPermalink }}">{{ $itm.Title }}</a></h4>
                             {{ end }}
                         {{ end }}
                     {{ end }}
