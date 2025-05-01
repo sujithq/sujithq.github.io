@@ -17,18 +17,22 @@
 {{- if eq hugo.Environment "development" }}
   <meta name="robots" content="noindex,nofollow">
 {{- else }}
-  {{- if .IsHome }}
-    {{- if .Paginator }}
-      {{- if gt .Paginator.PageNumber 1 }}
-        <meta name="robots" content="noindex,follow">
+  {{- with .Params.robots }}
+    <meta name="robots" content="{{ . }}">
+  {{- else }}
+    {{- if strings.Contains .RelPermalink "pages/" }}
+      <meta name="robots" content="index,follow">
+    {{- else }}
+      {{- if .Paginator }}
+        {{- if gt .Paginator.PageNumber 1 }}
+          <meta name="robots" content="noindex,follow">
+        {{- else }}
+          <meta name="robots" content="index,follow">
+        {{- end }}
       {{- else }}
         <meta name="robots" content="index,follow">
       {{- end }}
-    {{- else }}
-      <meta name="robots" content="index,follow">
     {{- end }}
-  {{- else }}
-    <meta name="robots" content="index,follow">
   {{- end }}
 {{- end }}
 
