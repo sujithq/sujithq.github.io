@@ -20,7 +20,7 @@
   {{- with .Params.robots }}
     <meta name="robots" content="{{ . }}">
   {{- else }}
-    {{- if strings.Contains .RelPermalink "pages/" }}
+    {{- if strings.Contains .RelPermalink "/posts/" }}
       <meta name="robots" content="index,follow">
     {{- else }}
       {{- if .Paginator }}
