@@ -55,3 +55,8 @@ baseURL = "https://sujithq.github.io/"
    parent = "tools"
 [params]
   prismjsTheme = "okaidia"
+
+[pagination]
+  disableAliases = false
+  pagerSize = 4
+  path = 'page'

@@ -104,7 +104,7 @@ baseURL = "http://localhost:1313/"
 
 [pagination]
   disableAliases = false
-  pagerSize = 10
+  pagerSize = 4
   path = 'page'
 
 [frontmatter]

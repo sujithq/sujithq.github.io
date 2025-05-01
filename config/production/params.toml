@@ -2,3 +2,5 @@
   theme = "light"
   themes = ["light"]
   environment = "production"
+  pagerSize = 4
+  dateFormat = "Jan 2, 2006"
