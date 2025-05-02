@@ -30,7 +30,7 @@ layout = "single"
     cover = true
     author = "sujith"
     
-description = "Stay current on Azure changes. Learn about the retirement of Kubenet in AKS and Azure Spring Apps, including timelines, migration guidance, and required actions."
+description = "Stay current on Azure changes as Kubenet in AKS and Azure Spring Apps retires. Get timelines, migration steps, and required actions to stay compliant."
 
 +++
 
