@@ -2,10 +2,10 @@
     {{ .Site.Title }}
 
   {{- else if eq .Kind "taxonomy" -}}
-    All {{ .Type }} – Azure, DevOps & GitHub Topics by Sujith Quintelier
+    All {{ .Type }} – Azure, DevOps & GitHub
 
   {{- else if eq .Kind "term" -}}
-  {{ title .Type }}: {{ .Title }} – Azure, DevOps & GitHub Topics by Sujith Quintelier
+  {{ title .Type }}: {{ .Title }} – Azure, DevOps & GitHub
 
   {{- else if or (eq .Section "resume") (eq .Section "posts") -}}
     {{ .Title }}
