@@ -32,7 +32,7 @@ layout = "single"
     cover = true
     author = "sujith"
     
-description = "GitHub has achieved PCI DSS v4.0 service provider attestation, enabling customers to meet compliance requirements using GitHub in their development environments. Additionally, GitHub Actions Performance Metrics are now generally available, offering insights into workflow performance at the repository and organization levels, with Enterprise-level metrics in public preview."
+description = "GitHub is now PCI DSS v4.0 compliant. GitHub Actions Performance Metrics are GA, with insights at repo/org levels and Enterprise metrics in public preview."
 
 +++
 
