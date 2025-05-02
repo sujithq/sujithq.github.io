@@ -1,5 +1,5 @@
 +++
-title = '📘 Using Federated Credentials to Secure Azure CI/CD Pipelines'
+title = '📘 Secure Azure CI/CD with Federated Credentials'
 slug = 'federated-credentials-secure-azure-cicd'
 date = '2025-03-25 06:00:00Z'
 draft = false
@@ -12,7 +12,7 @@ layout = 'single'
     cover = true
     author = 'sujith'
 
-description = "Learn how federated credentials improve security and simplify authentication in GitHub Actions and Azure DevOps pipelines, eliminating the need to store secrets in pipelines or repositories."
+description = "Learn how federated credentials enhance security and simplify authentication in GitHub Actions and Azure DevOps by eliminating stored secrets in pipelines."
     
 +++
 

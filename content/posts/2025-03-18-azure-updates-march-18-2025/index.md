@@ -30,7 +30,7 @@ layout = "single"
     cover = true
     author = "sujith"
     
-description = "Stay up to date with the latest Azure changes. This edition covers the retirement of Kubenet networking for Azure Kubernetes Service and Azure Spring Apps, including key dates, migration recommendations, and required actions."
+description = "Stay current on Azure changes. Learn about the retirement of Kubenet in AKS and Azure Spring Apps, including timelines, migration guidance, and required actions."
 
 +++
 

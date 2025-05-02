@@ -25,7 +25,7 @@ layout = 'single'
     cover = true
     author = 'sujith'
     
-description = "Kickstart your journey with Terraform for Azure. This first part of the series covers the basics and sets the foundation for automating your Azure infrastructure."
+description = "Kickstart your Terraform journey on Azure. Learn the basics and lay the groundwork for automating your cloud infrastructure in this first part of the series."
 
 
 +++

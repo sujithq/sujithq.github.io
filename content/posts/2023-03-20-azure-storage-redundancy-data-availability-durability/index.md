@@ -1,5 +1,5 @@
 +++
-title = '🔹 Azure Storage Redundancy: Ensuring Data Availability and Durability'
+title = '🔹 Azure Storage Redundancy: Availability & Durability'
 slug = "azure-storage-redundancy-data-availability-durability"
 date = '2023-03-20 06:00:00Z'
 draft = false

@@ -29,7 +29,7 @@ layout = "single"
     cover = true
     author = "sujith"
     
-description = "Explore the latest GitHub updates, including the ability to preview and edit HTML files directly in the side panel, generate and visualize Mermaid diagrams, and manage issues and pull requests more efficiently. Experience enhanced streaming and attachment rendering, and try out new features with example prompts."
+description = "Explore new GitHub features like HTML side-panel editing, Mermaid diagram support, enhanced issue management, and better streaming and attachment previews."
 
 +++
 

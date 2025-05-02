@@ -1,5 +1,5 @@
 +++
-title = '🌐 Demystifying Networking in Azure Kubernetes Service (AKS)'
+title = '🌐 AKS Networking Demystified: Models & Best Practices'
 slug = 'aks-networking-guide'
 date = '2025-04-17 06:00:00Z'
 draft = false
@@ -11,7 +11,7 @@ layout = 'single'
   cover = true
   author = 'sujith'
 
-description = "Explore networking models in Azure Kubernetes Service including Azure CNI, Overlay, Kubenet, and Azure CNI powered by Cilium, along with key updates and best practices."
+description = "Learn about AKS networking models including Azure CNI, Overlay, Kubenet, and Cilium, plus recent updates and best practices for configuration."
 +++
 
 ## Demystifying Networking in Azure Kubernetes Service (AKS)

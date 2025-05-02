@@ -1,5 +1,5 @@
 +++
-title = '⚖️ Azure Bicep vs Terraform: Which One Should You Use?'
+title = '⚖️ Azure Bicep vs Terraform: What Should You Choose?'
 slug = "azure-bicep-vs-terraform"
 date = '2025-03-15 06:00:00Z'
 draft = false

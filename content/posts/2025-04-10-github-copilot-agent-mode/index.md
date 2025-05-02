@@ -1,5 +1,5 @@
 +++
-title = '🤖 GitHub Copilot Agent Mode Is Here: Your Autonomous Pair Programmer'
+title = '🤖 GitHub Copilot Agent: Your AI Pair Programmer'
 slug = 'github-copilot-agent-mode'
 date = '2025-04-10 06:00:00Z'
 draft = false
@@ -12,7 +12,7 @@ layout = 'single'
     cover = true
     author = 'sujith'
 
-description = "Discover GitHub Copilot Agent Mode, now available in Visual Studio Code. Learn how this next-gen AI assistant autonomously writes, edits, tests, and executes code like a true pair programmer."
+description = "Explore GitHub Copilot Agent Mode in VS Code—an AI assistant that autonomously writes, edits, tests, and runs code, acting like a real pair programmer."
 +++
 
 GitHub Copilot just levelled up. The long-anticipated **Agent Mode** is no longer in preview and is officially rolling out to all users of **Visual Studio Code**, including the stable release. If you've ever dreamed of having a truly **autonomous AI pair programmer** that doesn't just suggest lines of code but actively edits files, runs commands, and debugs your code — your wish has come true.

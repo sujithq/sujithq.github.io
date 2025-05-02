@@ -1,5 +1,5 @@
 +++
-title = '🚀 How to Retrieve Stale Branches Across All Repositories in a GitHub Organization'
+title = '🚀 Find Stale Branches Across All GitHub Repos'
 slug = "retrieve-stale-branches-github-organization"
 date = 2025-01-14T01:00:00-00:00
 draft = false
