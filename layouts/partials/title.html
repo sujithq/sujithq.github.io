@@ -1,0 +1,17 @@
+{{- if .IsHome -}}
+    {{ .Site.Title }}
+
+  {{- else if eq .Kind "taxonomy" -}}
+    All {{ .Type }} – Azure, DevOps & GitHub Topics by Sujith Quintelier
+
+  {{- else if eq .Kind "term" -}}
+  {{ title .Type }}: {{ .Title }} – Azure, DevOps & GitHub Topics by Sujith Quintelier
+
+  {{- else if or (eq .Section "resume") (eq .Section "posts") -}}
+    {{ .Title }}
+
+  {{- else if eq .Section "tools" -}}
+  {{ title .Section }}: {{ .Title }}
+  {{- else -}}
+    {{ .Title }}
+  {{- end -}}
