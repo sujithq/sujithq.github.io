@@ -8,7 +8,7 @@
         <div class="card-header text-center">
           {{ with .Params.author }}
           {{ $author := site.GetPage (printf "authors/%s" .) }}
-          {{ partial "gravatar/avatar-params" (dict "Email" $author.Params.email "ClassName" "rounded-circle flex-shrink-0 center-text" "Size" "150") }}
+          {{ partial "gravatar/avatar-params" (dict "Email" $author.Params.email "ClassName" "rounded-circle flex-shrink-0 center-text" "Size" "150" "Alt" $author.Title) }}
           {{ with $author }}
             <h1 class="center-text">{{ $global.Title }} {{ .Title }}</h2>
             <h2 class="center-text"><a href="{{ .Params.organizations.url }}">{{.Params.organizations.name}}</a></h2>

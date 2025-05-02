@@ -10,7 +10,7 @@
       {{ if $resume }}
         <a href="{{ $resume.RelPermalink }}">{{ $author.Title }}</a>
       {{ else }}
-        {{ partial "gravatar/avatar-params" (dict "Email" $author.Params.email "ClassName" "rounded-circle flex-shrink-0" "Size" "20") }}
+        {{ partial "gravatar/avatar-params" (dict "Email" $author.Params.email "ClassName" "rounded-circle flex-shrink-0" "Size" "20" "Alt" $author.Title) }}
       {{ end }}
     </span>
     <span class="mx-1">•</span>
@@ -23,10 +23,10 @@
   .page.RelPermalink }}
     {{ if .useLink }}
     <a href="{{ .page.RelPermalink }}"
-      ><img src="{{ $cover }}" alt="{{ .page.description }}" class="img-fluid rounded"
+      ><img src="{{ $cover }}" alt="{{ .page.Params.description }}" class="img-fluid rounded"
     /></a>
     {{ else }}
-    <img src="{{ $cover }}" alt="{{ .page.description }}" class="img-fluid rounded" />
+    <img src="{{ $cover }}" alt="{{ .page.Params.description }}" class="img-fluid rounded" />
     {{ end }}
   {{ end }}
   <div class="text-center mt-3">

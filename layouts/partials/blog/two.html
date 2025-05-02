@@ -21,7 +21,7 @@
         <div class="col">
             <div class="card border-0">
                 <div>
-                    <a href="{{ $p.RelPermalink }}"><img src="{{ $cover }}" alt="{{ .page.description }}" class="img-fluid rounded" /></a>
+                    <a href="{{ $p.RelPermalink }}"><img src="{{ $cover }}" alt="{{ $p.Params.description }}" class="img-fluid rounded" /></a>
                 </div>
             <div class="card-body">
                 {{ partial "newUpdate.html" (dict "page" $p) }}

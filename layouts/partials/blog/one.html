@@ -4,7 +4,7 @@
       {{ if .page.Params.cover }}
         {{ $cover := printf "%scover.jpg" .page.RelPermalink }}
         <a href="{{ .page.RelPermalink }}">
-          <img src="{{ $cover }}" alt="{{ .page.description }}" class="img-fluid rounded" />
+          <img src="{{ $cover }}" alt="{{ .page.Params.description }}" class="img-fluid rounded" />
         </a>
       {{ end }}
     </div>
