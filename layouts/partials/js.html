@@ -1,0 +1,133 @@
+<!-- Store available themes in JavaScript -->
+<script>
+    window.HUGO_ENV = "{{ .Site.Params.environment }}";
+    var availableThemes = JSON.parse({{ .Site.Params.themes | jsonify }});
+</script>
+<!-- Bootstrap JS (Optional, for components like modals, tooltips, etc.) -->
+{{- with resources.Get "vendor/bootstrap/js/bootstrap.bundle.min.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- else }}
+    {{- with . | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+
+
+{{- with resources.Get "vendor/aos/js/aos.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" false }}
+    {{- with . | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+<!-- Initialize AOS after loading -->
+<script>
+  // window.AOS = require_stdin();
+  function aosInit() {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }
+  window.addEventListener('DOMContentLoaded', aosInit);
+</script>
+
+{{- with resources.Get "vendor/swiper/js/swiper-bundle.min.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- else }}
+    {{- with . | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- with resources.Get "vendor/prismjs/js/prism-core.min.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" false }}
+    {{- with . | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- with resources.Get "vendor/prismjs/js/prism-autoloader.min.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" false }}
+    {{- with . | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- with resources.Get "ts/main.ts" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . | js.Build }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" true }}
+    {{- with . | js.Build $opts | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+<script src="https://kit.fontawesome.com/5fc2d9cacb.js" crossorigin="anonymous"></script>
+
+{{- with resources.Get "js/main.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" true }}
+    {{- with . | js.Build $opts | fingerprint }}      
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+<!-- Matomo -->
+{{- if eq hugo.Environment "development" }}
+{{- else }}
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://sujithq.matomo.cloud/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src='https://cdn.matomo.cloud/sujithq.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="zFn6YUC1ofEcLJXv92lDUA" async></script>
+
+<!-- End Matomo Code -->
+{{- end }}
