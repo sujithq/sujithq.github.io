@@ -13,7 +13,7 @@ layout = 'single'
     
 description = "A deep dive into GitHub Copilot, its features, benefits, limitations, and best practices for maximizing its potential in software development."
 
-slug = "github-copilot-guide"
+slug = 'github-copilot-guide'
 
 +++
 

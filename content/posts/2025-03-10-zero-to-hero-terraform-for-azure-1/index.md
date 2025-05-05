@@ -1,6 +1,6 @@
 +++
 title = '🖥️ From Zero to Hero: Terraform for Azure - Part 1'
-slug = "zero-to-hero-terraform-for-azure-1"
+slug = 'zero-to-hero-terraform-for-azure-1'
 date = '2025-03-10 06:00:00Z'
 draft = false
 tags = [

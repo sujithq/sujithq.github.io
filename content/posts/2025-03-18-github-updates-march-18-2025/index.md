@@ -1,6 +1,6 @@
 +++
-title = "🔄 GitHub updates for March 18, 2025"
-slug = "github-updates-march-18-2025"
+title = '🔄 GitHub updates for March 18, 2025'
+slug = 'github-updates-march-18-2025'
 date = '2025-03-18 06:00:00Z'
 draft = false
 tags = [

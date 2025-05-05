@@ -49,3 +49,14 @@
   name = "instagram"
   url = "https://www.instagram.com/sujithquintelier/"
   icon = "bi bi-instagram"
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min      = "0.145.0"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "hugo_stats.json"
+    target = "assets/watching/hugo_stats.json"

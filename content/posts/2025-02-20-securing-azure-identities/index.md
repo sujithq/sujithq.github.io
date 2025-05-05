@@ -1,6 +1,6 @@
 +++
 title = '🔒 Securing Azure Identities'
-slug = "securing-azure-identities"
+slug = 'securing-azure-identities'
 date = '2025-02-20 06:00:00Z'
 draft = false
 tags = [

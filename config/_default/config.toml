@@ -109,3 +109,7 @@ baseURL = "http://localhost:1313/"
 
 [frontmatter]
   lastmod = ["lastmod", "git", "date"]
+
+[build]
+  [build.buildStats]
+    enable = true

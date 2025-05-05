@@ -1,0 +1,15 @@
+<!-- {{ $styles := resources.Get "scss/ideal-octo-guacamole.scss" | toCSS | css.PostCSS | minify | fingerprint | resources.PostProcess}} -->
+{{ $styles := resources.Get "scss/ideal-octo-guacamole.scss" | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+
+{{ $aos := resources.Get "vendor/aos/css/aos.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $aos.RelPermalink }}" integrity="{{ $aos.Data.Integrity }}">
+
+{{ $swiper := resources.Get "vendor/swiper/css/swiper-bundle.min.css" | fingerprint }}
+<link rel="stylesheet" href="{{ $swiper.RelPermalink }}" integrity="{{ $swiper.Data.Integrity }}">
+
+{{ $prismjs := resources.Get "vendor/prismjs/css/prism.min.css" | fingerprint }}
+{{ if ne .Site.Params.prismjsTheme "default" }}
+    {{ $prismjs = resources.Get (printf "vendor/prismjs/css/prism-%s.min.css" .Site.Params.prismjsTheme) | fingerprint }}
+{{ end }}
+<link rel="stylesheet" href="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}">

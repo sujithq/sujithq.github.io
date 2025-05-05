@@ -1,6 +1,6 @@
 +++
 title = '⚖️ Azure Bicep vs Terraform: What Should You Choose?'
-slug = "azure-bicep-vs-terraform"
+slug = 'azure-bicep-vs-terraform'
 date = '2025-03-15 06:00:00Z'
 draft = false
 categories = ["Infrastructure as Code (IaC)", "Azure", "Terraform", "DevOps"]

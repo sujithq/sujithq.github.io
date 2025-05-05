@@ -1,7 +1,7 @@
 +++
 robots = "noindex"
 # Display name
-title = "Sujith Quintelier"
+title = 'Sujith Quintelier'
 
 # Full name (for SEO)
 first_name = "Sujith"
