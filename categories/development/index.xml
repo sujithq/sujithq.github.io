@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Development on Sujith Quintelier</title><link>https://sujithq.github.io/categories/development/</link><description>Recent content in Development on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 28 Apr 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://sujithq.github.io/categories/development/index.xml" rel="self" type="application/rss+xml"/><item><title>Which AI Model Should You Use with GitHub Copilot?</title><link>https://sujithq.github.io/posts/2025/04/which-ai-model-to-use-with-github-copilot/</link><pubDate>Mon, 28 Apr 2025 06:00:00 +0000</pubDate><guid>https://sujithq.github.io/posts/2025/04/which-ai-model-to-use-with-github-copilot/</guid><description>&lt;h2 id="which-ai-model-should-i-use-with-github-copilot">Which AI model should I use with GitHub Copilot?&lt;/h2>
+&lt;p>Choosing the right AI model for your GitHub Copilot project can be tricky. Each model has its own strengths, and understanding which one fits your needs best can make a big difference.&lt;/p>
+&lt;div class="card border-start border-4 border-info mb-4 shadow-sm">
+ &lt;div class="card-body">
+ &lt;h6 class="card-title d-flex align-items-center text-info mb-2">
+ &lt;i class="bi bi-info-circle me-2">&lt;/i>
+ Big disclaimer!
+ &lt;/h6>
+ &lt;div class="card-text small">
+ &lt;p>AI evolves rapidly, so these recommendations might change soon. As of mid-April 2025, this is the current landscape.&lt;/p></description></item></channel></rss>
