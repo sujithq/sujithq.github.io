@@ -1,0 +1,16 @@
+{{- if .IsHome -}}
+    "blog"
+  {{- else if eq .Kind "taxonomy" -}}
+    {{ .Kind }}
+
+  {{- else if eq .Kind "term" -}}
+    "taxonomy {{ .Kind }}"
+  {{- else if eq .Section "resume" -}}
+    "resume"
+  {{- else if eq .Section "posts" -}}
+    "post"
+  {{- else if eq .Section "tools" -}}
+    "tool"
+  {{- else -}}
+    "page"
+  {{- end -}}

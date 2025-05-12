@@ -44,7 +44,7 @@
 <meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta property="og:image" content="{{ if .Params.cover }}img/cover.jpg{{ else if .Params.image }}{{ .Params.image }}{{ else }}{{ .Site.Params.socialImage }}{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ partial "og-type.html" . }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 
 <!-- Twitter Card -->
