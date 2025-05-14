@@ -20,8 +20,8 @@ $breakpoints: (
 }
 
 
-$defaultTagBackgrounds: #8ea885, #df7988, #0177b8, #ffb900, #6b69d6;
-$defaultTagColors: #fff, #fff, #fff, #fff, #fff;
+// $defaultTagBackgrounds: #8ea885, #df7988, #0177b8, #ffb900, #6b69d6;
+// $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 
 @if $web-font-path {
   @import url("#{$web-font-path}");
@@ -46,7 +46,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 
 // links
 
-a{
+a {
   color: var(--bs-link-color);
   opacity: 0.8;
 }
