@@ -18,16 +18,24 @@ const purgecss = purgeCSSPlugin({
       'fade', 
       'collapse', 
       'collapsing',
-      'modal-backdrop'
+      'modal-backdrop',
+      'dark',
+      'light',
+      'dropdown-item-dark',
+      'dropdown-item-light'
     ],
     deep: [
       /^bs-/,
       /^data-bs-/,
       /^\[data-bs-theme/,
       /^navbar/,
-      /^nav-/
+      /^nav-/,
+      /^color-mode/,
+      /^theme/
     ],
   },
+  variables: true, // Keep CSS variables
+  keyframes: true  // Keep keyframes
 });
 
 module.exports = {
