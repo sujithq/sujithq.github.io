@@ -47,6 +47,9 @@ const purgecss = purgeCSSPlugin({
       'dropdown', 'dropdown-item', 'dropdown-menu', 'dropdown-menu-end',
       'dropdown-menu-dark', 'dropdown-menu-light',
       'dropdown-toggle', 'dropdown-divider',
+      // Accordion components
+      'accordion', 'accordion-item', 'accordion-header', 'accordion-button', 
+      'accordion-collapse', 'accordion-body',
       // States and variations
       'btn-check', 'btn-active', 'nav-link', 'nav-item', 'navbar-nav', 'navbar-collapse',
       // Common Bootstrap classes
@@ -65,6 +68,8 @@ const purgecss = purgeCSSPlugin({
       // Component-specific
       /^navbar/,
       /^nav-/,
+      /^accordion/,
+      /^dropdown/,
       /^dropdown/,
       /^btn-/,
       // Theme-related (preserve all variations)
@@ -84,6 +89,7 @@ const purgecss = purgeCSSPlugin({
     greedy: [
       // Preserve all of these patterns in any context
       /dropdown/,
+      /accordion/,
       /theme/,
       /^data-/,
       /dark/,
