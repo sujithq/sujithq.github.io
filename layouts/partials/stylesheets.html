@@ -1,6 +1,6 @@
 {{ $styles := resources.Get "scss/ideal-octo-guacamole.scss" | toCSS }}
 {{ if eq hugo.Environment "production" }}
-  {{ $styles = $styles | resources.PostCSS | minify | fingerprint }}
+  {{ $styles = $styles | css.PostCSS | minify | fingerprint }}
 {{ else }}
   {{ $styles = $styles | minify | fingerprint }}
 {{ end }}
