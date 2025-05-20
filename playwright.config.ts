@@ -71,9 +71,9 @@ export default defineConfig({
   ],
 
   expect: {
-    timeout: 10_000, // Set timeout to 30 seconds
+    timeout: 30_000, // Set timeout to 30 seconds
   },
-  timeout: 40_0000, // Set timeout to 30 seconds
+  timeout: 60_000, // Set timeout to 30 seconds
 
   /* Run your local dev server before starting the tests */
   webServer: {

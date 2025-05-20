@@ -6,7 +6,9 @@
   "scripts": {
     "copy-files": "node scripts/copy-files.js",
     "postinstall": "npm run copy-files",
-    "test": "playwright test"
+    "test": "playwright test",
+    "upd": "playwright test --update-snapshots"
+
   },
   "keywords": [],
   "author": "",
