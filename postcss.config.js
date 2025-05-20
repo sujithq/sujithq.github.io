@@ -5,17 +5,24 @@ const purgecss = purgeCSSPlugin({
   defaultExtractor: (content) => {
     const els = JSON.parse(content).htmlElements;
     const extracted = [...(els.tags || []), ...(els.classes || []), ...(els.ids || []),
-    // '[data-bs-theme="dark"]',
-    // '[data-bs-theme="light"]'
-  ]
+      '[data-bs-theme="dark"]',
+      '[data-bs-theme="light"]'
+    ]
     console.log("Extracted:", extracted);
     return extracted;
   },
   safelist: {
-    // deep: [
-    //   /^\[data-bs-theme="dark"\]/,
-    //   /^\[data-bs-theme="light"\]/,
-    // ],
+    standard: ['active', 'show', 'fade'],
+    deep: [
+      /^bs-/,
+      /^data-bs-/,
+      /^\[data-bs-theme/,
+      /^carousel/,
+      /^modal/,
+      /^nav/,
+      /^collapse/,
+      /^dropdown/
+    ],
   },
 });
 

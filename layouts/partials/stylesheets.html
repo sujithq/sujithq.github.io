@@ -1,5 +1,9 @@
-<!-- {{ $styles := resources.Get "scss/ideal-octo-guacamole.scss" | toCSS | css.PostCSS | minify | fingerprint | resources.PostProcess}} -->
-{{ $styles := resources.Get "scss/ideal-octo-guacamole.scss" | toCSS | minify | fingerprint }}
+{{ $styles := resources.Get "scss/ideal-octo-guacamole.scss" | toCSS }}
+{{ if eq hugo.Environment "production" }}
+  {{ $styles = $styles | css.PostCSS | minify | fingerprint }}
+{{ else }}
+  {{ $styles = $styles | minify | fingerprint }}
+{{ end }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 
 {{ $aos := resources.Get "vendor/aos/css/aos.css" | minify | fingerprint }}
