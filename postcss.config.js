@@ -12,16 +12,20 @@ const purgecss = purgeCSSPlugin({
     return extracted;
   },
   safelist: {
-    standard: ['active', 'show', 'fade'],
+    standard: [
+      'active', 
+      'show', 
+      'fade', 
+      'collapse', 
+      'collapsing',
+      'modal-backdrop'
+    ],
     deep: [
       /^bs-/,
       /^data-bs-/,
       /^\[data-bs-theme/,
-      /^carousel/,
-      /^modal/,
-      /^nav/,
-      /^collapse/,
-      /^dropdown/
+      /^navbar/,
+      /^nav-/
     ],
   },
 });
