@@ -8,7 +8,6 @@
     "postinstall": "npm run copy-files",
     "test": "playwright test",
     "upd": "playwright test --update-snapshots"
-
   },
   "keywords": [],
   "author": "",
@@ -18,6 +17,7 @@
     "@types/node": "^22.13.4"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",

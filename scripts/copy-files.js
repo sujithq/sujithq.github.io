@@ -12,7 +12,11 @@ const filesToCopy = [
   { vendor: "swiper", fileName: "swiper-bundle.min.js", destination: "assets/vendor/swiper/js", source: "node_modules" },
   { vendor: "swiper", fileName: "swiper-bundle.min.css", destination: "assets/vendor/swiper/css", source: "node_modules" },
   { vendor: "bootstrap-icons", fileName: "font/fonts/bootstrap-icons.woff", destination: "static/scss/fonts", source: "node_modules" },
-  { vendor: "bootstrap-icons", fileName: "font/fonts/bootstrap-icons.woff2", destination: "static/scss/fonts", source: "node_modules" }
+  { vendor: "bootstrap-icons", fileName: "font/fonts/bootstrap-icons.woff2", destination: "static/scss/fonts", source: "node_modules" },
+  { vendor: "@fortawesome", fileName: "fontawesome-free/css/brands.min.css", destination: "assets/vendor/fontawesome/css", source: "node_modules" },
+  { vendor: "@fortawesome", fileName: "fontawesome-free/css/regular.min.css", destination: "assets/vendor/fontawesome/css", source: "node_modules" },
+  { vendor: "@fortawesome", fileName: "fontawesome-free/css/solid.min.css", destination: "assets/vendor/fontawesome/css", source: "node_modules" },
+
 ];
 
 /**

@@ -1,19 +1,33 @@
-{{ $styles := resources.Get "scss/ideal-octo-guacamole.scss" | toCSS }}
+<!-- {{ $styles := resources.Get "scss/ideal-octo-guacamole.scss" | toCSS }}
 {{ if eq hugo.Environment "production" }}
   {{ $styles = $styles | css.PostCSS | minify | fingerprint }}
 {{ else }}
   {{ $styles = $styles | minify | fingerprint }}
-{{ end }}
+{{ end }} -->
+
+{{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/ideal-octo-guacamole.scss")) }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 
-{{ $aos := resources.Get "vendor/aos/css/aos.css" | minify | fingerprint }}
+{{ $aos := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/aos/css/aos.css")) }}
 <link rel="stylesheet" href="{{ $aos.RelPermalink }}" integrity="{{ $aos.Data.Integrity }}">
 
-{{ $swiper := resources.Get "vendor/swiper/css/swiper-bundle.min.css" | fingerprint }}
+{{ $swiper := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/swiper/css/swiper-bundle.min.css")) }}
 <link rel="stylesheet" href="{{ $swiper.RelPermalink }}" integrity="{{ $swiper.Data.Integrity }}">
 
-{{ $prismjs := resources.Get "vendor/prismjs/css/prism.min.css" | fingerprint }}
+{{ $prismjs := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/prismjs/css/prism.min.css")) }}
 {{ if ne .Site.Params.prismjsTheme "default" }}
     {{ $prismjs = resources.Get (printf "vendor/prismjs/css/prism-%s.min.css" .Site.Params.prismjsTheme) | fingerprint }}
 {{ end }}
 <link rel="stylesheet" href="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}">
+
+
+{{ if .Site.Params.isLocal }}
+  {{ $brands := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/brands.min.css")) }}
+  <link rel="stylesheet" href="{{ $brands.RelPermalink }}" integrity="{{ $brands.Data.Integrity }}">
+  {{ $regular := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/regular.min.css")) }}
+  <link rel="stylesheet" href="{{ $regular.RelPermalink }}" integrity="{{ $regular.Data.Integrity }}">
+  {{ $solid := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/solid.min.css")) }}
+  <link rel="stylesheet" href="{{ $solid.RelPermalink }}" integrity="{{ $solid.Data.Integrity }}">
+{{ end }}
+
+

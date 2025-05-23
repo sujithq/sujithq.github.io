@@ -1,0 +1,24 @@
+{{- /* Function to get and process a stylesheet resource */ -}}
+{{- $resource := .Resource -}}
+{{- $isProduction := eq hugo.Environment "production" -}}
+
+{{- /* Get the file extension */ -}}
+{{- $extension := path.Ext $resource.RelPermalink -}}
+
+{{- /* Initialize $processed with the resource */ -}}
+{{- $processed := $resource -}}
+
+{{- /* Apply ToCSS if the file is a .scss or .sass file */ -}}
+{{- if or (eq $extension ".scss") (eq $extension ".sass") -}}
+  {{- $processed = $processed | toCSS -}}
+{{- end -}}
+
+{{- /* Add PostCSS processing if in production */ -}}
+{{- if $isProduction -}}
+  {{- $processed = $processed | css.PostCSS -}}
+{{- end -}}
+
+{{- /* Minify and fingerprint the resource */ -}}
+{{- $processed = $processed | minify | fingerprint -}}
+
+{{- return $processed -}}

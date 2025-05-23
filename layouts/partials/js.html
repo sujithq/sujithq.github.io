@@ -96,7 +96,15 @@
   {{- end }}
 {{- end }}
 
-<script src="https://kit.fontawesome.com/5fc2d9cacb.js" crossorigin="anonymous"></script>
+<!-- <script src="https://kit.fontawesome.com/5fc2d9cacb.js" crossorigin="anonymous"></script> -->
+<script>
+  if (window.location.hostname.includes("localhost")) {
+    var fontAwesomeScript = document.createElement("script");
+    fontAwesomeScript.src = "https://kit.fontawesome.com/5fc2d9cacb.js";
+    fontAwesomeScript.crossOrigin = "anonymous";
+    document.head.appendChild(fontAwesomeScript);
+  }
+</script>
 
 {{- with resources.Get "js/main.js" }}
   {{- if eq hugo.Environment "development" }}
@@ -105,7 +113,7 @@
     {{- end }}
   {{- else }}
     {{- $opts := dict "minify" true }}
-    {{- with . | js.Build $opts | fingerprint }}      
+    {{- with . | js.Build $opts | fingerprint }}
       <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
     {{- end }}
   {{- end }}
