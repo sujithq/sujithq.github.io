@@ -53,6 +53,13 @@ baseURL = "https://sujithq.github.io/"
    url = "/tools/cert-renewal"
    weight = 2
    parent = "tools"
+ [[menu.main]]
+   identifier = "tech-radar"
+   name = "Tech Radar"
+   url = "/tools/tech-radar"
+   weight = 3
+   parent = "tools"
+
 [params]
   prismjsTheme = "okaidia"
 

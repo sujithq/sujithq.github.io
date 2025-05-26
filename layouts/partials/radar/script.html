@@ -1,0 +1,27 @@
+<script>
+        fetch("{{ .RelPermalink }}").then(function(response) {
+          return response.json();
+        }).then(function(data) {
+          radar_visualization({
+            repo_url: "https://github.com/sujithq/tech-radar",
+            title: "Tech Radar",
+            date: data.date,
+            quadrants: [
+              { name: "Techniques" },
+              { name: "Tools" },
+              { name: "Platforms" },
+              { name: "Languages & Frameworks" },
+            ],
+            rings: [
+              { name: "Authority field", color: "#7b2952" },
+              { name: "Good knowledge", color: "#140126" },
+              { name: "Some knowledge", color: "#0240a7" },
+              { name: "No knowledge", color: "#bcc3cc" },
+              { name: "No Interest", color: "#985a3e" }
+            ],
+            entries: data.entries
+          });
+        }).catch(function(err) {
+          console.log('Error loading radar.json', err);
+        });
+      </script>

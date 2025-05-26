@@ -1,0 +1,146 @@
+{
+  "date": "2025.02",
+  "entries": [
+    { "quadrant": 3, "ring": 1, "label": "Bicep", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 1, "label": "PowerShell", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 0, "label": "C#", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 0, "label": ".NET", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 0, "label": "Terraform", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 0, "label": "YAML", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 2, "label": "Python", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 3, "label": "JavaScript", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 3, "label": "Go", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 3, "label": "Julia", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 3, "label": "TypeScript", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 0, "label": "Markdown", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 1, "label": "ARM Templates", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 0, "label": "Dockerfile", "active": true, "moved": 0 },
+
+    { "quadrant": 2, "ring": 0, "label": "Microsoft Azure", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 0, "label": "Azure App Service", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 0, "label": "GitHub (SaaS)", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 3, "label": "Azure Machine Learning", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 3, "label": "Azure OpenAI Service", "active": true, "moved": 0 },
+
+  { "quadrant": 2, "ring": 0, "label": "Azure Kubernetes Service (AKS)", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 0, "label": "Azure Functions", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 1, "label": "Azure Static Web Apps", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 0, "label": "Azure Service Bus", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 0, "label": "Event Grid", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 0, "label": "Queues", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 0, "label": "GitHub Enterprise Cloud", "active": true, "moved": 0 },
+
+  { "quadrant": 2, "ring": 2, "label": "Azure DevTest Labs", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 1, "label": "Azure Container Apps", "active": true, "moved": 0 },
+  { "quadrant": 2, "ring": 3, "label": "Azure Synapse Analytics", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 0, "label": "Azure DevOps Pipelines", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 0, "label": "Azure CLI", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 0, "label": "Visual Studio Code", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 0, "label": "GitHub Copilot / Copilot Chat", "active": true, "moved": 0 },
+
+  { "quadrant": 1, "ring": 0, "label": "GitHub Actions", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 0, "label": "Terraform CLI (AzureRM)", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 1, "label": "Helm", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 1, "label": "Docker", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 0, "label": "Azure Container Registry (ACR)", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 0, "label": "Azure Monitor & App Insights", "active": true, "moved": 0 },
+
+  { "quadrant": 1, "ring": 3, "label": "Azure OpenAI Studio", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 3, "label": "Azure Machine Learning Studio", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 1, "label": "Azure Logic Apps", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 2, "label": "Bicep CLI", "active": true, "moved": 0 },
+
+  { "quadrant": 1, "ring": 3, "label": "Azure Data Studio", "active": true, "moved": 0 },
+  { "quadrant": 1, "ring": 3, "label": "Microsoft Security DevOps", "active": true, "moved": 0 },
+
+   { "quadrant": 0, "ring": 0, "label": "Infrastructure as Code (IaC) with Azure (Bicep, ARM, Terraform)", "active": true, "moved": 0 },
+  { "quadrant": 0, "ring": 0, "label": "Shift-Left Security/DevSecOps in CI/CD", "active": true, "moved": 0 },
+  { "quadrant": 0, "ring": 0, "label": "Automated Infrastructure Compliance Scanning", "active": true, "moved": 0 },
+  { "quadrant": 0, "ring": 1, "label": "Secure Supply Chain (SBOM/code signing)", "active": true, "moved": 0 },
+
+  { "quadrant": 0, "ring": 1, "label": "GitOps with Azure and GitHub", "active": true, "moved": 0 },
+  { "quadrant": 0, "ring": 1, "label": "Automated Dependency Updates (Dependabot)", "active": true, "moved": 0 },
+  { "quadrant": 0, "ring": 1, "label": "Blue-Green/Canary Deployments (Azure DevOps/GitHub Actions)", "active": true, "moved": 0 },
+  { "quadrant": 0, "ring": 1, "label": "API-first Design in Azure", "active": true, "moved": 0 },
+
+  { "quadrant": 0, "ring": 3, "label": "MLOps (Azure ML & GitHub)", "active": true, "moved": 0 },
+  { "quadrant": 0, "ring": 3, "label": "Policy as Code (OPA/Gatekeeper)", "active": true, "moved": 0 },
+  { "quadrant": 0, "ring": 1, "label": "InnerSource practices via GitHub", "active": true, "moved": 0 },
+
+  { "quadrant": 0, "ring": 3, "label": "ChatOps", "active": true, "moved": 0 },
+
+{ "quadrant": 2, "ring": 4, "label": "SharePoint", "active": true, "moved": 0 },
+{ "quadrant": 2, "ring": 4, "label": "Power Platform", "active": true, "moved": 0 },
+
+{ "quadrant": 1, "ring": 4, "label": "Power Apps", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 4, "label": "Power Automate", "active": true, "moved": 0 },
+{ "quadrant": 3, "ring": 4, "label": "Java", "active": true, "moved": 0 },
+
+{ "quadrant": 3, "ring": 1, "label": "Bash", "active": true, "moved": 0 },
+{ "quadrant": 3, "ring": 1, "label": "SQL", "active": true, "moved": 0 },
+
+{ "quadrant": 3, "ring": 2, "label": "Kusto Query Language (KQL)", "active": true, "moved": 0 },
+
+{ "quadrant": 3, "ring": 3, "label": "F#", "active": true, "moved": 0 },
+
+{ "quadrant": 3, "ring": 3, "label": "PHP", "active": true, "moved": 0 },
+{ "quadrant": 3, "ring": 4, "label": "Perl", "active": true, "moved": 0 },
+{ "quadrant": 3, "ring": 4, "label": "Ruby", "active": true, "moved": 0 },
+
+{ "quadrant": 3, "ring": 0, "label": "HCL", "active": true, "moved": 0 },
+
+{ "quadrant": 0, "ring": 1, "label": "IssueOps", "active": true, "moved": 0 },
+
+
+
+{ "quadrant": 2, "ring": 0, "label": "GitHub Pages", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 0, "label": "GitHub CLI", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 0, "label": "GitHub Codespaces", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 0, "label": "GitHub Workspaces", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 1, "label": "GitHub Discussions", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 2, "label": "GitHub Projects", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 0, "label": "GitHub Advanced Security", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 1, "label": "GitHub Mobile App", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 2, "label": "GitHub Desktop", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 2, "label": "Azure Draft", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 2, "label": "Argo CD", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 2, "label": "Crossplane", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 2, "label": "Azure Service Operator (ASO)", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 2, "label": "Kubernetes Resource Operator for Azure (KRO)", "active": true, "moved": 0 },
+{ "quadrant": 3, "ring": 0, "label": "Mermaid", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 0, "label": "Checkov", "active": true, "moved": 0 },
+{ "quadrant": 0, "ring": 1, "label": "Site Reliability Engineering (SRE)", "active": true, "moved": 0 },
+{ "quadrant": 0, "ring": 2, "label": "FinOps (Cloud Financial Management)", "active": true, "moved": 0 },
+{ "quadrant": 2, "ring": 0, "label": "NoSQL Databases", "active": true, "moved": 0 },
+{ "quadrant": 2, "ring": 0, "label": "Azure Cosmos DB", "active": true, "moved": 0 },
+{ "quadrant": 2, "ring": 2, "label": "MongoDB", "active": true, "moved": 0 },
+{ "quadrant": 2, "ring": 3, "label": "RavenDB", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 0, "label": "Git", "active": true, "moved": 0 },
+{ "quadrant": 2, "ring": 0, "label": "Kubernetes", "active": true, "moved": 0 },
+{ "quadrant": 2, "ring": 3, "label": "Amazon Web Services (AWS)", "active": true, "moved": 0 },
+{ "quadrant": 2, "ring": 3, "label": "Google Cloud Platform (GCP)", "active": true, "moved": 0 },
+{ "quadrant": 1, "ring": 3, "label": "Pulumi", "active": true, "moved": 0 },
+{ "quadrant": 0, "ring": 1, "label": "Azure Cloud Adoption Framework (CAF)", "active": true, "moved": 0 },
+{ "quadrant": 0, "ring": 1, "label": "Azure Well-Architected Framework (WAF)", "active": true, "moved": 0 },
+{ "quadrant": 0, "ring": 2, "label": "Platform Engineering", "active": true, "moved": 0 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ]
+}
