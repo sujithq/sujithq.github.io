@@ -7,6 +7,10 @@
 {{ $swiper := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/swiper/css/swiper-bundle.min.css")) }}
 <link rel="stylesheet" href="{{ $swiper.RelPermalink }}" integrity="{{ $swiper.Data.Integrity }}">
 
+{{ $radar := partial "get-stylesheet.html" (dict "Resource" (resources.Get "tech-radar/css/radar.css")) }}
+<link rel="stylesheet" href="{{ $radar.RelPermalink }}" integrity="{{ $radar.Data.Integrity }}">
+
+
 {{ $prismjs := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/prismjs/css/prism.min.css")) }}
 {{ if ne .Site.Params.prismjsTheme "default" }}
     {{ $prismjs = resources.Get (printf "vendor/prismjs/css/prism-%s.min.css" .Site.Params.prismjsTheme) | fingerprint }}
