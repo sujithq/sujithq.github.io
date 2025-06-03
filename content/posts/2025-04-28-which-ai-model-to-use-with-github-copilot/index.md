@@ -9,7 +9,7 @@ series = ['GitHub Copilot Guides']
 layout = 'single'
 [params]
   cover = true
-  author = 'Sujith Quintelier'
+  author = 'sujith'
 
 description = "Discover the best AI models to use with GitHub Copilot for various programming tasks. Learn which models excel in speed, depth, and balance."
 +++
