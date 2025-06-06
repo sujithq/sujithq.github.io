@@ -1,4 +1,0 @@
-+++
-layout = 'single'
-robots = "noindex"
-+++
