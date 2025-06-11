@@ -9,7 +9,7 @@ baseURL = "http://localhost:1313/"
   tags = ['Azure', 'GitHub', 'Blog', 'Resume', 'Sujith', 'Quintelier', 'sujithq', 'DevOps']
   twitter = "@sujithq"
   themeColor = "#6a1d57"
-  socialImage = "/images/Sujith_Quintelier.jpg"
+  socialImage = "images/Sujith_Quintelier.jpg"
   author = "Sujith Quintelier"
   prismjsTheme = "default"
 
