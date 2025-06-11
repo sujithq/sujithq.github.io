@@ -766,7 +766,6 @@
       "readOnlyInput",
       "regions--subscriptions",
       "required-action",
-      "resources",
       "routing-methods",
       "scroll-top",
       "securing-azure-identities-the-new-perimeter-in-cloud-security",
@@ -806,8 +805,7 @@
       "which-ai-model-should-i-use-with-github-copilot",
       "why-identities-matter-more-than-ever",
       "why-use-federated-credentials-in-cicd-pipelines",
-      "widgets",
-      "you-can-use-these-roles-to-delegate-the-management-of-service-groups-without-over-permissioning-users"
+      "widgets"
     ]
   }
 }
