@@ -1,5 +1,5 @@
 +++
-title = 'What Are Azure Service Groups? Benefits, RBAC Roles, and REST API Guide'
+title = 'Azure Service Groups: Benefits, RBAC, and API Guide'
 slug = 'azure-service-groups-overview'
 date = '2025-06-03T06:00:00Z'
 draft = false
