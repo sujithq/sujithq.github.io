@@ -4,44 +4,6 @@
     <div class="col-lg m-0">
       <!-- <h1 class="mb-4">Tech Radar</h1> -->
       <svg id="radar"></svg>
-      <!-- <table>
-<tr>
-<td>
-
-<h3>What is the Tech Radar?</h3>
-
-<p>
-The Tech Radar is a list of technologies, complemented by an assessment result, called <em>ring assignment</em>. We use 5 rings with the following semantics:
-</p>
-
-<ul>
-<li><strong>Authority field</strong> &mdash; Confident teaching/leading/automating with these.</li>
-<li><strong>Good knowledge</strong> &mdash; Actively use and can troubleshoot in most scenarios.</li>
-<li><strong>Some knowledge</strong> &mdash; Used in projects, but may need docs or further study.</li>
-<li><strong>No knowledge</strong> &mdash; Heard of or briefly seen, but not used hands-on.</li>
-<li><strong>No interest</strong> &mdash; Deliberately not interested in using/learning.</li>
-</ul>
-
-</td><td>
-
-<h3>What is the purpose?</h3>
-
-<p>
-The Tech Radar is a tool designed to inspire and support my own professional development and technology choices. It provides a structured platform to document, reflect on, and share my personal experience and viewpoints regarding a broad landscape of technologies—helping me make conscious, informed decisions in projects and stay aware of shifts in the industry. Inspired by the <a href="https://www.thoughtworks.com/radar">pioneering work of ThoughtWorks</a> and the transparent approach of Zalando’s Engineering Community, my Tech Radar highlights changes and trends in software development that I believe are worth paying attention to and using in practice.
-</p>
-
-<h3>How do I maintain it?</h3>
-
-<p>
-This Tech Radar is maintained from my own perspective as an Azure consultant and engineer. Technologies are placed into rings reflecting my level of expertise, practical use, or interest. The radar is periodically reviewed and updated to capture new lessons learned, shifts in interest, and evolving best practices. While inspired by community-driven approaches such as those used at Zalando, this radar reflects individual experience, goals, and technology strategy.
-</p>
-
-<p>
-<em>BTW, if you would like to create your own Tech Radar, Zalando has <a href="https://github.com/zalando/tech-radar">open sourced their code</a> for generating this visualization.</em>
-</p>
-
-</td></tr>
-</table> -->
     </div>
   </div>
   <div class="row mt-5">
@@ -63,8 +25,14 @@ This Tech Radar is maintained from my own perspective as an Azure consultant and
         <li><span class="ring no-knowledge"><i class="fa-solid fa-circle-question no-knowledge"></i></span> No knowledge - Heard of or briefly seen, but not used hands-on.</li>
         <li><span class="ring no-interest"><i class="fa-solid fa-ban no-interest"></i></span> No interest - Deliberately not interested in using/learning.</li>
       </ul>
+    </div>
+  </div>
+  <div class="row mt-5">
+<!-- GitAds Banner -->
+  {{ partial "gitads-banner.html" }}
+  <!-- /GitAds Banner -->
+  </div>
 </div>
-
 {{- with resources.Get "tech-radar/data/radar.json" }}
   {{- if eq hugo.Environment "development" }}
     {{- with . }}
