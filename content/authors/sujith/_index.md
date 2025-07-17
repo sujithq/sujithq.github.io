@@ -127,9 +127,13 @@ I've spent years expanding my knowledge across **Azure, DevOps, Security and AI*
 ### **🛠 DevOps & GitHub**  
 
 ✅ **Azure DevOps Engineer** – CI/CD, automation, and release management pipelines  
+✅ **GitHub Foundations** – GitHub basics and best practices
+✅ **GitHub Copilot** – AI-driven code completion and optimization for software development workflows  
 ✅ **GitHub Actions** – Automated workflows for CI/CD, testing, security scanning, and infrastructure deployment  
 ✅ **GitHub Advanced Security** – Secure software development  
 ✅ **GitHub Administration** – Enterprise GitHub management  
+✅ **GitHub Sales Professional** – GitHub sales strategies and solutions  
+✅ **GitHub Technical Sales Professional** – GitHub technical sales strategies and solutions  
 ✅ **Terraform Associate (HashiCorp)** – Infrastructure as Code (IaC) automation  
 
 ### **🔐 Security & Identity**  
