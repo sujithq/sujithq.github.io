@@ -51,6 +51,18 @@ outputs = ["HTML"]
   """
 
 [[item]]
+  organization = "GitHub"
+  organization_url = "https://github.com"
+  title = "GitHub Technical Sales Professional"
+  url = ""
+  certificate_url = "pdf/courses/GHTSP.pdf"
+  date_start = "2025-06-27"
+  date_end = ""
+  description = """
+  Learners demonstrate to position and demo GitHub Enterprise solutions.
+  """
+
+[[item]]
   organization = "Microsoft"
   organization_url = "https://www.microsoft.com"
   title = "Applied Skills  - Implement security through a pipeline using Azure DevOps"
@@ -181,6 +193,18 @@ outputs = ["HTML"]
   date_end = ""
   description = """
   Passing the GitHub Actions certification exam validates subject matter expertise with applying continuous integration/continuous delivery (CI/CD) patterns and practices using GitHub Actions in the enterprise.
+  """
+
+[[item]]
+  organization = "GitHub"
+  organization_url = "https://github.com"
+  title = "GitHub Certified Partner: GitHub Copilot"
+  url = "https://learn.microsoft.com/en-us/credentials/certifications/github-copilot"
+  certificate_url = ""
+  date_start = "2025-07-17"
+  date_end = ""
+  description = """
+  Passing the GitHub Copilot certification exam validates your proficiency in utilizing the AI-driven code completion tool across various programming languages. It certifies your ability to optimize software development workflows effectively. This exam places a strong emphasis on understanding GitHub Copilot plans and features, the AI tool's data utilization, developer use cases, and the fundamentals of privacy and context exclusions.
   """
 
 [[item]]
