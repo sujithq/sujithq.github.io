@@ -9,6 +9,16 @@ outputs = ["HTML"]
 [[item]]
   organization = "Microsoft"
   organization_url = "https://www.microsoft.com"
+  title = "Applied Skills  - Accelerate app development by using GitHub Copilot"
+  url = "https://learn.microsoft.com/en-us/credentials/applied-skills/accelerate-app-development-by-using-github-copilot/"
+  certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQuintelier/DE9C2B2AEE86809B?sharingId=B2D5696D597C46D3"
+  date_start = "2025-07-18"
+  date_end = ""
+  description = "Learners demonstrate the ability the ability to Accelerate app development by using GitHub Copilot"
+
+[[item]]
+  organization = "Microsoft"
+  organization_url = "https://www.microsoft.com"
   title = "Applied Skills  - Migrate SQL Server workloads to Azure SQL Database"
   url = "https://learn.microsoft.com/en-us/credentials/applied-skills/migrate-sql-workloads-azure-sql-database/"
   certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQuintelier/BAFE8995F6D16FE0?sharingId=B2D5696D597C46D3"
