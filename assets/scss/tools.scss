@@ -1,0 +1,41 @@
+// Tools-specific SCSS file
+// This file includes only the Bootstrap components and custom styles needed for tools pages
+// Based on search.scss but optimized for interactive tools functionality
+
+@import "xebia/variables";
+@import "node_modules/bootstrap/scss/mixins/banner";
+@include bsBanner("");
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/variables-dark";
+@import "node_modules/bootstrap/scss/maps";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/utilities";
+@import "node_modules/bootstrap/scss/root";
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/type";
+@import "node_modules/bootstrap/scss/images";
+@import "node_modules/bootstrap/scss/containers";
+@import "node_modules/bootstrap/scss/grid"; // Tools use grid layout extensively
+@import "node_modules/bootstrap/scss/tables"; // Tools might not need tables
+@import "node_modules/bootstrap/scss/forms"; // CIDR calculator needs forms
+@import "node_modules/bootstrap/scss/buttons"; // Interactive tools need buttons
+// @import "node_modules/bootstrap/scss/transitions"; // Tools might not need transitions
+@import "node_modules/bootstrap/scss/dropdown"; // Tools might not need dropdowns
+// @import "node_modules/bootstrap/scss/button-group"; // Tools might not need button groups
+@import "node_modules/bootstrap/scss/nav";
+@import "node_modules/bootstrap/scss/navbar";
+@import "node_modules/bootstrap/scss/card"; // Tools results displayed in cards
+// @import "node_modules/bootstrap/scss/accordion"; // Tools might not need accordions
+// @import "node_modules/bootstrap/scss/pagination"; // Tools might not need pagination
+@import "node_modules/bootstrap/scss/badge"; // Tools might use badges for status
+@import "node_modules/bootstrap/scss/alert"; // Tools need alerts for validation/errors
+@import "node_modules/bootstrap/scss/helpers/position";
+// @import "node_modules/bootstrap/scss/helpers/vr";
+@import "node_modules/bootstrap/scss/utilities/api";
+@import "xebia/bootswatch";
+// @import "xebia/footer";
+@import "xebia/scrolltop";
+// @import "xebia/sharingButtons"; // Tools don't need sharing buttons
+// @import "xebia/timeline"; // Tools don't use timeline
+@import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";

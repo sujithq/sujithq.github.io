@@ -8,6 +8,9 @@
 {{ else if eq .Section "search" }}
   {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/search.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ else if eq .Section "tools" }}
+  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/tools.scss")) }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{ else }}
   {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/ideal-octo-guacamole.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
