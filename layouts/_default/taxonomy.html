@@ -10,13 +10,17 @@
             <div class="card mb-3 border-0">
               <div class="row g-0">
                 <div class="col-lg-4">
-                  {{ $cover := "" }}
-                  {{ if .Params.cover }}
-                    {{ $cover = printf "%scover.jpg" .RelPermalink }}
+                  {{ $cover := .Resources.GetMatch "cover.jpg" }}
+                  {{ if $cover }}
+                    {{ $webp := $cover.Fill "400x300 webp" }}
+                    {{ $fallback := $cover.Fill "400x300" }}
+                    <picture>
+                      <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+                      <img src="{{ $fallback.RelPermalink }}" class="img-fluid rounded-start h-100" alt="{{ .Title }}">
+                    </picture>
                   {{ else }}
-                    {{ $cover = "img/default-cover.jpg" }}
+                    <img src="/img/default-cover.jpg" class="img-fluid rounded-start h-100" alt="{{ .Title }}">
                   {{ end }}
-                  <img src="{{ $cover }}" class="img-fluid rounded-start h-100 " alt="{{ .Title }}">
                 </div>
                 <div class="col-lg-8">
                   <div class="card-body">
