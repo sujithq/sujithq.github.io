@@ -19,16 +19,37 @@
   <h1 class="text-center"><strong>{{ .page.Title }}</strong></h1>
 {{ end }}
 <div class="card border-0 mt-3 mb-3">
-  {{ if .page.Params.cover }} {{ $cover := printf "%scover.jpg"
-  .page.RelPermalink }}
-    {{ if .useLink }}
-    <a href="{{ .page.RelPermalink }}"
-      ><img src="{{ $cover }}" alt="{{ .page.Params.description }}" class="img-fluid rounded"
-    /></a>
+  <div class="text-center">
+    {{/* Optimised cover image: use Page Resource if available, else fallback to static */}}
+    {{ $cover := .page.Resources.GetMatch "cover.jpg" }}
+    {{ if $cover }}
+      {{ $webp := $cover.Fill "1792x1024 webp" }}
+      {{ $fallback := $cover.Fill "1792x1024" }}
+      {{ if .useLink }}
+        <a href="{{ .page.RelPermalink }}">
+          <picture>
+            <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+            <img src="{{ $fallback.RelPermalink }}" alt="{{ .page.Params.description }}" class="img-fluid rounded" loading="lazy" />
+          </picture>
+        </a>
+      {{ else }}
+        <picture>
+          <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+          <img src="{{ $fallback.RelPermalink }}" alt="{{ .page.Params.description }}" class="img-fluid rounded" loading="lazy" />
+        </picture>
+      {{ end }}
     {{ else }}
-    <img src="{{ $cover }}" alt="{{ .page.Params.description }}" class="img-fluid rounded" />
+      {{/* Fallback to static cover if Page Resource not found */}}
+      {{ $staticCover := printf "%scover.jpg" .page.RelPermalink }}
+      {{ if .useLink }}
+        <a href="{{ .page.RelPermalink }}">
+          <img src="{{ $staticCover }}" alt="{{ .page.Params.description }}" class="img-fluid rounded" loading="lazy" />
+        </a>
+      {{ else }}
+        <img src="{{ $staticCover }}" alt="{{ .page.Params.description }}" class="img-fluid rounded" loading="lazy" />
+      {{ end }}
     {{ end }}
-  {{ end }}
+  </div>
   <div class="text-center mt-3">
 
     <div class="btn-group rounded" role="group" aria-label="Basic example">
