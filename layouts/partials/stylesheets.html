@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}">
 
 
-{{ if .Site.Params.isLocal }}
+{{ if or .Site.Params.isLocal (eq .Section "posts") (eq .Section "tools") }}
   {{ $brands := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/brands.min.css")) }}
   <link rel="stylesheet" href="{{ $brands.RelPermalink }}" integrity="{{ $brands.Data.Integrity }}">
   {{ $regular := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/regular.min.css")) }}
