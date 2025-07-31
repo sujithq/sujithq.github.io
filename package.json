@@ -22,6 +22,7 @@
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "d3": "^7.9.0",
     "glob": "^11.0.1",
     "gray-matter": "^4.0.3",
     "postcss": "^8.5.3",

@@ -1,4 +1,16 @@
 {{ define "main" }}
+
+<!-- Load radar CSS -->
+{{- with resources.Get "tech-radar/css/radar.css" }}
+  {{- if eq hugo.Environment "development" }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- else }}
+    {{- with . | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{- end }}
+  {{- end }}
+{{- end }}
+
 <div class="container">
   <div class="row mt-5">
     <div class="col-lg m-0">
@@ -33,6 +45,30 @@
   <!-- /GitAds Banner -->
   </div>
 </div>
+
+<!-- Load D3.js library -->
+{{- with resources.Get "vendor/d3/js/d3.min.js" }}
+  {{- if eq hugo.Environment "development" }}
+    <script src="{{ .RelPermalink }}"></script>
+  {{- else }}
+    {{- with . | fingerprint }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+<!-- Load radar visualization library -->
+{{- with resources.Get "tech-radar/js/radar.js" }}
+  {{- if eq hugo.Environment "development" }}
+    <script src="{{ .RelPermalink }}"></script>
+  {{- else }}
+    {{- with . | fingerprint }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+<!-- Load and process radar data -->
 {{- with resources.Get "tech-radar/data/radar.json" }}
   {{- if eq hugo.Environment "development" }}
     {{- with . }}

@@ -19,13 +19,7 @@
     { "quadrant": 0, "ring": 3, "label": "ChatOps", "active": true, "moved": 0 },
     { "quadrant": 0, "ring": 3, "label": "MLOps (Azure ML & GitHub)", "active": true, "moved": 0 },
     { "quadrant": 0, "ring": 3, "label": "Policy as Code (OPA/Gatekeeper)", "active": true, "moved": 0 },
-{
-  "quadrant": 0,
-  "ring": 4,
-  "label": "Waterfall",
-  "active": true,
-  "moved": 0
-},
+    { "quadrant": 0, "ring": 4, "label": "Waterfall", "active": true, "moved": 0 },
     { "quadrant": 1, "ring": 0, "label": "Azure CLI", "active": true, "moved": 0 },
     { "quadrant": 1, "ring": 0, "label": "Azure Container Registry (ACR)", "active": true, "moved": 0 },
     { "quadrant": 1, "ring": 0, "label": "Azure DevOps Pipelines", "active": true, "moved": 0 },

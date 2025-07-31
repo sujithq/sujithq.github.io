@@ -6,6 +6,7 @@ const filesToCopy = [
   { vendor: "aos", fileName: "dist/aos.js", destination: "assets/vendor/aos/js", source: "node_modules" },
   { vendor: "aos", fileName: "dist/aos.css", destination: "assets/vendor/aos/css", source: "node_modules" },
   { vendor: "bootstrap", fileName: "dist/js/bootstrap.bundle.min.js", destination: "assets/vendor/bootstrap/js", source: "node_modules" },
+  { vendor: "d3", fileName: "dist/d3.min.js", destination: "assets/vendor/d3/js", source: "node_modules" },
   { vendor: "prismjs", fileName: "components/prism-core.min.js", destination: "assets/vendor/prismjs/js", source: "node_modules" },
   { vendor: "prismjs", fileName: "plugins/autoloader/prism-autoloader.min.js", destination: "assets/vendor/prismjs/js", source: "node_modules" },
   { vendor: "prismjs", fileName: "themes/prism-okaidia.min.css", destination: "assets/vendor/prismjs/css", source: "node_modules" },

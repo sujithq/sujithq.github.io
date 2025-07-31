@@ -22,18 +22,23 @@
 {{ $swiper := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/swiper/css/swiper-bundle.min.css")) }}
 <link rel="stylesheet" href="{{ $swiper.RelPermalink }}" integrity="{{ $swiper.Data.Integrity }}">
 
-{{ $radar := partial "get-stylesheet.html" (dict "Resource" (resources.Get "tech-radar/css/radar.css")) }}
-<link rel="stylesheet" href="{{ $radar.RelPermalink }}" integrity="{{ $radar.Data.Integrity }}">
-
-
-{{ $prismjs := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/prismjs/css/prism.min.css")) }}
-{{ if ne .Site.Params.prismjsTheme "default" }}
-    {{ $prismjs = resources.Get (printf "vendor/prismjs/css/prism-%s.min.css" .Site.Params.prismjsTheme) | fingerprint }}
+{{/* Only load tech radar CSS for tools section */}}
+{{ if eq .Section "tools" }}
+  {{ $radar := partial "get-stylesheet.html" (dict "Resource" (resources.Get "tech-radar/css/radar.css")) }}
+  <link rel="stylesheet" href="{{ $radar.RelPermalink }}" integrity="{{ $radar.Data.Integrity }}">
 {{ end }}
-<link rel="stylesheet" href="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}">
 
+{{/* Load PrismJS for code highlighting (used in posts mainly) */}}
+{{ if or (eq .Section "posts") (eq .Section "documentation") }}
+  {{ $prismjs := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/prismjs/css/prism.min.css")) }}
+  {{ if ne .Site.Params.prismjsTheme "default" }}
+      {{ $prismjs = resources.Get (printf "vendor/prismjs/css/prism-%s.min.css" .Site.Params.prismjsTheme) | fingerprint }}
+  {{ end }}
+  <link rel="stylesheet" href="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}">
+{{ end }}
 
-{{ if or .Site.Params.isLocal (eq .Section "posts") (eq .Section "tools") }}
+{{/* Load FontAwesome for sections that need it */}}
+{{ if or .Site.Params.isLocal (eq .Section "posts") (eq .Section "tools") (eq .Section "documentation") }}
   {{ $brands := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/brands.min.css")) }}
   <link rel="stylesheet" href="{{ $brands.RelPermalink }}" integrity="{{ $brands.Data.Integrity }}">
   {{ $regular := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/regular.min.css")) }}
