@@ -28,7 +28,7 @@ Kubenet is a simple and traditional networking approach in AKS, suitable for sce
 - Supports basic network segmentation and routing.
 - Lower complexity compared to Azure CNI, suitable for simpler environments.
 
-![alt text](img/kubenet.png)
+{{< image src="img/kubenet.png" alt="Kubenet" >}}
 
 [Configure Kubenet networking →](https://learn.microsoft.com/en-us/azure/aks/configure-kubenet)
 
@@ -72,7 +72,7 @@ Azure CNI Overlay enhances the traditional Azure CNI model by allowing pods to u
 
 [Explore Azure CNI Overlay configuration →](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay?tabs=kubectl)
 
-![alt text](img/azure-cni-overlay.png)
+{{< image src="img/azure-cni-overlay.png" alt="Azure CNI Overlay" >}}
 
 ### Azure CNI Powered by Cilium
 
