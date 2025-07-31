@@ -12,16 +12,22 @@
 {{ range seq 0 1 }}
     {{ $p:= (index $pages (add $index $idx)) }}
     {{if lt (add $index $idx) $total }}
-        {{ $cover := "" }}
-        {{ if $p.Params.cover }}
-            {{ $cover = printf "%scover.jpg" $p.RelPermalink }}
-        {{ else }}
-            {{ $cover = "img/default-cover.jpg" }}
-        {{ end }}
+        {{ $cover := $p.Resources.GetMatch "cover.jpg" }}
         <div class="col">
             <div class="card border-0">
                 <div>
-                    <a href="{{ $p.RelPermalink }}"><img src="{{ $cover }}" alt="{{ $p.Params.description }}" class="img-fluid rounded" /></a>
+                  <a href="{{ $p.RelPermalink }}">
+                    {{ if $cover }}
+                      {{ $webp := $cover.Fill "800x400 webp" }}
+                      {{ $fallback := $cover.Fill "800x400" }}
+                      <picture>
+                        <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+                        <img src="{{ $fallback.RelPermalink }}" alt="{{ $p.Params.description }}" class="img-fluid rounded" loading="lazy" />
+                      </picture>
+                    {{ else }}
+                      <img src="img/default-cover.jpg" alt="{{ $p.Params.description }}" class="img-fluid rounded" loading="lazy" />
+                    {{ end }}
+                  </a>
                 </div>
             <div class="card-body">
                 {{ partial "newUpdate.html" (dict "page" $p) }}
