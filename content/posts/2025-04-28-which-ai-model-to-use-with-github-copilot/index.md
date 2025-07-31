@@ -2,6 +2,7 @@
 title = 'Which AI Model Should You Use with GitHub Copilot?'
 slug = 'which-ai-model-to-use-with-github-copilot'
 date = '2025-04-28 06:00:00Z'
+lastmod = '2025-07-31 06:00:00Z'
 draft = false
 tags = ['AI Models', 'GitHub Copilot', 'Programming']
 categories = ['AI', 'Development']
@@ -20,7 +21,7 @@ Choosing the right AI model for your GitHub Copilot project can be tricky. Each 
 
 {{< notice-card info "Big disclaimer!">}}
 
-AI evolves rapidly, so these recommendations might change soon. As of mid-April 2025, this is the current landscape.
+AI evolves rapidly, so these recommendations might change soon. As of July 31, 2025, this is the current landscape.
 
 {{< /notice-card >}}
 
@@ -28,18 +29,18 @@ Whether you need speed, depth, or a balance of both, understanding what each mod
 
 ## The TL;DR
 
-- 💳 For a balance of cost and performance: GPT-4.1, GPT-4o, or Claude 3.5 Sonnet are solid choices.
-- 🪙 For fast, lightweight tasks: o4-mini or Claude 3.5 Sonnet work well.
-- 💎 For deep reasoning or complex debugging: Claude 3.7 Sonnet, o3, or GPT-4.5 are ideal.
-- 🖼️ For multimodal inputs (like images): Gemini 2.0 Flash or GPT-4o are your go-to options.
+- 💳 For a balance of cost and performance: GPT-4.1, Claude Sonnet 4, or Claude 3.5 Sonnet are solid choices.
+- 🪙 For fast, lightweight tasks: o4-mini, Claude 3.5 Sonnet, or Gemini 2.0 Flash work well.
+- 💎 For deep reasoning or complex debugging: Claude Opus 4, Claude Sonnet 4, o3, or Gemini 2.5 Pro are ideal.
+- 🖼️ For multimodal inputs (like images): Gemini 2.0 Flash or GPT-4.1 are your go-to options.
 
 These are general guidelines, but experimenting with different models can help you find the best fit for your specific needs.
 
 ## 🏎️ Prioritizing speed
 
-### o4-mini and o3-mini: The speed specialists 😈
+### o4-mini: The speed specialist 😈
 
-If you need quick results without overcomplicating things, o4-mini and o3-mini are excellent options. They’re fast, efficient, and cost-effective.
+If you need quick results without overcomplicating things, o4-mini is an excellent option. It’s fast, efficient, and cost-effective.
 
 ✅ **Best for**:
 
@@ -48,7 +49,7 @@ If you need quick results without overcomplicating things, o4-mini and o3-mini a
 - Learning new programming concepts.
 - Generating boilerplate code.
 
-👀 **Consider other models if**: Your task involves multiple files or requires deep reasoning. In such cases, models like **GPT-4.5** or **o3** are better suited. For more expressive outputs, **GPT-4o** is a great alternative.
+👀 **Consider other models if**: Your task involves multiple files or requires deep reasoning. In such cases, models like **Claude Sonnet 4**, **Claude Opus 4**, or **o3** are better suited. For more expressive outputs, **GPT-4.1** is a great alternative.
 
 ## ⚖️ Balanced AI models
 
@@ -62,11 +63,11 @@ Claude 3.5 Sonnet strikes a balance between performance and cost, making it a de
 - Answering language-specific questions.
 - Generating concise code snippets.
 
-👀 **Consider other models if**: You need advanced reasoning or multi-step planning. For such tasks, **Claude 3.7 Sonnet** or **GPT-4.5** are better options.
+👀 **Consider other models if**: You need advanced reasoning or multi-step planning. For such tasks, **Claude Sonnet 4** or **Claude Opus 4** are better options.
 
-### GPT-4o and GPT-4.1: The versatile performers 🌎
+### GPT-4.1: The versatile performer 🌎
 
-These models are highly flexible and can handle a wide range of tasks. Whether you need quick responses or support for text and images, they’ve got you covered.
+GPT-4.1 is highly flexible and can handle a wide range of tasks. Whether you need quick responses or support for text and images, it’s got you covered.
 
 ✅ **Best for**:
 
@@ -75,13 +76,13 @@ These models are highly flexible and can handle a wide range of tasks. Whether y
 - Generating reusable code snippets.
 - Handling multilingual prompts.
 
-👀 **Consider other models if**: You’re tackling complex architectural reasoning or multi-step debugging. In such cases, **GPT-4.5** or **Claude 3.7 Sonnet** are more effective.
+👀 **Consider other models if**: You’re tackling complex architectural reasoning or multi-step debugging. In such cases, **Claude Sonnet 4**, **Claude Opus 4**, or **o3** are more effective.
 
 ## 🧠 Models for complex projects
 
-### Claude 3.7 Sonnet: The problem solver 🏠
+### Claude Sonnet 4: The problem solver 🏠
 
-Claude 3.7 Sonnet is designed for large, intricate projects. It excels in tasks that require deep context and detailed analysis.
+Claude Sonnet 4 is designed for large, intricate projects. It excels in tasks that require deep context and detailed analysis, and is the successor to Claude 3.7 Sonnet.
 
 ✅ **Best for**:
 
@@ -90,11 +91,24 @@ Claude 3.7 Sonnet is designed for large, intricate projects. It excels in tasks 
 - Designing algorithms.
 - Combining high-level summaries with in-depth analysis.
 
-👀 **Consider other models if**: You’re working on simpler tasks or need faster iterations. **Claude 3.5 Sonnet** or **GPT-4o** might be more efficient.
+👀 **Consider other models if**: You’re working on simpler tasks or need faster iterations. **Claude 3.5 Sonnet** or **o4-mini** might be more efficient.
 
-### Gemini 2.5 Pro: The advanced researcher 🔎
+### Claude Opus 4: The advanced problem solver 🏆
 
-Gemini 2.5 Pro is built for tackling challenging problems. It’s ideal for tasks that demand advanced reasoning and long-context capabilities.
+Claude Opus 4 is Anthropic’s most powerful model, built for tackling the most challenging problems. It’s ideal for tasks that demand advanced reasoning, multi-layered logic, and long-context capabilities.
+
+✅ **Best for**:
+
+- Writing full functions, classes, or multi-file logic.
+- Debugging complex systems.
+- Planning and analyzing complex architectures.
+- Processing extensive datasets or documents.
+
+👀 **Consider other models if**: Budget is a concern. For cost-effective alternatives, try **Claude Sonnet 4** or **o4-mini**.
+
+### Gemini 2.5 Pro: The advanced researcher �
+
+Gemini 2.5 Pro is built for advanced reasoning, long-context analysis, and research workflows. It’s ideal for scientific data, multi-file logic, and complex debugging.
 
 ✅ **Best for**:
 
@@ -105,22 +119,9 @@ Gemini 2.5 Pro is built for tackling challenging problems. It’s ideal for task
 
 👀 **Consider other models if**: Budget is a concern. For cost-effective alternatives, try **o4-mini** or **Gemini 2.0 Flash**.
 
-### GPT-4.5: The deep thinker 💭
+### o3: The precision expert 🥽
 
-When you’re dealing with nuanced problems or need to design complex systems, GPT-4.5 is a strong choice.
-
-✅ **Best for**:
-
-- Writing detailed README files.
-- Generating full functions or multi-file solutions.
-- Debugging intricate errors.
-- Making architectural decisions.
-
-👀 **Consider other models if**: You’re working on smaller tasks or need faster results. **GPT-4o** is a quicker and more cost-effective option.
-
-### o3 and o1: The precision experts 🥽
-
-For tasks that require logical precision and step-by-step problem-solving, o3 and o1 are excellent.
+For tasks that require logical precision and step-by-step problem-solving, o3 is excellent.
 
 ✅ **Best for**:
 
@@ -129,7 +130,7 @@ For tasks that require logical precision and step-by-step problem-solving, o3 an
 - Writing structured, reusable code.
 - Summarizing logs or benchmarks.
 
-👀 **Consider other models if**: You’re in the early stages of prototyping or need something lightweight. **o4-mini** or **GPT-4o** might be better suited.
+👀 **Consider other models if**: You’re in the early stages of prototyping or need something lightweight. **o4-mini** or **GPT-4.1** might be better suited.
 
 ## 🖼️ Multimodal capabilities
 
@@ -144,7 +145,7 @@ If your work involves visual inputs like diagrams or UI mockups, Gemini 2.0 Flas
 - Generating code snippets.
 - Providing design feedback.
 
-👀 **Consider other models if**: Your task requires detailed algorithmic reasoning. **GPT-4.5** or **Claude 3.7 Sonnet** are better equipped for such challenges.
+👀 **Consider other models if**: Your task requires detailed algorithmic reasoning. **Claude Opus 4** or **Gemini 2.5 Pro** are better equipped for such challenges.
 
 ## Final thoughts
 
