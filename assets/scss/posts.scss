@@ -1,22 +1,12 @@
-// Your variable overrides go here, e.g.:
 @import "xebia/variables";
-// @import "node_modules/bootstrap/scss/bootstrap";
-
-
 @import "node_modules/bootstrap/scss/mixins/banner";
 @include bsBanner("");
-
-
-// scss-docs-start import-stack
-// Configuration
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/variables-dark";
 @import "node_modules/bootstrap/scss/maps";
 @import "node_modules/bootstrap/scss/mixins";
 @import "node_modules/bootstrap/scss/utilities";
-
-// Layout & components
 @import "node_modules/bootstrap/scss/root";
 @import "node_modules/bootstrap/scss/reboot";
 @import "node_modules/bootstrap/scss/type";
@@ -35,32 +25,11 @@
 @import "node_modules/bootstrap/scss/accordion";
 @import "node_modules/bootstrap/scss/pagination";
 @import "node_modules/bootstrap/scss/badge";
-
-// // all helpers
-// @import "node_modules/bootstrap/scss/helpers";
-// Helpers (only essential ones)
-// @import "node_modules/bootstrap/scss/helpers/clearfix";
-// @import "node_modules/bootstrap/scss/helpers/color-bg";
-// @import "node_modules/bootstrap/scss/helpers/colored-links";
-// @import "node_modules/bootstrap/scss/helpers/focus-ring";
-// @import "node_modules/bootstrap/scss/helpers/icon-link";
 @import "node_modules/bootstrap/scss/helpers/position";
-// @import "node_modules/bootstrap/scss/helpers/ratio";
-// @import "node_modules/bootstrap/scss/helpers/stacks";
-// @import "node_modules/bootstrap/scss/helpers/stretched-link";
-// @import "node_modules/bootstrap/scss/helpers/text-truncation";
-// @import "node_modules/bootstrap/scss/helpers/visually-hidden";
 @import "node_modules/bootstrap/scss/helpers/vr";
-
-// Utilities
 @import "node_modules/bootstrap/scss/utilities/api";
-
 @import "xebia/bootswatch";
-
-// Custom components (excluding post-specific components)
 @import "xebia/footer";
 @import "xebia/scrolltop";
 @import "xebia/timeline";
-// Note: sharingButtons removed as it's only used in posts
-
 @import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";

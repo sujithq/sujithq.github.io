@@ -1,5 +1,11 @@
-{{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/ideal-octo-guacamole.scss")) }}
-<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{/* Load different CSS based on section */}}
+{{ if eq .Section "posts" }}
+  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/posts.scss")) }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ else }}
+  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/ideal-octo-guacamole.scss")) }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ end }}
 
 {{ $aos := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/aos/css/aos.css")) }}
 <link rel="stylesheet" href="{{ $aos.RelPermalink }}" integrity="{{ $aos.Data.Integrity }}">
