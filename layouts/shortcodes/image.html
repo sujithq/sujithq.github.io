@@ -1,0 +1,29 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" }}
+{{ $class := .Get "class" | default "text-center" }}
+{{ $caption := .Get "caption" }}
+{{ $img := .Page.Resources.GetMatch $src }}
+{{ if $img }}
+  {{ $webp400 := $img.Resize "400x webp" }}
+  {{ $webp800 := $img.Resize "800x webp" }}
+  {{ $webp1600 := $img.Resize "1600x webp" }}
+  {{ $fallback400 := $img.Resize "400x" }}
+  {{ $fallback800 := $img.Resize "800x" }}
+  {{ $fallback1600 := $img.Resize "1600x" }}
+  <figure class="{{ $class }}">
+    <picture>
+      <source type="image/webp" srcset="{{ $webp400.RelPermalink }} 400w, {{ $webp800.RelPermalink }} 800w, {{ $webp1600.RelPermalink }} 1600w" sizes="100vw">
+      <img src="{{ $fallback800.RelPermalink }}" srcset="{{ $fallback400.RelPermalink }} 400w, {{ $fallback800.RelPermalink }} 800w, {{ $fallback1600.RelPermalink }} 1600w" sizes="100vw" alt="{{ $alt }}" class="img-fluid" loading="lazy" />
+    </picture>
+    {{ with $caption }}
+      <figcaption>{{ . }}</figcaption>
+    {{ end }}
+  </figure>
+{{ else }}
+  <figure class="{{ $class }}">
+    <img src="{{ $src }}" alt="{{ $alt }}" class="img-fluid" loading="lazy" />
+    {{ with $caption }}
+      <figcaption>{{ . }}</figcaption>
+    {{ end }}
+  </figure>
+{{ end }}
