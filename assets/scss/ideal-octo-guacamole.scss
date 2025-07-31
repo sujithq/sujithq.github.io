@@ -57,10 +57,10 @@
 
 @import "xebia/bootswatch";
 
-// Custom components (excluding post-specific components)
+// Custom components (excluding section-specific components)
 @import "xebia/footer";
 @import "xebia/scrolltop";
-@import "xebia/timeline";
+// Note: timeline removed as it's only used in resume
 // Note: sharingButtons removed as it's only used in posts
 
 @import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";

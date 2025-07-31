@@ -12,7 +12,7 @@
 @import "node_modules/bootstrap/scss/type";
 @import "node_modules/bootstrap/scss/images";
 @import "node_modules/bootstrap/scss/containers";
-// @import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/grid";
 // @import "node_modules/bootstrap/scss/tables";
 @import "node_modules/bootstrap/scss/forms";
 @import "node_modules/bootstrap/scss/buttons";
@@ -24,13 +24,13 @@
 @import "node_modules/bootstrap/scss/card";
 // @import "node_modules/bootstrap/scss/accordion";
 // @import "node_modules/bootstrap/scss/pagination";
-@import "node_modules/bootstrap/scss/badge";
+// @import "node_modules/bootstrap/scss/badge";
 @import "node_modules/bootstrap/scss/helpers/position";
 // @import "node_modules/bootstrap/scss/helpers/vr";
 @import "node_modules/bootstrap/scss/utilities/api";
 @import "xebia/bootswatch";
 // @import "xebia/footer";
 @import "xebia/scrolltop";
-@import "xebia/sharingButtons";
-// @import "xebia/timeline";
+// @import "xebia/sharingButtons";
+@import "xebia/timeline";
 @import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";
