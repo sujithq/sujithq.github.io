@@ -45,6 +45,10 @@ baseURL = "http://localhost:1313/"
   tags = 'tags'
   series = 'series'
 
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$', '^HUGO_TESTING$']
+
 [menu]
  [[menu.main]]
    identifier = "resume"

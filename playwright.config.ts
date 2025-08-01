@@ -80,5 +80,8 @@ export default defineConfig({
     command: 'hugo server -e production --cleanDestinationDir --gc --minify',
     url: 'http://localhost:1313',
     reuseExistingServer: !process.env.CI,
+    env: {
+      HUGO_TESTING: 'true'
+    },
   },
 });
