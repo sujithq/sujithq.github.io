@@ -1,0 +1,21 @@
+{{- $pages := where site.RegularPages "Section" "posts" -}}
+{{- $result := slice -}}
+{{- range $pages -}}
+    {{- $data := dict "title" .Title "date" .Date "permalink" .Permalink "content" (.Plain) -}}
+
+    {{- $cover := .Resources.GetMatch "cover.jpg" -}}
+    {{- if $cover -}}
+        {{- $webp50 := $cover.Fill "50x50 q100 Center webp" -}}
+        {{- $fallback50 := $cover.Fill "50x50 q100 Center" -}}
+        {{- $thumbnail := $cover.Fill "120x120" -}}
+
+        {{- $webpImage := (absURL $webp50.Permalink) -}}
+        {{- $fallbackImage := (absURL $fallback50.Permalink) -}}
+        {{- $imagePermalink := (absURL $thumbnail.Permalink) -}}
+
+        {{- $data = merge $data (dict "image" $imagePermalink "webpImage" $webpImage "fallbackImage" $fallbackImage) -}}
+    {{- end -}}
+
+    {{- $result = $result | append $data -}}
+{{- end -}}
+{{ jsonify $result }}

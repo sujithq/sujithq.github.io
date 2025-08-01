@@ -4,6 +4,8 @@ interface pageData {
     permalink: string,
     content: string,
     image?: string,
+    webpImage?: string,
+    fallbackImage?: string,
     preview: string,
     matchCount: number
 }
@@ -292,15 +294,37 @@ class Search {
 
     public static render(item: pageData) {
         return <article>
-            <a href={item.permalink}>
+            <a href={item.permalink} title={`Read: ${item.title}`}>
                 <div class="card mb-3 border-0">
                     <div class="row g-0">
                         <div class="col-md-1">
-                            <img src={item.permalink + "cover.jpg" } class={"img-fluid rounded-start h-100 ms-1"} alt={item.title }/>
+                            <h4 class="ms-3 mb-1">
+                              <span class="mx-1">
+                                {item.webpImage && item.fallbackImage ? (
+                                    <picture>
+                                      <source srcSet={item.webpImage} type="image/webp" />
+                                      <img
+                                        src={item.fallbackImage}
+                                        alt={item.title}
+                                        width="50"
+                                        height="50"
+                                        onError={(e) => {
+                                            // Hide the image if it fails to load
+                                            const target = e.target as HTMLElement;
+                                            const picture = target.closest('picture');
+                                            if (picture) {
+                                                picture.style.display = 'none';
+                                            }
+                                        }}
+                                      />
+                                    </picture>
+                                ) : null}
+                              </span>
+                              <span>{item.title}</span>
+                            </h4>
                         </div>
                         <div class="col-md-11">
                             <div class="card-body d-flex flex-column justify-content-center h-100">
-                                <h5 dangerouslySetInnerHTML={{ __html: item.title }}></h5>
                                 <div dangerouslySetInnerHTML={{ __html: item.preview }}></div>
                             </div>
                         </div>
