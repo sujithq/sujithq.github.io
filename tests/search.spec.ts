@@ -33,6 +33,17 @@ test.describe('Search Functionality', () => {
         await expect(firstResult.locator('a')).toBeVisible() // Link
       }
     })
+
+    await test.step('Take screenshot of search results', async () => {
+      await expect(page).toHaveScreenshot('search-results-azure.png', {
+        fullPage: true,
+        // Mask GitAds banner and any dynamic content
+        mask: [
+          page.locator('img[alt="Sponsored by GitAds"]'),
+          page.locator('a[href*="gitads.dev"]')
+        ],
+      })
+    })
   })
 
   test('should search using the navigation search form', async ({ page }) => {
@@ -70,6 +81,17 @@ test.describe('Search Functionality', () => {
         await expect(firstResult).toContainText(/github/i)
       }
     })
+
+    await test.step('Take screenshot of navigation search results', async () => {
+      await expect(page).toHaveScreenshot('search-navigation-github.png', {
+        fullPage: true,
+        // Mask GitAds banner and any dynamic content
+        mask: [
+          page.locator('img[alt="Sponsored by GitAds"]'),
+          page.locator('a[href*="gitads.dev"]')
+        ],
+      })
+    })
   })
 
   test('should handle search with no results', async ({ page }) => {
@@ -84,6 +106,17 @@ test.describe('Search Functionality', () => {
       // The search result list should be empty or show a no results message
       const searchResultsList = page.locator('.search-result--list')
       await expect(searchResultsList).not.toBeVisible()
+    })
+
+    await test.step('Take screenshot of no results state', async () => {
+      await expect(page).toHaveScreenshot('search-no-results.png', {
+        fullPage: true,
+        // Mask GitAds banner and any dynamic content
+        mask: [
+          page.locator('img[alt="Sponsored by GitAds"]'),
+          page.locator('a[href*="gitads.dev"]')
+        ],
+      })
     })
   })
 
