@@ -4,7 +4,7 @@
 
 @import "xebia/variables";
 
-// // Feature flags — disable what you don't need
+// Feature flags — disable what you don't need
 // $enable-rfs:            true;
 // $enable-transitions:    true;
 // $enable-gradients:      false;
@@ -12,12 +12,15 @@
 // $enable-smooth-scroll:  false;
 // $enable-cssgrid:        false;
 
-// // Fewer breakpoints (you use sm/md/lg classes in Hugo)
-// $grid-breakpoints: (
-//   sm: 576px,
-//   md: 768px,
-//   lg: 992px
-// );
+// All Bootstrap breakpoints (xs, sm, md, lg, xl, xxl)
+$grid-breakpoints: (
+  xs: 0
+  , sm: 576px
+  , md: 768px
+  , lg: 992px
+  // , xl: 1200px
+  // , xxl: 1400px
+);
 
 // // Match container widths to the trimmed breakpoints
 // $container-max-widths: (
@@ -68,26 +71,26 @@
 @import "node_modules/bootstrap/scss/buttons";
 @import "node_modules/bootstrap/scss/transitions";
 @import "node_modules/bootstrap/scss/dropdown";
-@import "node_modules/bootstrap/scss/button-group"; // to be removed?
+// @import "node_modules/bootstrap/scss/button-group"; // to be removed?
 @import "node_modules/bootstrap/scss/nav";
 @import "node_modules/bootstrap/scss/navbar";
 @import "node_modules/bootstrap/scss/card";
-@import "node_modules/bootstrap/scss/accordion"; // to be removed?
-@import "node_modules/bootstrap/scss/breadcrumb"; // to be removed?
+// @import "node_modules/bootstrap/scss/accordion"; // to be removed?
+// @import "node_modules/bootstrap/scss/breadcrumb"; // to be removed?
 @import "node_modules/bootstrap/scss/pagination";
 @import "node_modules/bootstrap/scss/badge";
 @import "node_modules/bootstrap/scss/alert";
-@import "node_modules/bootstrap/scss/progress"; // to be removed?
+// @import "node_modules/bootstrap/scss/progress"; // to be removed?
 @import "node_modules/bootstrap/scss/list-group";
-@import "node_modules/bootstrap/scss/close"; // to be removed?
-@import "node_modules/bootstrap/scss/toasts"; // to be removed?
-@import "node_modules/bootstrap/scss/modal"; // to be removed?
-@import "node_modules/bootstrap/scss/tooltip"; // to be removed?
-@import "node_modules/bootstrap/scss/popover"; // to be removed?
-@import "node_modules/bootstrap/scss/carousel"; // to be removed?
-@import "node_modules/bootstrap/scss/spinners"; // to be removed?
-@import "node_modules/bootstrap/scss/offcanvas"; // to be removed?
-@import "node_modules/bootstrap/scss/placeholders"; // to be removed?
+// @import "node_modules/bootstrap/scss/close"; // to be removed?
+// @import "node_modules/bootstrap/scss/toasts"; // to be removed?
+// @import "node_modules/bootstrap/scss/modal"; // to be removed?
+// @import "node_modules/bootstrap/scss/tooltip"; // to be removed?
+// @import "node_modules/bootstrap/scss/popover"; // to be removed?
+// @import "node_modules/bootstrap/scss/carousel"; // to be removed?
+// @import "node_modules/bootstrap/scss/spinners"; // to be removed?
+// @import "node_modules/bootstrap/scss/offcanvas"; // to be removed?
+// @import "node_modules/bootstrap/scss/placeholders"; // to be removed?
 @import "node_modules/bootstrap/scss/helpers";
 
 // ------------------------------
@@ -99,50 +102,50 @@
    IMPACT: Smaller CSS. If you later use a removed utility (e.g., .position-relative),
    it won’t exist—either re-add its group here or handle with custom CSS. */
 
-// $utilities: (
-//   // Layout / display
-//   "display":           map-get($utilities, "display"),           // .d-*, .d-none, .d-flex, .d-grid, .d-lg-none, .d-lg-flex
+// // $utilities: (
+// //   // Layout / display
+// //   "display":           map-get($utilities, "display"),           // .d-*, .d-none, .d-flex, .d-grid, .d-lg-none, .d-lg-flex
 
-//   // Flexbox (you use: .d-flex, .flex-column, .flex-wrap, .flex-shrink-0, .justify-content-*, .align-items-*)
-//   "flex":              map-get($utilities, "flex"),               // .flex-grow-*, .flex-shrink-*
-//   "flex-direction":    map-get($utilities, "flex-direction"),     // .flex-row, .flex-column
-//   "flex-wrap":         map-get($utilities, "flex-wrap"),          // .flex-wrap
-//   "flex-shrink":       map-get($utilities, "flex-shrink"),        // .flex-shrink-0
-//   "justify-content":   map-get($utilities, "justify-content"),    // .justify-content-between/center
-//   "align-items":       map-get($utilities, "align-items"),        // .align-items-center/start/end
+// //   // Flexbox (you use: .d-flex, .flex-column, .flex-wrap, .flex-shrink-0, .justify-content-*, .align-items-*)
+// //   "flex":              map-get($utilities, "flex"),               // .flex-grow-*, .flex-shrink-*
+// //   "flex-direction":    map-get($utilities, "flex-direction"),     // .flex-row, .flex-column
+// //   "flex-wrap":         map-get($utilities, "flex-wrap"),          // .flex-wrap
+// //   "flex-shrink":       map-get($utilities, "flex-shrink"),        // .flex-shrink-0
+// //   "justify-content":   map-get($utilities, "justify-content"),    // .justify-content-between/center
+// //   "align-items":       map-get($utilities, "align-items"),        // .align-items-center/start/end
 
-//   // Spacing (you use many: m-*, p-*, mt-*, mb-*, ms-*, me-*, mx-*, my-*, pe-0, etc.)
-//   "margin":            map-get($utilities, "margin"),
-//   "padding":           map-get($utilities, "padding"),
-//   "gutters":           map-get($utilities, "gutters"),            // .g-*, .gx-*, .gy-*
+// //   // Spacing (you use many: m-*, p-*, mt-*, mb-*, ms-*, me-*, mx-*, my-*, pe-0, etc.)
+// //   "margin":            map-get($utilities, "margin"),
+// //   "padding":           map-get($utilities, "padding"),
+// //   "gutters":           map-get($utilities, "gutters"),            // .g-*, .gx-*, .gy-*
 
-//   // Sizing (you use: .w-100, .h-100)
-//   "width":             map-get($utilities, "width"),
-//   "height":            map-get($utilities, "height"),
+// //   // Sizing (you use: .w-100, .h-100)
+// //   "width":             map-get($utilities, "width"),
+// //   "height":            map-get($utilities, "height"),
 
-//   // Borders & radii (you use: .border, .border-0, .border-4, .border-start, .border-*, .rounded*, .rounded-start)
-//   "border":            map-get($utilities, "border"),
-//   "border-color":      map-get($utilities, "border-color"),
-//   "border-width":      map-get($utilities, "border-width"),
-//   "rounded":           map-get($utilities, "rounded"),
+// //   // Borders & radii (you use: .border, .border-0, .border-4, .border-start, .border-*, .rounded*, .rounded-start)
+// //   "border":            map-get($utilities, "border"),
+// //   "border-color":      map-get($utilities, "border-color"),
+// //   "border-width":      map-get($utilities, "border-width"),
+// //   "rounded":           map-get($utilities, "rounded"),
 
-//   // Colors & backgrounds (you use many: bg-*, text-*, text-body*, text-white-50, text-reset, etc.)
-//   "color":             map-get($utilities, "color"),              // .text-*
-//   "text-align":        map-get($utilities, "text-align"),         // .text-center, .text-end
-//   "background-color":  map-get($utilities, "background-color"),   // .bg-*
-//   "text-opacity":      map-get($utilities, "text-opacity"),       // supports .text-white-50
-//   "background":        map-get($utilities, "background"),
+// //   // Colors & backgrounds (you use many: bg-*, text-*, text-body*, text-white-50, text-reset, etc.)
+// //   "color":             map-get($utilities, "color"),              // .text-*
+// //   "text-align":        map-get($utilities, "text-align"),         // .text-center, .text-end
+// //   "background-color":  map-get($utilities, "background-color"),   // .bg-*
+// //   "text-opacity":      map-get($utilities, "text-opacity"),       // supports .text-white-50
+// //   "background":        map-get($utilities, "background"),
 
-//   // Typography helpers (you use: .fw-bold, .fw-semibold, .fs-4, .fs-5)
-//   "font-weight":       map-get($utilities, "font-weight"),        // .fw-*
-//   "font-size":         map-get($utilities, "font-size"),          // .fs-*
+// //   // Typography helpers (you use: .fw-bold, .fw-semibold, .fs-4, .fs-5)
+// //   "font-weight":       map-get($utilities, "font-weight"),        // .fw-*
+// //   "font-size":         map-get($utilities, "font-size"),          // .fs-*
 
-//   // Misc used in your list
-//   "shadow":            map-get($utilities, "shadow"),             // .shadow-sm
-//   "user-select":       map-get($utilities, "user-select"),        // .user-select-none
-//   "clearfix":          map-get($utilities, "clearfix"),           // .clearfix
-//   "align":             map-get($utilities, "align")               // .align-middle
-// );
+// //   // Misc used in your list
+// //   "shadow":            map-get($utilities, "shadow"),             // .shadow-sm
+// //   "user-select":       map-get($utilities, "user-select"),        // .user-select-none
+// //   "clearfix":          map-get($utilities, "clearfix"),           // .clearfix
+// //   "align":             map-get($utilities, "align")               // .align-middle
+// // );
 
 /* Not generated (unused in your classes):
    "float", "overflow",
