@@ -2,7 +2,7 @@
 title = 'Which AI Model Should You Use with GitHub Copilot?'
 slug = 'which-ai-model-to-use-with-github-copilot'
 date = '2025-04-28 06:00:00Z'
-lastmod = '2025-07-31 06:00:00Z'
+lastmod = '2025-07-31 05:00:00Z'
 draft = false
 tags = ['AI Models', 'GitHub Copilot', 'Programming']
 categories = ['AI', 'Development']
