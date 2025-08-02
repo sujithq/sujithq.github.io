@@ -28,8 +28,8 @@
 
   function mobileNavToogle() {
     document.querySelector("body").classList.toggle("mobile-nav-active");
-    mobileNavToggleBtn.classList.toggle("bi-list");
-    mobileNavToggleBtn.classList.toggle("bi-x");
+    mobileNavToggleBtn.classList.toggle("fa-bars");
+    mobileNavToggleBtn.classList.toggle("fa-times");
   }
   // add check on null
   if (mobileNavToggleBtn)
@@ -232,7 +232,7 @@
 
   for (const element of bsComponents) {
     const button =
-      '<button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="bi bi-code"></i></button>';
+      '<button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="fas fa-code"></i></button>';
     element.insertAdjacentHTML("beforeend", button);
   }
 })();

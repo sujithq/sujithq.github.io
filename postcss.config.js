@@ -6,8 +6,8 @@ const purgecss = purgeCSSPlugin({
     const els = JSON.parse(content).htmlElements;
     // Ensure we extract all classes, including potential dynamic ones used for theme switching
     const extracted = [
-      ...(els.tags || []), 
-      ...(els.classes || []), 
+      ...(els.tags || []),
+      ...(els.classes || []),
       ...(els.ids || []),
       // Critical theme-related attributes
       '[data-bs-theme="dark"]',
@@ -48,7 +48,7 @@ const purgecss = purgeCSSPlugin({
       'dropdown-menu-dark', 'dropdown-menu-light',
       'dropdown-toggle', 'dropdown-divider',
       // Accordion components
-      'accordion', 'accordion-item', 'accordion-header', 'accordion-button', 
+      'accordion', 'accordion-item', 'accordion-header', 'accordion-button',
       'accordion-collapse', 'accordion-body',
       // States and variations
       'btn-check', 'btn-active', 'nav-link', 'nav-item', 'navbar-nav', 'navbar-collapse',
@@ -56,7 +56,7 @@ const purgecss = purgeCSSPlugin({
       'bg-primary', 'bg-secondary', 'bg-dark', 'bg-light',
       'text-primary', 'text-secondary', 'text-dark', 'text-light',
       // Bootstrap Icons used for theme switching
-      'bi', 'bi-circle-half', 'bi-sun-fill', 'bi-moon-stars-fill'
+      'fas', 'fab', 'fa-adjust', 'fa-sun', 'fa-moon'
     ],
     deep: [
       // Bootstrap prefixes (preserve all variants)

@@ -4,7 +4,7 @@
     <div class="col-lg">
       <div class="card border-primary mb-3">
         <div class="card-body">
-          <h1 class="card-title"><i class="bi bi-{{if eq .Type "tags" }}tags{{else if eq .Type "categories" }}folder{{else}}stack{{end}} mx-1"></i>{{ .Title }}</h1c:\Users\SujithQuintelier\test\Hugo\ideal-octo-guacamole\layouts\_default\terms.html>
+          <h1 class="card-title"><i class="fas fa-{{if eq .Type "tags" }}tags{{else if eq .Type "categories" }}folder{{else}}layer-group{{end}} mx-1"></i>{{ .Title }}</h1>
           {{ range .Pages }}
           <a href="{{ .RelPermalink }}">
             <div class="card mb-3 border-0">

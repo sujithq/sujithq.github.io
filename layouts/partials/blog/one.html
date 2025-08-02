@@ -29,7 +29,7 @@
           {{ .page.Params.description }}
         </div>
         <div>
-          <a href="{{ .page.Permalink }}" class="text-info">Read more<span><i class="bi bi-arrow-right mx-1"></i></span></a>
+          <a href="{{ .page.Permalink }}" class="text-info">Read more<span><i class="fas fa-arrow-right mx-1"></i></span></a>
         </div>
         {{ if .showTaxonomy }}
           {{ partial "taxonomy.html" (dict "page" .page) }}

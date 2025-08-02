@@ -19,22 +19,22 @@
 [[params.socials]]
   name = "linkedin"
   url = "https://www.linkedin.com/in/sujithquintelier/"
-  icon = "bi bi-linkedin"
+  icon = "fab fa-linkedin"
 
 [[params.socials]]
   name = "github"
   url = "https://github.com/sujithq/"
-  icon = "bi bi-github"
+  icon = "fab fa-github"
 
 [[params.socials]]
   name = "twitter"
   url = "https://x.com/SujithQ/"
-  icon = "bi bi-twitter-x"
+  icon = "fab fa-x-twitter"
 
 [[params.socials]]
   name = "mastodon"
   url = "https://mastodon.com/in/sujithq/"
-  icon = "bi bi-mastodon"
+  icon = "fab fa-mastodon"
 
 [[params.socials]]
   name = "bsky"
@@ -44,12 +44,12 @@
 [[params.socials]]
   name = "facebook"
   url = "https://www.facebook.com/sujith.quintelier/"
-  icon = "bi bi-facebook"
+  icon = "fab fa-facebook"
 
 [[params.socials]]
   name = "instagram"
   url = "https://www.instagram.com/sujithquintelier/"
-  icon = "bi bi-instagram"
+  icon = "fab fa-instagram"
 
 [module]
   [module.hugoVersion]

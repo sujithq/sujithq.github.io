@@ -4,7 +4,10 @@
 
 @import "xebia/variables";
 
-// // Feature flags — disable what you don't need
+// F// ------------------------------
+// 3) Icons - Using Font Awesome (loads via Hugo templates)
+// ------------------------------
+// Font Awesome is loaded conditionally via layouts/partials/stylesheets.htmlre flags — disable what you don't need
 // $enable-rfs:            true;
 // $enable-transitions:    true;
 // $enable-gradients:      false;
@@ -12,12 +15,15 @@
 // $enable-smooth-scroll:  false;
 // $enable-cssgrid:        false;
 
-// // Fewer breakpoints (you use sm/md/lg classes in Hugo)
-// $grid-breakpoints: (
-//   sm: 576px,
-//   md: 768px,
-//   lg: 992px
-// );
+// All Bootstrap breakpoints (xs, sm, md, lg, xl, xxl)
+$grid-breakpoints: (
+  xs: 0
+  , sm: 576px
+  , md: 768px
+  , lg: 992px
+  // , xl: 1200px
+  // , xxl: 1400px
+);
 
 // // Match container widths to the trimmed breakpoints
 // $container-max-widths: (
@@ -167,4 +173,4 @@
 // ------------------------------
 // 3) Icons (heavy). Consider replacing with a subset of SVGs.
 // ------------------------------
-@import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+// @import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";

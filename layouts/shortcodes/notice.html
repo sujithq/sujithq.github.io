@@ -6,7 +6,7 @@
 
 {{/* Auto-select icon if none given */}}
 {{- $defaultIcon := dict
-    "primary" "star-fill"
+    "primary" "star"
     "secondary" "info-circle"
     "success" "check-circle"
     "danger" "exclamation-triangle"
@@ -22,7 +22,7 @@
 
 <div class="alert alert-{{ $noticeType }} mb-4 d-flex align-items-start" role="alert">
     <div class="me-2">
-        <h4><i class="bi bi-{{ $iconName }}"></i></h4>
+        <h4><i class="fas fa-{{ $iconName }}"></i></h4>
     </div>
     <div>
         {{- if $customTitle }}
