@@ -1,12 +1,62 @@
+// ------------------------------
+// 0) Your variables & feature flags (put BEFORE Bootstrap imports)
+// ------------------------------
+
 @import "xebia/variables";
+
+// // Feature flags — disable what you don't need
+// $enable-rfs:            true;
+// $enable-transitions:    true;
+// $enable-gradients:      false;
+// $enable-shadows:        true;
+// $enable-smooth-scroll:  false;
+// $enable-cssgrid:        false;
+
+// // Fewer breakpoints (you use sm/md/lg classes in Hugo)
+// $grid-breakpoints: (
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px
+// );
+
+// // Match container widths to the trimmed breakpoints
+// $container-max-widths: (
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px
+// );
+
+// // Slimmer spacing & size scales (you use many, but mostly small steps)
+// $spacers: (
+//   0: 0,
+//   1: .25rem,
+//   2: .5rem,
+//   3: 1rem
+// );
+
+// $sizes: (
+//   25: 25%,
+//   50: 50%,
+//   100: 100%
+// );
+
+// ------------------------------
+// 1) Bootstrap imports (kept; notes inline)
+// ------------------------------
+
 @import "node_modules/bootstrap/scss/mixins/banner";
 @include bsBanner("");
+
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
+// If you don't target dark mode, comment this to drop extra CSS vars
 @import "node_modules/bootstrap/scss/variables-dark";
 @import "node_modules/bootstrap/scss/maps";
 @import "node_modules/bootstrap/scss/mixins";
+
+// Load base utilities map (required BEFORE our whitelist below)
 @import "node_modules/bootstrap/scss/utilities";
+
 @import "node_modules/bootstrap/scss/root";
 @import "node_modules/bootstrap/scss/reboot";
 @import "node_modules/bootstrap/scss/type";
@@ -39,10 +89,82 @@
 // @import "node_modules/bootstrap/scss/offcanvas";
 // @import "node_modules/bootstrap/scss/placeholders";
 @import "node_modules/bootstrap/scss/helpers";
+
+// ------------------------------
+// 1b) Utilities WHITELIST — tailored to your Hugo classes
+// Place AFTER "utilities" and BEFORE "utilities/api"
+// ------------------------------
+
+/* We only generate utilities that appear in your site’s class list.
+   IMPACT: Smaller CSS. If you later use a removed utility (e.g., .position-relative),
+   it won’t exist—either re-add its group here or handle with custom CSS. */
+
+// $utilities: (
+//   // Layout / display
+//   "display":           map-get($utilities, "display"),           // .d-*, .d-none, .d-flex, .d-grid, .d-lg-none, .d-lg-flex
+
+//   // Flexbox (you use: .d-flex, .flex-column, .flex-wrap, .flex-shrink-0, .justify-content-*, .align-items-*)
+//   "flex":              map-get($utilities, "flex"),               // .flex-grow-*, .flex-shrink-*
+//   "flex-direction":    map-get($utilities, "flex-direction"),     // .flex-row, .flex-column
+//   "flex-wrap":         map-get($utilities, "flex-wrap"),          // .flex-wrap
+//   "flex-shrink":       map-get($utilities, "flex-shrink"),        // .flex-shrink-0
+//   "justify-content":   map-get($utilities, "justify-content"),    // .justify-content-between/center
+//   "align-items":       map-get($utilities, "align-items"),        // .align-items-center/start/end
+
+//   // Spacing (you use many: m-*, p-*, mt-*, mb-*, ms-*, me-*, mx-*, my-*, pe-0, etc.)
+//   "margin":            map-get($utilities, "margin"),
+//   "padding":           map-get($utilities, "padding"),
+//   "gutters":           map-get($utilities, "gutters"),            // .g-*, .gx-*, .gy-*
+
+//   // Sizing (you use: .w-100, .h-100)
+//   "width":             map-get($utilities, "width"),
+//   "height":            map-get($utilities, "height"),
+
+//   // Borders & radii (you use: .border, .border-0, .border-4, .border-start, .border-*, .rounded*, .rounded-start)
+//   "border":            map-get($utilities, "border"),
+//   "border-color":      map-get($utilities, "border-color"),
+//   "border-width":      map-get($utilities, "border-width"),
+//   "rounded":           map-get($utilities, "rounded"),
+
+//   // Colors & backgrounds (you use many: bg-*, text-*, text-body*, text-white-50, text-reset, etc.)
+//   "color":             map-get($utilities, "color"),              // .text-*
+//   "text-align":        map-get($utilities, "text-align"),         // .text-center, .text-end
+//   "background-color":  map-get($utilities, "background-color"),   // .bg-*
+//   "text-opacity":      map-get($utilities, "text-opacity"),       // supports .text-white-50
+//   "background":        map-get($utilities, "background"),
+
+//   // Typography helpers (you use: .fw-bold, .fw-semibold, .fs-4, .fs-5)
+//   "font-weight":       map-get($utilities, "font-weight"),        // .fw-*
+//   "font-size":         map-get($utilities, "font-size"),          // .fs-*
+
+//   // Misc used in your list
+//   "shadow":            map-get($utilities, "shadow"),             // .shadow-sm
+//   "user-select":       map-get($utilities, "user-select"),        // .user-select-none
+//   "clearfix":          map-get($utilities, "clearfix"),           // .clearfix
+//   "align":             map-get($utilities, "align")               // .align-middle
+// );
+
+/* Not generated (unused in your classes):
+   "float", "overflow",
+   "position", "top", "bottom", "start", "end", "z-index",
+   "order", "align-content", "align-self",
+   "opacity", "object-fit", "pointer-events" (note: different from padding-end),
+   "translate", "text-wrap", "ratio", etc.
+*/
+
+// Generate utilities from the curated map above
 @import "node_modules/bootstrap/scss/utilities/api";
+
+// ------------------------------
+// 2) Your theme & custom modules
+// ------------------------------
 @import "xebia/bootswatch";
 // @import "xebia/footer";
 @import "xebia/scrolltop";
 // @import "xebia/sharingButtons"; // Tools don't need sharing buttons
 // @import "xebia/timeline"; // Tools don't use timeline
+
+// ------------------------------
+// 3) Icons (heavy). Consider replacing with a subset of SVGs.
+// ------------------------------
 @import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";

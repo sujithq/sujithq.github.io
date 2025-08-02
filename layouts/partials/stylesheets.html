@@ -12,13 +12,13 @@
   {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/tools.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{ else if eq .Section "tags" }}
-  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/tags.scss")) }}
+  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/taxonomy.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{ else if eq .Section "categories" }}
-  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/categories.scss")) }}
+  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/taxonomy.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{ else if eq .Section "series" }}
-  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/series.scss")) }}
+  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/taxonomy.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{ else }}
   {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/ideal-octo-guacamole.scss")) }}
