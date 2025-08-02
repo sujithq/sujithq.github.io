@@ -50,7 +50,7 @@ $sizes: (
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 // If you don't target dark mode, comment this to drop extra CSS vars
-// @import "node_modules/bootstrap/scss/variables-dark";
+@import "node_modules/bootstrap/scss/variables-dark";
 @import "node_modules/bootstrap/scss/maps";
 @import "node_modules/bootstrap/scss/mixins";
 
