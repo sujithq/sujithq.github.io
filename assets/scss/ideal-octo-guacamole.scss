@@ -5,10 +5,10 @@
 @import "xebia/variables";
 
 // Feature flags — disable what you don't need
-$enable-rfs:            false;
-$enable-transitions:    false;
+$enable-rfs:            true;
+$enable-transitions:    true;
 $enable-gradients:      false;
-$enable-shadows:        false;
+$enable-shadows:        true;
 $enable-smooth-scroll:  false;
 $enable-cssgrid:        false;
 
