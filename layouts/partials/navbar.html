@@ -53,12 +53,11 @@
               {{ end }}
 
           </ul>
-          <ul class="navbar-nav ms-lg-auto">
+          <ul class="navbar-nav ms-lg-auto align-items-lg-center">
             {{ with .Site.Params.socials }}
                 {{ range . }}
                 <li class="nav-item">
-                <!-- <a href="{{ .url }}" rel="noopener" target="_blank" class="nav-link"><i class="{{ .icon }}"></i></a> -->
-                <a target="_blank" rel="noopener" class="nav-link" href="{{ .url }}"><i class="{{ .icon }}"></i><span class="d-lg-none ms-2">{{ .name }}</span></a>
+                <a target="_blank" rel="noopener" class="nav-link d-flex align-items-center" href="{{ .url }}"><i class="{{ .icon }}"></i><span class="d-lg-none ms-2">{{ .name }}</span></a>
                 </li>
                 {{ end }}
             {{ end }}
@@ -88,13 +87,13 @@
                 <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
                 <hr class="d-lg-none my-2 text-white-50">
               </li>
-              <li>
+              <li class="nav-item">
                 {{- $query := first 1 (where .Site.Pages "Layout" "==" "search") -}}
                 {{- if $query -}}
                     {{- $searchPage := index $query 0 -}}
-                    <form class="d-flex search-form" action="{{ $searchPage.RelPermalink }}" {{ with .OutputFormats.Get "json" -}}data-json="{{ .Permalink }}" {{- end }} data-bs-theme="dark">
-                        <input name="keyword" class="form-control me-sm-2" type="search" placeholder="keywords">
-                        <button title="Search" class="btn btn-secondary my-2 my-sm-0" type="submit">
+                    <form class="d-flex search-form align-items-center" action="{{ $searchPage.RelPermalink }}" {{ with .OutputFormats.Get "json" -}}data-json="{{ .Permalink }}" {{- end }} data-bs-theme="dark">
+                        <input name="keyword" class="form-control me-2" type="search" placeholder="keywords">
+                        <button title="Search" class="btn btn-secondary" type="submit">
                             <svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"></path><circle cx="10" cy="10" r="7"></circle><line x1="21" y1="21" x2="15" y2="15"></line></svg>
                         </button>
                       </form>
