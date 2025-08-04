@@ -2,6 +2,7 @@
 title = '⚖️ Azure Bicep vs Terraform: What Should You Choose?'
 slug = 'azure-bicep-vs-terraform'
 date = '2025-03-15 06:00:00Z'
+lastmod = '2025-03-15 06:00:00Z'
 draft = false
 categories = ["Infrastructure as Code (IaC)", "Azure", "Terraform", "DevOps"]
 tags = ["Azure Bicep", "Terraform", "Infrastructure as Code", "Azure DevOps", "Multi-Cloud", "CI/CD", "State Management", "GitHub Actions", "ARM Templates", "Cloud Automation"]

@@ -1,7 +1,8 @@
 +++
 title = '🚀 Find Stale Branches Across All GitHub Repos'
 slug = 'retrieve-stale-branches-github-organization'
-date = 2025-01-14T01:00:00-00:00
+date = '2025-01-14 06:00:00Z'
+lastmod = '2025-01-14 00:00:00Z'
 draft = false
 tags = [
   "GitHub",

@@ -2,6 +2,7 @@
 title = '🌐 AKS Networking Demystified: Models & Best Practices'
 slug = 'aks-networking-guide'
 date = '2025-04-17 06:00:00Z'
+lastmod = '2025-04-17 06:00:00Z'
 draft = false
 tags = ["Azure", "AKS", "Networking", "Azure CNI", "Cilium", "Cloud Networking", "Kubenet"]
 categories = ["Azure", "Cloud Infrastructure", "Kubernetes"]

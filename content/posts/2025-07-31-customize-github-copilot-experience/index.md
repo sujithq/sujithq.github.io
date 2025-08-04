@@ -2,6 +2,7 @@
 title = '🛠️ GitHub Copilot: Custom Instructions, Prompts & Chats'
 slug = 'customize-github-copilot-experience'
 date = '2025-07-31 06:00:00Z'
+lastmod = '2025-07-31 06:00:00Z'
 draft = false
 tags = ["GitHub Copilot", "VS Code", "AI Programming", "Copilot Customization", "Productivity"]
 categories = ["AI", "Development Tools", "GitHub"]

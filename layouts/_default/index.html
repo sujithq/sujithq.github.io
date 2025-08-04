@@ -13,35 +13,18 @@
   <div class="row mt-1">
     <div class="col-lg-9">
       {{ $posts := where site.RegularPages "Section" "posts" }}
-      {{ $paginator := .Paginate $posts $pageSize }}
-      {{ $pages := $paginator.Pages }}
-      {{ $total := len $pages }}
-      {{ $index := 0 }}  {{/* Manual index tracking */}}
-      {{ range seq 0 (sub $total 1) }}  {{/* Iterate manually */}}
-        {{ if ge $index $total }}  {{/* Stop if index exceeds total pages */}}
-          {{ break }}
-        {{ end }}
-        {{ $page := index $pages $index }}
-        {{ if eq $index 0 }}
-          {{ partial "blog/one.html" (dict "page" $page "showTaxonomy" false) }}
-          {{ $index = add $index 1 }}  {{/* Move to the next page */}}
-        {{ else if eq $index 1 }}
-          {{ partial "blog/two" (dict "page" $page "index" $index "pages" $pages) }}
-          {{ $index = add $index 2 }}  {{/* Skip 2 items and continue with the next loop */}}
-        {{ else if eq $index 3 }}
-          {{ partial "blog/one.html" (dict "page" $page "showTaxonomy" false) }}
-          {{ $index = add $index 1 }}  {{/* Move to the next page */}}
-        {{ end }}
+      {{ $sortedPosts := $posts.ByLastmod.Reverse }}
+      {{ $pages := first 4 $sortedPosts }}
+
+      {{/* Display all 4 posts with simple layout */}}
+      {{ range $index, $page := $pages }}
+        {{ partial "blog/one.html" (dict "page" $page "showTaxonomy" false) }}
       {{ end }}
     </div>
     <div class="col-lg-3 sidebar ps-lg-3">
       {{ partial "sidebar.html" (dict "page" .) }}
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-9 d-flex justify-content-center">
-      {{ partial "pagination.html" (dict "paginator" $paginator) }}
-    </div>
-  </div>
+  {{/* Pagination removed for now - showing first 4 posts only */}}
 </div>
 {{ end }}

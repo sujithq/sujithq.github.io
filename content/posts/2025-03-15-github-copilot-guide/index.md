@@ -1,6 +1,7 @@
 +++
 title = '🚀 GitHub Copilot: The AI-Powered Coding Assistant'
 date = '2025-03-15 07:00:00Z'
+lastmod = '2025-03-15 07:00:00Z'
 draft = false
 categories = ["AI-Powered Development", "GitHub", "Software Development", "Coding Assistants"]
 tags = ["GitHub Copilot", "AI in Development", "Code Automation", "Developer Productivity", "AI Pair Programming", "Machine Learning", "IDE Assistants", "Software Engineering"]

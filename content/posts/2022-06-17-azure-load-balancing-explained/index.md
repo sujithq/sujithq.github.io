@@ -2,6 +2,7 @@
 title = '🔍 Azure Load Balancing: Choose the Right Option'
 slug = 'azure-load-balancing-explained'
 date = '2022-06-17 06:00:00Z'
+lastmod = '2022-06-17 06:00:00Z'
 draft = false
 tags = [
   "Azure",
