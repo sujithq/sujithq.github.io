@@ -1,39 +1,10 @@
 {{ define "main" }}
-<div  class="container">
-  <div class="row mt-5">
-    <div class="col-lg">
-      <div class="card border-primary mb-3">
-        <div class="card-body">
-          <h1 class="card-title"><i class="fas fa-{{if eq .Type "tags" }}tags{{else if eq .Type "categories" }}folder{{else}}layer-group{{end}} mx-1"></i>{{ .Title }}</h1>
-          {{ range .Pages }}
-          <a href="{{ .RelPermalink }}">
-            <div class="card mb-3 border-0">
-              <div class="row g-0">
-                <div class="col-lg-4">
-                  {{ $cover := .Resources.GetMatch "cover.jpg" }}
-                  {{ if $cover }}
-                    {{ $webp := $cover.Fill "400x300 webp" }}
-                    {{ $fallback := $cover.Fill "400x300" }}
-                    <picture>
-                      <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
-                      <img src="{{ $fallback.RelPermalink }}" class="img-fluid rounded-start h-100" alt="{{ .Title }}">
-                    </picture>
-                  {{ else }}
-                    <img src="/img/default-cover.jpg" class="img-fluid rounded-start h-100" alt="{{ .Title }}">
-                  {{ end }}
-                </div>
-                <div class="col-lg-8">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ .Title }}</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-          {{ end }}
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+  {{ partial "posts-archive.html" (dict
+    "pages" .Pages
+    "title" .Title
+    "showIcon" true
+    "iconType" (cond (eq .Type "tags") "tags" (cond (eq .Type "categories") "folder" "layer-group"))
+  ) }}
 </div>
 {{ end }}
