@@ -111,9 +111,3 @@ module.exports = {
     ...(process.env.HUGO_ENVIRONMENT === "production" ? [purgecss] : []),
   ],
 };
-
-module.exports = {
-  plugins: [
-    ...(process.env.HUGO_ENVIRONMENT === "production" ? [purgecss] : []),
-  ],
-};
