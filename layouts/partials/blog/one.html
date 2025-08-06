@@ -1,7 +1,7 @@
 <div class="card border-0">
   <div class="row g-0">
     <div class="col-md-8">
-      {{ $cover := .page.Resources.GetMatch "cover.jpg" }}
+      {{ $cover := .page.Resources.Get "cover.jpg" }}
       {{ if $cover }}
         {{ $webp := $cover.Fill "800x400 webp" }}
         {{ $fallback := $cover.Fill "800x400" }}

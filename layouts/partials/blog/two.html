@@ -12,7 +12,7 @@
 {{ range seq 0 1 }}
     {{ $p:= (index $pages (add $index $idx)) }}
     {{if lt (add $index $idx) $total }}
-        {{ $cover := $p.Resources.GetMatch "cover.jpg" }}
+        {{ $cover := $p.Resources.Get "cover.jpg" }}
         <div class="col">
             <div class="card border-0">
                 <div>

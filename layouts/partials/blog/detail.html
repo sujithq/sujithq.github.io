@@ -21,7 +21,7 @@
 <div class="card border-0 mt-3 mb-3">
   <div class="text-center">
     {{/* Optimised cover image: use Page Resource if available, else fallback to static */}}
-    {{ $cover := .page.Resources.GetMatch "cover.jpg" }}
+    {{ $cover := .page.Resources.Get "cover.jpg" }}
     {{ if $cover }}
       {{ $webp := $cover.Fill "1792x1024 webp" }}
       {{ $fallback := $cover.Fill "1792x1024" }}
