@@ -1,5 +1,5 @@
 ---
-title: "Tech Radar"
+title: "Technology Radar: Tools & Frameworks Guide"
 layout: "tech-radar"
 type: "tools"
 robots : "index"

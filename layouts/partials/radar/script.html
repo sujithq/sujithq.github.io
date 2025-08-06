@@ -4,8 +4,9 @@
         }).then(function(data) {
           radar_visualization({
             repo_url: "https://github.com/sujithq/tech-radar",
-            title: "Tech Radar",
-            date: data.date,
+            // title: "Tech Radar", // Removed - now using H1 tag for SEO
+            date: "{{ now.Format `2006.01.02` }}", // Dynamic current date (YYYY.MM.DD)
+            height: 800, // Reduced from default 1000 since no title in SVG
             quadrants: [
               { name: "Techniques" },
               { name: "Tools" },

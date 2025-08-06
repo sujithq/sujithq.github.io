@@ -317,25 +317,30 @@ function radar_visualization(config) {
 
     // draw title and legend (only in print layout)
   if (config.print_layout) {
-    // title
-    radar.append("a")
-      .attr("href", config.repo_url)
-      .attr("transform", translate(config.title_offset.x, config.title_offset.y))
-      .append("text")
-      .attr("class", "hover-underline")  // add class for hover effect
-      .text(config.title)
-      .style("font-family", config.font_family)
-      .style("font-size", "30")
-      .style("font-weight", "bold")
+    // title (only if provided)
+    if (config.title) {
+      radar.append("a")
+        .attr("href", config.repo_url)
+        .attr("transform", translate(config.title_offset.x, config.title_offset.y))
+        .append("text")
+        .attr("class", "hover-underline")  // add class for hover effect
+        .text(config.title)
+        .style("font-family", config.font_family)
+        .style("font-size", "30")
+        .style("font-weight", "bold")
+    }
 
-    // date
-    radar
-      .append("text")
-      .attr("transform", translate(config.title_offset.x, config.title_offset.y + 20))
-      .text(config.date || "")
-      .style("font-family", config.font_family)
-      .style("font-size", "14")
-      .style("fill", "#999")
+    // date (always show if provided, position at bottom center)
+    if (config.date) {
+      radar
+        .append("text")
+        .attr("transform", translate(0, diameter + 30))
+        .text(config.date || "")
+        .style("font-family", config.font_family)
+        .style("font-size", "14")
+        .style("fill", "#999")
+        .style("text-anchor", "middle")
+    }
 
     // footer
     radar.append("text")

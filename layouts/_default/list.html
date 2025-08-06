@@ -21,12 +21,16 @@
                                 {{- $image := $itm.Resources.Get "cover.jpg" -}}
                                 <h4 class="ms-3 mb-1">
                                   <span class="mx-1">
+                                    {{ if $image }}
                                     {{ $webp := $image.Fill "50x50 q100 Center webp" }}
                                     {{ $fallback := $image.Fill "50x50 q100 Center" }}
                                     <picture>
                                       <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
                                       <img src="{{ $fallback.RelPermalink }}" alt="{{$itm.Params.description}}" width="50" height="50">
                                     </picture>
+                                    {{ else }}
+                                    <div class="bg-light d-inline-block" style="width: 50px; height: 50px;"></div>
+                                    {{ end }}
                                   </span>
                                   <a href="{{ $itm.RelPermalink }}">{{ $itm.Title }}</a>
                                 </h4>

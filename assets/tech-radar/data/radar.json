@@ -1,5 +1,5 @@
 {
-  "date": "2025.02",
+  "date": "2025.08",
   "entries": [
     { "quadrant": 0, "ring": 0, "label": "Automated Infrastructure Compliance Scanning", "active": true, "moved": 0 },
     { "quadrant": 0, "ring": 0, "label": "Infrastructure as Code (IaC) with Azure (Bicep, ARM, Terraform)", "active": true, "moved": 0 },
