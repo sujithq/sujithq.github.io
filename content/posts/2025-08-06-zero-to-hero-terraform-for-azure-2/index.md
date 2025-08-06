@@ -28,7 +28,7 @@ layout = 'single'
     author = 'sujith'
     cover_prompt = '''Create a clean, modern technical illustration for a blog post about Terraform state management and remote backends on Azure. Use Terraform's purple branding (#623CE4) and Azure blue (#0078D4) as primary colors. Include visual elements representing state files, cloud storage, team collaboration, and data synchronization. Show icons for Azure Storage, state locking, and multiple developers working together. Add subtle tech patterns with database symbols, cloud networks, and sync arrows. Maintain a professional, enterprise-ready aesthetic that appeals to DevOps engineers and cloud architects.'''
     
-description = "Master Terraform state management with Azure remote backends. Learn state locking, team collaboration, and production-ready practices for managing infrastructure state securely."
+description = "Master Terraform state management with Azure remote backends. Learn state locking, team collaboration, and secure, scalable infrastructure practices."
 +++
 
 ## Introduction
@@ -916,9 +916,10 @@ This knowledge will transform your static configurations into powerful, reusable
 
 Stay tuned for more hands-on Terraform learning! 🚀
 
+
 ## Additional Resources
 
-- [Terraform State Documentation](https://www.terraform.io/docs/language/state/index.html)
-- [Azure Storage Backend Configuration](https://www.terraform.io/docs/language/settings/backends/azurerm.html)
-- [Terraform State Command Reference](https://www.terraform.io/docs/cli/commands/state/index.html)
-- [Azure Storage Security Best Practices](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide)
+- [Terraform State Documentation](https://developer.hashicorp.com/terraform/language/state)
+- [Azure Storage Backend Configuration](https://developer.hashicorp.com/terraform/language/settings/backends/azurerm)
+- [Terraform State Command Reference](https://developer.hashicorp.com/terraform/cli/commands/state)
+- [Azure Storage Security Best Practices](https://learn.microsoft.com/en-us/azure/storage/common/storage-security-guide)
