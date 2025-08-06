@@ -1,5 +1,5 @@
 +++
-title = '🖥️ Zero to Hero: Terraform for Azure|Part 2'
+title = '🖥️ Zero to Hero: Terraform for Azure•Part 2'
 slug = 'zero-to-hero-terraform-for-azure-2'
 date = '2025-08-06 06:00:00Z'
 lastmod = '2025-08-06 06:00:00Z'
