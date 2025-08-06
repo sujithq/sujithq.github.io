@@ -46,8 +46,8 @@
   <link rel="stylesheet" href="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}">
 {{ end }}
 
-{{/* Load FontAwesome for sections that need it */}}
-{{ if or .Site.Params.isLocal (eq .Section "posts") (eq .Section "tools") (eq .Section "documentation") }}
+{{/* Load FontAwesome locally only in development when webfonts are available */}}
+{{ if and .Site.Params.isLocal (fileExists "assets/vendor/fontawesome/webfonts/fa-brands-400.woff2") }}
   {{ $brands := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/brands.min.css")) }}
   <link rel="stylesheet" href="{{ $brands.RelPermalink }}" integrity="{{ $brands.Data.Integrity }}">
   {{ $regular := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/regular.min.css")) }}

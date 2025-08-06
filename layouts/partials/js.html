@@ -96,15 +96,8 @@
   {{- end }}
 {{- end }}
 
-<!-- <script src="https://kit.fontawesome.com/5fc2d9cacb.js" crossorigin="anonymous"></script> -->
-<script>
-  if (window.location.hostname.includes("localhost")) {
-    var fontAwesomeScript = document.createElement("script");
-    fontAwesomeScript.src = "https://kit.fontawesome.com/5fc2d9cacb.js";
-    fontAwesomeScript.crossOrigin = "anonymous";
-    document.head.appendChild(fontAwesomeScript);
-  }
-</script>
+<!-- Load Font Awesome kit for all environments -->
+<script src="https://kit.fontawesome.com/5fc2d9cacb.js" crossorigin="anonymous"></script>
 
 {{- with resources.Get "js/main.js" }}
   {{- if eq hugo.Environment "development" }}
