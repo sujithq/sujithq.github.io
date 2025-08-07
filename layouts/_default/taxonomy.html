@@ -1,7 +1,9 @@
 {{ define "main" }}
 <div class="container">
+  {{/* Filter out unlisted posts */}}
+  {{ $filteredPages := where .Pages ".Params.unlisted" "!=" true }}
   {{ partial "posts-archive.html" (dict
-    "pages" .Pages
+    "pages" $filteredPages
     "title" .Title
     "showIcon" true
     "iconType" (cond (eq .Type "tags") "tags" (cond (eq .Type "categories") "folder" "layer-group"))

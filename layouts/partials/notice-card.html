@@ -1,0 +1,45 @@
+{{/* notice-card.html partial - Reusable notice card component aligned with shortcode */}}
+
+{{- $noticeType := .type | default "info" -}}
+{{- $customTitle := .title | default ($noticeType | title) -}}
+{{- $manualIcon := .icon | default "" -}}
+{{- $content := .content | default "" -}}
+
+{{/* Default icons */}}
+{{- $defaultIcon := dict
+    "primary" "star"
+    "secondary" "info-circle"
+    "success" "check-circle"
+    "danger" "exclamation-triangle"
+    "warning" "exclamation-triangle"
+    "info" "info-circle"
+    "light" "info-circle"
+    "dark" "info-circle"
+-}}
+{{- $iconName := cond (ne $manualIcon "") $manualIcon (index $defaultIcon $noticeType | default "info-circle") -}}
+
+{{/* Title color mapping */}}
+{{- $titleColors := dict
+    "primary" "text-primary"
+    "secondary" "text-secondary"
+    "success" "text-success"
+    "danger" "text-danger"
+    "warning" "text-warning"
+    "info" "text-info"
+    "light" "text-muted"
+    "dark" "text-light"
+-}}
+
+<div class="card border-start border-4 border-{{ $noticeType }} mb-4 shadow-sm">
+    <div class="card-body">
+        <h6 class="card-title d-flex align-items-center text-{{ $noticeType }} mb-2">
+            <i class="fas fa-{{ $iconName }} me-2"></i>
+            {{ $customTitle }}
+        </h6>
+        <div class="card-text small">
+            {{ if $content }}
+                <p>{{ $content }}</p>
+            {{ end }}
+        </div>
+    </div>
+</div>

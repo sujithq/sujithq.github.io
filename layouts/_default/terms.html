@@ -8,7 +8,13 @@
       <h1 class="card-title"><i class="fas fa-{{if eq .Type "tags" }}tags{{else if eq .Type "categories" }}folder{{else}}layer-group{{end}} mx-1"></i>{{ .Title }}</h1>
       <div class="d-flex gap-1 flex-wrap">
         {{ range .Data.Terms.Alphabetical }}
-          <a href="{{ .Page.RelPermalink }}"><span class="badge rounded-pill bg-primary fs-5 mx-1">{{ .Page.Title }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ .Count }}</span></span></a>
+          {{/* Calculate correct count excluding unlisted posts */}}
+          {{ $termPages := where (where site.RegularPages "Section" "posts") ".Params.unlisted" "!=" true }}
+          {{ $termPages = where $termPages (printf ".Params.%s" $.Type) "intersect" (slice .Page.Title) }}
+          {{ $correctCount := len $termPages }}
+          {{ if gt $correctCount 0 }}
+            <a href="{{ .Page.RelPermalink }}"><span class="badge rounded-pill bg-primary fs-5 mx-1">{{ .Page.Title }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $correctCount }}</span></span></a>
+          {{ end }}
         {{ end }}
     </div>
     </div>

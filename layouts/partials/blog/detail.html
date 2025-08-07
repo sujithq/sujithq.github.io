@@ -2,6 +2,14 @@
 {{ $resume := site.GetPage "resume" }}
 {{ $home := site.GetPage "/" }}
 
+{{ if .page.Params.unlisted }}
+  {{ partial "notice-card.html" (dict
+    "type" "info"
+    "title" "Unlisted Post"
+    "icon" "eye-slash"
+    "content" "This post is not publicly listed and is only accessible via direct link. It may be under review or in draft status.") }}
+{{ end }}
+
 {{ if not .isIndex }}
   <a href="{{$home.Permalink}}"><i class="fas fa-arrow-left mx-1"></i>All posts</a>
   <div class="text-center">
