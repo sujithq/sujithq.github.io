@@ -7,7 +7,7 @@ draft = false
 unlisted = true
 tags = [
   "Azure",
-  ".NET",
+  "DotNET",
   "Performance",
   "Cloud Computing",
   "ASP.NET Core",
@@ -16,11 +16,11 @@ tags = [
 ]
 categories = [
   "Cloud Computing",
-  ".NET Development",
+  "DotNET Development",
   "Performance"
 ]
 series = [
-  ".NET 9 Deep Dive"
+  "DotNET 9 Deep Dive"
 ]
 
 layout = "single"

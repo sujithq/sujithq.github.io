@@ -4,7 +4,7 @@ slug = 'federated-credentials-secure-azure-cicd'
 date = '2025-03-25 06:00:00Z'
 lastmod = '2025-03-25 06:00:00Z'
 draft = false
-tags = ["Azure", "GitHub Actions", "Azure DevOps", "Federated Identity", "Security", "CI/CD", "Authentication"]
+tags = ["Azure", "GitHub Actions", "Azure DevOps", "Federated Identity", "Security", "CI-CD", "Authentication"]
 categories = ["DevOps", "Security", "Azure"]
 series = [ ]
 

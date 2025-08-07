@@ -5,8 +5,8 @@ date = '2025-08-07 06:00:00Z'
 lastmod = '2025-08-07 06:00:00Z'
 draft = false
 tags = [
-  "C#",
-  ".NET",
+  "CSharp",
+  "DotNET",
   "AI",
   "Local LLM",
   "RAG",
@@ -17,9 +17,11 @@ tags = [
   "Console Application"
 ]
 categories = [
-  ".NET Development",
-  "AI & Machine Learning",
-  "Privacy & Security"
+  "DotNET Development",
+  "AI",
+  "Machine Learning", 
+  "Privacy",
+  "Security"
 ]
 
 layout = 'single'
