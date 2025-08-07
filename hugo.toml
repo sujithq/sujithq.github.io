@@ -1,20 +1,27 @@
-# [development]
-#   baseURL = "http://localhost:1313/"
-#   disableRobotsTXT = true
-#
-# [production]
-#   baseURL = "/"
-#   disableRobotsTXT = false
-#
-# languageCode = 'en-us'
-# LanguageDirection = 'ltr'
-# title = 'Ideal Octo Guacamole'
+# Hugo Configuration
+languageCode = 'en-us'
+title = 'Sujith Quintelier'
+baseURL = 'http://localhost:1313/'
+theme = ["github.com/sujithq/ideal-octo-guacamole"]
 
 [params]
   theme = "light"
   themes = ["dark", "light"]
   dateFormat = "Jan 2, 2006"
   isLocal = false
+
+[params.widgets]
+  [params.widgets.archives]
+    enabled = true
+    limit = 5
+  [params.widgets.about]
+    enabled = true
+  [params.widgets.taxonomy]
+    enabled = true
+  [params.widgets.recentPosts]
+    enabled = true
+  [params.widgets.subscribe]
+    enabled = true
 
 [[params.socials]]
   name = "linkedin"
