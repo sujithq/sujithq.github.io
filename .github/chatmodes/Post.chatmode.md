@@ -132,6 +132,35 @@ description = "Concise summary explaining what readers will learn (≤150 chars)
 - **Spacing**: Maintain proper blank line before description in params section
 - **Folder Naming**: Must match date in frontmatter exactly: `YYYY-MM-DD-descriptive-slug`
 
+### Taxonomy Standards (Production Validated)
+**✅ ALLOWED in Categories and Tags:**
+- Spaces: `"Cloud Computing"`, `"Development Tools"`, `"GitHub Actions"`
+- Hyphens: `"Multi-Factor Authentication"`, `"Role-Based Access Control"`, `"AI-Powered Development"`
+- Alphanumeric: `"Azure"`, `"DevOps"`, `"GitHub"`, `"DotNET"`
+- Periods: `".NET"`
+
+**❌ FORBIDDEN in Categories and Tags (Causes URL Issues):**
+- Parentheses: `"Infrastructure as Code (IaC)"` → Use `"Infrastructure as Code - IaC"`
+- Ampersands: `"AI & Machine Learning"` → Split into `"AI"` + `"Machine Learning"`
+- Hash symbols: `"C#"` → Use `"CSharp"`
+- Forward slashes: `"CI/CD"` → Use `"CI-CD"`
+
+**Hugo URL Generation Rules:**
+- Hugo converts special characters to double hyphens: `&` → `--`
+- External link generators use single hyphens, causing 404 errors
+- Clean taxonomy prevents `/categories/ai-machine-learning/` vs `/categories/ai--machine-learning/` mismatches
+
+**Production Examples (Fixed):**
+```toml
+# ❌ BEFORE (Caused 404s)
+categories = ["Infrastructure as Code (IaC)", "AI & Machine Learning"]
+tags = ["C#", ".NET", "CI/CD"]
+
+# ✅ AFTER (Clean URLs)
+categories = ["Infrastructure as Code - IaC", "AI", "Machine Learning"] 
+tags = ["CSharp", ".NET", "CI-CD"]
+```
+
 ### Content Patterns
 - **Folder Structure**: `content/posts/YYYY-MM-DD-descriptive-slug/index.md`
 - **Images**: Place `cover.jpg` in the same folder for auto-detection
@@ -238,6 +267,8 @@ description = "Concise summary explaining what readers will learn (≤150 chars)
 - [ ] **Frontmatter format**: Correct date format with 'Z' suffix
 - [ ] **Quote consistency**: Double quotes for layout and author fields
 - [ ] **Markdown compliance**: Proper spacing around lists and code blocks
+- [ ] **Taxonomy validation**: No parentheses, ampersands, hash symbols, forward slashes
+- [ ] **URL compatibility**: Verify category/tag names generate clean URLs without special characters
 
 ### Content Validation
 - Verify all Azure CLI commands and parameters
