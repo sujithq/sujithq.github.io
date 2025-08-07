@@ -11,7 +11,7 @@ baseURL = "http://localhost:1313/"
   themeColor = "#6a1d57"
   socialImage = "images/Sujith_Quintelier.jpg"
   author = "Sujith Quintelier"
-  prismjsTheme = "default"
+  prismjsTheme = "solarizedlight" # coy dark funky okaidia solarizedlight tomorrow twilight
 
 [params.days]
   new = 7       # Days threshold for "New" label

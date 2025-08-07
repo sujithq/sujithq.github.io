@@ -235,4 +235,9 @@
       '<button class="source-button btn btn-primary btn-xs" type="button" tabindex="0"><i class="fas fa-code"></i></button>';
     element.insertAdjacentHTML("beforeend", button);
   }
+
+  // Prism.js autoloader config: set language files path to /components/
+  if (window.Prism && Prism.plugins && Prism.plugins.autoloader) {
+    Prism.plugins.autoloader.languages_path = '/components/';
+  }
 })();

@@ -60,8 +60,8 @@ baseURL = "https://sujithq.github.io/"
    weight = 3
    parent = "tools"
 
-[params]
-  prismjsTheme = "okaidia"
+# [params]
+#   prismjsTheme = "okaidia"
 
 [pagination]
   disableAliases = false
