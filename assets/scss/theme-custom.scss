@@ -1,0 +1,23 @@
+// ------------------------------
+// Theme & Custom CSS - Your Styling Only
+// ------------------------------
+// This file contains your custom theme and styling and generates theme-custom.css
+
+// Import necessary Bootstrap variables for theme customization
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "xebia/variables";
+
+// ------------------------------
+// 2) Your theme & custom modules
+// ------------------------------
+@import "xebia/bootswatch";
+// @import "xebia/footer";
+// @import "xebia/scrolltop";
+// @import "xebia/sharingButtons"; // to be removed?
+// @import "xebia/timeline"; // to be removed?
+
+// ------------------------------
+// 3) Icons - Using Font Awesome instead of Bootstrap Icons
+// ------------------------------
+// @import "custom-icons";

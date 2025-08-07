@@ -21,8 +21,13 @@
   {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/taxonomy.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{ else }}
-  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/ideal-octo-guacamole.scss")) }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+  {{/* Load Bootstrap Core CSS */}}
+  {{ $bootstrapCore := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/bootstrap-core.scss")) }}
+  <link rel="stylesheet" href="{{ $bootstrapCore.RelPermalink }}" integrity="{{ $bootstrapCore.Data.Integrity }}">
+
+  {{/* Load Theme Custom CSS */}}
+  {{ $themeCustom := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/theme-custom.scss")) }}
+  <link rel="stylesheet" href="{{ $themeCustom.RelPermalink }}" integrity="{{ $themeCustom.Data.Integrity }}">
 {{ end }}
 
 {{ $aos := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/aos/css/aos.css")) }}
