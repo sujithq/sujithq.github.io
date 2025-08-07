@@ -4,6 +4,10 @@ theme = ["github.com/sujithq/ideal-octo-guacamole"]
 resourceDir = "../resources"
 baseURL = "http://localhost:1313/"
 
+# Default behavior: exclude drafts and future posts
+buildDrafts = false
+buildFuture = false
+
 [params]
   description = "Azure, cloud, and tech blog by Sujith Quintelier. Find tutorials, guides, and insights on GitHub, Azure, Terraform, DevOps, and more."
   tags = ['Azure', 'GitHub', 'Blog', 'Resume', 'Sujith', 'Quintelier', 'sujithq', 'DevOps']

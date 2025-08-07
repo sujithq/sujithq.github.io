@@ -1,5 +1,9 @@
 baseURL = "https://sujithq.github.io/"
 
+# Explicitly exclude drafts and future posts in production
+buildDrafts = false
+buildFuture = false
+
 [menu]
 
   [[menu.main]]

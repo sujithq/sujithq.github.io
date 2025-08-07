@@ -1,5 +1,9 @@
 
 title = "Sujith Quintelier-dev"
 
+# Development environment: include drafts and future posts for preview
+buildDrafts = true
+buildFuture = true
+
 # [params]
 #   prismjsTheme = "tomorrow" # "okaidia" # "tomorrow"
