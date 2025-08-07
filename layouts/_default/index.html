@@ -12,7 +12,7 @@
   </div>
   <div class="row mt-1">
     <div class="col-lg-9">
-      {{ $posts := where site.RegularPages "Section" "posts" }}
+      {{ $posts := where (where site.RegularPages "Section" "posts") ".Params.unlisted" "!=" true }}
       {{ $sortedPosts := $posts.ByLastmod.Reverse }}
 
       {{/* We need Hugo to create pagination structure, so use original posts for pagination */}}

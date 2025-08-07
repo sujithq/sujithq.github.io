@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="container">
     {{ $paginator := .Paginator }}
-    {{ $pages := where site.RegularPages "Section" "posts" }}
+    {{ $pages := where (where site.RegularPages "Section" "posts") ".Params.unlisted" "!=" true }}
     {{ $title := printf "%s page %d" .Title $paginator.PageNumber }}
 
     {{ partial "posts-archive.html" (dict

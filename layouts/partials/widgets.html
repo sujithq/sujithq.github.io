@@ -43,7 +43,7 @@
                 <div class="accordion-body p-0">
                     <div class="card border-0 m0 p-0">
                         <div class="card-body">
-                          {{ range first 5 (where site.RegularPages "Section" "posts") }}
+                          {{ range first 5 (where (where site.RegularPages "Section" "posts") ".Params.unlisted" "!=" true) }}
                             <a href="{{ .RelPermalink }}">
                                 <p class="card-text">{{ .Title }}</p>
                             </a>
@@ -88,7 +88,7 @@
             {{- $limit := default 5 site.Params.widgets.archives.limit -}}
             {{- $postsPage := index (where site.Sections "Title" "Posts") 0 -}}
             {{- if $postsPage -}}
-                {{ $pages := where site.RegularPages "Section" "posts" }}
+                {{ $pages := where (where site.RegularPages "Section" "posts") ".Params.unlisted" "!=" true }}
                 {{ $archives := $pages.GroupByDate "2006" }}
                 <h2 class="accordion-header" id="Archives">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseArchives" aria-expanded="true" aria-controls="collapseArchives">

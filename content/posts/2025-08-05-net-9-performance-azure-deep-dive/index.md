@@ -3,7 +3,8 @@ title = '🚀 .NET 9 Performance in Azure: A Deep Technical Dive'
 slug = 'net-9-performance-azure-deep-dive'
 date = '2025-08-05 10:00:00Z'
 lastmod = '2025-08-05 10:00:00Z'
-draft = true
+draft = false
+unlisted = true
 tags = [
   "Azure",
   ".NET",
