@@ -143,7 +143,7 @@ description = "Concise summary explaining what readers will learn (≤150 chars)
 - Parentheses: `"Infrastructure as Code (IaC)"` → Use `"Infrastructure as Code - IaC"`
 - Ampersands: `"AI & Machine Learning"` → Split into `"AI"` + `"Machine Learning"`
 - Hash symbols: `"C#"` → Use `"CSharp"`
-- Forward slashes: `"CI/CD"` → Use `"CI-CD"`
+- Forward slashes: `"CI/CD"` → Use `"CI CD"`
 
 **Hugo URL Generation Rules:**
 - Hugo converts special characters to double hyphens: `&` → `--`
@@ -157,8 +157,8 @@ categories = ["Infrastructure as Code (IaC)", "AI & Machine Learning"]
 tags = ["C#", ".NET", "CI/CD"]
 
 # ✅ AFTER (Clean URLs)
-categories = ["Infrastructure as Code - IaC", "AI", "Machine Learning"] 
-tags = ["CSharp", ".NET", "CI-CD"]
+categories = ["Infrastructure as Code", "IaC", "AI", "Machine Learning"] 
+tags = ["CSharp", ".NET", "CI CD"]
 ```
 
 ### Content Patterns
@@ -183,7 +183,7 @@ tags = ["CSharp", ".NET", "CI-CD"]
 - **.NET Development**: Modern C# patterns, ASP.NET Core, performance optimization
 - **Terraform**: Infrastructure automation, state management, module development
 - **Platform Engineering**: Developer experience, tooling, infrastructure automation
-- **DevOps Practices**: CI/CD, automation, monitoring
+- **DevOps Practices**: CI CD, automation, monitoring
 - **GitHub Features**: Actions, security, collaboration
 - **Cloud Architecture**: Scalability, security, cost optimization
 - **Infrastructure as Code**: Terraform, Bicep, ARM templates

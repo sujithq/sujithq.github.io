@@ -15,7 +15,8 @@ tags = [
 ]
 categories = [
   "Cloud",
-  "Infrastructure as Code - IaC",
+  "Infrastructure as Code",
+  "IaC",
   "DevOps"
 ]
 series = [

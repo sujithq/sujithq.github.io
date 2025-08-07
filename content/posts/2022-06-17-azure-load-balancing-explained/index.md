@@ -34,7 +34,8 @@ categories = [
 series = [
   'Azure in Practice',
   # 'Azure DevOps in Practice',
-  # 'Infrastructure as Code (IaC) Essentials',
+  # 'Infrastructure as Code Essentials',
+  # 'IaC Essentials',
   'Optimizing Cloud Deployments',
   # 'Building & Deploying .NET Apps',
   # 'GitHub & DevOps',
