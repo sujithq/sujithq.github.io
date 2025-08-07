@@ -27,6 +27,7 @@ categories = [ 'Certifications And Training' ]
 series = [ 'Workshops and Training' ]
 
 layout = 'single'
+audio = false
 [params]
     cover = true
     author = 'sujith'

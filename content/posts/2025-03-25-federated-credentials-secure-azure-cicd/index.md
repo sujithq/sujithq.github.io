@@ -9,6 +9,7 @@ categories = ["DevOps", "Security", "Azure"]
 series = [ ]
 
 layout = 'single'
+audio = false
 [params]
     cover = true
     author = 'sujith'

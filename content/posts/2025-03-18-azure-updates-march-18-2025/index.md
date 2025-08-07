@@ -27,6 +27,7 @@ series = [
 ]
 
 layout = "single"
+audio = false
 [params]
     cover = true
     author = "sujith"

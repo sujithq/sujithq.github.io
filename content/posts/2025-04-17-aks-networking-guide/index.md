@@ -8,6 +8,7 @@ tags = ["Azure", "AKS", "Networking", "Azure CNI", "Cilium", "Cloud Networking",
 categories = ["Azure", "Cloud Infrastructure", "Kubernetes"]
 series = [ ]
 layout = 'single'
+audio = false
 [params]
   cover = true
   author = 'sujith'

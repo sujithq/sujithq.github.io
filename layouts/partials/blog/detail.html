@@ -25,6 +25,10 @@
     <span>{{ .page.Date | time.Format .page.Site.Params.dateFormat }}</span>
   </div>
   <h1 class="text-center"><strong>{{ .page.Title }}</strong></h1>
+  {{ if .page.Params.audio }}
+    {{ partial "audio-player.html" (dict "src" "tts.ogg") }}
+  {{ end }}
+
 {{ end }}
 <div class="card border-0 mt-3 mb-3">
   <div class="text-center">

@@ -8,6 +8,7 @@ tags = ["GitHub Copilot", "AI in Development", "Code Automation", "Developer Pro
 series = []
 
 layout = 'single'
+audio = false
 [params]
     cover = true
     author = 'sujith'

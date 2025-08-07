@@ -8,6 +8,7 @@ tags = ['AI Models', 'GitHub Copilot', 'Programming']
 categories = ['AI', 'Development']
 series = ['GitHub Copilot Guides']
 layout = 'single'
+audio = false
 [params]
   cover = true
   author = 'sujith'

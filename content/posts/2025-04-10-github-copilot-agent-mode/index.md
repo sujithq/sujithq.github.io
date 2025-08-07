@@ -9,6 +9,7 @@ categories = ["AI", "Development Tools", "GitHub"]
 series = [ ]
 
 layout = 'single'
+audio = false
 [params]
     cover = true
     author = 'sujith'
