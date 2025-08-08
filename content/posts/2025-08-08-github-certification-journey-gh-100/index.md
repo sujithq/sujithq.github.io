@@ -1,8 +1,8 @@
 +++
 title = '🏢 GitHub Administration Certification Guide (GH-100) - Enterprise Mastery'
 slug = 'github-certification-journey-gh-100'
-date = '2025-08-28 10:00:00Z'
-lastmod = '2025-08-28 10:00:00Z'
+date = '2025-08-15 06:00:00Z'
+lastmod = '2025-08-15 06:00:00Z'
 draft = true
 tags = [
   "GitHub",
