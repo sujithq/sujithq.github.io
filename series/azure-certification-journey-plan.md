@@ -16,19 +16,19 @@ This document outlines the complete structure for the "Azure Certification Journ
 
 ## Progress Tracker
 
-### Series Progress: 0/12 (0%)
+### Series Progress: 1/12 (8%)
 
-**Last Updated**: 2025-08-07
+**Last Updated**: 2025-08-08
 
-**Current Status**: Ready to create Part 1
+**Current Status**: Part 1 created (draft)
 
 **Completed Posts**:
 
-- (None yet)
+- Part 1: AZ-900 - Azure Fundamentals — slug: `azure-certification-journey-az-900` (Draft)
 
 **Next Up**:
 
-- 🎯 **Part 1: Azure Fundamentals (AZ-900)** (Target: 2025-08-14)
+- 🎯 **Part 2: Azure Administrator (AZ-104)** (Target: 2025-08-21)
 
 **Internal Linking Reference**:
 
@@ -37,17 +37,17 @@ This document outlines the complete structure for the "Azure Certification Journ
 
 **Quick Reference for Next Post**:
 
-- **Slug**: `azure-certification-journey-az-900`
-- **Focus**: Azure cloud fundamentals and core services
-- **Key Topics**: Cloud concepts, Azure architecture, governance and management
-- **Prerequisites**: Basic IT knowledge
-- **Builds To**: All Azure role-based certifications
+- **Slug**: `azure-certification-journey-az-104`
+- **Focus**: Azure administration across identity, compute, storage, networking
+- **Key Topics**: Entra ID and RBAC, VM and App Service, VNets and NSGs, Storage
+- **Prerequisites**: AZ-900 knowledge
+- **Builds To**: DevOps (AZ-400) and architecture tracks
 
 ### Progress by Track
 
 | Track | Progress | Status |
 |-------|----------|---------|
-| **AZ - Azure Core (1-7)** | 0/7 (0%) | ⚪ Not Started |
+| **AZ - Azure Core (1-7)** | 1/7 (14%) | 🟡 In Progress |
 | **DP - Data Platform (8)** | 0/1 (0%) | ⚪ Not Started |
 | **AI - Artificial Intelligence (9-10)** | 0/2 (0%) | ⚪ Not Started |
 | **SC - Security & Compliance (11-12)** | 0/2 (0%) | ⚪ Not Started |
@@ -150,7 +150,7 @@ This document outlines the complete structure for the "Azure Certification Journ
 
 #### Part 4: Azure DevOps Engineer (AZ-400)
 
-- **Study Guide**: [Official AZ-400 Study Guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-400)
+- **Official Study Guide**: [AZ-400 Study Guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-400)
 - **Skills Measured** (as of July 26, 2024):
   - **Design and implement processes and communications (10–15%)**
     - Design and implement traceability and flow of work
@@ -188,9 +188,44 @@ This document outlines the complete structure for the "Azure Certification Journ
   - Question types: Multiple choice, case studies, lab simulations
   - Passing score: 700/1000
 
+#### Part 5: Azure Solutions Architect (AZ-305)
+
+- **Official Study Guide**: [AZ-305 Study Guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-305)
+- **Skills Measured** (as of October 18, 2024):
+  - **Design identity, governance, and monitoring solutions (25–30%)**
+    - Design solutions for logging and monitoring
+    - Design authentication and authorization solutions
+    - Design governance
+  - **Design data storage solutions (20–25%)**
+    - Design data storage solutions for relational data
+    - Design data storage solutions for semi-structured and unstructured data
+    - Design data integration
+  - **Design business continuity solutions (15–20%)**
+    - Design solutions for backup and disaster recovery
+    - Design for high availability
+  - **Design infrastructure solutions (30–35%)**
+    - Design compute solutions
+    - Design an application architecture
+    - Design migrations
+    - Design network solutions
+- **Topics**:
+  - Design identity, governance, and monitoring solutions
+  - Design data storage and integration solutions
+  - Design business continuity solutions (backup, disaster recovery)
+  - Design infrastructure solutions (compute, networking, migration)
+  - Advanced architecture patterns and decision frameworks
+  - Case study analysis and solution design
+- **Key Learning**: Enterprise Azure solution architecture
+- **Prerequisites**: AZ-104 and one other associate certification
+- **Builds To**: Technical leadership and consulting roles
+- **Exam Details**:
+  - Duration: 150 minutes
+  - Question types: Multiple choice, case studies, design scenarios
+  - Passing score: 700/1000
+
 #### Part 6: Azure Security Engineer (AZ-500)
 
-- **Study Guide**: [Official AZ-500 Study Guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-500)
+- **Official Study Guide**: [AZ-500 Study Guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-500)
 - **Skills Measured** (as of January 31, 2025):
   - **Secure identity and access (15–20%)**
     - Manage security controls for identity and access
@@ -224,7 +259,7 @@ This document outlines the complete structure for the "Azure Certification Journ
 
 #### Part 7: Azure Network Engineer (AZ-700)
 
-- **Study Guide**: [Official AZ-700 Study Guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-700)
+- **Official Study Guide**: [AZ-700 Study Guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-700)
 - **Skills Measured** (as of October 25, 2024):
   - **Design and implement core networking infrastructure (25–30%)**
     - Design and implement IP addressing for Azure resources
@@ -446,38 +481,6 @@ This document outlines the complete structure for the "Azure Certification Journ
   - Question types: Multiple choice, case studies, design scenarios
   - Passing score: 700/1000
 
-- **Study Guide**: [Official AZ-305 Study Guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-305)
-- **Skills Measured** (as of October 18, 2024):
-  - **Design identity, governance, and monitoring solutions (25–30%)**
-    - Design solutions for logging and monitoring
-    - Design authentication and authorization solutions
-    - Design governance
-  - **Design data storage solutions (20–25%)**
-    - Design data storage solutions for relational data
-    - Design data storage solutions for semi-structured and unstructured data
-    - Design data integration
-  - **Design business continuity solutions (15–20%)**
-    - Design solutions for backup and disaster recovery
-    - Design for high availability
-  - **Design infrastructure solutions (30–35%)**
-    - Design compute solutions
-    - Design an application architecture
-    - Design migrations
-    - Design network solutions
-- **Topics**:
-  - Design identity, governance, and monitoring solutions
-  - Design data storage and integration solutions
-  - Design business continuity solutions (backup, disaster recovery)
-  - Design infrastructure solutions (compute, networking, migration)
-  - Advanced architecture patterns and decision frameworks
-  - Case study analysis and solution design
-- **Key Learning**: Enterprise Azure solution architecture
-- **Prerequisites**: AZ-104 and one other associate certification
-- **Builds To**: Technical leadership and consulting roles
-- **Exam Details**:
-  - Duration: 150 minutes
-  - Question types: Multiple choice, case studies, design scenarios
-  - Passing score: 700/1000
 
 ## Content Standards for Each Post
 
