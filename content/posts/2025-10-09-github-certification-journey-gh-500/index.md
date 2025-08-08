@@ -1,8 +1,8 @@
 +++
 title = '🔒 GitHub Advanced Security Certification Guide (GH-500) - Complete Prep'
 slug = 'github-certification-journey-gh-500'
-date = '2025-10-09T10:00:00Z'
-lastmod = '2025-10-09T10:00:00Z'
+date = '2025-10-09 10:00:00Z'
+lastmod = '2025-10-09 10:00:00Z'
 draft = true
 tags = [
   "GitHub",
@@ -22,7 +22,7 @@ categories = [
   "Certification"
 ]
 series = [
-  "GitHub Certification Journey"
+  'GitHub Certification Journey'
 ]
 
 layout = "single"

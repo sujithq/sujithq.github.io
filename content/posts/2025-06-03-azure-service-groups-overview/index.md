@@ -1,8 +1,8 @@
 +++
 title = 'Azure Service Groups: Benefits, RBAC, and API Guide'
 slug = 'azure-service-groups-overview'
-date = '2025-06-03T06:00:00Z'
-lastmod = '2025-06-03T06:00:00Z'
+date = '2025-06-03 06:00:00Z'
+lastmod = '2025-06-03 06:00:00Z'
 draft = false
 tags = ['Azure Governance', 'RBAC', 'Azure REST API', 'Cloud Security']
 categories = ['Azure', 'Cloud Governance']

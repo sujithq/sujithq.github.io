@@ -1,10 +1,9 @@
 +++
 title = '🚀 GitHub Actions Certification Guide (GH-200) - Complete Prep'
 slug = 'github-certification-journey-gh-200'
-date = '2025-09-11T10:00:00Z'
-lastmod = '2025-09-11T10:00:00Z'
+date = '2025-09-11 10:00:00Z'
+lastmod = '2025-09-11 10:00:00Z'
 draft = false
-unlisted = true
 tags = [
   "GitHub",
   "Certification",
@@ -23,7 +22,7 @@ categories = [
   "Certification"
 ]
 series = [
-  "GitHub Certification Journey"
+  'GitHub Certification Journey'
 ]
 
 layout = "single"

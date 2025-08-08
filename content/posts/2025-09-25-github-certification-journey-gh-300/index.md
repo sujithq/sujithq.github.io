@@ -1,8 +1,8 @@
 +++
 title = '🤖 GitHub Copilot Certification Guide (GH-300) - AI Development Mastery'
 slug = 'github-certification-journey-gh-300'
-date = '2025-09-25T10:00:00Z'
-lastmod = '2025-09-25T10:00:00Z'
+date = '2025-09-25 10:00:00Z'
+lastmod = '2025-09-25 10:00:00Z'
 draft = true
 tags = [
   "GitHub",
@@ -22,7 +22,7 @@ categories = [
   "Certification"
 ]
 series = [
-  "GitHub Certification Journey"
+  'GitHub Certification Journey'
 ]
 
 layout = "single"
