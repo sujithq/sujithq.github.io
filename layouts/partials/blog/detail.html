@@ -22,7 +22,7 @@
       {{ end }}
     </span>
     <span class="mx-1">•</span>
-    <span>{{ .page.Date | time.Format .page.Site.Params.dateFormat }}</span>
+    <span>{{ with .page.Lastmod }}{{ . | time.Format $.page.Site.Params.dateFormat }}{{ else }}{{ .page.Date | time.Format .page.Site.Params.dateFormat }}{{ end }}</span>
   </div>
   <h1 class="text-center"><strong>{{ .page.Title }}</strong></h1>
   {{ if .page.Params.audio }}
@@ -90,7 +90,7 @@
       <h1 class="card-title"><strong>{{ .page.Title }}</strong></h1>
     {{ end }}
     <div class="d-flex align-items-center">
-      <span>{{ .page.Date | time.Format .page.Site.Params.dateFormat }}</span>
+      <span>{{ with .page.Lastmod }}{{ . | time.Format $.page.Site.Params.dateFormat }}{{ else }}{{ .page.Date | time.Format .page.Site.Params.dateFormat }}{{ end }}</span>
     </div>
     <div>
       {{ if .useContent }}

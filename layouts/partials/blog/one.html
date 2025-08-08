@@ -22,7 +22,7 @@
       <div class="card-body pe-0 pt-0 pb-0">
         <div class="d-flex align-items-center">
           {{ partial "newUpdate.html" (dict "page" .page) }}
-          <span>{{ .page.Date | time.Format .page.Site.Params.dateFormat }}</span>
+          <span>{{ with .page.Lastmod }}{{ . | time.Format $.page.Site.Params.dateFormat }}{{ else }}{{ .page.Date | time.Format .page.Site.Params.dateFormat }}{{ end }}</span>
         </div>
         <h6 class="card-title"><strong>{{ .page.Title}}</strong></h6>
         <div>

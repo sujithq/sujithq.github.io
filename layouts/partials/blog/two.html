@@ -31,7 +31,7 @@
                 </div>
             <div class="card-body">
                 {{ partial "newUpdate.html" (dict "page" $p) }}
-                <span>{{ $p.Date.Format $p.Site.Params.dateFormat }}</span>
+                <span>{{ with $p.Lastmod }}{{ . | time.Format $p.Site.Params.dateFormat }}{{ else }}{{ $p.Date.Format $p.Site.Params.dateFormat }}{{ end }}</span>
                 <h6 class="card-title">
                 <strong>{{ $p.Title }}</strong>
                 </h6>

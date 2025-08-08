@@ -1,0 +1,39 @@
+{{/*
+  New/Updated Badge Partial
+  Shows "New" or "Updated" badges based on post dates and thresholds
+
+  Smart Logic:
+  - If lastmod == date (no updates): Use "new" logic based on publication date
+  - If lastmod > date (has updates): Use "updated" logic based on last modified date
+
+  Parameters:
+  - page: The page context containing date and lastmod fields
+*/}}
+
+{{ $page := .page }}
+{{ $now := now }}
+{{ $newThreshold := site.Params.days.new | default 7 }}
+{{ $updatedThreshold := site.Params.days.updated | default 14 }}
+
+{{/* Calculate days since publication and last modification */}}
+{{ $daysSincePublished := div (sub $now.Unix $page.Date.Unix) 86400 }}
+{{ $daysSinceUpdated := div (sub $now.Unix $page.Lastmod.Unix) 86400 }}
+
+{{/* Check if post has been updated (lastmod > date) */}}
+{{ $hasBeenUpdated := gt $page.Lastmod.Unix $page.Date.Unix }}
+
+{{ if $hasBeenUpdated }}
+  {{/* Post has been updated - show "Updated" if within threshold */}}
+  {{ if le $daysSinceUpdated $updatedThreshold }}
+    <span class="badge rounded bg-info me-2">
+      <i class="fas fa-sync-alt me-1"></i>Updated
+    </span>
+  {{ end }}
+{{ else }}
+  {{/* Post hasn't been updated - show "New" if within threshold */}}
+  {{ if le $daysSincePublished $newThreshold }}
+    <span class="badge rounded bg-primary me-2">
+      <i class="fas fa-star me-1"></i>New
+    </span>
+  {{ end }}
+{{ end }}
