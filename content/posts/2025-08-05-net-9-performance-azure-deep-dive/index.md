@@ -4,7 +4,7 @@ slug = 'net-9-performance-azure-deep-dive'
 date = '2025-08-05 10:00:00Z'
 lastmod = '2025-08-05 10:00:00Z'
 draft = false
-unlisted = true
+unlisted = false
 tags = [
   "Azure",
   "DotNET",
