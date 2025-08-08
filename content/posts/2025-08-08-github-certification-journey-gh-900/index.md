@@ -4,7 +4,6 @@ slug = 'github-certification-journey-gh-900'
 date = '2025-08-08 06:00:00Z'
 lastmod = '2025-08-08 06:00:00Z'
 draft = false
-unlisted = true
 tags = [
   "GitHub",
   "Certification",
