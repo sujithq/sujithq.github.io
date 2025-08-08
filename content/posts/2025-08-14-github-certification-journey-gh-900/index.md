@@ -37,7 +37,7 @@ layout = 'single'
     engineers. Include small labels for key GitHub features like 'Pull Requests', 'Issues', 'Actions', and 'Projects'. 
     Maintain a professional, enterprise-ready aesthetic with certification badge elements.'''
     
-description = "Master GitHub Foundations (GH-900) with comprehensive coverage of Git basics, collaboration workflows, project management, and security fundamentals for certification success."
+description = "Master GitHub Foundations (GH-900) certification with comprehensive coverage of Git basics, collaboration workflows, and security fundamentals."
 +++
 
 Welcome to the GitHub Certification Journey! This comprehensive guide covers everything you need to master the **GitHub Foundations (GH-900)** certification. Whether you're new to Git and GitHub or looking to validate your foundational knowledge, this post provides complete coverage of all exam domains with practical examples and hands-on exercises.
