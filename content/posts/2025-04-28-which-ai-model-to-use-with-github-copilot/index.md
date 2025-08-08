@@ -2,9 +2,9 @@
 title = 'Which AI Model Should You Use with GitHub Copilot?'
 slug = 'which-ai-model-to-use-with-github-copilot'
 date = '2025-04-28 06:00:00Z'
-lastmod = '2025-07-31 07:00:00Z'
+lastmod = '2025-08-08 08:00:00Z'
 draft = false
-tags = ['AI Models', 'GitHub Copilot', 'Programming']
+tags = ['AI Models', 'GitHub Copilot', 'Programming', 'GPT-5']
 categories = ['AI', 'Development']
 series = ['GitHub Copilot Guides']
 layout = 'single'
@@ -13,35 +13,65 @@ audio = false
   cover = true
   author = 'sujith'
 
-description = "Discover the best AI models to use with GitHub Copilot for various programming tasks. Learn which models excel in speed, depth, and balance."
+description = "Discover the best AI models to use with GitHub Copilot for various programming tasks. Updated August 2025 to include GPT-5 and note the deprecation of GPT-4o."
 +++
+
+## 📢 Important Update — August 2025
+
+GitHub Copilot and ChatGPT have officially **deprecated GPT-4o**.  
+The **new recommended model** is **GPT-5**, now available in **public preview** for GitHub Copilot (paid plans) and **default in ChatGPT**.  
+
+- **[GitHub changelog — GPT-5 public preview](https://github.blog/changelog/2025-08-07-openai-gpt-5-is-now-in-public-preview-for-github-copilot/)**
+- **[GitHub changelog — GPT-4o deprecation](https://github.blog/changelog/2025-08-06-deprecation-of-gpt-4o-in-copilot-chat/)**
+- **[OpenAI GPT-5 announcement](https://openai.com/index/introducing-gpt-5/)**
+
+---
 
 ## Which AI model should I use with GitHub Copilot?
 
-Choosing the right AI model for your GitHub Copilot project can be tricky. Each model has its own strengths, and understanding which one fits your needs best can make a big difference.
+Choosing the right AI model for your GitHub Copilot project can be tricky. Each model has its strengths, and knowing which one fits your needs best can make a big difference.
 
-{{< notice-card info "Big disclaimer!">}}
-
-AI evolves rapidly, so these recommendations might change soon. As of July 31, 2025, this is the current landscape.
-
+{{< notice-card info "Big disclaimer!" >}}
+AI evolves rapidly, so these recommendations might change soon.  
+As of **August 8, 2025**, this is the current landscape.
 {{< /notice-card >}}
 
-Whether you need speed, depth, or a balance of both, understanding what each model offers can help you make an informed decision. Let’s dive in. 👇
+Whether you need speed, deep reasoning, or a balance of both, matching the right model to your use case is key.
 
-## The TL;DR
+---
 
-- 💳 For a balance of cost and performance: GPT-4.1, Claude Sonnet 4, or Claude 3.5 Sonnet are solid choices.
-- 🪙 For fast, lightweight tasks: o4-mini, Claude 3.5 Sonnet, or Gemini 2.0 Flash work well.
-- 💎 For deep reasoning or complex debugging: Claude Opus 4, Claude Sonnet 4, o3, or Gemini 2.5 Pro are ideal.
-- 🖼️ For multimodal inputs (like images): Gemini 2.0 Flash or GPT-4.1 are your go-to options.
+## TL;DR — Quick Recommendations
 
-These are general guidelines, but experimenting with different models can help you find the best fit for your specific needs.
+| Need                              | Recommended Models |
+|-----------------------------------|--------------------|
+| **Default choice**                | **GPT-5** *(new standard in Copilot & ChatGPT)* |
+| **Balanced cost & performance**   | GPT-5 mini, GPT-4.1, Claude Sonnet 4 |
+| **Fast/lightweight**              | GPT-5 mini, Claude 3.5 Sonnet, Gemini 2.0 Flash |
+| **Deep reasoning/debugging**      | GPT-5 Thinking/Pro, Claude Opus 4, Claude Sonnet 4 |
+| **Multimodal (images + text)**    | GPT-5, Gemini 2.0 Flash |
+
+---
 
 ## 🏎️ Prioritizing speed
 
-### o4-mini: The speed specialist 😈
+### GPT-5 mini — The speed specialist ⚡
 
-If you need quick results without overcomplicating things, o4-mini is an excellent option. It’s fast, efficient, and cost-effective.
+If you need quick results without overcomplicating things, GPT-5 mini is fast, efficient, and cost-effective.
+
+✅ **Best for**:
+
+- Rapid prototyping
+- Small code snippet explanations
+- Learning new programming concepts
+- Boilerplate generation
+
+👀 **Consider other models if**:  
+Your task involves multiple files or deep reasoning. For that, try **GPT-5 Thinking**, **Claude Sonnet 4**, or **Claude Opus 4**.
+
+### o4-mini (Legacy) — The former speed option 😈
+
+Still fast and cost-effective, but now largely replaced by GPT-5 mini in Copilot and ChatGPT.  
+Consider it if you have existing workflows optimised for o4-mini or if GPT-5 mini isn’t available in your tier.
 
 ✅ **Best for**:
 
@@ -50,36 +80,50 @@ If you need quick results without overcomplicating things, o4-mini is an excelle
 - Learning new programming concepts.
 - Generating boilerplate code.
 
-👀 **Consider other models if**: Your task involves multiple files or requires deep reasoning. In such cases, models like **Claude Sonnet 4**, **Claude Opus 4**, or **o3** are better suited. For more expressive outputs, **GPT-4.1** is a great alternative.
+👀 **Consider other models if**: Your task involves multiple files or requires deep reasoning. In such cases, **Claude Sonnet 4**, **Claude Opus 4**, or **o3** are better suited. For more expressive outputs, **GPT-4.1** is still a relevant alternative.
 
 ## ⚖️ Balanced AI models
 
-### Claude 3.5 Sonnet: The reliable all-rounder 😊
+### Claude 3.5 Sonnet — The reliable all-rounder 😊
 
-Claude 3.5 Sonnet strikes a balance between performance and cost, making it a dependable choice for everyday coding tasks.
+Balances performance and cost, making it dependable for daily coding.
 
 ✅ **Best for**:
 
-- Writing documentation.
-- Answering language-specific questions.
-- Generating concise code snippets.
+- Documentation
+- Language-specific Q&A
+- Concise code generation
 
-👀 **Consider other models if**: You need advanced reasoning or multi-step planning. For such tasks, **Claude Sonnet 4** or **Claude Opus 4** are better options.
+👀 **Consider other models if**: You need multi-step planning — **Claude Sonnet 4** or **GPT-5 Thinking** may work better.
 
-### GPT-4.1: The versatile performer 🌎
+### GPT-4.1 — The versatile performer 🌎
 
 GPT-4.1 is highly flexible and can handle a wide range of tasks. Whether you need quick responses or support for text and images, it’s got you covered.
 
+Still relevant in August 2025, especially when you need multimodal support and predictable output.
+
 ✅ **Best for**:
 
-- Explaining code blocks.
-- Writing comments or documentation.
-- Generating reusable code snippets.
-- Handling multilingual prompts.
-
-👀 **Consider other models if**: You’re tackling complex architectural reasoning or multi-step debugging. In such cases, **Claude Sonnet 4**, **Claude Opus 4**, or **o3** are more effective.
+- Code explanations
+- Writing comments/documentation
+- Multilingual prompts
+- Text + image workflows
 
 ## 🧠 Models for complex projects
+
+### GPT-5 Thinking / GPT-5 Pro — The next-gen problem solvers 🏆
+
+GPT-5 variants designed for advanced reasoning, fewer hallucinations, and complex debugging.
+
+✅ **Best for**:
+
+- Refactoring large codebases
+- Multi-file reasoning
+- Complex architectural planning
+- Data analysis
+
+👀 **Consider other models if**:  
+Budget is tight — **GPT-5 mini** or **Claude Sonnet 4** can be cheaper alternatives.
 
 ### Claude Sonnet 4: The problem solver 🏠
 
@@ -96,7 +140,7 @@ Claude Sonnet 4 is designed for large, intricate projects. It excels in tasks th
 
 ### Claude Opus 4: The advanced problem solver 🏆
 
-Claude Opus 4 is Anthropic’s most powerful model, built for tackling the most challenging problems. It’s ideal for tasks that demand advanced reasoning, multi-layered logic, and long-context capabilities.
+Anthropic’s most powerful model for multi-layered logic and long-context reasoning.
 
 ✅ **Best for**:
 
@@ -105,11 +149,11 @@ Claude Opus 4 is Anthropic’s most powerful model, built for tackling the most 
 - Planning and analyzing complex architectures.
 - Processing extensive datasets or documents.
 
-👀 **Consider other models if**: Budget is a concern. For cost-effective alternatives, try **Claude Sonnet 4** or **o4-mini**.
+👀 **Consider other models if**: Budget is a concern. For cost-effective alternatives, try **Claude Sonnet 4** or **GPT-5 mini**.
 
-### Gemini 2.5 Pro: The advanced researcher �
+### Gemini 2.5 Pro: The advanced researcher 🔬
 
-Gemini 2.5 Pro is built for advanced reasoning, long-context analysis, and research workflows. It’s ideal for scientific data, multi-file logic, and complex debugging.
+Ideal for advanced reasoning, long-context analysis, and research workflows.
 
 ✅ **Best for**:
 
@@ -135,6 +179,11 @@ For tasks that require logical precision and step-by-step problem-solving, o3 is
 
 ## 🖼️ Multimodal capabilities
 
+### GPT-5 — Unified multimodal model 🎨
+
+Supports text, images, and advanced reasoning in one.  
+Great for coding tasks that require diagram analysis or combining visual and text-based input.
+
 ### Gemini 2.0 Flash: The visual problem-solver 🤔
 
 If your work involves visual inputs like diagrams or UI mockups, Gemini 2.0 Flash is a great choice. It’s particularly useful for front-end development and layout debugging.
@@ -150,4 +199,19 @@ If your work involves visual inputs like diagrams or UI mockups, Gemini 2.0 Flas
 
 ## Final thoughts
 
-The key to choosing the right model is matching it to the task at hand. Over time, you’ll develop a sense of which models work best for different scenarios. Experimentation is the best way to learn and refine your approach.
+The AI landscape shifts quickly.  
+As of **August 2025**, **GPT-5** is the go-to choice for most GitHub Copilot users — fast, accurate, and now the default in ChatGPT.  
+It offers better reasoning, fewer hallucinations, personalization features, and deeper multimodal capabilities.  
+
+That said, models like Claude Sonnet 4, Claude Opus 4, and Gemini 2.x still shine in certain niches.  
+Legacy options like o4-mini can still be useful for very lightweight tasks or legacy setups.
+
+Experimentation is still the best way to refine your workflow — the “right” model depends on your exact coding needs and subscription tier.
+
+---
+
+## 📚 References
+
+- [GitHub changelog — GPT-5 public preview](https://github.blog/changelog/2025-08-07-openai-gpt-5-is-now-in-public-preview-for-github-copilot/)
+- [GitHub changelog — GPT-4o deprecation](https://github.blog/changelog/2025-08-06-deprecation-of-gpt-4o-in-copilot-chat/)
+- [OpenAI GPT-5 announcement](https://openai.com/index/introducing-gpt-5/)
