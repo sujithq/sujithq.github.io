@@ -2,7 +2,7 @@ name: AI triage failed runs
 
 on:
   workflow_run:
-    workflows: ["Deploy to Github Pages", "Copilot Setup Steps", "build", "test", "ci"]
+    workflows: ["AI triage failed runs", "Deploy to Github Pages", "Copilot Setup Steps", "build", "test", "ci"]
     types: [completed]
 
 permissions:
@@ -63,7 +63,7 @@ jobs:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           body=$(jq -n \
-            --arg model "openai/gpt-4.1" \
+            --arg model "github/gpt-5" \
             --rawfile content prompt.txt \
             '{model: $model, messages: [{role:"system", content:"You are a senior CI engineer. Be concise."}, {role:"user", content:$content}]}'
           )
