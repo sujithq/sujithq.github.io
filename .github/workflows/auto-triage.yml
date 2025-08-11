@@ -190,16 +190,16 @@ jobs:
             echo "Copilot agent not suggested for assignment. Skipping."; exit 0
           fi
 
-          # Verify the selected login is actually assignable in this repo
-          mapfile -t ASSIGNABLE < <(gh api "repos/$OWNER/$REPO/assignees?per_page=100" --paginate --jq '.[].login' | sort -u)
-          if ! printf '%s\n' "${ASSIGNABLE[@]}" | grep -Fxq "$COPILOT_LOGIN"; then
-            {
-              echo "Copilot login '$COPILOT_LOGIN' is not in the repository's assignable list."
-              echo "Enable Copilot coding agent for this repository to assign it automatically."
-              echo "Docs: https://docs.github.com/en/copilot/concepts/coding-agent/coding-agent#making-copilot-coding-agent-available"
-            } | tee -a "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
+          # # Verify the selected login is actually assignable in this repo
+          # mapfile -t ASSIGNABLE < <(gh api "repos/$OWNER/$REPO/assignees?per_page=100" --paginate --jq '.[].login' | sort -u)
+          # if ! printf '%s\n' "${ASSIGNABLE[@]}" | grep -Fxq "$COPILOT_LOGIN"; then
+          #   {
+          #     echo "Copilot login '$COPILOT_LOGIN' is not in the repository's assignable list."
+          #     echo "Enable Copilot coding agent for this repository to assign it automatically."
+          #     echo "Docs: https://docs.github.com/en/copilot/concepts/coding-agent/coding-agent#making-copilot-coding-agent-available"
+          #   } | tee -a "$GITHUB_STEP_SUMMARY"
+          #   exit 0
+          # fi
 
           # Add assignee via REST (adds, does not replace)
           gh issue edit "$ISSUE_NUM" --repo "$OWNER/$REPO" --add-assignee "$COPILOT_LOGIN"
