@@ -1,0 +1,73 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Create sample failing project
+        run: |
+          mkdir SampleApp
+          cd SampleApp
+          dotnet new console --framework net9.0
+          echo 'Console.WriteLine("Hello from failing build test");' > Program.cs
+
+          # Create xUnit test project
+          dotnet new xunit -n SampleApp.Tests --framework net9.0
+          cd SampleApp.Tests
+          # Overwrite UnitTest1.cs with a guaranteed failure
+          cat > UnitTest1.cs <<'CS'
+          using Xunit;
+
+          namespace SampleApp.Tests;
+
+          public class UnitTest1
+          {
+              [Fact]
+              public void ThisTestAlwaysFails()
+              {
+                  Assert.Equal(1, 2);
+              }
+          }
+          CS
+          cd ../..
+          dotnet new sln -n SampleSolution
+          dotnet sln add SampleApp/SampleApp.csproj
+          dotnet sln add SampleApp/SampleApp.Tests/SampleApp.Tests.csproj
+
+      - name: Restore
+        run: dotnet restore SampleSolution.sln
+
+      - name: Build
+        run: dotnet build SampleSolution.sln --configuration Release --no-restore
+
+      - name: Test (xUnit)
+        run: |
+          mkdir -p TestResults
+          dotnet test SampleSolution.sln --no-build \
+            --logger "trx;LogFileName=testresults.trx" \
+            --results-directory TestResults || true
+        # `|| true` ensures we still run later steps (artifact upload) even if tests fail
+
+      - name: Upload test results artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: TestResults/**/*.trx

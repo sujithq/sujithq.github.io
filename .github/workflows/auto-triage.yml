@@ -2,7 +2,7 @@ name: AI triage failed runs
 
 on:
   workflow_run:
-    workflows: ["AI triage failed runs", "Deploy to Github Pages", "Copilot Setup Steps", "build", "test", "ci"]
+    workflows: ["Deploy to Github Pages", "Copilot Setup Steps", "build", "test", "ci"]
     types: [completed]
 
 permissions:
