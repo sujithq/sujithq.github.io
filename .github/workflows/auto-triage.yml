@@ -83,6 +83,12 @@ jobs:
             -d "$body" | tee response.json
           jq -r '.choices[0].message.content // empty' response.json > summary.md
           if [ ! -s summary.md ]; then echo "No AI summary produced" > summary.md; fi
+      - name: Ensure labels exist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "ci-failure" --repo "${{ github.repository }}" --color B60205 --description "CI pipeline failure" 2>/dev/null || true
+          gh label create "needs-triage" --repo "${{ github.repository }}" --color D4C5F9 --description "Requires triage" 2>/dev/null || true
       - name: Create issue
         id: issue
         env:
