@@ -143,24 +143,51 @@ jobs:
           GH_TOKEN: ${{ secrets.PAT_WITH_ISSUES_WRITE != '' && secrets.PAT_WITH_ISSUES_WRITE || secrets.GITHUB_TOKEN }}
           COPILOT_ACTOR: ${{ vars.COPILOT_ACTOR || secrets.COPILOT_ACTOR || '' }}
         run: |
-          issue_number='${{ steps.issue.outputs.number }}'
-          if [ -z "$COPILOT_ACTOR" ]; then
-            echo "COPILOT_ACTOR not set; attempting auto-discovery..."
-            # Prefer bots whose login hints at copilot/agent/swe
-            COPILOT_ACTOR=$(gh api "repos/${{ github.repository }}/assignees?per_page=100" --paginate \
-              --jq '[.[] | select((.type|ascii_downcase=="bot") and (.login|test("copilot|agent|swe"; "i"))) | .login] | first // empty')
-            if [ -z "$COPILOT_ACTOR" ]; then
-              COPILOT_ACTOR=$(gh api "repos/${{ github.repository }}/assignees?per_page=100" --paginate \
-                --jq '[.[] | select((.login|test("copilot|agent|swe"; "i"))) | .login] | first // empty')
-            fi
-            if [ -n "$COPILOT_ACTOR" ]; then
-              echo "Auto-discovered COPILOT_ACTOR=$COPILOT_ACTOR"
-            else
-              echo "No Copilot-like assignee found; skipping assignment."; exit 0;
-            fi
+          set -euo pipefail
+
+          OWNER="${GITHUB_REPOSITORY%/*}"
+          REPO="${GITHUB_REPOSITORY#*/}"
+          ISSUE_NUM="${{ steps.issue.outputs.number }}"
+
+          # Discover a Copilot-like actor (prefer bots)
+          ACTORS=$(gh api graphql -f owner="$OWNER" -f name="$REPO" -f query='
+            query($owner:String!,$name:String!) {
+              repository(owner:$owner, name:$name) {
+                suggestedActors(capabilities:[CAN_BE_ASSIGNED], first:100) {
+                  nodes { login type: __typename id }
+                }
+              }
+            }' || echo '{}')
+
+          # First try bots with copilot/agent/swe in login, then any login with those terms
+          BOT_ID=$(echo "$ACTORS" | jq -r '
+            [.data?.repository?.suggestedActors?.nodes[]?
+            | select(.type=="Bot" and (.login|test("copilot|agent|swe|coding|code"; "i")))
+            | .id] | first // empty')
+
+          if [ -z "$BOT_ID" ]; then
+            BOT_ID=$(echo "$ACTORS" | jq -r '
+              [.data?.repository?.suggestedActors?.nodes[]?
+              | select(.login|test("copilot|agent|swe|coding|code"; "i"))
+              | .id] | first // empty')
           fi
-          if [ -n "$issue_number" ]; then
-            gh issue edit "$issue_number" --repo "${{ github.repository }}" --add-assignee "$COPILOT_ACTOR" || true
-          else
-            echo "No issue number available for assignment"
+
+          if [ -z "$BOT_ID" ]; then
+            echo "Copilot agent not suggested for assignment. Skipping."; exit 0
           fi
+
+          # Resolve issue node ID
+          ISSUE_Q=$(gh api graphql -f owner="$OWNER" -f name="$REPO" -f num="$ISSUE_NUM" -f query='
+            query($owner:String!,$name:String!,$num:Int!) {
+              repository(owner:$owner, name:$name) { issue(number:$num) { id } }
+            }')
+          ISSUE_ID=$(echo "$ISSUE_Q" | jq -r '.data.repository.issue.id // empty')
+          [ -n "$ISSUE_ID" ] || { echo "Failed to resolve issue id."; exit 1; }
+
+          # Add assignee (do not replace existing)
+          gh api graphql -f id="$ISSUE_ID" -f actors="$BOT_ID" -f query='
+            mutation($id:ID!,$actors:[ID!]!){
+              addAssigneesToAssignable(input:{assignableId:$id, assigneeIds:$actors}) {
+                assignable { __typename }
+              }
+            }'
