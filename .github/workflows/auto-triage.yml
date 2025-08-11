@@ -159,39 +159,19 @@ jobs:
               }
             }' || echo '{}')
 
-          # Debug: list all suggested actors
+          # Debug: list all suggested actors (single-line jq to avoid YAML quoting issues)
           echo "Suggested actors (GraphQL) for $OWNER/$REPO:" | tee -a "$GITHUB_STEP_SUMMARY"
-          echo "$ACTORS" | jq -r '.data?.repository?.suggestedActors?.nodes[]? | "- \(.login) (type=\(.type)) id=\(.id // \"\")"' | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "$ACTORS" | jq -r '.data?.repository?.suggestedActors?.nodes[]? | "- \(.login // \"\") (type=\(.type // \"\")) id=\(.id // \"\")"' | tee -a "$GITHUB_STEP_SUMMARY"
 
           # First try bots with copilot/agent/swe in login, then any login with those terms
-          BOT_ID=$(echo "$ACTORS" | jq -r '
-            [.data?.repository?.suggestedActors?.nodes[]?
-            | select(.type=="Bot" and (.login|test("copilot|agent|swe|coding|code"; "i")))
-            | .id] | first // empty')
-
-          if [ -z "$BOT_ID" ]; then
-            BOT_ID=$(echo "$ACTORS" | jq -r '
-              [.data?.repository?.suggestedActors?.nodes[]?
-              | select(.login|test("copilot|agent|swe|coding|code"; "i"))
-              | .id] | first // empty')
+          COPILOT_LOGIN=$(echo "$ACTORS" | jq -r '[.data?.repository?.suggestedActors?.nodes[]? | select(.type=="Bot" and (.login|test("copilot|agent|swe|coding|code"; "i"))) | .login] | first // empty')
+          if [ -z "$COPILOT_LOGIN" ]; then
+            COPILOT_LOGIN=$(echo "$ACTORS" | jq -r '[.data?.repository?.suggestedActors?.nodes[]? | select(.login|test("copilot|agent|swe|coding|code"; "i")) | .login] | first // empty')
           fi
 
-          if [ -z "$BOT_ID" ]; then
+          if [ -z "$COPILOT_LOGIN" ]; then
             echo "Copilot agent not suggested for assignment. Skipping."; exit 0
           fi
 
-          # Resolve issue node ID
-          ISSUE_Q=$(gh api graphql -f owner="$OWNER" -f name="$REPO" -f num="$ISSUE_NUM" -f query='
-            query($owner:String!,$name:String!,$num:Int!) {
-              repository(owner:$owner, name:$name) { issue(number:$num) { id } }
-            }')
-          ISSUE_ID=$(echo "$ISSUE_Q" | jq -r '.data.repository.issue.id // empty')
-          [ -n "$ISSUE_ID" ] || { echo "Failed to resolve issue id."; exit 1; }
-
-          # Add assignee (do not replace existing)
-          gh api graphql -f id="$ISSUE_ID" -f actors="$BOT_ID" -f query='
-            mutation($id:ID!,$actors:[ID!]!){
-              addAssigneesToAssignable(input:{assignableId:$id, assigneeIds:$actors}) {
-                assignable { __typename }
-              }
-            }'
+          # Add assignee via REST (adds, does not replace)
+          gh issue edit "$ISSUE_NUM" --repo "$OWNER/$REPO" --add-assignee "$COPILOT_LOGIN"
