@@ -21,18 +21,18 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
-      - name: Create sample failing project
+      - name: Create sample failing solution (separate src/tests)
         run: |
-          mkdir SampleApp
-          cd SampleApp
-          dotnet new console --framework net9.0
-          echo 'Console.WriteLine("Hello from failing build test");' > Program.cs
+          mkdir -p src tests
+          dotnet new console --framework net9.0 --output src/SampleApp --name SampleApp
+          # simple program
+          cat > src/SampleApp/Program.cs <<'CS'
+          Console.WriteLine("Hello from failing build test");
+          CS
 
-          # Create xUnit test project
-          dotnet new xunit -n SampleApp.Tests --framework net9.0
-          cd SampleApp.Tests
-          # Overwrite UnitTest1.cs with a guaranteed failure
-          cat > UnitTest1.cs <<'CS'
+          dotnet new xunit --framework net9.0 --output tests/SampleApp.Tests --name SampleApp.Tests
+          # guaranteed failing test
+          cat > tests/SampleApp.Tests/UnitTest1.cs <<'CS'
           using Xunit;
 
           namespace SampleApp.Tests;
@@ -46,10 +46,18 @@ jobs:
               }
           }
           CS
-          cd ../..
+
+          # solution + project reference
           dotnet new sln -n SampleSolution
-          dotnet sln add SampleApp/SampleApp.csproj
-          dotnet sln add SampleApp/SampleApp.Tests/SampleApp.Tests.csproj
+          dotnet sln SampleSolution.sln add src/SampleApp/SampleApp.csproj
+          dotnet sln SampleSolution.sln add tests/SampleApp.Tests/SampleApp.Tests.csproj
+          dotnet add tests/SampleApp.Tests/SampleApp.Tests.csproj reference src/SampleApp/SampleApp.csproj
+
+      - name: Verify layout
+        run: |
+          ls -R
+          echo "---- Solution projects ----"
+          grep -E '^Project\(' SampleSolution.sln
 
       - name: Restore
         run: dotnet restore SampleSolution.sln
@@ -58,12 +66,13 @@ jobs:
         run: dotnet build SampleSolution.sln --configuration Release --no-restore
 
       - name: Test (xUnit)
+        id: tests
+        continue-on-error: true
         run: |
           mkdir -p TestResults
           dotnet test SampleSolution.sln --no-build \
             --logger "trx;LogFileName=testresults.trx" \
-            --results-directory TestResults || true
-        # `|| true` ensures we still run later steps (artifact upload) even if tests fail
+            --results-directory TestResults
 
       - name: Upload test results artifact
         if: always()
@@ -71,3 +80,7 @@ jobs:
         with:
           name: test-results
           path: TestResults/**/*.trx
+
+      - name: Fail job if tests failed
+        if: ${{ steps.tests.outcome == 'failure' }}
+        run: exit 1
