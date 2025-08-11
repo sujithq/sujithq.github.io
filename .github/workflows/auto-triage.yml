@@ -124,7 +124,7 @@ jobs:
 
       - name: List possible assignees
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_WITH_ISSUES_WRITE != '' && secrets.PAT_WITH_ISSUES_WRITE || secrets.GITHUB_TOKEN }}
         run: |
           echo "Assignees allowed in ${{ github.repository }}:" | tee -a "$GITHUB_STEP_SUMMARY"
           gh api "repos/${{ github.repository }}/assignees?per_page=100" --paginate --jq '.[].login' | sort -u | tee assignees.txt
