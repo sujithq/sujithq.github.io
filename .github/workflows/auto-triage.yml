@@ -71,7 +71,7 @@ jobs:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           body=$(jq -n \
-            --arg model "github/gpt-5" \
+            --arg model "openai/gpt-5" \
             --rawfile content prompt.txt \
             '{model: $model, messages: [{role:"system", content:"You are a senior CI engineer. Be concise."}, {role:"user", content:$content}]}'
           )
