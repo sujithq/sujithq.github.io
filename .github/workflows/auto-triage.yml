@@ -118,7 +118,8 @@ jobs:
         run: |
           title="CI failure: ${{ github.event.workflow_run.name }} on ${{ steps.vars.outputs.branch }}"
           body=$(printf "### AI summary\n\n%s\n\n---\n\nRun: %s\nCommit: %s\n\n> Prompt (truncated)\n\n\n" "$(cat summary.md)" "${{ steps.vars.outputs.run_url }}" "${{ steps.vars.outputs.sha }}")
-          number=$(gh issue create --repo "${{ github.repository }}" --title "$title" --body "$body" --label "ci-failure" --label "needs-triage" --assignee "" --json number --jq '.number')
+          payload=$(jq -n --arg title "$title" --arg body "$body" '{title:$title, body:$body, labels:["ci-failure","needs-triage"]}')
+          number=$(echo "$payload" | gh api -X POST "repos/${{ github.repository }}/issues" --input - --jq '.number')
           echo "number=$number" >> "$GITHUB_OUTPUT"
       - name: Optionally assign to Copilot coding agent
         if: ${{ true }} # set to true when Copilot coding agent is available
