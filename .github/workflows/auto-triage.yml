@@ -149,6 +149,15 @@ jobs:
           REPO="${GITHUB_REPOSITORY#*/}"
           ISSUE_NUM="${{ steps.issue.outputs.number }}"
 
+          gh api graphql -f owner="$OWNER" -f name="$REPO" -f query='
+            query($owner:String!,$name:String!) {
+              repository(owner:$owner, name:$name) {
+                suggestedActors(capabilities:[CAN_BE_ASSIGNED], first:100) {
+                  nodes { login type: __typename ... on Node { id } }
+                }
+              }
+            }' || echo '{}'
+
           # Discover a Copilot-like actor (prefer bots)
           ACTORS=$(gh api graphql -f owner="$OWNER" -f name="$REPO" -f query='
             query($owner:String!,$name:String!) {
