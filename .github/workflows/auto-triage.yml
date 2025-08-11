@@ -154,10 +154,14 @@ jobs:
             query($owner:String!,$name:String!) {
               repository(owner:$owner, name:$name) {
                 suggestedActors(capabilities:[CAN_BE_ASSIGNED], first:100) {
-                  nodes { login type: __typename id }
+                  nodes { login type: __typename ... on Node { id } }
                 }
               }
             }' || echo '{}')
+
+          # Debug: list all suggested actors
+          echo "Suggested actors (GraphQL) for $OWNER/$REPO:" | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "$ACTORS" | jq -r '.data?.repository?.suggestedActors?.nodes[]? | "- \(.login) (type=\(.type)) id=\(.id // \"\")"' | tee -a "$GITHUB_STEP_SUMMARY"
 
           # First try bots with copilot/agent/swe in login, then any login with those terms
           BOT_ID=$(echo "$ACTORS" | jq -r '
