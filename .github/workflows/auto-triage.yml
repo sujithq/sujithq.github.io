@@ -9,6 +9,7 @@ permissions:
   actions: read
   contents: read
   issues: write
+  models: read
 
 jobs:
   triage:
@@ -70,17 +71,38 @@ jobs:
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          body=$(jq -n \
-            --arg model "openai/gpt-5" \
-            --rawfile content prompt.txt \
-            '{model: $model, messages: [{role:"system", content:"You are a senior CI engineer. Be concise."}, {role:"user", content:$content}]}'
-          )
+          set -e
+          primary_model="openai/gpt-4o"
+          fallback_model="openai/gpt-4o-mini"
+
+          make_body() {
+            jq -n \
+              --arg model "$1" \
+              --rawfile content prompt.txt \
+              '{model: $model, messages: [{role:"system", content:"You are a senior CI engineer. Be concise."}, {role:"user", content:$content}]}'
+          }
+
+          # Try primary model first
+          body=$(make_body "$primary_model")
           curl -sS https://models.github.ai/inference/chat/completions \
             -H "Authorization: Bearer $TOKEN" \
             -H "Accept: application/json" \
             -H "Content-Type: application/json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             -d "$body" | tee response.json
+
+          # If API returns an error field, retry once with fallback model
+          if jq -e '.error' response.json >/dev/null 2>&1; then
+            echo "Primary model ($primary_model) unavailable: $(jq -r '.error.message // .error.code // "unknown"' response.json)" >&2
+            body=$(make_body "$fallback_model")
+            curl -sS https://models.github.ai/inference/chat/completions \
+              -H "Authorization: Bearer $TOKEN" \
+              -H "Accept: application/json" \
+              -H "Content-Type: application/json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              -d "$body" | tee response.json
+          fi
+
           jq -r '.choices[0].message.content // empty' response.json > summary.md
           if [ ! -s summary.md ]; then echo "No AI summary produced" > summary.md; fi
       - name: Ensure labels exist
@@ -96,18 +118,20 @@ jobs:
         run: |
           title="CI failure: ${{ github.event.workflow_run.name }} on ${{ steps.vars.outputs.branch }}"
           body=$(printf "### AI summary\n\n%s\n\n---\n\nRun: %s\nCommit: %s\n\n> Prompt (truncated)\n\n\n" "$(cat summary.md)" "${{ steps.vars.outputs.run_url }}" "${{ steps.vars.outputs.sha }}")
-          gh issue create --repo "${{ github.repository }}" --title "$title" --body "$body" --label "ci-failure" --label "needs-triage" --assignee ""
+          number=$(gh issue create --repo "${{ github.repository }}" --title "$title" --body "$body" --label "ci-failure" --label "needs-triage" --assignee "" --json number --jq '.number')
+          echo "number=$number" >> "$GITHUB_OUTPUT"
       - name: Optionally assign to Copilot coding agent
         if: ${{ true }} # set to true when Copilot coding agent is available
         env:
-          GH_TOKEN: ${{ secrets.PAT_WITH_ISSUES_WRITE || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_WITH_ISSUES_WRITE != '' && secrets.PAT_WITH_ISSUES_WRITE || secrets.GITHUB_TOKEN }}
+          COPILOT_ACTOR: ${{ vars.COPILOT_ACTOR || secrets.COPILOT_ACTOR || '' }}
         run: |
-          issue_number=$(gh issue list --repo "${{ github.repository }}" \
-            --search "CI failure: ${{ github.event.workflow_run.name }} on ${{ steps.vars.outputs.branch }}" \
-            --state open --json number --jq '.[0].number')
-          # Replace 'github-copilot' with your org/user Copilot actor if different
+          issue_number='${{ steps.issue.outputs.number }}'
+          if [ -z "$COPILOT_ACTOR" ]; then
+            echo "COPILOT_ACTOR not set; skipping assignment."; exit 0;
+          fi
           if [ -n "$issue_number" ]; then
-            gh issue edit "$issue_number" --repo "${{ github.repository }}" --add-assignee github-copilot || true
+            gh issue edit "$issue_number" --repo "${{ github.repository }}" --add-assignee "$COPILOT_ACTOR" || true
           else
-            echo "No matching issue found for assignment"
+            echo "No issue number available for assignment"
           fi
