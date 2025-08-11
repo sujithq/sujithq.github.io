@@ -57,7 +57,7 @@ jobs:
         continue-on-error: true
         run: |
           mkdir -p TestResults
-          dotnet test SampleSolution.sln --no-build \
+          dotnet test SampleSolution.sln --no-build --configuration Release \
             --logger "trx;LogFileName=testresults.trx" \
             --results-directory TestResults
 
