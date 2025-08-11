@@ -3,8 +3,8 @@ title = 'Auto-triage CI failures with Copilot'
 slug = 'ai-triage-github-actions-with-copilot'
 date = '2025-08-11 06:00:00Z'
 lastmod = '2025-08-11 06:00:00Z'
-draft = true
-tags = ["GitHub", "GitHub Actions", "GitHub Copilot", "CI/CD", "Dev Productivity"]
+draft = false
+tags = ["GitHub", "GitHub Actions", "GitHub Copilot", "CI CD", "Dev Productivity"]
 categories = ["GitHub", "Automation"]
 series = ["GitHub Automation"]
 
@@ -12,6 +12,11 @@ layout = "single"
 [params]
     cover = true
     author = "sujith"
+    cover_prompt = '''Create a clean, modern technical illustration for a blog post about AI-assisted CI failure triage in GitHub Actions with GitHub Copilot.
+    Use GitHub branding colours (black, white, green) with subtle Copilot blue/teal accents.
+    Include visual elements representing: failing workflow_run, logs, TRX test results, artifacts, AI/LLM summarisation, issue creation with labels, and Copilot coding agent assignment.
+    Use geometric shapes, circuit lines, and network nodes; add small labels like "workflow_run", "artifacts", "AI summary", "issue #", and "labels".
+    Keep the style minimalist, futuristic, and enterprise-ready to appeal to cloud engineers and developers.'''
     
 description = "Use GitHub Models to summarise failed Actions runs, open an issue with next steps, and optionally assign it to the Copilot coding agent."
 +++
@@ -43,95 +48,193 @@ name: AI triage failed runs
 
 on:
   workflow_run:
-    workflows: ["build", "test", "ci"]
+    workflows: ["*"]
     types: [completed]
 
 permissions:
   actions: read
   contents: read
   issues: write
+  checks: write
+  models: read
 
 jobs:
   triage:
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     runs-on: ubuntu-latest
+    env:
+      PAT_WITH_ISSUES_WRITE: ${{ secrets.PAT_WITH_ISSUES_WRITE }}
+
     steps:
-      - name: Install tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq unzip
-      - name: Set vars
+      - name: Set variables
         id: vars
+        shell: bash
         run: |
-          echo "run_id=${{ github.event.workflow_run.id }}" >> $GITHUB_OUTPUT
-          echo "run_url=${{ github.event.workflow_run.html_url }}" >> $GITHUB_OUTPUT
-          echo "repo=${{ github.repository }}" >> $GITHUB_OUTPUT
-          echo "branch=${{ github.event.workflow_run.head_branch }}" >> $GITHUB_OUTPUT
-          echo "sha=${{ github.event.workflow_run.head_sha }}" >> $GITHUB_OUTPUT
-      - name: Download logs (zip)
+          echo "run_id=${{ github.event.workflow_run.id }}" >> "$GITHUB_OUTPUT"
+          echo "run_url=${{ github.event.workflow_run.html_url }}" >> "$GITHUB_OUTPUT"
+          echo "repo=${{ github.repository }}" >> "$GITHUB_OUTPUT"
+          echo "branch=${{ github.event.workflow_run.head_branch }}" >> "$GITHUB_OUTPUT"
+          echo "sha=${{ github.event.workflow_run.head_sha }}" >> "$GITHUB_OUTPUT"
+
+      - name: Download workflow logs (zip)
+        shell: bash
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -euo pipefail
           mkdir -p logs
-          curl -sSL -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ steps.vars.outputs.run_id }}/logs" \
-            -o logs/run-logs.zip
-          unzip -q logs/run-logs.zip -d logs
-      - name: Download artifacts
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Follow redirect to the actual ZIP download URL
+          curl -sSL -H "Authorization: Bearer $GITHUB_TOKEN" \
+            "https://api.github.com/repos/${{ steps.vars.outputs.repo }}/actions/runs/${{ steps.vars.outputs.run_id }}/logs" \
+            -o logs/run-logs.zip || true
+          unzip -q logs/run-logs.zip -d logs || echo "No logs found."
+
+      - name: Download test-results artifact
+        uses: dawidd6/action-download-artifact@v11
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          run_id: ${{ steps.vars.outputs.run_id }}
+          repo: ${{ steps.vars.outputs.repo }}
+          name: test-results
+          path: artifacts/test-results
+          if_no_artifact_found: ignore
+
+      - name: Summarize TRX test results (check run + outputs)
+        id: report
+        if: always()
+        uses: dorny/test-reporter@v2
+        with:
+          name: TestSummary
+          artifact: test-results
+          path: "**/*.trx"
+          reporter: dotnet-trx
+          only-summary: true
+          use-actions-summary: true
+          fail-on-error: false
+          fail-on-empty: false
+
+      - name: Build AI prompt (TRX summary, artifacts, logs)
+        shell: bash
         run: |
-          mkdir -p artifacts
-          gh run download ${{ steps.vars.outputs.run_id }} --repo "${{ github.repository }}" --dir artifacts || echo "No artifacts"
-          find artifacts -maxdepth 2 -type f | sed 's/^/- /' > artifacts_index.md || true
-      - name: Build AI prompt
-        id: prompt
-        run: |
-          echo "Failure in ${{ steps.vars.outputs.repo }} on branch ${{ steps.vars.outputs.branch }} at ${{ steps.vars.outputs.sha }}" > prompt.txt
-          echo "Run: ${{ steps.vars.outputs.run_url }}" >> prompt.txt
-          echo "\nGoal: Summarise failure cause and propose next steps. Keep it short." >> prompt.txt
-          echo "\nArtifacts (if any):" >> prompt.txt
-          cat artifacts_index.md >> prompt.txt || true
-          echo "\nLogs (head):" >> prompt.txt
-          for f in $(ls logs | head -n 3); do echo "--- $f ---"; head -n 60 "logs/$f"; done >> prompt.txt
-          echo "\nLogs (tail):" >> prompt.txt
-          for f in $(ls logs | head -n 3); do echo "--- $f ---"; tail -n 60 "logs/$f"; done >> prompt.txt
-      - name: Call GitHub Models (chat completions)
+          {
+            echo "Failure in ${{ steps.vars.outputs.repo }} on branch ${{ steps.vars.outputs.branch }} at ${{ steps.vars.outputs.sha }}"
+            echo "Run: ${{ steps.vars.outputs.run_url }}"
+            echo
+            echo "Goal: Summarize failure cause and propose next steps. Be concise and actionable."
+            echo
+            echo "=== Test summary (TRX via test-reporter) ==="
+            echo "- Passed:  ${{ steps.report.outputs.passed || '0' }}"
+            echo "- Failed:  ${{ steps.report.outputs.failed || '0' }}"
+            echo "- Skipped: ${{ steps.report.outputs.skipped || '0' }}"
+            if [ -n "${{ steps.report.outputs.url_html }}" ]; then
+              echo "- Report:  ${{ steps.report.outputs.url_html }}"
+            fi
+            echo
+            echo "=== Artifacts ==="
+            find artifacts -type f -maxdepth 3 | sed 's/^/- /' || true
+            echo
+            echo "=== Logs (head) ==="
+            find logs -type f -name '*.txt' | head -n 3 | xargs -r -I{} sh -c 'echo "--- {} ---"; head -n 60 "{}"'
+            echo
+            echo "=== Logs (tail) ==="
+            find logs -type f -name '*.txt' | head -n 3 | xargs -r -I{} sh -c 'echo "--- {} ---"; tail -n 60 "{}"'
+          } > prompt.txt
+
+      - name: AI triage summary
         id: ai
-        env:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          body=$(jq -n \
-            --arg model "openai/gpt-4.1" \
-            --rawfile content prompt.txt \
-            '{model: $model, messages: [{role:"system", content:"You are a senior CI engineer. Be concise."}, {role:"user", content:$content}]}'
-          )
-          curl -sS https://models.github.ai/inference/chat/completions \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "Accept: application/json" \
-            -H "Content-Type: application/json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            -d "$body" | tee response.json
-          jq -r '.choices[0].message.content // empty' response.json > summary.md
-          if [ ! -s summary.md ]; then echo "No AI summary produced" > summary.md; fi
+        uses: actions/ai-inference@v1
+        with:
+          model: openai/gpt-4o
+          system-prompt: You are a senior CI engineer. Be concise.
+          prompt-file: ./prompt.txt
+
+      - name: Ensure labels exist
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const labels = [
+              { name: 'ci-failure', color: 'B60205', description: 'CI pipeline failure' },
+              { name: 'needs-triage', color: 'D4C5F9', description: 'Requires triage' },
+            ];
+            for (const l of labels) {
+              try {
+                await github.rest.issues.getLabel({ owner, repo, name: l.name });
+              } catch {
+                await github.rest.issues.createLabel({ owner, repo, name: l.name, color: l.color, description: l.description });
+              }
+            }
+
       - name: Create issue
         id: issue
+        uses: actions/github-script@v7
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          title="CI failure: ${{ github.event.workflow_run.name }} on ${{ steps.vars.outputs.branch }}"
-          body=$(printf "### AI summary\n\n%s\n\n---\n\nRun: %s\nCommit: %s\n\n> Prompt (truncated)\n\n\n" "$(cat summary.md)" "${{ steps.vars.outputs.run_url }}" "${{ steps.vars.outputs.sha }}")
-          gh issue create --repo "${{ github.repository }}" --title "$title" --body "$body" --label "ci-failure" --label "needs-triage" --assignee ""
-      - name: Optionally assign to Copilot coding agent
-        if: ${{ false }} # set to true when Copilot coding agent is available
+          BRANCH: ${{ steps.vars.outputs.branch }}
+          RUN_URL: ${{ steps.vars.outputs.run_url }}
+          SHA: ${{ steps.vars.outputs.sha }}
+          AI: ${{ steps.ai.outputs.response }}
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const title = `CI failure: ${(context.payload.workflow_run?.name ?? 'CI')} on ${process.env.BRANCH}`;
+            const ai = process.env.AI || '';
+            const summary = ai.trim() ? ai : 'No AI summary produced';
+            const body = `### AI summary\n\n${summary}\n\n---\n\nRun: ${process.env.RUN_URL}\nCommit: ${process.env.SHA}`;
+            const res = await github.rest.issues.create({ owner, repo, title, body, labels: ['ci-failure','needs-triage'] });
+            core.setOutput('number', res.data.number.toString());
+
+      # Optional: assign to Copilot coding agent with a user PAT that can assign issues
+      - name: Assign to Copilot coding agent (optional)
+        if: ${{ env.PAT_WITH_ISSUES_WRITE != '' }}
+        uses: actions/github-script@v7
         env:
-          GH_TOKEN: ${{ secrets.PAT_WITH_ISSUES_WRITE || secrets.GITHUB_TOKEN }}
-        run: |
-          issue_number=$(gh issue list --search "CI failure: ${{ github.event.workflow_run.name }}" --state open --json number --jq '.[0].number')
-          # Replace 'github-copilot' with your org/user Copilot actor if different
-          gh issue edit "$issue_number" --add-assignee github-copilot || true
+          USER_PAT: ${{ secrets.PAT_WITH_ISSUES_WRITE }}
+          ISSUE_NUMBER: ${{ steps.issue.outputs.number }}
+        with:
+          github-token: ${{ env.USER_PAT }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const issue_number = Number(process.env.ISSUE_NUMBER);
+
+            // GraphQL to get suggested actors
+            const actorsRes = await github.graphql(
+              `query($owner:String!,$name:String!){
+                repository(owner:$owner, name:$name) {
+                  suggestedActors(capabilities:[CAN_BE_ASSIGNED], first:100) {
+                    nodes { login __typename ... on Bot { id } ... on User { id } }
+                  }
+                }
+              }`,
+              { owner, name: repo }
+            );
+            const candidates = ['copilot-swe-agent','copilot-agent','copilot'];
+            const nodes = actorsRes?.repository?.suggestedActors?.nodes || [];
+            const match = nodes.find(n => candidates.includes(n.login));
+            if (!match) {
+              core.info('Copilot agent not suggested. Skipping assignment.');
+              return;
+            }
+
+            // Get issue node id
+            const issueRes = await github.graphql(
+              `query($owner:String!,$name:String!,$num:Int!){ repository(owner:$owner, name:$name) { issue(number:$num) { id } } }`,
+              { owner, name: repo, num: issue_number }
+            );
+            const issueId = issueRes?.repository?.issue?.id;
+            if (!issueId) { core.warning('Issue ID not found'); return; }
+
+            // Assign via GraphQL
+            await github.graphql(
+              `mutation($id:ID!,$actor:ID!){
+                replaceActorsForAssignable(input:{assignableId:$id, actorIds:[$actor]}) {
+                  assignable { __typename }
+                }
+              }`,
+              { id: issueId, actor: match.id }
+            );
 ```
 
 Notes:
