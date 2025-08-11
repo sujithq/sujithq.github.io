@@ -2,7 +2,7 @@ name: AI triage failed runs
 
 on:
   workflow_run:
-    workflows: ["build", "test", "ci"]
+    workflows: ["Deploy to Github Pages", "Copilot Setup Steps", "build", "test", "ci"]
     types: [completed]
 
 permissions:
@@ -13,7 +13,7 @@ permissions:
 jobs:
   triage:
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - name: Install tools
         run: |
@@ -84,7 +84,7 @@ jobs:
           body=$(printf "### AI summary\n\n%s\n\n---\n\nRun: %s\nCommit: %s\n\n> Prompt (truncated)\n\n\n" "$(cat summary.md)" "${{ steps.vars.outputs.run_url }}" "${{ steps.vars.outputs.sha }}")
           gh issue create --repo "${{ github.repository }}" --title "$title" --body "$body" --label "ci-failure" --label "needs-triage" --assignee ""
       - name: Optionally assign to Copilot coding agent
-        if: ${{ false }} # set to true when Copilot coding agent is available
+        if: ${{ true }} # set to true when Copilot coding agent is available
         env:
           GH_TOKEN: ${{ secrets.PAT_WITH_ISSUES_WRITE || secrets.GITHUB_TOKEN }}
         run: |
