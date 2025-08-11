@@ -37,7 +37,7 @@ audio = false
     appeals to cloud engineers and .NET developers. Add small labels for key features like "JIT Optimization", 
     "Container Performance", and "Azure Integration".'''
     
-description = "Deep dive: .NET 9 on Azure—faster JIT, leaner containers, cloud-native gains for speed and savings."
+description = "Explore .NET 9’s performance leap for Azure: smarter JIT, leaner containers, and cloud-native tweaks that make apps faster and cut compute costs."
 +++
 
 .NET 9 represents a significant leap forward in performance optimization, particularly for Azure-hosted applications. With cloud costs continuing to rise and performance expectations at an all-time high, these improvements can directly impact both your application's user experience and your Azure bill. Let's explore the technical depths of what makes .NET 9 a game-changer for Azure workloads.
