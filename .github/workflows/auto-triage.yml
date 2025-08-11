@@ -121,6 +121,22 @@ jobs:
           payload=$(jq -n --arg title "$title" --arg body "$body" '{title:$title, body:$body, labels:["ci-failure","needs-triage"]}')
           number=$(echo "$payload" | gh api -X POST "repos/${{ github.repository }}/issues" --input - --jq '.number')
           echo "number=$number" >> "$GITHUB_OUTPUT"
+
+      - name: List possible assignees
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Assignees allowed in ${{ github.repository }}:" | tee -a "$GITHUB_STEP_SUMMARY"
+          gh api "repos/${{ github.repository }}/assignees?per_page=100" --paginate --jq '.[].login' | sort -u | tee assignees.txt
+          if [ -s assignees.txt ]; then
+            {
+              echo "";
+              echo "### Possible assignees";
+              sed 's/^/- /' assignees.txt;
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No assignees returned" | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Optionally assign to Copilot coding agent
         if: ${{ true }} # set to true when Copilot coding agent is available
         env:
