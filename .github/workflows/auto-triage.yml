@@ -161,10 +161,18 @@ jobs:
 
           # Debug: list all suggested actors (single-line jq to avoid YAML quoting issues)
           echo "Suggested actors (GraphQL) for $OWNER/$REPO:" | tee -a "$GITHUB_STEP_SUMMARY"
-          echo "$ACTORS" | jq -r '.data?.repository?.suggestedActors?.nodes[]? | "- \(.login // \"\") (type=\(.type // \"\")) id=\(.id // \"\")"' | tee -a "$GITHUB_STEP_SUMMARY"
+          # Use TSV output from jq and format with awk to avoid shell/YAML quoting pitfalls
+          echo "$ACTORS" \
+            | jq -r '.data?.repository?.suggestedActors?.nodes[]? | [(.login // ""), (.type // ""), (.id // "")] | @tsv' \
+            | awk -F'\t' '{ printf "- %s (type=%s) id=%s\n", $1, $2, $3 }' \
+            | tee -a "$GITHUB_STEP_SUMMARY"
 
+          # If a COPILOT_ACTOR override is provided, prefer that; otherwise auto-discover
+          COPILOT_LOGIN="${COPILOT_ACTOR:-}"
           # First try bots with copilot/agent/swe in login, then any login with those terms
-          COPILOT_LOGIN=$(echo "$ACTORS" | jq -r '[.data?.repository?.suggestedActors?.nodes[]? | select(.type=="Bot" and (.login|test("copilot|agent|swe|coding|code"; "i"))) | .login] | first // empty')
+          if [ -z "$COPILOT_LOGIN" ]; then
+            COPILOT_LOGIN=$(echo "$ACTORS" | jq -r '[.data?.repository?.suggestedActors?.nodes[]? | select(.type=="Bot" and (.login|test("copilot|agent|swe|coding|code"; "i"))) | .login] | first // empty')
+          fi
           if [ -z "$COPILOT_LOGIN" ]; then
             COPILOT_LOGIN=$(echo "$ACTORS" | jq -r '[.data?.repository?.suggestedActors?.nodes[]? | select(.login|test("copilot|agent|swe|coding|code"; "i")) | .login] | first // empty')
           fi
