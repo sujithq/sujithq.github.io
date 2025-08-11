@@ -50,13 +50,21 @@ jobs:
         run: |
           echo "Failure in ${{ steps.vars.outputs.repo }} on branch ${{ steps.vars.outputs.branch }} at ${{ steps.vars.outputs.sha }}" > prompt.txt
           echo "Run: ${{ steps.vars.outputs.run_url }}" >> prompt.txt
-          echo "\nGoal: Summarise failure cause and propose next steps. Keep it short." >> prompt.txt
-          echo "\nArtifacts (if any):" >> prompt.txt
+          printf "\nGoal: Summarise failure cause and propose next steps. Keep it short.\n" >> prompt.txt
+          printf "\nArtifacts (if any):\n" >> prompt.txt
           cat artifacts_index.md >> prompt.txt || true
-          echo "\nLogs (head):" >> prompt.txt
-          for f in $(ls logs | head -n 3); do echo "--- $f ---"; head -n 60 "logs/$f"; done >> prompt.txt
-          echo "\nLogs (tail):" >> prompt.txt
-          for f in $(ls logs | head -n 3); do echo "--- $f ---"; tail -n 60 "logs/$f"; done >> prompt.txt
+          printf "\nLogs (head):\n" >> prompt.txt
+          mapfile -t LOG_FILES < <(find logs -maxdepth 2 -type f | head -n 3)
+          if [ ${#LOG_FILES[@]} -eq 0 ]; then echo "(no log files found under logs/)" >> prompt.txt; fi
+          for f in "${LOG_FILES[@]}"; do
+            echo "--- $f ---" >> prompt.txt
+            head -n 60 "$f" >> prompt.txt || true
+          done
+          printf "\nLogs (tail):\n" >> prompt.txt
+          for f in "${LOG_FILES[@]}"; do
+            echo "--- $f ---" >> prompt.txt
+            tail -n 60 "$f" >> prompt.txt || true
+          done
       - name: Call GitHub Models (chat completions)
         id: ai
         env:
