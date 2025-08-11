@@ -102,6 +102,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT_WITH_ISSUES_WRITE || secrets.GITHUB_TOKEN }}
         run: |
-          issue_number=$(gh issue list --search "CI failure: ${{ github.event.workflow_run.name }}" --state open --json number --jq '.[0].number')
+          issue_number=$(gh issue list --repo "${{ github.repository }}" \
+            --search "CI failure: ${{ github.event.workflow_run.name }} on ${{ steps.vars.outputs.branch }}" \
+            --state open --json number --jq '.[0].number')
           # Replace 'github-copilot' with your org/user Copilot actor if different
-          gh issue edit "$issue_number" --add-assignee github-copilot || true
+          if [ -n "$issue_number" ]; then
+            gh issue edit "$issue_number" --repo "${{ github.repository }}" --add-assignee github-copilot || true
+          else
+            echo "No matching issue found for assignment"
+          fi
