@@ -145,7 +145,19 @@ jobs:
         run: |
           issue_number='${{ steps.issue.outputs.number }}'
           if [ -z "$COPILOT_ACTOR" ]; then
-            echo "COPILOT_ACTOR not set; skipping assignment."; exit 0;
+            echo "COPILOT_ACTOR not set; attempting auto-discovery..."
+            # Prefer bots whose login hints at copilot/agent/swe
+            COPILOT_ACTOR=$(gh api "repos/${{ github.repository }}/assignees?per_page=100" --paginate \
+              --jq '[.[] | select((.type|ascii_downcase=="bot") and (.login|test("copilot|agent|swe"; "i"))) | .login] | first // empty')
+            if [ -z "$COPILOT_ACTOR" ]; then
+              COPILOT_ACTOR=$(gh api "repos/${{ github.repository }}/assignees?per_page=100" --paginate \
+                --jq '[.[] | select((.login|test("copilot|agent|swe"; "i"))) | .login] | first // empty')
+            fi
+            if [ -n "$COPILOT_ACTOR" ]; then
+              echo "Auto-discovered COPILOT_ACTOR=$COPILOT_ACTOR"
+            else
+              echo "No Copilot-like assignee found; skipping assignment."; exit 0;
+            fi
           fi
           if [ -n "$issue_number" ]; then
             gh issue edit "$issue_number" --repo "${{ github.repository }}" --add-assignee "$COPILOT_ACTOR" || true
