@@ -46,7 +46,7 @@
     .resp-sharing-button--#{$name} {
       background-color: $color;
       border-color: $color;
-      
+
       &:hover {
         background-color: darken($color, 10%);
         border-color: darken($color, 10%);
@@ -54,6 +54,37 @@
       &:active {
         background-color: darken($color, 10%);
         border-color: darken($color, 10%);
+      }
+    }
+
+    /* Uniform sizing for share buttons when used in blog detail bar */
+    .share-actions {
+      .btn {
+        padding: 0; // outer button acts as container only
+        line-height: 1;
+        border: none;
+        width: 84px;
+        height: 84px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .resp-sharing-button__link { margin: 0; }
+
+      .resp-sharing-button {
+        padding: 0; // make the colored tile fill the square
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .resp-sharing-button__icon { margin: 0; }
+
+      @media (max-width: 400px) {
+        .btn { width: 42px; height: 42px; }
       }
     }
   }
