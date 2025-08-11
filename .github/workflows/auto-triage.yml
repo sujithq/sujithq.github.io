@@ -19,8 +19,8 @@ jobs:
       PAT_WITH_ISSUES_WRITE: ${{ secrets.PAT_WITH_ISSUES_WRITE }}
 
     steps:
-      - name: Install GitHub CLI
-        uses: cli/cli-action@v2
+      # - name: Install GitHub CLI
+      #   uses: cli/cli-action@v2
 
       - name: Set vars
         id: vars
