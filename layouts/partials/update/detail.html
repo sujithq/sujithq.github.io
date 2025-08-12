@@ -7,8 +7,6 @@
   {{ $lastTag = lower (index . (sub (len .) 1)) }}
 {{ end }}
 
-{{ printf $lastTag }}
-
 {{/* Attempt to resolve a cover image asset based on last tag under /assets/images/updates/ */}}
 {{ $cover := resources.Get (printf "media/updates/%s.jpg" $lastTag) }}
 
