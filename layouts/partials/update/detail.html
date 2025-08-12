@@ -1,0 +1,118 @@
+{{ $author := site.GetPage (printf "authors/%s" .page.Params.author) }}
+{{ $resume := site.GetPage "resume" }}
+{{ $home := site.GetPage "/updates" }}
+
+{{ $lastTag := "" }}
+{{ with .page.Params.tags }}
+  {{ $lastTag = lower (index . (sub (len .) 1)) }}
+{{ end }}
+
+{{ printf $lastTag }}
+
+{{/* Attempt to resolve a cover image asset based on last tag under /assets/images/updates/ */}}
+{{ $cover := resources.Get (printf "media/updates/%s.jpg" $lastTag) }}
+
+
+{{ if .page.Params.unlisted }}
+  {{ partial "notice-card.html" (dict
+    "type" "info"
+    "title" "Unlisted Post"
+    "icon" "eye-slash"
+    "content" "This post is not publicly listed and is only accessible via direct link. It may be under review or in draft status.") }}
+{{ end }}
+
+{{ if not .isIndex }}
+  <a href="{{$home.Permalink}}"><i class="fas fa-arrow-left mx-1"></i>All updates</a>
+  <div class="text-center">
+    <span class="mx-1">Written by</span>
+    <span>
+      {{ if $resume }}
+        <a href="{{ $resume.RelPermalink }}">{{ $author.Title }}</a>
+      {{ else }}
+        {{ partial "gravatar/avatar-params" (dict "Email" $author.Params.email "ClassName" "rounded-circle flex-shrink-0" "Size" "20" "Alt" $author.Title) }}
+      {{ end }}
+    </span>
+    <span class="mx-1">•</span>
+    <span>{{ with .page.Lastmod }}{{ . | time.Format $.page.Site.Params.dateFormat }}{{ else }}{{ .page.Date | time.Format .page.Site.Params.dateFormat }}{{ end }}</span>
+  </div>
+  <h1 class="text-center"><strong>{{ .page.Title }}</strong></h1>
+  {{ if .page.Params.audio }}
+    {{ partial "audio-player.html" (dict "src" "tts.ogg") }}
+  {{ end }}
+
+{{ end }}
+<div class="card border-0 mt-3 mb-3">
+<div class="text-center">
+{{ $webp := $cover.Fill "1792x1024 webp" }}
+      {{ $fallback := $cover.Fill "1792x1024" }}
+      {{ if .useLink }}
+        <a href="{{ .page.RelPermalink }}">
+          <picture>
+            <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+            <img src="{{ $fallback.RelPermalink }}" alt="{{ .page.Params.description }}" class="img-fluid rounded" loading="lazy" />
+          </picture>
+        </a>
+      {{ else }}
+        <picture>
+          <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+          <img src="{{ $fallback.RelPermalink }}" alt="{{ .page.Params.description }}" class="img-fluid rounded" loading="lazy" />
+        </picture>
+      {{ end }}
+
+</div>
+
+  <div class="text-center mt-3">
+
+  <div class="d-flex flex-wrap gap-0 w-100 justify-content-start justify-content-md-center rounded share-actions" role="group" aria-label="Share">
+      <button type="button" class="btn resp-sharing-button--facebook"><a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u={{ .page.Permalink }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fab fa-facebook"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--twitter"><a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text={{ .page.Title }}&amp;url={{ .page.Permalink }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fab fa-x-twitter"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--tumblr"><a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title={{ .page.Title }}&amp;caption={{ .page.Title }}&amp;content={{ .page.Permalink }}&amp;canonicalUrl={{ .page.Permalink }}&amp;shareSource=tumblr_share_button" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fa-brands fa-square-tumblr"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--email"><a class="resp-sharing-button__link" href="mailto:?subject={{ .page.Title }}&amp;body={{ .page.Permalink }}" target="_self" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fas fa-envelope"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--pinterest"><a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url={{ .page.Permalink }}&amp;media={{ .page.Permalink }}&amp;description={{ .page.Title }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fab fa-pinterest"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--linkedin"><a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ .page.Permalink }}&amp;title={{ .page.Title }}&amp;summary={{ .page.Title }}&amp;source={{ .page.Permalink }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fab fa-linkedin"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--reddit"><a class="resp-sharing-button__link" href="https://reddit.com/submit/?url={{ .page.Permalink }}&amp;resubmit=true&amp;title={{ .page.Title }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fab fa-reddit"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--xing"><a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url={{ .page.Permalink }};title={{ .page.Title }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fa-brands fa-square-xing"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--whatsapp"><a class="resp-sharing-button__link" href="whatsapp://send?text={{ .page.Title }}%20{{ .page.Permalink }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fab fa-whatsapp"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--hackernews"><a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u={{ .page.Permalink }}&amp;t={{ .page.Title }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fa-brands fa-square-hacker-news"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--vk"><a class="resp-sharing-button__link" href="http://vk.com/share.php?title={{ .page.Title }}&amp;url={{ .page.Permalink }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--vk resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fa-brands fa-vk"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--telegram"><a class="resp-sharing-button__link" href="https://telegram.me/share/url?text={{ .page.Title }}&amp;url={{ .page.Permalink }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fab fa-telegram"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--flipboard"><a class="resp-sharing-button__link" href="https://share.flipboard.com/bookmarklet/popout?v=2&title={{ .page.Title }}&url={{ .page.Permalink }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--flipboard resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fa-brands fa-flipboard"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--pocket"><a class="resp-sharing-button__link" href="https://getpocket.com/save?url={{ .page.Permalink }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--pocket resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fa-brands fa-get-pocket"></i></div></div></a></button>
+      <button type="button" class="btn resp-sharing-button--buffer"><a class="resp-sharing-button__link" href="https://bufferapp.com/add?url={{ .page.Permalink }}&text={{ .page.Title }}" target="_blank" rel="noopener" aria-label=""><div class="resp-sharing-button resp-sharing-button--buffer resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><i class="fa-brands fa-buffer"></i></div></div></a></button>
+    </div>
+
+
+
+  </div>
+  <div class="card-body">
+    {{ if .isIndex }}
+      <h1 class="card-title"><strong>{{ .page.Title }}</strong></h1>
+    {{ end }}
+    <div class="d-flex align-items-center">
+      <span>{{ with .page.Lastmod }}{{ . | time.Format $.page.Site.Params.dateFormat }}{{ else }}{{ .page.Date | time.Format .page.Site.Params.dateFormat }}{{ end }}</span>
+    </div>
+    <div>
+      {{ if .useContent }}
+        {{ .page.Content }}
+      {{ else }}
+        {{ .page.Params.description }}
+      {{ end }}
+    </div>
+    {{ if .showTaxonomy }}
+      {{ partial "taxonomy.html" (dict "page" .page) }}
+    {{ end }}
+
+    <!-- GitAds Banner -->
+  {{ partial "gitads-banner.html" }}
+  <!-- /GitAds Banner -->
+
+  </div>
+</div>
+
+{{ if .showComments}}
+  <div class="card border-0 mt-3">
+    <div class="card-body">
+      {{ template "_internal/disqus.html" .page }}
+    </div>
+  </div>
+{{ end }}

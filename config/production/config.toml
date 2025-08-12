@@ -64,6 +64,12 @@ buildFuture = false
    weight = 3
    parent = "tools"
 
+  [[menu.main]]
+    identifier = "updates"
+    name = "Updates"
+    url = "/updates"
+    weight = 5
+
 # [params]
 #   prismjsTheme = "okaidia"
 

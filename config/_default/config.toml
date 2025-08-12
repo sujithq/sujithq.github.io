@@ -111,7 +111,11 @@ buildFuture = false
    url = "/tools/tech-radar"
    weight = 3
    parent = "tools"
-
+ [[menu.main]]
+   identifier = "updates"
+   name = "Updates"
+   url = "/updates"
+   weight = 5
 [services]
     [services.disqus]
     shortname = 'sujithq'

@@ -2,6 +2,9 @@
 {{ if eq .Section "posts" }}
   {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/posts.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ else if eq .Section "updates" }}
+  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/posts.scss")) }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{ else if eq .Section "resume" }}
   {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/resume.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">

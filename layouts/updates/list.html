@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="container">
+  {{ $paginator := .Paginator }}
+  {{ $pages := where (where site.RegularPages "Section" "updates") ".Params.unlisted" "!=" true }}
+  {{ $title := printf "%s page %d" .Title $paginator.PageNumber }}
+
+  {{ partial "posts-archive.html" (dict
+    "pages" $pages
+    "title" $title
+    "showIcon" false
+  ) }}
+
+  <div class="row g-0">
+    <div class="col-lg-12 d-flex justify-content-center">
+      {{ partial "pagination.html" (dict "paginator" $paginator) }}
+    </div>
+  </div>
+</div>
+{{ end }}
