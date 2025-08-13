@@ -44,28 +44,6 @@ Manually curating weekly platform updates (Azure service changes, GitHub changel
   Repo content <────────────── write markdown posts <──────────── assemble front matter
 ```
 
-```mermaid
-flowchart TD
-  ga[GitHub Action]
-  pwsh[PowerShell Script]
-  ai[AI Summarisation]
-
-  ga-->|"cron 05:15 UTC"|pwsh
-  pwsh-->|"Grouped"|ai
-
-  rc[Repo Content]
-  md[Write markdown posts]
-  as[Assemble Front Matter]
-
-ga-->|"Commit if changed"|rc
-pwsh-->|"Filtered Items"|md
-ai-->|"Summaries"|as
-
-as-->md
-md-->rc
-
-```
-
 ## Scheduling & cadence
 
 The workflow runs daily at `05:15 UTC` but per‑source publication cadence is controlled inside the script using a frequency map (`Azure=weekly,GitHub=weekly,Terraform=weekly` by default). The script:
@@ -253,7 +231,6 @@ function Invoke-WeeklyUpdates { <# full body preserved in repo #> }
 > For the complete, unabridged script (including all functions such as `Compute-BaseWindow`, `Summarize-Items`, `Write-PerTypePost`), view the source directly in the repository to benefit from future updates.
 
 _Note: Full script (including all helper functions) is in `.github/scripts/generate-updates.ps1` in the repository._
-
 
 ## Security considerations
 
