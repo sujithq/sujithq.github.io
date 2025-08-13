@@ -2,3 +2,4 @@
   theme = "light"
   themes = ["dark", "light"]
   environment = "development"
+  updatesPageSize = 10

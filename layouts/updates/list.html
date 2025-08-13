@@ -1,11 +1,20 @@
 {{ define "main" }}
 <div class="container">
-  {{ $paginator := .Paginator }}
+  {{/* Collect all visible update pages */}}
   {{ $pages := where (where site.RegularPages "Section" "updates") ".Params.unlisted" "!=" true }}
+
+  {{/* Allow custom page size via site param, fallback to 15 (different from posts page size) */}}
+  {{ $defaultUpdatePageSize := 10 }}
+  {{ $updatePageSize := or site.Params.updatesPageSize $defaultUpdatePageSize }}
+
+  {{/* Create paginator with custom size */}}
+  {{ $paginator := .Paginate $pages $updatePageSize }}
   {{ $title := printf "%s page %d" .Title $paginator.PageNumber }}
 
-  {{ partial "posts-archive.html" (dict
-    "pages" $pages
+  {{/* Pass only the current page's pages to archive partial so grouping reflects current page subset */}}
+  {{ $pageItems := $paginator.Pages }}
+  {{ partial "updates-archive.html" (dict
+    "pages" $pageItems
     "title" $title
     "showIcon" false
   ) }}

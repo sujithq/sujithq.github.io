@@ -26,11 +26,15 @@
     {{- if strings.Contains .RelPermalink "/posts/" }}
       <meta name="robots" content="index,follow">
     {{- else if .IsNode }}
-      {{- $p := .Paginator }}
-      {{- if gt $p.PageNumber 1 }}
-        <meta name="robots" content="noindex,follow">
-      {{- else }}
+      {{- if eq .Section "updates" }}
         <meta name="robots" content="index,follow">
+      {{- else }}
+        {{- $p := .Paginator }}
+        {{- if gt $p.PageNumber 1 }}
+          <meta name="robots" content="noindex,follow">
+        {{- else }}
+          <meta name="robots" content="index,follow">
+        {{- end }}
       {{- end }}
     {{- else }}
       <meta name="robots" content="index,follow">

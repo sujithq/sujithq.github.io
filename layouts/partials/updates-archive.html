@@ -1,0 +1,72 @@
+{{/*
+  Updates Archive Partial
+  Displays updates grouped by year and month with thumbnails
+
+  Parameters:
+  - pages: The collection of pages to display
+  - title: Optional title to display at the top
+  - showIcon: Whether to show an icon next to the title
+  - iconType: Type of icon (tags, folder, layer-group)
+*/}}
+
+{{ $pages := .pages }}
+{{ $title := .title }}
+{{ $showIcon := .showIcon }}
+{{ $iconType := .iconType }}
+
+<div class="row g-0">
+  <div class="col-lg-12">
+    <div class="card border-primary col-lg-12">
+      <div class="card-body">
+        <div class="container mt-0">
+          {{ if $title }}
+          <h1>
+            {{ if $showIcon }}
+            <i class="fas fa-{{ $iconType }} mx-1"></i>
+            {{ end }}
+            {{ $title }}
+          </h1>
+          {{ end }}
+          <div class="row">
+            <div class="col-lg-12">
+              {{ $archives := $pages.GroupByDate "2006" }}
+              {{ range $index, $item := $archives }}
+                {{ $KeyYear := .Key}}
+                <h2 class="mb-0" id="{{ $KeyYear }}">{{ .Key }} ({{ len $item.Pages }})</h2>
+                {{ $pgs := $item.Pages.GroupByDate "January" }}
+                {{ range $idx, $it := $pgs }}
+                  <h3 id="{{ $KeyYear }}{{ .Key }}" class="ms-2 mb-0">{{ .Key }} ({{ len $it.Pages }})</h3>
+                  {{ range $inx, $itm := ($it.Pages) }}
+                    {{/* Derive cover image same way as detail.html: take last tag and map to assets/media/updates/<tag>.jpg */}}
+                    {{ $lastTag := "" }}
+                    {{ with $itm.Params.tags }}
+                      {{ $lastTag = lower (index . (sub (len .) 1)) }}
+                    {{ end }}
+                    {{ $image := resources.Get (printf "media/updates/%s.jpg" $lastTag) }}
+                    <h4 class="ms-3 mb-1">
+                      <span class="mx-1">
+                        {{ if $image }}
+                        {{ $webp := $image.Fill "50x50 q100 Center webp" }}
+                        {{ $fallback := $image.Fill "50x50 q100 Center" }}
+                        <picture>
+                          <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+                          <img src="{{ $fallback.RelPermalink }}" alt="{{$itm.Params.description}}" width="50" height="50">
+                        </picture>
+                        {{ else }}
+                        <svg class="bg-light d-inline-block" width="50" height="50" role="img" aria-label="No cover image">
+                          <rect width="50" height="50" fill="currentColor" fill-opacity="0.05"></rect>
+                        </svg>
+                        {{ end }}
+                      </span>
+                      <a href="{{ $itm.RelPermalink }}">{{ $itm.Title }}</a>
+                    </h4>
+                  {{ end }}
+                {{ end }}
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
