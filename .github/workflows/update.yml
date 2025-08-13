@@ -23,7 +23,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          pwsh ./.github/scripts/updates-weekly.ps1 -RepoRoot . -ContentDir content/updates -MaxAzure 20 -MaxGitHub 12 -MaxTerraform 8 -ShowApiUrls -Frequencies Azure=weekly,GitHub=weekly,Terraform=weekly -ModelPool 'openai/gpt-5','openai/gpt-5-mini','openai/gpt-4.1','openai/gpt-4.1-mini','openai/gpt-4o','openai/gpt-4o-mini' -CleanOutput
+          pwsh ./.github/scripts/generate-updates.ps1 -RepoRoot . -ContentDir content/updates -MaxAzure 20 -MaxGitHub 12 -MaxTerraform 8 -ShowApiUrls -Frequencies Azure=weekly,GitHub=weekly,Terraform=weekly -ModelPool 'openai/gpt-5','openai/gpt-5-mini','openai/gpt-4.1','openai/gpt-4.1-mini','openai/gpt-4o','openai/gpt-4o-mini' -CleanOutput
 
       - name: Commit & push (if changed)
         run: |
