@@ -1,5 +1,5 @@
 +++
-title = "Updates"
+title = "Weekly Cloud Updates: Azure, GitHub, Terraform"
 description = "Aggregated weekly, bi-weekly, and monthly technology update digests."
 +++
 

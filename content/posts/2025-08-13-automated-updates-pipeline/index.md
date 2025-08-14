@@ -1,9 +1,9 @@
 +++
 title = '⚙️ Automated Updates Pipeline'
 slug = 'automated-updates-pipeline'
-date = '2025-08-13 00:00:00Z'
-lastmod = '2025-08-13 00:00:00Z'
-draft = true
+date = '2025-08-13 06:00:00Z'
+lastmod = '2025-08-13 06:00:00Z'
+draft = false
 tags = [
   'Azure',
   'GitHub',
