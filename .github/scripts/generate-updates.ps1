@@ -417,7 +417,7 @@ function Write-PerTypePost {
       $folderName = ('{0:0000}-{1:00}-{2}-w{3:D2}' -f $yw,$winStartLocal.Month,$slug,$w)
     }
   }
-  $desc  = "Highlights from $TypeName between $($winStartLocal.ToString('yyyy-MM-dd')) and $($winEndLocal.ToString('yyyy-MM-dd'))."
+  $desc  = "Highlights from $TypeName between $($winStartLocal.ToString('yyyy-MM-dd')) and $($winEndLocal.ToString('yyyy-MM-dd')) — explore updates, new features, bug fixes, and important enhancements for this period."
   $body  = Convert-ItemsToMarkdown -items $Items -windowStartLocal $winStartLocal -windowEndLocal $winEndLocal
   $targetDir = Join-Path $RepoRoot $ContentDir; New-Item -ItemType Directory -Force -Path $targetDir | Out-Null
   $folder = Join-Path $targetDir $folderName; New-Item -ItemType Directory -Force -Path $folder | Out-Null
