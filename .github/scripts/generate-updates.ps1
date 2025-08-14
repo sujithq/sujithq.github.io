@@ -263,7 +263,13 @@ function Format-LinkUrl([string]$u){ if(-not $u){ return '' }; $clean = $u.Trim(
 
 # --- Source fetchers (parameterized)
 $AzureRss = 'https://aztty.azurewebsites.net/rss/updates'
-function Get-AzureUpdates { param([datetime]$StartUtc,[datetime]$EndUtc,[Parameter(Mandatory)][int]$Limit,[switch]$ShowUrls)
+function Get-AzureUpdates {
+  param(
+    [datetime]$StartUtc,
+    [datetime]$EndUtc,
+    [Parameter(Mandatory)][int]$Limit,
+    [switch]$ShowUrls
+  )
   Log 'Fetch: Azure updates (Azure Charts RSS)'
   Log "Azure limit (requested) = $Limit"
   if($ShowUrls){ Log "URL: $AzureRss" }
@@ -272,17 +278,38 @@ function Get-AzureUpdates { param([datetime]$StartUtc,[datetime]$EndUtc,[Paramet
     if(-not $resp.Content){ throw 'Empty response body' }
     try { [xml]$rss = $resp.Content } catch { throw "RSS XML parse failed: $($_.Exception.Message)" }
     if(-not $rss.rss.channel.item){ return @() }
-    $items = foreach($i in $rss.rss.channel.item){
-      if(-not $i.pubDate){ continue }
+
+    $items = foreach($i in $rss.rss.channel.item) {
+      # Only take links starting with https://azure.
+      if (-not $i.link -or -not ($i.link -like 'https://azure.*')) { continue }
+      if (-not $i.pubDate) { continue }
       $pub = Get-Date $i.pubDate -ErrorAction SilentlyContinue
-      if(-not $pub){ continue }
-      if($pub -lt $StartUtc -or $pub -gt $EndUtc){ continue }
-      [pscustomobject]@{ source='Azure'; title=[string]$i.title; url=[string]$i.link; publishedAt=$pub.ToUniversalTime(); raw=[string]$i.description }
+      if (-not $pub) { continue }
+      if ($pub -lt $StartUtc -or $pub -gt $EndUtc) { continue }
+
+      [pscustomobject]@{
+        source      = 'Azure'
+        title       = [string]$i.title
+        url         = [string]$i.link
+        publishedAt = $pub.ToUniversalTime()
+        raw         = [string]$i.description
+      }
     }
-  if($Limit -lt 1){ Log 'Azure limit <1 -> returning 0 items'; return @() }
-  return ($items | Where-Object { $_ }) | Sort-Object publishedAt -Descending | Select-Object -First $Limit
-  } catch { Write-Warning "Azure RSS failed: $($_.Exception.Message)"; return @() }
+
+    if ($Limit -lt 1) {
+      Log 'Azure limit <1 -> returning 0 items'
+      return @()
+    }
+    return ($items | Where-Object { $_ }) |
+      Sort-Object publishedAt -Descending |
+      Select-Object -First $Limit
+
+  } catch {
+    Write-Warning "Azure RSS failed: $($_.Exception.Message)"
+    return @()
+  }
 }
+
 
 $GitHubChangelogRss = 'https://github.blog/changelog/feed/'
 function Get-GitHubChangelog { param([datetime]$StartUtc,[datetime]$EndUtc,[Parameter(Mandatory)][int]$Limit,[switch]$ShowUrls)
