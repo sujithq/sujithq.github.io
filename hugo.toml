@@ -61,7 +61,7 @@ theme = ["github.com/sujithq/ideal-octo-guacamole"]
 [[params.socials]]
   name = "buymeacoffee"
   url = "https://www.buymeacoffee.com/sujithq"
-  icon = "fab fa-buymeacoffee"
+  icon = "fa fa-mug-hot"
 
 [module]
   [module.hugoVersion]
