@@ -58,6 +58,11 @@ theme = ["github.com/sujithq/ideal-octo-guacamole"]
   url = "https://www.instagram.com/sujithquintelier/"
   icon = "fab fa-instagram"
 
+[[params.socials]]
+  name = "buymeacoffee"
+  url = "https://www.buymeacoffee.com/sujithq"
+  icon = "fab fa-buymeacoffee"
+
 [module]
   [module.hugoVersion]
     extended = false
