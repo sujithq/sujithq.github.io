@@ -40,12 +40,12 @@ theme = ["github.com/sujithq/ideal-octo-guacamole"]
 
 [[params.socials]]
   name = "mastodon"
-  url = "https://mastodon.com/in/sujithq/"
+  url = "https://mastodon.social/@sujithq"
   icon = "fab fa-mastodon"
 
 [[params.socials]]
   name = "bsky"
-  url = "https://bsky.app/profile/sujithq.bsky.social/"
+  url = "https://bsky.app/profile/sujithq.bsky.social"
   icon = "fa-brands fa-bluesky"
 
 [[params.socials]]
