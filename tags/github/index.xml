@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Github on Sujith Quintelier</title><link>https://sujithq.github.io/tags/github/</link><description>Recent content in Github on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 16 Aug 2025 05:35:53 +0000</lastBuildDate><atom:link href="https://sujithq.github.io/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>GitHub Weekly – 2025 Week 33</title><link>https://sujithq.github.io/updates/2025-08-github-weekly-w33/</link><pubDate>Wed, 13 Aug 2025 12:50:21 +0000</pubDate><guid>https://sujithq.github.io/updates/2025-08-github-weekly-w33/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-11 → 2025-08-17 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-15-deprecating-copilot-text-completion-for-pull-request-descriptions">Deprecating Copilot text completion for pull request descriptions&lt;/a>&lt;/strong> — GitHub will deprecate Copilot&amp;rsquo;s text completion feature for pull request descriptions starting August 15, 2025.
+&lt;ul>
+&lt;li>Copilot text completion for pull request descriptions will be deprecated&lt;/li>
+&lt;li>Deprecation effective from August 15, 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-15-github-actions-policy-now-supports-blocking-and-sha-pinning-actions">GitHub Actions policy now supports blocking and SHA pinning actions&lt;/a>&lt;/strong> — GitHub Actions policy now allows administrators to block specific actions and require SHA pinning for actions as of August 15, 2025.
+&lt;ul>
+&lt;li>Administrators can block the use of specific actions in workflows.&lt;/li>
+&lt;li>Policies can enforce SHA pinning, requiring actions to reference a specific commit SHA.&lt;/li>
+&lt;li>Update is available globally for GitHub Actions as of August 15, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-14-codeql-expands-kotlin-support-and-additional-accuracy-improvements">CodeQL expands Kotlin support and additional accuracy improvements&lt;/a>&lt;/strong> — CodeQL has expanded its support for Kotlin and introduced several accuracy improvements as of August 14, 2025.
+&lt;ul>
+&lt;li>Expanded CodeQL support for Kotlin, enabling broader code analysis capabilities.&lt;/li>
+&lt;li>Implemented additional accuracy improvements to CodeQL queries and results.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-14-clearer-pull-request-reviewer-status-and-enhanced-email-filtering">Clearer pull request reviewer status and enhanced email filtering&lt;/a>&lt;/strong> — GitHub has updated pull request reviewer status indicators for greater clarity and introduced improved email filtering options as of August 14, 2025.
+&lt;ul>
+&lt;li>Pull request reviewer status is now displayed more clearly in the UI.&lt;/li>
+&lt;li>Enhanced email filtering capabilities have been added for notifications.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-model-context-protocol-mcp-support-for-jetbrains-eclipse-and-xcode-is-now-generally-available">Model Context Protocol (MCP) support for JetBrains, Eclipse, and Xcode is now generally available&lt;/a>&lt;/strong> — GitHub has made Model Context Protocol (MCP) support generally available for JetBrains, Eclipse, and Xcode IDEs as of August 14, 2025.
+&lt;ul>
+&lt;li>MCP support is now generally available for JetBrains, Eclipse, and Xcode IDEs.&lt;/li>
+&lt;li>Release date: August 14, 2025.&lt;/li>
+&lt;li>Applies to GitHub integrations with these IDEs.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-expanded-file-type-support-for-attachments-across-issues-pull-requests-and-discussions">Expanded file type support for attachments across issues, pull requests, and discussions&lt;/a>&lt;/strong> — GitHub has expanded the range of supported file types for attachments in issues, pull requests, and discussions as of August 14, 2025.
+&lt;ul>
+&lt;li>Additional file types can now be attached to issues, pull requests, and discussions on GitHub.&lt;/li>
+&lt;li>The update is effective globally from August 14, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-added-last_authenticated_at-to-the-copilot-user-management-api">Added last_authenticated_at to the Copilot user management API&lt;/a>&lt;/strong> — GitHub Copilot&amp;rsquo;s user management API now includes a &amp;rsquo;last_authenticated_at&amp;rsquo; field as of August 13, 2025.
+&lt;ul>
+&lt;li>&amp;rsquo;last_authenticated_at&amp;rsquo; field added to Copilot user management API&lt;/li>
+&lt;li>Field indicates the last authentication time for a user&lt;/li>
+&lt;li>Available starting August 13, 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-spark-resilience-improvements">Spark resilience improvements&lt;/a>&lt;/strong> — GitHub has released resilience improvements for Spark as of August 13, 2025.
+&lt;ul>
+&lt;li>Enhanced Spark&amp;rsquo;s ability to recover from failures and maintain service continuity&lt;/li>
+&lt;li>Update released globally on August 13, 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-gpt-5-mini-now-available-in-github-copilot-in-public-preview">GPT-5 mini now available in GitHub Copilot in public preview&lt;/a>&lt;/strong> — GitHub Copilot has introduced GPT-5 mini in public preview as of August 13, 2025.
+&lt;ul>
+&lt;li>GPT-5 mini model is now available in GitHub Copilot.&lt;/li>
+&lt;li>The feature is released in public preview starting August 13, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-github-mcp-server-secret-scanning-push-protection-and-more">GitHub MCP Server: Secret scanning, push protection, and more&lt;/a>&lt;/strong> — GitHub MCP Server update on August 13, 2025, introduces secret scanning and push protection features among other improvements.
+&lt;ul>
+&lt;li>Introduced secret scanning to detect sensitive information in code.&lt;/li>
+&lt;li>Added push protection to prevent accidental commits of secrets.&lt;/li>
+&lt;li>Other unspecified improvements to GitHub MCP Server.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>⚙️ Automated Updates Pipeline</title><link>https://sujithq.github.io/posts/2025/08/automated-updates-pipeline/</link><pubDate>Wed, 13 Aug 2025 06:00:00 +0000</pubDate><guid>https://sujithq.github.io/posts/2025/08/automated-updates-pipeline/</guid><description>&lt;h2 id="why-this-pipeline-exists">Why this pipeline exists&lt;/h2>
+&lt;p>Manually curating weekly platform updates (Azure service changes, GitHub changelog entries, Terraform provider releases) is repetitive, time‑sensitive, and error‑prone. This pipeline automates the whole path from data acquisition → AI summarisation → Hugo markdown generation → commit, delivering consistent, timestamped update posts under &lt;code>content/updates&lt;/code>.&lt;/p>
+&lt;h2 id="highlevel-architecture">High‑level architecture&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>┌───────────────┐ cron 05:15 UTC ┌───────────────────┐ grouped items ┌──────────────────┐
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ GitHub Action │ ─────────────────&amp;gt; │ PowerShell Script │ ───────────────&amp;gt; │ AI Summarisation │
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─────┬─────────┘ └──────────┬────────┘ └────────┬─────────┘
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> │ commit (if changed) │ filtered items │ summaries
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> V V V
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Repo content &amp;lt;────────────── write markdown posts &amp;lt;──────────── assemble front matter
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="scheduling--cadence">Scheduling &amp;amp; cadence&lt;/h2>
+&lt;p>The workflow runs daily at &lt;code>05:15 UTC&lt;/code> but per‑source publication cadence is controlled inside the script using a frequency map (&lt;code>Azure=weekly,GitHub=weekly,Terraform=weekly&lt;/code> by default). The script:&lt;/p></description></item><item><title>Auto-triage CI failures with Copilot</title><link>https://sujithq.github.io/posts/2025/08/ai-triage-github-actions-with-copilot/</link><pubDate>Mon, 11 Aug 2025 06:00:00 +0000</pubDate><guid>https://sujithq.github.io/posts/2025/08/ai-triage-github-actions-with-copilot/</guid><description>&lt;p>Failures happen: the key is shortening time-to-understanding. In this guide, you’ll automate triage when a GitHub Actions workflow fails: pull logs and artifacts, get an AI summary from GitHub Models, open an issue with concrete next steps, and optionally assign it to the Copilot coding agent.&lt;/p>
+&lt;h2 id="what-youll-build">What you’ll build&lt;/h2>
+&lt;ul>
+&lt;li>Trigger on failed workflow runs you care about&lt;/li>
+&lt;li>Collect logs and artifacts for context&lt;/li>
+&lt;li>Call GitHub Models for a concise summary and probable fix&lt;/li>
+&lt;li>File a GitHub issue with reproduction hints and links&lt;/li>
+&lt;li>Optionally assign the issue to the Copilot coding agent&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;ul>
+&lt;li>GitHub Actions enabled in your repo&lt;/li>
+&lt;li>GitHub Models access and a token for inference:
+&lt;ul>
+&lt;li>If you’re using a fine-grained PAT: add &lt;code>models:read&lt;/code> scope&lt;/li>
+&lt;li>Or use &lt;code>secrets.GITHUB_TOKEN&lt;/code> in public repos where Models are enabled for the org&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Optional: Copilot coding agent enabled at the org or user level to assign issues to&lt;/li>
+&lt;/ul>
+&lt;h2 id="workflow-ai-assisted-failure-triage">Workflow: AI-assisted failure triage&lt;/h2>
+&lt;p>Below is a complete workflow you can drop into &lt;code>.github/workflows/ai-triage.yml&lt;/code>. It triggers when selected workflows complete and only proceeds if they failed.&lt;/p></description></item><item><title>🐙 GitHub Certification Journey: Part 1 - GitHub Foundations (GH-900)</title><link>https://sujithq.github.io/posts/2025/08/github-certification-journey-gh-900/</link><pubDate>Fri, 08 Aug 2025 06:00:00 +0000</pubDate><guid>https://sujithq.github.io/posts/2025/08/github-certification-journey-gh-900/</guid><description>&lt;p>Welcome to the GitHub Certification Journey! This comprehensive guide covers everything you need to master the &lt;strong>GitHub Foundations (GH-900)&lt;/strong> certification. Whether you&amp;rsquo;re new to Git and GitHub or looking to validate your foundational knowledge, this post provides complete coverage of all exam domains with practical examples and hands-on exercises.&lt;/p>
+&lt;h2 id="why-github-foundations-certification-matters">Why GitHub Foundations Certification Matters&lt;/h2>
+&lt;p>The GitHub Foundations certification validates your understanding of Git version control and GitHub collaboration fundamentals. As the entry point to GitHub&amp;rsquo;s certification pathway, it demonstrates your ability to:&lt;/p></description></item><item><title>🔄 GitHub updates for March 14, 2025</title><link>https://sujithq.github.io/posts/2025/03/github-updates-march-14-2025/</link><pubDate>Fri, 14 Mar 2025 06:00:00 +0000</pubDate><guid>https://sujithq.github.io/posts/2025/03/github-updates-march-14-2025/</guid><description>&lt;h2 id="introduction-github-changelog--latest-updates--enhancements">&lt;strong>Introduction: GitHub Changelog – Latest Updates &amp;amp; Enhancements&lt;/strong>&lt;/h2>
+&lt;p>Stay up to date with the latest &lt;strong>GitHub updates, features, and improvements&lt;/strong> designed to enhance your development experience. Whether it’s &lt;strong>security and compliance advancements&lt;/strong>, &lt;strong>performance optimizations&lt;/strong>, or &lt;strong>new tools for automation and insights&lt;/strong>, this changelog keeps you informed about what’s new and how it can benefit your workflow.&lt;/p>
+&lt;p>In this edition, we’re covering &lt;strong>GitHub’s PCI DSS v4.0 compliance&lt;/strong> for enterprise customers and the &lt;strong>general availability of GitHub Actions Performance Metrics&lt;/strong>, helping teams gain deeper insights into their CI/CD workflows. Let’s dive into the details! 🚀&lt;/p></description></item><item><title>🚀 Find Stale Branches Across All GitHub Repos</title><link>https://sujithq.github.io/posts/2025/01/retrieve-stale-branches-github-organization/</link><pubDate>Tue, 14 Jan 2025 06:00:00 +0000</pubDate><guid>https://sujithq.github.io/posts/2025/01/retrieve-stale-branches-github-organization/</guid><description>&lt;p>Keeping your GitHub repositories clean is crucial for maintainability. Over time, branches pile up, making it difficult to track what’s relevant. If you’re managing multiple repositories in an organization, manually identifying stale branches can be a hassle.&lt;/p>
+&lt;p>Luckily, with the &lt;strong>GitHub CLI (&lt;code>gh&lt;/code>)&lt;/strong>, you can automate this process and generate a &lt;strong>report of all non-main branches along with their last authors&lt;/strong>.&lt;/p>
+&lt;p>This guide walks you through a &lt;strong>Bash script&lt;/strong> that:&lt;br>
+✅ Retrieves all repositories in an organization&lt;br>
+✅ Lists branches, excluding &lt;code>main&lt;/code>, &lt;code>master&lt;/code>, and &lt;code>azure-master&lt;/code>&lt;br>
+✅ Identifies the last commit author for each branch&lt;br>
+✅ Groups the results by author for better visibility&lt;/p></description></item></channel></rss>
