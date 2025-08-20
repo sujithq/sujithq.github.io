@@ -3,14 +3,7 @@
 
 [![Deploy Hugo site to Pages](https://github.com/sujithq/sujithq.github.io/actions/workflows/hugo.yml/badge.svg)](https://github.com/sujithq/sujithq.github.io/actions/workflows/hugo.yml)
 
-
-
-
-
-
 Welcome to my personal [site](https://sujithq.github.io)! This repository contains the code and assets for my personal website, where I showcase my cv, blog, and other information about myself.
-
- <a href="https://www.buymeacoffee.com/sujithq" target="_blank"><img src="bmc.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ## Table of Contents
 
@@ -41,7 +34,7 @@ The following technologies were used to build this personal site:
 
 - [Hugo](https://gohugo.io/): A fast and flexible static site generator written in Go.
 - [GitHub](https://github.com/): Version control system for managing code and collaboration.
-- [GitHub Pages](https://pages.github.com/): Hosting service to publish the site directly from the 
+- [GitHub Pages](https://pages.github.com/): Hosting service to publish the site directly from the
 - [GitHub Actions](https://docs.github.com/en/actions): Automating tasks such as building and deploying the site.
 - Markdown: A lightweight markup language used for content creation.
 - HTML5 and CSS3 for the structure, layout, and styling.
@@ -79,5 +72,9 @@ I appreciate contributions to improve this personal site. If you'd like to contr
 ## License
 
 This personal site is licensed under the [MIT License](LICENSE). Feel free to use the code, styles, and content as a reference or template for your own personal site. However, please do not use my personal information or assets without permission.
+
+---
+
+ ![Buy Me A Coffee](bmc.png)
 
 ---
