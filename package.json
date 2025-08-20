@@ -7,7 +7,9 @@
     "copy-files": "node scripts/copy-files.js",
     "postinstall": "npm run copy-files",
     "test": "playwright test",
-    "upd": "playwright test --update-snapshots"
+    "upd": "playwright test --update-snapshots",
+    "analyze-dead-code": "node scripts/dead-code-analyzer.js",
+    "cleanup-dead-code": "node scripts/dead-code-analyzer.js --generate-cleanup"
   },
   "keywords": [],
   "author": "",

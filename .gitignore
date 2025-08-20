@@ -15,6 +15,9 @@ static/vendor
 static/components
 static/scss/fonts/bootstrap-icons.woff*
 
+# Dead code cleanup scripts (generated)
+cleanup-dead-code.sh
+
 # ### VisualStudioCode ###
 # .vscode/*
 # !.vscode/settings.json
