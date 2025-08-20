@@ -4,7 +4,13 @@
 [![Deploy Hugo site to Pages](https://github.com/sujithq/sujithq.github.io/actions/workflows/hugo.yml/badge.svg)](https://github.com/sujithq/sujithq.github.io/actions/workflows/hugo.yml)
 
 
+
+
+
+
 Welcome to my personal [site](https://sujithq.github.io)! This repository contains the code and assets for my personal website, where I showcase my cv, blog, and other information about myself.
+
+ <a href="https://www.buymeacoffee.com/sujithq" target="_blank"><img src="bmc.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ## Table of Contents
 

@@ -103,6 +103,11 @@
       {{ partial "taxonomy.html" (dict "page" .page) }}
     {{ end }}
 
+
+<!-- <a href="https://www.buymeacoffee.com/sujithq" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a> -->
+ <div class="{{ .size | default "col-lg-6" }} mt-3 mb-3 mx-auto text-center">
+  <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="sujithq" data-color="#6a1c56" data-emoji=""  data-font="Cookie" data-text="Enjoyed it? Fuel my coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+ </div>
     <!-- GitAds Banner -->
   {{ partial "gitads-banner.html" }}
   <!-- /GitAds Banner -->
