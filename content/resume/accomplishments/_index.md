@@ -218,6 +218,18 @@ outputs = ["HTML"]
   """
 
 [[item]]
+  organization = "Platform Engineering"
+  organization_url = "https://platformengineering.org"
+  title = "Platform Engineering Practitioner"
+  url = "https://university.platformengineering.org/platform-engineering-certified-practitioner-september"
+  certificate_url = "https://www.virtualbadge.io/certificate-validator?credential=99b05521-97d5-41e0-a557-4b5d4e82e191"
+  date_start = "2025-08-21"
+  date_end = "2026-08-20"
+  description = """
+  Validates skills in platform engineering practices: platform as a product, internal developer platforms (IDPs), golden paths/paved roads, self-service enablement, and secure, scalable platform operations.
+  """
+
+[[item]]
   organization = "GitHub"
   organization_url = "https://github.com"
   title = "GitHub Certified Partner: GitHub Admin"

@@ -42,6 +42,8 @@ superuser = true
     * GitHub Enterprise Importer 
     * Github Copilot for Business Fundamentals
   * Terraform Associate
+  * Platform Engineering
+    * Practitioner
   """
   # Interests to show in About widget
   interests = [
@@ -58,7 +60,8 @@ superuser = true
     "Architecture",
     "AI",
     "ML",
-    "Cognitive Services"
+    "Cognitive Services",
+    "Platform Engineering"
   ]
   # Enter email to display Gravatar (if Gravatar enabled in Config)
   email = "sujith.quintelier@gmail.com"

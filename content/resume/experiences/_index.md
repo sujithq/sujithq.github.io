@@ -21,6 +21,7 @@ Helping clients with:
 * Azure
 * GitHub
 * DevOps
+* Platform Engineering (IDP design, golden paths, self-service portals)
 * Cloud Native
 * Assessments
 * CI/CD
