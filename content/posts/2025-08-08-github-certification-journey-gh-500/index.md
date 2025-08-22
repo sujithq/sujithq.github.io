@@ -3,7 +3,7 @@ title = '🔒 GitHub Advanced Security Certification Guide (GH-500) - Complete P
 slug = 'github-certification-journey-gh-500'
 date = '2025-10-05 06:00:00Z'
 lastmod = '2025-10-05 06:00:00Z'
-draft = true
+draft = false
 tags = [
   "GitHub",
   "Certification",

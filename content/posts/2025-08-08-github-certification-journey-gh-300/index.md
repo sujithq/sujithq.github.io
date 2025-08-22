@@ -3,7 +3,7 @@ title = '🤖 GitHub Copilot Certification Guide (GH-300) - AI Development Maste
 slug = 'github-certification-journey-gh-300'
 date = '2025-08-29 06:00:00Z'
 lastmod = '2025-08-29 06:00:00Z'
-draft = true
+draft = false
 tags = [
   "GitHub",
   "Certification",
