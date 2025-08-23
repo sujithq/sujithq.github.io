@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-{{ $defaultPageSize := 4 }} <!-- Default number of posts per page -->
+{{ $defaultPageSize := 6 }} <!-- Default number of posts per page -->
 {{ $pageSize := $defaultPageSize }}
 
 <div class="container">
@@ -40,14 +40,14 @@
         {{ end }}
         {{ $page := index $pages $index }}
         {{ if eq $index 0 }}
-          {{ partial "blog/one.html" (dict "page" $page "showTaxonomy" false) }}
-          {{ $index = add $index 1 }}  {{/* Move to the next page */}}
-        {{ else if eq $index 1 }}
           {{ partial "blog/two" (dict "page" $page "index" $index "pages" $pages) }}
           {{ $index = add $index 2 }}  {{/* Skip 2 items and continue with the next loop */}}
-        {{ else if eq $index 3 }}
-          {{ partial "blog/one.html" (dict "page" $page "showTaxonomy" false) }}
-          {{ $index = add $index 1 }}  {{/* Move to the next page */}}
+        {{ else if eq $index 2 }}
+          {{ partial "blog/two" (dict "page" $page "index" $index "pages" $pages) }}
+          {{ $index = add $index 2 }}  {{/* Skip 2 items and continue with the next loop */}}
+        {{ else if eq $index 4 }}
+          {{ partial "blog/two" (dict "page" $page "index" $index "pages" $pages) }}
+          {{ $index = add $index 2 }}  {{/* Skip 2 items and continue with the next loop */}}
         {{ end }}
       {{ end }}
     </div>
