@@ -18,7 +18,7 @@
     "@types/node": "^24.3.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@fortawesome/fontawesome-free": "^7.0.0",
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "@iarna/toml": "^3.0.0",
     "aos": "^2.3.4",
