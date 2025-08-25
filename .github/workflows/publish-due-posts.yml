@@ -36,7 +36,7 @@ jobs:
         run: |
           SERIES_INPUT="${{ github.event.inputs.series }}"
           DRY_INPUT="${{ github.event.inputs.dry_run }}"
-          DEFAULT_SERIES='GitHub Certification Journey'
+          DEFAULT_SERIES='GitHub Certification Journey,GitHub Security'
           export SERIES_ALLOWLIST="${SERIES_INPUT:-$DEFAULT_SERIES}"
           export DRY_RUN="${DRY_INPUT:-0}"
           node scripts/publish-due-posts.js
