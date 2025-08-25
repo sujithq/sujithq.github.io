@@ -1,8 +1,8 @@
 +++
 title = 'Getting started with Dependabot'
 slug = 'dependabot-getting-started'
-date = '2025-08-25 09:00:00Z'
-lastmod = '2025-08-25 09:00:00Z'
+date = '2025-08-25 06:00:00Z'
+lastmod = '2025-08-25 06:00:00Z'
 draft = true
 tags = ["GitHub", "Dependabot", "Security"]
 categories = ["DevSecOps"]
