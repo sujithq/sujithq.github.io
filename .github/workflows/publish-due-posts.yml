@@ -8,7 +8,7 @@ on:
       series:
         description: 'Comma-separated series allowlist (overrides default)'
         required: false
-        default: 'GitHub Certification Journey'
+        default: 'GitHub Certification Journey,GitHub Security'
       dry_run:
         description: 'Set to 1 to preview without committing'
         required: false

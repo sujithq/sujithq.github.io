@@ -21,11 +21,7 @@ layout = "single"
 description = "Enable Dependabot alerts and updates, add dependabot.yml, and tune it for npm, Actions, Docker, and Java (Maven/Gradle)."
 +++
 
-## Intro
-
-Dependabot is the easiest way to keep dependencies current and secure in your GitHub repositories. It can: alert on vulnerabilities, open PRs to fix them, and keep versions fresh with scheduled updates.
-
-This guide shows how to enable Dependabot, add a robust dependabot.yml, and include small optimisations for specific ecosystems.
+Dependabot is the easiest way to keep dependencies current and secure in your GitHub repositories. It can: alert on vulnerabilities, open PRs to fix them, and keep versions fresh with scheduled updates. This guide shows how to enable Dependabot, add a robust dependabot.yml, and include small optimisations for specific ecosystems.
 
 ## What you’ll set up
 
@@ -33,7 +29,7 @@ This guide shows how to enable Dependabot, add a robust dependabot.yml, and incl
 - Create and tune a `.github/dependabot.yml` that covers your package managers.
 - Add optional Java metadata to improve PR quality.
 
-## 1. Enable Dependabot in your repository
+## Enable Dependabot in your repository
 
 Use the repository UI:
 
@@ -43,7 +39,7 @@ Use the repository UI:
 
 If you enable version updates from the UI, GitHub adds a default `.github/dependabot.yml` you can edit.
 
-## 2. Create dependabot.yml
+## Create dependabot.yml
 
 Dependabot looks for a `.github/dependabot.yml` at the repo root. Here’s a practical starting file that covers common ecosystems. Adjust directories and schedules to match your repo layout.
 
@@ -89,11 +85,13 @@ updates:
       interval: "weekly"
 ```
 
-Notes:
+{{< notice-card info >}}
 
 - For pnpm and some others, you still use `package-ecosystem: "npm"` (see Supported ecosystems).
 - Poetry and pipenv use the `pip` YAML value (see Supported ecosystems).
 - If you have multiple package roots (for example, monorepos), add one `updates` entry per directory.
+
+{{< /notice-card >}}
 
 ### Useful options to consider
 
@@ -103,13 +101,13 @@ Notes:
 - [`target-branch`](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference#target-branch-): direct PRs to a non-default branch.
 - [`rebase-strategy`](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference#rebase-strategy--): control how rebases are handled.
 
-See the Dependabot options reference from the docs linked above for the full list.
+See the [Dependabot options reference](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference) for the full list.
 
-## 3. Ecosystem specifics and caveats
+## Ecosystem specifics and caveats
 
 ### GitHub Actions
 
-- Dependabot only updates actions referenced with the GitHub repository syntax: `owner/repo@vX` (for example, `actions/checkout@v4`).
+- Dependabot only updates actions referenced with the GitHub repository syntax: `owner/repo@vX` (for example, `actions/checkout@v5`).
 - Local action references like `./.github/actions/foo` and container actions via `docker://` are ignored.
 
 ### Docker and Kubernetes/Helm
@@ -146,13 +144,13 @@ If metadata is missing, PRs are still created, but without rich links.
 
 - Use `package-ecosystem: "devcontainers"` to keep Features up to date in `devcontainer.json` and lockfiles.
 
-## 4. Private registries and private dependencies
+## Private registries and private dependencies
 
 Dependabot can access private package registries and private GitHub repositories, but you must configure credentials in `dependabot.yml` and/or grant org access. See “Configuring access to private registries for Dependabot” and “Managing security and analysis settings for your organisation” in the official docs.
 
 Tip: Keep credentials in GitHub secrets and reference them from `dependabot.yml` rather than using plaintext.
 
-## 5. How Dependabot runs
+## How Dependabot runs
 
 - Alerts: appear on the repository Security tab when the dependency graph detects known vulnerabilities.
 - Security updates: PRs that bump vulnerable versions to a patched release.
