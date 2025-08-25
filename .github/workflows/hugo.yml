@@ -6,11 +6,15 @@ on:
     pull_request:
         branches: [main]
     workflow_run:
-      workflows: ["Updates (Daily Refresh)"]  # must match the other workflow's name exactly
+      workflows: [
+        "Updates (Daily Refresh)",
+        "Publish due posts"
+      ]  # must match the other workflow's name(s) exactly
       types: [completed]
 jobs:
-    build:
-        runs-on: ubuntu-24.04-arm # ubuntu-latest
+  build:
+    if: "${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}"
+    runs-on: ubuntu-24.04-arm # ubuntu-latest
 
         permissions:
             # Give the default GITHUB_TOKEN write permission to commit and push the
