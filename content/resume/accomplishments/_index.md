@@ -210,7 +210,7 @@ outputs = ["HTML"]
   organization_url = "https://github.com"
   title = "GitHub Certified Partner: GitHub Copilot"
   url = "https://learn.microsoft.com/en-us/credentials/certifications/github-copilot"
-  certificate_url = ""
+  certificate_url = "https://learn.microsoft.com/api/credentials/share/en-gb/SujithQuintelier/29732ECDA4353955?sharingId=B2D5696D597C46D3"
   date_start = "2025-07-17"
   date_end = ""
   description = """
