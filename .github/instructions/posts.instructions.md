@@ -43,6 +43,8 @@ layout = "single"
 [params]
     cover = true
     author = "sujith"
+    cover_prompt = '''based on post's content to be used as a cover image prompt for windows designer. Take a look at other post for the style
+    '''
     
 description = "Concise summary, ≤150 characters"
 +++
