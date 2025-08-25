@@ -7,7 +7,8 @@
     "copy-files": "node scripts/copy-files.js",
     "postinstall": "npm run copy-files",
     "test": "playwright test",
-    "upd": "playwright test --update-snapshots"
+    "upd": "playwright test --update-snapshots",
+    "publish-due-posts": "node scripts/publish-due-posts.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@fullhuman/postcss-purgecss": "^7.0.2",
+    "@iarna/toml": "^3.0.0",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",

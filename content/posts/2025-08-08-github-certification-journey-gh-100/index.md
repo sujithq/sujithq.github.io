@@ -3,7 +3,7 @@ title = '🏢 GitHub Administration Certification Guide (GH-100) - Enterprise Ma
 slug = 'github-certification-journey-gh-100'
 date = '2025-08-15 06:00:00Z'
 lastmod = '2025-08-15 06:00:00Z'
-draft = false
+draft = true
 tags = [
   "GitHub",
   "Certification",

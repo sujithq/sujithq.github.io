@@ -1,0 +1,50 @@
+name: Publish due posts
+
+on:
+  schedule:
+    - cron: '15 * * * *' # run hourly at :15 past
+  workflow_dispatch:
+    inputs:
+      series:
+        description: 'Comma-separated series allowlist (overrides default)'
+        required: false
+        default: 'GitHub Certification Journey'
+      dry_run:
+        description: 'Set to 1 to preview without committing'
+        required: false
+        default: '0'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Publish due posts
+        run: |
+          SERIES_INPUT="${{ github.event.inputs.series }}"
+          DRY_INPUT="${{ github.event.inputs.dry_run }}"
+          DEFAULT_SERIES='GitHub Certification Journey'
+          export SERIES_ALLOWLIST="${SERIES_INPUT:-$DEFAULT_SERIES}"
+          export DRY_RUN="${DRY_INPUT:-0}"
+          node scripts/publish-due-posts.js
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore(posts): auto-publish due posts in series'
+          commit_user_name: 'github-actions[bot]'
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
+          file_pattern: content/posts/**/index.md
