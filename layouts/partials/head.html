@@ -29,8 +29,7 @@
       {{- if eq .Section "updates" }}
         <meta name="robots" content="index,follow">
       {{- else }}
-        {{- $p := .Paginator }}
-        {{- if gt $p.PageNumber 1 }}
+        {{- if strings.Contains .RelPermalink "/page/" }}
           <meta name="robots" content="noindex,follow">
         {{- else }}
           <meta name="robots" content="index,follow">
