@@ -111,6 +111,7 @@ I'm deeply passionate about **DevOps culture and automation**. With certificatio
 
 - **Cloud Architecture** – Designing robust **Azure** environments for businesses of all sizes  
 - **DevOps & Automation** – Implementing **CI/CD pipelines, infrastructure as code (IaC), and cloud automation**  
+- **Platform Engineering** – Designing **internal developer platforms (IDPs)**, golden paths, and paved roads to accelerate secure delivery  
 - **Security & Compliance** – Ensuring **secure software delivery pipelines, IAM, and cloud security best practices**  
 - **GitHub Training & Consulting** – Helping teams adopt GitHub **Actions, Advanced Security, and Enterprise Administration**  
 - **Software Development** – Leveraging my **.NET background** to build **cloud-native applications**  
@@ -138,6 +139,10 @@ I've spent years expanding my knowledge across **Azure, DevOps, Security and AI*
 ✅ **GitHub Sales Professional** – GitHub sales strategies and solutions  
 ✅ **GitHub Technical Sales Professional** – GitHub technical sales strategies and solutions  
 ✅ **Terraform Associate (HashiCorp)** – Infrastructure as Code (IaC) automation  
+
+### **🏗 Platform Engineering**  
+
+✅ **Platform Engineering Practitioner** – Internal Developer Platforms (IDPs), golden paths, paved roads, and developer experience  
 
 ### **🔐 Security & Identity**  
 
