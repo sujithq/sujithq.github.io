@@ -259,7 +259,8 @@ function Trunc([string]$s,[int]$n=300){ if(-not $s){return ''}; if($s.Length -le
 function MdEscape([string]$s){ if(-not $s){return ''}; $s -replace '\|','\\|' }
 function ToBulletMd($arr){ if(-not $arr -or $arr.Count -eq 0){ return '' }; ($arr | ForEach-Object { "  - " + ($_ -replace '\n',' ') }) -join "`n" }
 function Format-BareUrls([string]$text){ if(-not $text){ return $text }; return ($text -replace '(?<!\]\()https?://[\w\-\./%?&#=+:~]+', '<$0>') }
-function Format-LinkUrl([string]$u){ if(-not $u){ return '' }; $clean = $u.Trim(); $clean = $clean -replace '\s+link$',''; if($clean -notmatch '^<.*>$'){ if($clean -match '[?&]|%'){ $clean = "<$clean>" } }; return $clean }
+# function Format-LinkUrl([string]$u){ if(-not $u){ return '' }; $clean = $u.Trim(); $clean = $clean -replace '\s+link$',''; if($clean -notmatch '^<.*>$'){ if($clean -match '[?&]|%'){ $clean = "<$clean>" } }; return $clean }
+function Format-LinkUrl([string]$u){ if(-not $u){ return '' }; $clean = $u.Trim(); $clean = $clean -replace '\s+link$','';  return $clean; }
 
 # --- Source fetchers (parameterized)
 $AzureRss = 'https://aztty.azurewebsites.net/rss/updates'
