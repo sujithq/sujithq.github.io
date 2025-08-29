@@ -1,0 +1,54 @@
+{{- $clarity := .Site.Params.clarity -}}
+{{- $storageKey := cond (isset $clarity "storageKey") $clarity.storageKey "clarityConsent" -}}
+<a href="#" data-consent-reset data-handler="inline" data-storage-key="{{$storageKey}}"
+  onclick="(function(ev,el){try{if(ev){ev.preventDefault();ev.stopPropagation&&ev.stopPropagation();ev.stopImmediatePropagation&&ev.stopImmediatePropagation();}var key=el&&el.getAttribute('data-storage-key')||'clarityConsent';key=''+key;var s=key.charCodeAt(0);if(s===34||s===39){key=key.slice(1)}var e=key.charCodeAt(key.length-1);if(e===34||e===39){key=key.slice(0,-1)}var keys=['clarityConsent'];if(key&&keys.indexOf(key)===-1){keys.push(key)}var delCookie=function(name){try{document.cookie=name+'=; Max-Age=0; path=/';document.cookie=name+'=; Max-Age=0; path=/; domain='+location.hostname}catch(e){}};keys.forEach(function(k){try{localStorage.removeItem(k)}catch(e2){}});['_clck','_clsk'].forEach(delCookie);setTimeout(function(){location.reload()},50)}catch(err){console.error('[consent-reset] unexpected',err);setTimeout(function(){location.reload()},50)}})(event,this);return false;">
+  Reset cookie & analytics consent
+</a>
+<script>
+  (function () {
+    var bind = function(el){
+  if (!el || el.dataset.bound === '1') return;
+  if (el.getAttribute('onclick')) { return; }
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation && e.stopPropagation();
+        e.stopImmediatePropagation && e.stopImmediatePropagation();
+        try {
+          var key = el && el.getAttribute('data-storage-key') || 'clarityConsent';
+          key = '' + key;
+          var s = key.charCodeAt(0);
+          if (s === 34 || s === 39) { key = key.slice(1); }
+          var e = key.charCodeAt(key.length - 1);
+          if (e === 34 || e === 39) { key = key.slice(0, -1); }
+          var keys = ['clarityConsent'];
+          if (key && keys.indexOf(key) === -1) { keys.push(key); }
+          keys.forEach(function(k){ try { localStorage.removeItem(k); } catch (_) {} });
+        } catch (err) {
+          console.error('[consent-reset] Unexpected error while clearing consent', err);
+        }
+        setTimeout(function(){ location.reload(); }, 10);
+      });
+      el.dataset.bound = '1';
+    };
+
+    var init = function(){
+      try {
+        var nodes = document.querySelectorAll('[data-consent-reset]');
+        if (!nodes || nodes.length === 0) {
+          console.warn('[consent-reset] No reset links found on page.');
+          return;
+        }
+        console.log('[consent-reset] Found', nodes.length, 'reset link(s).');
+        nodes.forEach(bind);
+      } catch (outerErr) {
+        console.error('[consent-reset] Failed to initialise click handler(s)', outerErr);
+      }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>

@@ -1,0 +1,193 @@
+{{/*
+  Microsoft Clarity + Cookie Consent (Hugo partial)
+  Usage:
+    1) Put your Clarity ID in site params (see below).
+    2) Include this partial once on every page, ideally near the end of <body>:
+         {{ partial "clarity-consent.html" . }}
+
+  Params (config.toml / config.yaml):
+    [params.clarity]
+      id = "XXXXXXXX"                      # REQUIRED: your Clarity project ID/tag
+      showBanner = true                    # Show consent banner (default true)
+      storageKey = "clarityConsent"        # LocalStorage key (optional)
+      position = "bottom"                  # "bottom" | "top" (optional)
+      darkMode = true                      # Style banner dark (optional)
+
+    [params.consent]
+      enableConsentMode = false            # If true, update Google Consent Mode v2 on accept/decline
+*/}}
+
+{{- $clarity      := .Site.Params.clarity -}}
+{{- $consent      := .Site.Params.consent -}}
+{{- $clarityID    := cond (isset $clarity "id") $clarity.id "" -}}
+{{- $showBanner   := cond (isset $clarity "showBanner") $clarity.showBanner true -}}
+{{- $storageKey   := cond (isset $clarity "storageKey") $clarity.storageKey "clarityConsent" -}}
+{{- $position     := cond (isset $clarity "position") $clarity.position "bottom" -}}
+{{- $darkMode     := cond (isset $clarity "darkMode") $clarity.darkMode true -}}
+{{- $consentMode  := and (isset $consent "enableConsentMode") $consent.enableConsentMode -}}
+
+{{- if not $clarityID -}}
+<!-- Clarity consent partial: Missing params.clarity.id -->
+{{- else -}}
+
+<style>
+  .cc-banner {
+    position: fixed;
+    {{- if eq $position "top" -}}top: 0;{{- else -}}bottom: 0;{{- end -}}
+    left: 0; right: 0;
+    z-index: 2147483646;
+    display: none; /* JS will show if needed */
+    box-sizing: border-box;
+    padding: 1rem;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    {{- if $darkMode -}}
+      background: #111; color: #f1f1f1;
+    {{- else -}}
+      background: #fff; color: #222;
+    {{- end -}}
+  }
+  .cc-inner { max-width: 980px; margin: 0 auto; display: flex; gap: .75rem; align-items: center; }
+  .cc-text { flex: 1 1 auto; }
+  .cc-actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .cc-btn {
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: .5rem .8rem;
+    border-radius: .375rem;
+    font-weight: 600;
+  }
+  .cc-btn-primary {
+    {{- if $darkMode -}}
+      background: #e6e6e6; color: #111;
+    {{- else -}}
+      background: #111; color: #fff;
+    {{- end -}}
+  }
+  .cc-btn-secondary {
+    background: transparent;
+    {{- if $darkMode -}}border-color: #444; color: #ddd;{{- else -}}border-color: #ccc; color: #333;{{- end -}}
+  }
+  .cc-link {
+    text-decoration: underline;
+    {{- if $darkMode -}}color: #c9e3ff;{{- else -}}color: #0645AD;{{- end -}}
+  }
+</style>
+
+<div id="cc-banner" class="cc-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cc-inner">
+    <div class="cc-text">
+      This site uses cookies for analytics via Microsoft Clarity. We only enable it after your consent.
+      See our <a class="cc-link" href="/privacy/" rel="nofollow">Privacy Policy</a>.
+    </div>
+    <div class="cc-actions">
+      <button id="cc-accept" class="cc-btn cc-btn-primary" aria-label="Accept analytics cookies">Accept</button>
+      <button id="cc-decline" class="cc-btn cc-btn-secondary" aria-label="Decline analytics cookies">Decline</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var CLARITY_ID   = {{ printf "%q" $clarityID }};
+  var STORAGE_KEY  = {{ printf "%q" $storageKey }};
+  var SHOW_BANNER  = {{ if $showBanner }}true{{ else }}false{{ end }};
+  var USE_GCM      = {{ if $consentMode }}true{{ else }}false{{ end }};
+
+  // Normalize ID in case it was configured with quotes in config (e.g., '"abc123"')
+  var CLARITY_ID_NORM = ('' + CLARITY_ID).replace(/^['\"]+|['\"]+$/g, '');
+  // Normalize storage key in case it was configured with quotes
+  var STORAGE_KEY_NORM = ('' + STORAGE_KEY).replace(/^[\'\"]+|[\'\"]+$/g, '');
+
+  // Optional: Initialize Google Consent Mode v2 defaults (blocked)
+  if (USE_GCM) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    // Default: deny until user chooses
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted' // usually safe to grant
+    });
+  }
+
+  function loadClarity() {
+    if (!CLARITY_ID_NORM) return;
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", CLARITY_ID_NORM);
+  }
+
+  function setConsent(accepted) {
+    try { localStorage.setItem(STORAGE_KEY_NORM, accepted ? "yes" : "no"); } catch(e) {}
+    if (accepted) {
+      if (USE_GCM) {
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'functionality_storage': 'granted'
+        });
+      }
+      loadClarity();
+      // Inform Clarity of consent status ASAP
+      if (typeof clarity === "function") { clarity("consent", "yes"); }
+    } else {
+      if (USE_GCM) {
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('consent', 'update', {
+          'analytics_storage': 'denied',
+          'functionality_storage': 'denied'
+        });
+      }
+      // If clarity somehow loaded earlier, signal "no"
+      if (typeof clarity === "function") { clarity("consent", "no"); }
+    }
+  }
+
+  function showBannerIfNeeded() {
+    if (!SHOW_BANNER) return;
+    var stored = null;
+  try { stored = localStorage.getItem(STORAGE_KEY_NORM); } catch(e) {}
+    if (stored === "yes") {
+      loadClarity();
+      if (typeof clarity === "function") { clarity("consent", "yes"); }
+      return; // no banner
+    }
+    if (stored === "no") {
+      // declined previously, do nothing
+      if (typeof clarity === "function") { clarity("consent", "no"); }
+      return; // no banner
+    }
+    // No prior choice -> show banner
+    var el = document.getElementById("cc-banner");
+    if (el) el.style.display = "block";
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var accept = document.getElementById("cc-accept");
+    var decline = document.getElementById("cc-decline");
+    var banner = document.getElementById("cc-banner");
+
+    if (accept) accept.addEventListener("click", function() {
+      setConsent(true);
+      if (banner) banner.style.display = "none";
+    });
+
+    if (decline) decline.addEventListener("click", function() {
+      setConsent(false);
+      if (banner) banner.style.display = "none";
+    });
+
+    showBannerIfNeeded();
+  });
+})();
+</script>
+
+{{- end -}}

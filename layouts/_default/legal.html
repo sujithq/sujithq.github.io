@@ -1,0 +1,24 @@
+{{ define "main" }}
+<main id="main" class="page page-legal container">
+  <article class="legal-article">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.description }}<p class="lead">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ if .Params.toc }}
+      <nav class="toc toc-legal">
+        {{ .TableOfContents }}
+      </nav>
+    {{ end }}
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    <footer class="page-footer">
+      <p class="last-updated">Last updated: {{ with .Lastmod }}{{ . | time.Format "2006-01-02" }}{{ else }}{{ .Date | time.Format "2006-01-02" }}{{ end }}</p>
+    </footer>
+  </article>
+</main>
+{{ end }}

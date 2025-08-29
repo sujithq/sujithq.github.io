@@ -117,8 +117,9 @@ buildFuture = false
    url = "/updates"
    weight = 5
 [services]
-    [services.disqus]
-    shortname = 'sujithq'
+  # Disqus disabled site-wide to avoid third-party loads without explicit opt-in
+  # [services.disqus]
+  # shortname = 'sujithq'
 
 [pagination]
   disableAliases = false
@@ -131,3 +132,13 @@ buildFuture = false
 [build]
   [build.buildStats]
     enable = true
+
+[params.clarity]
+  id = "rf5ih14aps"          # <- your Clarity project ID/tag
+  showBanner = true
+  storageKey = "clarityConsent"
+  position = "bottom"      # or "top"
+  darkMode = true
+
+[params.consent]
+  enableConsentMode = false  # set true if you use Google Consent Mode v2
