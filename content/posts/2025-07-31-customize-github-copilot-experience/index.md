@@ -2,7 +2,7 @@
 title = '🛠️ GitHub Copilot: Custom Instructions, Prompts & Chats'
 slug = 'customize-github-copilot-experience'
 date = '2025-07-31 06:00:00Z'
-lastmod = '2025-07-31 06:00:00Z'
+lastmod = '2025-08-29 06:00:00Z'
 draft = false
 tags = ["GitHub Copilot", "VS Code", "AI Programming", "Copilot Customization", "Productivity"]
 categories = ["AI", "Development Tools", "GitHub"]
@@ -23,10 +23,13 @@ GitHub Copilot is more than just an autocomplete tool—it's a powerful AI assis
 
 This post walks you through customizing Copilot for your projects, with hands-on steps, theory, and examples. Let's dive in!
 
+{{< notice-card info "Update (2025‑08‑29)" >}}
+The Copilot Coding Agent now supports repository‑level custom instructions via `.github/agents.md`. See the new section below and the official changelog: <https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/>
+{{< /notice-card >}}
+
 ### 📝 Step 1: Repository Custom Instructions
 
 **Repository custom instructions** let you guide Copilot with project-specific context and standards. By adding a `.github/copilot-instructions.md` file, you ensure Copilot's suggestions match your conventions.
-
 
 **Theory:**
 
@@ -70,7 +73,6 @@ This project is an educational website for sharing homework assignments and codi
 
 **File-specific instructions** (`.instructions.md`) let you target rules to certain files or folders using glob patterns. Place them in `.github/instructions/`.
 
-
 **Theory:**
 
 - Use `applyTo` in the frontmatter to specify which files the instructions apply to.
@@ -110,7 +112,6 @@ applyTo: "assignments/**/*.md"
 ### ⚡ Step 3: Reusable Prompts
 
 **Prompt files** (`.prompt.md`) are reusable templates for common tasks, accessible via slash commands in Copilot Chat. Place them in `.github/prompts/`.
-
 
 **Theory:**
 
@@ -154,7 +155,6 @@ Ask for the assignment topic if not provided.
 
 **Chat modes** (`.chatmode.md`) let you define specialized Copilot personalities and workflows. Place them in `.github/chatmodes/`.
 
-
 **Theory:**
 
 - Chat modes can restrict tools, set response formats, and maintain a unique personality.
@@ -192,14 +192,60 @@ tools: ["codebase", "search"]
 
 ---
 
-### 🎉 Recap
+## 🧠 New (Aug 2025): agents.md for Copilot Coding Agent
 
+The Copilot Coding Agent now reads repository‑level guidance from `.github/agents.md`. Use it to set policies, guardrails, and preferences the agent should follow when making changes across your codebase.
+
+**Theory:**
+
+- Place `.github/agents.md` at the root of your repository.
+- Keep guidance actionable: preferred tools, change policies, testing and security rules.
+- Use clear sections and bullet points; the agent consumes plain markdown.
+- This augments per‑file instructions and chat modes; use `agents.md` for repo‑wide defaults.
+
+**Example (`.github/agents.md`):**
+
+```markdown
+# Copilot Coding Agent – Repository Instructions
+
+## Goals
+- Maintain code quality, tests, and security while implementing changes.
+
+## Tools and Preferences
+- Prefer: TypeScript, pnpm, ESLint, Prettier.
+- Avoid: Global installs; use repo scripts and lockfiles.
+
+## Change Management
+- Make minimal, focused diffs.
+- Update docs and tests with code changes.
+- For multi-file refactors, open a PR with a concise summary and checklist.
+
+## Testing & CI
+- Run unit tests locally before proposing changes.
+- Honour existing CI scripts: `pnpm test`, `pnpm lint`.
+
+## Security
+- Do not add credentials or plaintext secrets.
+- Use environment variables and existing secret stores.
+
+## Communication
+- Explain the rationale for non-trivial changes in commit/PR descriptions.
+```
+
+**How to:**
+
+1. Create `.github/agents.md` in your repository root.
+2. Add repository‑wide rules (tools, change policies, test/security requirements).
+3. Commit and push; then ask the Copilot Coding Agent to perform a task (e.g., “upgrade eslint and fix lint issues”). It will follow `agents.md`.
+4. Iterate as needed; keep guidance short, specific, and enforceable.
+
+---
+
+## 🎉 Recap
 
 By combining repository instructions, file-specific rules, reusable prompts, and custom chat modes, you can make GitHub Copilot a true teammate. It will understand your project, enforce your standards, and help accelerate your workflow.
 
-
 **Next steps:**
-
 
 - Try these features in your own projects.
 - Explore more on [GitHub Docs](https://docs.github.com/en/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot) and [VS Code Docs](https://code.visualstudio.com/docs/copilot/copilot-customization)
