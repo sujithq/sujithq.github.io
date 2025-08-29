@@ -94,5 +94,3 @@ I use reasonable administrative, technical, and organisational measures to prote
 ## Changes to this policy
 
 I may update this policy to reflect changes to the site, services, or law. Material changes will be highlighted.
-
-**Last updated:** 2025-08-29
