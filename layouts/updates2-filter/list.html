@@ -1,0 +1,34 @@
+{{/* Determine filter mode from front matter */}}
+{{ $mode := .Params.list_by }}
+{{ $cat := .Params.update_category }}
+{{ $tf  := .Params.timeframe }}
+
+{{/* Collect updates from the updates2 section */}}
+{{ $updates := where .Site.RegularPages "Section" "updates2" }}
+{{ $updates = where $updates "Type" "eq" "update-item" }}
+
+{{ if or (eq $mode "category") (eq $mode "category_timeframe") }}
+  {{ $updates = where $updates "Params.update_categories" "intersect" (slice $cat) }}
+{{ end }}
+
+{{ if or (eq $mode "timeframe") (eq $mode "category_timeframe") }}
+  {{ $updates = where $updates "Params.timeframes" "intersect" (slice $tf) }}
+{{ end }}
+
+<h1>{{ .Title }}</h1>
+<p>{{ len $updates }} result(s)</p>
+
+<ul>
+  {{ range $updates.ByDate.Reverse }}
+    <li>
+      <a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>
+      <div>
+        <time datetime="{{ .Date }}">{{ .Date | time.Format "2006-01-02" }}</time>
+        {{ with .Params.update_categories }} · {{ delimit . ", " }}{{ end }}
+        {{ with .Params.timeframes }} · timeframe: {{ delimit . ", " }}{{ end }}
+        {{ with .Params.update_tags }} · tags: {{ delimit . ", " }}{{ end }}
+      </div>
+      {{ with .Summary }}<p>{{ . }}</p>{{ end }}
+    </li>
+  {{ end }}
+</ul>

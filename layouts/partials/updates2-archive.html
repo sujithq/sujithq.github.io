@@ -1,6 +1,6 @@
 {{/*
-  Posts Archive Partial
-  Displays posts grouped by year and month with thumbnails
+  Updates Archive Partial
+  Displays updates grouped by year and month with thumbnails
 
   Parameters:
   - pages: The collection of pages to display
@@ -35,26 +35,35 @@
                 {{ $pgs := $item.Pages.GroupByDate "January" }}
                 {{ range $idx, $it := $pgs }}
                   <h3 id="{{ $KeyYear }}{{ .Key }}" class="ms-2 mb-0">{{ .Key }} ({{ len $it.Pages }})</h3>
+                  <div class="row row-cols-2 g-3 w-100">
                   {{ range $inx, $itm := ($it.Pages) }}
-                    <h4 class="ms-3 mb-1">
-                      {{ if ne $itm.Type "update-item" }}
-                        {{- $image := $itm.Resources.Get "cover.jpg" -}}
-                        <span class="mx-1">
-                          {{ if $image }}
-                          {{ $webp := $image.Fill "50x50 q100 Center webp" }}
-                          {{ $fallback := $image.Fill "50x50 q100 Center" }}
-                          <picture>
-                            <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
-                            <img src="{{ $fallback.RelPermalink }}" alt="{{$itm.Params.description}}" width="50" height="50">
-                          </picture>
-                          {{ else }}
-                          <div class="thumb-50-placeholder"></div>
-                          {{ end }}
-                        </span>
-                      {{ end }}
+                    {{/* Derive cover image same way as detail.html: take last tag and map to assets/media/updates/<tag>.jpg */}}
+                    {{ $lastTag := "" }}
+                    {{ with $itm.Params.tags }}
+                      {{ $lastTag = lower (index . (sub (len .) 1)) }}
+                    {{ end }}
+                    <!-- <h4 class="ms-3 mb-1">
                       <a href="{{ $itm.RelPermalink }}">{{ $itm.Title }}</a>
-                    </h4>
+
+                    </h4> -->
+                    <!-- <div class="card w-50">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ $itm.Title }}</h5>
+
+                      </div>
+                    </div> -->
+
+                    <div class="col">
+                      <div class="card h-100">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ $itm.Title }}</h5>
+                          <p class="card-text">{{ $itm.Summary }}</p>
+                        </div>
+                      </div>
+                    </div>
+
                   {{ end }}
+                  </div>
                 {{ end }}
               {{ end }}
             </div>

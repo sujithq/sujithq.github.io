@@ -8,14 +8,19 @@
     "postinstall": "npm run copy-files",
     "test": "playwright test",
     "upd": "playwright test --update-snapshots",
-    "publish-due-posts": "node scripts/publish-due-posts.js"
+    "publish-due-posts": "node scripts/publish-due-posts.js",
+    "prebuild": "node scripts/sync-updates-from-jsonl.js",
+    "build": "hugo server -e production --cleanDestinationDir --gc --minify -D -F"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.55.0",
-    "@types/node": "^24.3.0"
+    "@types/node": "^24.3.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.0",
@@ -27,8 +32,6 @@
     "d3": "^7.9.0",
     "glob": "^11.0.1",
     "gray-matter": "^4.0.3",
-    "postcss": "^8.5.3",
-    "postcss-cli": "^11.0.1",
     "prismjs": "^1.30.0",
     "swiper": "^11.2.10"
   }

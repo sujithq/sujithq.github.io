@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <main id="main" class="container taxonomy-term">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Data.Term }}<p class="taxonomy-term">Category: <strong>{{ . }}</strong></p>{{ end }}
+      {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ $pages := .Pages | default .RegularPages }}
+    {{ $p := .Paginate ($pages.ByDate.Reverse) }}
+    <ul class="post-list">{{- range $p.Pages -}}<li class="post-item">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="meta">
+          <time datetime="{{ .Date }}">{{ .Date | time.Format "2006-01-02" }}</time>
+        </span>
+        {{ with .Summary }}<p class="summary">{{ . }}</p>{{ end }}
+      </li>{{- end -}}</ul>
+
+    {{ template "_internal/pagination.html" . }}
+  </main>
+{{ end }}

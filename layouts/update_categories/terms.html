@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <main id="main" class="container taxonomy-terms">
+    <header class="page-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+    </header>
+
+    {{ $tax := .Data.Terms | default .Site.Taxonomies.update_categories }}
+    <ul class="terms-list">{{- range $term, $weightedPages := $tax -}}{{ $termPage := site.GetPage (printf "/update_categories/%s" (urlize $term)) }}<li>
+        <a href="{{ $termPage.RelPermalink }}">{{ $term }}</a>
+        <span class="count">({{ len $weightedPages }})</span>
+      </li>{{- end -}}</ul>
+  </main>
+{{ end }}

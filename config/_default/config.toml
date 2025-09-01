@@ -36,6 +36,7 @@ buildFuture = false
 
 [permalinks]
   posts = "/posts/:year/:month/:slug"
+  updates2 = "/updates2/:slug/"
 
 [markup]
   [markup.goldmark]
@@ -48,6 +49,9 @@ buildFuture = false
   categories = 'categories'
   tags = 'tags'
   series = 'series'
+  update_category = "update_categories"   # e.g. "azure"
+  update_tag      = "update_tags"         # optional
+  timeframe       = "timeframes"          # e.g. "2025-08"
 
 [security]
   [security.funcs]
