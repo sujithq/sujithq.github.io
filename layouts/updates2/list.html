@@ -1,18 +1,16 @@
 {{ define "main" }}
 <div class="container">
   <h2>Browse by category</h2>
-<ul>
-  {{ range $term, $_ := .Site.Taxonomies.update_categories }}
-    <li><a href="{{ "/updates2/" | relURL }}{{ $term | urlize }}/">{{ $term }}</a></li>
-  {{ end }}
-</ul>
+<ul>{{- range $term, $_ := .Site.Taxonomies.update_categories -}}
+  {{ $termPage := site.GetPage (printf "/update_categories/%s" (urlize $term)) }}
+  <li><a href="{{ $termPage.RelPermalink }}">{{ $term }}</a></li>
+{{- end -}}</ul>
 
 <h2>Browse by timeframe</h2>
-<ul>
-  {{ range $term, $_ := .Site.Taxonomies.timeframes }}
-    <li><a href="{{ "/updates2/timeframes/" | relURL }}{{ $term | urlize }}/">{{ $term }}</a></li>
-  {{ end }}
-</ul>
+<ul>{{- range $term, $_ := .Site.Taxonomies.timeframes -}}
+  {{ $tfPage := site.GetPage (printf "/timeframes/%s" (urlize $term)) }}
+  <li><a href="{{ $tfPage.RelPermalink }}">{{ $term }}</a></li>
+{{- end -}}</ul>
 </div>
 <div class="container">
   {{/* Collect all visible update pages */}}
