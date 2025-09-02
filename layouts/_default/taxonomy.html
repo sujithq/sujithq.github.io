@@ -1,12 +1,34 @@
 {{ define "main" }}
-<div class="container">
-  {{/* Filter out unlisted posts */}}
-  {{ $filteredPages := where .Pages ".Params.unlisted" "!=" true }}
-  {{ partial "posts-archive.html" (dict
-    "pages" $filteredPages
-    "title" .Title
-    "showIcon" true
-    "iconType" (cond (eq .Type "tags") "tags" (cond (eq .Type "categories") "folder" "layer-group"))
-  ) }}
-</div>
+{{ if or (eq .Type "update_categories") (eq .Type "timeframes") (eq .Type "update_tags") }}
+  <div class="container">
+    {{ $defaultUpdatePageSize := 10 }}
+    {{ $updatePageSize := or site.Params.updatesPageSize $defaultUpdatePageSize }}
+    {{/* Filter out unlisted update items */}}
+    {{ $pages := where .Pages ".Params.unlisted" "!=" true }}
+    {{ $p := .Paginate ($pages.ByDate.Reverse) $updatePageSize }}
+
+    {{ partial "updates2-archive.html" (dict
+      "pages" $p.Pages
+      "title" (printf "%s page %d" .Title $p.PageNumber)
+      "showIcon" false
+    ) }}
+
+    <div class="row g-0">
+      <div class="col-lg-12 d-flex justify-content-center">
+        {{ partial "pagination.html" (dict "paginator" $p) }}
+      </div>
+    </div>
+  </div>
+{{ else }}
+  <div class="container">
+    {{/* Filter out unlisted posts */}}
+    {{ $filteredPages := where .Pages ".Params.unlisted" "!=" true }}
+    {{ partial "posts-archive.html" (dict
+      "pages" $filteredPages
+      "title" .Title
+      "showIcon" true
+      "iconType" (cond (eq .Type "tags") "tags" (cond (eq .Type "categories") "folder" "layer-group"))
+    ) }}
+  </div>
+{{ end }}
 {{ end }}

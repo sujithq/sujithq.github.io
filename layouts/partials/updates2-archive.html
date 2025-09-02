@@ -42,17 +42,6 @@
                     {{ with $itm.Params.tags }}
                       {{ $lastTag = lower (index . (sub (len .) 1)) }}
                     {{ end }}
-                    <!-- <h4 class="ms-3 mb-1">
-                      <a href="{{ $itm.RelPermalink }}">{{ $itm.Title }}</a>
-
-                    </h4> -->
-                    <!-- <div class="card w-50">
-                      <div class="card-body">
-                        <h5 class="card-title">{{ $itm.Title }}</h5>
-
-                      </div>
-                    </div> -->
-
                     <div class="col">
                       <div class="card h-100">
                         <div class="card-body">
