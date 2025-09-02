@@ -1,3 +1,10 @@
+// Thumbnail placeholder when no cover image is present
+.thumb-50-placeholder {
+   display: inline-block;
+   width: 50px;
+   height: 50px;
+   background-color: var(--bs-light, #f8f9fa);
+}
 // ------------------------------
 // 0) Your variables & feature flags (put BEFORE Bootstrap imports)
 // ------------------------------
@@ -66,12 +73,12 @@ $grid-breakpoints: (
 @import "node_modules/bootstrap/scss/root";
 @import "node_modules/bootstrap/scss/reboot";
 @import "node_modules/bootstrap/scss/type";
-// @import "node_modules/bootstrap/scss/images";
+@import "node_modules/bootstrap/scss/images";
 @import "node_modules/bootstrap/scss/containers";
 @import "node_modules/bootstrap/scss/grid";
 // @import "node_modules/bootstrap/scss/tables";
 @import "node_modules/bootstrap/scss/forms";
-// @import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/buttons";
 @import "node_modules/bootstrap/scss/transitions";
 @import "node_modules/bootstrap/scss/dropdown";
 @import "node_modules/bootstrap/scss/button-group";
@@ -167,10 +174,27 @@ $grid-breakpoints: (
 @import "xebia/bootswatch";
 // @import "xebia/footer";
 @import "xebia/scrolltop";
-// @import "xebia/sharingButtons";
+@import "xebia/sharingButtons";
 // @import "xebia/timeline";
 
 // ------------------------------
 // 3) Icons (heavy). Consider replacing with a subset of SVGs.
 // ------------------------------
-// @import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+// @import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";  // to be removed?
+
+// ------------------------------
+// 4) Utilities - local helpers
+// ------------------------------
+// Make a full-card anchor look like plain text. Used in updates2 archive cards.
+.link-unstyled,
+.link-unstyled:hover,
+.link-unstyled:focus,
+.link-unstyled:active {
+   color: inherit !important;
+   text-decoration: none !important;
+}
+// Ensure descendants within the card don't reintroduce underline/styles
+.link-unstyled * {
+   color: inherit !important;
+   text-decoration: none !important;
+}

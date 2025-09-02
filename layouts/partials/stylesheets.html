@@ -5,6 +5,9 @@
 {{ else if eq .Section "updates" }}
   {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/posts.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ else if eq .Section "updates2" }}
+  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/updates2.scss")) }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{ else if eq .Section "resume" }}
   {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/resume.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
@@ -21,6 +24,15 @@
   {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/taxonomy.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{ else if eq .Section "series" }}
+  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/taxonomy.scss")) }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ else if eq .Section "update_categories" }}
+  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/taxonomy.scss")) }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ else if eq .Section "update_tags" }}
+  {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/taxonomy.scss")) }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ else if eq .Section "timeframes" }}
   {{ $styles := partial "get-stylesheet.html" (dict "Resource" (resources.Get "scss/taxonomy.scss")) }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 {{ else }}

@@ -35,20 +35,29 @@
                 {{ $pgs := $item.Pages.GroupByDate "January" }}
                 {{ range $idx, $it := $pgs }}
                   <h3 id="{{ $KeyYear }}{{ .Key }}" class="ms-2 mb-0">{{ .Key }} ({{ len $it.Pages }})</h3>
-                  <div class="row row-cols-2 g-3 w-100">
+                  <div class="row g-3 w-100">
                   {{ range $inx, $itm := ($it.Pages) }}
                     {{/* Derive cover image same way as detail.html: take last tag and map to assets/media/updates/<tag>.jpg */}}
                     {{ $lastTag := "" }}
                     {{ with $itm.Params.tags }}
                       {{ $lastTag = lower (index . (sub (len .) 1)) }}
                     {{ end }}
-                    <div class="col">
-                      <div class="card h-100">
-                        <div class="card-body">
-                          <h5 class="card-title">{{ $itm.Title }}</h5>
-                          <p class="card-text">{{ $itm.Summary }}</p>
+                    <div class="col-12 col-md-6 col-lg-4">
+                      <a href="{{ $itm.Params.Link }}" target="_blank" rel="noopener noreferrer" class="d-block h-100 link-unstyled" aria-label="{{ $itm.Title }}">
+                        <div class="card h-100">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ $itm.Title }}</h5>
+                            <div class="card-subtitle mb-2 text-body-secondary">
+                              <div class="d-flex justify-content-between">
+                                <p class="card-text mb-2">{{ $itm.Params.Source }}</p>
+                                <p class="card-text mb-2 text-end">{{ $itm.Date | time.Format "2006-01-02" }}</p>
+                              </div>
+                            </div>
+                            {{ $summary := or $itm.Params.llmSummary $itm.Summary }}
+                            <p class="card-text">{{ $summary }}</p>
+                          </div>
                         </div>
-                      </div>
+                      </a>
                     </div>
 
                   {{ end }}

@@ -1,6 +1,13 @@
 {{ define "main" }}
 {{ if or (eq .Type "update_categories") (eq .Type "timeframes") (eq .Type "update_tags") }}
   <div class="container">
+    {{/* Back link to updates2 section */}}
+    {{ $updatesSection := site.GetPage "section" "updates2" }}
+    {{ if $updatesSection }}
+    <div class="mb-3">
+      <i class="fas fa-arrow-left mx-1"></i><a href="{{ $updatesSection.RelPermalink }}" class="btn btn-sm btn-outline-secondary">Back to updates2</a>
+    </div>
+    {{ end }}
     {{ $defaultUpdatePageSize := 10 }}
     {{ $updatePageSize := or site.Params.updatesPageSize $defaultUpdatePageSize }}
     {{/* Filter out unlisted update items */}}
