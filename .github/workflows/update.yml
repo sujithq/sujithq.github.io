@@ -1,9 +1,9 @@
 name: Updates (Daily Refresh)
 
 on:
-  schedule:
-    # Run daily at 05:15 UTC (~07:15 Europe/Brussels during DST)
-    - cron: '15 5 * * *'
+  # schedule:
+  #   # Run daily at 05:15 UTC (~07:15 Europe/Brussels during DST)
+  #   - cron: '15 5 * * *'
   workflow_dispatch:
 
 permissions:
