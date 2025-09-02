@@ -8,9 +8,10 @@
 {{- /* Detect media type reliably; RelPermalink can be empty for assets */ -}}
 {{- $mt := $resource.MediaType -}}
 {{- $sub := cond (ne $mt nil) $mt.SubType "" -}}
+{{- $isScss := or (eq $sub "scss") (eq $sub "x-scss") (eq $sub "sass") (eq $sub "x-sass") -}}
 
 {{- /* If SCSS/SASS, compile to CSS first */ -}}
-{{- if or (eq $sub "scss") (eq $sub "sass") -}}
+{{- if $isScss -}}
   {{- $processed = $processed | toCSS -}}
 {{- end -}}
 
@@ -20,6 +21,13 @@
 {{- end -}}
 
 {{- /* Minify and fingerprint CSS; preserve media type */ -}}
+{{- if ne $processed.MediaType.SubType "css" -}}
+  {{- /* Failsafe: attempt to compile any lingering SCSS/SASS */ -}}
+  {{- with $processed | toCSS -}}
+    {{- $processed = . -}}
+  {{- end -}}
+{{- end -}}
+
 {{- if eq $processed.MediaType.SubType "css" -}}
   {{- $processed = $processed | minify | fingerprint -}}
 {{- else -}}
