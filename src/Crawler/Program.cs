@@ -70,7 +70,7 @@ class Program
 
         ILlmClient llm = app.llm.provider.ToLowerInvariant() switch
         {
-            "openai" => new OpenAiClient(app.llm.model, new HttpClient(), openAiKey),
+            "openai" => new OpenAiClient(app.llm.model, new HttpClient(), openAiKey, app.llm.endpoint, app.llm.deploymentName),
             _ => new GithubModelsClient(app.llm.model, new HttpClient(), githubToken)
         };
         logger.LogInformation("LLM client ready. provider={Provider} maxCallsPerRun={Max} rate={Req}/{Win}s delay={Delay}s",

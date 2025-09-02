@@ -6,14 +6,31 @@ public class OpenAiClient : ILlmClient
 {
     private readonly string _model;
     private readonly HttpClient _http;
+    private readonly string _deploymentName;
+    private readonly bool _isAzureOpenAI;
 
-    public OpenAiClient(string model, HttpClient http, string? apiKey)
+    public OpenAiClient(string model, HttpClient http, string? apiKey, string? endpoint = null, string? deploymentName = null)
     {
         _model = model;
         _http = http;
-        _http.BaseAddress = new Uri("https://api.openai.com/v1/");
-        _http.DefaultRequestHeaders.Authorization =
-            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", apiKey ?? "");
+        _deploymentName = deploymentName ?? model;
+        
+        // Determine if this is Azure OpenAI based on endpoint
+        _isAzureOpenAI = !string.IsNullOrEmpty(endpoint) && endpoint.Contains("cognitiveservices.azure.com");
+        
+        if (_isAzureOpenAI)
+        {
+            // Azure OpenAI configuration
+            _http.BaseAddress = new Uri(endpoint!.TrimEnd('/') + "/");
+            _http.DefaultRequestHeaders.Add("api-key", apiKey ?? "");
+        }
+        else
+        {
+            // Standard OpenAI configuration
+            _http.BaseAddress = new Uri("https://api.openai.com/v1/");
+            _http.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", apiKey ?? "");
+        }
     }
 
     public async Task<LlmOutput> SummarizeAsync(string title, string url, string plainText)
@@ -31,7 +48,13 @@ public class OpenAiClient : ILlmClient
         };
 
         var json = JsonSerializer.Serialize(body);
-        var resp = await _http.PostAsync("chat/completions",
+        
+        // Construct the appropriate API path
+        string apiPath = _isAzureOpenAI 
+            ? $"openai/deployments/{_deploymentName}/chat/completions?api-version=2024-02-15-preview"
+            : "chat/completions";
+            
+        var resp = await _http.PostAsync(apiPath,
             new StringContent(json, Encoding.UTF8, "application/json"));
         resp.EnsureSuccessStatusCode();
         using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());

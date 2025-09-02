@@ -21,7 +21,9 @@ public record LlmConfig(
     int minCharsToSummarize,
     int requestsPerWindow,
     int windowSeconds,
-    int initialDelaySeconds
+    int initialDelaySeconds,
+    string? endpoint = null,
+    string? deploymentName = null
 );
 
 public record ProcessedState(
