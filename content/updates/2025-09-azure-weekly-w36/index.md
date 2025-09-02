@@ -7,6 +7,7 @@ tags = ['updates', 'weekly', 'azure']
 description = 'Highlights from Azure between 2025-09-01 and 2025-09-07 — explore updates, new features, bug fixes, and important enhancements for this period.'
 [params]
     author = 'sujith'
+aliases = ["/updates/azure-weekly-2025-week-36/"]
 +++
 ## This period at a glance
 

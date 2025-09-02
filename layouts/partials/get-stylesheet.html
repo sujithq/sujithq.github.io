@@ -1,24 +1,30 @@
-{{- /* Function to get and process a stylesheet resource */ -}}
+{{- /* Function to get and process a stylesheet resource (SCSS/CSS) */ -}}
 {{- $resource := .Resource -}}
+{{- if not $resource }}{{- errorf "get-stylesheet.html: missing Resource" -}}{{ end -}}
+
 {{- $isProduction := eq hugo.Environment "production" -}}
-
-{{- /* Get the file extension */ -}}
-{{- $extension := path.Ext $resource.RelPermalink -}}
-
-{{- /* Initialize $processed with the resource */ -}}
 {{- $processed := $resource -}}
 
-{{- /* Apply ToCSS if the file is a .scss or .sass file */ -}}
-{{- if or (eq $extension ".scss") (eq $extension ".sass") -}}
+{{- /* Detect media type reliably; RelPermalink can be empty for assets */ -}}
+{{- $mt := $resource.MediaType -}}
+{{- $sub := cond (ne $mt nil) $mt.SubType "" -}}
+
+{{- /* If SCSS/SASS, compile to CSS first */ -}}
+{{- if or (eq $sub "scss") (eq $sub "sass") -}}
   {{- $processed = $processed | toCSS -}}
 {{- end -}}
 
-{{- /* Add PostCSS processing if in production */ -}}
-{{- if $isProduction -}}
+{{- /* Only run PostCSS on CSS assets (after toCSS when needed) */ -}}
+{{- if and $isProduction (eq $processed.MediaType.SubType "css") -}}
   {{- $processed = $processed | css.PostCSS -}}
 {{- end -}}
 
-{{- /* Minify and fingerprint the resource */ -}}
-{{- $processed = $processed | minify | fingerprint -}}
+{{- /* Minify and fingerprint CSS; preserve media type */ -}}
+{{- if eq $processed.MediaType.SubType "css" -}}
+  {{- $processed = $processed | minify | fingerprint -}}
+{{- else -}}
+  {{- /* Fallback: just fingerprint to keep stable URLs */ -}}
+  {{- $processed = $processed | fingerprint -}}
+{{- end -}}
 
 {{- return $processed -}}

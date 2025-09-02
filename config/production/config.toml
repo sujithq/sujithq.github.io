@@ -77,3 +77,10 @@ buildFuture = false
   disableAliases = false
   pagerSize = 6
   path = 'page'
+
+[permalinks]
+  posts = "/posts/:year/:month/:slug"
+  # Hard switch: publish updates2 items under /updates/
+  updates2 = "/updates/:slug/"
+  # Move legacy updates (v1) to /updates-v1/ to avoid URL conflicts
+  updates = "/updates-v1/:slug/"
