@@ -16,7 +16,7 @@
 
     {{ partial "updates2-archive.html" (dict
       "pages" $p.Pages
-      "title" (printf "%s page %d" .Title $p.PageNumber)
+      "title" (printf "%s - %d" .Title $p.PageNumber)
       "showIcon" false
     ) }}
 

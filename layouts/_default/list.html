@@ -2,7 +2,7 @@
 <div class="container">
     {{ $paginator := .Paginator }}
     {{ $pages := where (where site.RegularPages "Section" "posts") ".Params.unlisted" "!=" true }}
-    {{ $title := printf "%s page %d" .Title $paginator.PageNumber }}
+    {{ $title := printf "%s - %d" .Title $paginator.PageNumber }}
 
     {{ partial "posts-archive.html" (dict
       "pages" $pages

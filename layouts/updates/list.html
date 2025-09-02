@@ -9,7 +9,7 @@
 
   {{/* Create paginator with custom size */}}
   {{ $paginator := .Paginate $pages $updatePageSize }}
-  {{ $title := printf "%s page %d" .Title $paginator.PageNumber }}
+  {{ $title := printf "%s - %d" .Title $paginator.PageNumber }}
 
   {{/* Pass only the current page's pages to archive partial so grouping reflects current page subset */}}
   {{ $pageItems := $paginator.Pages }}
