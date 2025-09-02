@@ -83,7 +83,7 @@ jobs:
       - name: Run crawler (bin output)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_MODELS_TOKEN }}
+          MODELS_TOKEN: ${{ secrets.MODELS_TOKEN }}
         run: |
           OUTDIR=$(ls -d src/Crawler/bin/Release/net9.0/ | head -n 1)
           echo "Output directory: $OUTDIR"

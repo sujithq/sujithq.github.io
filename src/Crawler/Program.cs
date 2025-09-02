@@ -61,7 +61,7 @@ class Program
         http.DefaultRequestHeaders.UserAgent.ParseAdd(app.fetch.userAgent);
         logger.LogDebug("HTTP UA set. timeoutSeconds={Timeout}", app.fetch.timeoutSeconds);
 
-        var githubToken = configuration["GITHUB_MODELS_TOKEN"]
+        var githubToken = configuration["MODELS_TOKEN"]
             ?? configuration["llm:githubToken"]
             ?? configuration["llm:token"];
         var openAiKey = configuration["OPENAI_API_KEY"]
