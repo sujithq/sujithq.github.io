@@ -2,8 +2,7 @@ name: Deploy to Github Pages
 
 on:
     schedule:
-      # Run daily at 05:15 UTC (~07:15 Europe/Brussels during DST)
-      - cron: '15 5 * * *'      
+      - cron: '15 */2 * * *'   # at minute 0, every 2 hours (UTC)
     push:
         branches: [main]
     pull_request:

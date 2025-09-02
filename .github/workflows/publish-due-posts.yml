@@ -2,7 +2,7 @@ name: Publish due posts
 
 on:
   schedule:
-    - cron: '15 * * * *' # run hourly at :15 past
+    - cron: '30 * * * *' # run hourly at :30 past
   workflow_dispatch:
     inputs:
       series:
