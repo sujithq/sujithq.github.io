@@ -27,7 +27,7 @@
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "@iarna/toml": "^3.0.0",
     "aos": "^2.3.4",
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.11.3",
     "d3": "^7.9.0",
     "glob": "^11.0.1",
