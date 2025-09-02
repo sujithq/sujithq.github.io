@@ -31,7 +31,7 @@ Uses:
   "llm": {
     "provider": "openai",
     "model": "gpt-5-mini",
-    "endpoint": "https://your-resource-name.cognitiveservices.azure.com",
+    "endpoint": "https://sujit-mf33fc1c-eastus2.cognitiveservices.azure.com",
     "deploymentName": "gpt-5-mini"
   }
 }
@@ -84,7 +84,7 @@ See `appsettings.azure-openai.json` for a complete example:
     "requestsPerWindow": 3,
     "windowSeconds": 60,
     "initialDelaySeconds": 2,
-    "endpoint": "https://your-resource-name.cognitiveservices.azure.com",
+    "endpoint": "https://sujit-mf33fc1c-eastus2.cognitiveservices.azure.com",
     "deploymentName": "gpt-5-mini"
   },
   "feeds": {
@@ -111,6 +111,8 @@ To use Azure OpenAI, you need:
 
 The endpoint URL format is typically:
 `https://{resource-name}.cognitiveservices.azure.com`
+
+For example: `https://sujit-mf33fc1c-eastus2.cognitiveservices.azure.com`
 
 ## Troubleshooting
 
