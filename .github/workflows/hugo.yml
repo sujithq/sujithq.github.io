@@ -104,14 +104,35 @@ jobs:
 
       - name: Commit & push results
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Ensure we're up to date before committing (avoid non-ff push)
+          git fetch origin main
+          git pull --rebase --autostash origin main || true
+
           git add data/ content/ state/
           if git diff --staged --quiet; then
             echo "No changes."
+            exit 0
+          fi
+
+          git commit -m "chore: update crawl outputs [skip ci]"
+
+          # Try a normal push first; if rejected, rebase and retry; finally force-with-lease as last resort
+          if git push; then
+            echo "Pushed successfully."
           else
-            git commit -m "chore: update crawl outputs [skip ci]"
-            git push
+            echo "Push rejected, attempting rebase and retry..."
+            git fetch origin main
+            if git rebase origin/main; then
+              git push || git push --force-with-lease
+            else
+              echo "Rebase had conflicts; aborting and using --force-with-lease to publish bot outputs."
+              git rebase --abort || true
+              git push --force-with-lease
+            fi
           fi
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
