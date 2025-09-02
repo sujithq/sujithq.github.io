@@ -11,20 +11,49 @@
                     <div class="card border-0 m-0 p-0">
                         <div class="card-body p-0">
                           <div class="d-flex flex-column align-items-center">
-                            {{ with .page.Params.author }}
-                              {{ $author := site.GetPage (printf "authors/%s" .) }}
-                              <!-- <h4>{{ $author.Title }}</h4> -->
-                              {{ partial "gravatar/avatar-params" (dict "Email" $author.Params.email "ClassName" "rounded-circle flex-shrink-0" "Size" "150" "Alt" $author.Title) }}
-                              {{ with $author }}
-                                {{ $resume := site.GetPage "resume" }}
-                                {{ with $resume }}
-                                  <a href="{{ $resume.RelPermalink }}"><h5>{{$author.Title}}</h5></a>
-                                {{ end }}
-                                <div class="text-center">
-                                  {{ $author.Params.about | markdownify }}
-                                </div>
-                              {{ end }}
-                            {{ end }}
+                                                                                    {{/* Prefer page-specific author; otherwise fall back to the primary (superuser) author */}}
+                                                                                    {{- $authorKey := (.page.Params.author | default "") -}}
+                                                                                    {{- $authorPage := site.GetPage (printf "authors/%s" (or $authorKey "___none___")) -}}
+                                                                                                                {{ if not $authorPage }}
+                                                                                                                    {{/* Try regular pages under authors (leaf bundles) */}}
+                                                                                                                    {{ with (first 1 (where (where site.RegularPages "Section" "authors") "Params.superuser" true)) }}
+                                                                                                                        {{- $authorPage = (index . 0) -}}
+                                                                                                                    {{ end }}
+                                                                                                                {{ end }}
+                                                                                                                {{ if not $authorPage }}
+                                                                                                                    {{/* Fallback: find a subsection under authors with superuser=true (branch bundle like authors/<slug>/_index.md) */}}
+                                                                                                                    {{- with (site.GetPage "authors") -}}
+                                                                                                                        {{ with (first 1 (where .Sections "Params.superuser" true)) }}
+                                                                                                                            {{- $authorPage = (index . 0) -}}
+                                                                                                                        {{ end }}
+                                                                                                                    {{- end -}}
+                                                                                                                {{ end }}
+                                                                                                                {{ if not $authorPage }}
+                                                                                                                    {{/* Last-resort: search all pages in authors section for superuser */}}
+                                                                                                                    {{ with (first 1 (where (where site.Pages "Section" "authors") "Params.superuser" true)) }}
+                                                                                                                        {{- $authorPage = (index . 0) -}}
+                                                                                                                    {{ end }}
+                                                                                                                {{ end }}
+                                                                                                                                            {{ if not $authorPage }}
+                                                                                                                                                {{/* Try matching the site author name to a page Title under authors */}}
+                                                                                                                                                {{ $siteAuthor := site.Params.author }}
+                                                                                                                                                {{ with (first 1 (where (where site.Pages "Section" "authors") "Title" $siteAuthor)) }}
+                                                                                                                                                    {{- $authorPage = (index . 0) -}}
+                                                                                                                                                {{ end }}
+                                                                                                                                            {{ end }}
+                                                                                    {{ with $authorPage }}
+                                                                                        {{ $authorTitle := .Title }}
+                                                                                        {{ $email := .Params.email }}
+                                                                                        {{ with $email }}
+                                                                                            {{ partial "gravatar/avatar-params" (dict "Email" . "ClassName" "rounded-circle flex-shrink-0" "Size" "150" "Alt" $authorTitle) }}
+                                                                                        {{ end }}
+                                                                                        {{ with (site.GetPage "resume") }}
+                                                                                            <a href="{{ .RelPermalink }}"><h5>{{ $authorTitle }}</h5></a>
+                                                                                        {{ end }}
+                                                                                        <div class="text-center">
+                                                                                            {{ .Params.about | markdownify }}
+                                                                                        </div>
+                                                                                    {{ end }}
                           </div>
                         </div>
                       </div>
@@ -106,7 +135,14 @@
                                 {{ range $inx, $itm := ($it.Pages) }}
                                     {{- $image := $itm.Resources.Get "cover.jpg" -}}
 
-                                    <p class="ms-3 mb-0"><span class="mx-1"><img src="{{ ($image.Fill "50x50 q100 Center").RelPermalink }}"></span><a href="{{ $itm.RelPermalink }}">{{ $itm.Title }}</a></p>
+                                    <p class="ms-3 mb-0">
+                                        <span class="mx-1">
+                                            {{ with $image }}
+                                                <img src="{{ (.Fill "50x50 q100 Center").RelPermalink }}" alt="{{ $itm.Title }}">
+                                            {{ end }}
+                                        </span>
+                                        <a href="{{ $itm.RelPermalink }}">{{ $itm.Title }}</a>
+                                    </p>
                                 {{ end }}
                             {{ end }}
                         {{ end }}
