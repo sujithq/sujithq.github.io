@@ -33,3 +33,22 @@ static/scss/fonts/bootstrap-icons.woff*
 # # Ignore all local history of files
 # .history
 # .ionide
+
+# Build artifacts
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+.vs/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Keep data/content/state tracked (donâ€™t ignore)
+!.gitkeep

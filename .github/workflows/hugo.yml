@@ -69,9 +69,50 @@ jobs:
           hugo-version: "0.148.2"
           extended: true
 
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore
+        run: dotnet restore src/Crawler/Crawler.csproj
+
+      - name: Build
+        run: dotnet build src/Crawler/Crawler.csproj -c Release --no-restore
+
+      - name: Run crawler (bin output)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_MODELS_TOKEN }}
+        run: |
+          OUTDIR=$(ls -d src/Crawler/bin/Release/net9.0/ | head -n 1)
+          echo "Output directory: $OUTDIR"
+          mkdir -p "$OUTDIR"
+          # cp -f appsettings.json "$OUTDIR"/appsettings.json
+          dotnet run --project src/Crawler/Crawler.csproj -c Release --no-build
+          # Copy results from output back to repo
+          mkdir -p data state content
+          cp -r "$OUTDIR"/data/. data/ 2>/dev/null || true
+          cp -r "$OUTDIR"/state/. state/ 2>/dev/null || true
+          # cp -r "$OUTDIR"/content/. content/ 2>/dev/null || true
+
+      - name: Build Update pages
+        run: node scripts/sync-updates-from-jsonl.js
+
       - name: Build
         run: hugo --minify --gc --environment production
 
+      - name: Commit & push results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ content/ state/
+          if git diff --staged --quiet; then
+            echo "No changes."
+          else
+            git commit -m "chore: update crawl outputs [skip ci]"
+            git push
+          fi
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:

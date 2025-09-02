@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Crawler": {
+      "commandName": "Project",
+      "commandLineArgs": "-v"
+    }
+  }
+}
