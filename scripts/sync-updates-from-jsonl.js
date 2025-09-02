@@ -2,7 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const SRC = 'items.jsonl';
+const SRC = 'data/items.jsonl';
 const OUT_ITEMS_DIR = 'content/updates2/items';
 const OUT_ROOT = 'content/updates2';
 const OUT_TIMEFRAMES_DIR = 'content/updates2/timeframes';
