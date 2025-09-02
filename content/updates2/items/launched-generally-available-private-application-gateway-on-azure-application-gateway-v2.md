@@ -13,6 +13,7 @@ id: "738A72DE9C36957B1BE20B898291FE517592F8343DD4908259BAF3A7D9B61F80"
 contentHash: "E6FCEA36DE630889D4657C3DE95FBD0118AE15722353197CE5EBCA47318A3B1A"
 draft: false
 type: "update-item"
+llmSummary: "Azure Application Gateway v2 now generally available with Private Application Gateway features, enhancing network exposure control."
 ---
 
 Azure Application Gateway v2 now generally available with Private Application Gateway features, enhancing network exposure control.

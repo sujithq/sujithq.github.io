@@ -13,6 +13,7 @@ id: "53C296842136694319C75DF0D477DCF45D4A5CC7C2BBCBFE3AA846B1E72C2734"
 contentHash: "9957553F0F148B96D5EA0A686CFF41943D14FC6C896F32390213F3BD5C7F403D"
 draft: false
 type: "update-item"
+llmSummary: "Azure Cosmos DB for MongoDB (vCore) now supports encryption with customer-managed keys in public preview, adding to the existing service-managed key encryption."
 ---
 
 Azure Cosmos DB for MongoDB (vCore) now supports encryption with customer-managed keys in public preview, adding to the existing service-managed key encryption.

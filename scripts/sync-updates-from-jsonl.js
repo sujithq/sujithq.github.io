@@ -55,6 +55,7 @@ id: ${JSON.stringify(it.id)}
 contentHash: ${JSON.stringify(it.contentHash)}
 draft: false
 type: "update-item"
+llmSummary: ${JSON.stringify(it.llm?.Summary || '')}
 ---
 
 ${it.llm?.Summary || ''}

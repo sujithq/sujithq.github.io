@@ -13,6 +13,7 @@ id: "1227D3668792B2466C00B7B8862B918382643C2613EE9F857DD81A455C2C2DFE"
 contentHash: "F293A34D1949DA2D37D9F768BD73425AFED4EAC9B17ED50DC805A9FD0CD84658"
 draft: false
 type: "update-item"
+llmSummary: "Azure Application Gateway now supports MaxSurge, allowing new instances to be provisioned during rolling upgrades without taking existing instances offline. This feature enables zero-capacity-impact upgrades to newer gateway versions."
 ---
 
 Azure Application Gateway now supports MaxSurge, allowing new instances to be provisioned during rolling upgrades without taking existing instances offline. This feature enables zero-capacity-impact upgrades to newer gateway versions.

@@ -13,6 +13,7 @@ id: "6A1708461FE555EBCE1D5876F5B1E87224CEF65C9E99FEAE55E57A6072348CE0"
 contentHash: "FADF926222D61EF06DB2ECD6594CAC592F9B68D3E84BEED7D3A01F06F5C65E72"
 draft: false
 type: "update-item"
+llmSummary: "The Azure Blob Storage Archive access tier is now generally available in the Malaysia West region, enabling cost-effective storage of infrequently accessed data locally."
 ---
 
 The Azure Blob Storage Archive access tier is now generally available in the Malaysia West region, enabling cost-effective storage of infrequently accessed data locally.

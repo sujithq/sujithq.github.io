@@ -13,6 +13,7 @@ id: "D8C3546AF3C83DA77CBD273ED7BBE2D06EE0A9CE81199EB3E8EBF2D8D1BEC44D"
 contentHash: "286B422DB797571117F5F19FB4BCE2772EBDDE9C89EEF9B5DDA45F22755A017E"
 draft: false
 type: "update-item"
+llmSummary: "Azure Database for PostgreSQL Flexible Server now supports Entra ID group login using user credentials in public preview on new servers. This feature aims to simplify user management and enhance security."
 ---
 
 Azure Database for PostgreSQL Flexible Server now supports Entra ID group login using user credentials in public preview on new servers. This feature aims to simplify user management and enhance security.

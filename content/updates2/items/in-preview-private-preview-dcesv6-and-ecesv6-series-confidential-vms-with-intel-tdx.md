@@ -13,6 +13,7 @@ id: "DDB38F11D489EE50080CB3ADDB91EA9113689FC9AB57A9FD22037F9FE05F2780"
 contentHash: "4F844D3CD701F9C310A75D40426D896FC4CF0A64022941D54C7055087603766C"
 draft: false
 type: "update-item"
+llmSummary: "Azure has introduced the DCesv6 and ECesv6 series Confidential VMs powered by 5th Gen Intel Xeon processors with Intel TDX for enhanced security."
 ---
 
 Azure has introduced the DCesv6 and ECesv6 series Confidential VMs powered by 5th Gen Intel Xeon processors with Intel TDX for enhanced security.

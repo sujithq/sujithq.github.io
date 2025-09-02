@@ -13,6 +13,7 @@ id: "B75D7853B04A6ED2C7405BCCC633AD0E619E1D129AC697B1D0B7C33CD0716AFD"
 contentHash: "C97214DB3E202AC67E6B39CB06104619F74A5ED305E46050E3601B295FD893A0"
 draft: false
 type: "update-item"
+llmSummary: "Microsoft is retiring Microsoft Defender for Cloud in the Azure operated by 21Vianet environment due to increasing infrastructure and operational complexity."
 ---
 
 Microsoft is retiring Microsoft Defender for Cloud in the Azure operated by 21Vianet environment due to increasing infrastructure and operational complexity.

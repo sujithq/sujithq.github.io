@@ -13,6 +13,7 @@ id: "23B584C4F3E42FAD898270AF00978DAFC96F56B6B8F182D7F27B6E1DFD365728"
 contentHash: "807A95615CCC2DC48E4FF4145CCFBFB7EB62A15E976BCBF426E49BE566BE3A72"
 draft: false
 type: "update-item"
+llmSummary: "Microsoft Azure is now generally available in a new cloud region in Austria, supporting secure data storage and processing for local companies and public administration."
 ---
 
 Microsoft Azure is now generally available in a new cloud region in Austria, supporting secure data storage and processing for local companies and public administration.

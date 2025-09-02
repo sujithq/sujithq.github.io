@@ -13,6 +13,7 @@ id: "7067538036397E2E6C98667A90881DF3693A807CAF6F64647787A16B39623617"
 contentHash: "15DF3FD84119321F643E94455FAAA03575E12DB1200ABCA1CC2D2B7B1835FBC1"
 draft: false
 type: "update-item"
+llmSummary: "Copilot code review is now generally available in Xcode. A new enterprise and organization setting for Copilot code review has been introduced for admins."
 ---
 
 Copilot code review is now generally available in Xcode. A new enterprise and organization setting for Copilot code review has been introduced for admins.

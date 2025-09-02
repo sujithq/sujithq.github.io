@@ -13,6 +13,7 @@ id: "9FF252ABB3A4A5BD35CC72B5D50517A22F0FED4EEAE4F64981BCB26796F300F9"
 contentHash: "2029CC60CA2DAA950D3F68F8C97B6B1249E123281A9D2A8BD87647D04A502C24"
 draft: false
 type: "update-item"
+llmSummary: "GitHub has added support for WebP images on github.com and GitHub Enterprise Cloud with data residency. Previously, WebP uploads caused broken previews or required downloads."
 ---
 
 GitHub has added support for WebP images on github.com and GitHub Enterprise Cloud with data residency. Previously, WebP uploads caused broken previews or required downloads.

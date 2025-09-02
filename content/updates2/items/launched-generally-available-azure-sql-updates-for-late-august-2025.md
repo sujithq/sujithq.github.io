@@ -13,6 +13,7 @@ id: "F9F2336EE3A1675D1581E7F0FF6B261E72033774EB06F90BD637CD93F01B86CF"
 contentHash: "85DE99549538D2A3F1A9DAFCC2AAAE6B8667FB8B8879D1033C0C9CA280B3A33F"
 draft: false
 type: "update-item"
+llmSummary: "Azure SQL and SQL Server received updates in late August 2025, including the general availability of local SQL Server containers via the MSSQL extension for Visual Studio Code."
 ---
 
 Azure SQL and SQL Server received updates in late August 2025, including the general availability of local SQL Server containers via the MSSQL extension for Visual Studio Code.

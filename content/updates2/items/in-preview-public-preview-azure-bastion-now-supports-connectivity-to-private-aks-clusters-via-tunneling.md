@@ -13,6 +13,7 @@ id: "B7377A433A92291B45370A5A3D36C4D24C0F7F962B9B292E125F750CF7DA104D"
 contentHash: "75500DBB16F1BE8F68CDD35833CB5618DF9054181B1A2DDC029EFC2983862DB8"
 draft: false
 type: "update-item"
+llmSummary: "Azure Bastion now supports secure tunneling to private Azure Kubernetes Service (AKS) clusters, allowing direct access to the AKS API server from local machines using standard Kubernetes tools."
 ---
 
 Azure Bastion now supports secure tunneling to private Azure Kubernetes Service (AKS) clusters, allowing direct access to the AKS API server from local machines using standard Kubernetes tools.

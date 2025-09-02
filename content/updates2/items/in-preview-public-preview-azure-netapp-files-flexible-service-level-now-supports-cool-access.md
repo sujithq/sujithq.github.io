@@ -13,6 +13,7 @@ id: "22F3CFE14FA512CE69CFF84596CC64EB3B2DC1A9CAF1D2F0999AAA80F03BF9FD"
 contentHash: "34BECAA80836FA5ABEEE25812DB9E5FD777F7641353AB65C5D87CF775402A205"
 draft: false
 type: "update-item"
+llmSummary: "Azure NetApp Files' Flexible service level now supports cool access, enabling customers to configure storage capacity and throughput independently for workloads with specific performance and sizing needs."
 ---
 
 Azure NetApp Files' Flexible service level now supports cool access, enabling customers to configure storage capacity and throughput independently for workloads with specific performance and sizing needs.

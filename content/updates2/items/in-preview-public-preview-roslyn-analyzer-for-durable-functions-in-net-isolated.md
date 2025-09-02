@@ -13,6 +13,7 @@ id: "4F44699F501D3B21FC93205AEB0E1736BA42A12D6176B0BD14A81C2AD0ACB835"
 contentHash: "3FDCDB95A9BBEE1700ED41DA3CDF5BA981B732CEB73747C85CD0FEF255928C16"
 draft: false
 type: "update-item"
+llmSummary: "The Roslyn Analyzer for Durable Functions in the .NET isolated model is now available in public preview, providing real-time code analysis to enforce durable orchestration coding constraints."
 ---
 
 The Roslyn Analyzer for Durable Functions in the .NET isolated model is now available in public preview, providing real-time code analysis to enforce durable orchestration coding constraints.

@@ -13,6 +13,7 @@ id: "7BFAC8CD6BEAC71159608319F478949720F85334EBF40E7FA443C595AA441BA6"
 contentHash: "A30457F6821C07A8B38FFD0C5413CA04282E19CB97295E6EB08E9C088DD71A90"
 draft: false
 type: "update-item"
+llmSummary: "Policy as code automates the verification of compliance with IT and business requirements during infrastructure deployments, providing rapid checks within minutes or seconds."
 ---
 
 Policy as code automates the verification of compliance with IT and business requirements during infrastructure deployments, providing rapid checks within minutes or seconds.

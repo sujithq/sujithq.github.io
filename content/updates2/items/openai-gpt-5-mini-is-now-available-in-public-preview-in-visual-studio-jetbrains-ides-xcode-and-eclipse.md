@@ -13,6 +13,7 @@ id: "D2E1D0D3D4F2D9719BC31B7A9395B1D3D7910DD329F29B7948F2847A326555D3"
 contentHash: "D1E4F6EB0009D8A7FF25127DFE604F50D22E2C2CEEB9FF5C36BC1902EF64F014"
 draft: false
 type: "update-item"
+llmSummary: "OpenAI's GPT-5 mini is now publicly available in preview for GitHub Copilot users within Visual Studio, JetBrains IDEs, Xcode, and Eclipse."
 ---
 
 OpenAI's GPT-5 mini is now publicly available in preview for GitHub Copilot users within Visual Studio, JetBrains IDEs, Xcode, and Eclipse.

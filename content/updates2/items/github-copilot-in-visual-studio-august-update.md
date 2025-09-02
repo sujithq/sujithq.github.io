@@ -13,6 +13,7 @@ id: "2899F30328598BFDB6D5B0FAF043652920BFDC4AA56388FCEA589206883D0D48"
 contentHash: "5CA464E56E8ED4AE29657E58FF1BA7C9E010DD2CA93711D97357472E4751AE36"
 draft: false
 type: "update-item"
+llmSummary: "The August 2025 update for GitHub Copilot in Visual Studio 2022 (v17.14) introduces a smarter Copilot powered by GPT-5, general availability of the Microsoft Copilot Platform (MCP), and enhanced user control features."
 ---
 
 The August 2025 update for GitHub Copilot in Visual Studio 2022 (v17.14) introduces a smarter Copilot powered by GPT-5, general availability of the Microsoft Copilot Platform (MCP), and enhanced user control features.

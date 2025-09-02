@@ -13,6 +13,7 @@ id: "444E3CB6C58B932EC04AC09AEA7FE58C7CA1F162F0970360B0415E918ED93A67"
 contentHash: "9811942CC5DCF9FA627674DE09E96AB36B485280D1C5DC3159F284F40B6ED691"
 draft: false
 type: "update-item"
+llmSummary: "The Azure Databricks connector for Microsoft Power Platform is now generally available, enabling seamless integration between Azure Databricks and Power Apps."
 ---
 
 The Azure Databricks connector for Microsoft Power Platform is now generally available, enabling seamless integration between Azure Databricks and Power Apps.

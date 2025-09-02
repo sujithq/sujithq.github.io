@@ -13,6 +13,7 @@ id: "73F9422B4ED0CAF6553672DBFB9EADCD03F642A7289B8936D53C6511AD0C31F6"
 contentHash: "C538EB5E66D376E28E1F689E57867BC8C314EF2D89EEF1B06A2F9053F970B4BC"
 draft: false
 type: "update-item"
+llmSummary: "Azure Monitor now offers Tenant-Level Service Health Alerts in preview, allowing notifications for service health issues affecting the entire tenant rather than single subscriptions."
 ---
 
 Azure Monitor now offers Tenant-Level Service Health Alerts in preview, allowing notifications for service health issues affecting the entire tenant rather than single subscriptions.

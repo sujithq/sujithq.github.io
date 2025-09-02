@@ -13,6 +13,7 @@ id: "165C53456BD1A31C45E0B7981654D82FC80B25DE82AB576F38655994D334188E"
 contentHash: "8BBF38CD517835B070C21D5D18E94AEBBDF1C0471B88C4B197FF85E33F5A061C"
 draft: false
 type: "update-item"
+llmSummary: "Azure Kubernetes Service (AKS) is introducing an AI-powered CLI feature called \"az aks agent\" that integrates agentic reasoning into the Azure CLI for developers and operators."
 ---
 
 Azure Kubernetes Service (AKS) is introducing an AI-powered CLI feature called "az aks agent" that integrates agentic reasoning into the Azure CLI for developers and operators.

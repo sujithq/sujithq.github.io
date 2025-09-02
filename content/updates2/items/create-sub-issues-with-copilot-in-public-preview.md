@@ -13,6 +13,7 @@ id: "E2FE6E7B670A12447B82C7F7A86BCB2C135B474701FAD604ACE0E8913E35D41C"
 contentHash: "0867C4A4160D6A1DD30617338CF27797438ECA31E314293379CEC7D3772CBEB4"
 draft: false
 type: "update-item"
+llmSummary: "GitHub Copilot now supports creating sub-issues and managing issue relationships via chat on github.com/copilot, available in public preview."
 ---
 
 GitHub Copilot now supports creating sub-issues and managing issue relationships via chat on github.com/copilot, available in public preview.

@@ -13,6 +13,7 @@ id: "C11E06531A88EB1B66CDFF30F6FC1CD9DEF61A2ED3F13D9E8F98DA38BDAF9AEF"
 contentHash: "DD33F274B2147070A0D6829E7023E2A44D35E896C69C06600D6413C0E96C0E6C"
 draft: false
 type: "update-item"
+llmSummary: "Azure Automation will resume deploying revised Service and Subscription limits starting August 11, 2025, to ensure fair resource distribution and improve reliability and performance."
 ---
 
 Azure Automation will resume deploying revised Service and Subscription limits starting August 11, 2025, to ensure fair resource distribution and improve reliability and performance.

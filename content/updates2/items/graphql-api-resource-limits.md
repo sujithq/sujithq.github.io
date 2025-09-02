@@ -13,6 +13,7 @@ id: "6B37705DC45A047B4A50EBBA1B8049883654730CAEA7A1AA74D5E962C36433B8"
 contentHash: "B9697CDB9001FB849195BD8032E59324E8C64DEFF64F05330FD382E317BFB383"
 draft: false
 type: "update-item"
+llmSummary: "GitHub is introducing new resource consumption limits to its GraphQL API to maintain infrastructure stability and dependability."
 ---
 
 GitHub is introducing new resource consumption limits to its GraphQL API to maintain infrastructure stability and dependability.

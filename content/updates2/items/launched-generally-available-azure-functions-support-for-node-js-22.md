@@ -13,6 +13,7 @@ id: "17CE7042C8B6B9753C0F412D9D0ED33DFD6FCEB0AF4361766440AA53E0452E54"
 contentHash: "6B5F17314051EC78317F15B4D02A3DB4CC189097132E63021A466A346EC8EC8B"
 draft: false
 type: "update-item"
+llmSummary: "Azure Functions now generally supports Node.js 22, allowing development and deployment on all Azure Functions plans for Linux and Windows."
 ---
 
 Azure Functions now generally supports Node.js 22, allowing development and deployment on all Azure Functions plans for Linux and Windows.

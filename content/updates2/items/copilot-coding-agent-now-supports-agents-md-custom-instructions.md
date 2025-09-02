@@ -13,6 +13,7 @@ id: "AE84FAA49128F2E4DC87DDCD1ABD4957DCA5BF1D3729E7818F3F6A56038869DE"
 contentHash: "49C2B90C1F07DAAC4B696D642A1E0B4E000CEC4A9EAA05C454B61E6FD35DE8C2"
 draft: false
 type: "update-item"
+llmSummary: "GitHub Copilot coding agent now supports AGENTS.md custom instructions, allowing users to guide the agent on project understanding and how to build, test, and validate changes."
 ---
 
 GitHub Copilot coding agent now supports AGENTS.md custom instructions, allowing users to guide the agent on project understanding and how to build, test, and validate changes.
