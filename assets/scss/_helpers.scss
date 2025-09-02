@@ -1,0 +1,17 @@
+// Shared lightweight helpers across templates
+// Keep selectors minimal and utility-focused.
+
+// Make a full-card anchor look like plain text while preserving inherited color.
+// Used by updates2 archive and taxonomy cards.
+.link-unstyled,
+.link-unstyled:hover,
+.link-unstyled:focus,
+.link-unstyled:active {
+   color: inherit !important;
+   text-decoration: none !important;
+}
+// Ensure descendants within the card don't reintroduce underline/styles
+.link-unstyled * {
+   color: inherit !important;
+   text-decoration: none !important;
+}

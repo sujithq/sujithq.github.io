@@ -175,6 +175,7 @@ $grid-breakpoints: (
 // @import "xebia/footer";
 @import "xebia/scrolltop";
 @import "xebia/sharingButtons";
+@import "helpers";
 // @import "xebia/timeline";
 
 // ------------------------------
@@ -185,16 +186,4 @@ $grid-breakpoints: (
 // ------------------------------
 // 4) Utilities - local helpers
 // ------------------------------
-// Make a full-card anchor look like plain text. Used in updates2 archive cards.
-.link-unstyled,
-.link-unstyled:hover,
-.link-unstyled:focus,
-.link-unstyled:active {
-   color: inherit !important;
-   text-decoration: none !important;
-}
-// Ensure descendants within the card don't reintroduce underline/styles
-.link-unstyled * {
-   color: inherit !important;
-   text-decoration: none !important;
-}
+// Shared helpers are imported via _helpers.scss
