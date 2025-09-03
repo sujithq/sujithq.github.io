@@ -12,7 +12,9 @@ public class GithubModelsClient : ILlmClient
     
         _model = model;
         _http = http;
-        _http.BaseAddress = new Uri("https://models.github.ai/inference/");
+        // BaseAddress is configured via DI (llm:<provider>:baseUrl). Do not override if already set.
+        if (_http.BaseAddress == null)
+            _http.BaseAddress = new Uri("https://models.github.ai/inference/");
         _http.DefaultRequestHeaders.Authorization =
             new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token ?? "");
         _http.DefaultRequestHeaders.Add("Accept", "application/vnd.github+json");

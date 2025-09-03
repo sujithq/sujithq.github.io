@@ -35,17 +35,81 @@ class Program
       c.Timeout = TimeSpan.FromSeconds(cfg.fetch.timeoutSeconds);
       c.DefaultRequestHeaders.UserAgent.ParseAdd(cfg.fetch.userAgent);
     });
-    builder.Services.AddHttpClient("github-models", c =>
+
+    // throw error if builder.Configuration["llm:provider"] is missing
+    if (string.IsNullOrWhiteSpace(builder.Configuration["llm:provider"]))
     {
-      c.BaseAddress = new Uri("https://models.github.ai/inference/");
-    });
-    builder.Services.AddHttpClient("openai", c =>
+      throw new InvalidOperationException("Missing configuration 'llm:provider'.");
+    }
+
+    // Generic LLM client registration using convention: llm:<provider>:baseUrl
+    var provider = builder.Configuration["llm:provider"];
+    var baseUrl = builder.Configuration[$"llm:{provider}:baseUrl"]; // e.g., llm:openai:baseUrl
+    if (string.IsNullOrWhiteSpace(baseUrl))
     {
-      c.BaseAddress = new Uri("https://api.openai.com/v1/");
-    });
+      throw new InvalidOperationException($"Missing configuration 'llm:{provider}:baseUrl'.");
+    }
+
+    builder.Services.AddHttpClient("llm", c => { c.BaseAddress = new Uri(baseUrl); });
+    builder.Services.AddHttpClient<ILlmHttpClient, LlmHttpClient>("llm");
 
     // App services
     builder.Services.AddHttpClient<IHtmlTextExtractor, HtmlTextExtractor>("crawler");
+    // Provide provider-specific throttling config
+    builder.Services.AddSingleton<LlmProviderConfig>(sp =>
+    {
+      var app = sp.GetRequiredService<IOptions<AppConfig>>().Value;
+      var cfg = sp.GetRequiredService<IConfiguration>();
+      var prov = app.llm.provider.ToLowerInvariant();
+
+      LlmProviderConfig? providerCfg = prov switch
+      {
+        "openai" => app.llm.openai,
+        "github" => app.llm.github,
+        "foundry" => app.llm.foundry,
+        _ => throw new InvalidOperationException($"Missing configuration 'llm:{provider}'.")
+      };
+
+      int req;
+      if (providerCfg?.requestsPerWindow is int r1) req = r1;
+      else if (int.TryParse(cfg["llm:requestsPerWindow"], out var r2)) req = r2;
+      else req = 3;
+
+      int win;
+      if (providerCfg?.windowSeconds is int w1) win = w1;
+      else if (int.TryParse(cfg["llm:windowSeconds"], out var w2)) win = w2;
+      else win = 60;
+
+      int delSec;
+      if (providerCfg?.initialDelaySeconds is int d1) delSec = d1;
+      else if (int.TryParse(cfg["llm:initialDelaySeconds"], out var d2)) delSec = d2;
+      else delSec = 2;
+
+      var model = providerCfg?.model ?? (cfg[$"llm:{prov}:model"] ?? app.llm.model ?? "");
+      var baseUrl = providerCfg?.baseUrl ?? cfg[$"llm:{prov}:baseUrl"]; // Program ensures baseUrl exists earlier
+      return new LlmProviderConfig(model, baseUrl, req, win, delSec, providerCfg ?.tokenKey);
+    });
+    builder.Services.AddSingleton<ILlmClient>(sp =>
+    {
+      var app = sp.GetRequiredService<IOptions<AppConfig>>().Value;
+      var configuration = sp.GetRequiredService<IConfiguration>();
+      var http = sp.GetRequiredService<ILlmHttpClient>().Client;
+
+      var cfg = sp.GetRequiredService<LlmProviderConfig>();
+
+      var provider = app.llm.provider.ToLowerInvariant();
+      var model = cfg.model;
+
+      var token = configuration[cfg.tokenKey];
+
+      return provider switch
+      {
+        "openai" => new OpenAiClient(model, token),
+        "github" => new GithubModelsClient(model, http, token),
+        "foundry" => new FoundryClient(model, cfg?.baseUrl, token),
+        _ => throw new InvalidOperationException($"Missing configuration 'llm:{provider}'.")
+      };
+    });
     builder.Services.AddSingleton<CrawlerService>();
 
     using var host = builder.Build();
