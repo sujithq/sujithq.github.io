@@ -1,4 +1,3 @@
-using Crawler;
 using Crawler.Llm;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -111,6 +110,7 @@ class Program
       {
         "openai" => new OpenAiClient(model, token),
         "github" => new GithubModelsClient(model, http, token),
+        "foundry" => new FoundryClient(model, cfg.baseUrl!, token!),
         _ => throw new InvalidOperationException($"Unsupported llm:provider '{provider}'.")
       };
     });

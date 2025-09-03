@@ -9,10 +9,9 @@ namespace Crawler.Llm
 {
   public class FoundryClient : ILlmClient
   {
-    private readonly string _model;
     private readonly ChatClient _chatClient;
 
-    public FoundryClient(string model, string endpoint, string? apiKey)
+    public FoundryClient(string model, string endpoint, string apiKey)
     {
       AzureOpenAIClient azureClient = new(
           new Uri(endpoint),
@@ -22,83 +21,21 @@ namespace Crawler.Llm
 
     public async Task<LlmOutput> SummarizeAsync(string title, string url, string plainText)
     {
-
-
-
       // 1) Try JSON Schema first
       var (ok, text, status, error) = await PostAsync(ChatResponseFormatEnum.JsonObjectFormat, title, url, plainText);
 
       // 2) If schema isn't supported (400), fallback to JSON mode + strict instruction
       if (!ok && status == 400 && IsSchemaUnsupported(error))
       {
-        var jsonBody = BuildJsonModeBody(title, url, plainText);
         (ok, text, status, error) = await PostAsync(ChatResponseFormatEnum.JsonSchemaFormat, title, url, plainText);
       }
 
       if (!ok)
         throw new HttpRequestException($"GitHub Models API error {status}: {error}");
 
-      //using var doc = JsonDocument.Parse(text);
-      //var contentStr = doc.RootElement
-      //    .GetProperty("choices")[0]
-      //    .GetProperty("message")
-      //    .GetProperty("content")
-      //    .GetString();
-
       return ParseStrictJson(text ?? "{}");
     }
-
-    private object BuildSchemaBody(string title, string url, string plainText)
-        => new
-        {
-          model = _model,
-          messages = new object[]
-            {
-                new { role = "system", content = "You summarize tech release notes and changelogs. Be factual, concise, and specific. No marketing language." },
-                new { role = "user", content = Prompts.Build(title, url, plainText) }
-            },
-          temperature = 0.2,
-          max_tokens = 350,
-          response_format = new
-          {
-            type = "json_schema",
-            json_schema = new
-            {
-              name = "summary_schema",
-              schema = new
-              {
-                type = "object",
-                additionalProperties = false,
-                required = new[] { "summary" },
-                properties = new
-                {
-                  summary = new { type = "string", description = "1–2 sentences, crisp, no hype." },
-                  bullets = new { type = "array", maxItems = 4, items = new { type = "string" } },
-                  tags = new { type = "array", maxItems = 6, items = new { type = "string" } }
-                }
-              }
-            }
-          }
-        };
-
-    private object BuildJsonModeBody(string title, string url, string plainText)
-        => new
-        {
-          model = _model,
-          messages = new object[]
-            {
-                new { role = "system", content =
-                    "You are a structured output generator. " +
-                    "Always respond with a valid JSON object only. " +
-                    "The JSON must have exactly this shape: { \"summary\": string, \"bullets\": string[], \"tags\": string[] }. " +
-                    "No extra keys and no prose outside the JSON." },
-                new { role = "user", content = Prompts.Build(title, url, plainText) }
-            },
-          //temperature = 0.2,
-          //max_tokens = 350,
-          response_format = new { type = "json_object" }
-        };
-
+    
     private async Task<(bool ok, string text, int status, string error)> PostAsync(ChatResponseFormatEnum fmt, string title, string url, string plainText)
     {
 
@@ -146,7 +83,7 @@ namespace Crawler.Llm
 
       try
       {
-        var response = _chatClient.CompleteChat(messages, requestOptions);
+        var response = await _chatClient.CompleteChatAsync(messages, requestOptions);
         return (true, response.Value.Content[0].Text, 200, "");
       }
       catch (ClientResultException e)
