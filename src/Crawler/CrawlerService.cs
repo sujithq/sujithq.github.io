@@ -6,6 +6,9 @@ using System.Security.Cryptography;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
+using Crawler.Llm;
+
+namespace Crawler;
 
 public class CrawlerService
 {

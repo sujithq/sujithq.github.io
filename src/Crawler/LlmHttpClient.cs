@@ -1,5 +1,7 @@
 using System.Net.Http;
 
+namespace Crawler.Llm;
+
 public interface ILlmHttpClient
 {
     HttpClient Client { get; }

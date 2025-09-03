@@ -1,3 +1,7 @@
+using Crawler;
+
+namespace Crawler.Llm;
+
 public interface ILlmClient
 {
     Task<LlmOutput> SummarizeAsync(string title, string url, string plainText);

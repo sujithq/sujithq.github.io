@@ -1,9 +1,12 @@
+using Crawler;
 using Crawler.Llm;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+
+namespace Crawler;
 
 class Program
 {
@@ -86,9 +89,10 @@ class Program
       else if (int.TryParse(cfg["llm:initialDelaySeconds"], out var d2)) delSec = d2;
       else delSec = 2;
 
-      var model = providerCfg?.model ?? (cfg[$"llm:{prov}:model"] ?? app.llm.model ?? "");
-      var baseUrl = providerCfg?.baseUrl ?? cfg[$"llm:{prov}:baseUrl"]; // Program ensures baseUrl exists earlier
-      return new LlmProviderConfig(model, baseUrl, req, win, delSec, providerCfg ?.tokenKey);
+  var model = providerCfg?.model ?? (cfg[$"llm:{prov}:model"] ?? app.llm.model ?? "");
+  var providerBaseUrl = providerCfg?.baseUrl ?? cfg[$"llm:{prov}:baseUrl"]; // Program ensures baseUrl exists earlier
+  var tokenKey = string.IsNullOrWhiteSpace(providerCfg?.tokenKey) ? "llm:token" : providerCfg!.tokenKey;
+  return new LlmProviderConfig(model, providerBaseUrl, req, win, delSec, tokenKey);
     });
     builder.Services.AddSingleton<ILlmClient>(sp =>
     {
@@ -107,8 +111,7 @@ class Program
       {
         "openai" => new OpenAiClient(model, token),
         "github" => new GithubModelsClient(model, http, token),
-        "foundry" => new FoundryClient(model, cfg?.baseUrl, token),
-        _ => throw new InvalidOperationException($"Missing configuration 'llm:{provider}'.")
+        _ => throw new InvalidOperationException($"Unsupported llm:provider '{provider}'.")
       };
     });
     builder.Services.AddSingleton<CrawlerService>();
