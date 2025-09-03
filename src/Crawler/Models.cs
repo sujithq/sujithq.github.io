@@ -10,10 +10,12 @@ public record AppConfig(
     LlmConfig llm,
     FeedsConfig feeds
 );
+
 public record OutputConfig(string dataFile, string contentDir);
 public record FeedsConfig(string dataFile);
 public record StateConfig(string processedFile);
 public record FetchConfig(int timeoutSeconds, string userAgent, int maxAgeDays);
+
 public record LlmConfig(
     string provider,
     string model,
@@ -21,12 +23,17 @@ public record LlmConfig(
     int minCharsToSummarize,
     int requestsPerWindow,
     int windowSeconds,
-    int initialDelaySeconds
+    int initialDelaySeconds,
+    LlmOpenAi? openai,
+    LlmGitHub? github
 );
+
+public record LlmOpenAi(string model);
+public record LlmGitHub(string model);
 
 public record ProcessedState(
     HashSet<string> SeenIds,
-    Dictionary<string,string> ContentHashById // itemId -> hash(content)
+    Dictionary<string, string> ContentHashById // itemId -> hash(content)
 )
 {
     public static ProcessedState Empty() => new(new(), new());
