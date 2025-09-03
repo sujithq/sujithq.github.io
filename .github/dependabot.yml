@@ -18,3 +18,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+  # Nuget
+  - package-ecosystem: "nuget"
+    directory: "/src"
+    schedule:
+      interval: "weekly"
