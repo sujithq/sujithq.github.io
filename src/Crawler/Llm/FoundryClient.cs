@@ -1,5 +1,6 @@
 using Azure;
 using Azure.AI.OpenAI;
+using Azure.AI.OpenAI.Chat;
 using OpenAI.Chat;
 using System;
 using System.ClientModel;
