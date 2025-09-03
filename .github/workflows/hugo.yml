@@ -2,7 +2,7 @@ name: Deploy to Github Pages
 
 on:
     schedule:
-      - cron: '15 */6 * * *'   # at minute 0, every 2 hours (UTC)
+      - cron: '15 */2 * * *'   # at minute 0, every 2 hours (UTC)
     push:
         branches: [main]
     pull_request:
@@ -86,6 +86,7 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           MODELS_TOKEN: ${{ secrets.MODELS_TOKEN }}
+          FOUNDRY_API_KEY: ${{ secrets.FOUNDRY_API_KEY }}
         run: |
           OUTDIR=$(ls -d src/Crawler/bin/Release/net9.0/ | head -n 1)
           echo "Output directory: $OUTDIR"

@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
 
@@ -7,10 +9,11 @@ public class GithubModelsClient : ILlmClient
 {
   private readonly string _model;
   private readonly HttpClient _http;
+  private readonly ILogger<GithubModelsClient> _logger;
 
   public GithubModelsClient(string model, HttpClient http, string? token)
   {
-
+    _logger = Microsoft.Extensions.Logging.Abstractions.NullLogger<GithubModelsClient>.Instance;
     _model = model;
     _http = http;
     // BaseAddress is configured via DI (llm:<provider>:baseUrl). Do not override if already set.
@@ -22,17 +25,23 @@ public class GithubModelsClient : ILlmClient
     _http.DefaultRequestHeaders.Add("X-GitHub-Api-Version", "2022-11-28");
   }
 
+  public GithubModelsClient(string model, HttpClient http, string? token, ILogger<GithubModelsClient> logger)
+    : this(model, http, token)
+  {
+    _logger = logger;
+  }
+
   public async Task<LlmOutput> SummarizeAsync(string title, string url, string plainText)
   {
     // 1) Try JSON Schema first
     var schemaBody = BuildSchemaBody(title, url, plainText);
-    var (ok, text, status, error) = await PostAsync(schemaBody);
+    var (ok, text, status, error) = await PostAsync(schemaBody, "json_schema");
 
     // 2) If schema isn't supported (400), fallback to JSON mode + strict instruction
     if (!ok && status == 400 && IsSchemaUnsupported(error))
     {
       var jsonBody = BuildJsonModeBody(title, url, plainText);
-      (ok, text, status, error) = await PostAsync(jsonBody);
+      (ok, text, status, error) = await PostAsync(jsonBody, "json_object");
     }
 
     if (!ok)
@@ -99,14 +108,23 @@ public class GithubModelsClient : ILlmClient
         response_format = new { type = "json_object" }
       };
 
-  private async Task<(bool ok, string text, int status, string error)> PostAsync(object body)
+  private async Task<(bool ok, string text, int status, string error)> PostAsync(object body, string mode)
   {
     var json = JsonSerializer.Serialize(body);
+    var sw = Stopwatch.StartNew();
+    _logger.LogDebug("LLM[github] POST chat/completions model={Model} mode={Mode} base={Base} body={Body}", _model, mode, _http.BaseAddress, Truncate(json, 800));
     using var content = new StringContent(json, Encoding.UTF8, "application/json");
     var resp = await _http.PostAsync("chat/completions", content);
+    sw.Stop();
     var text = await resp.Content.ReadAsStringAsync();
-    if (resp.IsSuccessStatusCode) return (true, text, (int)resp.StatusCode, "");
-    return (false, text, (int)resp.StatusCode, ExtractError(text));
+    if (resp.IsSuccessStatusCode)
+    {
+      _logger.LogDebug("LLM[github] {Status} in {Ms}ms responseLen={Len}", (int)resp.StatusCode, sw.ElapsedMilliseconds, text?.Length ?? 0);
+      return (true, text ?? string.Empty, (int)resp.StatusCode, "");
+    }
+    var err = ExtractError(text);
+    _logger.LogWarning("LLM[github] error {Status} in {Ms}ms: {Error}", (int)resp.StatusCode, sw.ElapsedMilliseconds, Truncate(err, 500));
+    return (false, text, (int)resp.StatusCode, err);
   }
 
   private static bool IsSchemaUnsupported(string error)
@@ -133,6 +151,9 @@ public class GithubModelsClient : ILlmClient
     catch { /* ignore parse errors */ }
     return body;
   }
+
+  private static string Truncate(string s, int max)
+    => string.IsNullOrEmpty(s) ? s : (s.Length <= max ? s : s.Substring(0, max) + "…");
 
   private static LlmOutput ParseStrictJson(string content)
   {

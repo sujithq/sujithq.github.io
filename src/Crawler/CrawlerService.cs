@@ -163,18 +163,18 @@ public class CrawlerService
       }
     }
 
-    var all = await ReadJsonl(dataFile);
-    var groups = all.GroupBy(r => (r.category, r.timeframeKey));
-    foreach (var g in groups)
-    {
-      var (category, tfKey) = g.Key;
-      var dir = Path.Combine(contentDir, category.ToLowerInvariant());
-      Directory.CreateDirectory(dir);
-      var file = Path.Combine(dir, $"{tfKey}.md");
-      var md = MarkdownBuilder.BuildCategoryPage(category, tfKey, g);
-      await File.WriteAllTextAsync(file, md, Encoding.UTF8);
-      _logger.LogInformation("Wrote markdown: {File}", file);
-    }
+    //var all = await ReadJsonl(dataFile);
+    //var groups = all.GroupBy(r => (r.category, r.timeframeKey));
+    //foreach (var g in groups)
+    //{
+    //  var (category, tfKey) = g.Key;
+    //  var dir = Path.Combine(contentDir, category.ToLowerInvariant());
+    //  Directory.CreateDirectory(dir);
+    //  var file = Path.Combine(dir, $"{tfKey}.md");
+    //  var md = MarkdownBuilder.BuildCategoryPage(category, tfKey, g);
+    //  await File.WriteAllTextAsync(file, md, Encoding.UTF8);
+    //  _logger.LogInformation("Wrote markdown: {File}", file);
+    //}
 
     await SaveState(processedFile, state);
     _logger.LogInformation("Done. New rows: {Count} Total LLM calls: {Calls}", newRows.Count, llmCalls);

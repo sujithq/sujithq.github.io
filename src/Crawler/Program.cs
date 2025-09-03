@@ -32,12 +32,14 @@ class Program
         .ValidateOnStart();
 
     // Http clients
+  builder.Services.AddTransient<HttpLoggingHandler>();
     builder.Services.AddHttpClient("crawler", (sp, c) =>
     {
       var cfg = sp.GetRequiredService<IOptions<AppConfig>>().Value;
       c.Timeout = TimeSpan.FromSeconds(cfg.fetch.timeoutSeconds);
       c.DefaultRequestHeaders.UserAgent.ParseAdd(cfg.fetch.userAgent);
-    });
+  })
+  .AddHttpMessageHandler<HttpLoggingHandler>();
 
     // throw error if builder.Configuration["llm:provider"] is missing
     if (string.IsNullOrWhiteSpace(builder.Configuration["llm:provider"]))
@@ -53,7 +55,8 @@ class Program
       throw new InvalidOperationException($"Missing configuration 'llm:{provider}:baseUrl'.");
     }
 
-    builder.Services.AddHttpClient("llm", c => { c.BaseAddress = new Uri(baseUrl); });
+    builder.Services.AddHttpClient("llm", c => { c.BaseAddress = new Uri(baseUrl); })
+      .AddHttpMessageHandler<HttpLoggingHandler>();
     builder.Services.AddHttpClient<ILlmHttpClient, LlmHttpClient>("llm");
 
     // App services
@@ -88,7 +91,7 @@ class Program
       else if (int.TryParse(cfg["llm:initialDelaySeconds"], out var d2)) delSec = d2;
       else delSec = 2;
 
-      var model = providerCfg?.model ?? (cfg[$"llm:{prov}:model"] ?? app.llm.model ?? "");
+      var model = providerCfg?.model ?? cfg[$"llm:{prov}:model"] ?? app.llm.model ?? "";
       var providerBaseUrl = providerCfg?.baseUrl ?? cfg[$"llm:{prov}:baseUrl"]; // Program ensures baseUrl exists earlier
       var tokenKey = string.IsNullOrWhiteSpace(providerCfg?.tokenKey) ? "llm:token" : providerCfg!.tokenKey;
       return new LlmProviderConfig(model, providerBaseUrl, req, win, delSec, tokenKey);
@@ -98,6 +101,7 @@ class Program
       var app = sp.GetRequiredService<IOptions<AppConfig>>().Value;
       var configuration = sp.GetRequiredService<IConfiguration>();
       var http = sp.GetRequiredService<ILlmHttpClient>().Client;
+      var ghLogger = sp.GetRequiredService<ILogger<GithubModelsClient>>();
 
       var cfg = sp.GetRequiredService<LlmProviderConfig>();
 
@@ -105,12 +109,16 @@ class Program
       var model = cfg.model;
 
       var token = configuration[cfg.tokenKey];
+      if (string.IsNullOrWhiteSpace(token))
+      {
+        throw new InvalidOperationException($"Missing API token for provider '{provider}'. Set environment variable '{cfg.tokenKey}' (or override llm:{provider}:tokenKey).");
+      }
 
       return provider switch
       {
-        "openai" => new OpenAiClient(model, token),
-        "github" => new GithubModelsClient(model, http, token),
-        "foundry" => new FoundryClient(model, cfg.baseUrl!, token!),
+        "openai" => new OpenAiClient(model, token ?? string.Empty),
+        "github" => new GithubModelsClient(model, http, token, ghLogger),
+        "foundry" => new FoundryClient(model, cfg.baseUrl ?? throw new InvalidOperationException("llm baseUrl missing for provider"), token ?? string.Empty),
         _ => throw new InvalidOperationException($"Unsupported llm:provider '{provider}'.")
       };
     });
