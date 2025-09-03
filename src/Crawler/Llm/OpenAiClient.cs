@@ -1,42 +1,22 @@
-using Azure;
-using Azure.AI.OpenAI;
-using Azure.AI.OpenAI.Chat;
-using OpenAI.Chat;
-using System.ClientModel;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Text.Json;
-using static System.Net.WebRequestMethods;
+using System.Threading.Tasks;
+using Crawler;
+
+namespace Crawler.Llm;
 
 public class OpenAiClient : ILlmClient
 {
   private readonly string _model;
+  private readonly string? _apiKey;
 
   public OpenAiClient(string model, string? apiKey)
   {
-    throw new NotImplementedException();
+    _model = model;
+    _apiKey = apiKey;
   }
 
-  public async Task<LlmOutput> SummarizeAsync(string title, string url, string plainText)
+  public Task<LlmOutput> SummarizeAsync(string title, string url, string plainText)
   {
-    throw new NotImplementedException();
+    // Intentionally not implemented yet. Wire-up exists for future support.
+    throw new NotImplementedException("OpenAiClient is not implemented yet.");
   }
-
-  //private static LlmOutput ParseStrictJson(string content)
-  //{
-  //  using var doc = JsonDocument.Parse(content);
-  //  var root = doc.RootElement;
-  //  var summary = root.GetProperty("summary").GetString() ?? "";
-  //  var bullets = root.GetProperty("bullets").EnumerateArray().Select(e => e.GetString() ?? "").ToList();
-  //  var tags = root.GetProperty("tags").EnumerateArray().Select(e => e.GetString() ?? "").ToList();
-  //  return new LlmOutput(summary, bullets, tags);
-  //}
-}
-
-
-public enum ChatResponseFormatEnum
-{
-  JsonSchemaFormat,
-  JsonObjectFormat
 }

@@ -1,5 +1,7 @@
 using System.Text.Json.Serialization;
 
+namespace Crawler;
+
 // Options-bound models must have parameterless constructors and settable properties
 public class AppConfig
 {

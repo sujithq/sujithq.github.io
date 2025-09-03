@@ -1,6 +1,9 @@
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using Crawler;
+
+namespace Crawler.Llm;
 
 public class GithubModelsClient : ILlmClient
 {
@@ -9,7 +12,7 @@ public class GithubModelsClient : ILlmClient
 
     public GithubModelsClient(string model, HttpClient http, string? token)
     {
-    
+
         _model = model;
         _http = http;
         // BaseAddress is configured via DI (llm:<provider>:baseUrl). Do not override if already set.
