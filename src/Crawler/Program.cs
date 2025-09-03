@@ -20,11 +20,19 @@ class Program
     builder.Logging.AddSimpleConsole(o => { o.SingleLine = true; o.TimestampFormat = "HH:mm:ss "; });
     builder.Logging.SetMinimumLevel(verbose ? LogLevel.Debug : LogLevel.Information);
 
-    // Configuration: appsettings.json (in output), user secrets, env vars
-    builder.Configuration
-        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
+  // Configuration: appsettings.json (try CWD and also absolute path to output), user secrets, env vars
+  var outputAppSettings = Path.Combine(AppContext.BaseDirectory, "appsettings.json");
+  builder.Configuration
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
+    .AddJsonFile("src/Crawler/appsettings.json", optional: true, reloadOnChange: false)
+    .AddJsonFile(outputAppSettings, optional: true, reloadOnChange: false)
         .AddUserSecrets<Program>(optional: true)
         .AddEnvironmentVariables();
+  // Optional debug log for config base directories
+  var cfgLoggerFactory = LoggerFactory.Create(b => b.AddSimpleConsole(o => { o.SingleLine = true; o.TimestampFormat = "HH:mm:ss "; }).SetMinimumLevel(LogLevel.Debug));
+  var cfgLogger = cfgLoggerFactory.CreateLogger<Program>();
+  cfgLogger.LogDebug("Config probe: cwd={Cwd} output={Out} exists(cwd/appsettings.json)={CwdExists} exists(out/appsettings.json)={OutExists}",
+    Directory.GetCurrentDirectory(), AppContext.BaseDirectory, File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json")), File.Exists(outputAppSettings));
 
     // Options binding
     builder.Services.AddOptions<AppConfig>()
