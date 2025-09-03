@@ -9,6 +9,7 @@ public class GithubModelsClient : ILlmClient
 
     public GithubModelsClient(string model, HttpClient http, string? token)
     {
+    
         _model = model;
         _http = http;
         _http.BaseAddress = new Uri("https://models.github.ai/inference/");
@@ -68,7 +69,7 @@ public class GithubModelsClient : ILlmClient
                         required = new[] { "summary" },
                         properties = new
                         {
-                            summary = new { type = "string", description = "1–2 sentences, crisp, no hype." },
+                            summary = new { type = "string", description = "1â€“2 sentences, crisp, no hype." },
                             bullets = new { type = "array", maxItems = 4, items = new { type = "string" } },
                             tags = new { type = "array", maxItems = 6, items = new { type = "string" } }
                         }
