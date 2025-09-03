@@ -13,17 +13,20 @@ public class CrawlerService
   private readonly IHttpClientFactory _httpFactory;
   private readonly AppConfig _app;
   private readonly IConfiguration _configuration;
+  private readonly IHtmlTextExtractor _extractor;
 
   public CrawlerService(
       ILogger<CrawlerService> logger,
       IHttpClientFactory httpFactory,
       IOptions<AppConfig> appOptions,
-      IConfiguration configuration)
+      IConfiguration configuration,
+      IHtmlTextExtractor extractor)
   {
     _logger = logger;
     _httpFactory = httpFactory;
     _app = appOptions.Value;
     _configuration = configuration;
+    _extractor = extractor;
   }
 
   public async Task<int> RunAsync(bool verbose)
@@ -45,10 +48,6 @@ public class CrawlerService
     _logger.LogInformation("Loaded {Count} feeds", feeds.Count);
 
     var state = await LoadState(processedFile);
-    var http = _httpFactory.CreateClient("crawler");
-    http.Timeout = TimeSpan.FromSeconds(_app.fetch.timeoutSeconds);
-    http.DefaultRequestHeaders.UserAgent.ParseAdd(_app.fetch.userAgent);
-    _logger.LogDebug("HTTP UA set. timeoutSeconds={Timeout}", _app.fetch.timeoutSeconds);
 
     var githubToken = _configuration["MODELS_TOKEN"]
         ?? _configuration["llm:githubToken"]
@@ -127,9 +126,9 @@ public class CrawlerService
         var raw = item.Summary?.Text;
         string text;
         if (!string.IsNullOrWhiteSpace(raw))
-          text = HtmlTextExtractor.StripHtml(raw!);
+          text = _extractor.StripHtml(raw!);
         else if (!string.IsNullOrWhiteSpace(link))
-          text = await HtmlTextExtractor.FetchAndExtractAsync(http, link);
+          text = await _extractor.FetchAndExtractAsync(link);
         else
           text = "";
 
