@@ -89,10 +89,10 @@ class Program
       else if (int.TryParse(cfg["llm:initialDelaySeconds"], out var d2)) delSec = d2;
       else delSec = 2;
 
-  var model = providerCfg?.model ?? (cfg[$"llm:{prov}:model"] ?? app.llm.model ?? "");
-  var providerBaseUrl = providerCfg?.baseUrl ?? cfg[$"llm:{prov}:baseUrl"]; // Program ensures baseUrl exists earlier
-  var tokenKey = string.IsNullOrWhiteSpace(providerCfg?.tokenKey) ? "llm:token" : providerCfg!.tokenKey;
-  return new LlmProviderConfig(model, providerBaseUrl, req, win, delSec, tokenKey);
+      var model = providerCfg?.model ?? (cfg[$"llm:{prov}:model"] ?? app.llm.model ?? "");
+      var providerBaseUrl = providerCfg?.baseUrl ?? cfg[$"llm:{prov}:baseUrl"]; // Program ensures baseUrl exists earlier
+      var tokenKey = string.IsNullOrWhiteSpace(providerCfg?.tokenKey) ? "llm:token" : providerCfg!.tokenKey;
+      return new LlmProviderConfig(model, providerBaseUrl, req, win, delSec, tokenKey);
     });
     builder.Services.AddSingleton<ILlmClient>(sp =>
     {

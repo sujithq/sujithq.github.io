@@ -2,14 +2,8 @@ using Azure;
 using Azure.AI.OpenAI;
 using Azure.AI.OpenAI.Chat;
 using OpenAI.Chat;
-using System;
 using System.ClientModel;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using Crawler;
 
 namespace Crawler.Llm
 {
