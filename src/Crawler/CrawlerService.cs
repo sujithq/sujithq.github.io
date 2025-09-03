@@ -10,23 +10,23 @@ using Microsoft.Extensions.Configuration;
 public class CrawlerService
 {
   private readonly ILogger<CrawlerService> _logger;
-  private readonly IHttpClientFactory _httpFactory;
   private readonly AppConfig _app;
-  private readonly IConfiguration _configuration;
   private readonly IHtmlTextExtractor _extractor;
+  private readonly ILlmClient _llm;
+  private readonly LlmProviderConfig _llmProvider;
 
   public CrawlerService(
       ILogger<CrawlerService> logger,
-      IHttpClientFactory httpFactory,
       IOptions<AppConfig> appOptions,
-      IConfiguration configuration,
-      IHtmlTextExtractor extractor)
+      IHtmlTextExtractor extractor,
+      ILlmClient llm,
+      LlmProviderConfig llmProviderConfig)
   {
     _logger = logger;
-    _httpFactory = httpFactory;
     _app = appOptions.Value;
-    _configuration = configuration;
     _extractor = extractor;
+    _llm = llm;
+    _llmProvider = llmProviderConfig;
   }
 
   public async Task<int> RunAsync(bool verbose)
@@ -49,29 +49,17 @@ public class CrawlerService
 
     var state = await LoadState(processedFile);
 
-    var githubToken = _configuration["MODELS_TOKEN"]
-        ?? _configuration["llm:githubToken"]
-        ?? _configuration["llm:token"];
-    var openAiKey = _configuration["OPENAI_API_KEY"]
-            ?? _configuration["llm:openAiApiKey"]
-            ?? _configuration["llm:openaiApiKey"];
-
-    ILlmClient llm = _app.llm.provider.ToLowerInvariant() switch
-    {
-      "openai" => new OpenAiClient(_app.llm.openai?.model ?? _app.llm.model, _httpFactory.CreateClient("openai"), openAiKey),
-      _ => new GithubModelsClient(_app.llm.github?.model ?? _app.llm.model, _httpFactory.CreateClient("github-models"), githubToken)
-    };
     _logger.LogInformation("LLM client ready. provider={Provider} maxCallsPerRun={Max} rate={Req}/{Win}s delay={Delay}s",
-        _app.llm.provider, _app.llm.maxCallsPerRun, _app.llm.requestsPerWindow, _app.llm.windowSeconds, _app.llm.initialDelaySeconds);
+      _app.llm.provider, _app.llm.maxCallsPerRun, _llmProvider.requestsPerWindow, _llmProvider.windowSeconds, _llmProvider.initialDelaySeconds);
 
     var newRows = new List<DataRow>();
     int llmCalls = 0;
 
     // Rate limiter state
     var recentCalls = new Queue<DateTimeOffset>();
-    var maxReq = Math.Max(1, _app.llm.requestsPerWindow);
-    var window = TimeSpan.FromSeconds(Math.Max(1, _app.llm.windowSeconds));
-    var initialDelay = TimeSpan.FromSeconds(Math.Max(0, _app.llm.initialDelaySeconds));
+    var maxReq = Math.Max(1, _llmProvider.requestsPerWindow);
+    var window = TimeSpan.FromSeconds(Math.Max(1, _llmProvider.windowSeconds));
+    var initialDelay = TimeSpan.FromSeconds(Math.Max(0, _llmProvider.initialDelaySeconds));
     if (initialDelay > TimeSpan.Zero)
     {
       _logger.LogDebug("Initial delay {Delay}s before LLM calls", initialDelay.TotalSeconds);
@@ -154,7 +142,7 @@ public class CrawlerService
         else
         {
           await ThrottleAsync();
-          llmOut = await llm.SummarizeAsync(title, link, text);
+          llmOut = await _llm.SummarizeAsync(title, link, text);
           _logger.LogDebug("LLM summarized: {Id}", id);
           llmCalls++;
         }
