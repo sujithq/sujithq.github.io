@@ -66,7 +66,7 @@ public class GithubModelsClient : ILlmClient
                 new { role = "system", content = "You summarize tech release notes and changelogs. Be factual, concise, and specific. No marketing language." },
                 new { role = "user", content = Prompts.Build(title, url, plainText) }
           },
-        temperature = 0.2,
+        temperature = 1,
         max_completion_tokens = 350,
         response_format = new
         {
