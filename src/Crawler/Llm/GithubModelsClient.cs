@@ -67,7 +67,7 @@ public class GithubModelsClient : ILlmClient
                 new { role = "user", content = Prompts.Build(title, url, plainText) }
           },
         temperature = 0.2,
-        max_tokens = 350,
+        max_completion_tokens = 350,
         response_format = new
         {
           type = "json_schema",
