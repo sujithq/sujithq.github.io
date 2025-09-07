@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "EBFF922346B7C14863485D1924F65716AE493BA19EC106E1B0250C985576DC62"
 contentHash: "298EF87AE9DCACC16F313167B4219CA0B62614AD7D65658DCE2BF67D75FC3F4F"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Microsoft announced the public preview of the Confluent Kafka Connector for Azure Logic Apps (Standard), enabling Logic Apps to both send and receive messages with Confluent Kafka, a distributed streaming platform."
 ---
 

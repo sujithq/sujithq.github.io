@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "E9ABB4ACECB2A7BA4BF3F55CB61E02FA0F0674A9FCB01F38B47835D47C03F427"
 contentHash: "7D421F87B9737C29B62672B19050836580DC9574D4E04F30EC69337EFFECFDC2"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure API Management v2 tiers (Basic v2, Standard v2, Premium v2) are now generally available with gateway-level metrics and native autoscaling, providing deeper gateway performance visibility and automatic scaling based on real-time usage."
 ---
 

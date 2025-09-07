@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "D97A9B442D27BB182DDBF4D86A8499D5CF7BB8438DC19649F0534FE20A5E199B"
 contentHash: "20495467E44BE9BA69FF91C7480C50BED9751CB5E9CFDFB82ABF74B83A2C78CF"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub has introduced a public preview of enhancements to the home dashboard, focusing on content and layout improvements to help users track their key work status and navigation."
 ---
 

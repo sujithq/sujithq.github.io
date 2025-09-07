@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "3EB31829191222BBF053C35A9FA8D95DD4B57910960C048254EA37842AF6C6E2"
 contentHash: "04BCB0B1FC6C74A252C1AF4D9AF43911187C80BFCB935CBA6A5521072C02F871"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub updated the /dashboard-feed page to align it with improvements made to the homepage “For you” feed, delivering a refreshed, more consistent, and faster experience across the site."
 ---
 

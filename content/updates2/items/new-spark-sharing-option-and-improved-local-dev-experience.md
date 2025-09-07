@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "06269534D7D7016C8A6C3A90B27CFE85955E101FD3454F1DC648FFF55C3B249A"
 contentHash: "47A595078B5B21D21A7E0EF8215498EBC420DC9A5AC30E5D4BBEB61F742320B8"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub introduced a new organization sharing option for sparks and enhanced the local development experience with smoother workflows and various fixes."
 ---
 

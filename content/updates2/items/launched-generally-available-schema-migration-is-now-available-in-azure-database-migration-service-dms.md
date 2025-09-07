@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "50CFB72499EA13672186918010DA7CA972069E4D20B9FD24E2B9656CAB80D652"
 contentHash: "7EB054898553CCF8D3711817A7F48FAFDC86E1BC1F2B8546092A60537A172434"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Database Migration Service (DMS) now supports schema migration for Azure SQL Database, allowing users to migrate missing schema objects along with data using a simple checkbox option."
 ---
 

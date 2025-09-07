@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "928D128E5155AE2D506F2164081F15719443B158FAFC0C6E2FFFA193CE3A7B81"
 contentHash: "96AF46EFB26ECCD62C9565F0611CD7BF02C0E2418E6142A297433568EF4B1B96"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure announced general availability of Business Process Tracking for Logic Apps (Standard), enabling stakeholders to track key data properties across production workflows to gain timely business insights."
 ---
 

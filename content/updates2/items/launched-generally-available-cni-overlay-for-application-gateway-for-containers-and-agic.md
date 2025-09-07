@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "5A174727FD3DD0DB2984138B2A6AED9CDF366775098B3D969B7FB9C5AA01A0F1"
 contentHash: "DDC236E0A25640384138F02C03E976C89B7CCACEC0AEDBF7A29E2F199C78E3F8"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure CNI Overlay for Application Gateway for Containers (AGIC) is now generally available. It allows AKS clusters to assign pod IPs from a separate CIDR, conserving VNet IP space and simplifying multi-cluster deployments."
 ---
 

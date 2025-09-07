@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "2CC005CDABF533DBB48AF00D53E0893A2D1044D7C425DCBAF68E92BA59F60F2E"
 contentHash: "4AE7AAF273A3B8BDE37F2E164EF9C9CC33A9B2945A2B32146E681D71B4A1D4F0"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Application Gateway WAF now publicly previews the ability to customize response status codes and bodies for blocked requests."
 ---
 

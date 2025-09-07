@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "92E3594B4AC52679A96CA9DB25D87008E54541A48618868C4CEFC0B48FF0FBB1"
 contentHash: "56B847296CB4646460ABF4C144E8215DA73D6EE67E2E5B69FE8AEA6EB65B83C3"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub Copilot's code completion feature has been upgraded to use the GPT-4.1 Copilot model, which enhances coding capabilities and includes updated training data beyond the previous knowledge cutoff."
 ---
 

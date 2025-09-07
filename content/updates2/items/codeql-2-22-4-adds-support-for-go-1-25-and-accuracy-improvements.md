@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "699043F8023D95243C9133C12DF20A5A40C94BCE4FCD84E9BB95E31A9EE848D6"
 contentHash: "E94E7A1BA77CCCF24EAD9DD0FA98B0CDA9112100F276F519B8BAB895F5609839"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub released CodeQL 2.22.4 (2025-09-02), adding support for Go 1.25 and delivering accuracy improvements to its static analysis engine used by GitHub Code Scanning to find and remediate security issues."
 ---
 

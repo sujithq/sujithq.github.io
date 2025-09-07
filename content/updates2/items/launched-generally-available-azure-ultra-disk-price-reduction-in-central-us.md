@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "15FE1454A192941B30313B91CB6903D1FE85B70D57004102C0B0B21C02D5C0FC"
 contentHash: "EBA43C779A69932CA4D5DC90B00BECB6BDDB045EF4F62BF7B2E4EA307F0414BA"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure has made a price reduction for Ultra Disks in the Central US region generally available. Ultra Disks provide extremely high performance and sub-millisecond latency for demanding VM workloads, and the price cut reduces costs for those workloads in that region."
 ---
 

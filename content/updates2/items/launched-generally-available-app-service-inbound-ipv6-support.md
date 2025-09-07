@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "23F01A9343AA5550FB065DA3B319E4C605E46E496B61EF3EBBD3C93283ED0C9F"
 contentHash: "DE8219E012F53C3B2E439994A0555B21CB754F776E57F794AA1781851D3B29F3"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure App Service now generally supports inbound IPv6 for multi-tenant apps across all public regions on Basic, Standard, Premium SKUs, Functions Consumption, Functions Elastic Premium, and Logic Apps Standard."
 ---
 

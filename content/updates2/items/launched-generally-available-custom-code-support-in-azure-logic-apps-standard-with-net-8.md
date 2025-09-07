@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "DAE2B1B766280331D1DAE81478516E5A4C9AFF23B7B4A318054B66C639A0E6E9"
 contentHash: "473C76780F821DAF214A4A3C3CEEC60F4D6D7524E88ECADA28FB75EDDE402FF4"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Logic Apps Standard now generally available: Custom Code support with .NET 8 lets developers embed and run .NET 8 code directly in workflows to enable advanced logic, code reuse, and tighter integration."
 ---
 

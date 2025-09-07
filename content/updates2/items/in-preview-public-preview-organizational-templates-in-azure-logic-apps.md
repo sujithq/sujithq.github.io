@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "36B75BBDBE68D476A2976C8B79EC5EE57D9C7856B77932C4A358FE231B3CA454"
 contentHash: "A87C74ABDFB8BAE2A4FFE09AE1B198D2B56F9D1C779CF3B7BC41E940B2C42467"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Logic Apps now has a public preview of Organizational Templates, enabling teams to create, share, and reuse automation patterns inside their organization to standardize integrations at scale."
 ---
 

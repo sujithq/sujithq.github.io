@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "342C720A4238D2421C96F417EE2CD26203D097C6440235F48CD2B8C3BD8C1C7B"
 contentHash: "CB082463FDB1F63297C8A93554ECD15223031D64B2F4C4827A5E6138ECB5A3B2"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub Enterprise Cloud launched Enterprise Teams in public preview to simplify enterprise user management and Copilot license administration; enterprise owners can now add users directly to the enterprise and manage Copilot access at the enterprise level."
 ---
 

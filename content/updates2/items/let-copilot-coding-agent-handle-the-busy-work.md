@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "86E565B00A13CEFD45977A8DEB0D87B6D716F11C9BA7371ED62A97CE3AE58A8B"
 contentHash: "94DB492F707D97A89F55382F0D07B75D0AE4A9997A95FACAAE4476632919F6E9"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "The .NET Blog post demonstrates how the GitHub Copilot Coding Agent automates repetitive developer tasks—like generating unit tests and implementing features from a PRD—using a real .NET sample, enabling developers to concentrate on design and code review."
 ---
 

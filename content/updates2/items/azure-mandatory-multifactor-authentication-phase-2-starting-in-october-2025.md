@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "43FC880DCC49AACE48BF8CD4B1883248B49B4C7B474EF4E8EF110F3832A8F1AB"
 contentHash: "59408DC4EFCF5E269395AA21DB0E7BCAC98A08C90116B06D38BF41652D53895F"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Microsoft Azure will begin enforcing mandatory multi-factor authentication at the Azure Resource Manager layer starting October 1, 2025, per a post on the Microsoft Security Blog."
 ---
 

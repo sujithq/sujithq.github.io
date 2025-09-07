@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "83FDC7B767BC2C057E73ADEE4E53327D365EF297CCBD368271951E2C415BC923"
 contentHash: "E2D3B381A2AF1A599DF26566F1D06AABA2CB7EEF83A641F957C6CCAF89DFAD4D"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub has released two new GitHub Actions that utilize the GitHub Models inference API to assist open source maintainers. These include an AI assessment comment labeler to help streamline issue triage using trigger labels."
 ---
 

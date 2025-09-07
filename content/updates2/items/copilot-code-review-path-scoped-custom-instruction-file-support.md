@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "F140E03960F798F9F7A622E27BBBE6F80C6C1265AD8BDE7A385FD63B8878BDF6"
 contentHash: "5523819E5F85961CEFF70859283539AC52C61C368D844F127DBD291D9711DF5D"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub announced that Copilot code review now supports path-scoped custom instruction files, letting repositories provide targeted review guidance for specific directories or files using existing instruction files."
 ---
 

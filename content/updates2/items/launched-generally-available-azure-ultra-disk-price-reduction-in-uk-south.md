@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "AC52126290ADD521152C432181D0FE57D23368ED8933493B7CF6D4E43530C99F"
 contentHash: "EBA43C779A69932CA4D5DC90B00BECB6BDDB045EF4F62BF7B2E4EA307F0414BA"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Ultra Disk is now generally available with a price reduction in the UK South region. Ultra Disk is Azure's highest-performance block storage for virtual machines, offering consistent sub-millisecond latency and very high throughput and IOPS, making it suitable for demanding enterprise production workloads."
 ---
 

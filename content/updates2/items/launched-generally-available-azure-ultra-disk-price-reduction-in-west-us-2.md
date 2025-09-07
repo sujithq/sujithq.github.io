@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "484353D19EAEBCCCEAE4A4B00FD974DCFFB64DBC48A0AA6538F6B0A22AA43C48"
 contentHash: "EBA43C779A69932CA4D5DC90B00BECB6BDDB045EF4F62BF7B2E4EA307F0414BA"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure has launched a generally available price reduction for Ultra Disks in the West US 2 region. Ultra Disks are Azure's highest-performance block storage offering, providing consistent sub-millisecond latency and very high throughput/IOPS, and the price cut lowers storage costs for demanding enterprise workloads in that region."
 ---
 

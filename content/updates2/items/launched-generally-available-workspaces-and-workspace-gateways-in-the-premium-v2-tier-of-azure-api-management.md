@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "858624387D6E0A1797076AD2042EE967E877B04A552EFE1465B76F127F55DD7C"
 contentHash: "3AAE575B326394B76494201760A6DECC8160F9F6A7C1A2D665D65B6AF5118A3D"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure announced general availability of workspaces and workspace gateways for the Premium v2 tier of Azure API Management, while the Premium v2 tier itself remains in preview. Workspaces enable organizations to manage and govern APIs."
 ---
 

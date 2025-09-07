@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "12CDFE30499823938B7A0FF0A3B37506FE2F454272137C6E9D53CB04BFC5372D"
 contentHash: "A93DFE09AD615345C9F29B0C448E0F9711AE1355F2EF21E41E7E405524681A61"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub updated the profile menu in global navigation to make it more action-specific, simpler, and faster to reach common destinations."
 ---
 

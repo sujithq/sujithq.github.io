@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "A8F2B2B26E38673368A41A88D6E6AC249413B1B854151BE616739246767836B8"
 contentHash: "750C688602E5266263A0CD8DF5278F7572C4B6C67FCBAB860155DA1F49D127DA"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure SQL Database introduced a replication lag metric in late August 2025, enabling real-time monitoring of the recovery point objective (RPO) for Geo-DR configurations."
 ---
 

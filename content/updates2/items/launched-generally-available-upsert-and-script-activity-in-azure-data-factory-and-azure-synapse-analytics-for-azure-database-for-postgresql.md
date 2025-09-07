@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "4605A766D00ECC89DDA3D2B50D370A8CBEF9E43809E91608A4CB375C46DEF127"
 contentHash: "158E6402AEB668854232E39C121A866D8222EB94CD0F9A658C3E27D0589448D7"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Data Factory and Azure Synapse Analytics now generally support the Upsert method and Script activity for Azure Database for PostgreSQL, enabling efficient and scalable data operations."
 ---
 

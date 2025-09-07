@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "17D5AE632E79BF57652C8FEF5BDDD942A8BC8952E980987E56F952C9C1C2CEF1"
 contentHash: "883347A3D0CA4B7C19A6060497E907EE165672C132BA14526A751768FC54219D"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub announced improvements to the web UI to make file navigation and editing faster and simpler. A highlighted change is seamless editing from search results so that search hits link directly to files with the ability to open and edit them in the web editor."
 ---
 

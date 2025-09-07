@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "3ABF3E74763101AE005A0EFD18C4A5736CF76C21036B93F4DDDAF40F97F4ABA6"
 contentHash: "2560A32CB1A3C8E24C42F00C0D3496924BB17543B32E62A3DDBFDF37063F99C9"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Cosmos DB for MongoDB (vCore) now supports adding physical shards and rebalancing data as clusters scale, leveraging its elastic compute and storage capabilities."
 ---
 

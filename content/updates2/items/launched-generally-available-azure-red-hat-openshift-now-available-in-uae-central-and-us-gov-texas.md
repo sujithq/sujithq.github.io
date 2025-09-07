@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "E50D94A8E41F04AA497445758603AE3F2820A59B2847B7FAD652AB0BF6348F2B"
 contentHash: "9398204A29C78F781DCDBC95898DF3A0955D040989A897A31BF4FA054F089C99"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Red Hat OpenShift is now generally available in UAE Central and US Gov Texas regions, expanding managed OpenShift services to the Middle East and southwestern US."
 ---
 

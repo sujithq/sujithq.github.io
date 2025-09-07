@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "6B1D5BDC2D12794313096192A50B36011E73DA35158BE392EE24D02772B3F692"
 contentHash: "FAC13C381455B9B4BF6E13837228A42D5DC210266853757D851C7E6FE5538074"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure NetApp Files file access logs are now generally available, providing detailed visibility into file-level operations for SMB, NFSv4.1, and dual-protocol volumes. This feature helps organizations improve their security monitoring."
 ---
 

@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "D34BBF3A1A49F131539E56768FF31E985216C7D3A11F075C2109DED1FDBAA0FC"
 contentHash: "9DE438E0E8042243512DCFBC43374406B9205B544084493515E9BE928B855BCE"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure announced general availability of the ability to upgrade existing Gen1 virtual machines to Gen2-Trusted Launch. The capability enables Trusted Launch on previously deployed Gen1 VMs to improve foundational VM security."
 ---
 
