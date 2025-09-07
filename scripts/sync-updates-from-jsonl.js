@@ -28,9 +28,15 @@ for (const line of lines) {
   if (!line.trim()) continue;
   const it = JSON.parse(line);
 
-  const category = it.category || 'uncategorized';
+  const category  = (it.category || 'uncategorized').trim();
   const timeframe = it.timeframeKey || 'unknown';
-  const title = it.title || it.id;
+  const title     = (it.title || it.id || '').trim();
+
+  // prepend category (skip if it's the fallback)
+  const displayTitle = category !== 'uncategorized'
+  ? `${category}: ${title}`
+  : title;
+
   const slug = slugify(title) || slugify(it.id);
 
   cats.add(category);
@@ -41,7 +47,7 @@ for (const line of lines) {
   const bullets = (it.llm?.Bullets || []).map(t => `"${t.replace(/"/g, '\\"')}"`).join(', ');
 
   const fm = `---
-title: ${JSON.stringify(title)}
+title: ${JSON.stringify(displayTitle)}
 date: ${new Date(it.published).toISOString()}
 slug: ${slug}
 update_categories: ["${category.replace(/"/g,'\\"')}"]
