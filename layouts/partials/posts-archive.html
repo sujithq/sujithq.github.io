@@ -37,7 +37,7 @@
                   <h3 id="{{ $KeyYear }}{{ .Key }}" class="ms-2 mb-0">{{ .Key }} ({{ len $it.Pages }})</h3>
                   {{ range $inx, $itm := ($it.Pages) }}
                     <h4 class="ms-3 mb-1">
-                      {{ if ne $itm.Type "update-item" }}
+                      {{ if ne $itm.Type "update2" }}
                         {{- $image := $itm.Resources.Get "cover.jpg" -}}
                         <span class="mx-1">
                           {{ if $image }}

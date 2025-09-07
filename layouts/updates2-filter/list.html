@@ -5,7 +5,6 @@
 
 {{/* Collect updates from the updates2 section */}}
 {{ $updates := where .Site.RegularPages "Section" "updates2" }}
-{{ $updates = where $updates "Type" "eq" "update-item" }}
 
 {{ if or (eq $mode "category") (eq $mode "category_timeframe") }}
   {{ $updates = where $updates "Params.update_categories" "intersect" (slice $cat) }}

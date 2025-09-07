@@ -60,7 +60,7 @@ timeframeKey: ${JSON.stringify(timeframe)}
 id: ${JSON.stringify(it.id)}
 contentHash: ${JSON.stringify(it.contentHash)}
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: ${JSON.stringify(it.llm?.Summary || '')}
 ---
 
