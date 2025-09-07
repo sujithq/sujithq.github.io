@@ -990,6 +990,6 @@ Start your GitHub Administration mastery journey today, and join the ranks of ce
 
 ---
 
-*This guide is part of the [GitHub Certification Journey series](/series/github-certification-journey). Previous: [GitHub Advanced Security (GH-300)](/posts/github-certification-journey-gh-300) | Next: GitHub Copilot (GH-500) - Coming Soon*
+*This guide is part of the [GitHub Certification Journey series](/series/github-certification-journey). Previous: [GitHub Advanced Security (GH-300)](/posts/2025-08/github-certification-journey-gh-300) | Next: GitHub Copilot (GH-500) - Coming Soon*
 
 *Have questions about GitHub Administration certification? Connect with me on [LinkedIn](https://linkedin.com/in/sujithq) or [GitHub](https://github.com/sujithq) for guidance and support.*
