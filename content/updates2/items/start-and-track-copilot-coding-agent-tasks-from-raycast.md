@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "CFCF57D74723B7BFB5AACBF836DA59000BE39DD81E1DAF8D6E3CB10E1B5B6B84"
 contentHash: "7F7D1154E83E3CE855559357EE5D9CEDC872292F125A2CE8D353CAC5C83BE604"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Raycast, a macOS launcher, now supports interaction with AI agents, including starting and tracking GitHub Copilot coding agent tasks."
 ---
 

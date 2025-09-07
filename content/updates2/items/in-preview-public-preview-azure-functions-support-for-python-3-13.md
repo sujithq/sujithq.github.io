@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "C66B0B9AA47D3950FF182E4592CF5633365FEC89EFF1C7378218FE52163652A1"
 contentHash: "3B6C9A7F4E5FF92F33BAD7F95B3E3F3083F9B75ABFCE38FC8C7E0DB4B3850779"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Functions now supports Python 3.13 in public preview, and introduces an opt-in runtime version control feature that lets you target specific Functions Python runtime versions when developing locally and deploying to Azure."
 ---
 

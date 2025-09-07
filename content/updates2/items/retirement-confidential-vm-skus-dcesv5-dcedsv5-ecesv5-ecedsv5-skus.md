@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "F4AD199324A5C28EB73CE7C7D5026513CF5DC4221961B39B9A3A593590E10C44"
 contentHash: "29E784215C51E3CAA67A62E83D098A0F0ABA672916C0317C8301FB3952C6D9E3"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Microsoft is retiring the Confidential VM SKUs DCesv5, DCedsv5, ECesv5, and ECedsv5. These SKUs will be succeeded by the next-generation DCesv6 and ECesv6 sizes, which were recently announced in public preview."
 ---
 

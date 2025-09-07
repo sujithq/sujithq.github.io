@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "00C6B36D1D2C1C9E36F3BE125E22F7B5C7DADC9AC5B6949F8AC265AB455B33DD"
 contentHash: "21F8F5DB62343835E23F73EC85EBB295763522C4FB1D98192A25870ADFDDB137"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub announced that the remote GitHub MCP Server is now generally available, with OAuth-based authentication, expanded tooling, and strengthened security guardrails to support production use."
 ---
 

@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "CAD7FD1C006AE9FF5BAA0F352B312518B7DAC5A979BD9507198B6EC57DA93CB3"
 contentHash: "982D752BABCA121E384B831A663B0B48583600E6B7FCF40304A596B6D41E3B3E"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "GitHub Copilot's Next Edit Suggestions (NES) feature is now in public preview for JetBrains IDEs, enabling proactive code editing and improvement suggestions."
 ---
 

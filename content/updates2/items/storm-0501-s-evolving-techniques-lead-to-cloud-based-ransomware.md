@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "CAD495864C0F933D5247B0E483501F9BF7BA9795BA8B6A8B9E4E021E6F00E3E1"
 contentHash: "8B720AA0D0F313AF596C43EF92F8FDB02E3F04F2A58CD1968F4DCD3D84236A7C"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Microsoft reports that financially motivated threat actor Storm-0501 has shifted from deploying on-premises endpoint ransomware toward cloud-based ransomware tactics, increasingly focusing on cloud-specific TTPs after previously targeting hybrid cloud environments."
 ---
 

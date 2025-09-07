@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "A98E107E3F197F96390C96597CFEF95296A0E4F77CD0C2141BCCFB44AD4E0D1F"
 contentHash: "7125D202999840F7470D291DD47273C94B3F1D592EDD173CE9588754B8B5A06B"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure NetApp Files migration assistant (with SnapMirror) is now generally available, enabling efficient, cost-effective migrations to Azure NetApp Files using ONTAP's replication engine."
 ---
 

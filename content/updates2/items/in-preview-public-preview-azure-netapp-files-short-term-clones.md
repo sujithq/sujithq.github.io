@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "8F11FEBA10FE5D39C49A631647B14DCCC4840377590D693BBB69028C8B4F6A27"
 contentHash: "360A9DB08D867B66A531C9453B89F7B2692DA88DDF1EC3C9F55B057CE42270A3"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure NetApp Files introduces short-term clones in public preview, allowing instant, space-efficient read/write access by creating temporary thin clones from volume snapshots without full data copies."
 ---
 

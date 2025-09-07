@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "F88F3BFE1A088F6ECA8FB4EB7B86392EC6FD7A1944625031C58224BF3702ECDC"
 contentHash: "8E1D80B9C600525935258105B8EA85C939D282AE789566236A1443C34F275CE5"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure announced general availability of multiple address prefixes for subnets in Azure Virtual Networks. Subnets previously allowed only a single address prefix, which constrained scale for some applications when address space was exhausted. The GA feature lets subnets hold more than one prefix, enabling larger address ranges and greater flexibility for scaling and IP management."
 ---
 

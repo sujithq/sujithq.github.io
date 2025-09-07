@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "4D53938D45A6C435E60B87A24DE8A8D75185FD5B77F7379B80642C36AAD1B3C9"
 contentHash: "05D68DBFEDB7A31F390410915061062C8A75B4CA6B1FC4DA28349417F7D54E7E"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Managed Instance for Apache Cassandra now supports Cassandra 5.0 in public preview, enabling access to the latest features such as improved performance and new indexing capabilities without infrastructure management."
 ---
 

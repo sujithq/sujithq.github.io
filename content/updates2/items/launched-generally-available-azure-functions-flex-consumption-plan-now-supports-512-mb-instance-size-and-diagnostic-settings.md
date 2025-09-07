@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "8B4E9551D776EFCDAFAAFDCF4515051D8E8413B0ED6BBCA81CAF024C2F9D453C"
 contentHash: "8A353B0ABA00327B5F99C8DB6C900E5979F5E1ACFB38018944E899C78CC20188"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Functions Flex Consumption plan now supports a 512 MB memory instance size option, in addition to 2048 MB and 4096 MB. This update helps optimize costs for apps with lower resource needs and supports scaling."
 ---
 

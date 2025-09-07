@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "A9EF17575A72920F58D177EC181039463BB673392CBD23482E21ED762C016F09"
 contentHash: "AD6C32421C4D5CBAE2E9E017E163D190A4E33D12E977882318B19FC259802333"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Database for PostgreSQL flexible server is now generally available in the Malaysia West Azure region."
 ---
 

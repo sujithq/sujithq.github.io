@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "0AAA43CAC36C2C97A3DBA9AC4EB9DA1A9DBF97C422C9591B3856FB7938C67D2B"
 contentHash: "361568E025FC385A404A84DDD50ED0175C7D79184D0EE4E869C690E72204FCEC"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Microsoft announced the general availability of the Azure Logic Apps Standard Automated Test Framework, which enables developers and teams to build, test, and maintain enterprise-grade workflows by creating unit tests for workflow definitions."
 ---
 

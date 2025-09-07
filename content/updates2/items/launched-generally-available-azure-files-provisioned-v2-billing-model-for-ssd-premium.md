@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "B125FB99F5E656EA4DCF513FBB705630202649D96A769BC84598F2B127E313BF"
 contentHash: "554AC7DE09D78EB18328162D87B309D794EB77EBF70C621E0D4CEE02A35E3979"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Files has introduced the provisioned v2 billing model for its SSD (premium) tier, allowing separate provisioning of storage, IOPS, and throughput."
 ---
 

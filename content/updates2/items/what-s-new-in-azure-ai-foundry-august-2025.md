@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "B9AEC6134EA9099850367DB5AEBDA2B1E413D96BEEF9F832F56B5FA28BCB95D4"
 contentHash: "36C45914795CD072B967B96D75926B1C2959427AEA09B841BC817080222DE2ED"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "August 2025 update for Azure AI Foundry: GPT-5 is available, Model Router adds GPT-5 support, Responses API reaches general availability, Browser Automation enters public preview, and there are additions and updates including Sora, Mistral Document AI, FLUX image models, OpenAI gpt-oss with Foundry Local, plus SDK and documentation improvements."
 ---
 

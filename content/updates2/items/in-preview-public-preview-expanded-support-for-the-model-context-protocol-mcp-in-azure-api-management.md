@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "7C3B4ED1D1682D8EA4125A4AD540BD7A5FE182EB23E4BE9C1697AE4871D3C17F"
 contentHash: "7D3FFEC86FE83CD123A94B61387FEAB1C3804EB19BE785C7511D3D4D7B3404DB"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure API Management is in public preview with expanded support for the Model Context Protocol (MCP), adding MCP support in v2 SKUs and the ability to expose existing MCP-compliant servers to simplify connecting APIs and AI agents."
 ---
 

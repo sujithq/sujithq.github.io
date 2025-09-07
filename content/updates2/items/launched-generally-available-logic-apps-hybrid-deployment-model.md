@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "148053177816F1502A4CB57904ED8059438A56DAEC76EFAD9F6BA5284F959F69"
 contentHash: "9EE4F02AD9445D3BF1F1F138FAF1AA89B977C9BB65999B848FFB5132E5E733C1"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Microsoft announced the general availability of the Logic Apps Hybrid Deployment Model, which lets customers run Logic Apps on customer-managed infrastructure to give more flexibility and control over where integration workloads execute."
 ---
 

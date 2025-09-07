@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "E4F8C34D4C4584906D6D4D52D8826FAD51E59CC4332C1775C8B23E808B38BBCE"
 contentHash: "304804BB6366C36E6C9360CBFD6678EEE1E27CCB722738EE0BFFE3B2846E88B2"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Front Door Standard and Premium are now generally available in Azure China regions China North 3 and China East 3, operated by 21Vianet."
 ---
 

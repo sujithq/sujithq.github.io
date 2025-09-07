@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "364CB2E8DD4EF5C0266DAAB245B971AB0F7BE143AD9553C19D012C5D4BA93590"
 contentHash: "5F975C0AD0873E5DF15E979D99A60C552BE1E2B3AF5D0C0551383CC2F656A79C"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure CDN in Microsoft Azure operated by 21Vianet (Azure China) will be retired on December 1, 2025. Customers using Azure CDN in China must migrate to alternative services such as Azure Front Door before that date. The service is built on local CDN providers' POPs."
 ---
 

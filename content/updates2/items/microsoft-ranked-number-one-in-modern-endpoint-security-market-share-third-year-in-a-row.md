@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "26DE5E89885E9BDC48CE5F39EDAB0BD8ADC7263AFEE92D3CA6B215EAD31340D3"
 contentHash: "9FF3220F83BE948ABF041C60CEFDB49A09E94F11594CB9710B31215B3AB69D42"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Microsoft was ranked number one in the modern endpoint security market share for the third consecutive year, according to a new IDC report, as announced on the Microsoft Security Blog."
 ---
 

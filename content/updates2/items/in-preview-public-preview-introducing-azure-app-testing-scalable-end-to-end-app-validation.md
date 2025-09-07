@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "B70B7A39563CC9234907493FC971F2B97035F756A43FA24AFB9609E928FD0EB8"
 contentHash: "BC3C05E8117CEFE9A0950D959CCD4378A4A083A174EA84FC4B5881B1A70A66C1"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure App Testing is now in public preview, allowing developers and QA teams to perform large-scale functional and performance tests across frameworks such as Playwright, JMeter, and Locust."
 ---
 

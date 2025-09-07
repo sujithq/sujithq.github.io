@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "7EEBC1BB051E6E91DA40646F7D978C22E86F95365312BCD703C068E54B1FCD52"
 contentHash: "4ABA7B4C4E6C56EB0280F6E97CA097E168DD3A5FE1EC35263F5E9AD305942D87"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "EFCore.Visualizer is a Visual Studio extension that lets developers visualize and analyze Entity Framework Core query execution plans directly inside the IDE."
 ---
 

@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "30B51BB0BF984DB0E4142B592EBE67562938626EA977016B552E4E4991203DD3"
 contentHash: "B4E94324E84710AD194C0A85DC202E91F1299FC2F312D26DDA7826EB114B7EDE"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "The redesigned Data Mapper user experience in the Azure Logic Apps (Standard) extension for Visual Studio Code is now generally available and becomes the default for creating and editing maps after its public preview."
 ---
 

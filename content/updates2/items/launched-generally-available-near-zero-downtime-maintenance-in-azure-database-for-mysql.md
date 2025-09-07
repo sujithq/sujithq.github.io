@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "E4BFB0C5565CB9F07C0062D42F987E6F1771A63E1B41527B1657E18362745742"
 contentHash: "6C3D868C360EDE44D6423E66FA018B4BA2A060A0BE3FF3E3A2FC5A6859F8407B"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Azure Database for MySQL – Flexible Server with High Availability (HA) now offers near-zero-downtime maintenance and this capability is generally available. The feature is supported by a new HA architecture and applies to Flexible Server deployments with HA enabled."
 ---
 

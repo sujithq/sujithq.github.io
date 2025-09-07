@@ -12,7 +12,7 @@ timeframeKey: "2025-09"
 id: "018DDE1B280A3E8E0F45934BD7A1271DAD6EB8DB1AA021D4B5DC967872F88D80"
 contentHash: "29195AB4B24BA55C78E0B442A451CD3ACABDCFD59AF0D8327EEDFC6D2F4EE721"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Microsoft announced the Public Preview of .NET 10 on Azure App Service for both Windows and Linux, enabling developers to run modern web workloads such as ASP.NET apps, Blazor, and Minimal APIs on the platform."
 ---
 

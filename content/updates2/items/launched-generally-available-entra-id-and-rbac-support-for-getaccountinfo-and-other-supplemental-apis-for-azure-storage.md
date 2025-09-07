@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "DF6850B43DEE0AC097464A764116163F580977AC77E193D0825F24894CC0BA81"
 contentHash: "C505563EE6EBA4FD783D11B0CE1B1DF670D3E9EDCBF85FE2F88492A06F0250D9"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Entra ID and RBAC support for several Azure Storage supplemental APIs, including GetAccountInfo and ACL management for containers, queues, and tables, is now generally available."
 ---
 

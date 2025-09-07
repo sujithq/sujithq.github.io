@@ -12,7 +12,7 @@ timeframeKey: "2025-08"
 id: "48ABAABECC17820DF3258B8013D70A7D6B75BCB5583F6DDC7D042B2BF5CBB24E"
 contentHash: "B85BDADE7D1C52E7FACD557C3F8884FF2653E94F7BE1BA84F460ADE81483E983"
 draft: false
-type: "update-item"
+type: "updates2"
 llmSummary: "Terraform Google Cloud provider version 7.0 is now generally available, introducing ephemeral resources, write-only attributes, and enhanced validation logic."
 ---
 
