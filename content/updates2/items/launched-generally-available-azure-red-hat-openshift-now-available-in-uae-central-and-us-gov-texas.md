@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Red Hat OpenShift Now Available in UAE Central and US Gov Texas"
+title: "azure: [Launched] Generally Available: Azure Red Hat OpenShift Now Available in UAE Central and US Gov Texas"
 date: 2025-09-05T21:15:48.000Z
 slug: launched-generally-available-azure-red-hat-openshift-now-available-in-uae-central-and-us-gov-texas
 update_categories: ["azure"]

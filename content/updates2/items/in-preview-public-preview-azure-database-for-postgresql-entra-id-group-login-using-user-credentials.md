@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Azure Database for PostgreSQL Entra ID group login using user credentials"
+title: "azure: [In preview] Public Preview: Azure Database for PostgreSQL Entra ID group login using user credentials"
 date: 2025-08-28T14:45:15.000Z
 slug: in-preview-public-preview-azure-database-for-postgresql-entra-id-group-login-using-user-credentials
 update_categories: ["azure"]

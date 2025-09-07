@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Schema migration is now available in Azure Database Migration Service (DMS)"
+title: "azure: [Launched] Generally Available: Schema migration is now available in Azure Database Migration Service (DMS)"
 date: 2025-08-27T16:00:53.000Z
 slug: launched-generally-available-schema-migration-is-now-available-in-azure-database-migration-service-dms
 update_categories: ["azure"]

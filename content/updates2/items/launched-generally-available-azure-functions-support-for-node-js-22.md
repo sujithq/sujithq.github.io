@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Functions support for Node.js 22"
+title: "azure: [Launched] Generally Available: Azure Functions support for Node.js 22"
 date: 2025-08-22T11:45:29.000Z
 slug: launched-generally-available-azure-functions-support-for-node-js-22
 update_categories: ["azure"]

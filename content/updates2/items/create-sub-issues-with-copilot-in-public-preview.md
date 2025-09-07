@@ -1,5 +1,5 @@
 ---
-title: "Create sub-issues with Copilot in public preview"
+title: "github: Create sub-issues with Copilot in public preview"
 date: 2025-08-27T23:37:22.000Z
 slug: create-sub-issues-with-copilot-in-public-preview
 update_categories: ["github"]

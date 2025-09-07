@@ -1,5 +1,5 @@
 ---
-title: "Retirement: Azure CDN – Migrate to Azure Front Door on December 1, 2025"
+title: "azure: Retirement: Azure CDN – Migrate to Azure Front Door on December 1, 2025"
 date: 2025-09-02T18:00:44.000Z
 slug: retirement-azure-cdn-migrate-to-azure-front-door-on-december-1-2025
 update_categories: ["azure"]

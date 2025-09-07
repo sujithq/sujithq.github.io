@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Application Gateway adds MaxSurge support for zero-capacity-impact upgrades"
+title: "azure: [Launched] Generally Available: Application Gateway adds MaxSurge support for zero-capacity-impact upgrades"
 date: 2025-08-21T17:00:04.000Z
 slug: launched-generally-available-application-gateway-adds-maxsurge-support-for-zero-capacity-impact-upgrades
 update_categories: ["azure"]

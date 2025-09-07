@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Front Door Standard and Premium are now available in Azure China."
+title: "azure: [Launched] Generally Available: Azure Front Door Standard and Premium are now available in Azure China."
 date: 2025-09-01T10:00:54.000Z
 slug: launched-generally-available-azure-front-door-standard-and-premium-are-now-available-in-azure-china
 update_categories: ["azure"]

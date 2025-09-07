@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Ultra Disk Price Reduction in UK South"
+title: "azure: [Launched] Generally Available: Azure Ultra Disk Price Reduction in UK South"
 date: 2025-09-02T17:00:13.000Z
 slug: launched-generally-available-azure-ultra-disk-price-reduction-in-uk-south
 update_categories: ["azure"]

@@ -1,5 +1,5 @@
 ---
-title: "The dashboard-feed page gets a refreshed, faster experience"
+title: "github: The dashboard-feed page gets a refreshed, faster experience"
 date: 2025-09-04T21:07:51.000Z
 slug: the-dashboard-feed-page-gets-a-refreshed-faster-experience
 update_categories: ["github"]

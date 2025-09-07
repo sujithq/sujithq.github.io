@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Introducing Azure App Testing: Scalable End-to-end App Validation"
+title: "azure: [In preview] Public Preview: Introducing Azure App Testing: Scalable End-to-end App Validation"
 date: 2025-08-11T17:00:31.000Z
 slug: in-preview-public-preview-introducing-azure-app-testing-scalable-end-to-end-app-validation
 update_categories: ["azure"]

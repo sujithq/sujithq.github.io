@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure SQL updates for late-August 2025"
+title: "azure: [Launched] Generally Available: Azure SQL updates for late-August 2025"
 date: 2025-08-28T14:45:15.000Z
 slug: launched-generally-available-azure-sql-updates-for-late-august-2025
 update_categories: ["azure"]

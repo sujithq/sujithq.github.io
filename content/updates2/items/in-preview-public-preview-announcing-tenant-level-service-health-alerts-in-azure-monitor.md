@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Announcing Tenant-Level Service Health Alerts in Azure Monitor"
+title: "azure: [In preview] Public Preview: Announcing Tenant-Level Service Health Alerts in Azure Monitor"
 date: 2025-08-11T20:00:08.000Z
 slug: in-preview-public-preview-announcing-tenant-level-service-health-alerts-in-azure-monitor
 update_categories: ["azure"]

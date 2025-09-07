@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Azure Cosmos DB for MongoDB (vCore)—add shards and rebalance data"
+title: "azure: [In preview] Public Preview: Azure Cosmos DB for MongoDB (vCore)—add shards and rebalance data"
 date: 2025-08-27T16:00:53.000Z
 slug: in-preview-public-preview-azure-cosmos-db-for-mongodb-vcore-add-shards-and-rebalance-data
 update_categories: ["azure"]

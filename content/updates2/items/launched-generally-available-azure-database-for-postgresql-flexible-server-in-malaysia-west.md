@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Database for PostgreSQL flexible server in Malaysia West"
+title: "azure: [Launched] Generally Available: Azure Database for PostgreSQL flexible server in Malaysia West"
 date: 2025-08-13T16:00:27.000Z
 slug: launched-generally-available-azure-database-for-postgresql-flexible-server-in-malaysia-west
 update_categories: ["azure"]

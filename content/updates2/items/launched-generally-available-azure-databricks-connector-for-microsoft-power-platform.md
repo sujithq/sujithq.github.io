@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Databricks connector for Microsoft Power Platform"
+title: "azure: [Launched] Generally Available: Azure Databricks connector for Microsoft Power Platform"
 date: 2025-08-14T16:00:43.000Z
 slug: launched-generally-available-azure-databricks-connector-for-microsoft-power-platform
 update_categories: ["azure"]

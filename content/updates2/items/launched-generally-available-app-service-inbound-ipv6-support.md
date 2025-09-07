@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: App Service Inbound IPv6 Support"
+title: "azure: [Launched] Generally Available: App Service Inbound IPv6 Support"
 date: 2025-08-11T17:00:31.000Z
 slug: launched-generally-available-app-service-inbound-ipv6-support
 update_categories: ["azure"]

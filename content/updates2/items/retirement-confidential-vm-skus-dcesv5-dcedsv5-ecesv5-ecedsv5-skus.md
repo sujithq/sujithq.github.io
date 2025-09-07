@@ -1,5 +1,5 @@
 ---
-title: "Retirement: Confidential VM SKUs DCesv5, DCedsv5, ECesv5, ECedsv5 SKUs"
+title: "azure: Retirement: Confidential VM SKUs DCesv5, DCedsv5, ECesv5, ECedsv5 SKUs"
 date: 2025-09-02T18:45:30.000Z
 slug: retirement-confidential-vm-skus-dcesv5-dcedsv5-ecesv5-ecedsv5-skus
 update_categories: ["azure"]

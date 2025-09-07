@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Private Application Gateway on Azure Application Gateway v2"
+title: "azure: [Launched] Generally Available: Private Application Gateway on Azure Application Gateway v2"
 date: 2025-08-08T17:00:36.000Z
 slug: launched-generally-available-private-application-gateway-on-azure-application-gateway-v2
 update_categories: ["azure"]

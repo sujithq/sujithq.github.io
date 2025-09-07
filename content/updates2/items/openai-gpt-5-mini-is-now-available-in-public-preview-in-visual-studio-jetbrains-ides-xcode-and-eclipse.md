@@ -1,5 +1,5 @@
 ---
-title: "OpenAI GPT-5 mini is now available in public preview in Visual Studio, JetBrains IDEs, Xcode, and Eclipse"
+title: "github: OpenAI GPT-5 mini is now available in public preview in Visual Studio, JetBrains IDEs, Xcode, and Eclipse"
 date: 2025-08-28T17:40:59.000Z
 slug: openai-gpt-5-mini-is-now-available-in-public-preview-in-visual-studio-jetbrains-ides-xcode-and-eclipse
 update_categories: ["github"]

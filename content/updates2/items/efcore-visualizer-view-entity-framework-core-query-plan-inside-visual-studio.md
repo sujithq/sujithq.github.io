@@ -1,5 +1,5 @@
 ---
-title: "EFCore.Visualizer – View Entity Framework Core query plan inside Visual Studio"
+title: "dotnet: EFCore.Visualizer – View Entity Framework Core query plan inside Visual Studio"
 date: 2025-08-27T17:05:00.000Z
 slug: efcore-visualizer-view-entity-framework-core-query-plan-inside-visual-studio
 update_categories: ["dotnet"]

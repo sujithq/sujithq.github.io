@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure App Service - New Premium v4 Offering"
+title: "azure: [Launched] Generally Available: Azure App Service - New Premium v4 Offering"
 date: 2025-09-01T15:00:58.000Z
 slug: launched-generally-available-azure-app-service-new-premium-v4-offering
 update_categories: ["azure"]

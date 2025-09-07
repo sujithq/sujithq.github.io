@@ -1,5 +1,5 @@
 ---
-title: "Retirement: Microsoft Sentinel Deprecation in Microsoft Azure operated by 21Vianet Announcement"
+title: "azure: Retirement: Microsoft Sentinel Deprecation in Microsoft Azure operated by 21Vianet Announcement"
 date: 2025-08-20T16:30:32.000Z
 slug: retirement-microsoft-sentinel-deprecation-in-microsoft-azure-operated-by-21vianet-announcement
 update_categories: ["azure"]

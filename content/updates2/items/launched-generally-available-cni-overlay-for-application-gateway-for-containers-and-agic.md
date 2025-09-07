@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: CNI Overlay for Application Gateway for Containers and AGIC"
+title: "azure: [Launched] Generally Available: CNI Overlay for Application Gateway for Containers and AGIC"
 date: 2025-08-26T16:00:15.000Z
 slug: launched-generally-available-cni-overlay-for-application-gateway-for-containers-and-agic
 update_categories: ["azure"]

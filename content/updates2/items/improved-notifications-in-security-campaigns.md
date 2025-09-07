@@ -1,5 +1,5 @@
 ---
-title: "Improved notifications in security campaigns"
+title: "github: Improved notifications in security campaigns"
 date: 2025-09-02T09:29:30.000Z
 slug: improved-notifications-in-security-campaigns
 update_categories: ["github"]

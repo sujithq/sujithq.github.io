@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Azure Cosmos DB for MongoDB (vCore) encryption with customer-managed key"
+title: "azure: [In preview] Public Preview: Azure Cosmos DB for MongoDB (vCore) encryption with customer-managed key"
 date: 2025-08-13T16:00:27.000Z
 slug: in-preview-public-preview-azure-cosmos-db-for-mongodb-vcore-encryption-with-customer-managed-key
 update_categories: ["azure"]

@@ -1,5 +1,5 @@
 ---
-title: "Start and track Copilot coding agent tasks from Raycast"
+title: "github: Start and track Copilot coding agent tasks from Raycast"
 date: 2025-08-28T17:55:41.000Z
 slug: start-and-track-copilot-coding-agent-tasks-from-raycast
 update_categories: ["github"]

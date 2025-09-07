@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Data Box Next Gen is now generally available in additional regions"
+title: "azure: [Launched] Generally Available: Azure Data Box Next Gen is now generally available in additional regions"
 date: 2025-08-06T16:00:45.000Z
 slug: launched-generally-available-azure-data-box-next-gen-is-now-generally-available-in-additional-regions
 update_categories: ["azure"]

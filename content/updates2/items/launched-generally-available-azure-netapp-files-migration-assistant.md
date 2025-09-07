@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure NetApp Files migration assistant"
+title: "azure: [Launched] Generally Available: Azure NetApp Files migration assistant"
 date: 2025-09-05T16:45:57.000Z
 slug: launched-generally-available-azure-netapp-files-migration-assistant
 update_categories: ["azure"]

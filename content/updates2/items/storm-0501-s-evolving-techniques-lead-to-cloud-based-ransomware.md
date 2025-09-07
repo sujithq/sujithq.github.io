@@ -1,5 +1,5 @@
 ---
-title: "Storm-0501’s evolving techniques lead to cloud-based ransomware"
+title: "security: Storm-0501’s evolving techniques lead to cloud-based ransomware"
 date: 2025-08-27T16:00:00.000Z
 slug: storm-0501-s-evolving-techniques-lead-to-cloud-based-ransomware
 update_categories: ["security"]

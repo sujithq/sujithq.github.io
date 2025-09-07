@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Microsoft Azure now available from cloud region in Austria"
+title: "azure: [Launched] Generally Available: Microsoft Azure now available from cloud region in Austria"
 date: 2025-08-25T13:00:07.000Z
 slug: launched-generally-available-microsoft-azure-now-available-from-cloud-region-in-austria
 update_categories: ["azure"]

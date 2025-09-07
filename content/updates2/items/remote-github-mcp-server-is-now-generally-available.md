@@ -1,5 +1,5 @@
 ---
-title: "Remote GitHub MCP Server is now generally available"
+title: "github: Remote GitHub MCP Server is now generally available"
 date: 2025-09-04T15:00:49.000Z
 slug: remote-github-mcp-server-is-now-generally-available
 update_categories: ["github"]

@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Workspaces and workspace gateways in the Premium v2 tier of Azure API Management"
+title: "azure: [Launched] Generally Available: Workspaces and workspace gateways in the Premium v2 tier of Azure API Management"
 date: 2025-09-03T23:15:04.000Z
 slug: launched-generally-available-workspaces-and-workspace-gateways-in-the-premium-v2-tier-of-azure-api-management
 update_categories: ["azure"]

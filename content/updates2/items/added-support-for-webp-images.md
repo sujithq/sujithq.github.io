@@ -1,5 +1,5 @@
 ---
-title: "Added support for WebP images"
+title: "github: Added support for WebP images"
 date: 2025-08-28T20:29:09.000Z
 slug: added-support-for-webp-images
 update_categories: ["github"]

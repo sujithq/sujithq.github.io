@@ -1,5 +1,5 @@
 ---
-title: "CodeQL 2.22.4 adds support for Go 1.25 and accuracy improvements"
+title: "github: CodeQL 2.22.4 adds support for Go 1.25 and accuracy improvements"
 date: 2025-09-03T08:41:54.000Z
 slug: codeql-2-22-4-adds-support-for-go-1-25-and-accuracy-improvements
 update_categories: ["github"]

@@ -1,5 +1,5 @@
 ---
-title: "What’s new in Azure AI Foundry | August 2025"
+title: "ai: What’s new in Azure AI Foundry | August 2025"
 date: 2025-09-03T15:00:50.000Z
 slug: what-s-new-in-azure-ai-foundry-august-2025
 update_categories: ["ai"]

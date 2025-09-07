@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Roslyn Analyzer for Durable Functions in .NET isolated"
+title: "azure: [In preview] Public Preview: Roslyn Analyzer for Durable Functions in .NET isolated"
 date: 2025-08-25T16:00:39.000Z
 slug: in-preview-public-preview-roslyn-analyzer-for-durable-functions-in-net-isolated
 update_categories: ["azure"]

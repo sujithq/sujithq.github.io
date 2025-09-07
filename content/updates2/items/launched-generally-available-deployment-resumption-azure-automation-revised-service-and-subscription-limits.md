@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Deployment resumption - Azure Automation revised Service and Subscription limits"
+title: "azure: [Launched] Generally Available: Deployment resumption - Azure Automation revised Service and Subscription limits"
 date: 2025-08-13T12:15:34.000Z
 slug: launched-generally-available-deployment-resumption-azure-automation-revised-service-and-subscription-limits
 update_categories: ["azure"]

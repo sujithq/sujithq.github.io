@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure NetApp Files file access logs"
+title: "azure: [Launched] Generally Available: Azure NetApp Files file access logs"
 date: 2025-08-21T16:30:27.000Z
 slug: launched-generally-available-azure-netapp-files-file-access-logs
 update_categories: ["azure"]

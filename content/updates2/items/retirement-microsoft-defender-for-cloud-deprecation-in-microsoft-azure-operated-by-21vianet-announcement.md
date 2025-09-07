@@ -1,5 +1,5 @@
 ---
-title: "Retirement: Microsoft Defender for Cloud Deprecation in Microsoft Azure Operated by 21Vianet Announcement"
+title: "azure: Retirement: Microsoft Defender for Cloud Deprecation in Microsoft Azure Operated by 21Vianet Announcement"
 date: 2025-08-20T16:30:32.000Z
 slug: retirement-microsoft-defender-for-cloud-deprecation-in-microsoft-azure-operated-by-21vianet-announcement
 update_categories: ["azure"]

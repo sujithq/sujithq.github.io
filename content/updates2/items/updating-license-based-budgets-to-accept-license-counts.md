@@ -1,5 +1,5 @@
 ---
-title: "Updating license-based budgets to accept license counts"
+title: "github: Updating license-based budgets to accept license counts"
 date: 2025-09-02T15:07:35.000Z
 slug: updating-license-based-budgets-to-accept-license-counts
 update_categories: ["github"]

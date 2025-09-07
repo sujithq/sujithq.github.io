@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Near-zero-downtime maintenance in Azure Database for MySQL"
+title: "azure: [Launched] Generally Available: Near-zero-downtime maintenance in Azure Database for MySQL"
 date: 2025-09-04T16:30:46.000Z
 slug: launched-generally-available-near-zero-downtime-maintenance-in-azure-database-for-mysql
 update_categories: ["azure"]

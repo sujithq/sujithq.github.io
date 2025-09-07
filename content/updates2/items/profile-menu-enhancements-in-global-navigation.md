@@ -1,5 +1,5 @@
 ---
-title: "Profile menu enhancements in global navigation"
+title: "github: Profile menu enhancements in global navigation"
 date: 2025-09-04T23:23:13.000Z
 slug: profile-menu-enhancements-in-global-navigation
 update_categories: ["github"]

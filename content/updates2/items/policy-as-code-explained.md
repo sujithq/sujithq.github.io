@@ -1,5 +1,5 @@
 ---
-title: "Policy as code, explained"
+title: "terraform: Policy as code, explained"
 date: 2025-08-28T12:00:00.000Z
 slug: policy-as-code-explained
 update_categories: ["terraform"]

@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally, Available: Search Job in Log Analytics - Now Supporting Up to 100 Million Results"
+title: "azure: [Launched] Generally, Available: Search Job in Log Analytics - Now Supporting Up to 100 Million Results"
 date: 2025-08-21T16:45:10.000Z
 slug: launched-generally-available-search-job-in-log-analytics-now-supporting-up-to-100-million-results
 update_categories: ["azure"]

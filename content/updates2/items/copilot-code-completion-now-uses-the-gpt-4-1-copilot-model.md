@@ -1,5 +1,5 @@
 ---
-title: "Copilot code completion now uses the GPT-4.1 Copilot model"
+title: "github: Copilot code completion now uses the GPT-4.1 Copilot model"
 date: 2025-08-27T15:59:03.000Z
 slug: copilot-code-completion-now-uses-the-gpt-4-1-copilot-model
 update_categories: ["github"]

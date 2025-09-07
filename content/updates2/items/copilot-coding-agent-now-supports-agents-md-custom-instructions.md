@@ -1,5 +1,5 @@
 ---
-title: "Copilot coding agent now supports AGENTS.md custom instructions"
+title: "github: Copilot coding agent now supports AGENTS.md custom instructions"
 date: 2025-08-28T18:00:58.000Z
 slug: copilot-coding-agent-now-supports-agents-md-custom-instructions
 update_categories: ["github"]

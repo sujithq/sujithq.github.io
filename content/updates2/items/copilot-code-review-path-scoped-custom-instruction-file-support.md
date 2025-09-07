@@ -1,5 +1,5 @@
 ---
-title: "Copilot code review: Path-scoped custom instruction file support"
+title: "github: Copilot code review: Path-scoped custom instruction file support"
 date: 2025-09-03T20:41:26.000Z
 slug: copilot-code-review-path-scoped-custom-instruction-file-support
 update_categories: ["github"]

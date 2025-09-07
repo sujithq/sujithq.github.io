@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Playwright Workspaces in Azure App Testing"
+title: "azure: [Launched] Generally Available: Playwright Workspaces in Azure App Testing"
 date: 2025-09-02T17:00:13.000Z
 slug: launched-generally-available-playwright-workspaces-in-azure-app-testing
 update_categories: ["azure"]

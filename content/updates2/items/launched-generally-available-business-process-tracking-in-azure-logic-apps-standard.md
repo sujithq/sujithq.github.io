@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Business Process Tracking in Azure Logic Apps (Standard)"
+title: "azure: [Launched] Generally Available: Business Process Tracking in Azure Logic Apps (Standard)"
 date: 2025-09-03T23:15:04.000Z
 slug: launched-generally-available-business-process-tracking-in-azure-logic-apps-standard
 update_categories: ["azure"]

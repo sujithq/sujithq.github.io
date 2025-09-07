@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Azure NetApp Files Flexible service level now supports cool access"
+title: "azure: [In preview] Public Preview: Azure NetApp Files Flexible service level now supports cool access"
 date: 2025-08-20T17:30:35.000Z
 slug: in-preview-public-preview-azure-netapp-files-flexible-service-level-now-supports-cool-access
 update_categories: ["azure"]

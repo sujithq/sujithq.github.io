@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Upgrade existing Azure Gen1 VMs to Gen2-Trusted launch"
+title: "azure: [Launched] Generally Available: Upgrade existing Azure Gen1 VMs to Gen2-Trusted launch"
 date: 2025-09-04T18:15:11.000Z
 slug: launched-generally-available-upgrade-existing-azure-gen1-vms-to-gen2-trusted-launch
 update_categories: ["azure"]

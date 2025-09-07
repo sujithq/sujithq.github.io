@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure 128 & 192 vCPU sizes for the Esv6 and Edsv6 series VMs"
+title: "azure: [Launched] Generally Available: Azure 128 & 192 vCPU sizes for the Esv6 and Edsv6 series VMs"
 date: 2025-08-07T16:00:43.000Z
 slug: launched-generally-available-azure-128-192-vcpu-sizes-for-the-esv6-and-edsv6-series-vms
 update_categories: ["azure"]

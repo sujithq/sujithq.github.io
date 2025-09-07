@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Migrate now supports migration to disks with Zone-Redundant Storage (ZRS) redundancy"
+title: "azure: [Launched] Generally Available: Azure Migrate now supports migration to disks with Zone-Redundant Storage (ZRS) redundancy"
 date: 2025-08-22T11:00:33.000Z
 slug: launched-generally-available-azure-migrate-now-supports-migration-to-disks-with-zone-redundant-storage-zrs-redundancy
 update_categories: ["azure"]

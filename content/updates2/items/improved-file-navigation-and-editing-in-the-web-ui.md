@@ -1,5 +1,5 @@
 ---
-title: "Improved file navigation and editing in the web UI"
+title: "github: Improved file navigation and editing in the web UI"
 date: 2025-09-04T18:41:12.000Z
 slug: improved-file-navigation-and-editing-in-the-web-ui
 update_categories: ["github"]

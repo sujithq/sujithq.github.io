@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Confluent Kafka Connector in Azure Logic Apps (Standard)"
+title: "azure: [In preview] Public Preview: Confluent Kafka Connector in Azure Logic Apps (Standard)"
 date: 2025-09-03T23:15:04.000Z
 slug: in-preview-public-preview-confluent-kafka-connector-in-azure-logic-apps-standard
 update_categories: ["azure"]

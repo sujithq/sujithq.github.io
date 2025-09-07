@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Azure Storage Discovery"
+title: "azure: [In preview] Public Preview: Azure Storage Discovery"
 date: 2025-08-06T15:00:18.000Z
 slug: in-preview-public-preview-azure-storage-discovery
 update_categories: ["azure"]

@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Logic Apps Hybrid Deployment Model"
+title: "azure: [Launched] Generally Available: Logic Apps Hybrid Deployment Model"
 date: 2025-09-03T23:15:04.000Z
 slug: launched-generally-available-logic-apps-hybrid-deployment-model
 update_categories: ["azure"]

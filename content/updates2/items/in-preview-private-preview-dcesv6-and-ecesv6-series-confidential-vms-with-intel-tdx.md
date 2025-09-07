@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Private Preview: DCesv6 and ECesv6 series confidential VMs with Intel® TDX"
+title: "azure: [In preview] Private Preview: DCesv6 and ECesv6 series confidential VMs with Intel® TDX"
 date: 2025-08-20T16:45:09.000Z
 slug: in-preview-private-preview-dcesv6-and-ecesv6-series-confidential-vms-with-intel-tdx
 update_categories: ["azure"]

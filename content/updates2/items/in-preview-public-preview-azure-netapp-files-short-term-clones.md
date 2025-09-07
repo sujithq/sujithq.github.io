@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Azure NetApp Files short-term clones"
+title: "azure: [In preview] Public Preview: Azure NetApp Files short-term clones"
 date: 2025-08-26T16:00:15.000Z
 slug: in-preview-public-preview-azure-netapp-files-short-term-clones
 update_categories: ["azure"]

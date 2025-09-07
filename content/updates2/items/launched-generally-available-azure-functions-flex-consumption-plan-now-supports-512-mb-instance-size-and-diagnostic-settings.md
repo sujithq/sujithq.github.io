@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Functions Flex Consumption plan now supports 512 MB instance size and diagnostic settings"
+title: "azure: [Launched] Generally Available: Azure Functions Flex Consumption plan now supports 512 MB instance size and diagnostic settings"
 date: 2025-08-21T15:30:02.000Z
 slug: launched-generally-available-azure-functions-flex-consumption-plan-now-supports-512-mb-instance-size-and-diagnostic-settings
 update_categories: ["azure"]

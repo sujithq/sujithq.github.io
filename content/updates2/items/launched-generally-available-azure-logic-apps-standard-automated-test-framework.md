@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Logic Apps Standard Automated Test Framework"
+title: "azure: [Launched] Generally Available: Azure Logic Apps Standard Automated Test Framework"
 date: 2025-09-03T23:15:04.000Z
 slug: launched-generally-available-azure-logic-apps-standard-automated-test-framework
 update_categories: ["azure"]

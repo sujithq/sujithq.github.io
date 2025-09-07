@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Entra ID and RBAC support for GetAccountInfo and other supplemental APIs for Azure Storage"
+title: "azure: [Launched] Generally Available: Entra ID and RBAC support for GetAccountInfo and other supplemental APIs for Azure Storage"
 date: 2025-08-26T17:45:29.000Z
 slug: launched-generally-available-entra-id-and-rbac-support-for-getaccountinfo-and-other-supplemental-apis-for-azure-storage
 update_categories: ["azure"]

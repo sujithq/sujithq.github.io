@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Custom block response code and body for Application Gateway WAF"
+title: "azure: [In preview] Public Preview: Custom block response code and body for Application Gateway WAF"
 date: 2025-08-26T17:00:18.000Z
 slug: in-preview-public-preview-custom-block-response-code-and-body-for-application-gateway-waf
 update_categories: ["azure"]

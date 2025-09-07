@@ -1,5 +1,5 @@
 ---
-title: "Microsoft ranked number one in modern endpoint security market share third year in a row"
+title: "security: Microsoft ranked number one in modern endpoint security market share third year in a row"
 date: 2025-08-27T15:00:00.000Z
 slug: microsoft-ranked-number-one-in-modern-endpoint-security-market-share-third-year-in-a-row
 update_categories: ["security"]

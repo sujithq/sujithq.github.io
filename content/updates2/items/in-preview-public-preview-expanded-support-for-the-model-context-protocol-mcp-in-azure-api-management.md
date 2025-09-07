@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Expanded support for the Model Context Protocol (MCP) in Azure API Management"
+title: "azure: [In preview] Public Preview: Expanded support for the Model Context Protocol (MCP) in Azure API Management"
 date: 2025-09-03T23:15:04.000Z
 slug: in-preview-public-preview-expanded-support-for-the-model-context-protocol-mcp-in-azure-api-management
 update_categories: ["azure"]

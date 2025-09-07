@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Blob Storage Archive Tier Now in Malaysia West"
+title: "azure: [Launched] Generally Available: Azure Blob Storage Archive Tier Now in Malaysia West"
 date: 2025-08-18T15:00:19.000Z
 slug: launched-generally-available-azure-blob-storage-archive-tier-now-in-malaysia-west
 update_categories: ["azure"]

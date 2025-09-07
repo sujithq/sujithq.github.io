@@ -1,5 +1,5 @@
 ---
-title: "GitHub Actions: AI labeler and moderator with the GitHub Models inference API"
+title: "github: GitHub Actions: AI labeler and moderator with the GitHub Models inference API"
 date: 2025-09-05T22:38:54.000Z
 slug: github-actions-ai-labeler-and-moderator-with-the-github-models-inference-api
 update_categories: ["github"]

@@ -1,5 +1,5 @@
 ---
-title: "Terraform provider for Google Cloud 7.0 is now GA"
+title: "terraform: Terraform provider for Google Cloud 7.0 is now GA"
 date: 2025-08-27T16:00:00.000Z
 slug: terraform-provider-for-google-cloud-7-0-is-now-ga
 update_categories: ["terraform"]

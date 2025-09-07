@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with the Aspire CLI"
+title: "dotnet: Getting Started with the Aspire CLI"
 date: 2025-08-28T17:05:00.000Z
 slug: getting-started-with-the-aspire-cli
 update_categories: ["dotnet"]

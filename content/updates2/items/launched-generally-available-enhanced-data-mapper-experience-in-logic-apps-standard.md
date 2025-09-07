@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Enhanced Data Mapper Experience in Logic Apps (Standard)"
+title: "azure: [Launched] Generally Available: Enhanced Data Mapper Experience in Logic Apps (Standard)"
 date: 2025-09-03T23:15:04.000Z
 slug: launched-generally-available-enhanced-data-mapper-experience-in-logic-apps-standard
 update_categories: ["azure"]

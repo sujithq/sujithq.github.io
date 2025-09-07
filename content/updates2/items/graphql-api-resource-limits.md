@@ -1,5 +1,5 @@
 ---
-title: "GraphQL API resource limits"
+title: "github: GraphQL API resource limits"
 date: 2025-09-01T16:00:30.000Z
 slug: graphql-api-resource-limits
 update_categories: ["github"]

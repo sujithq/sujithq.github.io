@@ -1,5 +1,5 @@
 ---
-title: "Azure mandatory multifactor authentication: Phase 2 starting in October 2025"
+title: "security: Azure mandatory multifactor authentication: Phase 2 starting in October 2025"
 date: 2025-09-05T15:00:00.000Z
 slug: azure-mandatory-multifactor-authentication-phase-2-starting-in-october-2025
 update_categories: ["security"]

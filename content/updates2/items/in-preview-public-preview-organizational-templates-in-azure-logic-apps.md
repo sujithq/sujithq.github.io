@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Organizational Templates in Azure Logic Apps"
+title: "azure: [In preview] Public Preview: Organizational Templates in Azure Logic Apps"
 date: 2025-09-03T23:15:04.000Z
 slug: in-preview-public-preview-organizational-templates-in-azure-logic-apps
 update_categories: ["azure"]

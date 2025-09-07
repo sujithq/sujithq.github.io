@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Azure Functions support for Python 3.13"
+title: "azure: [In preview] Public Preview: Azure Functions support for Python 3.13"
 date: 2025-09-05T15:15:38.000Z
 slug: in-preview-public-preview-azure-functions-support-for-python-3-13
 update_categories: ["azure"]

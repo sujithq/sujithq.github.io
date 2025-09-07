@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Azure Managed Instance for Apache Cassandra v5.0"
+title: "azure: [In preview] Public Preview: Azure Managed Instance for Apache Cassandra v5.0"
 date: 2025-08-13T16:00:27.000Z
 slug: in-preview-public-preview-azure-managed-instance-for-apache-cassandra-v5-0
 update_categories: ["azure"]

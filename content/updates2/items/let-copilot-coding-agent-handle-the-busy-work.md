@@ -1,5 +1,5 @@
 ---
-title: "Let Copilot Coding Agent handle the busy work"
+title: "dotnet: Let Copilot Coding Agent handle the busy work"
 date: 2025-09-03T17:05:00.000Z
 slug: let-copilot-coding-agent-handle-the-busy-work
 update_categories: ["dotnet"]

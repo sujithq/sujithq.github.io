@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Azure Bastion now supports connectivity to private AKS clusters via tunneling"
+title: "azure: [In preview] Public Preview: Azure Bastion now supports connectivity to private AKS clusters via tunneling"
 date: 2025-08-20T17:45:19.000Z
 slug: in-preview-public-preview-azure-bastion-now-supports-connectivity-to-private-aks-clusters-via-tunneling
 update_categories: ["azure"]

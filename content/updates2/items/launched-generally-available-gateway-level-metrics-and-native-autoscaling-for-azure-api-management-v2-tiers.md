@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Gateway level metrics and native autoscaling for Azure API Management v2 tiers"
+title: "azure: [Launched] Generally Available: Gateway level metrics and native autoscaling for Azure API Management v2 tiers"
 date: 2025-09-03T23:15:04.000Z
 slug: launched-generally-available-gateway-level-metrics-and-native-autoscaling-for-azure-api-management-v2-tiers
 update_categories: ["azure"]

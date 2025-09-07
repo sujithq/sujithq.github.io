@@ -1,5 +1,5 @@
 ---
-title: "Copilot code review: Generally available in Xcode and new admin control"
+title: "github: Copilot code review: Generally available in Xcode and new admin control"
 date: 2025-08-27T18:03:54.000Z
 slug: copilot-code-review-generally-available-in-xcode-and-new-admin-control
 update_categories: ["github"]

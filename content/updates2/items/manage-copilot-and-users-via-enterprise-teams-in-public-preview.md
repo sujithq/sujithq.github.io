@@ -1,5 +1,5 @@
 ---
-title: "Manage Copilot and users via Enterprise Teams in public preview"
+title: "github: Manage Copilot and users via Enterprise Teams in public preview"
 date: 2025-09-04T16:59:13.000Z
 slug: manage-copilot-and-users-via-enterprise-teams-in-public-preview
 update_categories: ["github"]

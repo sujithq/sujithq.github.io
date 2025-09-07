@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Custom Code support in Azure Logic Apps Standard with .NET 8"
+title: "azure: [Launched] Generally Available: Custom Code support in Azure Logic Apps Standard with .NET 8"
 date: 2025-09-03T23:15:04.000Z
 slug: launched-generally-available-custom-code-support-in-azure-logic-apps-standard-with-net-8
 update_categories: ["azure"]

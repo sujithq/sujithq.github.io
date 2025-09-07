@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: Azure SQL updates for late-August 2025"
+title: "azure: [In preview] Public Preview: Azure SQL updates for late-August 2025"
 date: 2025-08-27T16:00:53.000Z
 slug: in-preview-public-preview-azure-sql-updates-for-late-august-2025
 update_categories: ["azure"]

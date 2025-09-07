@@ -1,5 +1,5 @@
 ---
-title: "Retirement: Azure CDN will be retired on December 1 2025 in China"
+title: "azure: Retirement: Azure CDN will be retired on December 1 2025 in China"
 date: 2025-09-05T15:45:50.000Z
 slug: retirement-azure-cdn-will-be-retired-on-december-1-2025-in-china
 update_categories: ["azure"]

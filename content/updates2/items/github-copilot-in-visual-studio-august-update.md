@@ -1,5 +1,5 @@
 ---
-title: "GitHub Copilot in Visual Studio — August update"
+title: "github: GitHub Copilot in Visual Studio — August update"
 date: 2025-08-28T17:18:55.000Z
 slug: github-copilot-in-visual-studio-august-update
 update_categories: ["github"]

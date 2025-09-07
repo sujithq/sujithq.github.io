@@ -1,5 +1,5 @@
 ---
-title: "[In development] Private Preview: Agentic experience for AKS in the Azure CLI"
+title: "azure: [In development] Private Preview: Agentic experience for AKS in the Azure CLI"
 date: 2025-08-06T03:30:15.000Z
 slug: in-development-private-preview-agentic-experience-for-aks-in-the-azure-cli
 update_categories: ["azure"]

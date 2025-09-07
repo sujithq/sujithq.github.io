@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Multiple address prefixes for subnets in Azure Virtual Networks"
+title: "azure: [Launched] Generally Available: Multiple address prefixes for subnets in Azure Virtual Networks"
 date: 2025-09-04T21:00:07.000Z
 slug: launched-generally-available-multiple-address-prefixes-for-subnets-in-azure-virtual-networks
 update_categories: ["azure"]

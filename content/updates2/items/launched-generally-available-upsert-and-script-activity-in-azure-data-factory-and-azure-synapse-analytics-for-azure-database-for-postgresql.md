@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Upsert and Script Activity in Azure Data Factory and Azure Synapse Analytics for Azure Database for PostgreSQL"
+title: "azure: [Launched] Generally Available: Upsert and Script Activity in Azure Data Factory and Azure Synapse Analytics for Azure Database for PostgreSQL"
 date: 2025-08-11T15:15:03.000Z
 slug: launched-generally-available-upsert-and-script-activity-in-azure-data-factory-and-azure-synapse-analytics-for-azure-database-for-postgresql
 update_categories: ["azure"]

@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Ultra Disk Price Reduction in Central US"
+title: "azure: [Launched] Generally Available: Azure Ultra Disk Price Reduction in Central US"
 date: 2025-09-02T17:00:13.000Z
 slug: launched-generally-available-azure-ultra-disk-price-reduction-in-central-us
 update_categories: ["azure"]

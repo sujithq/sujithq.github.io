@@ -1,5 +1,5 @@
 ---
-title: "Copilot’s next edit suggestion (NES) in public preview in JetBrains"
+title: "github: Copilot’s next edit suggestion (NES) in public preview in JetBrains"
 date: 2025-08-29T17:32:16.000Z
 slug: copilot-s-next-edit-suggestion-nes-in-public-preview-in-jetbrains
 update_categories: ["github"]

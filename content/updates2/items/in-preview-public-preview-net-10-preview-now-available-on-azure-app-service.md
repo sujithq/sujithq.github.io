@@ -1,5 +1,5 @@
 ---
-title: "[In preview] Public Preview: .NET 10 Preview Now Available on Azure App Service"
+title: "azure: [In preview] Public Preview: .NET 10 Preview Now Available on Azure App Service"
 date: 2025-09-05T14:15:34.000Z
 slug: in-preview-public-preview-net-10-preview-now-available-on-azure-app-service
 update_categories: ["azure"]

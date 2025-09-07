@@ -1,5 +1,5 @@
 ---
-title: "Improvements to the home dashboard available in public preview"
+title: "github: Improvements to the home dashboard available in public preview"
 date: 2025-08-28T17:50:18.000Z
 slug: improvements-to-the-home-dashboard-available-in-public-preview
 update_categories: ["github"]

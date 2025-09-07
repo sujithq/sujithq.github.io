@@ -1,5 +1,5 @@
 ---
-title: "[Launched] Generally Available: Azure Files provisioned v2 billing model for SSD (premium)"
+title: "azure: [Launched] Generally Available: Azure Files provisioned v2 billing model for SSD (premium)"
 date: 2025-08-15T16:30:50.000Z
 slug: launched-generally-available-azure-files-provisioned-v2-billing-model-for-ssd-premium
 update_categories: ["azure"]
