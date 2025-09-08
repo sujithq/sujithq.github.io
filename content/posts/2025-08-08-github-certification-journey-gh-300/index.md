@@ -1422,7 +1422,7 @@ Start your GitHub Copilot mastery journey today, and join the ranks of certified
 
 ---
 
-*This guide concludes the [GitHub Certification Journey series](/series/github-certification-journey). Previous: [GitHub Administration (GH-100)](/posts/2025-08/github-certification-journey-gh-100)*
+*This guide concludes the [GitHub Certification Journey series](/series/github-certification-journey). Previous: [GitHub Administration (GH-100)](/posts/2025/08/github-certification-journey-gh-100)*
 
 *Have questions about GitHub Copilot certification or the complete certification journey? Connect with me on [LinkedIn](https://linkedin.com/in/sujithq) or [GitHub](https://github.com/sujithq) for guidance and support.*
 
