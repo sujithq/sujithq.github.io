@@ -876,6 +876,6 @@ Start your GitHub Advanced Security mastery journey today, and join the ranks of
 
 ---
 
-*This guide is part of the [GitHub Certification Journey series](/series/github-certification-journey). Previous: [GitHub Actions (GH-200)](/posts/github-certification-journey-gh-200) | Next: GitHub Administration (GH-100) - Coming Soon*
+*This guide is part of the [GitHub Certification Journey series](/series/github-certification-journey). Previous: [GitHub Actions (GH-200)](/posts/2025/08/github-certification-journey-gh-200) | Next: GitHub Administration (GH-100) - Coming Soon*
 
 *Have questions about GitHub Advanced Security certification? Connect with me on [LinkedIn](https://linkedin.com/in/sujithq) or [GitHub](https://github.com/sujithq) for guidance and support.*
