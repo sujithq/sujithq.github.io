@@ -103,6 +103,7 @@ jobs:
         run: node scripts/sync-updates-from-jsonl.js
 
       - name: Build
+        if: failure() || success()
         run: hugo --minify --gc --environment production
 
       - name: Commit & push results
