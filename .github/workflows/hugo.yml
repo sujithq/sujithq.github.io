@@ -83,6 +83,7 @@ jobs:
         run: dotnet build src/Crawler/Crawler.csproj -c Release --no-restore
 
       - name: Run crawler (bin output)
+        continue-on-error: true
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           MODELS_TOKEN: ${{ secrets.MODELS_TOKEN }}
@@ -103,7 +104,7 @@ jobs:
         run: node scripts/sync-updates-from-jsonl.js
 
       - name: Build
-        if: failure() || success()
+        if: always()
         run: hugo --minify --gc --environment production
 
       - name: Commit & push results
