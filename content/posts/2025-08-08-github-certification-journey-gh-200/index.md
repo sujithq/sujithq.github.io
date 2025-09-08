@@ -753,6 +753,6 @@ Start your GitHub Actions mastery journey today, and join the ranks of certified
 
 ---
 
-*This guide is part of the [GitHub Certification Journey series](/series/github-certification-journey). Previous: [GitHub Foundations (GH-900)](/posts/2025-08/github-certification-journey-gh-900) | Next: GitHub Advanced Security (GH-300) - Coming Soon*
+*This guide is part of the [GitHub Certification Journey series](/series/github-certification-journey). Previous: [GitHub Foundations (GH-900)](/posts/2025/08/github-certification-journey-gh-900) | Next: GitHub Advanced Security (GH-300) - Coming Soon*
 
 *Have questions about GitHub Actions certification? Connect with me on [LinkedIn](https://linkedin.com/in/sujithq) or [GitHub](https://github.com/sujithq) for guidance and support.*
