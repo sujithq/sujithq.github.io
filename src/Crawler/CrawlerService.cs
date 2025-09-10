@@ -68,7 +68,7 @@ public class CrawlerService
         PermitLimit = maxReq,
         Window = window,
         SegmentsPerWindow = 6,
-        QueueLimit = 0,
+        QueueLimit = 10,
         AutoReplenishment = true
       }
     );
@@ -136,21 +136,9 @@ public class CrawlerService
         else
         {
           using var lease = await limiter.AcquireAsync(1);
-          if (lease.IsAcquired)
-          {
-            llmOut = await _llm.SummarizeAsync(title, link, text);
-            _logger.LogDebug("LLM summarized: {Id}", id);
-            llmCalls++;
-          }
-          else
-          {
-            _logger.LogWarning("Rate limit exceeded, falling back to budget skip for item: {Id}", id);
-            llmOut = new LlmOutput(
-                Summary: text.Length == 0 ? "(no content)" : (text.Length > 280 ? text[..280] + "..." : text),
-                Bullets: new() { "short item", "rate-limit-skipped" },
-                Tags: new() { f.Category.ToLowerInvariant() }
-            );
-          }
+          llmOut = await _llm.SummarizeAsync(title, link, text);
+          _logger.LogDebug("LLM summarized: {Id}", id);
+          llmCalls++;
         }
 
         var tfKey = MarkdownBuilder.TimeframeKey(published == default ? DateTimeOffset.UtcNow : published, _app.timeframe);
