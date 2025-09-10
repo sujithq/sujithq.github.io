@@ -1,6 +1,7 @@
 using Crawler.Llm;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Net;
 using System.Security.Cryptography;
 using System.ServiceModel.Syndication;
 using System.Text;
@@ -69,8 +70,21 @@ public class CrawlerService
     foreach (var f in feeds)
     {
       SyndicationFeed? feed;
-      using (var reader = XmlReader.Create(f.Url))
-        feed = SyndicationFeed.Load(reader);
+      try
+      {
+        using (var reader = XmlReader.Create(f.Url))
+          feed = SyndicationFeed.Load(reader);
+
+      }
+      catch (HttpRequestException e)
+      {
+        if (e.StatusCode == HttpStatusCode.TooManyRequests)
+        {
+          _logger.LogWarning("To many requests for: {Url}", f.Url);
+          break;
+        }
+        throw;
+      }
 
       if (feed == null)
       {
@@ -119,7 +133,7 @@ public class CrawlerService
           //    Bullets: new() { "short item", "low-content or budget-skipped" },
           //    Tags: new() { f.Category.ToLowerInvariant() }
           //);
-          continue;
+          break;
         }
         else
         {
