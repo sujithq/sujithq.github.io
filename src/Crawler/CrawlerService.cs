@@ -58,13 +58,12 @@ public class CrawlerService
     var newRows = new List<DataRow>();
     int llmCalls = 0;
 
-    // Rate limiter state
-    var recentCalls = new Queue<DateTimeOffset>();
+    // Rate limiter configuration
     var maxReq = Math.Max(1, _llmProvider.requestsPerWindow);
     var window = TimeSpan.FromSeconds(Math.Max(1, _llmProvider.windowSeconds));
     var initialDelay = TimeSpan.FromSeconds(Math.Max(0, _llmProvider.initialDelaySeconds));
     
-    var limiter = new SlidingWindowRateLimiter(
+    using var limiter = new SlidingWindowRateLimiter(
       new SlidingWindowRateLimiterOptions{
         PermitLimit = maxReq,
         Window = window,
@@ -79,26 +78,6 @@ public class CrawlerService
     {
       _logger.LogDebug("Initial delay {Delay}s before LLM calls", initialDelay.TotalSeconds);
       await Task.Delay(initialDelay);
-    }
-
-    async Task ThrottleAsync()
-    {
-      var now = DateTimeOffset.UtcNow;
-      while (recentCalls.Count > 0 && now - recentCalls.Peek() >= window)
-        recentCalls.Dequeue();
-      if (recentCalls.Count >= maxReq)
-      {
-        var wait = window - (now - recentCalls.Peek());
-        if (wait > TimeSpan.Zero)
-        {
-          _logger.LogDebug("Rate limit reached. Waiting {Seconds}s", Math.Ceiling(wait.TotalSeconds));
-          await Task.Delay(wait);
-        }
-        now = DateTimeOffset.UtcNow;
-        while (recentCalls.Count > 0 && now - recentCalls.Peek() >= window)
-          recentCalls.Dequeue();
-      }
-      recentCalls.Enqueue(DateTimeOffset.UtcNow);
     }
 
     foreach (var f in feeds)
@@ -156,11 +135,22 @@ public class CrawlerService
         }
         else
         {
-          // await ThrottleAsync();
-          await limiter.WaitAsync(1);
-          llmOut = await _llm.SummarizeAsync(title, link, text);
-          _logger.LogDebug("LLM summarized: {Id}", id);
-          llmCalls++;
+          using var lease = await limiter.AcquireAsync(1);
+          if (lease.IsAcquired)
+          {
+            llmOut = await _llm.SummarizeAsync(title, link, text);
+            _logger.LogDebug("LLM summarized: {Id}", id);
+            llmCalls++;
+          }
+          else
+          {
+            _logger.LogWarning("Rate limit exceeded, falling back to budget skip for item: {Id}", id);
+            llmOut = new LlmOutput(
+                Summary: text.Length == 0 ? "(no content)" : (text.Length > 280 ? text[..280] + "..." : text),
+                Bullets: new() { "short item", "rate-limit-skipped" },
+                Tags: new() { f.Category.ToLowerInvariant() }
+            );
+          }
         }
 
         var tfKey = MarkdownBuilder.TimeframeKey(published == default ? DateTimeOffset.UtcNow : published, _app.timeframe);
