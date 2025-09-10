@@ -72,7 +72,7 @@ public class CrawlerService
         QueueLimit = 0,
         AutoReplenishment = true
       }
-    )
+    );
     
     
     if (initialDelay > TimeSpan.Zero)
