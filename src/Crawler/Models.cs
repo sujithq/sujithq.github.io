@@ -49,14 +49,17 @@ public class LlmProviderConfig
   public string tokenKey { get; set; } = string.Empty;
   public string? baseUrl { get; set; }
   public int initialDelaySeconds { get; set; } = 2;
+  // If > 0, overrides global llm.maxCallsPerRun
+  public int maxCallsPerRun { get; set; } = 0;
 
   public LlmProviderConfig() { }
-  public LlmProviderConfig(string model, string? baseUrl, int initialDelaySeconds, string tokenKey)
+  public LlmProviderConfig(string model, string? baseUrl, int initialDelaySeconds, string tokenKey, int maxCallsPerRun = 0)
   {
     this.model = model;
     this.baseUrl = baseUrl;
     this.initialDelaySeconds = initialDelaySeconds;
     this.tokenKey = tokenKey;
+    this.maxCallsPerRun = maxCallsPerRun;
   }
 }
 

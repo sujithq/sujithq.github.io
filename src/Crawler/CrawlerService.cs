@@ -53,11 +53,12 @@ public class CrawlerService
 
     var state = await LoadState(processedFile);
 
-    _logger.LogInformation("LLM client ready. provider={Provider} maxCallsPerRun={Max} delay={Delay}s",
-      _app.llm.provider, _app.llm.maxCallsPerRun, _llmProvider.initialDelaySeconds);
+    var maxCalls = _llmProvider.maxCallsPerRun > 0 ? _llmProvider.maxCallsPerRun : _app.llm.maxCallsPerRun;
+    _logger.LogInformation("LLM client ready. provider={Provider} maxCallsPerRun={Max} delay={Delay}s (providerOverride={Override})",
+      _app.llm.provider, maxCalls, _llmProvider.initialDelaySeconds, _llmProvider.maxCallsPerRun > 0);
 
     var newRows = new List<DataRow>();
-    int llmCalls = 0;
+  int llmCalls = 0;
 
     var initialDelay = TimeSpan.FromSeconds(Math.Max(0, _llmProvider.initialDelaySeconds));
 
@@ -127,7 +128,7 @@ public class CrawlerService
 
         LlmOutput llmOut;
         int calls = 0;
-        if (llmCalls >= _app.llm.maxCallsPerRun)
+  if (llmCalls >= maxCalls)
         {
           _logger.LogDebug("Budget skip LLM (calls so far: {Calls})", llmCalls);
           //llmOut = new LlmOutput(
