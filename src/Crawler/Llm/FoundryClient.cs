@@ -38,7 +38,7 @@ namespace Crawler.Llm
 
       return (ParseStrictJson(text ?? "{}"), llmCalls);
     }
-    
+
     private async Task<(bool ok, string text, int status, string error)> PostAsync(ChatResponseFormatEnum fmt, string title, string url, string plainText)
     {
 
