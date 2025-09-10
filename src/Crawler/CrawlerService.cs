@@ -83,7 +83,7 @@ public class CrawlerService
         if (e.StatusCode == HttpStatusCode.TooManyRequests)
         {
           _logger.LogWarning("Too many requests for: {Url}", f.Url);
-          break;
+          continue;
         }
         throw;
       }
