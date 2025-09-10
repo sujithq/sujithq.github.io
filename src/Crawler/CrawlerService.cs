@@ -6,6 +6,7 @@ using System.ServiceModel.Syndication;
 using System.Text;
 using System.Text.Json;
 using System.Xml;
+using System.Threading.RateLimiting;
 
 namespace Crawler;
 
@@ -62,6 +63,18 @@ public class CrawlerService
     var maxReq = Math.Max(1, _llmProvider.requestsPerWindow);
     var window = TimeSpan.FromSeconds(Math.Max(1, _llmProvider.windowSeconds));
     var initialDelay = TimeSpan.FromSeconds(Math.Max(0, _llmProvider.initialDelaySeconds));
+    
+    var limiter = new SlidingWindowRateLimiter(
+      new SlidingWindowRateLimiterOptions{
+        PermitLimit = maxReq,
+        Window = window,
+        SegmentsPerWindow = 6,
+        QueueLimit = 0,
+        AutoReplenishment = true
+      }
+    )
+    
+    
     if (initialDelay > TimeSpan.Zero)
     {
       _logger.LogDebug("Initial delay {Delay}s before LLM calls", initialDelay.TotalSeconds);
@@ -143,7 +156,8 @@ public class CrawlerService
         }
         else
         {
-          await ThrottleAsync();
+          // await ThrottleAsync();
+          await limiter.WaitAsync(1, ct);
           llmOut = await _llm.SummarizeAsync(title, link, text);
           _logger.LogDebug("LLM summarized: {Id}", id);
           llmCalls++;
