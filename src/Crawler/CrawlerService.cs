@@ -157,7 +157,7 @@ public class CrawlerService
         else
         {
           // await ThrottleAsync();
-          await limiter.WaitAsync(1, ct);
+          await limiter.WaitAsync(1);
           llmOut = await _llm.SummarizeAsync(title, link, text);
           _logger.LogDebug("LLM summarized: {Id}", id);
           llmCalls++;
