@@ -20,7 +20,6 @@
 		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.8" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.8" />
 		<PackageReference Include="System.ServiceModel.Syndication" Version="9.0.8" />
-				<PackageReference Include="System.Threading.RateLimiting" Version="9.0.8" />
 
 	</ItemGroup>
 

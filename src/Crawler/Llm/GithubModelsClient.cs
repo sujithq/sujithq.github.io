@@ -2,23 +2,20 @@ using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
-using System.Threading.RateLimiting;
 
 namespace Crawler.Llm;
 
-public class GithubModelsClient : ILlmClient, IDisposable
+public class GithubModelsClient : ILlmClient
 {
   private readonly string _model;
   private readonly HttpClient _http;
   private readonly ILogger<GithubModelsClient> _logger;
-  private readonly RateLimiter? _rateLimiter;
 
   public GithubModelsClient(string model, HttpClient http, string? token)
   {
     _logger = Microsoft.Extensions.Logging.Abstractions.NullLogger<GithubModelsClient>.Instance;
     _model = model;
     _http = http;
-    _rateLimiter = null;
     // BaseAddress is configured via DI (llm:<provider>:baseUrl). Do not override if already set.
     if (_http.BaseAddress == null)
       _http.BaseAddress = new Uri("https://models.github.ai/inference/");
@@ -34,23 +31,20 @@ public class GithubModelsClient : ILlmClient, IDisposable
     _logger = logger;
   }
 
-  public GithubModelsClient(string model, HttpClient http, string? token, ILogger<GithubModelsClient> logger, RateLimiter rateLimiter)
-    : this(model, http, token, logger)
-  {
-    _rateLimiter = rateLimiter;
-  }
-
-  public async Task<LlmOutput> SummarizeAsync(string title, string url, string plainText)
+  public async Task<(LlmOutput, int)> SummarizeAsync(string title, string url, string plainText)
   {
     // 1) Try JSON Schema first
     var schemaBody = BuildSchemaBody(title, url, plainText);
     var (ok, text, status, error) = await PostAsync(schemaBody, "json_schema");
+    int llmCalls = 1;
 
     // 2) If schema isn't supported (400), fallback to JSON mode + strict instruction
     if (!ok && status == 400 && IsSchemaUnsupported(error))
     {
       var jsonBody = BuildJsonModeBody(title, url, plainText);
       (ok, text, status, error) = await PostAsync(jsonBody, "json_object");
+      llmCalls++;
+
     }
 
     if (!ok)
@@ -63,7 +57,7 @@ public class GithubModelsClient : ILlmClient, IDisposable
         .GetProperty("content")
         .GetString();
 
-    return ParseStrictJson(contentStr ?? "{}");
+    return (ParseStrictJson(contentStr ?? "{}"), llmCalls);
   }
 
   private object BuildSchemaBody(string title, string url, string plainText)
@@ -120,49 +114,18 @@ public class GithubModelsClient : ILlmClient, IDisposable
   private async Task<(bool ok, string text, int status, string error)> PostAsync(object body, string mode)
   {
     var json = JsonSerializer.Serialize(body);
-    var sw = Stopwatch.StartNew();
     _logger.LogDebug("LLM[github] POST chat/completions model={Model} mode={Mode} base={Base} body={Body}", _model, mode, _http.BaseAddress, Truncate(json, 800));
-    
-    // Apply rate limiting if available
-    if (_rateLimiter != null)
+
+
+    using var content = new StringContent(json, Encoding.UTF8, "application/json");
+    var resp = await _http.PostAsync("chat/completions", content);
+    var text = await resp.Content.ReadAsStringAsync();
+    if (resp.IsSuccessStatusCode)
     {
-      using var lease = await _rateLimiter.AcquireAsync(1);
-      if (!lease.IsAcquired)
-      {
-        sw.Stop();
-        _logger.LogWarning("LLM[github] rate limit exceeded, could not acquire lease");
-        return (false, "", 429, "Rate limit exceeded - could not acquire lease");
-      }
-      
-      using var content = new StringContent(json, Encoding.UTF8, "application/json");
-      var resp = await _http.PostAsync("chat/completions", content);
-      sw.Stop();
-      var text = await resp.Content.ReadAsStringAsync();
-      if (resp.IsSuccessStatusCode)
-      {
-        _logger.LogDebug("LLM[github] {Status} in {Ms}ms responseLen={Len}", (int)resp.StatusCode, sw.ElapsedMilliseconds, text?.Length ?? 0);
-        return (true, text ?? string.Empty, (int)resp.StatusCode, "");
-      }
-      var err = ExtractError(text);
-      _logger.LogWarning("LLM[github] error {Status} in {Ms}ms: {Error}", (int)resp.StatusCode, sw.ElapsedMilliseconds, Truncate(err, 500));
-      return (false, text, (int)resp.StatusCode, err);
+      return (true, text ?? string.Empty, (int)resp.StatusCode, "");
     }
-    else
-    {
-      // No rate limiting
-      using var content = new StringContent(json, Encoding.UTF8, "application/json");
-      var resp = await _http.PostAsync("chat/completions", content);
-      sw.Stop();
-      var text = await resp.Content.ReadAsStringAsync();
-      if (resp.IsSuccessStatusCode)
-      {
-        _logger.LogDebug("LLM[github] {Status} in {Ms}ms responseLen={Len}", (int)resp.StatusCode, sw.ElapsedMilliseconds, text?.Length ?? 0);
-        return (true, text ?? string.Empty, (int)resp.StatusCode, "");
-      }
-      var err = ExtractError(text);
-      _logger.LogWarning("LLM[github] error {Status} in {Ms}ms: {Error}", (int)resp.StatusCode, sw.ElapsedMilliseconds, Truncate(err, 500));
-      return (false, text, (int)resp.StatusCode, err);
-    }
+    var err = ExtractError(text);
+    return (false, text, (int)resp.StatusCode, err);
   }
 
   private static bool IsSchemaUnsupported(string error)
@@ -207,10 +170,5 @@ public class GithubModelsClient : ILlmClient, IDisposable
            : new List<string>();
 
     return new LlmOutput(S("summary"), A("bullets"), A("tags"));
-  }
-
-  public void Dispose()
-  {
-    _rateLimiter?.Dispose();
   }
 }

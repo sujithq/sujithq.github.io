@@ -2,7 +2,7 @@ namespace Crawler.Llm;
 
 public interface ILlmClient
 {
-  Task<LlmOutput> SummarizeAsync(string title, string url, string plainText);
+  Task<(LlmOutput, int)> SummarizeAsync(string title, string url, string plainText);
 }
 
 public static class Prompts

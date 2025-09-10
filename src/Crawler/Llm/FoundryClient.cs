@@ -1,6 +1,7 @@
 using Azure;
 using Azure.AI.OpenAI;
 using Azure.AI.OpenAI.Chat;
+using Microsoft.Extensions.Logging;
 using OpenAI.Chat;
 using System.ClientModel;
 using System.Text.Json;
@@ -19,21 +20,23 @@ namespace Crawler.Llm
       _chatClient = azureClient.GetChatClient(model);
     }
 
-    public async Task<LlmOutput> SummarizeAsync(string title, string url, string plainText)
+    public async Task<(LlmOutput, int)> SummarizeAsync(string title, string url, string plainText)
     {
       // 1) Try JSON Schema first
       var (ok, text, status, error) = await PostAsync(ChatResponseFormatEnum.JsonObjectFormat, title, url, plainText);
+      int llmCalls = 1;
 
       // 2) If schema isn't supported (400), fallback to JSON mode + strict instruction
       if (!ok && status == 400 && IsSchemaUnsupported(error))
       {
         (ok, text, status, error) = await PostAsync(ChatResponseFormatEnum.JsonSchemaFormat, title, url, plainText);
+        llmCalls++;
       }
 
       if (!ok)
         throw new HttpRequestException($"GitHub Models API error {status}: {error}");
 
-      return ParseStrictJson(text ?? "{}");
+      return (ParseStrictJson(text ?? "{}"), llmCalls);
     }
     
     private async Task<(bool ok, string text, int status, string error)> PostAsync(ChatResponseFormatEnum fmt, string title, string url, string plainText)

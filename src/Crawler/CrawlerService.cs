@@ -44,6 +44,7 @@ public class CrawlerService
     var contentDir = ResolvePath(baseDir, _app.output.contentDir);
     var feedsFile = ResolvePath(baseDir, _app.feeds.dataFile);
 
+
     _logger.LogDebug("Resolved paths: dataFile={Data} processedFile={Processed} contentDir={Content} feedsFile={Feeds}", dataFile, processedFile, contentDir, feedsFile);
 
     var feeds = await LoadFeeds(feedsFile);
@@ -51,14 +52,14 @@ public class CrawlerService
 
     var state = await LoadState(processedFile);
 
-    _logger.LogInformation("LLM client ready. provider={Provider} maxCallsPerRun={Max} rate={Req}/{Win}s delay={Delay}s",
-      _app.llm.provider, _app.llm.maxCallsPerRun, _llmProvider.requestsPerWindow, _llmProvider.windowSeconds, _llmProvider.initialDelaySeconds);
+    _logger.LogInformation("LLM client ready. provider={Provider} maxCallsPerRun={Max} delay={Delay}s",
+      _app.llm.provider, _app.llm.maxCallsPerRun, _llmProvider.initialDelaySeconds);
 
     var newRows = new List<DataRow>();
     int llmCalls = 0;
 
     var initialDelay = TimeSpan.FromSeconds(Math.Max(0, _llmProvider.initialDelaySeconds));
-    
+
     if (initialDelay > TimeSpan.Zero)
     {
       _logger.LogDebug("Initial delay {Delay}s before LLM calls", initialDelay.TotalSeconds);
@@ -109,20 +110,22 @@ public class CrawlerService
         }
 
         LlmOutput llmOut;
+        int calls = 0;
         if (llmCalls >= _app.llm.maxCallsPerRun)
         {
           _logger.LogDebug("Budget skip LLM (calls so far: {Calls})", llmCalls);
-          llmOut = new LlmOutput(
-              Summary: text.Length == 0 ? "(no content)" : (text.Length > 280 ? text[..280] + "..." : text),
-              Bullets: new() { "short item", "low-content or budget-skipped" },
-              Tags: new() { f.Category.ToLowerInvariant() }
-          );
+          //llmOut = new LlmOutput(
+          //    Summary: text.Length == 0 ? "(no content)" : (text.Length > 280 ? text[..280] + "..." : text),
+          //    Bullets: new() { "short item", "low-content or budget-skipped" },
+          //    Tags: new() { f.Category.ToLowerInvariant() }
+          //);
+          continue;
         }
         else
         {
-          llmOut = await _llm.SummarizeAsync(title, link, text);
+          (llmOut, calls) = await _llm.SummarizeAsync(title, link, text);
           _logger.LogDebug("LLM summarized: {Id}", id);
-          llmCalls++;
+          llmCalls += calls;
         }
 
         var tfKey = MarkdownBuilder.TimeframeKey(published == default ? DateTimeOffset.UtcNow : published, _app.timeframe);
@@ -136,6 +139,7 @@ public class CrawlerService
 
         state.SeenIds.Add(id);
         state.ContentHashById[id] = contentHash;
+        Thread.Sleep(1000);
       }
     }
 

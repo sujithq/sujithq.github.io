@@ -48,17 +48,13 @@ public class LlmProviderConfig
   public string model { get; set; } = string.Empty;
   public string tokenKey { get; set; } = string.Empty;
   public string? baseUrl { get; set; }
-  public int requestsPerWindow { get; set; } = 3;
-  public int windowSeconds { get; set; } = 60;
   public int initialDelaySeconds { get; set; } = 2;
 
   public LlmProviderConfig() { }
-  public LlmProviderConfig(string model, string? baseUrl, int requestsPerWindow, int windowSeconds, int initialDelaySeconds, string tokenKey)
+  public LlmProviderConfig(string model, string? baseUrl, int initialDelaySeconds, string tokenKey)
   {
     this.model = model;
     this.baseUrl = baseUrl;
-    this.requestsPerWindow = requestsPerWindow;
-    this.windowSeconds = windowSeconds;
     this.initialDelaySeconds = initialDelaySeconds;
     this.tokenKey = tokenKey;
   }

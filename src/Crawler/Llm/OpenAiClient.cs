@@ -11,7 +11,7 @@ public class OpenAiClient : ILlmClient
     _apiKey = apiKey;
   }
 
-  public Task<LlmOutput> SummarizeAsync(string title, string url, string plainText)
+  public Task<(LlmOutput, int)> SummarizeAsync(string title, string url, string plainText)
   {
     // Intentionally not implemented yet. Wire-up exists for future support.
     throw new NotImplementedException("OpenAiClient is not implemented yet.");
