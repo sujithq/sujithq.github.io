@@ -6,7 +6,6 @@ using System.ServiceModel.Syndication;
 using System.Text;
 using System.Text.Json;
 using System.Xml;
-using System.Threading.RateLimiting;
 
 namespace Crawler;
 
@@ -58,21 +57,7 @@ public class CrawlerService
     var newRows = new List<DataRow>();
     int llmCalls = 0;
 
-    // Rate limiter configuration
-    var maxReq = Math.Max(1, _llmProvider.requestsPerWindow);
-    var window = TimeSpan.FromSeconds(Math.Max(1, _llmProvider.windowSeconds));
     var initialDelay = TimeSpan.FromSeconds(Math.Max(0, _llmProvider.initialDelaySeconds));
-    
-    using var limiter = new SlidingWindowRateLimiter(
-      new SlidingWindowRateLimiterOptions{
-        PermitLimit = maxReq,
-        Window = window,
-        SegmentsPerWindow = 6,
-        QueueLimit = 10,
-        AutoReplenishment = true
-      }
-    );
-    
     
     if (initialDelay > TimeSpan.Zero)
     {
@@ -135,7 +120,6 @@ public class CrawlerService
         }
         else
         {
-          using var lease = await limiter.AcquireAsync(1);
           llmOut = await _llm.SummarizeAsync(title, link, text);
           _logger.LogDebug("LLM summarized: {Id}", id);
           llmCalls++;

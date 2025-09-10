@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Threading.RateLimiting;
 
 namespace Crawler;
 
@@ -125,7 +126,7 @@ class Program
       return provider switch
       {
         "openai" => new OpenAiClient(model, token ?? string.Empty),
-        "github" => new GithubModelsClient(model, http, token, ghLogger),
+        "github" => CreateGithubModelsClient(model, http, token, ghLogger, cfg),
         "foundry" => new FoundryClient(model, cfg.baseUrl ?? throw new InvalidOperationException("llm baseUrl missing for provider"), token ?? string.Empty),
         _ => throw new InvalidOperationException($"Unsupported llm:provider '{provider}'.")
       };
@@ -144,5 +145,25 @@ class Program
       logger.LogError(ex, "Crawler failed");
       return 1;
     }
+  }
+
+  private static GithubModelsClient CreateGithubModelsClient(string model, HttpClient http, string token, ILogger<GithubModelsClient> logger, LlmProviderConfig cfg)
+  {
+    // Create rate limiter for GitHub Models
+    var maxReq = Math.Max(1, cfg.requestsPerWindow);
+    var window = TimeSpan.FromSeconds(Math.Max(1, cfg.windowSeconds));
+    
+    var rateLimiter = new SlidingWindowRateLimiter(
+      new SlidingWindowRateLimiterOptions
+      {
+        PermitLimit = maxReq,
+        Window = window,
+        SegmentsPerWindow = 6,
+        QueueLimit = 10,
+        AutoReplenishment = true
+      }
+    );
+    
+    return new GithubModelsClient(model, http, token, logger, rateLimiter);
   }
 }
