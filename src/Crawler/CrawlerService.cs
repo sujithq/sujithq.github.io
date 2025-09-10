@@ -69,6 +69,8 @@ public class CrawlerService
 
     foreach (var f in feeds)
     {
+
+      _logger.LogInformation("Processing feed: {Url}", f.Url);
       SyndicationFeed? feed;
       try
       {
@@ -80,7 +82,7 @@ public class CrawlerService
       {
         if (e.StatusCode == HttpStatusCode.TooManyRequests)
         {
-          _logger.LogWarning("To many requests for: {Url}", f.Url);
+          _logger.LogWarning("Too many requests for: {Url}", f.Url);
           break;
         }
         throw;
