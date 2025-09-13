@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dependabot on Sujith Quintelier</title><link>https://sujithq.github.io/tags/dependabot/</link><description>Recent content in Dependabot on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 25 Aug 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://sujithq.github.io/tags/dependabot/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting started with Dependabot</title><link>https://sujithq.github.io/posts/2025/08/dependabot-getting-started/</link><pubDate>Mon, 25 Aug 2025 06:00:00 +0000</pubDate><guid>https://sujithq.github.io/posts/2025/08/dependabot-getting-started/</guid><description>&lt;p>Dependabot is the easiest way to keep dependencies current and secure in your GitHub repositories. It can: alert on vulnerabilities, open PRs to fix them, and keep versions fresh with scheduled updates. This guide shows how to enable Dependabot, add a robust dependabot.yml, and include small optimisations for specific ecosystems.&lt;/p>
+&lt;h2 id="what-youll-set-up">What you’ll set up&lt;/h2>
+&lt;ul>
+&lt;li>Enable Dependabot alerts, security updates, and version updates.&lt;/li>
+&lt;li>Create and tune a &lt;code>.github/dependabot.yml&lt;/code> that covers your package managers.&lt;/li>
+&lt;li>Add optional Java metadata to improve PR quality.&lt;/li>
+&lt;/ul>
+&lt;h2 id="enable-dependabot-in-your-repository">Enable Dependabot in your repository&lt;/h2>
+&lt;p>Use the repository UI:&lt;/p></description></item></channel></rss>
