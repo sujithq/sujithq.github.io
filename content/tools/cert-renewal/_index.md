@@ -8,11 +8,11 @@ certs:
   - code: ai-102
     desc: Azure AI Engineer
     type: Associate
-    expires: 2027-01-12
+    expires: 2026-01-12
   - code: dp-420
     desc: Azure CosmosDB Developer
     type: Specialty
-    expires: 2026-03-11
+    expires: 2027-03-11
   - code: az-500
     desc: Azure Security Engineer
     type: Associate
