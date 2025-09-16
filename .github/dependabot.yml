@@ -5,21 +5,49 @@
 
 version: 2
 updates:
-  # JavaScript/TypeScript (npm or pnpm)
-  - package-ecosystem: "npm"
+  # npm (package.json / lockfile)
+  - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: "weekly"   # daily | weekly | monthly
-    open-pull-requests-limit: 10
-    labels: ["dependencies"]
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      npm-minor-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+      npm-majors:
+        patterns: ["*"]
+        update-types: ["major"]
+      npm-security:
+        applies-to: security-updates
+        patterns: ["*"]
 
-  # GitHub Actions (workflow uses action@version syntax only)
-  - package-ecosystem: "github-actions"
+  # NuGet (.csproj, .props, .targets, packages.lock.json)
+  - package-ecosystem: nuget
     directory: "/"
     schedule:
-      interval: "weekly"
-  # Nuget
-  - package-ecosystem: "nuget"
-    directory: "/src"
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      nuget-minor-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+      nuget-majors:
+        patterns: ["*"]
+        update-types: ["major"]
+      nuget-security:
+        applies-to: security-updates
+        patterns: ["*"]
+
+  # GitHub Actions (.github/workflows/*.yml)
+  - package-ecosystem: github-actions
+    directory: "/"
     schedule:
-      interval: "weekly"
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      actions-all:
+        patterns: ["*"]            # one PR for all action bumps
+      actions-security:
+        applies-to: security-updates
+        patterns: ["*"]
