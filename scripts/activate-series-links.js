@@ -202,40 +202,63 @@ function main() {
     const file = partFiles[i];
     if (!file || !fs.existsSync(file)) continue;
     const raw = fs.readFileSync(file,'utf8');
-    // Identify Series Navigation section by its heading
     const lines = raw.split(/\r?\n/);
     const navIdx = lines.findIndex(l => /^###\s+Series Navigation$/i.test(l.trim()));
-    if (navIdx === -1) continue; // no block
-    // Extract block until blank line or EOF
-    let endIdx = navIdx+1;
-    while (endIdx < lines.length && lines[endIdx].trim() !== '') endIdx++;
-    const block = lines.slice(navIdx,endIdx).join('\n');
-    const nextPart = i+1;
-    if (nextPart > opts.parts) continue; // nothing after last
-    const nextPublished = publishedMap[nextPart];
-    const nextFolderDate = buildPartFolderDate(opts.rootDate,nextPart);
-    const [nyear,nmonth] = nextFolderDate.split('-');
-    const nextSlug = `csharp-async-await-part${nextPart}`;
-    const linkPattern = new RegExp(`Next: \\[Part ${nextPart}[^\n]*`, '');
-    let newBlock = block;
-    if (nextPublished) {
-      // Ensure proper link present
-      const desired = `Next: [Part ${nextPart} –`;// partial to confirm structure
-      if (!block.includes(`/posts/${nyear}/${nmonth}/${nextSlug}/`)) {
-        newBlock = block.replace(/Next:.*$/m, `Next: [Part ${nextPart} – ${labelFor(nextPart)}](/posts/${nyear}/${nmonth}/${nextSlug}/)`);
-      }
-    } else {
-      // Replace any existing link with placeholder
-      newBlock = block.replace(/Next:.*$/m, `Next: Part ${nextPart} (Releases ${nextFolderDate})`);
+    if (navIdx === -1) continue;
+    // Determine slice end: next heading '### ' or EOF
+    let sliceEnd = lines.length;
+    for (let k = navIdx+1; k < lines.length; k++) {
+      if (/^###\s+/.test(lines[k]) && k !== navIdx) { sliceEnd = k; break; }
     }
-    if (newBlock !== block) {
-      lines.splice(navIdx, endIdx-navIdx, ...newBlock.split('\n'));
-      const updatedRaw = lines.join('\n');
-      if (opts.dryRun || opts.simulate) {
-        console.log(`[${opts.simulate ? 'SIMULATE' : 'DRY RUN'}] Would update Next link in Part ${i} -> ${nextPublished ? 'activate' : 'placeholder'}`);
+    const before = lines.slice(0, navIdx+1); // include heading
+    const after = lines.slice(sliceEnd);
+
+    // Build fresh navigation block (blank line after heading for readability)
+    const navLines = [];
+    navLines.push('');
+    const rootParts = opts.rootDate.split('-');
+    const [rootYear, rootMonth] = [rootParts[0], rootParts[1]];
+
+    // Previous
+    const prevPart = i-1;
+    if (prevPart >= 1) {
+      const prevFolderDate = buildPartFolderDate(opts.rootDate, prevPart);
+      const [pyear,pmonth] = prevFolderDate.split('-');
+      const prevSlug = `csharp-async-await-part${prevPart}`;
+      if (publishedMap[prevPart]) {
+        navLines.push(`Previous: [Part ${prevPart} – ${labelFor(prevPart)}](/posts/${pyear}/${pmonth}/${prevSlug}/)`);
       } else {
-        fs.writeFileSync(file, updatedRaw,'utf8');
-        console.log(`Updated Next link in Part ${i}.`);
+        navLines.push(`Previous: Part ${prevPart} – ${labelFor(prevPart)} (Releases ${prevFolderDate})`);
+      }
+    }
+
+    // Series Index always shown
+    navLines.push(`Series Index: [Overview](/posts/${rootYear}/${rootMonth}/csharp-async-await/)`);
+
+    // Next
+    const nextPart = i+1;
+    if (nextPart <= opts.parts) {
+      const nextFolderDate = buildPartFolderDate(opts.rootDate, nextPart);
+      const [nyear,nmonth] = nextFolderDate.split('-');
+      const nextSlug = `csharp-async-await-part${nextPart}`;
+      if (publishedMap[nextPart]) {
+        navLines.push(`Next: [Part ${nextPart} – ${labelFor(nextPart)}](/posts/${nyear}/${nmonth}/${nextSlug}/)`);
+      } else {
+        navLines.push(`Next: Part ${nextPart} – ${labelFor(nextPart)} (Releases ${nextFolderDate})`);
+      }
+    }
+
+    // Existing nav content (between heading and sliceEnd) may already match; compare
+    const existing = lines.slice(navIdx+1, sliceEnd).join('\n');
+    const rebuilt = navLines.join('\n');
+    if (existing.trim() !== rebuilt.trim()) {
+      const newLines = before.concat(navLines, after);
+      const updatedRaw = newLines.join('\n');
+      if (opts.dryRun || opts.simulate) {
+        console.log(`[${opts.simulate ? 'SIMULATE' : 'DRY RUN'}] Would rebuild navigation block in Part ${i}.`);
+      } else {
+        fs.writeFileSync(file, updatedRaw, 'utf8');
+        console.log(`Rebuilt navigation block in Part ${i}.`);
       }
     }
   }
