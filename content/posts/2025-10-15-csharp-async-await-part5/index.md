@@ -127,8 +127,9 @@ Async keeps the service efficient and responsive to cancellation.
 
 ### Series Navigation
 
-Previous: [Part 4](/posts/2025-10-08-csharp-async-await-part4/)
-Next: [Part 6](/posts/2025-10-22-csharp-async-await-part6/)
+Previous: [Part 4 – Patterns](/posts/2025/10/csharp-async-await-part4/)
+Series Index: [Overview](/posts/2025/09/csharp-async-await/)
+Next: [Part 6 – Advanced Topics](/posts/2025/10/csharp-async-await-part6/)
 
 👉 In **Part 6**, we’ll dive into **advanced topics**:  
 

@@ -185,3 +185,11 @@ public async Task<T> RetryAsync<T>(Func<Task<T>> operation, int maxRetries = 3)
 - File I/O with async streams  
 - Database queries with EF Core  
 - Keeping UIs responsive  
+
+---
+
+### Series Navigation
+
+Previous: [Part 3 – Pitfalls & Best Practices](/posts/2025/10/csharp-async-await-part3/)
+Series Index: [Overview](/posts/2025/09/csharp-async-await/)
+Next: [Part 5 – Real-World Use Cases](/posts/2025/10/csharp-async-await-part5/)

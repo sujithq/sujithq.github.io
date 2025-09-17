@@ -166,3 +166,11 @@ Both requests are in-flight together → much faster.
 - Deadlocks and `ConfigureAwait(false)`  
 - Mixing sync and async code safely  
 - Exception handling in async methods  
+
+---
+
+### Series Navigation
+
+Previous: [Part 1 – Introduction](/posts/2025/09/csharp-async-await-part1/)
+Series Index: [Overview](/posts/2025/09/csharp-async-await/)
+Next: [Part 3 – Pitfalls & Best Practices](/posts/2025/10/csharp-async-await-part3/)

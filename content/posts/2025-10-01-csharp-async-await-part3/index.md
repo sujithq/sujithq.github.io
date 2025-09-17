@@ -183,3 +183,11 @@ _ = Task.Run(async () =>
 - Cancelling tasks with `CancellationToken`  
 - Async streams (`IAsyncEnumerable<T>`, `await foreach`)  
 - Timeouts and retries  
+
+---
+
+### Series Navigation
+
+Previous: [Part 2 – Deep Dive](/posts/2025/09/csharp-async-await-part2/)
+Series Index: [Overview](/posts/2025/09/csharp-async-await/)
+Next: [Part 4 – Patterns](/posts/2025/10/csharp-async-await-part4/)

@@ -156,3 +156,11 @@ Next: [Part 7](/posts/2025-10-29-csharp-async-await-part7/)
 ---
 
 👉 In **Part 7**, we’ll wrap up with **testing and debugging async code**: async unit tests, mocking, Visual Studio’s async tools, and tracing async flows.
+
+---
+
+### Series Navigation
+
+Previous: [Part 5 – Real-World Use Cases](/posts/2025/10/csharp-async-await-part5/)
+Series Index: [Overview](/posts/2025/09/csharp-async-await/)
+Next: [Part 7 – Testing & Debugging](/posts/2025/10/csharp-async-await-part7/)
