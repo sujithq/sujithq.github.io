@@ -160,4 +160,4 @@ Here:
 
 Series Index: [Overview](/posts/2025/09/csharp-async-await/)
 
-Next: [Part 2 – Deep Dive](/posts/2025/09/csharp-async-await-part2/)
+Next: Part 2 – Deep Dive (Releases 2025-09-24)

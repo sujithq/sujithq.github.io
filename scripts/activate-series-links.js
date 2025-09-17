@@ -196,6 +196,62 @@ function main() {
       console.log('Updated teaser links.');
     }
   }
+
+  // --- NEW: Update per-part Series Navigation blocks for Next links ---
+  for (let i=1;i<=opts.parts;i++) {
+    const file = partFiles[i];
+    if (!file || !fs.existsSync(file)) continue;
+    const raw = fs.readFileSync(file,'utf8');
+    // Identify Series Navigation section by its heading
+    const lines = raw.split(/\r?\n/);
+    const navIdx = lines.findIndex(l => /^###\s+Series Navigation$/i.test(l.trim()));
+    if (navIdx === -1) continue; // no block
+    // Extract block until blank line or EOF
+    let endIdx = navIdx+1;
+    while (endIdx < lines.length && lines[endIdx].trim() !== '') endIdx++;
+    const block = lines.slice(navIdx,endIdx).join('\n');
+    const nextPart = i+1;
+    if (nextPart > opts.parts) continue; // nothing after last
+    const nextPublished = publishedMap[nextPart];
+    const nextFolderDate = buildPartFolderDate(opts.rootDate,nextPart);
+    const [nyear,nmonth] = nextFolderDate.split('-');
+    const nextSlug = `csharp-async-await-part${nextPart}`;
+    const linkPattern = new RegExp(`Next: \\[Part ${nextPart}[^\n]*`, '');
+    let newBlock = block;
+    if (nextPublished) {
+      // Ensure proper link present
+      const desired = `Next: [Part ${nextPart} –`;// partial to confirm structure
+      if (!block.includes(`/posts/${nyear}/${nmonth}/${nextSlug}/`)) {
+        newBlock = block.replace(/Next:.*$/m, `Next: [Part ${nextPart} – ${labelFor(nextPart)}](/posts/${nyear}/${nmonth}/${nextSlug}/)`);
+      }
+    } else {
+      // Replace any existing link with placeholder
+      newBlock = block.replace(/Next:.*$/m, `Next: Part ${nextPart} (Releases ${nextFolderDate})`);
+    }
+    if (newBlock !== block) {
+      lines.splice(navIdx, endIdx-navIdx, ...newBlock.split('\n'));
+      const updatedRaw = lines.join('\n');
+      if (opts.dryRun || opts.simulate) {
+        console.log(`[${opts.simulate ? 'SIMULATE' : 'DRY RUN'}] Would update Next link in Part ${i} -> ${nextPublished ? 'activate' : 'placeholder'}`);
+      } else {
+        fs.writeFileSync(file, updatedRaw,'utf8');
+        console.log(`Updated Next link in Part ${i}.`);
+      }
+    }
+  }
+}
+
+function labelFor(i) {
+  switch(i) {
+    case 1: return 'Introduction';
+    case 2: return 'Deep Dive';
+    case 3: return 'Pitfalls & Best Practices';
+    case 4: return 'Patterns';
+    case 5: return 'Real-World Use Cases';
+    case 6: return 'Advanced Topics';
+    case 7: return 'Testing & Debugging';
+    default: return `Part ${i}`;
+  }
 }
 
 if (require.main === module) {

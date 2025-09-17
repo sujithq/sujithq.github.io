@@ -163,4 +163,4 @@ Next: [Part 7](/posts/2025-10-29-csharp-async-await-part7/)
 
 Previous: [Part 5 – Real-World Use Cases](/posts/2025/10/csharp-async-await-part5/)
 Series Index: [Overview](/posts/2025/09/csharp-async-await/)
-Next: [Part 7 – Testing & Debugging](/posts/2025/10/csharp-async-await-part7/)
+Next: Part 7 – Testing & Debugging (Releases 2025-10-29)

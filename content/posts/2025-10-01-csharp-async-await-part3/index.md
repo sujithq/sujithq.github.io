@@ -190,4 +190,4 @@ _ = Task.Run(async () =>
 
 Previous: [Part 2 – Deep Dive](/posts/2025/09/csharp-async-await-part2/)
 Series Index: [Overview](/posts/2025/09/csharp-async-await/)
-Next: [Part 4 – Patterns](/posts/2025/10/csharp-async-await-part4/)
+Next: Part 4 – Patterns (Releases 2025-10-08)
