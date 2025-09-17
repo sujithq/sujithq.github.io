@@ -25,13 +25,13 @@ description = "Seven-part CSharp async/await series: fundamentals, pitfalls, pat
 
 ### Series Navigation
 
-1. Part 1 – Introduction (17 Sep 2025)
-2. Part 2 – Deep Dive (Releases 24 Sep 2025)
-3. Part 3 – Pitfalls & Best Practices (Releases 01 Oct 2025)
-4. Part 4 – Patterns (Releases 08 Oct 2025)
-5. Part 5 – Real-World Use Cases (Releases 15 Oct 2025)
-6. Part 6 – Advanced Topics (Releases 22 Oct 2025)
-7. Part 7 – Testing & Debugging (Releases 29 Oct 2025)
+1. [Part 1 – Introduction](/posts/2025/09/csharp-async-await-part1/)
+2. Part 2 – Deep Dive (Releases 2025-09-24)
+3. Part 3 – Pitfalls & Best Practices (Releases 2025-10-01)
+4. Part 4 – Patterns (Releases 2025-10-08)
+5. Part 5 – Real-World Use Cases (Releases 2025-10-15)
+6. Part 6 – Advanced Topics (Releases 2025-10-22)
+7. Part 7 – Testing & Debugging (Releases 2025-10-29)
 
 ---
 
@@ -46,7 +46,7 @@ This 7-part series takes you from the basics of `async`/`await` to advanced scen
 ### **Part 1: Introduction to Asynchronous Programming**
 
 Why async matters, the difference between blocking and non-blocking code, and your first `async/await` example.  
-👉 Part 1 goes live 17 Sep 2025
+👉 [Read Part 1](./part1.md)
 
 ### **Part 2: Deep Dive into `async` and `await`**
 
