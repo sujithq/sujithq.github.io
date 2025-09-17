@@ -78,7 +78,10 @@ function generateNavLines(publishedMap, rootDate, totalParts) {
   for (let i=1;i<=totalParts;i++) {
     const folderDate = buildPartFolderDate(rootDate,i);
     if (publishedMap[i]) {
-      lines.push(`${i}. [${labels[i-1]}](/posts/${folderDate}-csharp-async-await-part${i}/)`);
+      // Permalink pattern defined in config: /posts/:year/:month/:slug
+      const [year, month] = folderDate.split('-');
+      const slug = `csharp-async-await-part${i}`;
+      lines.push(`${i}. [${labels[i-1]}](/posts/${year}/${month}/${slug}/)`);
     } else {
       const releaseLabel = i===1 ? folderDate : `Releases ${folderDate.replace(/-/g,' ')}`.replace(/ (\d{4})$/,' $1');
       // Use uniform date formatting: DD Mon? Keep original style -> day month numeric
