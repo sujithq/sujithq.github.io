@@ -25,13 +25,13 @@ description = "Seven-part CSharp async/await series: fundamentals, pitfalls, pat
 
 ### Series Navigation
 
-1. [Part 1 – Introduction](/posts/2025-09-17-csharp-async-await-part1/)
-2. [Part 2 – Deep Dive](/posts/2025-09-24-csharp-async-await-part2/)
-3. [Part 3 – Pitfalls & Best Practices](/posts/2025-10-01-csharp-async-await-part3/)
-4. [Part 4 – Patterns](/posts/2025-10-08-csharp-async-await-part4/)
-5. [Part 5 – Real-World Use Cases](/posts/2025-10-15-csharp-async-await-part5/)
-6. [Part 6 – Advanced Topics](/posts/2025-10-22-csharp-async-await-part6/)
-7. [Part 7 – Testing & Debugging](/posts/2025-10-29-csharp-async-await-part7/)
+1. Part 1 – Introduction (17 Sep 2025)
+2. Part 2 – Deep Dive (Releases 24 Sep 2025)
+3. Part 3 – Pitfalls & Best Practices (Releases 01 Oct 2025)
+4. Part 4 – Patterns (Releases 08 Oct 2025)
+5. Part 5 – Real-World Use Cases (Releases 15 Oct 2025)
+6. Part 6 – Advanced Topics (Releases 22 Oct 2025)
+7. Part 7 – Testing & Debugging (Releases 29 Oct 2025)
 
 ---
 
@@ -46,34 +46,34 @@ This 7-part series takes you from the basics of `async`/`await` to advanced scen
 ### **Part 1: Introduction to Asynchronous Programming**
 
 Why async matters, the difference between blocking and non-blocking code, and your first `async/await` example.  
-👉 [Read Part 1](./part1.md)
+👉 Part 1 goes live 17 Sep 2025
 
 ### **Part 2: Deep Dive into `async` and `await`**
 
 The anatomy of an async method, return types (`Task`, `Task<T>`, `void`), and how `await` really works.  
-👉 [Read Part 2](./part2.md)
+👉 Releases 24 Sep 2025
 
 ### **Part 3: Common Pitfalls & Best Practices**
 
 Avoiding `async void`, handling deadlocks, using `ConfigureAwait(false)`, and safe exception handling.  
-👉 [Read Part 3](./part3.md)
+👉 Releases 01 Oct 2025
 
 ### **Part 4: Patterns with Async**
 
 Running multiple tasks in parallel, cancelling with `CancellationToken`, using async streams, and implementing timeouts/retries.  
-👉 [Read Part 4](./part4.md)
+👉 Releases 08 Oct 2025
 
 ### **Part 5: Real-World Use Cases**
 
 How async improves real apps: calling APIs with `HttpClient`, async file I/O, EF Core queries, responsive UIs, and background services.  
-👉 [Read Part 5](./part5.md)
+👉 Releases 15 Oct 2025
 
 ### **Part 6: Advanced Topics**
 
 Performance with `ValueTask`, writing custom awaiters, using coordination primitives (`SemaphoreSlim`, `Channel`), and tuning async performance.  
-👉 [Read Part 6](./part6.md)
+👉 Releases 22 Oct 2025
 
 ### **Part 7: Testing and Debugging Async Code**
 
 Writing async unit tests, mocking async methods, debugging with Visual Studio async tools, logging async flows, and handling unobserved exceptions.  
-👉 [Read Part 7](./part7.md)
+👉 Releases 29 Oct 2025

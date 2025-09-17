@@ -60,10 +60,15 @@ function frontMatterReplaceDraft(source) {
 function main() {
   const allowlist = parseSeriesAllowlist(process.env.SERIES_ALLOWLIST);
   const dryRun = process.env.DRY_RUN === '1';
+  const simulation = process.env.SIMULATION === '1';
+  const nowOverride = process.env.NOW; // ISO or 'YYYY-MM-DD' style
   const pattern = path.join('content', 'posts', '**', 'index.md');
   const files = glob.sync(pattern, { nodir: true, dot: false });
 
-  const now = Date.now();
+  const now = nowOverride ? Date.parse(nowOverride.replace(/^(\d{4}-\d{2}-\d{2})$/, '$1T00:00:00Z')) : Date.now();
+  if (simulation) {
+    console.log(`[SIMULATION] Using NOW = ${new Date(now).toISOString()}`);
+  }
   const results = [];
 
   for (const file of files) {
@@ -93,20 +98,29 @@ function main() {
     const postTime = parsePostDate(data.date);
     if (!Number.isFinite(postTime)) continue;
     const isPast = postTime <= now;
-    if (!isPast) continue;
+    if (!isPast) {
+      if (simulation) {
+        console.log(`[SIMULATION] Future post skipped (not yet due): ${file}`);
+      }
+      continue;
+    }
 
     // Perform targeted replacement in front matter to minimize churn
     const updated = frontMatterReplaceDraft(raw);
     if (!updated) continue;
 
     results.push(file);
-    if (!dryRun) {
+    if (simulation) {
+      console.log(`[SIMULATION] Would publish: ${file}`);
+    } else if (!dryRun) {
       fs.writeFileSync(file, updated, 'utf8');
     }
   }
 
   // Summary output for GitHub Actions logging
-  if (results.length > 0) {
+  if (simulation) {
+    console.log(`[SIMULATION] ${results.length} post(s) would be updated.`);
+  } else if (results.length > 0) {
     console.log(`Updated drafts -> published for ${results.length} file(s):`);
     results.forEach((f) => console.log('- ' + f));
   } else {

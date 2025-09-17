@@ -41,6 +41,11 @@ jobs:
           export DRY_RUN="${DRY_INPUT:-0}"
           node scripts/publish-due-posts.js
 
+      - name: Activate async series navigation links
+        run: |
+          # After potential draft toggles, regenerate navigation for CSharp Async Await series
+          node scripts/activate-series-links.js --series "CSharp Async Await" --root-date 2025-09-17
+
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v6
         with:

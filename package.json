@@ -9,6 +9,9 @@
     "test": "playwright test",
     "upd": "playwright test --update-snapshots",
     "publish-due-posts": "node scripts/publish-due-posts.js",
+    "activate-series-links": "node scripts/activate-series-links.js --series 'CSharp Async Await' --root-date 2025-09-17",
+    "simulate-series": "node scripts/simulate-series.js --series 'CSharp Async Await' --root-date 2025-09-17 --steps 7 --interval-days 7",
+    "simulate-week1": "node scripts/publish-due-posts.js && node scripts/activate-series-links.js --series 'CSharp Async Await' --root-date 2025-09-17 --simulate --now 2025-09-24T12:00:00Z",
     "prebuild": "node scripts/sync-updates-from-jsonl.js",
     "build": "hugo server -e production --cleanDestinationDir --gc --minify -D -F"
   },
