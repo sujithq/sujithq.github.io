@@ -123,11 +123,6 @@ Channels support backpressure (bounded channels), multiple consumers, and gracef
 
 ---
 
-### Series Navigation
-
-Previous: [Part 5](/posts/2025-10-15-csharp-async-await-part5/)
-Next: [Part 7](/posts/2025-10-29-csharp-async-await-part7/)
-
 - **Avoid unnecessary `Task.Run`** in ASP.NET Core — IO work should be awaited; `Task.Run` is for CPU‑bound work that you explicitly want off the request thread.  
 - **Batch awaits** with `Task.WhenAll` to reduce continuation overhead when independent operations can run together.  
 - **Use `ConfigureAwait(false)`** in libraries/background services to skip context capture. (In ASP.NET Core there’s no synchronization context, but it still avoids overhead.)  
