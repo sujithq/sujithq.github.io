@@ -3,7 +3,7 @@ title = 'Mastering Asynchronous Programming with C# async/await'
 slug = 'csharp-async-await'
 date = '2025-09-17 06:00:00Z'
 lastmod = '2025-09-17 06:00:00Z'
-draft = false
+draft = true
 tags = ["CSharp", "Async", "Await", "Programming", "DevOps", "Security"]
 categories = ["DevSecOps"]
 series = ["CSharp Async Await"]
@@ -22,6 +22,18 @@ description = "Seven-part CSharp async/await series: fundamentals, pitfalls, pat
 +++
 
 ## Complete 7-Part Series
+
+### Series Navigation
+
+1. [Part 1 – Introduction](/posts/2025-09-17-csharp-async-await-part1/)
+2. [Part 2 – Deep Dive](/posts/2025-09-24-csharp-async-await-part2/)
+3. [Part 3 – Pitfalls & Best Practices](/posts/2025-10-01-csharp-async-await-part3/)
+4. [Part 4 – Patterns](/posts/2025-10-08-csharp-async-await-part4/)
+5. [Part 5 – Real-World Use Cases](/posts/2025-10-15-csharp-async-await-part5/)
+6. [Part 6 – Advanced Topics](/posts/2025-10-22-csharp-async-await-part6/)
+7. [Part 7 – Testing & Debugging](/posts/2025-10-29-csharp-async-await-part7/)
+
+---
 
 Asynchronous programming is one of the most powerful features in modern C#. It keeps your applications **responsive, scalable, and efficient** — but it can also be tricky to master.  
 

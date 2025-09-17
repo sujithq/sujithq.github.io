@@ -1,9 +1,9 @@
 +++
 title = 'Mastering Asynchronous Programming with C# async/await - Part 4: Patterns with Async'
-slug = 'csharp-async-await-async-await-part4'
-date = '2025-09-17 06:00:00Z'
-lastmod = '2025-09-17 06:00:00Z'
-draft = false
+slug = 'csharp-async-await-part4'
+date = '2025-10-08 06:00:00Z'
+lastmod = '2025-10-08 06:00:00Z'
+draft = true
 tags = ["CSharp", "Async", "Await", "Programming", "DevOps", "Security"]
 categories = ["DevSecOps"]
 series = ["CSharp Async Await"]
@@ -117,6 +117,13 @@ This is great for processing **large data sets** or **network streams** without 
 ---
 
 ## Pattern 4: Timeouts with `Task.Delay`
+
+---
+
+### Series Navigation
+
+Previous: [Part 3](/posts/2025-10-01-csharp-async-await-part3/)
+Next: [Part 5](/posts/2025-10-15-csharp-async-await-part5/)
 
 You can combine `Task.Delay` with `Task.WhenAny` to implement timeouts:
 

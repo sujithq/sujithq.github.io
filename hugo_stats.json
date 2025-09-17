@@ -1158,6 +1158,7 @@
       "security-policy-framework",
       "separate-backend-files-per-environment",
       "sequential-vs-asynchronous-execution",
+      "series-navigation",
       "service-groups-vs-management-groups",
       "service-principals",
       "setting-up-azure-storage-remote-backend",

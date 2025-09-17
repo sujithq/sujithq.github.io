@@ -1,9 +1,9 @@
 +++
 title = 'Mastering Asynchronous Programming with C# async/await - Part 5: Real-World Use Cases'
-slug = 'csharp-async-await-async-await-part5'
-date = '2025-09-17 06:00:00Z'
-lastmod = '2025-09-17 06:00:00Z'
-draft = false
+slug = 'csharp-async-await-part5'
+date = '2025-10-15 06:00:00Z'
+lastmod = '2025-10-15 06:00:00Z'
+draft = true
 tags = ["CSharp", "Async", "Await", "Programming", "DevOps", "Security"]
 categories = ["DevSecOps"]
 series = ["CSharp Async Await"]
@@ -124,6 +124,11 @@ Async keeps the service efficient and responsive to cancellation.
 - Background services rely on async for efficiency.  
 
 ---
+
+### Series Navigation
+
+Previous: [Part 4](/posts/2025-10-08-csharp-async-await-part4/)
+Next: [Part 6](/posts/2025-10-22-csharp-async-await-part6/)
 
 👉 In **Part 6**, we’ll dive into **advanced topics**:  
 

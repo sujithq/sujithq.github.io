@@ -1,9 +1,9 @@
 +++
 title = 'Mastering Asynchronous Programming with C# async/await - Part 2: Deep Dive'
-slug = 'csharp-async-await-async-await-part2'
-date = '2025-09-17 06:00:00Z'
-lastmod = '2025-09-17 06:00:00Z'
-draft = false
+slug = 'csharp-async-await-part2'
+date = '2025-09-24 06:00:00Z'
+lastmod = '2025-09-24 06:00:00Z'
+draft = true
 tags = ["CSharp", "Async", "Await", "Programming", "DevOps", "Security"]
 categories = ["DevSecOps"]
 series = ["CSharp Async Await"]

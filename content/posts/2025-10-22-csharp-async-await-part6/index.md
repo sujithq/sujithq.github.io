@@ -1,9 +1,9 @@
 +++
 title = 'Mastering Asynchronous Programming with C# async/await - Part 6: Advanced Topics'
-slug = 'csharp-async-await-async-await-part6'
-date = '2025-09-17 06:00:00Z'
-lastmod = '2025-09-17 06:00:00Z'
-draft = false
+slug = 'csharp-async-await-part6'
+date = '2025-10-22 06:00:00Z'
+lastmod = '2025-10-22 06:00:00Z'
+draft = true
 tags = ["CSharp", "Async", "Await", "Programming", "DevOps", "Security"]
 categories = ["DevSecOps"]
 series = ["CSharp Async Await"]
@@ -120,6 +120,13 @@ Channels support backpressure (bounded channels), multiple consumers, and gracef
 ---
 
 ## Performance Tuning Checklist
+
+---
+
+### Series Navigation
+
+Previous: [Part 5](/posts/2025-10-15-csharp-async-await-part5/)
+Next: [Part 7](/posts/2025-10-29-csharp-async-await-part7/)
 
 - **Avoid unnecessary `Task.Run`** in ASP.NET Core — IO work should be awaited; `Task.Run` is for CPU‑bound work that you explicitly want off the request thread.  
 - **Batch awaits** with `Task.WhenAll` to reduce continuation overhead when independent operations can run together.  

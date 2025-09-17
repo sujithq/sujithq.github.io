@@ -1,9 +1,9 @@
 +++
 title = 'Mastering Asynchronous Programming with C# async/await - Part 7: Testing & Debugging'
-slug = 'csharp-async-await-async-await-part7'
-date = '2025-09-17 06:00:00Z'
-lastmod = '2025-09-17 06:00:00Z'
-draft = false
+slug = 'csharp-async-await-part7'
+date = '2025-10-29 06:00:00Z'
+lastmod = '2025-10-29 06:00:00Z'
+draft = true
 tags = ["CSharp", "Async", "Await", "Programming", "DevOps", "Security"]
 categories = ["DevSecOps"]
 series = ["CSharp Async Await"]
@@ -223,6 +223,13 @@ public sealed class FakeTimer : ITimer
 - Treat fire‑and‑forget carefully; capture and log exceptions.
 
 ---
+
+---
+### Series Navigation
+
+Previous: [Part 6](/posts/2025-10-22-csharp-async-await-part6/)
+Series Index: [Overview](/posts/2025-09-17-csharp-async-await/)
+
 
 ## 🎉 Series Recap
 

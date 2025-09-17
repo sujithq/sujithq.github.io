@@ -1,9 +1,9 @@
 +++
 title = 'Mastering Asynchronous Programming with C# async/await - Part 1: Introduction'
-slug = 'csharp-async-await-part-1'
+slug = 'csharp-async-await-part1'
 date = '2025-09-17 06:00:00Z'
 lastmod = '2025-09-17 06:00:00Z'
-draft = false
+draft = true
 tags = ["CSharp", "Async", "Await", "Programming", "DevOps", "Security"]
 categories = ["DevSecOps"]
 series = ["CSharp Async Await"]
@@ -153,3 +153,11 @@ Here:
 - What exactly happens behind the scenes with `async` and `await`?  
 - The different return types (`Task`, `Task<T>`, `void`)  
 - How the compiler rewrites async methods
+
+---
+
+### Series Navigation
+
+Series Index: [Overview](/posts/2025-09-17-csharp-async-await/)
+
+Next: [Part 2 – Deep Dive](/posts/2025-09-24-csharp-async-await-part2/)
