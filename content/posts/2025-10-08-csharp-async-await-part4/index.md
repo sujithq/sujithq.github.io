@@ -120,11 +120,6 @@ This is great for processing **large data sets** or **network streams** without 
 
 ---
 
-### Series Navigation
-
-Previous: [Part 3](/posts/2025-10-01-csharp-async-await-part3/)
-Next: [Part 5](/posts/2025-10-15-csharp-async-await-part5/)
-
 You can combine `Task.Delay` with `Task.WhenAny` to implement timeouts:
 
 ```csharp
