@@ -165,15 +165,25 @@ function main() {
   for (let i=1;i<=opts.parts;i++) {
     if (!publishedMap[i]) continue;
     const folderDate = buildPartFolderDate(opts.rootDate,i);
-    // heuristic: look for the Part N section and change the arrow line to a link if not already
-    const teaserRegex = new RegExp(`### **Part ${i}:[^]*?👉 (?:Releases|Part ${i} goes live)[^\n]*`, 'm');
-    if (teaserRegex.test(teaserUpdated)) {
-      const blockRegex = new RegExp(`(### \*\*Part ${i}:[^]*?)(\n\n###|$)`,'m');
-      teaserUpdated = teaserUpdated.replace(blockRegex, (full, section, tail) => {
-        const newSection = replaceTeaserPlaceholder(section, i, folderDate);
-        return newSection + (tail.startsWith('\n\n###') ? tail : tail);
-      });
+    // Find the section for Part i using a safer pattern (escape asterisks) and avoid complex nested regex that caused errors.
+    const headerRegex = new RegExp(`^### \\*\\*Part ${i}:.*$`, 'm');
+    const match = headerRegex.exec(teaserUpdated);
+    if (!match) continue;
+    const startIdx = match.index;
+    // Locate start of next part header or end of file
+    const nextHeaderRegex = /^### \*\*Part \d:/gm;
+    nextHeaderRegex.lastIndex = startIdx + match[0].length;
+    let nextIdx = teaserUpdated.length;
+    let nh;
+    while ((nh = nextHeaderRegex.exec(teaserUpdated))) {
+      if (nh.index > startIdx) { nextIdx = nh.index; break; }
     }
+    const before = teaserUpdated.slice(0,startIdx);
+    const section = teaserUpdated.slice(startIdx,nextIdx);
+    const after = teaserUpdated.slice(nextIdx);
+    // Replace a placeholder arrow line (starting with 👉 and not already a [Read Part] link)
+    const updatedSection = section.replace(/^(👉\s+)(?!\[Read Part)(.*)$/m, `👉 [Read Part ${i}](./part${i}.md)`);
+    teaserUpdated = before + updatedSection + after;
   }
   if (teaserUpdated !== updatedIndex) {
     if (opts.dryRun || opts.simulate) {
