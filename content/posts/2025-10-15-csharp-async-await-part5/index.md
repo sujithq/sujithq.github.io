@@ -130,10 +130,3 @@ Async keeps the service efficient and responsive to cancellation.
 Previous: [Part 4 – Patterns](/posts/2025/10/csharp-async-await-part4/)
 Series Index: [Overview](/posts/2025/09/csharp-async-await/)
 Next: Part 6 – Advanced Topics (Releases 2025-10-22)
-
-👉 In **Part 6**, we’ll dive into **advanced topics**:  
-
-- `ValueTask` for performance  
-- Custom awaiters  
-- Coordination primitives like `SemaphoreSlim`  
-- Async performance tuning  
