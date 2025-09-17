@@ -205,60 +205,75 @@ function main() {
     const lines = raw.split(/\r?\n/);
     const navIdx = lines.findIndex(l => /^###\s+Series Navigation$/i.test(l.trim()));
     if (navIdx === -1) continue;
-    // Determine slice end: next heading '### ' or EOF
-    let sliceEnd = lines.length;
-    for (let k = navIdx+1; k < lines.length; k++) {
-      if (/^###\s+/.test(lines[k]) && k !== navIdx) { sliceEnd = k; break; }
+    // Determine the existing nav block extent: start at line after heading, stop when we hit
+    // a non-blank line that does NOT start with one of the nav prefixes and we've already
+    // encountered at least one nav line, OR when another '###' heading appears.
+    const isNavLine = (l) => /^(Previous:|Series Index:|Next:)/.test(l.trim());
+    let startContent = navIdx + 1;
+    // Allow an optional blank line right after heading
+    if (lines[startContent] && lines[startContent].trim() === '') startContent++;
+    let endContent = startContent;
+    let sawNav = false;
+    for (let k = startContent; k < lines.length; k++) {
+      const trimmed = lines[k].trim();
+      if (/^###\s+/.test(trimmed)) break; // next heading, stop
+      if (trimmed === '') { // blank lines allowed inside nav block; keep scanning
+        endContent = k + 1; // include blank
+        continue;
+      }
+      if (isNavLine(lines[k])) {
+        sawNav = true;
+        endContent = k + 1;
+        continue;
+      }
+      // Non-nav content line
+      if (sawNav) break; // we've reached the end of nav block
+      // If we haven't seen nav lines yet, this means nav block was empty; break
+      break;
     }
-    const before = lines.slice(0, navIdx+1); // include heading
-    const after = lines.slice(sliceEnd);
 
-    // Build fresh navigation block (blank line after heading for readability)
-    const navLines = [];
-    navLines.push('');
+    // Build fresh navigation block lines
     const rootParts = opts.rootDate.split('-');
     const [rootYear, rootMonth] = [rootParts[0], rootParts[1]];
-
-    // Previous
-    const prevPart = i-1;
+    const newNavLines = [];
+    // Always keep a blank line after heading for readability
+    newNavLines.push('');
+    const prevPart = i - 1;
     if (prevPart >= 1) {
       const prevFolderDate = buildPartFolderDate(opts.rootDate, prevPart);
       const [pyear,pmonth] = prevFolderDate.split('-');
       const prevSlug = `csharp-async-await-part${prevPart}`;
       if (publishedMap[prevPart]) {
-        navLines.push(`Previous: [Part ${prevPart} – ${labelFor(prevPart)}](/posts/${pyear}/${pmonth}/${prevSlug}/)`);
+        newNavLines.push(`Previous: [Part ${prevPart} – ${labelFor(prevPart)}](/posts/${pyear}/${pmonth}/${prevSlug}/)`);
       } else {
-        navLines.push(`Previous: Part ${prevPart} – ${labelFor(prevPart)} (Releases ${prevFolderDate})`);
+        newNavLines.push(`Previous: Part ${prevPart} – ${labelFor(prevPart)} (Releases ${prevFolderDate})`);
       }
     }
-
-    // Series Index always shown
-    navLines.push(`Series Index: [Overview](/posts/${rootYear}/${rootMonth}/csharp-async-await/)`);
-
-    // Next
-    const nextPart = i+1;
+    newNavLines.push(`Series Index: [Overview](/posts/${rootYear}/${rootMonth}/csharp-async-await/)`);
+    const nextPart = i + 1;
     if (nextPart <= opts.parts) {
       const nextFolderDate = buildPartFolderDate(opts.rootDate, nextPart);
       const [nyear,nmonth] = nextFolderDate.split('-');
       const nextSlug = `csharp-async-await-part${nextPart}`;
       if (publishedMap[nextPart]) {
-        navLines.push(`Next: [Part ${nextPart} – ${labelFor(nextPart)}](/posts/${nyear}/${nmonth}/${nextSlug}/)`);
+        newNavLines.push(`Next: [Part ${nextPart} – ${labelFor(nextPart)}](/posts/${nyear}/${nmonth}/${nextSlug}/)`);
       } else {
-        navLines.push(`Next: Part ${nextPart} – ${labelFor(nextPart)} (Releases ${nextFolderDate})`);
+        newNavLines.push(`Next: Part ${nextPart} – ${labelFor(nextPart)} (Releases ${nextFolderDate})`);
       }
     }
 
-    // Existing nav content (between heading and sliceEnd) may already match; compare
-    const existing = lines.slice(navIdx+1, sliceEnd).join('\n');
-    const rebuilt = navLines.join('\n');
-    if (existing.trim() !== rebuilt.trim()) {
-      const newLines = before.concat(navLines, after);
-      const updatedRaw = newLines.join('\n');
+    const existingBlock = lines.slice(navIdx + 1, endContent).join('\n');
+    const rebuiltBlock = newNavLines.join('\n');
+    if (existingBlock.trim() !== rebuiltBlock.trim()) {
+      const updated = lines.slice(0, navIdx + 1)
+        .concat(newNavLines)
+        .concat(lines.slice(endContent));
+      const updatedRaw = updated.join('\n');
       if (opts.dryRun || opts.simulate) {
-        console.log(`[${opts.simulate ? 'SIMULATE' : 'DRY RUN'}] Would rebuild navigation block in Part ${i}.`);
+        console.log(`[${opts.simulate ? 'SIMULATE' : 'DRY RUN'}] Would update navigation block in Part ${i}.`);
       } else {
         fs.writeFileSync(file, updatedRaw, 'utf8');
-        console.log(`Rebuilt navigation block in Part ${i}.`);
+        console.log(`Updated navigation block in Part ${i}.`);
       }
     }
   }
