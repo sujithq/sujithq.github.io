@@ -8,7 +8,7 @@ on:
       series:
         description: 'Comma-separated series allowlist (overrides default)'
         required: false
-        default: 'GitHub Certification Journey,GitHub Security'
+        default: 'GitHub Certification Journey,GitHub Security,CSharp Async Await'
       dry_run:
         description: 'Set to 1 to preview without committing'
         required: false
@@ -36,7 +36,7 @@ jobs:
         run: |
           SERIES_INPUT="${{ github.event.inputs.series }}"
           DRY_INPUT="${{ github.event.inputs.dry_run }}"
-          DEFAULT_SERIES='GitHub Certification Journey,GitHub Security'
+          DEFAULT_SERIES='GitHub Certification Journey,GitHub Security,CSharp Async Await'
           export SERIES_ALLOWLIST="${SERIES_INPUT:-$DEFAULT_SERIES}"
           export DRY_RUN="${DRY_INPUT:-0}"
           node scripts/publish-due-posts.js
