@@ -2,7 +2,7 @@
 title = '🛠️ GitHub Copilot: Custom Instructions, Prompts & Chats'
 slug = 'customize-github-copilot-experience'
 date = '2025-07-31 06:00:00Z'
-lastmod = '2025-08-29 06:00:00Z'
+lastmod = '2025-09-19 06:00:00Z'
 draft = false
 tags = ["GitHub Copilot", "VS Code", "AI Programming", "Copilot Customization", "Productivity"]
 categories = ["AI", "Development Tools", "GitHub"]
@@ -202,6 +202,8 @@ The Copilot Coding Agent now reads repository‑level guidance from `.github/age
 - Keep guidance actionable: preferred tools, change policies, testing and security rules.
 - Use clear sections and bullet points; the agent consumes plain markdown.
 - This augments per‑file instructions and chat modes; use `agents.md` for repo‑wide defaults.
+
+For full reference documentation, schema examples, and community-maintained guidance, see the canonical agents.md site: [https://agents.md/](https://agents.md/). It includes detailed examples of agent policies, capability declarations, and structured guidance you can drop into `.github/agents.md`.
 
 **Example (`.github/agents.md`):**
 
