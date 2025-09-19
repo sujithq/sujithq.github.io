@@ -28,5 +28,10 @@
     "Name": "Microsoft AI Foundry Blog",
     "Category": "ai",
     "Url": "https://devblogs.microsoft.com/foundry/feed/"
+  },
+  {
+    "Name": "Release notes from AKS",
+    "Category": "aks",
+    "Url": "https://github.com/Azure/AKS/releases.atom"
   }
 ]

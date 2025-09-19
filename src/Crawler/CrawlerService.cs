@@ -108,7 +108,7 @@ public class CrawlerService
         var link = item.Links.FirstOrDefault()?.Uri?.ToString() ?? "";
         var published = item.PublishDate != default ? item.PublishDate : item.LastUpdatedTime;
 
-        var raw = item.Summary?.Text;
+        var raw = item.Summary?.Text?? (item.Content as TextSyndicationContent)?.Text;
         string text;
         if (!string.IsNullOrWhiteSpace(raw))
           text = _extractor.StripHtml(raw!);
