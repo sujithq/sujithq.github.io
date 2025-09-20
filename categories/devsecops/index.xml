@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevSecOps on Sujith Quintelier</title><link>https://sujithq.github.io/categories/devsecops/</link><description>Recent content in DevSecOps on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 17 Sep 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://sujithq.github.io/categories/devsecops/index.xml" rel="self" type="application/rss+xml"/><item><title>Mastering Asynchronous Programming with C# async/await</title><link>https://sujithq.github.io/posts/2025/09/csharp-async-await/</link><pubDate>Wed, 17 Sep 2025 06:00:00 +0000</pubDate><guid>https://sujithq.github.io/posts/2025/09/csharp-async-await/</guid><description>&lt;h2 id="complete-7-part-series">Complete 7-Part Series&lt;/h2>
+&lt;h3 id="series-navigation">Series Navigation&lt;/h3>
+&lt;ol>
+&lt;li>&lt;a href="https://sujithq.github.io/posts/2025/09/csharp-async-await-part1/">Part 1 – Introduction&lt;/a>&lt;/li>
+&lt;li>Part 2 – Deep Dive (Releases 2025-09-24)&lt;/li>
+&lt;li>Part 3 – Pitfalls &amp;amp; Best Practices (Releases 2025-10-01)&lt;/li>
+&lt;li>Part 4 – Patterns (Releases 2025-10-08)&lt;/li>
+&lt;li>Part 5 – Real-World Use Cases (Releases 2025-10-15)&lt;/li>
+&lt;li>Part 6 – Advanced Topics (Releases 2025-10-22)&lt;/li>
+&lt;li>Part 7 – Testing &amp;amp; Debugging (Releases 2025-10-29)&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;p>Asynchronous programming is one of the most powerful features in modern C#. It keeps your applications &lt;strong>responsive, scalable, and efficient&lt;/strong> — but it can also be tricky to master.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 1: Introduction</title><link>https://sujithq.github.io/posts/2025/09/csharp-async-await-part1/</link><pubDate>Wed, 17 Sep 2025 06:00:00 +0000</pubDate><guid>https://sujithq.github.io/posts/2025/09/csharp-async-await-part1/</guid><description>&lt;h2 id="part-1-introduction-to-asynchronous-programming">Part 1: Introduction to Asynchronous Programming&lt;/h2>
+&lt;p>When you build applications in C#, one of the biggest challenges is making them &lt;strong>fast and responsive&lt;/strong>. Whether you’re writing a desktop app that must keep its UI smooth, a web API that needs to handle thousands of requests, or a service that integrates with multiple external systems, &lt;strong>asynchronous programming&lt;/strong> is key.&lt;/p>
+&lt;p>But async/await can feel like magic ✨. Let’s break it down step by step.&lt;/p></description></item><item><title>Taming Dependabot: Bundle NuGet, npm, and GitHub Actions Updates Without Merge Conflicts</title><link>https://sujithq.github.io/posts/2025/09/taming-dependabot-bundle-nuget-npm-github-actions-updates-without-merge-conflicts/</link><pubDate>Tue, 16 Sep 2025 06:00:00 +0000</pubDate><guid>https://sujithq.github.io/posts/2025/09/taming-dependabot-bundle-nuget-npm-github-actions-updates-without-merge-conflicts/</guid><description>&lt;p>If you’ve enabled &lt;strong>Dependabot&lt;/strong>, you probably love the automated updates but not the &lt;strong>PR storm&lt;/strong> and the &lt;strong>merge conflicts&lt;/strong> that happen when several PRs touch the same lockfiles or project files.&lt;/p>
+&lt;p>The cure is &lt;strong>Dependabot Groups&lt;/strong>: batch related updates into a single PR so you merge once and move on.&lt;/p>
+&lt;hr>
+&lt;h2 id="why-conflicts-happen">Why conflicts happen&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>npm&lt;/strong>: multiple PRs each rewrite &lt;code>package-lock.json&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>NuGet&lt;/strong>: several PRs change the same &lt;code>.csproj&lt;/code> / &lt;code>packages.lock.json&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>GitHub Actions&lt;/strong>: many small PRs bumping actions across several workflow files.&lt;/li>
+&lt;/ul>
+&lt;p>Merge one PR → the others go stale → conflicts or repeated rebases.&lt;/p></description></item><item><title>Getting started with Dependabot</title><link>https://sujithq.github.io/posts/2025/08/dependabot-getting-started/</link><pubDate>Mon, 25 Aug 2025 06:00:00 +0000</pubDate><guid>https://sujithq.github.io/posts/2025/08/dependabot-getting-started/</guid><description>&lt;p>Dependabot is the easiest way to keep dependencies current and secure in your GitHub repositories. It can: alert on vulnerabilities, open PRs to fix them, and keep versions fresh with scheduled updates. This guide shows how to enable Dependabot, add a robust dependabot.yml, and include small optimisations for specific ecosystems.&lt;/p>
+&lt;h2 id="what-youll-set-up">What you’ll set up&lt;/h2>
+&lt;ul>
+&lt;li>Enable Dependabot alerts, security updates, and version updates.&lt;/li>
+&lt;li>Create and tune a &lt;code>.github/dependabot.yml&lt;/code> that covers your package managers.&lt;/li>
+&lt;li>Add optional Java metadata to improve PR quality.&lt;/li>
+&lt;/ul>
+&lt;h2 id="enable-dependabot-in-your-repository">Enable Dependabot in your repository&lt;/h2>
+&lt;p>Use the repository UI:&lt;/p></description></item></channel></rss>
