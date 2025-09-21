@@ -33,5 +33,10 @@
     "Name": "Release notes from AKS",
     "Category": "aks",
     "Url": "https://github.com/Azure/AKS/releases.atom"
+  },
+  {
+    "Name": "Visual Studio Code",
+    "Category": "vscode",
+    "Url": "https://code.visualstudio.com/feed.xml"
   }
 ]
