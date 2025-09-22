@@ -97,13 +97,13 @@
     { "quadrant": 3, "ring": 1, "label": "Kusto Query Language (KQL)", "active": true, "moved": 0 },
     { "quadrant": 3, "ring": 2, "label": "Python", "active": true, "moved": 0 },
     { "quadrant": 3, "ring": 3, "label": "F#", "active": true, "moved": 0 },
-    { "quadrant": 3, "ring": 3, "label": "Go", "active": true, "moved": 0 },
-    { "quadrant": 3, "ring": 3, "label": "JavaScript", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 2, "label": "Go", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 2, "label": "JavaScript", "active": true, "moved": 0 },
     { "quadrant": 3, "ring": 3, "label": "Julia", "active": true, "moved": 0 },
     { "quadrant": 3, "ring": 3, "label": "PHP", "active": true, "moved": 0 },
     { "quadrant": 3, "ring": 3, "label": "Ruby", "active": true, "moved": 0 },
     { "quadrant": 3, "ring": 3, "label": "Rust", "active": true, "moved": 0 },
-    { "quadrant": 3, "ring": 3, "label": "TypeScript", "active": true, "moved": 0 },
+    { "quadrant": 3, "ring": 2, "label": "TypeScript", "active": true, "moved": 0 },
     { "quadrant": 3, "ring": 4, "label": "Java", "active": true, "moved": 0 }
   ]
 }
