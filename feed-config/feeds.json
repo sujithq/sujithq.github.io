@@ -38,5 +38,10 @@
     "Name": "Visual Studio Code",
     "Category": "vscode",
     "Url": "https://code.visualstudio.com/feed.xml"
+  },
+  {
+    "Name": "Kubernetes Official Blog",
+    "Category": "k8s",
+    "Url": "https://kubernetes.io/feed.xml"
   }
 ]
