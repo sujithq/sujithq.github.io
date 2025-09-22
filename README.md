@@ -3,7 +3,7 @@
 
 [![Deploy Hugo site to Pages](https://github.com/sujithq/sujithq.github.io/actions/workflows/hugo.yml/badge.svg)](https://github.com/sujithq/sujithq.github.io/actions/workflows/hugo.yml)
 
-Welcome to my personal [site](https://sujithq.github.io)! This repository contains the code and assets for my personal website, where I showcase my cv, blog, and other information about myself.
+Welcome to my personal [site](https://quintelier.dev)! This repository contains the code and assets for my personal website, where I showcase my cv, blog, and other information about myself.
 
 ## Table of Contents
 

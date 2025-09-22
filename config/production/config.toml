@@ -1,4 +1,4 @@
-baseURL = "https://sujithq.github.io/"
+baseURL = "https://quintelier.dev/"
 
 # Explicitly exclude drafts and future posts in production
 buildDrafts = false

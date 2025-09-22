@@ -1,7 +1,7 @@
 {
   "name": "sujithq.github.io",
   "version": "1.0.0",
-  "description": "Sujith Quintelier\r https://sujithq.github.io/",
+  "description": "Sujith Quintelier\r https://quintelier.dev/",
   "main": "index.js",
   "scripts": {
     "copy-files": "node scripts/copy-files.js",
