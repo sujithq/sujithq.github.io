@@ -1,26 +1,25 @@
 name: Deploy to Github Pages
 
 on:
-    schedule:
-      - cron: '15 * * * *'   # at minute 0, every 2 hours (UTC)
-    push:
-        branches: [main]
-    pull_request:
-        branches: [main]
-    workflow_run:
-      workflows: [
-        "Updates (Daily Refresh)",
-        "Publish due posts"
-      ]  # must match the other workflow's name(s) exactly
-      types: [completed]
-    workflow_dispatch:
+  schedule:
+    - cron: '15 * * * *'
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_run:
+    workflows: ["Updates (Daily Refresh)", "Publish due posts"]
+    types: [completed]
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: '10.0.x'   # <= set once; eg '9.0.x' or '10.0.x'
+
 jobs:
   build:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
-    runs-on: ubuntu-24.04-arm # ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     permissions:
-      # Give the default GITHUB_TOKEN write permission to commit and push the
-      # added or changed files to the repository.
       contents: write
 
     steps:
@@ -41,6 +40,7 @@ jobs:
         uses: actions/setup-go@v6
         with:
           go-version: "^1.23.3"
+
       - name: Check Go version
         run: go version
 
@@ -49,16 +49,6 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
-
-      # - name: Install PowerShell
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get install -y wget apt-transport-https software-properties-common
-      #     wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb"
-      #     sudo dpkg -i packages-microsoft-prod.deb
-      #     sudo apt-get update
-      #     sudo apt-get install -y powershell
-      #     $PSVersionTable
 
       - name: Install npm dependencies
         run: |
@@ -75,7 +65,18 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Compute .NET TFM and OUTDIR
+        id: tfm
+        shell: bash
+        run: |
+          # From DOTNET_VERSION like "10.0.x" -> "10.0"
+          VER="${DOTNET_VERSION%.x}"
+          echo "VER=$VER"
+          TFM="net${VER}"
+          echo "DOTNET_TFM=$TFM" >> "$GITHUB_ENV"
+          echo "OUTDIR=src/Crawler/bin/Release/$TFM" >> "$GITHUB_ENV"
 
       - name: Restore
         run: dotnet restore src/Crawler/Crawler.csproj
@@ -89,16 +90,15 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           MODELS_TOKEN: ${{ secrets.MODELS_TOKEN }}
           FOUNDRY_API_KEY: ${{ secrets.FOUNDRY_API_KEY }}
+        shell: bash
         run: |
-          OUTDIR=$(ls -d src/Crawler/bin/Release/net9.0/ | head -n 1)
           echo "Output directory: $OUTDIR"
           mkdir -p "$OUTDIR"
-          # cp -f appsettings.json "$OUTDIR"/appsettings.json
           dotnet run --project src/Crawler/Crawler.csproj -c Release --no-build
-          # Copy results from output back to repo
           mkdir -p data state content
-          cp -r "$OUTDIR"/data/. data/ 2>/dev/null || true
-          cp -r "$OUTDIR"/state/. state/ 2>/dev/null || true
+          # copy if present
+          cp -r "$OUTDIR"/data/.   data/   2>/dev/null || true
+          cp -r "$OUTDIR"/state/.  state/  2>/dev/null || true
           # cp -r "$OUTDIR"/content/. content/ 2>/dev/null || true
 
       - name: Build Update pages
@@ -109,24 +109,19 @@ jobs:
         run: hugo --minify --gc --environment production
 
       - name: Commit & push results
+        shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Ensure we're up to date before committing (avoid non-ff push)
           git fetch origin main
           git pull --rebase --autostash origin main || true
-
           git add data/ content/ state/
           if git diff --staged --quiet; then
             echo "No changes."
             exit 0
           fi
-
           git commit -m "chore: update crawl outputs [skip ci]"
-
-          # Try a normal push first; if rejected, rebase and retry; finally force-with-lease as last resort
           if git push; then
             echo "Pushed successfully."
           else
@@ -140,6 +135,7 @@ jobs:
               git push --force-with-lease
             fi
           fi
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
