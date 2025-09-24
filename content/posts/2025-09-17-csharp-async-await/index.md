@@ -26,7 +26,7 @@ description = "Seven-part CSharp async/await series: fundamentals, pitfalls, pat
 ### Series Navigation
 
 1. [Part 1 – Introduction](/posts/2025/09/csharp-async-await-part1/)
-2. Part 2 – Deep Dive (Releases 2025-09-24)
+2. [Part 2 – Deep Dive](/posts/2025/09/csharp-async-await-part2/)
 3. Part 3 – Pitfalls & Best Practices (Releases 2025-10-01)
 4. Part 4 – Patterns (Releases 2025-10-08)
 5. Part 5 – Real-World Use Cases (Releases 2025-10-15)
@@ -51,7 +51,7 @@ Why async matters, the difference between blocking and non-blocking code, and yo
 ### **Part 2: Deep Dive into `async` and `await`**
 
 The anatomy of an async method, return types (`Task`, `Task<T>`, `void`), and how `await` really works.  
-👉 Releases 24 Sep 2025
+👉 [Read Part 2](./part2.md)
 
 ### **Part 3: Common Pitfalls & Best Practices**
 
