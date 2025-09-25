@@ -8,7 +8,7 @@
       <i class="fas fa-arrow-left mx-1"></i><a href="{{ $updatesSection.RelPermalink }}" class="btn btn-sm btn-outline-secondary">Back to updates</a>
     </div>
     {{ end }}
-    {{ $defaultUpdatePageSize := 10 }}
+    {{ $defaultUpdatePageSize := 12 }}
     {{ $updatePageSize := or site.Params.updatesPageSize $defaultUpdatePageSize }}
     {{/* Filter out unlisted update items */}}
     {{ $pages := where .Pages ".Params.unlisted" "!=" true }}
