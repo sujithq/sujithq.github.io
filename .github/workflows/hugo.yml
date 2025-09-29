@@ -84,7 +84,7 @@ jobs:
       - name: Build
         run: dotnet build src/Crawler/Crawler.csproj -c Release --no-restore
 
-      - name: Run crawler (bin output)
+      - name: Run crawler and sync artifacts
         continue-on-error: true
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -92,18 +92,51 @@ jobs:
           FOUNDRY_API_KEY: ${{ secrets.FOUNDRY_API_KEY }}
         shell: bash
         run: |
-          echo "Output directory: $OUTDIR"
-          mkdir -p "$OUTDIR"
-          dotnet run --project src/Crawler/Crawler.csproj -c Release --no-build
+          set -Eeuo pipefail
+          set -x
+
+          echo "DOTNET_TFM=${DOTNET_TFM}"
+          echo "OUTDIR=${OUTDIR}"
+
+          # Publish to a clean OUTDIR so working dir + outputs are deterministic
+          rm -rf "${OUTDIR}"
+          dotnet publish src/Crawler/Crawler.csproj -c Release -o "${OUTDIR}"
+
+          echo "::group::Published OUTDIR contents"
+          ls -la "${OUTDIR}"
+          echo "::endgroup::"
+
+          # Run the app from OUTDIR so it writes to OUTDIR/data and OUTDIR/state
+          pushd "${OUTDIR}"
+          if [ -f "./Crawler" ]; then
+            ./Crawler
+          else
+            dotnet Crawler.dll
+          fi
+          popd
+
+          echo "::group::OUTDIR tree after run"
+          ls -laR "${OUTDIR}" || true
+          echo "::endgroup::"
+
+          # Copy data/state back to repo root with clear logs
           mkdir -p data state
-          # Copy updated data and state from bin output back to repo root
-          echo "Copying updated files from $OUTDIR to repo root:"
-          cp -r "$OUTDIR"/data/.   data/   2>/dev/null || echo "No data to copy"
-          cp -r "$OUTDIR"/state/.  state/  2>/dev/null || echo "No state to copy"
-          echo "Contents of data/ directory:"
-          ls -la data/ || echo "data/ directory not found"
-          echo "Contents of state/ directory:"
-          ls -la state/ || echo "state/ directory not found"
+          for d in data state; do
+            if [ -d "${OUTDIR}/${d}" ]; then
+              echo "Syncing ${OUTDIR}/${d} -> ./${d}"
+              rsync -av "${OUTDIR}/${d}/" "./${d}/"
+            else
+              echo "No ${d} to copy from ${OUTDIR}"
+            fi
+          done
+
+          echo "::group::Repo data/ tree"
+          ls -laR data || true
+          echo "::endgroup::"
+          echo "::group::Repo state/ tree"
+          ls -laR state || true
+          echo "::endgroup::"
+
 
       - name: Build Update pages
         run: node scripts/sync-updates-from-jsonl.js
