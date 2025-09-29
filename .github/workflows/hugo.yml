@@ -95,11 +95,15 @@ jobs:
           echo "Output directory: $OUTDIR"
           mkdir -p "$OUTDIR"
           dotnet run --project src/Crawler/Crawler.csproj -c Release --no-build
-          mkdir -p data state content
-          # copy if present
-          cp -r "$OUTDIR"/data/.   data/   2>/dev/null || true
-          cp -r "$OUTDIR"/state/.  state/  2>/dev/null || true
-          # cp -r "$OUTDIR"/content/. content/ 2>/dev/null || true
+          mkdir -p data state
+          # Copy updated data and state from bin output back to repo root
+          echo "Copying updated files from $OUTDIR to repo root:"
+          cp -r "$OUTDIR"/data/.   data/   2>/dev/null || echo "No data to copy"
+          cp -r "$OUTDIR"/state/.  state/  2>/dev/null || echo "No state to copy"
+          echo "Contents of data/ directory:"
+          ls -la data/ || echo "data/ directory not found"
+          echo "Contents of state/ directory:"
+          ls -la state/ || echo "state/ directory not found"
 
       - name: Build Update pages
         run: node scripts/sync-updates-from-jsonl.js
