@@ -49,12 +49,12 @@ public class CrawlerService
     _logger.LogDebug("Resolved paths: dataFile={Data} processedFile={Processed} contentDir={Content} feedsFile={Feeds}", dataFile, processedFile, contentDir, feedsFile);
 
     var feeds = await LoadFeeds(feedsFile);
-    _logger.LogInformation("Loaded {Count} feeds", feeds.Count);
+    _logger.LogDebug("Loaded {Count} feeds", feeds.Count);
 
     var state = await LoadState(processedFile);
 
     var maxCalls = _llmProvider.maxCallsPerRun > 0 ? _llmProvider.maxCallsPerRun : _app.llm.maxCallsPerRun;
-    _logger.LogInformation("LLM client ready. provider={Provider} maxCallsPerRun={Max} delay={Delay}s (providerOverride={Override})",
+    _logger.LogDebug("LLM client ready. provider={Provider} maxCallsPerRun={Max} delay={Delay}s (providerOverride={Override})",
       _app.llm.provider, maxCalls, _llmProvider.initialDelaySeconds, _llmProvider.maxCallsPerRun > 0);
 
     var newRows = new List<DataRow>();
@@ -70,6 +70,7 @@ public class CrawlerService
 
     foreach (var f in feeds)
     {
+
 
       _logger.LogInformation("Processing feed: {Url}", f.Url);
       SyndicationFeed? feed;
@@ -96,9 +97,10 @@ public class CrawlerService
       }
 
       var cutoff = DateTimeOffset.UtcNow.AddDays(-Math.Abs(_app.fetch.maxAgeDays));
-      foreach (var item in feed.Items.Where(i =>
-          (i.PublishDate != default && i.PublishDate >= cutoff) ||
-          (i.PublishDate == default && i.LastUpdatedTime >= cutoff)))
+      var items = feed.Items.Where(i => (i.PublishDate != default && i.PublishDate >= cutoff) ||
+                                       (i.LastUpdatedTime != default && i.LastUpdatedTime >= cutoff))
+                            .OrderByDescending(i => i.PublishDate != default ? i.PublishDate : i.LastUpdatedTime);
+      foreach (var item in items)
       {
         _logger.LogDebug("Item candidate: {Title} ({Link})", item.Title?.Text, item.Links.FirstOrDefault()?.Uri?.ToString());
         var id = CanonicalId(item, f);
