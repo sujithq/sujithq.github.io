@@ -39,6 +39,11 @@ for (const line of lines) {
 
   const slug = slugify(title) || slugify(it.id);
 
+  // Create date prefix for filename (YYYY-MM-DD format)
+  const publishedDate = new Date(it.published);
+  const datePrefix = publishedDate.toISOString().split('T')[0]; // Gets YYYY-MM-DD
+  const filename = `${datePrefix}-${slug}`;
+
   cats.add(category);
   times.add(timeframe);
   combos.add(`${category}:::${timeframe}`);
@@ -69,7 +74,7 @@ ${it.llm?.Summary || ''}
 - **Source:** [${it.source}](${it.link})
 `;
 
-  fs.writeFileSync(path.join(OUT_ITEMS_DIR, `${slug}.md`), fm);
+  fs.writeFileSync(path.join(OUT_ITEMS_DIR, `${filename}.md`), fm);
 }
 
 // Category-only index stubs: /updates2/<category>/
