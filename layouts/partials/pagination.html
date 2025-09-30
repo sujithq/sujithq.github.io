@@ -1,26 +1,36 @@
 {{$paginator := .paginator}}
+{{ if gt $paginator.TotalPages 1 }}
 <nav aria-label="Page navigation">
-    <ul class="pagination">
+    <ul class="pagination pagination-mobile-friendly justify-content-center">
       {{ if $paginator.HasPrev }}
-      <li class="page-item">
-          <a class="page-link" href="{{ $paginator.Prev.URL }}" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-          </a>
-      </li>
+        <li class="page-item">
+            <a class="page-link" href="{{ $paginator.First.URL }}" aria-label="First" title="Go to first page">
+                <span aria-hidden="true"><i class="fas fa-angle-double-left"></i></span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="{{ $paginator.Prev.URL }}" aria-label="Previous">
+                <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+            </a>
+        </li>
       {{ end }}
-
       {{ range $paginator.Pagers }}
-      <li class="page-item {{ if eq .PageNumber $paginator.PageNumber }}active{{ end }}">
-          <a class="page-link" href="{{ .URL }}">{{ .PageNumber }}</a>
-      </li>
+        <li class="page-item {{ if eq .PageNumber $paginator.PageNumber }}active{{ end }}">
+            <a class="page-link" href="{{ .URL }}">{{ .PageNumber }}</a>
+        </li>
       {{ end }}
-
       {{ if $paginator.HasNext }}
-      <li class="page-item">
-          <a class="page-link" href="{{ $paginator.Next.URL }}" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-          </a>
-      </li>
+        <li class="page-item">
+            <a class="page-link" href="{{ $paginator.Next.URL }}" aria-label="Next">
+                <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="{{ $paginator.Last.URL }}" aria-label="Last" title="Go to last page">
+                <span aria-hidden="true"><i class="fas fa-angle-double-right"></i></span>
+            </a>
+        </li>
       {{ end }}
     </ul>
-  </nav>
+</nav>
+{{ end }}

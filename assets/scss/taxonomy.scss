@@ -172,6 +172,9 @@ $grid-breakpoints: (
 // @import "xebia/timeline";
 @import "helpers";
 
+// Import mobile-friendly pagination component
+@import "components/pagination";
+
 // ------------------------------
 // 3) Icons (heavy). Consider replacing with a subset of SVGs.
 // ------------------------------

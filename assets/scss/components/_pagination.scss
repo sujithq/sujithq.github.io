@@ -1,0 +1,71 @@
+// Mobile-friendly pagination component
+// Reusable pagination styles for consistent mobile-friendly experience across all page types
+
+.pagination-mobile-friendly {
+  // Ensure pagination stays within container bounds
+  max-width: 100%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+
+  .page-link {
+    // Make pagination links touch-friendly like social buttons
+    min-width: 48px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2px;
+    border-radius: 8px;
+    font-weight: 500;
+
+    // Better contrast and spacing on tablet
+    @media (max-width: 768px) {
+      min-width: 44px;
+      min-height: 44px;
+      margin: 0 1px;
+      font-size: 0.9rem;
+    }
+
+    // Even smaller on mobile screens
+    @media (max-width: 400px) {
+      min-width: 40px;
+      min-height: 40px;
+      margin: 0;
+      font-size: 0.85rem;
+    }
+  }
+
+  .page-item.active .page-link {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .page-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+  }
+
+  // Style for first/last navigation buttons
+  .page-link[aria-label="First"],
+  .page-link[aria-label="Last"] {
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary);
+    color: white;
+
+    &:hover {
+      background-color: var(--bs-primary);
+      border-color: var(--bs-primary);
+      color: white;
+    }
+  }
+
+  // Hide first/last buttons on very small screens to save space
+  @media (max-width: 400px) {
+    .page-link[aria-label="First"],
+    .page-link[aria-label="Last"] {
+      display: none;
+    }
+  }
+}
