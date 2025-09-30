@@ -661,6 +661,7 @@ Running every 3 months (well before the 90-day threshold) provides:
 
 1. **Organization Token** (`ORG_READ_TOKEN` secret)
    - **Required Scopes**:
+     - `repo` - Full control of repositories
      - `workflow` - Update GitHub Action workflows (comment on PRs, create issues)
      - `read:org` - Read org and team membership, read org projects
    - Used for: Cross-repository scanning, PR comments, and issue creation
@@ -693,6 +694,7 @@ Running every 3 months (well before the 90-day threshold) provides:
 4. **Add Organization Token**
    - Create a PAT (Personal Access Token) with these scopes:
      - ✅ `workflow` - Update GitHub Action workflows
+     - ✅ `repo` - Full control of repositories
      - ✅ `read:org` - Read org and team membership, read org projects
    - Add as `ORG_READ_TOKEN` repository secret or organization secret
    - The token will be used to scan repositories and create issues/comments
@@ -784,8 +786,9 @@ Track the system's effectiveness:
 
 4. **Token Scopes**
    - `GITHUB_TOKEN` cannot access other repos in the organization
-   - Requires PAT with `workflow` and `read:org` scopes for cross-repo operations
+   - Requires PAT with `workflow` and `repo` and `read:org` scopes for cross-repo operations
    - The `workflow` scope allows commenting on PRs and creating issues
+   - The `repo` scope provides full control of repositories
    - The `read:org` scope enables discovering repositories via the Search API
 
 ### Operational Insights
