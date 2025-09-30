@@ -806,7 +806,7 @@ Track the system's effectiveness:
 - **Keep-Alive (quarterly)**: ~10-30 minutes per run = ~40-120 min/quarter
 - **Total**: ~195-270 minutes per quarter
 
-For organizations on GitHub Team or Enterprise, this is negligible compared to the free tier (3,000+ minutes/month).
+For organizations on GitHub Team or Enterprise, this is negligible compared to the free tier (2,000+ minutes/month).
 
 ### API Rate Limits
 
