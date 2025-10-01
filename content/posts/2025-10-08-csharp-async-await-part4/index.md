@@ -185,6 +185,6 @@ public async Task<T> RetryAsync<T>(Func<Task<T>> operation, int maxRetries = 3)
 
 ### Series Navigation
 
-Previous: Part 3 – Pitfalls & Best Practices (Releases 2025-10-01)
+Previous: [Part 3 – Pitfalls & Best Practices](/posts/2025/10/csharp-async-await-part3/)
 Series Index: [Overview](/posts/2025/09/csharp-async-await/)
 Next: Part 5 – Real-World Use Cases (Releases 2025-10-15)

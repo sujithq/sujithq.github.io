@@ -27,7 +27,7 @@ description = "Seven-part CSharp async/await series: fundamentals, pitfalls, pat
 
 1. [Part 1 – Introduction](/posts/2025/09/csharp-async-await-part1/)
 2. [Part 2 – Deep Dive](/posts/2025/09/csharp-async-await-part2/)
-3. Part 3 – Pitfalls & Best Practices (Releases 2025-10-01)
+3. [Part 3 – Pitfalls & Best Practices](/posts/2025/10/csharp-async-await-part3/)
 4. Part 4 – Patterns (Releases 2025-10-08)
 5. Part 5 – Real-World Use Cases (Releases 2025-10-15)
 6. Part 6 – Advanced Topics (Releases 2025-10-22)
@@ -56,7 +56,7 @@ The anatomy of an async method, return types (`Task`, `Task<T>`, `void`), and ho
 ### **Part 3: Common Pitfalls & Best Practices**
 
 Avoiding `async void`, handling deadlocks, using `ConfigureAwait(false)`, and safe exception handling.  
-👉 Releases 01 Oct 2025
+👉 [Read Part 3](./part3.md)
 
 ### **Part 4: Patterns with Async**
 
