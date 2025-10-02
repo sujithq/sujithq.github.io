@@ -73,6 +73,9 @@ buildFuture = false
 # [params]
 #   prismjsTheme = "okaidia"
 
+[services.disqus]
+  shortname = 'sujithq'
+
 [pagination]
   disableAliases = false
   pagerSize = 6
