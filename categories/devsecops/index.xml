@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevSecOps on Sujith Quintelier</title><link>https://quintelier.dev/categories/devsecops/</link><description>Recent content in DevSecOps on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 01 Oct 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/categories/devsecops/index.xml" rel="self" type="application/rss+xml"/><item><title>Mastering Asynchronous Programming with C# async/await - Part 3: Common Pitfalls and Best Practices</title><link>https://quintelier.dev/posts/2025/10/csharp-async-await-part3/</link><pubDate>Wed, 01 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/csharp-async-await-part3/</guid><description>&lt;h2 id="part-3-common-pitfalls--best-practices">Part 3: Common Pitfalls &amp;amp; Best Practices&lt;/h2>
+&lt;p>By now, you know how &lt;code>async&lt;/code>/&lt;code>await&lt;/code> works and how to run tasks sequentially or in parallel. But async programming in C# has some traps that can lead to &lt;strong>deadlocks, unhandled exceptions, or subtle bugs&lt;/strong>.&lt;/p>
+&lt;p>Let’s go through the most common pitfalls and how to avoid them.&lt;/p>
+&lt;hr>
+&lt;h2 id="pitfall-1-async-void">Pitfall 1: &lt;code>async void&lt;/code>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> DoWork()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">await&lt;/span> Task.Delay(&lt;span style="color:#ae81ff">1000&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Exception(&lt;span style="color:#e6db74">&amp;#34;Boom!&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Why it’s bad:&lt;/p>
+&lt;ul>
+&lt;li>You &lt;strong>can’t await&lt;/strong> it → no way to know when it’s done.&lt;/li>
+&lt;li>Exceptions go directly to the &lt;strong>synchronization context&lt;/strong> (e.g., crash the app).&lt;/li>
+&lt;/ul>
+&lt;p>✅ &lt;strong>Best practice&lt;/strong>:&lt;/p></description></item><item><title>🤖 Automating Dependabot at Scale: GitHub Actions Strategy</title><link>https://quintelier.dev/posts/2025/09/automating-dependabot-at-scale-github-actions-strategy/</link><pubDate>Tue, 30 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/automating-dependabot-at-scale-github-actions-strategy/</guid><description>&lt;h2 id="the-challenge-the-90-day-dependabot-pause">The Challenge: The 90-Day Dependabot Pause&lt;/h2>
+&lt;p>If you&amp;rsquo;re managing multiple repositories in a GitHub organization, you&amp;rsquo;ve likely encountered a frustrating limitation: &lt;strong>Dependabot automatically pauses after 90 days of inactivity&lt;/strong>. When there are no merged pull requests or manual triggers, Dependabot simply stops creating new dependency updates. For organizations with dozens or hundreds of repositories, this can lead to a security and maintenance nightmare.&lt;/p>
+&lt;p>The problem compounds quickly:&lt;/p>
+&lt;ul>
+&lt;li>Some repositories might be stable but still need security updates&lt;/li>
+&lt;li>Manual intervention across many repos is time-consuming and error-prone&lt;/li>
+&lt;li>By the time you notice Dependabot has paused, you&amp;rsquo;re already behind on updates&lt;/li>
+&lt;li>Re-enabling requires manual UI interaction for each repository&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-solution-a-two-pronged-automation-strategy">The Solution: A Two-Pronged Automation Strategy&lt;/h2>
+&lt;p>This comprehensive GitHub Actions workflow system tackles this problem through both &lt;strong>proactive prevention&lt;/strong> and &lt;strong>early detection&lt;/strong>. Let me walk you through how it works.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 2: Deep Dive</title><link>https://quintelier.dev/posts/2025/09/csharp-async-await-part2/</link><pubDate>Wed, 24 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/csharp-async-await-part2/</guid><description>&lt;h2 id="part-2-deep-dive-into-async-and-await">Part 2: Deep Dive into &lt;code>async&lt;/code> and &lt;code>await&lt;/code>&lt;/h2>
+&lt;p>In Part 1, we saw why asynchronous programming matters and how &lt;code>async&lt;/code>/&lt;code>await&lt;/code> can make our apps more responsive. Now it’s time to &lt;strong>go deeper&lt;/strong> into how it actually works.&lt;/p>
+&lt;hr>
+&lt;h2 id="anatomy-of-an-async-method">Anatomy of an &lt;code>async&lt;/code> Method&lt;/h2>
+&lt;p>Let’s look at a simple method:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> Task DoWorkAsync()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;Step 1: Start work&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">await&lt;/span> Task.Delay(&lt;span style="color:#ae81ff">2000&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;Step 2: Work complete&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Breaking it down:&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await</title><link>https://quintelier.dev/posts/2025/09/csharp-async-await/</link><pubDate>Wed, 17 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/csharp-async-await/</guid><description>&lt;h2 id="complete-7-part-series">Complete 7-Part Series&lt;/h2>
+&lt;h3 id="series-navigation">Series Navigation&lt;/h3>
+&lt;ol>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/09/csharp-async-await-part1/">Part 1 – Introduction&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/09/csharp-async-await-part2/">Part 2 – Deep Dive&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/10/csharp-async-await-part3/">Part 3 – Pitfalls &amp;amp; Best Practices&lt;/a>&lt;/li>
+&lt;li>Part 4 – Patterns (Releases 2025-10-08)&lt;/li>
+&lt;li>Part 5 – Real-World Use Cases (Releases 2025-10-15)&lt;/li>
+&lt;li>Part 6 – Advanced Topics (Releases 2025-10-22)&lt;/li>
+&lt;li>Part 7 – Testing &amp;amp; Debugging (Releases 2025-10-29)&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;p>Asynchronous programming is one of the most powerful features in modern C#. It keeps your applications &lt;strong>responsive, scalable, and efficient&lt;/strong> — but it can also be tricky to master.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 1: Introduction</title><link>https://quintelier.dev/posts/2025/09/csharp-async-await-part1/</link><pubDate>Wed, 17 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/csharp-async-await-part1/</guid><description>&lt;h2 id="part-1-introduction-to-asynchronous-programming">Part 1: Introduction to Asynchronous Programming&lt;/h2>
+&lt;p>When you build applications in C#, one of the biggest challenges is making them &lt;strong>fast and responsive&lt;/strong>. Whether you’re writing a desktop app that must keep its UI smooth, a web API that needs to handle thousands of requests, or a service that integrates with multiple external systems, &lt;strong>asynchronous programming&lt;/strong> is key.&lt;/p>
+&lt;p>But async/await can feel like magic ✨. Let’s break it down step by step.&lt;/p></description></item><item><title>Taming Dependabot: Bundle NuGet, npm, and GitHub Actions Updates Without Merge Conflicts</title><link>https://quintelier.dev/posts/2025/09/taming-dependabot-bundle-nuget-npm-github-actions-updates-without-merge-conflicts/</link><pubDate>Tue, 16 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/taming-dependabot-bundle-nuget-npm-github-actions-updates-without-merge-conflicts/</guid><description>&lt;p>If you’ve enabled &lt;strong>Dependabot&lt;/strong>, you probably love the automated updates but not the &lt;strong>PR storm&lt;/strong> and the &lt;strong>merge conflicts&lt;/strong> that happen when several PRs touch the same lockfiles or project files.&lt;/p>
+&lt;p>The cure is &lt;strong>Dependabot Groups&lt;/strong>: batch related updates into a single PR so you merge once and move on.&lt;/p>
+&lt;hr>
+&lt;h2 id="why-conflicts-happen">Why conflicts happen&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>npm&lt;/strong>: multiple PRs each rewrite &lt;code>package-lock.json&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>NuGet&lt;/strong>: several PRs change the same &lt;code>.csproj&lt;/code> / &lt;code>packages.lock.json&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>GitHub Actions&lt;/strong>: many small PRs bumping actions across several workflow files.&lt;/li>
+&lt;/ul>
+&lt;p>Merge one PR → the others go stale → conflicts or repeated rebases.&lt;/p></description></item><item><title>Getting started with Dependabot</title><link>https://quintelier.dev/posts/2025/08/dependabot-getting-started/</link><pubDate>Mon, 25 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/dependabot-getting-started/</guid><description>&lt;p>Dependabot is the easiest way to keep dependencies current and secure in your GitHub repositories. It can: alert on vulnerabilities, open PRs to fix them, and keep versions fresh with scheduled updates. This guide shows how to enable Dependabot, add a robust dependabot.yml, and include small optimisations for specific ecosystems.&lt;/p>
+&lt;h2 id="what-youll-set-up">What you’ll set up&lt;/h2>
+&lt;ul>
+&lt;li>Enable Dependabot alerts, security updates, and version updates.&lt;/li>
+&lt;li>Create and tune a &lt;code>.github/dependabot.yml&lt;/code> that covers your package managers.&lt;/li>
+&lt;li>Add optional Java metadata to improve PR quality.&lt;/li>
+&lt;/ul>
+&lt;h2 id="enable-dependabot-in-your-repository">Enable Dependabot in your repository&lt;/h2>
+&lt;p>Use the repository UI:&lt;/p></description></item></channel></rss>
