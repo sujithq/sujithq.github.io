@@ -1,0 +1,180 @@
+name: Deploy Dev to GitHub Pages
+
+on:
+  push:
+    branches: [ dev ]
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: '10.0.x'
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04-arm
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code (dev)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: dev
+
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        env:
+          cache-name: cache-hugo-resources
+        with:
+          path: resources
+          key: ${{ env.cache-name }}
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "^1.23.3"
+
+      - name: Check Go version
+        run: go version
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install npm dependencies
+        run: |
+          $PSVersionTable
+          npm install
+        shell: pwsh
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.148.2"
+          extended: true
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Compute .NET TFM and OUTDIR
+        id: tfm
+        shell: bash
+        run: |
+          # From DOTNET_VERSION like "10.0.x" -> "10.0"
+          VER="${DOTNET_VERSION%.x}"
+          echo "VER=$VER"
+          TFM="net${VER}"
+          echo "DOTNET_TFM=$TFM" >> "$GITHUB_ENV"
+          echo "OUTDIR=src/Crawler/bin/Release/$TFM" >> "$GITHUB_ENV"
+
+      - name: Restore
+        run: dotnet restore src/Crawler/Crawler.csproj
+
+      - name: Build
+        run: dotnet build src/Crawler/Crawler.csproj -c Release --no-restore
+
+      - name: Run crawler and sync artifacts
+        continue-on-error: true
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          MODELS_TOKEN: ${{ secrets.MODELS_TOKEN }}
+          FOUNDRY_API_KEY: ${{ secrets.FOUNDRY_API_KEY }}
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          set -x
+
+          echo "DOTNET_TFM=${DOTNET_TFM}"
+          echo "OUTDIR=${OUTDIR}"
+
+          # Publish to a clean OUTDIR so working dir + outputs are deterministic
+          rm -rf "${OUTDIR}"
+          dotnet publish src/Crawler/Crawler.csproj -c Release -o "${OUTDIR}"
+
+          echo "::group::Published OUTDIR contents"
+          ls -la "${OUTDIR}"
+          echo "::endgroup::"
+
+          # Run the app from OUTDIR so it writes to OUTDIR/data and OUTDIR/state
+          pushd "${OUTDIR}"
+          if [ -f "./Crawler" ]; then
+            ./Crawler
+          else
+            dotnet Crawler.dll
+          fi
+          popd
+
+          echo "::group::OUTDIR tree after run"
+          ls -laR "${OUTDIR}" || true
+          echo "::endgroup::"
+
+          # Copy data/state back to repo root with clear logs
+          mkdir -p data state
+          for d in data state; do
+            if [ -d "${OUTDIR}/${d}" ]; then
+              echo "Syncing ${OUTDIR}/${d} -> ./${d}"
+              rsync -av "${OUTDIR}/${d}/" "./${d}/"
+            else
+              echo "No ${d} to copy from ${OUTDIR}"
+            fi
+          done
+
+          echo "::group::Repo data/ tree"
+          ls -laR data || true
+          echo "::endgroup::"
+          echo "::group::Repo state/ tree"
+          ls -laR state || true
+          echo "::endgroup::"
+
+
+      - name: Build Update pages
+        run: node scripts/sync-updates-from-jsonl.js
+
+      - name: Build
+        if: always()
+        run: |
+          hugo --minify --gc \
+               --environment development \
+               --baseURL "https://dev.quintelier.dev/"
+
+      - name: Commit & push results
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin dev
+          git pull --rebase --autostash origin dev || true
+          git add data/ content/ state/
+          if git diff --staged --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git commit -m "chore(dev): update crawl outputs [skip ci]"
+          if git push origin HEAD:dev; then
+            echo "Pushed to dev successfully."
+          else
+            echo "Push rejected, attempting rebase and retry..."
+            git fetch origin dev
+            if git rebase origin/dev; then
+              git push origin HEAD:dev || git push --force-with-lease origin HEAD:dev
+            else
+              echo "Rebase conflicts; aborting and force-with-lease."
+              git rebase --abort || true
+              git push --force-with-lease origin HEAD:dev
+            fi
+          fi
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.PAT_DEV_PAGES }}
+          repository-name: sujithq/sujithq.github.io.dev   # target repo
+          branch: gh-pages
+          folder: public
+          clean: true
+          single-commit: true
