@@ -28,7 +28,7 @@ description = "Seven-part CSharp async/await series: fundamentals, pitfalls, pat
 1. [Part 1 – Introduction](/posts/2025/09/csharp-async-await-part1/)
 2. [Part 2 – Deep Dive](/posts/2025/09/csharp-async-await-part2/)
 3. [Part 3 – Pitfalls & Best Practices](/posts/2025/10/csharp-async-await-part3/)
-4. Part 4 – Patterns (Releases 2025-10-08)
+4. [Part 4 – Patterns](/posts/2025/10/csharp-async-await-part4/)
 5. Part 5 – Real-World Use Cases (Releases 2025-10-15)
 6. Part 6 – Advanced Topics (Releases 2025-10-22)
 7. Part 7 – Testing & Debugging (Releases 2025-10-29)
@@ -61,7 +61,7 @@ Avoiding `async void`, handling deadlocks, using `ConfigureAwait(false)`, and sa
 ### **Part 4: Patterns with Async**
 
 Running multiple tasks in parallel, cancelling with `CancellationToken`, using async streams, and implementing timeouts/retries.  
-👉 Releases 08 Oct 2025
+👉 [Read Part 4](./part4.md)
 
 ### **Part 5: Real-World Use Cases**
 
