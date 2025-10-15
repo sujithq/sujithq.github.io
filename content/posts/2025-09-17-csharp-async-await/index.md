@@ -29,7 +29,7 @@ description = "Seven-part CSharp async/await series: fundamentals, pitfalls, pat
 2. [Part 2 – Deep Dive](/posts/2025/09/csharp-async-await-part2/)
 3. [Part 3 – Pitfalls & Best Practices](/posts/2025/10/csharp-async-await-part3/)
 4. [Part 4 – Patterns](/posts/2025/10/csharp-async-await-part4/)
-5. Part 5 – Real-World Use Cases (Releases 2025-10-15)
+5. [Part 5 – Real-World Use Cases](/posts/2025/10/csharp-async-await-part5/)
 6. Part 6 – Advanced Topics (Releases 2025-10-22)
 7. Part 7 – Testing & Debugging (Releases 2025-10-29)
 
@@ -66,7 +66,7 @@ Running multiple tasks in parallel, cancelling with `CancellationToken`, using a
 ### **Part 5: Real-World Use Cases**
 
 How async improves real apps: calling APIs with `HttpClient`, async file I/O, EF Core queries, responsive UIs, and background services.  
-👉 Releases 15 Oct 2025
+👉 [Read Part 5](./part5.md)
 
 ### **Part 6: Advanced Topics**
 
