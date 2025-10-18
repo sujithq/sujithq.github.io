@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Azure Traffic Manager on Sujith Quintelier</title><link>https://quintelier.dev/tags/azure-traffic-manager/</link><description>Recent content in Azure Traffic Manager on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 24 Sep 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/azure-traffic-manager/index.xml" rel="self" type="application/rss+xml"/><item><title>Azure Load Balancing: Choose the Right Option</title><link>https://quintelier.dev/posts/2022/06/azure-load-balancing-explained/</link><pubDate>Fri, 17 Jun 2022 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2022/06/azure-load-balancing-explained/</guid><description>&lt;h2 id="what-is-load-balancing">&lt;strong>What is Load Balancing?&lt;/strong>&lt;/h2>
+&lt;p>Load balancing is the &lt;strong>even distribution of network traffic&lt;/strong> across a group of backend computing resources or servers. The primary goals of load balancing are:&lt;/p>
+&lt;p>✅ &lt;strong>Optimizing resource utilization&lt;/strong>&lt;br>
+✅ &lt;strong>Maximizing throughput &amp;amp; performance&lt;/strong>&lt;br>
+✅ &lt;strong>Minimizing response time&lt;/strong>&lt;br>
+✅ &lt;strong>Ensuring high availability&lt;/strong>&lt;br>
+✅ &lt;strong>Preventing overload on a single resource&lt;/strong>&lt;/p>
+&lt;p>In &lt;strong>Azure&lt;/strong>, there are multiple load-balancing options, each designed for different &lt;strong>traffic types and use cases&lt;/strong>.&lt;/p>
+&lt;hr>
+&lt;h2 id="tldr-2025-update">&lt;strong>TL;DR (2025 Update)&lt;/strong>&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Goal&lt;/th>
+ &lt;th>Pick&lt;/th>
+ &lt;th>Why&lt;/th>
+ &lt;th>Layer / Scope&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Global HTTP(S) acceleration + WAF&lt;/td>
+ &lt;td>Front Door Std/Premium&lt;/td>
+ &lt;td>Anycast edge, caching, rapid failover&lt;/td>
+ &lt;td>L7 / Global&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Global single anycast IP for TCP/UDP&lt;/td>
+ &lt;td>Cross-region Load Balancer&lt;/td>
+ &lt;td>L4 pass-through, fast failover (no DNS TTL)&lt;/td>
+ &lt;td>L4 / Global&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Hybrid or external endpoint steering&lt;/td>
+ &lt;td>Traffic Manager&lt;/td>
+ &lt;td>DNS-based latency / geo / weighted policies&lt;/td>
+ &lt;td>DNS / Global&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>In-region advanced HTTP routing + per-app WAF&lt;/td>
+ &lt;td>Application Gateway v2&lt;/td>
+ &lt;td>Path/host routing, rewrites, mTLS&lt;/td>
+ &lt;td>L7 / Regional&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Regional TCP/UDP balancing + outbound SNAT&lt;/td>
+ &lt;td>Standard Load Balancer&lt;/td>
+ &lt;td>High-perf, zone redundant&lt;/td>
+ &lt;td>L4 / Regional&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Insert firewall / IDS transparently&lt;/td>
+ &lt;td>Gateway Load Balancer&lt;/td>
+ &lt;td>Inline NVA chaining without UDR complexity&lt;/td>
+ &lt;td>L3/L4 / Regional&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Legacy Basic LB still present&lt;/td>
+ &lt;td>Migrate to Standard&lt;/td>
+ &lt;td>Basic retires 30 Sept 2025&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/td>
+ &lt;td>—&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>Plan outbound explicitly before default outbound access retirement (30 Sept 2025)&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. Combine services (e.g. Front Door + App Gateway) for layered designs.&lt;/p></description></item></channel></rss>
