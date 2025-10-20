@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 22
 
@@ -47,7 +47,7 @@ jobs:
           node scripts/activate-series-links.js --series "CSharp Async Await" --root-date 2025-09-17
 
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v6
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'chore(posts): auto-publish due posts in series'
           commit_user_name: 'github-actions[bot]'
