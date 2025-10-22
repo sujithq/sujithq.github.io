@@ -30,7 +30,7 @@ description = "Seven-part CSharp async/await series: fundamentals, pitfalls, pat
 3. [Part 3 – Pitfalls & Best Practices](/posts/2025/10/csharp-async-await-part3/)
 4. [Part 4 – Patterns](/posts/2025/10/csharp-async-await-part4/)
 5. [Part 5 – Real-World Use Cases](/posts/2025/10/csharp-async-await-part5/)
-6. Part 6 – Advanced Topics (Releases 2025-10-22)
+6. [Part 6 – Advanced Topics](/posts/2025/10/csharp-async-await-part6/)
 7. Part 7 – Testing & Debugging (Releases 2025-10-29)
 
 ---
@@ -71,7 +71,7 @@ How async improves real apps: calling APIs with `HttpClient`, async file I/O, EF
 ### **Part 6: Advanced Topics**
 
 Performance with `ValueTask`, writing custom awaiters, using coordination primitives (`SemaphoreSlim`, `Channel`), and tuning async performance.  
-👉 Releases 22 Oct 2025
+👉 [Read Part 6](./part6.md)
 
 ### **Part 7: Testing and Debugging Async Code**
 

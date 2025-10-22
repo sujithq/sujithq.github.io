@@ -226,7 +226,7 @@ public sealed class FakeTimer : ITimer
 
 ### Series Navigation
 
-Previous: Part 6 – Advanced Topics (Releases 2025-10-22)
+Previous: [Part 6 – Advanced Topics](/posts/2025/10/csharp-async-await-part6/)
 Series Index: [Overview](/posts/2025/09/csharp-async-await/)
 ## 🎉 Series Recap
 
