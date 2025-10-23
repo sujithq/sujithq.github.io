@@ -43,5 +43,10 @@
     "Name": "Kubernetes Official Blog",
     "Category": "k8s",
     "Url": "https://kubernetes.io/feed.xml"
+  },
+  {
+    "Name": "Let's do DevOps",
+    "Category": "devops+ai",
+    "Url": "  https://www.letsdodevops.com/feed"
   }
 ]
