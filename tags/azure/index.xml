@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Azure on Sujith Quintelier</title><link>https://quintelier.dev/tags/azure/</link><description>Recent content in Azure on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 24 Sep 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/azure/index.xml" rel="self" type="application/rss+xml"/><item><title>Azure Weekly – 2025 Week 36</title><link>https://quintelier.dev/updates-v1/azure-weekly-2025-week-36/</link><pubDate>Tue, 02 Sep 2025 05:33:51 +0000</pubDate><guid>https://quintelier.dev/updates-v1/azure-weekly-2025-week-36/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-09-01 → 2025-09-07 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500374" target="_blank" rel="noopener noreferrer">Azure App Service - New Premium v4 Offering&lt;/a>&lt;/strong> — Azure App Service has launched the Premium v4 tier, now generally available as of September 1, 2025. This offering features faster processors, NVMe local storage, and memory-optimized options on updated Azure hardware for both Windows and Linux environments.
+&lt;ul>
+&lt;li>Premium v4 tier is now generally available for Azure App Service (Windows and Linux)&lt;/li>
+&lt;li>Includes faster processors and NVMe local storage&lt;/li>
+&lt;li>Offers memory-optimized options and new sizing starting from 1 vCPU/4GB RAM&lt;/li>
+&lt;li>Runs on the latest Azure hardware&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=501200" target="_blank" rel="noopener noreferrer">Azure Front Door Standard and Premium are now available in Azure China.&lt;/a>&lt;/strong> — Azure Front Door Standard and Premium reached general availability in the Azure China regions (China North 3 and China East 3) as of September 1, 2025.
+&lt;ul>
+&lt;li>Azure Front Door Standard and Premium are now GA in China North 3 and China East 3 regions.&lt;/li>
+&lt;li>Service operated by 21Vianet.&lt;/li>
+&lt;li>Availability enables secure and reliable application delivery for customers in China.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Azure Weekly – 2025 Week 35</title><link>https://quintelier.dev/updates-v1/azure-weekly-2025-week-35/</link><pubDate>Tue, 26 Aug 2025 05:34:03 +0000</pubDate><guid>https://quintelier.dev/updates-v1/azure-weekly-2025-week-35/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-25 → 2025-08-31 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500790" target="_blank" rel="noopener noreferrer">Azure Database for PostgreSQL Entra ID group login using user credentials&lt;/a>&lt;/strong> — Azure Database for PostgreSQL Flexible Server introduces public preview of Entra ID group login using user credentials, available on newly provisioned servers as of August 28, 2025.
+&lt;ul>
+&lt;li>Public preview of Entra ID group login with user credentials for Azure Database for PostgreSQL Flexible Server.&lt;/li>
+&lt;li>Feature available on newly provisioned servers only.&lt;/li>
+&lt;li>Aims to simplify user management and enhance security.&lt;/li>
+&lt;li>Announced August 28, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500785" target="_blank" rel="noopener noreferrer">Azure SQL updates for late-August 2025&lt;/a>&lt;/strong> — Azure SQL and SQL Server received updates in late August 2025, including the general availability of local SQL Server containers via the MSSQL extension.
+&lt;ul>
+&lt;li>Local SQL Server containers are now generally available (GA).&lt;/li>
+&lt;li>Containers can be created using the MSSQL extension.&lt;/li>
+&lt;li>Applies to SQL Database and Azure Arc services.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500780" target="_blank" rel="noopener noreferrer">Azure SQL updates for late-August 2025&lt;/a>&lt;/strong> — Azure SQL Database introduced a replication lag metric in late August 2025, available in preview. This metric provides real-time visibility into the recovery point objective (RPO) for databases with Geo-DR enabled.
+&lt;ul>
+&lt;li>Replication lag metric added to Azure SQL Database (preview)&lt;/li>
+&lt;li>Metric shows real-time recovery point objective (RPO) for Geo-DR-enabled databases&lt;/li>
+&lt;li>Update released in late August 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500770" target="_blank" rel="noopener noreferrer">Schema migration is now available in Azure Database Migration Service (DMS)&lt;/a>&lt;/strong> — Azure Database Migration Service (DMS) now supports schema migration for Azure SQL Database as of August 27, 2025. This feature is generally available and allows users to migrate missing schema objects alongside data.
+&lt;ul>
+&lt;li>Schema migration for Azure SQL Database is now supported in Azure DMS.&lt;/li>
+&lt;li>Feature is generally available (GA) as of August 27, 2025.&lt;/li>
+&lt;li>Users can migrate missing schema objects with data via a single checkbox.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500755" target="_blank" rel="noopener noreferrer">Azure Cosmos DB for MongoDB (vCore)—add shards and rebalance data&lt;/a>&lt;/strong> — Azure Cosmos DB for MongoDB (vCore) now supports adding physical shards and rebalancing data as clusters scale. This feature is available in preview as of August 27, 2025.
+&lt;ul>
+&lt;li>Physical shards can be added to Azure Cosmos DB for MongoDB (vCore) clusters.&lt;/li>
+&lt;li>Data rebalancing across shards is supported.&lt;/li>
+&lt;li>Feature is in preview as of August 27, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=496287" target="_blank" rel="noopener noreferrer">Entra ID and RBAC support for GetAccountInfo and other supplemental APIs for Azure Storage&lt;/a>&lt;/strong> — Azure Storage APIs now support Microsoft Entra ID and RBAC for enhanced security, with general availability as of August 26, 2025.
+&lt;ul>
+&lt;li>General availability of Entra ID and RBAC support for Azure Storage supplemental APIs, including GetAccountInfo and ACL management for containers, queues, and tables.&lt;/li>
+&lt;li>Affects APIs: Get Account Information, Get/Set Container ACL, Get/Set Queue ACL, Get/Set Table ACL.&lt;/li>
+&lt;li>Applies globally as of August 26, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=501323" target="_blank" rel="noopener noreferrer">Custom block response code and body for Application Gateway WAF&lt;/a>&lt;/strong> — Azure Application Gateway WAF now offers a public preview for customizing block response status codes and bodies for blocked requests.
+&lt;ul>
+&lt;li>Public preview released on 2025-08-26&lt;/li>
+&lt;li>Customizable response status codes and bodies for blocked requests in Application Gateway WAF&lt;/li>
+&lt;li>Applies to Azure Application Gateway WAF integrated deployments&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500991" target="_blank" rel="noopener noreferrer">CNI Overlay for Application Gateway for Containers and AGIC&lt;/a>&lt;/strong> — Azure CNI Overlay is now generally available for Application Gateway for Containers and AGIC as of August 26, 2025. This feature allows AKS clusters to assign pod IPs from a separate CIDR, optimizing VNet IP usage and facilitating multi-cluster deployments.
+&lt;ul>
+&lt;li>Azure CNI Overlay GA for Application Gateway for Containers and AGIC (Aug 26, 2025)&lt;/li>
+&lt;li>AKS clusters can use pod IPs from a distinct CIDR, conserving VNet IP space&lt;/li>
+&lt;li>Supports simplified multi-cluster deployments&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500914" target="_blank" rel="noopener noreferrer">Azure NetApp Files short-term clones&lt;/a>&lt;/strong> — Azure NetApp Files introduces short-term clones in preview, allowing users to create temporary, space-efficient thin clones from existing volume snapshots for instant read/write access without full data copies.
+&lt;ul>
+&lt;li>Short-term clones feature now in preview for Azure NetApp Files.&lt;/li>
+&lt;li>Enables temporary thin clones from volume snapshots.&lt;/li>
+&lt;li>Provides instant read/write access to cloned data.&lt;/li>
+&lt;li>Reduces storage usage by avoiding full data copies.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500473" target="_blank" rel="noopener noreferrer">Roslyn Analyzer for Durable Functions in .NET isolated&lt;/a>&lt;/strong> — Azure Durable Functions in the .NET isolated model now supports the Roslyn Analyzer for real-time code analysis, helping developers follow orchestration coding constraints. The analyzer is enabled by default in preview as of August 25, 2025.
+&lt;ul>
+&lt;li>Roslyn Analyzer support added for Durable Functions in .NET isolated model&lt;/li>
+&lt;li>Provides real-time code analysis for orchestration coding constraints&lt;/li>
+&lt;li>Analyzer is enabled by default&lt;/li>
+&lt;li>Feature is in preview as of August 25, 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500650" target="_blank" rel="noopener noreferrer">Microsoft Azure now available from cloud region in Austria&lt;/a>&lt;/strong> — Microsoft Azure has launched a new cloud region in Austria, now generally available as of August 25, 2025. This enables local data storage and processing for Austrian organizations, supporting compliance and access to Azure services.
+&lt;ul>
+&lt;li>Azure cloud region now available in Austria (GA) as of August 25, 2025&lt;/li>
+&lt;li>Supports local data storage and processing for Austrian companies and public administration&lt;/li>
+&lt;li>Resource Mover service included among available features&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Azure Weekly – 2025 Week 34</title><link>https://quintelier.dev/updates-v1/azure-weekly-2025-week-34/</link><pubDate>Tue, 19 Aug 2025 05:33:52 +0000</pubDate><guid>https://quintelier.dev/updates-v1/azure-weekly-2025-week-34/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-18 → 2025-08-24 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500438" target="_blank" rel="noopener noreferrer">Azure Functions support for Node.js 22&lt;/a>&lt;/strong> — Azure Functions now supports Node.js 22 in general availability as of August 22, 2025. Developers can use Node.js 22 for local development and deployment across all Azure Functions plans on both Linux and Windows.
+&lt;ul>
+&lt;li>Node.js 22 support for Azure Functions is now generally available (GA)&lt;/li>
+&lt;li>Applies to all Azure Functions plans on Linux and Windows&lt;/li>
+&lt;li>Available for local development and deployment&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=501233" target="_blank" rel="noopener noreferrer">Azure Migrate now supports migration to disks with Zone-Redundant Storage (ZRS) redundancy&lt;/a>&lt;/strong> — Azure Migrate now allows users to migrate servers to disks with Zone-Redundant Storage (ZRS) redundancy, enabling selection of ZRS during migration. This feature is generally available as of August 22, 2025.
+&lt;ul>
+&lt;li>Azure Migrate supports migration to disks with Zone-Redundant Storage (ZRS) redundancy.&lt;/li>
+&lt;li>Users can select ZRS as the redundancy option during server migration.&lt;/li>
+&lt;li>Feature is generally available (GA) as of August 22, 2025.&lt;/li>
+&lt;li>Applies to Virtual Machines and Azure Migrate services.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=501017" target="_blank" rel="noopener noreferrer">Application Gateway adds MaxSurge support for zero-capacity-impact upgrades&lt;/a>&lt;/strong> — Azure Application Gateway has introduced MaxSurge support, allowing rolling upgrades to provision new instances without impacting existing capacity. This feature is now generally available as of August 21, 2025.
+&lt;ul>
+&lt;li>MaxSurge support enables zero-capacity-impact rolling upgrades for Application Gateway.&lt;/li>
+&lt;li>New instances are provisioned during upgrades without taking current ones offline.&lt;/li>
+&lt;li>Feature is generally available (GA) as of August 21, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500879" target="_blank" rel="noopener noreferrer">Generally, Available: Search Job in Log Analytics - Now Supporting Up to 100 Million Results&lt;/a>&lt;/strong> — Azure Monitor Log Analytics Search Job is now generally available, supporting up to 100 million results per query as of August 21, 2025.
+&lt;ul>
+&lt;li>Search Job in Log Analytics now supports up to 100 million returned records per query.&lt;/li>
+&lt;li>Feature is generally available as of August 21, 2025.&lt;/li>
+&lt;li>Results are delivered in new Analytics tables for further exploration.&lt;/li>
+&lt;li>Applies to Azure Monitor Log Analytics.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500760" target="_blank" rel="noopener noreferrer">Azure NetApp Files file access logs&lt;/a>&lt;/strong> — Azure NetApp Files file access logs are now generally available as of August 21, 2025, providing detailed visibility into file-level operations for SMB, NFSv4.1, and dual-protocol volumes.
+&lt;ul>
+&lt;li>File access logs feature is now GA for Azure NetApp Files.&lt;/li>
+&lt;li>Supports logging for SMB, NFSv4.1, and dual-protocol volumes.&lt;/li>
+&lt;li>Enables monitoring of file-level operations for improved security and auditing.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500369" target="_blank" rel="noopener noreferrer">Azure Functions Flex Consumption plan now supports 512 MB instance size and diagnostic settings&lt;/a>&lt;/strong> — Azure Functions Flex Consumption plan now supports a 512 MB memory instance size, expanding options beyond the previous 2048 MB and 4096 MB sizes. Diagnostic settings integration is also available for improved monitoring.
+&lt;ul>
+&lt;li>512 MB instance size is now available for Azure Functions Flex Consumption plan (previously only 2048 MB and 4096 MB).&lt;/li>
+&lt;li>Diagnostic settings are now supported for Flex Consumption apps, enabling enhanced monitoring via Azure Monitor.&lt;/li>
+&lt;li>Update is generally available as of August 21, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500996" target="_blank" rel="noopener noreferrer">Azure Bastion now supports connectivity to private AKS clusters via tunneling&lt;/a>&lt;/strong> — Azure Bastion now offers preview support for tunneling connectivity to private AKS clusters, allowing secure access to the AKS API server from local machines using standard Kubernetes tools.
+&lt;ul>
+&lt;li>Preview release dated 2025-08-20&lt;/li>
+&lt;li>Enables secure tunneling from local machine to AKS API server via Azure Bastion&lt;/li>
+&lt;li>Supports both private and public AKS clusters&lt;/li>
+&lt;li>Accessible using standard Kubernetes tooling&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500712" target="_blank" rel="noopener noreferrer">Azure NetApp Files Flexible service level now supports cool access&lt;/a>&lt;/strong> — Azure NetApp Files now offers cool access support for its Flexible service level, available in preview as of August 20, 2025. This enables independent configuration of storage capacity and throughput for workloads with specific performance needs.
+&lt;ul>
+&lt;li>Flexible service level in Azure NetApp Files supports cool access tier&lt;/li>
+&lt;li>Users can configure storage capacity and throughput independently&lt;/li>
+&lt;li>Feature is in preview as of August 20, 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=489745" target="_blank" rel="noopener noreferrer">Private Preview: DCesv6 and ECesv6 series confidential VMs with Intel® TDX&lt;/a>&lt;/strong> — Azure announced a private preview of DCesv6 and ECesv6 series confidential virtual machines, featuring 5th Gen Intel Xeon processors with Intel Trust Domain Extensions (TDX).
+&lt;ul>
+&lt;li>Private preview of DCesv6 and ECesv6 confidential VM series now available&lt;/li>
+&lt;li>Powered by 5th Gen Intel Xeon (Emerald Rapids) processors&lt;/li>
+&lt;li>Includes Intel Trust Domain Extensions (TDX) for enhanced security&lt;/li>
+&lt;li>Update published on 2025-08-20&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=498754" target="_blank" rel="noopener noreferrer">Microsoft Sentinel Deprecation in Microsoft Azure operated by 21Vianet Announcement&lt;/a>&lt;/strong> — Microsoft Sentinel will be deprecated in Microsoft Azure operated by 21Vianet, effective August 20, 2025, due to infrastructure and operational complexity.
+&lt;ul>
+&lt;li>Microsoft Sentinel service will be retired in Azure operated by 21Vianet.&lt;/li>
+&lt;li>Deprecation date is August 20, 2025.&lt;/li>
+&lt;li>Reason cited is increased infrastructure and operational complexity.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=498749" target="_blank" rel="noopener noreferrer">Microsoft Defender for Cloud Deprecation in Microsoft Azure Operated by 21Vianet Announcement&lt;/a>&lt;/strong> — Microsoft Defender for Cloud will be deprecated in Microsoft Azure operated by 21Vianet, effective August 20, 2025.
+&lt;ul>
+&lt;li>Defender for Cloud service is being retired in Azure operated by 21Vianet.&lt;/li>
+&lt;li>Deprecation date is August 20, 2025.&lt;/li>
+&lt;li>Reason cited is increasing infrastructure and operational complexity.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500630" target="_blank" rel="noopener noreferrer">Azure Blob Storage Archive Tier Now in Malaysia West&lt;/a>&lt;/strong> — Azure Blob Storage Archive access tier is now generally available in the Malaysia West region as of August 18, 2025.
+&lt;ul>
+&lt;li>Archive tier for Azure Blob Storage launched in Malaysia West region&lt;/li>
+&lt;li>Allows storage of infrequently accessed data at lower cost&lt;/li>
+&lt;li>Supports data residency requirements for Malaysia&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Azure Weekly – 2025 Week 33</title><link>https://quintelier.dev/updates-v1/azure-weekly-2025-week-33/</link><pubDate>Wed, 13 Aug 2025 12:50:21 +0000</pubDate><guid>https://quintelier.dev/updates-v1/azure-weekly-2025-week-33/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-11 → 2025-08-17 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500695" target="_blank" rel="noopener noreferrer">Azure Files provisioned v2 billing model for SSD (premium)&lt;/a>&lt;/strong> — Azure Files has introduced the provisioned v2 billing model for the SSD (premium) tier, now generally available as of August 15, 2025. This model allows independent provisioning of storage, IOPS, and throughput for file shares.
+&lt;ul>
+&lt;li>Provisioned v2 billing model now available for Azure Files on SSD (premium) tier&lt;/li>
+&lt;li>Enables separate provisioning of storage capacity, IOPS, and throughput&lt;/li>
+&lt;li>Generally available (GA) as of August 15, 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500583" target="_blank" rel="noopener noreferrer">Azure Databricks connector for Microsoft Power Platform&lt;/a>&lt;/strong> — The Azure Databricks connector for Microsoft Power Platform is now generally available as of August 14, 2025. This release enables real-time data access between Azure Databricks and Power Apps without requiring data copies.
+&lt;ul>
+&lt;li>Azure Databricks connector for Power Platform is now GA (August 14, 2025)&lt;/li>
+&lt;li>Supports real-time data access between Databricks and Power Apps&lt;/li>
+&lt;li>Eliminates need for data copying when integrating Databricks with Power Apps&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499753" target="_blank" rel="noopener noreferrer">Azure Managed Instance for Apache Cassandra v5.0&lt;/a>&lt;/strong> — Azure Managed Instance for Apache Cassandra now supports Cassandra 5.0 in public preview as of August 13, 2025.
+&lt;ul>
+&lt;li>Cassandra 5.0 is available in Azure Managed Instance for Apache Cassandra.&lt;/li>
+&lt;li>Release is in public preview starting August 13, 2025.&lt;/li>
+&lt;li>Includes access to new Cassandra features such as improved performance and new indexing capabilities.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499679" target="_blank" rel="noopener noreferrer">Azure Database for PostgreSQL flexible server in Malaysia West&lt;/a>&lt;/strong> — Azure Database for PostgreSQL flexible server is now generally available in the Malaysia West Azure region as of August 13, 2025.
+&lt;ul>
+&lt;li>General availability of Azure Database for PostgreSQL flexible server in Malaysia West region&lt;/li>
+&lt;li>Applies to deployments starting August 13, 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499670" target="_blank" rel="noopener noreferrer">Azure Cosmos DB for MongoDB (vCore) encryption with customer-managed key&lt;/a>&lt;/strong> — Azure Cosmos DB for MongoDB (vCore) now supports encryption with customer-managed keys, in addition to existing service-managed key encryption. This feature is available in preview as of August 13, 2025.
+&lt;ul>
+&lt;li>Customer-managed key (CMK) encryption is now supported for Azure Cosmos DB for MongoDB (vCore) clusters.&lt;/li>
+&lt;li>This feature is in preview as of August 13, 2025.&lt;/li>
+&lt;li>CMK adds an extra security layer beyond the default service-managed key (SMK) encryption.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500198" target="_blank" rel="noopener noreferrer">Deployment resumption - Azure Automation revised Service and Subscription limits&lt;/a>&lt;/strong> — Azure Automation will resume deployment of revised Service and Subscription limits starting August 11, 2025, following a temporary pause. The update aims to improve resource distribution, reliability, and performance.
+&lt;ul>
+&lt;li>Deployment of revised Service and Subscription limits resumes August 11, 2025&lt;/li>
+&lt;li>Applies to Azure Automation service&lt;/li>
+&lt;li>Intended to enhance resource fairness, reliability, and performance&lt;/li>
+&lt;li>Follows a brief deployment hiatus&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499776" target="_blank" rel="noopener noreferrer">Announcing Tenant-Level Service Health Alerts in Azure Monitor&lt;/a>&lt;/strong> — Azure Monitor has introduced a preview feature for tenant-level service health alerts, allowing users to receive notifications about service health issues affecting their entire tenant.
+&lt;ul>
+&lt;li>Tenant-level service health alerts now available in Azure Monitor (preview)&lt;/li>
+&lt;li>Notifications cover issues impacting the whole tenant, not just individual subscriptions&lt;/li>
+&lt;li>Feature announced on 2025-08-11&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500203" target="_blank" rel="noopener noreferrer">Introducing Azure App Testing: Scalable End-to-end App Validation&lt;/a>&lt;/strong> — Azure has released Azure App Testing in preview, allowing large-scale functional and performance testing for applications using frameworks such as Playwright, JMeter, and Locust.
+&lt;ul>
+&lt;li>Azure App Testing is now available in preview as of 2025-08-11.&lt;/li>
+&lt;li>Supports large-scale functional and performance tests.&lt;/li>
+&lt;li>Compatible with Playwright, JMeter, and Locust frameworks.&lt;/li>
+&lt;li>Combines Load Testing and Playwright Testing services.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499998" target="_blank" rel="noopener noreferrer">General Available: App Service Inbound IPv6 Support&lt;/a>&lt;/strong> — Azure App Service now offers general availability of inbound IPv6 support for multi-tenant apps across all public regions, covering Basic, Standard, Premium SKUs, Functions Consumption, Functions Elastic Premium, and Logic Apps Standard.
+&lt;ul>
+&lt;li>Inbound IPv6 support is now generally available for Azure App Service multi-tenant apps.&lt;/li>
+&lt;li>Applies to all public Azure regions.&lt;/li>
+&lt;li>Supported SKUs: Basic, Standard, Premium, Functions Consumption, Functions Elastic Premium, and Logic Apps Standard.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499748" target="_blank" rel="noopener noreferrer">Upsert and Script Activity in Azure Data Factory and Azure Synapse Analytics for Azure Database for PostgreSQL&lt;/a>&lt;/strong> — Azure Data Factory and Azure Synapse Analytics now support the Upsert method and Script activity for Azure Database for PostgreSQL, available generally as of August 11, 2025.
+&lt;ul>
+&lt;li>Upsert method is now generally available for Azure Database for PostgreSQL in Data Factory and Synapse Analytics.&lt;/li>
+&lt;li>Script activity support is also included in this release.&lt;/li>
+&lt;li>Enhancements allow more efficient and declarative data operations.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>⚙️ Automated Updates Pipeline</title><link>https://quintelier.dev/posts/2025/08/automated-updates-pipeline/</link><pubDate>Wed, 13 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/automated-updates-pipeline/</guid><description>&lt;h2 id="why-this-pipeline-exists">Why this pipeline exists&lt;/h2>
+&lt;p>Manually curating weekly platform updates (Azure service changes, GitHub changelog entries, Terraform provider releases) is repetitive, time‑sensitive, and error‑prone. This pipeline automates the whole path from data acquisition → AI summarisation → Hugo markdown generation → commit, delivering consistent, timestamped update posts under &lt;code>content/updates&lt;/code>.&lt;/p>
+&lt;h2 id="highlevel-architecture">High‑level architecture&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>┌───────────────┐ cron 05:15 UTC ┌───────────────────┐ grouped items ┌──────────────────┐
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ GitHub Action │ ─────────────────&amp;gt; │ PowerShell Script │ ───────────────&amp;gt; │ AI Summarisation │
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─────┬─────────┘ └──────────┬────────┘ └────────┬─────────┘
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> │ commit (if changed) │ filtered items │ summaries
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> V V V
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Repo content &amp;lt;────────────── write markdown posts &amp;lt;──────────── assemble front matter
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="scheduling--cadence">Scheduling &amp;amp; cadence&lt;/h2>
+&lt;p>The workflow runs daily at &lt;code>05:15 UTC&lt;/code> but per‑source publication cadence is controlled inside the script using a frequency map (&lt;code>Azure=weekly,GitHub=weekly,Terraform=weekly&lt;/code> by default). The script:&lt;/p></description></item><item><title>🖥️ Zero to Hero: Terraform for Azure•Part 2</title><link>https://quintelier.dev/posts/2025/08/zero-to-hero-terraform-for-azure-2/</link><pubDate>Wed, 06 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/zero-to-hero-terraform-for-azure-2/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>In &lt;a href="../../03/zero-to-hero-terraform-for-azure-1/">Part 1&lt;/a>, we set up our development environment and deployed our first Azure resource group using Terraform. Whilst this gave us a taste of Infrastructure as Code, we were using local state files: a practice that won&amp;rsquo;t scale for team environments or production workloads.&lt;/p>
+&lt;p>In this second part of our series, we&amp;rsquo;ll explore &lt;strong>Terraform state management&lt;/strong> and &lt;strong>remote backends&lt;/strong>. You&amp;rsquo;ll learn why state is crucial, how to configure Azure Storage as a remote backend, implement state locking for team safety, and master essential state management commands.&lt;/p></description></item><item><title>🚀 .NET 9 Performance in Azure: A Deep Technical Dive</title><link>https://quintelier.dev/posts/2025/08/net-9-performance-azure-deep-dive/</link><pubDate>Tue, 05 Aug 2025 10:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/net-9-performance-azure-deep-dive/</guid><description>&lt;p>.NET 9 represents a significant leap forward in performance optimization, particularly for Azure-hosted applications. With cloud costs continuing to rise and performance expectations at an all-time high, these improvements can directly impact both your application&amp;rsquo;s user experience and your Azure bill. Let&amp;rsquo;s explore the technical depths of what makes .NET 9 a game-changer for Azure workloads.&lt;/p>
+&lt;h2 id="executive-summary-the-performance-revolution">Executive Summary: The Performance Revolution&lt;/h2>
+&lt;p>Before diving into the technical details, here&amp;rsquo;s what .NET 9 delivers for Azure applications:&lt;/p></description></item><item><title>🌐 AKS Networking Demystified: Models &amp; Best Practices</title><link>https://quintelier.dev/posts/2025/04/aks-networking-guide/</link><pubDate>Thu, 17 Apr 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/04/aks-networking-guide/</guid><description>&lt;h2 id="demystifying-networking-in-azure-kubernetes-service-aks">Demystifying Networking in Azure Kubernetes Service (AKS)&lt;/h2>
+&lt;p>Networking in Azure Kubernetes Service (AKS) provides the backbone for secure and efficient containerized workloads. Microsoft offers several networking models in AKS, each tailored for specific requirements and use cases. In this post, we explore these networking options: Azure CNI, Azure CNI Overlay, Kubenet, and Azure CNI powered by Cilium, along with recent updates from Azure.&lt;/p>
+&lt;h3 id="kubenet">Kubenet&lt;/h3>
+&lt;p>Kubenet is a simple and traditional networking approach in AKS, suitable for scenarios that don’t require the advanced networking features of Azure CNI.&lt;/p></description></item><item><title>📘 Secure Azure CI/CD with Federated Credentials</title><link>https://quintelier.dev/posts/2025/03/federated-credentials-secure-azure-cicd/</link><pubDate>Tue, 25 Mar 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/federated-credentials-secure-azure-cicd/</guid><description>&lt;h2 id="why-use-federated-credentials-in-cicd-pipelines">Why Use Federated Credentials in CI/CD Pipelines?&lt;/h2>
+&lt;p>In DevOps, protecting credentials and preventing secret sprawl across CI/CD systems like GitHub Actions and Azure DevOps is crucial. Federated credentials provide a secure way to authenticate pipelines without storing sensitive information, reducing the risk of exposure and simplifying secret management.&lt;/p>
+&lt;p>Federated identity leverages external identity providers (such as Azure Active Directory) to authenticate users and applications securely. Rather than managing multiple secrets or tokens across platforms, federated identity centralizes authentication, providing significant security and operational benefits.&lt;/p></description></item><item><title>🔄 Azure updates for March 18, 2025</title><link>https://quintelier.dev/posts/2025/03/azure-updates-march-18-2025/</link><pubDate>Tue, 18 Mar 2025 07:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/azure-updates-march-18-2025/</guid><description>&lt;h2 id="introduction-azure-changelog--latest-updates--enhancements">&lt;strong>Introduction: Azure Changelog – Latest Updates &amp;amp; Enhancements&lt;/strong>&lt;/h2>
+&lt;p>Welcome to the Azure Changelog, your go-to source for the latest updates and enhancements in Microsoft Azure. In this edition, we will cover the most recent changes and improvements made to Azure services, tools, and features. Stay informed about the latest developments in the Azure ecosystem to optimize your cloud experience.&lt;/p>
+&lt;h3 id="kubenet-networking-for-azure-kubernetes-service-retires-on-march-31-2028">Kubenet Networking for Azure Kubernetes Service Retires on March 31, 2028&lt;/h3>
+&lt;p>Azure Kubernetes Service (AKS) will officially retire &lt;strong>kubenet networking&lt;/strong> on &lt;strong>March 31, 2028&lt;/strong>. After this date, workloads using kubenet will no longer be supported, so it&amp;rsquo;s essential to migrate in advance to avoid disruptions.&lt;/p></description></item><item><title>🖥️ Zero to Hero: Terraform for Azure•Part 1</title><link>https://quintelier.dev/posts/2025/03/zero-to-hero-terraform-for-azure-1/</link><pubDate>Mon, 10 Mar 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/zero-to-hero-terraform-for-azure-1/</guid><description>&lt;h2 id="introduction">&lt;strong>Introduction&lt;/strong>&lt;/h2>
+&lt;p>Terraform is a powerful Infrastructure as Code (IaC) tool that enables you to define, provision, and manage Azure resources using declarative configuration files. This blog series, &lt;em>Zero to Hero: Terraform for Azure&lt;/em>, will take you through Terraform from the basics to advanced topics, using hands-on examples tailored for Azure.&lt;/p>
+&lt;p>In this first post, we’ll focus on setting up your development environment and deploying your first resource on Azure using Terraform.&lt;/p></description></item><item><title>🔒 Securing Azure Identities</title><link>https://quintelier.dev/posts/2025/02/securing-azure-identities/</link><pubDate>Thu, 20 Feb 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/02/securing-azure-identities/</guid><description>&lt;h2 id="securing-azure-identities-the-new-perimeter-in-cloud-security">Securing Azure Identities: The “New” Perimeter in Cloud Security&lt;/h2>
+&lt;p>It’s no secret that the cloud has fundamentally changed how we approach cybersecurity. The days when a robust firewall was all you needed to keep attackers at bay are long gone. As cloud-native services increasingly move into the public sphere, identity has emerged as the new defensive perimeter—if an attacker compromises your identities and credentials, they’re essentially inside.&lt;/p>
+&lt;h2 id="why-identities-matter-more-than-ever">Why Identities Matter More Than Ever&lt;/h2>
+&lt;p>If you’ve participated in a cybersecurity roundtable recently, you’ve likely heard someone mention, “Identity is the new perimeter.” Historically, once you were inside a corporate network, you had broad access to internal systems—much like walking through a front door and freely wandering the house. However, the widespread adoption of cloud services—accessible from anywhere—has turned this model upside down.&lt;/p></description></item><item><title>🔹 Azure Storage Redundancy: Availability &amp; Durability</title><link>https://quintelier.dev/posts/2023/03/azure-storage-redundancy-data-availability-durability/</link><pubDate>Mon, 20 Mar 2023 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2023/03/azure-storage-redundancy-data-availability-durability/</guid><description>&lt;p>Azure Storage automatically &lt;strong>stores multiple copies&lt;/strong> of your data to protect against failures, power outages, and even &lt;strong>massive natural disasters&lt;/strong>. &lt;strong>Redundancy&lt;/strong> ensures that your data remains available and durable even when failures occur.&lt;/p>
+&lt;p>This guide covers &lt;strong>all redundancy options&lt;/strong> available in Azure Storage and how they impact data durability, availability, and failover scenarios.&lt;/p>
+&lt;hr>
+&lt;h2 id="-primary-region-redundancy">🌍 &lt;strong>Primary Region Redundancy&lt;/strong>&lt;/h2>
+&lt;p>Azure Storage always maintains &lt;strong>three copies&lt;/strong> of your data in the &lt;strong>primary region&lt;/strong>. There are two replication options:&lt;/p></description></item><item><title>Azure Load Balancing: Choose the Right Option</title><link>https://quintelier.dev/posts/2022/06/azure-load-balancing-explained/</link><pubDate>Fri, 17 Jun 2022 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2022/06/azure-load-balancing-explained/</guid><description>&lt;h2 id="what-is-load-balancing">&lt;strong>What is Load Balancing?&lt;/strong>&lt;/h2>
+&lt;p>Load balancing is the &lt;strong>even distribution of network traffic&lt;/strong> across a group of backend computing resources or servers. The primary goals of load balancing are:&lt;/p>
+&lt;p>✅ &lt;strong>Optimizing resource utilization&lt;/strong>&lt;br>
+✅ &lt;strong>Maximizing throughput &amp;amp; performance&lt;/strong>&lt;br>
+✅ &lt;strong>Minimizing response time&lt;/strong>&lt;br>
+✅ &lt;strong>Ensuring high availability&lt;/strong>&lt;br>
+✅ &lt;strong>Preventing overload on a single resource&lt;/strong>&lt;/p>
+&lt;p>In &lt;strong>Azure&lt;/strong>, there are multiple load-balancing options, each designed for different &lt;strong>traffic types and use cases&lt;/strong>.&lt;/p>
+&lt;hr>
+&lt;h2 id="tldr-2025-update">&lt;strong>TL;DR (2025 Update)&lt;/strong>&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Goal&lt;/th>
+ &lt;th>Pick&lt;/th>
+ &lt;th>Why&lt;/th>
+ &lt;th>Layer / Scope&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Global HTTP(S) acceleration + WAF&lt;/td>
+ &lt;td>Front Door Std/Premium&lt;/td>
+ &lt;td>Anycast edge, caching, rapid failover&lt;/td>
+ &lt;td>L7 / Global&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Global single anycast IP for TCP/UDP&lt;/td>
+ &lt;td>Cross-region Load Balancer&lt;/td>
+ &lt;td>L4 pass-through, fast failover (no DNS TTL)&lt;/td>
+ &lt;td>L4 / Global&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Hybrid or external endpoint steering&lt;/td>
+ &lt;td>Traffic Manager&lt;/td>
+ &lt;td>DNS-based latency / geo / weighted policies&lt;/td>
+ &lt;td>DNS / Global&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>In-region advanced HTTP routing + per-app WAF&lt;/td>
+ &lt;td>Application Gateway v2&lt;/td>
+ &lt;td>Path/host routing, rewrites, mTLS&lt;/td>
+ &lt;td>L7 / Regional&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Regional TCP/UDP balancing + outbound SNAT&lt;/td>
+ &lt;td>Standard Load Balancer&lt;/td>
+ &lt;td>High-perf, zone redundant&lt;/td>
+ &lt;td>L4 / Regional&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Insert firewall / IDS transparently&lt;/td>
+ &lt;td>Gateway Load Balancer&lt;/td>
+ &lt;td>Inline NVA chaining without UDR complexity&lt;/td>
+ &lt;td>L3/L4 / Regional&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Legacy Basic LB still present&lt;/td>
+ &lt;td>Migrate to Standard&lt;/td>
+ &lt;td>Basic retires 30 Sept 2025&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/td>
+ &lt;td>—&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>Plan outbound explicitly before default outbound access retirement (30 Sept 2025)&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. Combine services (e.g. Front Door + App Gateway) for layered designs.&lt;/p></description></item><item><title>📘 AZ-700 Prep Highlights</title><link>https://quintelier.dev/posts/2022/06/az-700-prep-highlights/</link><pubDate>Fri, 03 Jun 2022 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2022/06/az-700-prep-highlights/</guid><description>&lt;p>This blog post captures my notes from the &lt;strong>AZ-700&lt;/strong> course, which is designed to teach &lt;strong>Network Engineers&lt;/strong> how to design, implement, and maintain &lt;strong>Azure networking solutions&lt;/strong>. The course covers a wide range of networking topics, including:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Designing, implementing, and managing&lt;/strong> core Azure networking infrastructure&lt;/li>
+&lt;li>&lt;strong>Hybrid networking&lt;/strong> connections for on-premises integration&lt;/li>
+&lt;li>&lt;strong>Load balancing&lt;/strong> strategies for optimizing traffic distribution&lt;/li>
+&lt;li>&lt;strong>Routing and private access&lt;/strong> to Azure services&lt;/li>
+&lt;li>&lt;strong>Network security&lt;/strong> and traffic filtering&lt;/li>
+&lt;li>&lt;strong>Monitoring and troubleshooting&lt;/strong> network connectivity&lt;/li>
+&lt;/ul>
+&lt;h2 id="1-virtual-networks-vnets">&lt;strong>1. Virtual Networks (VNets)&lt;/strong>&lt;/h2>
+&lt;p>Azure &lt;strong>Virtual Networks (VNets)&lt;/strong> are the backbone of networking in Azure, allowing resources to communicate securely.&lt;/p></description></item></channel></rss>
