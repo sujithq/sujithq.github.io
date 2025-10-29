@@ -31,7 +31,7 @@ description = "Seven-part CSharp async/await series: fundamentals, pitfalls, pat
 4. [Part 4 – Patterns](/posts/2025/10/csharp-async-await-part4/)
 5. [Part 5 – Real-World Use Cases](/posts/2025/10/csharp-async-await-part5/)
 6. [Part 6 – Advanced Topics](/posts/2025/10/csharp-async-await-part6/)
-7. Part 7 – Testing & Debugging (Releases 2025-10-29)
+7. [Part 7 – Testing & Debugging](/posts/2025/10/csharp-async-await-part7/)
 
 ---
 
@@ -76,4 +76,4 @@ Performance with `ValueTask`, writing custom awaiters, using coordination primit
 ### **Part 7: Testing and Debugging Async Code**
 
 Writing async unit tests, mocking async methods, debugging with Visual Studio async tools, logging async flows, and handling unobserved exceptions.  
-👉 Releases 29 Oct 2025
+👉 [Read Part 7](./part7.md)
