@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Terraform on Sujith Quintelier</title><link>https://quintelier.dev/tags/terraform/</link><description>Recent content in Terraform on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 31 Aug 2025 05:32:31 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/terraform/index.xml" rel="self" type="application/rss+xml"/><item><title>Terraform Weekly – 2025 Week 35</title><link>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-35/</link><pubDate>Thu, 28 Aug 2025 05:34:03 +0000</pubDate><guid>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-35/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-25 → 2025-08-31 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform-provider-azurerm/releases/tag/v4.42.0" target="_blank" rel="noopener noreferrer">v4.42.0&lt;/a>&lt;/strong> — Terraform AzureRM provider version 4.42.0 was released on August 28, 2025, including a state migration fix for azurerm_kusto_cluster resource parsing errors related to the language_extensions property.
+&lt;ul>
+&lt;li>Fixed resource state parsing error for azurerm_kusto_cluster when language_extensions is defined via a state migration.&lt;/li>
+&lt;li>Users upgrading from versions older than 4.0.0 should upgrade directly to 4.42.0 to apply the fix.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform/releases/tag/v1.14.0-alpha20250827" target="_blank" rel="noopener noreferrer">v1.14.0-alpha20250827&lt;/a>&lt;/strong> — Terraform released version 1.14.0-alpha20250827 on August 27, 2025, introducing enhancements to the terraform test command.
+&lt;ul>
+&lt;li>terraform test now includes expected diagnostics in test output when run in verbose mode.&lt;/li>
+&lt;li>terraform test ignores the prevent_destroy attribute during cleanup operations.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform/releases/tag/v1.13.1" target="_blank" rel="noopener noreferrer">v1.13.1&lt;/a>&lt;/strong> — Terraform released version 1.13.1 on August 27, 2025, addressing bugs in the terraform test command.
+&lt;ul>
+&lt;li>Fixed a regression causing terraform test with zero tests to return a non-zero exit code.&lt;/li>
+&lt;li>Prevented panic in terraform test when resolving incomplete references.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Terraform Weekly – 2025 Week 34</title><link>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-34/</link><pubDate>Thu, 21 Aug 2025 05:34:24 +0000</pubDate><guid>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-34/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-18 → 2025-08-24 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform-provider-azurerm/releases/tag/v4.41.0" target="_blank" rel="noopener noreferrer">v4.41.0&lt;/a>&lt;/strong> — Terraform AzureRM provider version 4.41.0 was released on August 21, 2025, introducing new resources for network management.
+&lt;ul>
+&lt;li>Added new resource azurerm_network_manager_ipam_pool_static_cidr for managing static CIDRs in IPAM pools.&lt;/li>
+&lt;li>Added new resource azurerm_network_manager_routing_rule_collection for managing routing rule collections.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform/releases/tag/v1.13.0" target="_blank" rel="noopener noreferrer">v1.13.0&lt;/a>&lt;/strong> — Terraform released version 1.13.0 on August 20, 2025, introducing the new &lt;code>terraform stacks&lt;/code> CLI command for stack operations, with subcommands varying by plugin implementation.
+&lt;ul>
+&lt;li>Introduced &lt;code>terraform stacks&lt;/code> command to manage stack operations via CLI.&lt;/li>
+&lt;li>Subcommands for &lt;code>terraform stacks&lt;/code> depend on the installed stacks plugin.&lt;/li>
+&lt;li>Use &lt;code>terraform stacks -usage&lt;/code> to view available subcommands.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Terraform Weekly – 2025 Week 33</title><link>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-33/</link><pubDate>Thu, 14 Aug 2025 05:40:48 +0000</pubDate><guid>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-33/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-11 → 2025-08-17 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform-provider-azurerm/releases/tag/v4.40.0" target="_blank" rel="noopener noreferrer">v4.40.0&lt;/a>&lt;/strong> — Terraform AzureRM provider version 4.40.0 was released on August 14, 2025, introducing a new resource and enhancements.
+&lt;ul>
+&lt;li>Added new resource: azurerm_data_factory_customer_managed_key.&lt;/li>
+&lt;li>Enhanced azurerm_eventgrid_system_topic to suppress case differences on source_resource_id.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform/releases/tag/v1.14.0-alpha20250813" target="_blank" rel="noopener noreferrer">v1.14.0-alpha20250813&lt;/a>&lt;/strong> — Terraform released version 1.14.0-alpha20250813 on August 13, 2025, introducing enhancements to the terraform test command.
+&lt;ul>
+&lt;li>terraform test now includes expected diagnostics in verbose mode output.&lt;/li>
+&lt;li>terraform test ignores the prevent_destroy attribute during cleanup.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>⚙️ Automated Updates Pipeline</title><link>https://quintelier.dev/posts/2025/08/automated-updates-pipeline/</link><pubDate>Wed, 13 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/automated-updates-pipeline/</guid><description>&lt;h2 id="why-this-pipeline-exists">Why this pipeline exists&lt;/h2>
+&lt;p>Manually curating weekly platform updates (Azure service changes, GitHub changelog entries, Terraform provider releases) is repetitive, time‑sensitive, and error‑prone. This pipeline automates the whole path from data acquisition → AI summarisation → Hugo markdown generation → commit, delivering consistent, timestamped update posts under &lt;code>content/updates&lt;/code>.&lt;/p>
+&lt;h2 id="highlevel-architecture">High‑level architecture&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>┌───────────────┐ cron 05:15 UTC ┌───────────────────┐ grouped items ┌──────────────────┐
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ GitHub Action │ ─────────────────&amp;gt; │ PowerShell Script │ ───────────────&amp;gt; │ AI Summarisation │
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─────┬─────────┘ └──────────┬────────┘ └────────┬─────────┘
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> │ commit (if changed) │ filtered items │ summaries
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> V V V
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Repo content &amp;lt;────────────── write markdown posts &amp;lt;──────────── assemble front matter
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="scheduling--cadence">Scheduling &amp;amp; cadence&lt;/h2>
+&lt;p>The workflow runs daily at &lt;code>05:15 UTC&lt;/code> but per‑source publication cadence is controlled inside the script using a frequency map (&lt;code>Azure=weekly,GitHub=weekly,Terraform=weekly&lt;/code> by default). The script:&lt;/p></description></item><item><title>🖥️ Zero to Hero: Terraform for Azure•Part 2</title><link>https://quintelier.dev/posts/2025/08/zero-to-hero-terraform-for-azure-2/</link><pubDate>Wed, 06 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/zero-to-hero-terraform-for-azure-2/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>In &lt;a href="../../03/zero-to-hero-terraform-for-azure-1/">Part 1&lt;/a>, we set up our development environment and deployed our first Azure resource group using Terraform. Whilst this gave us a taste of Infrastructure as Code, we were using local state files: a practice that won&amp;rsquo;t scale for team environments or production workloads.&lt;/p>
+&lt;p>In this second part of our series, we&amp;rsquo;ll explore &lt;strong>Terraform state management&lt;/strong> and &lt;strong>remote backends&lt;/strong>. You&amp;rsquo;ll learn why state is crucial, how to configure Azure Storage as a remote backend, implement state locking for team safety, and master essential state management commands.&lt;/p></description></item><item><title>⚖️ Azure Bicep vs Terraform: What Should You Choose?</title><link>https://quintelier.dev/posts/2025/03/azure-bicep-vs-terraform/</link><pubDate>Sat, 15 Mar 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/azure-bicep-vs-terraform/</guid><description>&lt;h2 id="introduction">&lt;strong>Introduction&lt;/strong>&lt;/h2>
+&lt;p>Infrastructure as Code (IaC) is a critical part of modern cloud development, allowing teams to define and manage infrastructure in a declarative and repeatable way. Two of the most popular IaC tools for Microsoft Azure are &lt;strong>Azure Bicep&lt;/strong> and &lt;strong>Terraform&lt;/strong>.&lt;/p>
+&lt;p>But which one should you use? This article compares Bicep and Terraform based on syntax, features, ease of use, ecosystem support, and real-world scenarios.&lt;/p>
+&lt;hr>
+&lt;h2 id="what-is-azure-bicep">&lt;strong>What is Azure Bicep?&lt;/strong>&lt;/h2>
+&lt;p>Azure Bicep is a &lt;strong>domain-specific language (DSL)&lt;/strong> developed by Microsoft as an abstraction over ARM (Azure Resource Manager) templates. It simplifies Azure infrastructure deployment by providing a cleaner syntax compared to JSON-based ARM templates.&lt;/p></description></item><item><title>🖥️ Zero to Hero: Terraform for Azure•Part 1</title><link>https://quintelier.dev/posts/2025/03/zero-to-hero-terraform-for-azure-1/</link><pubDate>Mon, 10 Mar 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/zero-to-hero-terraform-for-azure-1/</guid><description>&lt;h2 id="introduction">&lt;strong>Introduction&lt;/strong>&lt;/h2>
+&lt;p>Terraform is a powerful Infrastructure as Code (IaC) tool that enables you to define, provision, and manage Azure resources using declarative configuration files. This blog series, &lt;em>Zero to Hero: Terraform for Azure&lt;/em>, will take you through Terraform from the basics to advanced topics, using hands-on examples tailored for Azure.&lt;/p>
+&lt;p>In this first post, we’ll focus on setting up your development environment and deploying your first resource on Azure using Terraform.&lt;/p></description></item></channel></rss>
