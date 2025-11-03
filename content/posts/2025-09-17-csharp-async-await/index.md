@@ -46,34 +46,34 @@ This 7-part series takes you from the basics of `async`/`await` to advanced scen
 ### **Part 1: Introduction to Asynchronous Programming**
 
 Why async matters, the difference between blocking and non-blocking code, and your first `async/await` example.  
-👉 [Read Part 1](./part1.md)
+👉 [Read Part 1](/posts/2025/09/csharp-async-await-part1/)
 
 ### **Part 2: Deep Dive into `async` and `await`**
 
 The anatomy of an async method, return types (`Task`, `Task<T>`, `void`), and how `await` really works.  
-👉 [Read Part 2](./part2.md)
+👉 [Read Part 2](/posts/2025/09/csharp-async-await-part2/)
 
 ### **Part 3: Common Pitfalls & Best Practices**
 
 Avoiding `async void`, handling deadlocks, using `ConfigureAwait(false)`, and safe exception handling.  
-👉 [Read Part 3](./part3.md)
+👉 [Read Part 3](/posts/2025/09/csharp-async-await-part3/)
 
 ### **Part 4: Patterns with Async**
 
 Running multiple tasks in parallel, cancelling with `CancellationToken`, using async streams, and implementing timeouts/retries.  
-👉 [Read Part 4](./part4.md)
+👉 [Read Part 4](/posts/2025/09/csharp-async-await-part4/)
 
 ### **Part 5: Real-World Use Cases**
 
 How async improves real apps: calling APIs with `HttpClient`, async file I/O, EF Core queries, responsive UIs, and background services.  
-👉 [Read Part 5](./part5.md)
+👉 [Read Part 5](/posts/2025/09/csharp-async-await-part5/)
 
 ### **Part 6: Advanced Topics**
 
 Performance with `ValueTask`, writing custom awaiters, using coordination primitives (`SemaphoreSlim`, `Channel`), and tuning async performance.  
-👉 [Read Part 6](./part6.md)
+👉 [Read Part 6](/posts/2025/09/csharp-async-await-part6/)
 
 ### **Part 7: Testing and Debugging Async Code**
 
 Writing async unit tests, mocking async methods, debugging with Visual Studio async tools, logging async flows, and handling unobserved exceptions.  
-👉 [Read Part 7](./part7.md)
+👉 [Read Part 7](/posts/2025/09/csharp-async-await-part7/)
