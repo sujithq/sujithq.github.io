@@ -56,24 +56,24 @@ The anatomy of an async method, return types (`Task`, `Task<T>`, `void`), and ho
 ### **Part 3: Common Pitfalls & Best Practices**
 
 Avoiding `async void`, handling deadlocks, using `ConfigureAwait(false)`, and safe exception handling.  
-👉 [Read Part 3](/posts/2025/09/csharp-async-await-part3/)
+👉 [Read Part 3](/posts/2025/10/csharp-async-await-part3/)
 
 ### **Part 4: Patterns with Async**
 
 Running multiple tasks in parallel, cancelling with `CancellationToken`, using async streams, and implementing timeouts/retries.  
-👉 [Read Part 4](/posts/2025/09/csharp-async-await-part4/)
+👉 [Read Part 4](/posts/2025/10/csharp-async-await-part4/)
 
 ### **Part 5: Real-World Use Cases**
 
 How async improves real apps: calling APIs with `HttpClient`, async file I/O, EF Core queries, responsive UIs, and background services.  
-👉 [Read Part 5](/posts/2025/09/csharp-async-await-part5/)
+👉 [Read Part 5](/posts/2025/10/csharp-async-await-part5/)
 
 ### **Part 6: Advanced Topics**
 
 Performance with `ValueTask`, writing custom awaiters, using coordination primitives (`SemaphoreSlim`, `Channel`), and tuning async performance.  
-👉 [Read Part 6](/posts/2025/09/csharp-async-await-part6/)
+👉 [Read Part 6](/posts/2025/10/csharp-async-await-part6/)
 
 ### **Part 7: Testing and Debugging Async Code**
 
 Writing async unit tests, mocking async methods, debugging with Visual Studio async tools, logging async flows, and handling unobserved exceptions.  
-👉 [Read Part 7](/posts/2025/09/csharp-async-await-part7/)
+👉 [Read Part 7](/posts/2025/10/csharp-async-await-part7/)
