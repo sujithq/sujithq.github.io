@@ -16,7 +16,7 @@ certs:
   - code: az-500
     desc: Azure Security Engineer
     type: Associate
-    expires: 2026-04-24
+    expires: 2027-04-24
   - code: az-700
     desc: Azure Network Engineer
     type: Associate
