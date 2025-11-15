@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Weekly on Sujith Quintelier</title><link>https://quintelier.dev/tags/weekly/</link><description>Recent content in Weekly on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 02 Sep 2025 05:33:51 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/weekly/index.xml" rel="self" type="application/rss+xml"/><item><title>Azure Weekly – 2025 Week 36</title><link>https://quintelier.dev/updates-v1/azure-weekly-2025-week-36/</link><pubDate>Tue, 02 Sep 2025 05:33:51 +0000</pubDate><guid>https://quintelier.dev/updates-v1/azure-weekly-2025-week-36/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-09-01 → 2025-09-07 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500374" target="_blank" rel="noopener noreferrer">Azure App Service - New Premium v4 Offering&lt;/a>&lt;/strong> — Azure App Service has launched the Premium v4 tier, now generally available as of September 1, 2025. This offering features faster processors, NVMe local storage, and memory-optimized options on updated Azure hardware for both Windows and Linux environments.
+&lt;ul>
+&lt;li>Premium v4 tier is now generally available for Azure App Service (Windows and Linux)&lt;/li>
+&lt;li>Includes faster processors and NVMe local storage&lt;/li>
+&lt;li>Offers memory-optimized options and new sizing starting from 1 vCPU/4GB RAM&lt;/li>
+&lt;li>Runs on the latest Azure hardware&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=501200" target="_blank" rel="noopener noreferrer">Azure Front Door Standard and Premium are now available in Azure China.&lt;/a>&lt;/strong> — Azure Front Door Standard and Premium reached general availability in the Azure China regions (China North 3 and China East 3) as of September 1, 2025.
+&lt;ul>
+&lt;li>Azure Front Door Standard and Premium are now GA in China North 3 and China East 3 regions.&lt;/li>
+&lt;li>Service operated by 21Vianet.&lt;/li>
+&lt;li>Availability enables secure and reliable application delivery for customers in China.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>GitHub Weekly – 2025 Week 36</title><link>https://quintelier.dev/updates-v1/github-weekly-2025-week-36/</link><pubDate>Tue, 02 Sep 2025 05:33:51 +0000</pubDate><guid>https://quintelier.dev/updates-v1/github-weekly-2025-week-36/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-09-01 → 2025-09-07 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-09-01-graphql-api-resource-limits" target="_blank" rel="noopener noreferrer">GraphQL API resource limits&lt;/a>&lt;/strong> — GitHub has introduced new resource limits for its GraphQL API effective September 1, 2025. These limits are designed to improve API reliability and performance.
+&lt;ul>
+&lt;li>New resource limits applied to GitHub GraphQL API requests&lt;/li>
+&lt;li>Limits include maximum query complexity and depth&lt;/li>
+&lt;li>Changes take effect starting September 1, 2025&lt;/li>
+&lt;li>Documentation updated to reflect new limits&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Terraform Weekly – 2025 Week 35</title><link>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-35/</link><pubDate>Thu, 28 Aug 2025 05:34:03 +0000</pubDate><guid>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-35/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-25 → 2025-08-31 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform-provider-azurerm/releases/tag/v4.42.0" target="_blank" rel="noopener noreferrer">v4.42.0&lt;/a>&lt;/strong> — Terraform AzureRM provider version 4.42.0 was released on August 28, 2025, including a state migration fix for azurerm_kusto_cluster resource parsing errors related to the language_extensions property.
+&lt;ul>
+&lt;li>Fixed resource state parsing error for azurerm_kusto_cluster when language_extensions is defined via a state migration.&lt;/li>
+&lt;li>Users upgrading from versions older than 4.0.0 should upgrade directly to 4.42.0 to apply the fix.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform/releases/tag/v1.14.0-alpha20250827" target="_blank" rel="noopener noreferrer">v1.14.0-alpha20250827&lt;/a>&lt;/strong> — Terraform released version 1.14.0-alpha20250827 on August 27, 2025, introducing enhancements to the terraform test command.
+&lt;ul>
+&lt;li>terraform test now includes expected diagnostics in test output when run in verbose mode.&lt;/li>
+&lt;li>terraform test ignores the prevent_destroy attribute during cleanup operations.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform/releases/tag/v1.13.1" target="_blank" rel="noopener noreferrer">v1.13.1&lt;/a>&lt;/strong> — Terraform released version 1.13.1 on August 27, 2025, addressing bugs in the terraform test command.
+&lt;ul>
+&lt;li>Fixed a regression causing terraform test with zero tests to return a non-zero exit code.&lt;/li>
+&lt;li>Prevented panic in terraform test when resolving incomplete references.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>GitHub Weekly – 2025 Week 35</title><link>https://quintelier.dev/updates-v1/github-weekly-2025-week-35/</link><pubDate>Wed, 27 Aug 2025 05:33:06 +0000</pubDate><guid>https://quintelier.dev/updates-v1/github-weekly-2025-week-35/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-25 → 2025-08-31 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-29-copilots-next-edit-suggestion-nes-in-public-preview-in-jetbrains" target="_blank" rel="noopener noreferrer">Copilot’s next edit suggestion (NES) in public preview in JetBrains&lt;/a>&lt;/strong> — GitHub Copilot&amp;rsquo;s Next Edit Suggestion (NES) feature is now available in public preview for JetBrains IDEs as of August 29, 2025.
+&lt;ul>
+&lt;li>NES provides inline suggestions for the next code edit within JetBrains IDEs.&lt;/li>
+&lt;li>Feature is in public preview and accessible to users of supported JetBrains products.&lt;/li>
+&lt;li>Release date: 2025-08-29.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-28-added-support-for-webp-images" target="_blank" rel="noopener noreferrer">Added support for WebP images&lt;/a>&lt;/strong> — GitHub now supports WebP image format as of August 28, 2025.
+&lt;ul>
+&lt;li>WebP images can be uploaded and displayed on GitHub.&lt;/li>
+&lt;li>Support is available platform-wide as of 2025-08-28.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions" target="_blank" rel="noopener noreferrer">Copilot coding agent now supports AGENTS.md custom instructions&lt;/a>&lt;/strong> — GitHub Copilot coding agent now supports custom instructions defined in AGENTS.md files as of August 28, 2025.
+&lt;ul>
+&lt;li>Copilot coding agent can read and apply custom instructions from AGENTS.md files.&lt;/li>
+&lt;li>Feature available starting August 28, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-28-start-and-track-copilot-coding-agent-tasks-from-raycast" target="_blank" rel="noopener noreferrer">Start and track Copilot coding agent tasks from Raycast&lt;/a>&lt;/strong> — GitHub Copilot coding agent tasks can now be started and tracked directly from Raycast as of August 28, 2025.
+&lt;ul>
+&lt;li>Users can initiate Copilot coding agent tasks from Raycast.&lt;/li>
+&lt;li>Task progress and status can be monitored within Raycast.&lt;/li>
+&lt;li>Integration available starting August 28, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-28-improvements-to-the-home-dashboard-available-in-public-preview" target="_blank" rel="noopener noreferrer">Improvements to the home dashboard available in public preview&lt;/a>&lt;/strong> — GitHub has released public preview improvements to the home dashboard as of August 28, 2025.
+&lt;ul>
+&lt;li>Improvements to GitHub&amp;rsquo;s home dashboard are now available in public preview.&lt;/li>
+&lt;li>The update was announced on August 28, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-28-openai-gpt-5-mini-is-now-available-in-public-preview-in-visual-studio-jetbrains-ides-xcode-and-eclipse" target="_blank" rel="noopener noreferrer">OpenAI GPT-5 mini is now available in public preview in Visual Studio, JetBrains IDEs, Xcode, and Eclipse&lt;/a>&lt;/strong> — OpenAI has released GPT-5 mini in public preview for integration with Visual Studio, JetBrains IDEs, Xcode, and Eclipse as of August 28, 2025.
+&lt;ul>
+&lt;li>GPT-5 mini is now available in public preview.&lt;/li>
+&lt;li>Supported IDEs include Visual Studio, JetBrains IDEs, Xcode, and Eclipse.&lt;/li>
+&lt;li>Announcement date: August 28, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-28-github-copilot-in-visual-studio-august-update" target="_blank" rel="noopener noreferrer">GitHub Copilot in Visual Studio — August update&lt;/a>&lt;/strong> — The August 2025 update for GitHub Copilot in Visual Studio introduces improvements and new features to enhance coding assistance within the IDE.
+&lt;ul>
+&lt;li>GitHub Copilot integration in Visual Studio received an update in August 2025.&lt;/li>
+&lt;li>The update includes enhancements to coding suggestions and overall user experience.&lt;/li>
+&lt;li>Available globally as of August 28, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-27-create-sub-issues-with-copilot-in-public-preview" target="_blank" rel="noopener noreferrer">Create sub-issues with Copilot in public preview&lt;/a>&lt;/strong> — GitHub has launched a public preview feature allowing users to create sub-issues using Copilot.
+&lt;ul>
+&lt;li>GitHub introduced the ability to create sub-issues with Copilot in public preview as of August 27, 2025.&lt;/li>
+&lt;li>This feature helps users break down issues into smaller, manageable parts using AI assistance.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-27-copilot-code-review-generally-available-in-xcode-and-new-admin-control" target="_blank" rel="noopener noreferrer">Copilot code review: Generally available in Xcode and new admin control&lt;/a>&lt;/strong> — GitHub Copilot code review is now generally available in Xcode. A new admin control feature has been introduced to manage its usage.
+&lt;ul>
+&lt;li>Copilot code review feature is generally available in Xcode as of August 27, 2025.&lt;/li>
+&lt;li>New administrative control added to manage Copilot code review usage.&lt;/li>
+&lt;li>Update announced by GitHub on August 27, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-27-copilot-code-completion-now-uses-the-gpt-4-1-copilot-model" target="_blank" rel="noopener noreferrer">Copilot code completion now uses the GPT-4.1 Copilot model&lt;/a>&lt;/strong> — GitHub Copilot&amp;rsquo;s code completion feature has been updated to use the GPT-4.1 Copilot model as of August 27, 2025.
+&lt;ul>
+&lt;li>GitHub Copilot now uses the GPT-4.1 Copilot model for code completion.&lt;/li>
+&lt;li>The update was released on August 27, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Azure Weekly – 2025 Week 35</title><link>https://quintelier.dev/updates-v1/azure-weekly-2025-week-35/</link><pubDate>Tue, 26 Aug 2025 05:34:03 +0000</pubDate><guid>https://quintelier.dev/updates-v1/azure-weekly-2025-week-35/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-25 → 2025-08-31 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500790" target="_blank" rel="noopener noreferrer">Azure Database for PostgreSQL Entra ID group login using user credentials&lt;/a>&lt;/strong> — Azure Database for PostgreSQL Flexible Server introduces public preview of Entra ID group login using user credentials, available on newly provisioned servers as of August 28, 2025.
+&lt;ul>
+&lt;li>Public preview of Entra ID group login with user credentials for Azure Database for PostgreSQL Flexible Server.&lt;/li>
+&lt;li>Feature available on newly provisioned servers only.&lt;/li>
+&lt;li>Aims to simplify user management and enhance security.&lt;/li>
+&lt;li>Announced August 28, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500785" target="_blank" rel="noopener noreferrer">Azure SQL updates for late-August 2025&lt;/a>&lt;/strong> — Azure SQL and SQL Server received updates in late August 2025, including the general availability of local SQL Server containers via the MSSQL extension.
+&lt;ul>
+&lt;li>Local SQL Server containers are now generally available (GA).&lt;/li>
+&lt;li>Containers can be created using the MSSQL extension.&lt;/li>
+&lt;li>Applies to SQL Database and Azure Arc services.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500780" target="_blank" rel="noopener noreferrer">Azure SQL updates for late-August 2025&lt;/a>&lt;/strong> — Azure SQL Database introduced a replication lag metric in late August 2025, available in preview. This metric provides real-time visibility into the recovery point objective (RPO) for databases with Geo-DR enabled.
+&lt;ul>
+&lt;li>Replication lag metric added to Azure SQL Database (preview)&lt;/li>
+&lt;li>Metric shows real-time recovery point objective (RPO) for Geo-DR-enabled databases&lt;/li>
+&lt;li>Update released in late August 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500770" target="_blank" rel="noopener noreferrer">Schema migration is now available in Azure Database Migration Service (DMS)&lt;/a>&lt;/strong> — Azure Database Migration Service (DMS) now supports schema migration for Azure SQL Database as of August 27, 2025. This feature is generally available and allows users to migrate missing schema objects alongside data.
+&lt;ul>
+&lt;li>Schema migration for Azure SQL Database is now supported in Azure DMS.&lt;/li>
+&lt;li>Feature is generally available (GA) as of August 27, 2025.&lt;/li>
+&lt;li>Users can migrate missing schema objects with data via a single checkbox.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500755" target="_blank" rel="noopener noreferrer">Azure Cosmos DB for MongoDB (vCore)—add shards and rebalance data&lt;/a>&lt;/strong> — Azure Cosmos DB for MongoDB (vCore) now supports adding physical shards and rebalancing data as clusters scale. This feature is available in preview as of August 27, 2025.
+&lt;ul>
+&lt;li>Physical shards can be added to Azure Cosmos DB for MongoDB (vCore) clusters.&lt;/li>
+&lt;li>Data rebalancing across shards is supported.&lt;/li>
+&lt;li>Feature is in preview as of August 27, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=496287" target="_blank" rel="noopener noreferrer">Entra ID and RBAC support for GetAccountInfo and other supplemental APIs for Azure Storage&lt;/a>&lt;/strong> — Azure Storage APIs now support Microsoft Entra ID and RBAC for enhanced security, with general availability as of August 26, 2025.
+&lt;ul>
+&lt;li>General availability of Entra ID and RBAC support for Azure Storage supplemental APIs, including GetAccountInfo and ACL management for containers, queues, and tables.&lt;/li>
+&lt;li>Affects APIs: Get Account Information, Get/Set Container ACL, Get/Set Queue ACL, Get/Set Table ACL.&lt;/li>
+&lt;li>Applies globally as of August 26, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=501323" target="_blank" rel="noopener noreferrer">Custom block response code and body for Application Gateway WAF&lt;/a>&lt;/strong> — Azure Application Gateway WAF now offers a public preview for customizing block response status codes and bodies for blocked requests.
+&lt;ul>
+&lt;li>Public preview released on 2025-08-26&lt;/li>
+&lt;li>Customizable response status codes and bodies for blocked requests in Application Gateway WAF&lt;/li>
+&lt;li>Applies to Azure Application Gateway WAF integrated deployments&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500991" target="_blank" rel="noopener noreferrer">CNI Overlay for Application Gateway for Containers and AGIC&lt;/a>&lt;/strong> — Azure CNI Overlay is now generally available for Application Gateway for Containers and AGIC as of August 26, 2025. This feature allows AKS clusters to assign pod IPs from a separate CIDR, optimizing VNet IP usage and facilitating multi-cluster deployments.
+&lt;ul>
+&lt;li>Azure CNI Overlay GA for Application Gateway for Containers and AGIC (Aug 26, 2025)&lt;/li>
+&lt;li>AKS clusters can use pod IPs from a distinct CIDR, conserving VNet IP space&lt;/li>
+&lt;li>Supports simplified multi-cluster deployments&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500914" target="_blank" rel="noopener noreferrer">Azure NetApp Files short-term clones&lt;/a>&lt;/strong> — Azure NetApp Files introduces short-term clones in preview, allowing users to create temporary, space-efficient thin clones from existing volume snapshots for instant read/write access without full data copies.
+&lt;ul>
+&lt;li>Short-term clones feature now in preview for Azure NetApp Files.&lt;/li>
+&lt;li>Enables temporary thin clones from volume snapshots.&lt;/li>
+&lt;li>Provides instant read/write access to cloned data.&lt;/li>
+&lt;li>Reduces storage usage by avoiding full data copies.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500473" target="_blank" rel="noopener noreferrer">Roslyn Analyzer for Durable Functions in .NET isolated&lt;/a>&lt;/strong> — Azure Durable Functions in the .NET isolated model now supports the Roslyn Analyzer for real-time code analysis, helping developers follow orchestration coding constraints. The analyzer is enabled by default in preview as of August 25, 2025.
+&lt;ul>
+&lt;li>Roslyn Analyzer support added for Durable Functions in .NET isolated model&lt;/li>
+&lt;li>Provides real-time code analysis for orchestration coding constraints&lt;/li>
+&lt;li>Analyzer is enabled by default&lt;/li>
+&lt;li>Feature is in preview as of August 25, 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500650" target="_blank" rel="noopener noreferrer">Microsoft Azure now available from cloud region in Austria&lt;/a>&lt;/strong> — Microsoft Azure has launched a new cloud region in Austria, now generally available as of August 25, 2025. This enables local data storage and processing for Austrian organizations, supporting compliance and access to Azure services.
+&lt;ul>
+&lt;li>Azure cloud region now available in Austria (GA) as of August 25, 2025&lt;/li>
+&lt;li>Supports local data storage and processing for Austrian companies and public administration&lt;/li>
+&lt;li>Resource Mover service included among available features&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Terraform Weekly – 2025 Week 34</title><link>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-34/</link><pubDate>Thu, 21 Aug 2025 05:34:24 +0000</pubDate><guid>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-34/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-18 → 2025-08-24 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform-provider-azurerm/releases/tag/v4.41.0" target="_blank" rel="noopener noreferrer">v4.41.0&lt;/a>&lt;/strong> — Terraform AzureRM provider version 4.41.0 was released on August 21, 2025, introducing new resources for network management.
+&lt;ul>
+&lt;li>Added new resource azurerm_network_manager_ipam_pool_static_cidr for managing static CIDRs in IPAM pools.&lt;/li>
+&lt;li>Added new resource azurerm_network_manager_routing_rule_collection for managing routing rule collections.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform/releases/tag/v1.13.0" target="_blank" rel="noopener noreferrer">v1.13.0&lt;/a>&lt;/strong> — Terraform released version 1.13.0 on August 20, 2025, introducing the new &lt;code>terraform stacks&lt;/code> CLI command for stack operations, with subcommands varying by plugin implementation.
+&lt;ul>
+&lt;li>Introduced &lt;code>terraform stacks&lt;/code> command to manage stack operations via CLI.&lt;/li>
+&lt;li>Subcommands for &lt;code>terraform stacks&lt;/code> depend on the installed stacks plugin.&lt;/li>
+&lt;li>Use &lt;code>terraform stacks -usage&lt;/code> to view available subcommands.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Azure Weekly – 2025 Week 34</title><link>https://quintelier.dev/updates-v1/azure-weekly-2025-week-34/</link><pubDate>Tue, 19 Aug 2025 05:33:52 +0000</pubDate><guid>https://quintelier.dev/updates-v1/azure-weekly-2025-week-34/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-18 → 2025-08-24 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500438" target="_blank" rel="noopener noreferrer">Azure Functions support for Node.js 22&lt;/a>&lt;/strong> — Azure Functions now supports Node.js 22 in general availability as of August 22, 2025. Developers can use Node.js 22 for local development and deployment across all Azure Functions plans on both Linux and Windows.
+&lt;ul>
+&lt;li>Node.js 22 support for Azure Functions is now generally available (GA)&lt;/li>
+&lt;li>Applies to all Azure Functions plans on Linux and Windows&lt;/li>
+&lt;li>Available for local development and deployment&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=501233" target="_blank" rel="noopener noreferrer">Azure Migrate now supports migration to disks with Zone-Redundant Storage (ZRS) redundancy&lt;/a>&lt;/strong> — Azure Migrate now allows users to migrate servers to disks with Zone-Redundant Storage (ZRS) redundancy, enabling selection of ZRS during migration. This feature is generally available as of August 22, 2025.
+&lt;ul>
+&lt;li>Azure Migrate supports migration to disks with Zone-Redundant Storage (ZRS) redundancy.&lt;/li>
+&lt;li>Users can select ZRS as the redundancy option during server migration.&lt;/li>
+&lt;li>Feature is generally available (GA) as of August 22, 2025.&lt;/li>
+&lt;li>Applies to Virtual Machines and Azure Migrate services.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=501017" target="_blank" rel="noopener noreferrer">Application Gateway adds MaxSurge support for zero-capacity-impact upgrades&lt;/a>&lt;/strong> — Azure Application Gateway has introduced MaxSurge support, allowing rolling upgrades to provision new instances without impacting existing capacity. This feature is now generally available as of August 21, 2025.
+&lt;ul>
+&lt;li>MaxSurge support enables zero-capacity-impact rolling upgrades for Application Gateway.&lt;/li>
+&lt;li>New instances are provisioned during upgrades without taking current ones offline.&lt;/li>
+&lt;li>Feature is generally available (GA) as of August 21, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500879" target="_blank" rel="noopener noreferrer">Generally, Available: Search Job in Log Analytics - Now Supporting Up to 100 Million Results&lt;/a>&lt;/strong> — Azure Monitor Log Analytics Search Job is now generally available, supporting up to 100 million results per query as of August 21, 2025.
+&lt;ul>
+&lt;li>Search Job in Log Analytics now supports up to 100 million returned records per query.&lt;/li>
+&lt;li>Feature is generally available as of August 21, 2025.&lt;/li>
+&lt;li>Results are delivered in new Analytics tables for further exploration.&lt;/li>
+&lt;li>Applies to Azure Monitor Log Analytics.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500760" target="_blank" rel="noopener noreferrer">Azure NetApp Files file access logs&lt;/a>&lt;/strong> — Azure NetApp Files file access logs are now generally available as of August 21, 2025, providing detailed visibility into file-level operations for SMB, NFSv4.1, and dual-protocol volumes.
+&lt;ul>
+&lt;li>File access logs feature is now GA for Azure NetApp Files.&lt;/li>
+&lt;li>Supports logging for SMB, NFSv4.1, and dual-protocol volumes.&lt;/li>
+&lt;li>Enables monitoring of file-level operations for improved security and auditing.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500369" target="_blank" rel="noopener noreferrer">Azure Functions Flex Consumption plan now supports 512 MB instance size and diagnostic settings&lt;/a>&lt;/strong> — Azure Functions Flex Consumption plan now supports a 512 MB memory instance size, expanding options beyond the previous 2048 MB and 4096 MB sizes. Diagnostic settings integration is also available for improved monitoring.
+&lt;ul>
+&lt;li>512 MB instance size is now available for Azure Functions Flex Consumption plan (previously only 2048 MB and 4096 MB).&lt;/li>
+&lt;li>Diagnostic settings are now supported for Flex Consumption apps, enabling enhanced monitoring via Azure Monitor.&lt;/li>
+&lt;li>Update is generally available as of August 21, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500996" target="_blank" rel="noopener noreferrer">Azure Bastion now supports connectivity to private AKS clusters via tunneling&lt;/a>&lt;/strong> — Azure Bastion now offers preview support for tunneling connectivity to private AKS clusters, allowing secure access to the AKS API server from local machines using standard Kubernetes tools.
+&lt;ul>
+&lt;li>Preview release dated 2025-08-20&lt;/li>
+&lt;li>Enables secure tunneling from local machine to AKS API server via Azure Bastion&lt;/li>
+&lt;li>Supports both private and public AKS clusters&lt;/li>
+&lt;li>Accessible using standard Kubernetes tooling&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500712" target="_blank" rel="noopener noreferrer">Azure NetApp Files Flexible service level now supports cool access&lt;/a>&lt;/strong> — Azure NetApp Files now offers cool access support for its Flexible service level, available in preview as of August 20, 2025. This enables independent configuration of storage capacity and throughput for workloads with specific performance needs.
+&lt;ul>
+&lt;li>Flexible service level in Azure NetApp Files supports cool access tier&lt;/li>
+&lt;li>Users can configure storage capacity and throughput independently&lt;/li>
+&lt;li>Feature is in preview as of August 20, 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=489745" target="_blank" rel="noopener noreferrer">Private Preview: DCesv6 and ECesv6 series confidential VMs with Intel® TDX&lt;/a>&lt;/strong> — Azure announced a private preview of DCesv6 and ECesv6 series confidential virtual machines, featuring 5th Gen Intel Xeon processors with Intel Trust Domain Extensions (TDX).
+&lt;ul>
+&lt;li>Private preview of DCesv6 and ECesv6 confidential VM series now available&lt;/li>
+&lt;li>Powered by 5th Gen Intel Xeon (Emerald Rapids) processors&lt;/li>
+&lt;li>Includes Intel Trust Domain Extensions (TDX) for enhanced security&lt;/li>
+&lt;li>Update published on 2025-08-20&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=498754" target="_blank" rel="noopener noreferrer">Microsoft Sentinel Deprecation in Microsoft Azure operated by 21Vianet Announcement&lt;/a>&lt;/strong> — Microsoft Sentinel will be deprecated in Microsoft Azure operated by 21Vianet, effective August 20, 2025, due to infrastructure and operational complexity.
+&lt;ul>
+&lt;li>Microsoft Sentinel service will be retired in Azure operated by 21Vianet.&lt;/li>
+&lt;li>Deprecation date is August 20, 2025.&lt;/li>
+&lt;li>Reason cited is increased infrastructure and operational complexity.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=498749" target="_blank" rel="noopener noreferrer">Microsoft Defender for Cloud Deprecation in Microsoft Azure Operated by 21Vianet Announcement&lt;/a>&lt;/strong> — Microsoft Defender for Cloud will be deprecated in Microsoft Azure operated by 21Vianet, effective August 20, 2025.
+&lt;ul>
+&lt;li>Defender for Cloud service is being retired in Azure operated by 21Vianet.&lt;/li>
+&lt;li>Deprecation date is August 20, 2025.&lt;/li>
+&lt;li>Reason cited is increasing infrastructure and operational complexity.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500630" target="_blank" rel="noopener noreferrer">Azure Blob Storage Archive Tier Now in Malaysia West&lt;/a>&lt;/strong> — Azure Blob Storage Archive access tier is now generally available in the Malaysia West region as of August 18, 2025.
+&lt;ul>
+&lt;li>Archive tier for Azure Blob Storage launched in Malaysia West region&lt;/li>
+&lt;li>Allows storage of infrequently accessed data at lower cost&lt;/li>
+&lt;li>Supports data residency requirements for Malaysia&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>GitHub Weekly – 2025 Week 34</title><link>https://quintelier.dev/updates-v1/github-weekly-2025-week-34/</link><pubDate>Tue, 19 Aug 2025 05:33:52 +0000</pubDate><guid>https://quintelier.dev/updates-v1/github-weekly-2025-week-34/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-18 → 2025-08-24 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-22-premium-request-overage-policy-is-generally-available-for-copilot-business-and-enterprise" target="_blank" rel="noopener noreferrer">Premium request overage policy is generally available for Copilot Business and Enterprise&lt;/a>&lt;/strong> — GitHub has made the premium request overage policy generally available for Copilot Business and Enterprise as of August 22, 2025.
+&lt;ul>
+&lt;li>Premium request overage policy now generally available for Copilot Business and Enterprise.&lt;/li>
+&lt;li>Applies to all regions as of August 22, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-21-graphql-explorer-removal-from-api-documentation-on-november-1-2025" target="_blank" rel="noopener noreferrer">GraphQL Explorer removal from API documentation on November 1, 2025&lt;/a>&lt;/strong> — GitHub will remove the GraphQL Explorer from its API documentation on November 1, 2025.
+&lt;ul>
+&lt;li>GraphQL Explorer will be deprecated and removed from GitHub API documentation on November 1, 2025.&lt;/li>
+&lt;li>Users will need to use alternative tools for exploring the GitHub GraphQL API after this date.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-21-enterprises-can-create-organization-roles-for-use-across-their-enterprise-and-custom-role-limits-have-been-increased" target="_blank" rel="noopener noreferrer">Enterprises can create organization roles for use across their enterprise, and custom role limits have been increased&lt;/a>&lt;/strong> — GitHub has updated enterprise management features, allowing enterprises to create organization roles usable across their entire enterprise. The limit on custom roles has also been increased.
+&lt;ul>
+&lt;li>Enterprises can now define organization roles that apply across all organizations within the enterprise.&lt;/li>
+&lt;li>The maximum number of custom roles per enterprise has been raised.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-21-pull-request-files-changed-public-preview-experience-august-21-updates" target="_blank" rel="noopener noreferrer">Pull request “Files changed” public preview experience – August 21 updates&lt;/a>&lt;/strong> — GitHub updated the public preview experience for the Pull Request &amp;ldquo;Files changed&amp;rdquo; tab on August 21, 2025.
+&lt;ul>
+&lt;li>Updated the Pull Request &amp;ldquo;Files changed&amp;rdquo; public preview experience on August 21, 2025.&lt;/li>
+&lt;li>Improvements aim to enhance code review workflow in the preview feature.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-21-dependencies-on-issues" target="_blank" rel="noopener noreferrer">Dependencies on issues&lt;/a>&lt;/strong> — GitHub introduced a new feature allowing users to set dependencies between issues as of August 21, 2025.
+&lt;ul>
+&lt;li>Users can now mark issues as dependent on other issues to better track task relationships.&lt;/li>
+&lt;li>This feature was released globally on August 21, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-21-copilot-generated-commit-messages-on-github-com-is-in-public-preview" target="_blank" rel="noopener noreferrer">Copilot generated commit messages on github.com is in public preview&lt;/a>&lt;/strong> — GitHub has launched a public preview of Copilot-generated commit messages on github.com as of August 21, 2025.
+&lt;ul>
+&lt;li>Copilot-generated commit messages feature is now available in public preview on github.com.&lt;/li>
+&lt;li>The update was announced by GitHub on August 21, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-20-sunset-notice-copilot-knowledge-bases" target="_blank" rel="noopener noreferrer">Sunset notice: Copilot knowledge bases&lt;/a>&lt;/strong> — GitHub announced the sunset of Copilot knowledge bases effective August 20, 2025.
+&lt;ul>
+&lt;li>GitHub is discontinuing Copilot knowledge bases as of August 20, 2025.&lt;/li>
+&lt;li>Users relying on Copilot knowledge bases should prepare for the feature&amp;rsquo;s retirement.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-19-gemini-2-5-pro-is-generally-available-in-copilot" target="_blank" rel="noopener noreferrer">Gemini 2.5 Pro is generally available in Copilot&lt;/a>&lt;/strong> — GitHub Copilot now generally offers Gemini 2.5 Pro as of August 20, 2025.
+&lt;ul>
+&lt;li>Gemini 2.5 Pro is generally available in GitHub Copilot starting August 20, 2025.&lt;/li>
+&lt;li>This update enhances the AI capabilities within Copilot for users globally.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-19-secret-scanning-configuring-patterns-in-push-protection-is-now-generally-available" target="_blank" rel="noopener noreferrer">Secret scanning: Configuring patterns in push protection is now generally available&lt;/a>&lt;/strong> — GitHub has made the feature to configure patterns in secret scanning push protection generally available as of August 19, 2025.
+&lt;ul>
+&lt;li>Secret scanning push protection now supports user-configured patterns.&lt;/li>
+&lt;li>This feature is generally available across GitHub as of August 19, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-19-agents-panel-launch-copilot-coding-agent-tasks-anywhere-on-github-com" target="_blank" rel="noopener noreferrer">Agents panel: Launch Copilot coding agent tasks anywhere on github.com&lt;/a>&lt;/strong> — GitHub has launched the Copilot coding agent tasks feature accessible anywhere on github.com as of August 19, 2025.
+&lt;ul>
+&lt;li>The Agents panel now allows launching Copilot coding agent tasks from any page on github.com.&lt;/li>
+&lt;li>This update was released on August 19, 2025.&lt;/li>
+&lt;li>The feature enhances developer workflow by integrating Copilot tasks directly into the GitHub interface.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Terraform Weekly – 2025 Week 33</title><link>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-33/</link><pubDate>Thu, 14 Aug 2025 05:40:48 +0000</pubDate><guid>https://quintelier.dev/updates-v1/terraform-weekly-2025-week-33/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-11 → 2025-08-17 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform-provider-azurerm/releases/tag/v4.40.0" target="_blank" rel="noopener noreferrer">v4.40.0&lt;/a>&lt;/strong> — Terraform AzureRM provider version 4.40.0 was released on August 14, 2025, introducing a new resource and enhancements.
+&lt;ul>
+&lt;li>Added new resource: azurerm_data_factory_customer_managed_key.&lt;/li>
+&lt;li>Enhanced azurerm_eventgrid_system_topic to suppress case differences on source_resource_id.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.com/hashicorp/terraform/releases/tag/v1.14.0-alpha20250813" target="_blank" rel="noopener noreferrer">v1.14.0-alpha20250813&lt;/a>&lt;/strong> — Terraform released version 1.14.0-alpha20250813 on August 13, 2025, introducing enhancements to the terraform test command.
+&lt;ul>
+&lt;li>terraform test now includes expected diagnostics in verbose mode output.&lt;/li>
+&lt;li>terraform test ignores the prevent_destroy attribute during cleanup.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Azure Weekly – 2025 Week 33</title><link>https://quintelier.dev/updates-v1/azure-weekly-2025-week-33/</link><pubDate>Wed, 13 Aug 2025 12:50:21 +0000</pubDate><guid>https://quintelier.dev/updates-v1/azure-weekly-2025-week-33/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-11 → 2025-08-17 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500695" target="_blank" rel="noopener noreferrer">Azure Files provisioned v2 billing model for SSD (premium)&lt;/a>&lt;/strong> — Azure Files has introduced the provisioned v2 billing model for the SSD (premium) tier, now generally available as of August 15, 2025. This model allows independent provisioning of storage, IOPS, and throughput for file shares.
+&lt;ul>
+&lt;li>Provisioned v2 billing model now available for Azure Files on SSD (premium) tier&lt;/li>
+&lt;li>Enables separate provisioning of storage capacity, IOPS, and throughput&lt;/li>
+&lt;li>Generally available (GA) as of August 15, 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500583" target="_blank" rel="noopener noreferrer">Azure Databricks connector for Microsoft Power Platform&lt;/a>&lt;/strong> — The Azure Databricks connector for Microsoft Power Platform is now generally available as of August 14, 2025. This release enables real-time data access between Azure Databricks and Power Apps without requiring data copies.
+&lt;ul>
+&lt;li>Azure Databricks connector for Power Platform is now GA (August 14, 2025)&lt;/li>
+&lt;li>Supports real-time data access between Databricks and Power Apps&lt;/li>
+&lt;li>Eliminates need for data copying when integrating Databricks with Power Apps&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499753" target="_blank" rel="noopener noreferrer">Azure Managed Instance for Apache Cassandra v5.0&lt;/a>&lt;/strong> — Azure Managed Instance for Apache Cassandra now supports Cassandra 5.0 in public preview as of August 13, 2025.
+&lt;ul>
+&lt;li>Cassandra 5.0 is available in Azure Managed Instance for Apache Cassandra.&lt;/li>
+&lt;li>Release is in public preview starting August 13, 2025.&lt;/li>
+&lt;li>Includes access to new Cassandra features such as improved performance and new indexing capabilities.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499679" target="_blank" rel="noopener noreferrer">Azure Database for PostgreSQL flexible server in Malaysia West&lt;/a>&lt;/strong> — Azure Database for PostgreSQL flexible server is now generally available in the Malaysia West Azure region as of August 13, 2025.
+&lt;ul>
+&lt;li>General availability of Azure Database for PostgreSQL flexible server in Malaysia West region&lt;/li>
+&lt;li>Applies to deployments starting August 13, 2025&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499670" target="_blank" rel="noopener noreferrer">Azure Cosmos DB for MongoDB (vCore) encryption with customer-managed key&lt;/a>&lt;/strong> — Azure Cosmos DB for MongoDB (vCore) now supports encryption with customer-managed keys, in addition to existing service-managed key encryption. This feature is available in preview as of August 13, 2025.
+&lt;ul>
+&lt;li>Customer-managed key (CMK) encryption is now supported for Azure Cosmos DB for MongoDB (vCore) clusters.&lt;/li>
+&lt;li>This feature is in preview as of August 13, 2025.&lt;/li>
+&lt;li>CMK adds an extra security layer beyond the default service-managed key (SMK) encryption.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500198" target="_blank" rel="noopener noreferrer">Deployment resumption - Azure Automation revised Service and Subscription limits&lt;/a>&lt;/strong> — Azure Automation will resume deployment of revised Service and Subscription limits starting August 11, 2025, following a temporary pause. The update aims to improve resource distribution, reliability, and performance.
+&lt;ul>
+&lt;li>Deployment of revised Service and Subscription limits resumes August 11, 2025&lt;/li>
+&lt;li>Applies to Azure Automation service&lt;/li>
+&lt;li>Intended to enhance resource fairness, reliability, and performance&lt;/li>
+&lt;li>Follows a brief deployment hiatus&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499776" target="_blank" rel="noopener noreferrer">Announcing Tenant-Level Service Health Alerts in Azure Monitor&lt;/a>&lt;/strong> — Azure Monitor has introduced a preview feature for tenant-level service health alerts, allowing users to receive notifications about service health issues affecting their entire tenant.
+&lt;ul>
+&lt;li>Tenant-level service health alerts now available in Azure Monitor (preview)&lt;/li>
+&lt;li>Notifications cover issues impacting the whole tenant, not just individual subscriptions&lt;/li>
+&lt;li>Feature announced on 2025-08-11&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=500203" target="_blank" rel="noopener noreferrer">Introducing Azure App Testing: Scalable End-to-end App Validation&lt;/a>&lt;/strong> — Azure has released Azure App Testing in preview, allowing large-scale functional and performance testing for applications using frameworks such as Playwright, JMeter, and Locust.
+&lt;ul>
+&lt;li>Azure App Testing is now available in preview as of 2025-08-11.&lt;/li>
+&lt;li>Supports large-scale functional and performance tests.&lt;/li>
+&lt;li>Compatible with Playwright, JMeter, and Locust frameworks.&lt;/li>
+&lt;li>Combines Load Testing and Playwright Testing services.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499998" target="_blank" rel="noopener noreferrer">General Available: App Service Inbound IPv6 Support&lt;/a>&lt;/strong> — Azure App Service now offers general availability of inbound IPv6 support for multi-tenant apps across all public regions, covering Basic, Standard, Premium SKUs, Functions Consumption, Functions Elastic Premium, and Logic Apps Standard.
+&lt;ul>
+&lt;li>Inbound IPv6 support is now generally available for Azure App Service multi-tenant apps.&lt;/li>
+&lt;li>Applies to all public Azure regions.&lt;/li>
+&lt;li>Supported SKUs: Basic, Standard, Premium, Functions Consumption, Functions Elastic Premium, and Logic Apps Standard.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://azure.microsoft.com/updates?id=499748" target="_blank" rel="noopener noreferrer">Upsert and Script Activity in Azure Data Factory and Azure Synapse Analytics for Azure Database for PostgreSQL&lt;/a>&lt;/strong> — Azure Data Factory and Azure Synapse Analytics now support the Upsert method and Script activity for Azure Database for PostgreSQL, available generally as of August 11, 2025.
+&lt;ul>
+&lt;li>Upsert method is now generally available for Azure Database for PostgreSQL in Data Factory and Synapse Analytics.&lt;/li>
+&lt;li>Script activity support is also included in this release.&lt;/li>
+&lt;li>Enhancements allow more efficient and declarative data operations.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>GitHub Weekly – 2025 Week 33</title><link>https://quintelier.dev/updates-v1/github-weekly-2025-week-33/</link><pubDate>Wed, 13 Aug 2025 12:50:21 +0000</pubDate><guid>https://quintelier.dev/updates-v1/github-weekly-2025-week-33/</guid><description>&lt;h2 id="this-period-at-a-glance">This period at a glance&lt;/h2>
+&lt;p>&lt;strong>Window:&lt;/strong> 2025-08-11 → 2025-08-17 (Europe/Brussels)&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-15-deprecating-copilot-text-completion-for-pull-request-descriptions" target="_blank" rel="noopener noreferrer">Deprecating Copilot text completion for pull request descriptions&lt;/a>&lt;/strong> — GitHub will deprecate Copilot&amp;rsquo;s text completion feature for pull request descriptions starting August 15, 2025.
+&lt;ul>
+&lt;li>Copilot text completion for pull request descriptions will be deprecated.&lt;/li>
+&lt;li>Deprecation takes effect on August 15, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-15-github-actions-policy-now-supports-blocking-and-sha-pinning-actions" target="_blank" rel="noopener noreferrer">GitHub Actions policy now supports blocking and SHA pinning actions&lt;/a>&lt;/strong> — GitHub Actions policy now allows administrators to block specific actions and require SHA pinning for actions, effective August 15, 2025.
+&lt;ul>
+&lt;li>Administrators can block the use of specific actions in workflows.&lt;/li>
+&lt;li>SHA pinning can be enforced, requiring actions to reference a specific commit hash.&lt;/li>
+&lt;li>Update applies globally to GitHub Actions as of August 15, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-14-codeql-expands-kotlin-support-and-additional-accuracy-improvements" target="_blank" rel="noopener noreferrer">CodeQL expands Kotlin support and additional accuracy improvements&lt;/a>&lt;/strong> — CodeQL has expanded its support for the Kotlin programming language and introduced several accuracy improvements as of August 14, 2025.
+&lt;ul>
+&lt;li>Expanded CodeQL support for the Kotlin language&lt;/li>
+&lt;li>Implemented additional accuracy improvements in CodeQL analysis&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-14-clearer-pull-request-reviewer-status-and-enhanced-email-filtering" target="_blank" rel="noopener noreferrer">Clearer pull request reviewer status and enhanced email filtering&lt;/a>&lt;/strong> — GitHub has updated pull request reviewer status indicators for greater clarity and improved email filtering options as of August 14, 2025.
+&lt;ul>
+&lt;li>Pull request reviewer statuses are now displayed more clearly in the GitHub UI.&lt;/li>
+&lt;li>New and enhanced email filtering options are available for notifications.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-model-context-protocol-mcp-support-for-jetbrains-eclipse-and-xcode-is-now-generally-available" target="_blank" rel="noopener noreferrer">Model Context Protocol (MCP) support for JetBrains, Eclipse, and Xcode is now generally available&lt;/a>&lt;/strong> — GitHub has announced general availability of Model Context Protocol (MCP) support for JetBrains, Eclipse, and Xcode IDEs as of August 14, 2025.
+&lt;ul>
+&lt;li>MCP support is now generally available for JetBrains, Eclipse, and Xcode.&lt;/li>
+&lt;li>Release date: August 14, 2025.&lt;/li>
+&lt;li>Applies to GitHub integrations with these IDEs.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-expanded-file-type-support-for-attachments-across-issues-pull-requests-and-discussions" target="_blank" rel="noopener noreferrer">Expanded file type support for attachments across issues, pull requests, and discussions&lt;/a>&lt;/strong> — GitHub has expanded the types of files that can be attached to issues, pull requests, and discussions as of August 14, 2025.
+&lt;ul>
+&lt;li>Expanded file type support for attachments across issues, pull requests, and discussions on GitHub.&lt;/li>
+&lt;li>Update effective from August 14, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-added-last_authenticated_at-to-the-copilot-user-management-api" target="_blank" rel="noopener noreferrer">Added last_authenticated_at to the Copilot user management API&lt;/a>&lt;/strong> — GitHub updated the Copilot user management API on August 13, 2025, to include a new field, last_authenticated_at.
+&lt;ul>
+&lt;li>Added last_authenticated_at field to the Copilot user management API to track the last authentication time of users.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-spark-resilience-improvements" target="_blank" rel="noopener noreferrer">Spark resilience improvements&lt;/a>&lt;/strong> — GitHub announced improvements to Spark&amp;rsquo;s resilience on August 13, 2025, enhancing stability and fault tolerance.
+&lt;ul>
+&lt;li>GitHub updated Spark to improve resilience and fault tolerance.&lt;/li>
+&lt;li>The update was released on August 13, 2025.&lt;/li>
+&lt;li>No specific version or region details were provided.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-gpt-5-mini-now-available-in-github-copilot-in-public-preview" target="_blank" rel="noopener noreferrer">GPT-5 mini now available in GitHub Copilot in public preview&lt;/a>&lt;/strong> — GitHub Copilot has introduced GPT-5 mini in public preview as of August 13, 2025.
+&lt;ul>
+&lt;li>GPT-5 mini is now available in GitHub Copilot.&lt;/li>
+&lt;li>The feature is released in public preview starting August 13, 2025.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-13-github-mcp-server-secret-scanning-push-protection-and-more" target="_blank" rel="noopener noreferrer">GitHub MCP Server: Secret scanning, push protection, and more&lt;/a>&lt;/strong> — GitHub MCP Server update on August 13, 2025 introduces secret scanning and push protection features to enhance code security.
+&lt;ul>
+&lt;li>Introduced secret scanning to detect sensitive data in code repositories.&lt;/li>
+&lt;li>Added push protection to prevent accidental commits of secrets.&lt;/li>
+&lt;li>Update released on August 13, 2025, applicable to GitHub MCP Server.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>
