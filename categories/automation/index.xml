@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Automation on Sujith Quintelier</title><link>https://quintelier.dev/categories/automation/</link><description>Recent content in Automation on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 13 Aug 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/categories/automation/index.xml" rel="self" type="application/rss+xml"/><item><title>⚙️ Automated Updates Pipeline</title><link>https://quintelier.dev/posts/2025/08/automated-updates-pipeline/</link><pubDate>Wed, 13 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/automated-updates-pipeline/</guid><description>&lt;h2 id="why-this-pipeline-exists">Why this pipeline exists&lt;/h2>
+&lt;p>Manually curating weekly platform updates (Azure service changes, GitHub changelog entries, Terraform provider releases) is repetitive, time‑sensitive, and error‑prone. This pipeline automates the whole path from data acquisition → AI summarisation → Hugo markdown generation → commit, delivering consistent, timestamped update posts under &lt;code>content/updates&lt;/code>.&lt;/p>
+&lt;h2 id="highlevel-architecture">High‑level architecture&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>┌───────────────┐ cron 05:15 UTC ┌───────────────────┐ grouped items ┌──────────────────┐
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ GitHub Action │ ─────────────────&amp;gt; │ PowerShell Script │ ───────────────&amp;gt; │ AI Summarisation │
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─────┬─────────┘ └──────────┬────────┘ └────────┬─────────┘
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> │ commit (if changed) │ filtered items │ summaries
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> V V V
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Repo content &amp;lt;────────────── write markdown posts &amp;lt;──────────── assemble front matter
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="scheduling--cadence">Scheduling &amp;amp; cadence&lt;/h2>
+&lt;p>The workflow runs daily at &lt;code>05:15 UTC&lt;/code> but per‑source publication cadence is controlled inside the script using a frequency map (&lt;code>Azure=weekly,GitHub=weekly,Terraform=weekly&lt;/code> by default). The script:&lt;/p></description></item><item><title>Auto-triage CI failures with Copilot</title><link>https://quintelier.dev/posts/2025/08/ai-triage-github-actions-with-copilot/</link><pubDate>Mon, 11 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/ai-triage-github-actions-with-copilot/</guid><description>&lt;p>Failures happen: the key is shortening time-to-understanding. In this guide, you’ll automate triage when a GitHub Actions workflow fails: pull logs and artifacts, get an AI summary from GitHub Models, open an issue with concrete next steps, and optionally assign it to the Copilot coding agent.&lt;/p>
+&lt;h2 id="what-youll-build">What you’ll build&lt;/h2>
+&lt;ul>
+&lt;li>Trigger on failed workflow runs you care about&lt;/li>
+&lt;li>Collect logs and artifacts for context&lt;/li>
+&lt;li>Call GitHub Models for a concise summary and probable fix&lt;/li>
+&lt;li>File a GitHub issue with reproduction hints and links&lt;/li>
+&lt;li>Optionally assign the issue to the Copilot coding agent&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;ul>
+&lt;li>GitHub Actions enabled in your repo&lt;/li>
+&lt;li>GitHub Models access and a token for inference:
+&lt;ul>
+&lt;li>If you’re using a fine-grained PAT: add &lt;code>models:read&lt;/code> scope&lt;/li>
+&lt;li>Or use &lt;code>secrets.GITHUB_TOKEN&lt;/code> in public repos where Models are enabled for the org&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Optional: Copilot coding agent enabled at the org or user level to assign issues to&lt;/li>
+&lt;/ul>
+&lt;h2 id="workflow-ai-assisted-failure-triage">Workflow: AI-assisted failure triage&lt;/h2>
+&lt;p>Below is a complete workflow you can drop into &lt;code>.github/workflows/ai-triage.yml&lt;/code>. It triggers when selected workflows complete and only proceeds if they failed.&lt;/p></description></item></channel></rss>
