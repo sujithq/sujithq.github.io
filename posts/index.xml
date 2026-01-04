@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Archives – Sujith Quintelier | Azure, DevOps &amp; GitHub on Sujith Quintelier</title><link>https://quintelier.dev/posts/</link><description>Recent content in Archives – Sujith Quintelier | Azure, DevOps &amp; GitHub on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 29 Oct 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Mastering Asynchronous Programming with C# async/await - Part 7: Testing &amp; Debugging</title><link>https://quintelier.dev/posts/2025/10/csharp-async-await-part7/</link><pubDate>Wed, 29 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/csharp-async-await-part7/</guid><description>&lt;h2 id="part-7-testing-and-debugging-async-code">Part 7: Testing and Debugging Async Code&lt;/h2>
+&lt;p>You’ve learned how to &lt;em>write&lt;/em> async code — but how do you &lt;strong>test&lt;/strong> it and &lt;strong>debug&lt;/strong> it when things go wrong? Async introduces unique challenges: hidden continuations, exceptions in background tasks, and “lost” operations. Let’s tackle them.&lt;/p>
+&lt;hr>
+&lt;h2 id="writing-async-unit-tests">Writing Async Unit Tests&lt;/h2>
+&lt;p>Most modern test frameworks (xUnit, NUnit, MSTest) fully support async tests.&lt;/p>
+&lt;p>✅ Correct:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[Fact]&lt;/span> &lt;span style="color:#75715e">// xUnit&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> Task GetNumberAsync_Returns42()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> result = &lt;span style="color:#66d9ef">await&lt;/span> GetNumberAsync();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Assert.Equal(&lt;span style="color:#ae81ff">42&lt;/span>, result);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>⚠️ Avoid this (blocks async code and may deadlock):&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 6: Advanced Topics</title><link>https://quintelier.dev/posts/2025/10/csharp-async-await-part6/</link><pubDate>Wed, 22 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/csharp-async-await-part6/</guid><description>&lt;h2 id="part-6-advanced-topics">Part 6: Advanced Topics&lt;/h2>
+&lt;p>Now that we’ve mastered the basics and patterns, let’s go further into &lt;strong>advanced async scenarios&lt;/strong> you’ll meet when optimizing throughput or designing libraries.&lt;/p>
+&lt;hr>
+&lt;h2 id="valuetask-vs-task">&lt;code>ValueTask&lt;/code> vs &lt;code>Task&lt;/code>&lt;/h2>
+&lt;p>&lt;code>Task&lt;/code> is a reference type allocated on the heap. In ultra‑hot paths where many calls &lt;strong>complete synchronously&lt;/strong>, &lt;code>ValueTask&lt;/code> can save allocations.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> ValueTask&amp;lt;&lt;span style="color:#66d9ef">int&lt;/span>&amp;gt; GetNumberAsync(&lt;span style="color:#66d9ef">bool&lt;/span> cached)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (cached) &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">42&lt;/span>; &lt;span style="color:#75715e">// completes synchronously (no allocation)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">await&lt;/span> Task.Delay(&lt;span style="color:#ae81ff">1000&lt;/span>); &lt;span style="color:#75715e">// completes asynchronously&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">42&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Guidelines&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Prefer &lt;code>Task&lt;/code> by default (simpler, safer).&lt;/li>
+&lt;li>Consider &lt;code>ValueTask&lt;/code> when profiling shows allocation pressure and many sync completions.&lt;/li>
+&lt;li>Don’t await a &lt;code>ValueTask&lt;/code> more than once and don’t store it; convert to &lt;code>Task&lt;/code> via &lt;code>.AsTask()&lt;/code> if you must pass it around.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="custom-awaiters-rare-but-educational">Custom Awaiters (rare, but educational)&lt;/h2>
+&lt;p>Anything with a &lt;code>GetAwaiter()&lt;/code> that returns an awaiter implementing &lt;code>INotifyCompletion&lt;/code> (or &lt;code>ICriticalNotifyCompletion&lt;/code>) is awaitable.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 5: Real-World Use Cases</title><link>https://quintelier.dev/posts/2025/10/csharp-async-await-part5/</link><pubDate>Wed, 15 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/csharp-async-await-part5/</guid><description>&lt;h2 id="part-5-real-world-use-cases">Part 5: Real-World Use Cases&lt;/h2>
+&lt;p>We’ve covered the foundations, pitfalls, and async patterns. Now let’s see how &lt;code>async&lt;/code>/&lt;code>await&lt;/code> shows up in &lt;strong>real applications&lt;/strong> — from APIs to UI apps.&lt;/p>
+&lt;hr>
+&lt;h2 id="use-case-1-calling-web-apis-with-httpclient">Use Case 1: Calling Web APIs with &lt;code>HttpClient&lt;/code>&lt;/h2>
+&lt;p>&lt;code>HttpClient&lt;/code> is fully async, making it ideal for network calls.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> Task GetWeatherAsync()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> client = &lt;span style="color:#66d9ef">new&lt;/span> HttpClient();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> response = &lt;span style="color:#66d9ef">await&lt;/span> client.GetStringAsync(&lt;span style="color:#e6db74">&amp;#34;https://api.weather.com/data&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(response);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This avoids blocking threads while waiting for the response.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 4: Patterns with Async</title><link>https://quintelier.dev/posts/2025/10/csharp-async-await-part4/</link><pubDate>Wed, 08 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/csharp-async-await-part4/</guid><description>&lt;h2 id="part-4-patterns-with-async">Part 4: Patterns with Async&lt;/h2>
+&lt;p>So far, we’ve looked at the basics and pitfalls of &lt;code>async&lt;/code>/&lt;code>await&lt;/code>. Now let’s move to &lt;strong>patterns&lt;/strong> that help you handle real-world scenarios like parallelism, cancellation, streaming, and timeouts.&lt;/p>
+&lt;hr>
+&lt;h2 id="pattern-1-running-tasks-in-parallel">Pattern 1: Running Tasks in Parallel&lt;/h2>
+&lt;p>Sometimes you want to start multiple operations and wait for all of them.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> Task FetchInParallelAsync()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> client = &lt;span style="color:#66d9ef">new&lt;/span> HttpClient();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> task1 = client.GetStringAsync(&lt;span style="color:#e6db74">&amp;#34;https://example.com/page1&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> task2 = client.GetStringAsync(&lt;span style="color:#e6db74">&amp;#34;https://example.com/page2&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> results = &lt;span style="color:#66d9ef">await&lt;/span> Task.WhenAll(task1, task2);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(&lt;span style="color:#e6db74">$&amp;#34;Page1 length: {results[0].Length}&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(&lt;span style="color:#e6db74">$&amp;#34;Page2 length: {results[1].Length}&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>✅ &lt;strong>Use &lt;code>Task.WhenAll&lt;/code>&lt;/strong> when you need &lt;em>all&lt;/em> tasks to finish.&lt;br>
+✅ &lt;strong>Use &lt;code>Task.WhenAny&lt;/code>&lt;/strong> when you only care about the first result:&lt;/p></description></item><item><title>🔒 GitHub Advanced Security Certification Guide (GH-500) - Complete Prep</title><link>https://quintelier.dev/posts/2025/10/github-certification-journey-gh-500/</link><pubDate>Sun, 05 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/github-certification-journey-gh-500/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Welcome to Part 5 of the &lt;strong>GitHub Certification Journey&lt;/strong>! 🛡️&lt;/p>
+&lt;p>After mastering GitHub Foundations (GH-900), GitHub Administration (GH-100), GitHub Actions (GH-200), and GitHub Copilot (GH-300), you&amp;rsquo;re ready to dive deep into &lt;strong>GitHub Advanced Security&lt;/strong> - the comprehensive security platform that transforms how teams identify, manage, and remediate vulnerabilities throughout the software development lifecycle. The &lt;strong>GH-500 GitHub Advanced Security&lt;/strong> certification validates your ability to implement, configure, and manage enterprise-grade security practices.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 3: Common Pitfalls and Best Practices</title><link>https://quintelier.dev/posts/2025/10/csharp-async-await-part3/</link><pubDate>Wed, 01 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/csharp-async-await-part3/</guid><description>&lt;h2 id="part-3-common-pitfalls--best-practices">Part 3: Common Pitfalls &amp;amp; Best Practices&lt;/h2>
+&lt;p>By now, you know how &lt;code>async&lt;/code>/&lt;code>await&lt;/code> works and how to run tasks sequentially or in parallel. But async programming in C# has some traps that can lead to &lt;strong>deadlocks, unhandled exceptions, or subtle bugs&lt;/strong>.&lt;/p>
+&lt;p>Let’s go through the most common pitfalls and how to avoid them.&lt;/p>
+&lt;hr>
+&lt;h2 id="pitfall-1-async-void">Pitfall 1: &lt;code>async void&lt;/code>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> DoWork()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">await&lt;/span> Task.Delay(&lt;span style="color:#ae81ff">1000&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Exception(&lt;span style="color:#e6db74">&amp;#34;Boom!&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Why it’s bad:&lt;/p>
+&lt;ul>
+&lt;li>You &lt;strong>can’t await&lt;/strong> it → no way to know when it’s done.&lt;/li>
+&lt;li>Exceptions go directly to the &lt;strong>synchronization context&lt;/strong> (e.g., crash the app).&lt;/li>
+&lt;/ul>
+&lt;p>✅ &lt;strong>Best practice&lt;/strong>:&lt;/p></description></item><item><title>🤖 Automating Dependabot at Scale: GitHub Actions Strategy</title><link>https://quintelier.dev/posts/2025/09/automating-dependabot-at-scale-github-actions-strategy/</link><pubDate>Tue, 30 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/automating-dependabot-at-scale-github-actions-strategy/</guid><description>&lt;h2 id="the-challenge-the-90-day-dependabot-pause">The Challenge: The 90-Day Dependabot Pause&lt;/h2>
+&lt;p>If you&amp;rsquo;re managing multiple repositories in a GitHub organization, you&amp;rsquo;ve likely encountered a frustrating limitation: &lt;strong>Dependabot automatically pauses after 90 days of inactivity&lt;/strong>. When there are no merged pull requests or manual triggers, Dependabot simply stops creating new dependency updates. For organizations with dozens or hundreds of repositories, this can lead to a security and maintenance nightmare.&lt;/p>
+&lt;p>The problem compounds quickly:&lt;/p>
+&lt;ul>
+&lt;li>Some repositories might be stable but still need security updates&lt;/li>
+&lt;li>Manual intervention across many repos is time-consuming and error-prone&lt;/li>
+&lt;li>By the time you notice Dependabot has paused, you&amp;rsquo;re already behind on updates&lt;/li>
+&lt;li>Re-enabling requires manual UI interaction for each repository&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-solution-a-two-pronged-automation-strategy">The Solution: A Two-Pronged Automation Strategy&lt;/h2>
+&lt;p>This comprehensive GitHub Actions workflow system tackles this problem through both &lt;strong>proactive prevention&lt;/strong> and &lt;strong>early detection&lt;/strong>. Let me walk you through how it works.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 2: Deep Dive</title><link>https://quintelier.dev/posts/2025/09/csharp-async-await-part2/</link><pubDate>Wed, 24 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/csharp-async-await-part2/</guid><description>&lt;h2 id="part-2-deep-dive-into-async-and-await">Part 2: Deep Dive into &lt;code>async&lt;/code> and &lt;code>await&lt;/code>&lt;/h2>
+&lt;p>In Part 1, we saw why asynchronous programming matters and how &lt;code>async&lt;/code>/&lt;code>await&lt;/code> can make our apps more responsive. Now it’s time to &lt;strong>go deeper&lt;/strong> into how it actually works.&lt;/p>
+&lt;hr>
+&lt;h2 id="anatomy-of-an-async-method">Anatomy of an &lt;code>async&lt;/code> Method&lt;/h2>
+&lt;p>Let’s look at a simple method:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> Task DoWorkAsync()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;Step 1: Start work&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">await&lt;/span> Task.Delay(&lt;span style="color:#ae81ff">2000&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;Step 2: Work complete&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Breaking it down:&lt;/p></description></item><item><title>🤖 When to Use GitHub Models, Azure AI Foundry, and OpenAI</title><link>https://quintelier.dev/posts/2025/09/when-to-use-github-models-azure-ai-foundry-openai/</link><pubDate>Tue, 23 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/when-to-use-github-models-azure-ai-foundry-openai/</guid><description>&lt;h2 id="-when-to-use-github-models-azure-ai-foundry-and-openai">🤖 When to Use GitHub Models, Azure AI Foundry, and OpenAI&lt;/h2>
+&lt;p>Artificial intelligence is moving fast, and so are the platforms that deliver it.&lt;br>
+For many teams, the question isn’t &lt;em>“Can we use AI?”&lt;/em> but &lt;em>“Where should we use it from?”&lt;/em>&lt;/p>
+&lt;p>Between &lt;strong>GitHub Models&lt;/strong>, &lt;strong>Azure AI Foundry&lt;/strong>, and &lt;strong>OpenAI&lt;/strong>, developers and enterprises alike face an abundance of choice. The reality is that there is no single “best” option — the right one depends on your perspective and your stage in the AI journey.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await</title><link>https://quintelier.dev/posts/2025/09/csharp-async-await/</link><pubDate>Wed, 17 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/csharp-async-await/</guid><description>&lt;h2 id="complete-7-part-series">Complete 7-Part Series&lt;/h2>
+&lt;h3 id="series-navigation">Series Navigation&lt;/h3>
+&lt;ol>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/09/csharp-async-await-part1/">Part 1 – Introduction&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/09/csharp-async-await-part2/">Part 2 – Deep Dive&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/10/csharp-async-await-part3/">Part 3 – Pitfalls &amp;amp; Best Practices&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/10/csharp-async-await-part4/">Part 4 – Patterns&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/10/csharp-async-await-part5/">Part 5 – Real-World Use Cases&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/10/csharp-async-await-part6/">Part 6 – Advanced Topics&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/10/csharp-async-await-part7/">Part 7 – Testing &amp;amp; Debugging&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;p>Asynchronous programming is one of the most powerful features in modern C#. It keeps your applications &lt;strong>responsive, scalable, and efficient&lt;/strong> — but it can also be tricky to master.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 1: Introduction</title><link>https://quintelier.dev/posts/2025/09/csharp-async-await-part1/</link><pubDate>Wed, 17 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/csharp-async-await-part1/</guid><description>&lt;h2 id="part-1-introduction-to-asynchronous-programming">Part 1: Introduction to Asynchronous Programming&lt;/h2>
+&lt;p>When you build applications in C#, one of the biggest challenges is making them &lt;strong>fast and responsive&lt;/strong>. Whether you’re writing a desktop app that must keep its UI smooth, a web API that needs to handle thousands of requests, or a service that integrates with multiple external systems, &lt;strong>asynchronous programming&lt;/strong> is key.&lt;/p>
+&lt;p>But async/await can feel like magic ✨. Let’s break it down step by step.&lt;/p></description></item><item><title>Taming Dependabot: Bundle NuGet, npm, and GitHub Actions Updates Without Merge Conflicts</title><link>https://quintelier.dev/posts/2025/09/taming-dependabot-bundle-nuget-npm-github-actions-updates-without-merge-conflicts/</link><pubDate>Tue, 16 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/taming-dependabot-bundle-nuget-npm-github-actions-updates-without-merge-conflicts/</guid><description>&lt;p>If you’ve enabled &lt;strong>Dependabot&lt;/strong>, you probably love the automated updates but not the &lt;strong>PR storm&lt;/strong> and the &lt;strong>merge conflicts&lt;/strong> that happen when several PRs touch the same lockfiles or project files.&lt;/p>
+&lt;p>The cure is &lt;strong>Dependabot Groups&lt;/strong>: batch related updates into a single PR so you merge once and move on.&lt;/p>
+&lt;hr>
+&lt;h2 id="why-conflicts-happen">Why conflicts happen&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>npm&lt;/strong>: multiple PRs each rewrite &lt;code>package-lock.json&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>NuGet&lt;/strong>: several PRs change the same &lt;code>.csproj&lt;/code> / &lt;code>packages.lock.json&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>GitHub Actions&lt;/strong>: many small PRs bumping actions across several workflow files.&lt;/li>
+&lt;/ul>
+&lt;p>Merge one PR → the others go stale → conflicts or repeated rebases.&lt;/p></description></item><item><title>🤖 GitHub Copilot Certification Guide (GH-300) - AI Development Mastery</title><link>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-300/</link><pubDate>Fri, 29 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-300/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Welcome to Part 4 of the &lt;strong>GitHub Certification Journey&lt;/strong>! 🤖&lt;/p>
+&lt;p>After mastering GitHub Foundations (GH-900), GitHub Administration (GH-100), and GitHub Actions (GH-200), you&amp;rsquo;re ready to embrace the future of software development with &lt;strong>GitHub Copilot&lt;/strong> - the revolutionary AI pair programmer that transforms how developers write, review, and maintain code. The &lt;strong>GH-300 GitHub Copilot&lt;/strong> certification validates your expertise in AI-powered development workflows, prompt engineering, and enterprise AI governance.&lt;/p>
+&lt;p>This comprehensive guide provides everything needed to pass the GH-300 exam and become a GitHub Copilot expert. Whether you&amp;rsquo;re a developer seeking to amplify productivity, a team lead implementing AI development practices, or an enterprise architect designing AI-powered development strategies, this preparation roadmap will take you from basic AI assistance to advanced enterprise Copilot mastery.&lt;/p></description></item><item><title>Getting started with Dependabot</title><link>https://quintelier.dev/posts/2025/08/dependabot-getting-started/</link><pubDate>Mon, 25 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/dependabot-getting-started/</guid><description>&lt;p>Dependabot is the easiest way to keep dependencies current and secure in your GitHub repositories. It can: alert on vulnerabilities, open PRs to fix them, and keep versions fresh with scheduled updates. This guide shows how to enable Dependabot, add a robust dependabot.yml, and include small optimisations for specific ecosystems.&lt;/p>
+&lt;h2 id="what-youll-set-up">What you’ll set up&lt;/h2>
+&lt;ul>
+&lt;li>Enable Dependabot alerts, security updates, and version updates.&lt;/li>
+&lt;li>Create and tune a &lt;code>.github/dependabot.yml&lt;/code> that covers your package managers.&lt;/li>
+&lt;li>Add optional Java metadata to improve PR quality.&lt;/li>
+&lt;/ul>
+&lt;h2 id="enable-dependabot-in-your-repository">Enable Dependabot in your repository&lt;/h2>
+&lt;p>Use the repository UI:&lt;/p></description></item><item><title>Platform Engineering Course Guide 🚀</title><link>https://quintelier.dev/posts/2025/08/platform-engineering-certified-practitioner/</link><pubDate>Fri, 22 Aug 2025 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/platform-engineering-certified-practitioner/</guid><description>&lt;h2 id="mastering-platform-engineering-from-golden-paths-to-selling-your-mvp">Mastering Platform Engineering: From Golden Paths to Selling Your MVP&lt;/h2>
+&lt;p>Platform engineering is no longer a buzzword: it’s a proven practice that bridges the gap between developers and operations by building Internal Developer Platforms (IDPs). As &lt;a href="https://www.gartner.com/en/articles/what-is-platform-engineering" target="_blank" rel="noopener noreferrer">Gartner&lt;/a> predicts, by 2026, 80% of large software engineering organisations will establish platform engineering teams as internal providers of reusable services, components, and tools for application delivery.&lt;/p>
+&lt;p>The &lt;strong>Platform Engineering Certified Practitioner&lt;/strong> course equips engineers, architects, and technology leaders with the knowledge and hands-on frameworks to design, build, and scale successful platforms inside their organisations.&lt;/p></description></item><item><title>🚀 GitHub Actions Certification Guide (GH-200) - Complete Prep</title><link>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-200/</link><pubDate>Fri, 22 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-200/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Welcome to Part 3 of the &lt;strong>GitHub Certification Journey&lt;/strong>! 🎯&lt;/p>
+&lt;p>After mastering GitHub Foundations (GH-900) and GitHub Administration (GH-100), you&amp;rsquo;re ready to dive deep into &lt;strong>GitHub Actions&lt;/strong> - the powerhouse automation platform that transforms how teams build, test, and deploy software. The &lt;strong>GH-200 GitHub Actions&lt;/strong> certification validates your ability to design, implement, and manage CI/CD pipelines at enterprise scale.&lt;/p>
+&lt;p>This comprehensive guide provides everything needed to pass the GH-200 exam and become a GitHub Actions expert. Whether you&amp;rsquo;re a DevOps engineer, platform team member, or developer looking to automate workflows, this preparation roadmap will take you from YAML basics to advanced enterprise automation patterns.&lt;/p></description></item><item><title>🏢 GitHub Administration Certification Guide (GH-100) - Enterprise Mastery</title><link>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-100/</link><pubDate>Fri, 15 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-100/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Welcome to Part 2 of the &lt;strong>GitHub Certification Journey&lt;/strong>! 🏢&lt;/p>
+&lt;p>After mastering GitHub Foundations (GH-900), you&amp;rsquo;re ready to tackle &lt;strong>GitHub Administration&lt;/strong> - the comprehensive enterprise administration certification that validates your ability to manage, govern, and administer GitHub at organisational scale. The &lt;strong>GH-100 GitHub Administration&lt;/strong> certification demonstrates your expertise in enterprise GitHub management, user governance, and organisational administration.&lt;/p>
+&lt;p>This comprehensive guide provides everything needed to pass the GH-100 exam and become a GitHub Enterprise administrator. Whether you&amp;rsquo;re an IT administrator, enterprise architect, or platform engineer responsible for GitHub governance, this preparation roadmap will take you from basic administrative knowledge to advanced enterprise GitHub management.&lt;/p></description></item><item><title>⚙️ Automated Updates Pipeline</title><link>https://quintelier.dev/posts/2025/08/automated-updates-pipeline/</link><pubDate>Wed, 13 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/automated-updates-pipeline/</guid><description>&lt;h2 id="why-this-pipeline-exists">Why this pipeline exists&lt;/h2>
+&lt;p>Manually curating weekly platform updates (Azure service changes, GitHub changelog entries, Terraform provider releases) is repetitive, time‑sensitive, and error‑prone. This pipeline automates the whole path from data acquisition → AI summarisation → Hugo markdown generation → commit, delivering consistent, timestamped update posts under &lt;code>content/updates&lt;/code>.&lt;/p>
+&lt;h2 id="highlevel-architecture">High‑level architecture&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-text" data-lang="text">&lt;span style="display:flex;">&lt;span>┌───────────────┐ cron 05:15 UTC ┌───────────────────┐ grouped items ┌──────────────────┐
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ GitHub Action │ ─────────────────&amp;gt; │ PowerShell Script │ ───────────────&amp;gt; │ AI Summarisation │
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─────┬─────────┘ └──────────┬────────┘ └────────┬─────────┘
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> │ commit (if changed) │ filtered items │ summaries
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> V V V
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Repo content &amp;lt;────────────── write markdown posts &amp;lt;──────────── assemble front matter
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="scheduling--cadence">Scheduling &amp;amp; cadence&lt;/h2>
+&lt;p>The workflow runs daily at &lt;code>05:15 UTC&lt;/code> but per‑source publication cadence is controlled inside the script using a frequency map (&lt;code>Azure=weekly,GitHub=weekly,Terraform=weekly&lt;/code> by default). The script:&lt;/p></description></item><item><title>Auto-triage CI failures with Copilot</title><link>https://quintelier.dev/posts/2025/08/ai-triage-github-actions-with-copilot/</link><pubDate>Mon, 11 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/ai-triage-github-actions-with-copilot/</guid><description>&lt;p>Failures happen: the key is shortening time-to-understanding. In this guide, you’ll automate triage when a GitHub Actions workflow fails: pull logs and artifacts, get an AI summary from GitHub Models, open an issue with concrete next steps, and optionally assign it to the Copilot coding agent.&lt;/p>
+&lt;h2 id="what-youll-build">What you’ll build&lt;/h2>
+&lt;ul>
+&lt;li>Trigger on failed workflow runs you care about&lt;/li>
+&lt;li>Collect logs and artifacts for context&lt;/li>
+&lt;li>Call GitHub Models for a concise summary and probable fix&lt;/li>
+&lt;li>File a GitHub issue with reproduction hints and links&lt;/li>
+&lt;li>Optionally assign the issue to the Copilot coding agent&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;ul>
+&lt;li>GitHub Actions enabled in your repo&lt;/li>
+&lt;li>GitHub Models access and a token for inference:
+&lt;ul>
+&lt;li>If you’re using a fine-grained PAT: add &lt;code>models:read&lt;/code> scope&lt;/li>
+&lt;li>Or use &lt;code>secrets.GITHUB_TOKEN&lt;/code> in public repos where Models are enabled for the org&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Optional: Copilot coding agent enabled at the org or user level to assign issues to&lt;/li>
+&lt;/ul>
+&lt;h2 id="workflow-ai-assisted-failure-triage">Workflow: AI-assisted failure triage&lt;/h2>
+&lt;p>Below is a complete workflow you can drop into &lt;code>.github/workflows/ai-triage.yml&lt;/code>. It triggers when selected workflows complete and only proceeds if they failed.&lt;/p></description></item><item><title>🐙 GitHub Certification Journey: Part 1 - GitHub Foundations (GH-900)</title><link>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-900/</link><pubDate>Fri, 08 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-900/</guid><description>&lt;p>Welcome to the GitHub Certification Journey! This comprehensive guide covers everything you need to master the &lt;strong>GitHub Foundations (GH-900)&lt;/strong> certification. Whether you&amp;rsquo;re new to Git and GitHub or looking to validate your foundational knowledge, this post provides complete coverage of all exam domains with practical examples and hands-on exercises.&lt;/p>
+&lt;h2 id="why-github-foundations-certification-matters">Why GitHub Foundations Certification Matters&lt;/h2>
+&lt;p>The GitHub Foundations certification validates your understanding of Git version control and GitHub collaboration fundamentals. As the entry point to GitHub&amp;rsquo;s certification pathway, it demonstrates your ability to:&lt;/p></description></item><item><title>⚡ Local Energy Assistant: C# + GPT-OSS + RAG</title><link>https://quintelier.dev/posts/2025/08/local-energy-assistant-csharp-gpt-oss/</link><pubDate>Thu, 07 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/local-energy-assistant-csharp-gpt-oss/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Imagine having an AI assistant that understands your energy consumption patterns, solar production, and weather data — all running locally on your machine with zero cloud dependencies. No API keys, no subscription fees, no data leaving your premises.&lt;/p>
+&lt;p>In this hands-on guide, we&amp;rsquo;ll build a &lt;strong>Local Energy Assistant&lt;/strong> using C#, the open-source GPT-OSS-20B model, Retrieval-Augmented Generation (RAG), and custom tool calling. Perfect for privacy-conscious developers who want intelligent insights from their smart meter data.&lt;/p></description></item><item><title>🖥️ Zero to Hero: Terraform for Azure•Part 2</title><link>https://quintelier.dev/posts/2025/08/zero-to-hero-terraform-for-azure-2/</link><pubDate>Wed, 06 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/zero-to-hero-terraform-for-azure-2/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>In &lt;a href="../../03/zero-to-hero-terraform-for-azure-1/">Part 1&lt;/a>, we set up our development environment and deployed our first Azure resource group using Terraform. Whilst this gave us a taste of Infrastructure as Code, we were using local state files: a practice that won&amp;rsquo;t scale for team environments or production workloads.&lt;/p>
+&lt;p>In this second part of our series, we&amp;rsquo;ll explore &lt;strong>Terraform state management&lt;/strong> and &lt;strong>remote backends&lt;/strong>. You&amp;rsquo;ll learn why state is crucial, how to configure Azure Storage as a remote backend, implement state locking for team safety, and master essential state management commands.&lt;/p></description></item><item><title>🚀 .NET 9 Performance in Azure: A Deep Technical Dive</title><link>https://quintelier.dev/posts/2025/08/net-9-performance-azure-deep-dive/</link><pubDate>Tue, 05 Aug 2025 10:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/net-9-performance-azure-deep-dive/</guid><description>&lt;p>.NET 9 represents a significant leap forward in performance optimization, particularly for Azure-hosted applications. With cloud costs continuing to rise and performance expectations at an all-time high, these improvements can directly impact both your application&amp;rsquo;s user experience and your Azure bill. Let&amp;rsquo;s explore the technical depths of what makes .NET 9 a game-changer for Azure workloads.&lt;/p>
+&lt;h2 id="executive-summary-the-performance-revolution">Executive Summary: The Performance Revolution&lt;/h2>
+&lt;p>Before diving into the technical details, here&amp;rsquo;s what .NET 9 delivers for Azure applications:&lt;/p></description></item><item><title>🛠️ GitHub Copilot: Custom Instructions, Prompts &amp; Chats</title><link>https://quintelier.dev/posts/2025/07/customize-github-copilot-experience/</link><pubDate>Thu, 31 Jul 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/07/customize-github-copilot-experience/</guid><description>&lt;h2 id="-customizing-your-github-copilot-experience-instructions-prompts-and-chat-modes">🛠️ Customizing Your GitHub Copilot Experience: Instructions, Prompts, and Chat Modes&lt;/h2>
+&lt;p>GitHub Copilot is more than just an autocomplete tool—it&amp;rsquo;s a powerful AI assistant you can tailor to your team&amp;rsquo;s needs. With the latest features in VS Code, you can now define custom instructions, prompts, and chat modes to make Copilot work exactly the way you want.&lt;/p>
+&lt;p>This post walks you through customizing Copilot for your projects, with hands-on steps, theory, and examples. Let&amp;rsquo;s dive in!&lt;/p></description></item><item><title>Azure Service Groups: Benefits, RBAC, and API Guide</title><link>https://quintelier.dev/posts/2025/06/azure-service-groups-overview/</link><pubDate>Tue, 03 Jun 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/06/azure-service-groups-overview/</guid><description>&lt;h2 id="introducing-azure-service-groups-simplified-resource-governance-at-scale">Introducing Azure Service Groups: Simplified Resource Governance at Scale&lt;/h2>
+&lt;p>Azure environments can grow fast—across teams, business units, and global regions. With that growth comes the need for efficient governance. While Azure Management Groups and Role-Based Access Control (RBAC) help organize and secure resources, Azure now offers an even more granular and flexible capability: &lt;strong>Azure Service Groups&lt;/strong>.&lt;/p>
+&lt;div class="card border-start border-4 border-danger mb-4 shadow-sm">
+ &lt;div class="card-body">
+ &lt;h6 class="card-title d-flex align-items-center text-danger mb-2">
+ &lt;i class="fas fa-exclamation-triangle me-2">&lt;/i>
+ Preview!
+ &lt;/h6>
+ &lt;div class="card-text small">
+ &lt;p>Azure Service Groups is currently in PREVIEW. For more information about participating in the preview, see &lt;a href="https://learn.microsoft.com/en-us/azure/governance/service-groups/overview" target="_blank" rel="noopener noreferrer">Azure Service Groups Preview&lt;/a>. See the &lt;a href="https://learn.microsoft.com/en-us/legal/cognitive-services/terms" target="_blank" rel="noopener noreferrer">Supplemental Terms of Use for Microsoft Azure Previews&lt;/a> for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.&lt;/p></description></item><item><title>Which AI Model Should You Use with GitHub Copilot?</title><link>https://quintelier.dev/posts/2025/04/which-ai-model-to-use-with-github-copilot/</link><pubDate>Mon, 28 Apr 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/04/which-ai-model-to-use-with-github-copilot/</guid><description>&lt;h2 id="-important-update--august-2025">📢 Important Update — August 2025&lt;/h2>
+&lt;p>GitHub Copilot and ChatGPT have officially &lt;strong>deprecated GPT-4o&lt;/strong>.&lt;br>
+The &lt;strong>new recommended model&lt;/strong> is &lt;strong>GPT-5&lt;/strong>, now available in &lt;strong>public preview&lt;/strong> for GitHub Copilot (paid plans) and &lt;strong>default in ChatGPT&lt;/strong>.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-07-openai-gpt-5-is-now-in-public-preview-for-github-copilot/" target="_blank" rel="noopener noreferrer">GitHub changelog — GPT-5 public preview&lt;/a>&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-06-deprecation-of-gpt-4o-in-copilot-chat/" target="_blank" rel="noopener noreferrer">GitHub changelog — GPT-4o deprecation&lt;/a>&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://openai.com/index/introducing-gpt-5/" target="_blank" rel="noopener noreferrer">OpenAI GPT-5 announcement&lt;/a>&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="which-ai-model-should-i-use-with-github-copilot">Which AI model should I use with GitHub Copilot?&lt;/h2>
+&lt;p>Choosing the right AI model for your GitHub Copilot project can be tricky.&lt;br>
+Each model has strengths, and matching them to your workflow will help you get better results.&lt;/p></description></item><item><title>🌐 AKS Networking Demystified: Models &amp; Best Practices</title><link>https://quintelier.dev/posts/2025/04/aks-networking-guide/</link><pubDate>Thu, 17 Apr 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/04/aks-networking-guide/</guid><description>&lt;h2 id="demystifying-networking-in-azure-kubernetes-service-aks">Demystifying Networking in Azure Kubernetes Service (AKS)&lt;/h2>
+&lt;p>Networking in Azure Kubernetes Service (AKS) provides the backbone for secure and efficient containerized workloads. Microsoft offers several networking models in AKS, each tailored for specific requirements and use cases. In this post, we explore these networking options: Azure CNI, Azure CNI Overlay, Kubenet, and Azure CNI powered by Cilium, along with recent updates from Azure.&lt;/p>
+&lt;h3 id="kubenet">Kubenet&lt;/h3>
+&lt;p>Kubenet is a simple and traditional networking approach in AKS, suitable for scenarios that don’t require the advanced networking features of Azure CNI.&lt;/p></description></item><item><title>🤖 GitHub Copilot Agent: Your AI Pair Programmer</title><link>https://quintelier.dev/posts/2025/04/github-copilot-agent-mode/</link><pubDate>Thu, 10 Apr 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/04/github-copilot-agent-mode/</guid><description>&lt;p>GitHub Copilot just levelled up. The long-anticipated &lt;strong>Agent Mode&lt;/strong> is no longer in preview and is officially rolling out to all users of &lt;strong>Visual Studio Code&lt;/strong>, including the stable release. If you&amp;rsquo;ve ever dreamed of having a truly &lt;strong>autonomous AI pair programmer&lt;/strong> that doesn&amp;rsquo;t just suggest lines of code but actively edits files, runs commands, and debugs your code — your wish has come true.&lt;/p>
+&lt;h2 id="-what-is-copilot-agent-mode">💡 What is Copilot Agent Mode?&lt;/h2>
+&lt;p>Agent Mode is a major upgrade to GitHub Copilot. Unlike traditional autocomplete and inline suggestions, &lt;strong>Agent Mode enables Copilot to understand your workspace and perform complex, multi-step tasks&lt;/strong> — from generating code to fixing bugs, running tests, editing multiple files, and executing terminal commands.&lt;/p></description></item><item><title>📘 Secure Azure CI/CD with Federated Credentials</title><link>https://quintelier.dev/posts/2025/03/federated-credentials-secure-azure-cicd/</link><pubDate>Tue, 25 Mar 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/federated-credentials-secure-azure-cicd/</guid><description>&lt;h2 id="why-use-federated-credentials-in-cicd-pipelines">Why Use Federated Credentials in CI/CD Pipelines?&lt;/h2>
+&lt;p>In DevOps, protecting credentials and preventing secret sprawl across CI/CD systems like GitHub Actions and Azure DevOps is crucial. Federated credentials provide a secure way to authenticate pipelines without storing sensitive information, reducing the risk of exposure and simplifying secret management.&lt;/p>
+&lt;p>Federated identity leverages external identity providers (such as Azure Active Directory) to authenticate users and applications securely. Rather than managing multiple secrets or tokens across platforms, federated identity centralizes authentication, providing significant security and operational benefits.&lt;/p></description></item><item><title>🔄 Azure updates for March 18, 2025</title><link>https://quintelier.dev/posts/2025/03/azure-updates-march-18-2025/</link><pubDate>Tue, 18 Mar 2025 07:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/azure-updates-march-18-2025/</guid><description>&lt;h2 id="introduction-azure-changelog--latest-updates--enhancements">&lt;strong>Introduction: Azure Changelog – Latest Updates &amp;amp; Enhancements&lt;/strong>&lt;/h2>
+&lt;p>Welcome to the Azure Changelog, your go-to source for the latest updates and enhancements in Microsoft Azure. In this edition, we will cover the most recent changes and improvements made to Azure services, tools, and features. Stay informed about the latest developments in the Azure ecosystem to optimize your cloud experience.&lt;/p>
+&lt;h3 id="kubenet-networking-for-azure-kubernetes-service-retires-on-march-31-2028">Kubenet Networking for Azure Kubernetes Service Retires on March 31, 2028&lt;/h3>
+&lt;p>Azure Kubernetes Service (AKS) will officially retire &lt;strong>kubenet networking&lt;/strong> on &lt;strong>March 31, 2028&lt;/strong>. After this date, workloads using kubenet will no longer be supported, so it&amp;rsquo;s essential to migrate in advance to avoid disruptions.&lt;/p></description></item><item><title>🔄 GitHub updates for March 18, 2025</title><link>https://quintelier.dev/posts/2025/03/github-updates-march-18-2025/</link><pubDate>Tue, 18 Mar 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/github-updates-march-18-2025/</guid><description>&lt;h2 id="introduction-github-changelog--latest-updates--enhancements">&lt;strong>Introduction: GitHub Changelog – Latest Updates &amp;amp; Enhancements&lt;/strong>&lt;/h2>
+&lt;p>Stay up to date with the latest &lt;strong>GitHub updates, features, and improvements&lt;/strong> designed to enhance your development experience. Whether it’s &lt;strong>security and compliance advancements&lt;/strong>, &lt;strong>performance optimizations&lt;/strong>, or &lt;strong>new tools for automation and insights&lt;/strong>, this changelog keeps you informed about what’s new and how it can benefit your workflow.&lt;/p>
+&lt;p>Inspired by our &lt;a href="https://github.blog/changelog/2025-02-05-view-and-iterate-on-generated-files-directly-within-copilot-chat-preview/" target="_blank" rel="noopener noreferrer">previous release&lt;/a>, working with &lt;a href="https://github.com/copilot" target="_blank" rel="noopener noreferrer">Copilot Chat&lt;/a> on GitHub has become even more seamless. You can instantly preview HTML files, edit files you’ve created, and work on issues right away. Several exciting new capabilities give you more control and flexibility.&lt;/p></description></item><item><title>🚀 GitHub Copilot: The AI-Powered Coding Assistant</title><link>https://quintelier.dev/posts/2025/03/github-copilot-the-ai-powered-coding-assistant/</link><pubDate>Sat, 15 Mar 2025 07:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/github-copilot-the-ai-powered-coding-assistant/</guid><description>&lt;h2 id="introduction">&lt;strong>Introduction&lt;/strong>&lt;/h2>
+&lt;p>GitHub Copilot is an AI-powered coding assistant developed by GitHub in collaboration with OpenAI. It acts as a pair programmer, providing real-time code suggestions, autocompletions, and entire function implementations based on context. Whether you&amp;rsquo;re writing JavaScript, Python, C#, or even Terraform, Copilot speeds up development and improves productivity.&lt;/p>
+&lt;p>In this article, we’ll explore what GitHub Copilot is, how it works, its benefits, limitations, and best practices for maximizing its potential.&lt;/p></description></item><item><title>⚖️ Azure Bicep vs Terraform: What Should You Choose?</title><link>https://quintelier.dev/posts/2025/03/azure-bicep-vs-terraform/</link><pubDate>Sat, 15 Mar 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/azure-bicep-vs-terraform/</guid><description>&lt;h2 id="introduction">&lt;strong>Introduction&lt;/strong>&lt;/h2>
+&lt;p>Infrastructure as Code (IaC) is a critical part of modern cloud development, allowing teams to define and manage infrastructure in a declarative and repeatable way. Two of the most popular IaC tools for Microsoft Azure are &lt;strong>Azure Bicep&lt;/strong> and &lt;strong>Terraform&lt;/strong>.&lt;/p>
+&lt;p>But which one should you use? This article compares Bicep and Terraform based on syntax, features, ease of use, ecosystem support, and real-world scenarios.&lt;/p>
+&lt;hr>
+&lt;h2 id="what-is-azure-bicep">&lt;strong>What is Azure Bicep?&lt;/strong>&lt;/h2>
+&lt;p>Azure Bicep is a &lt;strong>domain-specific language (DSL)&lt;/strong> developed by Microsoft as an abstraction over ARM (Azure Resource Manager) templates. It simplifies Azure infrastructure deployment by providing a cleaner syntax compared to JSON-based ARM templates.&lt;/p></description></item><item><title>🔄 GitHub updates for March 14, 2025</title><link>https://quintelier.dev/posts/2025/03/github-updates-march-14-2025/</link><pubDate>Fri, 14 Mar 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/github-updates-march-14-2025/</guid><description>&lt;h2 id="introduction-github-changelog--latest-updates--enhancements">&lt;strong>Introduction: GitHub Changelog – Latest Updates &amp;amp; Enhancements&lt;/strong>&lt;/h2>
+&lt;p>Stay up to date with the latest &lt;strong>GitHub updates, features, and improvements&lt;/strong> designed to enhance your development experience. Whether it’s &lt;strong>security and compliance advancements&lt;/strong>, &lt;strong>performance optimizations&lt;/strong>, or &lt;strong>new tools for automation and insights&lt;/strong>, this changelog keeps you informed about what’s new and how it can benefit your workflow.&lt;/p>
+&lt;p>In this edition, we’re covering &lt;strong>GitHub’s PCI DSS v4.0 compliance&lt;/strong> for enterprise customers and the &lt;strong>general availability of GitHub Actions Performance Metrics&lt;/strong>, helping teams gain deeper insights into their CI/CD workflows. Let’s dive into the details! 🚀&lt;/p></description></item><item><title>🖥️ Zero to Hero: Terraform for Azure•Part 1</title><link>https://quintelier.dev/posts/2025/03/zero-to-hero-terraform-for-azure-1/</link><pubDate>Mon, 10 Mar 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/zero-to-hero-terraform-for-azure-1/</guid><description>&lt;h2 id="introduction">&lt;strong>Introduction&lt;/strong>&lt;/h2>
+&lt;p>Terraform is a powerful Infrastructure as Code (IaC) tool that enables you to define, provision, and manage Azure resources using declarative configuration files. This blog series, &lt;em>Zero to Hero: Terraform for Azure&lt;/em>, will take you through Terraform from the basics to advanced topics, using hands-on examples tailored for Azure.&lt;/p>
+&lt;p>In this first post, we’ll focus on setting up your development environment and deploying your first resource on Azure using Terraform.&lt;/p></description></item><item><title>🔒 Securing Azure Identities</title><link>https://quintelier.dev/posts/2025/02/securing-azure-identities/</link><pubDate>Thu, 20 Feb 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/02/securing-azure-identities/</guid><description>&lt;h2 id="securing-azure-identities-the-new-perimeter-in-cloud-security">Securing Azure Identities: The “New” Perimeter in Cloud Security&lt;/h2>
+&lt;p>It’s no secret that the cloud has fundamentally changed how we approach cybersecurity. The days when a robust firewall was all you needed to keep attackers at bay are long gone. As cloud-native services increasingly move into the public sphere, identity has emerged as the new defensive perimeter—if an attacker compromises your identities and credentials, they’re essentially inside.&lt;/p>
+&lt;h2 id="why-identities-matter-more-than-ever">Why Identities Matter More Than Ever&lt;/h2>
+&lt;p>If you’ve participated in a cybersecurity roundtable recently, you’ve likely heard someone mention, “Identity is the new perimeter.” Historically, once you were inside a corporate network, you had broad access to internal systems—much like walking through a front door and freely wandering the house. However, the widespread adoption of cloud services—accessible from anywhere—has turned this model upside down.&lt;/p></description></item><item><title>🚀 Find Stale Branches Across All GitHub Repos</title><link>https://quintelier.dev/posts/2025/01/retrieve-stale-branches-github-organization/</link><pubDate>Tue, 14 Jan 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/01/retrieve-stale-branches-github-organization/</guid><description>&lt;p>Keeping your GitHub repositories clean is crucial for maintainability. Over time, branches pile up, making it difficult to track what’s relevant. If you’re managing multiple repositories in an organization, manually identifying stale branches can be a hassle.&lt;/p>
+&lt;p>Luckily, with the &lt;strong>GitHub CLI (&lt;code>gh&lt;/code>)&lt;/strong>, you can automate this process and generate a &lt;strong>report of all non-main branches along with their last authors&lt;/strong>.&lt;/p>
+&lt;p>This guide walks you through a &lt;strong>Bash script&lt;/strong> that:&lt;br>
+✅ Retrieves all repositories in an organization&lt;br>
+✅ Lists branches, excluding &lt;code>main&lt;/code>, &lt;code>master&lt;/code>, and &lt;code>azure-master&lt;/code>&lt;br>
+✅ Identifies the last commit author for each branch&lt;br>
+✅ Groups the results by author for better visibility&lt;/p></description></item><item><title>🔹 Azure Storage Redundancy: Availability &amp; Durability</title><link>https://quintelier.dev/posts/2023/03/azure-storage-redundancy-data-availability-durability/</link><pubDate>Mon, 20 Mar 2023 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2023/03/azure-storage-redundancy-data-availability-durability/</guid><description>&lt;p>Azure Storage automatically &lt;strong>stores multiple copies&lt;/strong> of your data to protect against failures, power outages, and even &lt;strong>massive natural disasters&lt;/strong>. &lt;strong>Redundancy&lt;/strong> ensures that your data remains available and durable even when failures occur.&lt;/p>
+&lt;p>This guide covers &lt;strong>all redundancy options&lt;/strong> available in Azure Storage and how they impact data durability, availability, and failover scenarios.&lt;/p>
+&lt;hr>
+&lt;h2 id="-primary-region-redundancy">🌍 &lt;strong>Primary Region Redundancy&lt;/strong>&lt;/h2>
+&lt;p>Azure Storage always maintains &lt;strong>three copies&lt;/strong> of your data in the &lt;strong>primary region&lt;/strong>. There are two replication options:&lt;/p></description></item><item><title>Azure Load Balancing: Choose the Right Option</title><link>https://quintelier.dev/posts/2022/06/azure-load-balancing-explained/</link><pubDate>Fri, 17 Jun 2022 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2022/06/azure-load-balancing-explained/</guid><description>&lt;h2 id="what-is-load-balancing">&lt;strong>What is Load Balancing?&lt;/strong>&lt;/h2>
+&lt;p>Load balancing is the &lt;strong>even distribution of network traffic&lt;/strong> across a group of backend computing resources or servers. The primary goals of load balancing are:&lt;/p>
+&lt;p>✅ &lt;strong>Optimizing resource utilization&lt;/strong>&lt;br>
+✅ &lt;strong>Maximizing throughput &amp;amp; performance&lt;/strong>&lt;br>
+✅ &lt;strong>Minimizing response time&lt;/strong>&lt;br>
+✅ &lt;strong>Ensuring high availability&lt;/strong>&lt;br>
+✅ &lt;strong>Preventing overload on a single resource&lt;/strong>&lt;/p>
+&lt;p>In &lt;strong>Azure&lt;/strong>, there are multiple load-balancing options, each designed for different &lt;strong>traffic types and use cases&lt;/strong>.&lt;/p>
+&lt;hr>
+&lt;h2 id="tldr-2025-update">&lt;strong>TL;DR (2025 Update)&lt;/strong>&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Goal&lt;/th>
+ &lt;th>Pick&lt;/th>
+ &lt;th>Why&lt;/th>
+ &lt;th>Layer / Scope&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Global HTTP(S) acceleration + WAF&lt;/td>
+ &lt;td>Front Door Std/Premium&lt;/td>
+ &lt;td>Anycast edge, caching, rapid failover&lt;/td>
+ &lt;td>L7 / Global&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Global single anycast IP for TCP/UDP&lt;/td>
+ &lt;td>Cross-region Load Balancer&lt;/td>
+ &lt;td>L4 pass-through, fast failover (no DNS TTL)&lt;/td>
+ &lt;td>L4 / Global&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Hybrid or external endpoint steering&lt;/td>
+ &lt;td>Traffic Manager&lt;/td>
+ &lt;td>DNS-based latency / geo / weighted policies&lt;/td>
+ &lt;td>DNS / Global&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>In-region advanced HTTP routing + per-app WAF&lt;/td>
+ &lt;td>Application Gateway v2&lt;/td>
+ &lt;td>Path/host routing, rewrites, mTLS&lt;/td>
+ &lt;td>L7 / Regional&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Regional TCP/UDP balancing + outbound SNAT&lt;/td>
+ &lt;td>Standard Load Balancer&lt;/td>
+ &lt;td>High-perf, zone redundant&lt;/td>
+ &lt;td>L4 / Regional&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Insert firewall / IDS transparently&lt;/td>
+ &lt;td>Gateway Load Balancer&lt;/td>
+ &lt;td>Inline NVA chaining without UDR complexity&lt;/td>
+ &lt;td>L3/L4 / Regional&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Legacy Basic LB still present&lt;/td>
+ &lt;td>Migrate to Standard&lt;/td>
+ &lt;td>Basic retires 30 Sept 2025&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/td>
+ &lt;td>—&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>Plan outbound explicitly before default outbound access retirement (30 Sept 2025)&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. Combine services (e.g. Front Door + App Gateway) for layered designs.&lt;/p></description></item><item><title>📘 AZ-700 Prep Highlights</title><link>https://quintelier.dev/posts/2022/06/az-700-prep-highlights/</link><pubDate>Fri, 03 Jun 2022 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2022/06/az-700-prep-highlights/</guid><description>&lt;p>This blog post captures my notes from the &lt;strong>AZ-700&lt;/strong> course, which is designed to teach &lt;strong>Network Engineers&lt;/strong> how to design, implement, and maintain &lt;strong>Azure networking solutions&lt;/strong>. The course covers a wide range of networking topics, including:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Designing, implementing, and managing&lt;/strong> core Azure networking infrastructure&lt;/li>
+&lt;li>&lt;strong>Hybrid networking&lt;/strong> connections for on-premises integration&lt;/li>
+&lt;li>&lt;strong>Load balancing&lt;/strong> strategies for optimizing traffic distribution&lt;/li>
+&lt;li>&lt;strong>Routing and private access&lt;/strong> to Azure services&lt;/li>
+&lt;li>&lt;strong>Network security&lt;/strong> and traffic filtering&lt;/li>
+&lt;li>&lt;strong>Monitoring and troubleshooting&lt;/strong> network connectivity&lt;/li>
+&lt;/ul>
+&lt;h2 id="1-virtual-networks-vnets">&lt;strong>1. Virtual Networks (VNets)&lt;/strong>&lt;/h2>
+&lt;p>Azure &lt;strong>Virtual Networks (VNets)&lt;/strong> are the backbone of networking in Azure, allowing resources to communicate securely.&lt;/p></description></item></channel></rss>
