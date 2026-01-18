@@ -1,0 +1,41 @@
+Keeping your GitHub repositories clean is crucial for maintainability. Over time, branches pile up, making it difficult to track what’s relevant. If you’re managing multiple repositories in an organization, manually identifying stale branches can be a hassle.
+
+Luckily, with the GitHub CLI (gh), you can automate this process and generate a report of all non-main branches along with their last authors.
+
+This guide walks you through a Bash script that:
+- Retrieves all repositories in an organization
+- Lists branches, excluding main, master, and azure-master
+- Identifies the last commit author for each branch
+- Groups the results by author for better visibility
+
+Prerequisites
+Before running the script, make sure:
+- You have GitHub CLI (gh) installed and authenticated (gh auth login)
+- You have appropriate permissions to list repositories and fetch branch details in your organization
+- You're running a Unix-based system (Linux/macOS or WSL for Windows)
+
+The Script
+Here’s the complete Bash script to scan all repositories in your GitHub organization and generate a stale branch report.
+
+Example Output
+Once executed, the script produces a report grouped by author, making it easy to find out who owns stale branches:
+Author: Alice
+- repo1 -> feature/login-page
+- repo2 -> hotfix/payment-fix
+Author: Bob
+- repo3 -> refactor/api-updates
+- repo1 -> test/legacy-integration
+Author: Unknown
+- repo4 -> bugfix/session-timeout
+
+Why This Matters
+1. Easier Maintenance – Identify branches that can be deleted or merged.
+2. Better Collaboration – Reach out to authors to confirm branch status.
+3. Improved Performance – Reducing unnecessary branches speeds up repository operations.
+
+You can extend this script further to:
+- Filter branches by last commit date
+- Automatically delete stale branches (with gh api -X DELETE)
+- Generate a GitHub issue or PR listing stale branches
+
+Would love to hear how you customize this for your workflow!
