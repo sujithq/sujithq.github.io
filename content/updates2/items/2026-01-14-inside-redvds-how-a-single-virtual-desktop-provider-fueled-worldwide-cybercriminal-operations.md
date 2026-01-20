@@ -3,19 +3,19 @@ title: "security: Inside RedVDS: How a single virtual desktop provider fueled wo
 date: 2026-01-14T15:03:31.000Z
 slug: inside-redvds-how-a-single-virtual-desktop-provider-fueled-worldwide-cybercriminal-operations
 update_categories: ["security"]
-update_tags: ["RedVDS", "virtual desktop", "cybercrime", "Microsoft DCU", "law enforcement", "disruption"]
-update_bullets: ["RedVDS operated as a virtual desktop service exploited by disparate cybercriminal groups worldwide.", "Microsoft’s investigation mapped the infrastructure and customer activity tied to illegal operations across multiple sectors.", "The Digital Crimes Unit partnered with law enforcement agencies globally to plan and execute a disruption of RedVDS services.", "The disruption aimed to degrade criminal capabilities and interrupt ongoing malicious campaigns that relied on RedVDS.", "The incident underscores risks posed by illicit access to virtual desktop services and the need for cross-border collaboration."]
+update_tags: ["RedVDS", "virtual desktop", "cybercrime", "Microsoft DCU", "law enforcement", "takedown", "cybersecurity", "infrastructure"]
+update_bullets: ["Investigation revealed RedVDS was used by cybercriminals around the world.", "RedVDS provided virtual desktop services that enabled targeting of multiple sectors.", "Microsoft’s Digital Crimes Unit collaborated with international law enforcement.", "Collaboration led to a disruption of RedVDS infrastructure and related operations.", "Findings and the disruption were published on the Microsoft Security Blog."]
 timeframes: ["2026-01"]
 link: "https://www.microsoft.com/en-us/security/blog/2026/01/14/inside-redvds-how-a-single-virtual-desktop-provider-fueled-worldwide-cybercriminal-operations/"
 source: "Microsoft Security Blog"
 timeframeKey: "2026-01"
-id: "CA37932D6F9F206292888C83C062FC59ABD5B5B341B79555488FB8B463118B84"
+id: "998B2B58A8A79AEC3A3C56A2075CD8935501A63EADCCAF7854CC916576F8BF3E"
 contentHash: "D17E63364CCCCBB19E4254DF43196243B2AC406FF70EFDD86FEAA72FEE4DC95E"
 draft: false
 type: "updates2"
-llmSummary: "Microsoft’s Digital Crimes Unit investigated RedVDS, a virtual desktop provider whose services were used by a global network of cybercriminals. In coordination with international law enforcement, Microsoft helped disrupt RedVDS infrastructure and related operations to hinder ongoing abuses."
+llmSummary: "Microsoft investigated RedVDS, a virtual desktop provider whose services were purchased by a global network of disparate cybercriminals to target multiple sectors. Working with law enforcement worldwide, Microsoft's Digital Crimes Unit helped disrupt RedVDS infrastructure and related operations, a disruption detailed in a Microsoft Security Blog post."
 ---
 
-Microsoft’s Digital Crimes Unit investigated RedVDS, a virtual desktop provider whose services were used by a global network of cybercriminals. In coordination with international law enforcement, Microsoft helped disrupt RedVDS infrastructure and related operations to hinder ongoing abuses.
+Microsoft investigated RedVDS, a virtual desktop provider whose services were purchased by a global network of disparate cybercriminals to target multiple sectors. Working with law enforcement worldwide, Microsoft's Digital Crimes Unit helped disrupt RedVDS infrastructure and related operations, a disruption detailed in a Microsoft Security Blog post.
 
 - **Source:** [Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/01/14/inside-redvds-how-a-single-virtual-desktop-provider-fueled-worldwide-cybercriminal-operations/)
