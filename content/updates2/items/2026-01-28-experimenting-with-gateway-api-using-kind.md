@@ -1,0 +1,21 @@
+---
+title: "k8s: Experimenting with Gateway API using kind"
+date: 2026-01-28T00:00:00.000Z
+slug: experimenting-with-gateway-api-using-kind
+update_categories: ["k8s"]
+update_tags: ["kubernetes", "kind", "gateway-api", "cloud-provider-kind", "kubectl", "docker", "httproute", "gateway", "loadbalancer", "tutorial", "troubleshooting", "demo"]
+update_bullets: ["Prerequisites: Docker, kubectl, kind, curl installed locally.", "Create a kind cluster: run `kind create cluster` to create a single-node Kubernetes cluster in Docker.", "Install cloud-provider-kind: run the cloud-provider-kind container on the host (it provides a LoadBalancer controller and a Gateway API controller and installs Gateway CRDs). Extract the latest release version and start the container, e.g. set VERSION from the GitHub release URL and run `docker run -d --name cloud-provider-kind --rm --network host -v /var/run/docker.sock:/var/run/docker.sock registry.k8s.io/cloud-provider-kind/cloud-controller-manager:${VERSION}`.", "Verify cloud-provider-kind is running: `docker ps --filter name=cloud-provider-kind` and `docker logs cloud-provider-kind`.", "Deploy a Gateway: apply a manifest that creates namespace `gateway-infra` and a Gateway using gatewayClass `cloud-provider-kind` listening on port 80 with hostname `*.exampledomain.example`. Verify: `kubectl get gateway -n gateway-infra gateway` (PROGRAMMED True and an IP in ADDRESS).", "Deploy demo echo app: create namespace `demo`, a ClusterIP Service for port 3000, and a Deployment using registry.k8s.io/gateway-api/echo-basic image.", "Create an HTTPRoute: apply an HTTPRoute in namespace `demo` that parentRefs the Gateway in `gateway-infra`, matches hostname `some.exampledomain.example`, and routes path prefix `/` to service `echo` port 3000.", "Test the route: get the Gateway IP `GW_ADDR=$(kubectl get gateway -n gateway-infra gateway -o jsonpath='{.status.addresses[0].value}')` then curl with host resolution: `curl --resolve some.exampledomain.example:80:${GW_ADDR} http://some.exampledomain.example` — you should receive JSON from the echo app.", "Troubleshooting: inspect statuses — `kubectl get gateway -n gateway-infra gateway -o yaml` (look for Accepted/Programmed and .status.addresses), `kubectl get httproute -n demo echo -o yaml` (check status.parents and conditions such as ResolvedRefs/BackendNotFound), and check controller logs with `docker logs -f cloud-provider-kind`.", "Cleanup: delete namespaces `kubectl delete namespace gateway-infra demo`, stop the cloud-provider-kind container `docker stop cloud-provider-kind` (it was run with --rm), and delete the kind cluster `kind delete cluster`.", "Cautions and next steps: this environment is for experimentation only. For production, choose a production-grade Gateway API implementation and explore advanced features (TLS, traffic splitting, header matching, path routing)."]
+timeframes: ["2026-01"]
+link: "https://kubernetes.io/blog/2026/01/28/experimenting-gateway-api-with-kind/"
+source: "Kubernetes Official Blog"
+timeframeKey: "2026-01"
+id: "9F92CCC5921B3BDA86DE72C8B1D313334B77A947D9CDF3FB07713DF083D3AE50"
+contentHash: "35AA61A5ED074FA59A98151892D247B85BCD3168BA7EBBD49A02233272EA98C3"
+draft: false
+type: "updates2"
+llmSummary: "This guide shows how to run a local experimental Gateway API environment using kind and cloud-provider-kind. It walks through creating a kind cluster, running cloud-provider-kind (which provides a LoadBalancer and a Gateway API controller and CRDs), deploying a Gateway and an HTTPRoute, deploying a demo echo application, testing with curl, troubleshooting common issues, and cleaning up. The setup is intended for learning and testing only — not production."
+---
+
+This guide shows how to run a local experimental Gateway API environment using kind and cloud-provider-kind. It walks through creating a kind cluster, running cloud-provider-kind (which provides a LoadBalancer and a Gateway API controller and CRDs), deploying a Gateway and an HTTPRoute, deploying a demo echo application, testing with curl, troubleshooting common issues, and cleaning up. The setup is intended for learning and testing only — not production.
+
+- **Source:** [Kubernetes Official Blog](https://kubernetes.io/blog/2026/01/28/experimenting-gateway-api-with-kind/)
