@@ -1,7 +1,7 @@
-using Azure;
 using Azure.AI.OpenAI;
 using Azure.AI.OpenAI.Chat;
-using Microsoft.Extensions.Logging;
+using Azure.Core;
+using Azure.Identity;
 using OpenAI.Chat;
 using System.ClientModel;
 using System.Text.Json;
@@ -12,63 +12,81 @@ namespace Crawler.Llm
   {
     private readonly ChatClient _chatClient;
 
+    // Keep signature for compatibility; apiKey is no longer used when key auth is disabled.
     public FoundryClient(string model, string endpoint, string apiKey)
+      : this(model, endpoint, credential: null)
     {
+    }
+
+    // New ctor for explicit credential injection (tests, custom auth, etc.)
+    public FoundryClient(string model, string endpoint, TokenCredential? credential)
+    {
+      TokenCredential cred = new DefaultAzureCredential(new DefaultAzureCredentialOptions
+      {
+        ExcludeVisualStudioCredential = true,
+        ExcludeVisualStudioCodeCredential = true,
+
+        // optional: if you’re in a multi-tenant setup, keep this:
+        AdditionallyAllowedTenants = { "*" }
+      });
+
       AzureOpenAIClient azureClient = new(
           new Uri(endpoint),
-          new AzureKeyCredential(apiKey));
+          cred);
+
       _chatClient = azureClient.GetChatClient(model);
     }
 
     public async Task<(LlmOutput, int)> SummarizeAsync(string title, string url, string plainText)
     {
       // 1) Try JSON Schema first
-      var (ok, text, status, error) = await PostAsync(ChatResponseFormatEnum.JsonObjectFormat, title, url, plainText);
+      var (ok, text, status, error) = await PostAsync(ChatResponseFormatEnum.JsonSchemaFormat, title, url, plainText);
       int llmCalls = 1;
 
-      // 2) If schema isn't supported (400), fallback to JSON mode + strict instruction
+      // 2) If schema isn't supported (400), fallback to JSON object mode + strict instruction
       if (!ok && status == 400 && IsSchemaUnsupported(error))
       {
-        (ok, text, status, error) = await PostAsync(ChatResponseFormatEnum.JsonSchemaFormat, title, url, plainText);
+        (ok, text, status, error) = await PostAsync(ChatResponseFormatEnum.JsonObjectFormat, title, url, plainText);
         llmCalls++;
       }
 
       if (!ok)
-        throw new HttpRequestException($"GitHub Models API error {status}: {error}");
+        throw new HttpRequestException($"Azure OpenAI API error {status}: {error}");
 
       return (ParseStrictJson(text ?? "{}"), llmCalls);
     }
 
     private async Task<(bool ok, string text, int status, string error)> PostAsync(ChatResponseFormatEnum fmt, string title, string url, string plainText)
     {
-
       // Support for this recently-launched model with MaxOutputTokenCount parameter requires
       // Azure.AI.OpenAI 2.2.0-beta.4 and SetNewMaxCompletionTokensPropertyEnabled
       var requestOptions = new ChatCompletionOptions()
       {
         MaxOutputTokenCount = 10000,
-        ResponseFormat = fmt == ChatResponseFormatEnum.JsonObjectFormat ? ChatResponseFormat.CreateJsonObjectFormat() : ChatResponseFormat.CreateJsonSchemaFormat("summary_schema", BinaryData.FromObjectAsJson(new
-        {
-          type = "object",
-          additionalProperties = false,
-          required = new[] { "summary", "bullets", "tags" },
-          properties = new
+        ResponseFormat = fmt == ChatResponseFormatEnum.JsonObjectFormat
+          ? ChatResponseFormat.CreateJsonObjectFormat()
+          : ChatResponseFormat.CreateJsonSchemaFormat("summary_schema", BinaryData.FromObjectAsJson(new
           {
-            summary = new { type = "string", description = "1–2 sentences, crisp, no hype." },
-            bullets = new
+            type = "object",
+            additionalProperties = false,
+            required = new[] { "summary", "bullets", "tags" },
+            properties = new
             {
-              type = "array",
-              maxItems = 4,
-              items = new { type = "string" }
-            },
-            tags = new
-            {
-              type = "array",
-              maxItems = 6,
-              items = new { type = "string" }
+              summary = new { type = "string", description = "1–2 sentences, crisp, no hype." },
+              bullets = new
+              {
+                type = "array",
+                maxItems = 4,
+                items = new { type = "string" }
+              },
+              tags = new
+              {
+                type = "array",
+                maxItems = 6,
+                items = new { type = "string" }
+              }
             }
-          }
-        }))
+          }))
       };
 
 #pragma warning disable AOAI001
@@ -76,13 +94,15 @@ namespace Crawler.Llm
 #pragma warning restore AOAI001
 
       List<ChatMessage> messages = new List<ChatMessage>()
-    {
-        new SystemChatMessage(fmt == ChatResponseFormatEnum.JsonObjectFormat?"You are a structured output generator. " +
-                        "Always respond with a valid JSON object only. " +
-                        "The JSON must have exactly this shape: { \"summary\": string, \"bullets\": string[], \"tags\": string[] }. " +
-                        "No extra keys and no prose outside the JSON.": "You summarize tech release notes and changelogs. Be factual, concise, and specific. No marketing language."),
+      {
+        new SystemChatMessage(fmt == ChatResponseFormatEnum.JsonObjectFormat
+          ? "You are a structured output generator. " +
+            "Always respond with a valid JSON object only. " +
+            "The JSON must have exactly this shape: { \"summary\": string, \"bullets\": string[], \"tags\": string[] }. " +
+            "No extra keys and no prose outside the JSON."
+          : "You summarize tech release notes and changelogs. Be factual, concise, and specific. No marketing language."),
         new UserChatMessage(Prompts.Build(title, url, plainText)),
-    };
+      };
 
       try
       {
@@ -91,9 +111,9 @@ namespace Crawler.Llm
       }
       catch (ClientResultException e)
       {
-        return (false, e.ToString(), e.Status, ExtractError(e.Message));
+        var details = e.ToString();
+        return (false, details, e.Status, ExtractError(details));
       }
-
     }
 
     private static bool IsSchemaUnsupported(string error)
@@ -137,5 +157,4 @@ namespace Crawler.Llm
       return new LlmOutput(S("summary"), A("bullets"), A("tags"));
     }
   }
-
 }

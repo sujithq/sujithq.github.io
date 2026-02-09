@@ -108,7 +108,7 @@ class Program
       var model = cfg.model;
 
       var token = configuration[cfg.tokenKey];
-      if (string.IsNullOrWhiteSpace(token))
+      if (string.IsNullOrWhiteSpace(token) && (model=="openai" || model == "github"))
       {
         throw new InvalidOperationException($"Missing API token for provider '{provider}'. Set environment variable '{cfg.tokenKey}' (or override llm:{provider}:tokenKey).");
       }
