@@ -3,19 +3,19 @@ title: "security: Microsoft SDL: Evolving security practices for an AI-powered w
 date: 2026-02-03T17:00:00.000Z
 slug: microsoft-sdl-evolving-security-practices-for-an-ai-powered-world
 update_categories: ["security"]
-update_tags: ["Microsoft", "SDL", "AI security", "security development lifecycle", "policy", "research", "enablement", "cybersecurity", "AI governance"]
-update_bullets: ["Holistic SDL for AI integrates policy, research, and enablement efforts.", "Aimed at helping organizational leaders secure AI systems against evolving cyberthreats.", "Focuses on governance, risk management, and operational practices for AI deployments.", "Includes guidance and enablement to operationalize secure AI development and deployment.", "Announcement published on the Microsoft Security Blog."]
+update_tags: ["microsoft", "sdl", "secure-development-lifecycle", "ai-security", "security-governance"]
+update_bullets: ["Focuses on adapting SDL practices to AI-powered products and services amid evolving cyber threats.", "Positions the SDL for AI as a holistic program spanning governance/policy, security research, and organizational enablement."]
 timeframes: ["2026-02"]
 link: "https://www.microsoft.com/en-us/security/blog/2026/02/03/microsoft-sdl-evolving-security-practices-for-an-ai-powered-world/"
 source: "Microsoft Security Blog"
 timeframeKey: "2026-02"
-id: "1D92DF6B1658848EA99EECBB2629043CC424DE9C1978B58E0042C5E5A2743640"
+id: "5561CF4BAD57D788C544E325A614EBA4A71B8BCB500F7DEACF687BF503C6F1EF"
 contentHash: "71EE7476A481B22CF480D2DEAD659B20A21AB375DB536F5056A531E88E216C00"
 draft: false
 type: "updates2"
-llmSummary: "Microsoft presents a holistic Security Development Lifecycle (SDL) for AI that brings together policy, research, and enablement to help leaders secure AI systems against evolving cyberthreats."
+llmSummary: "Microsoft describes an updated Secure Development Lifecycle (SDL) approach aimed at securing AI systems, combining internal policy, security research, and enablement activities."
 ---
 
-Microsoft presents a holistic Security Development Lifecycle (SDL) for AI that brings together policy, research, and enablement to help leaders secure AI systems against evolving cyberthreats.
+Microsoft describes an updated Secure Development Lifecycle (SDL) approach aimed at securing AI systems, combining internal policy, security research, and enablement activities.
 
 - **Source:** [Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/02/03/microsoft-sdl-evolving-security-practices-for-an-ai-powered-world/)
