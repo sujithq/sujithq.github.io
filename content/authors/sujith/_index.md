@@ -71,12 +71,8 @@ superuser = true
 
 # Organizations/Affiliations to show in About widget
 [organizations]
-name = "Xebia|Microsoft Services"
-url = "https://xebia.com/digital-transformation/microsoft-services/"
-
-
-
-
+name = "Microsoft"
+url = "https://microsoft.com/"
 
 # Education to show in About widget
 [education]

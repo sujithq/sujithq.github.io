@@ -25,6 +25,7 @@ namespace Crawler.Llm
       {
         ExcludeVisualStudioCredential = true,
         ExcludeVisualStudioCodeCredential = true,
+        ExcludeInteractiveBrowserCredential = true,
 
         // optional: if you’re in a multi-tenant setup, keep this:
         AdditionallyAllowedTenants = { "*" }

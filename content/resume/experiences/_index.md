@@ -7,12 +7,44 @@ robots = "noindex"
 outputs = ["HTML"]
 
 [[item]]
+  title = "Cloud Solution Architect AI + Apps"
+  company = "Microsoft"
+  company_url = "https://www.microsoft.com"
+  location = "Belgium"
+  date_start = "2026-01-15"
+  date_end = ""
+  short_description = "Empowering customers to build intelligent applications and modern solutions using Microsoft Azure AI services, GitHub, and cloud-native technologies."
+  description = """Helping customers accelerate their AI and application modernisation journey through expert guidance, best practices, and hands-on enablement.
+
+Responsibilities include:
+
+* Solution Architecture
+  * AI and Machine Learning solutions on Azure
+  * Application modernisation and cloud-native architecture
+  * GitHub and DevOps strategy
+  * Platform engineering and developer experience
+  
+* Customer Enablement
+  * Technical workshops and architecture design sessions
+  * Proof of concepts and technical validation
+  * Best practices for AI adoption and governance
+  * Developer productivity with GitHub Copilot and AI tools
+
+* Strategic Guidance
+  * Cloud adoption and migration strategies
+  * AI responsible practices and compliance
+  * Cost optimisation and operational excellence
+  * Innovation and emerging technology adoption
+
+"""
+
+[[item]]
   title = "Azure Architect | DevOps Enabler | GitHub Enthousiast | Trainer"
   company = "Xebia FKA Xebia|Xpirit FKA Xpirit"
   company_url = "https://xebia.com"
   location = "Antwerp"
   date_start = "2023-06-12"
-  date_end = ""
+  date_end = "2026-01-14"
   short_description = "Empowering customers with Azure, DevOps, GitHub and Cloud Native solutions while driving internal excellence through innovation, training, and strategic growth."
   description = """Authority, Focus and Values. These principles guide every decision made by both management and staff. Authority means becoming the best in our field, individually and as a company. It’s an audacious goal that keeps us striving and fighting. That’s why we only hire people who are driven by the same mission!
 
@@ -37,6 +69,8 @@ Helping clients with:
   * Azure
 
 """
+
+
 
 [[item]]
   title = "Azure Architect"
