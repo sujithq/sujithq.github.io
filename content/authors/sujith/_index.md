@@ -95,22 +95,24 @@ url = "https://microsoft.com/"
 highlight_name = true
 +++
 
-I started my career as a **developer specializing in Microsoft technologies**, building applications with **.NET** and working on enterprise software solutions. Over the years, I expanded my expertise beyond development, diving deep into **cloud architecture, DevOps, and cybersecurity**. Today, with over **25 years in IT**, I focus on **helping businesses design, implement, and secure modern cloud solutions**.  
+I started my career as a **developer specializing in Microsoft technologies**, building applications with **.NET** and working on enterprise software solutions. Over the years, I expanded my expertise beyond development, diving deep into **cloud architecture, DevOps, AI, and cybersecurity**. Today, with over **25 years in IT**, I focus on **helping businesses design, implement, and secure modern cloud and AI solutions**.  
 
-## **🌍 My Cloud & DevOps Journey**  
+## **🌍 My Cloud, AI & DevOps Journey**  
 
-As a **certified Azure Solutions Architect**, I specialize in designing, implementing, and managing **secure, scalable, and reliable** cloud solutions. My journey in **.NET development** gave me a **strong foundation in software engineering**, and as cloud technologies evolved, I transitioned into **Azure, DevOps, and automation**, bringing a **developer-first approach** to cloud and infrastructure.  
+As a **certified Azure Solutions Architect and AI Engineer**, I specialize in designing, implementing, and managing **secure, scalable, and reliable** cloud and AI solutions. My journey in **.NET development** gave me a **strong foundation in software engineering**, and as cloud technologies evolved, I transitioned into **Azure, AI, DevOps, and automation**, bringing a **developer-first approach** to cloud, AI, and infrastructure.  
 
-I'm deeply passionate about **DevOps culture and automation**. With certifications in **GitHub Actions, GitHub Advanced Security, and Terraform**, I help teams **optimize their CI/CD pipelines, improve software security, and streamline cloud infrastructure with infrastructure as code (IaC)**.  
+I'm deeply passionate about **AI innovation, DevOps culture and automation**. With certifications in **Azure AI Engineer, GitHub Actions, GitHub Copilot, GitHub Advanced Security, and Terraform**, I help teams **build intelligent applications, optimize their CI/CD pipelines, improve software security, and streamline cloud infrastructure with infrastructure as code (IaC)**.  
 
 ## **🚀 What I Do Best**  
 
+- **AI Solution Architecture** – Designing and implementing **intelligent applications** using Azure AI services, machine learning, and cognitive services  
 - **Cloud Architecture** – Designing robust **Azure** environments for businesses of all sizes  
+- **AI-Powered Development** – Enabling teams to build smarter with **GitHub Copilot, Azure OpenAI, and AI-assisted development workflows**  
 - **DevOps & Automation** – Implementing **CI/CD pipelines, infrastructure as code (IaC), and cloud automation**  
 - **Platform Engineering** – Designing **internal developer platforms (IDPs)**, golden paths, and paved roads to accelerate secure delivery  
 - **Security & Compliance** – Ensuring **secure software delivery pipelines, IAM, and cloud security best practices**  
-- **GitHub Training & Consulting** – Helping teams adopt GitHub **Actions, Advanced Security, and Enterprise Administration**  
-- **Software Development** – Leveraging my **.NET background** to build **cloud-native applications**  
+- **GitHub Training & Consulting** – Helping teams adopt GitHub **Actions, Copilot, Advanced Security, and Enterprise Administration**  
+- **Software Development** – Leveraging my **.NET background** to build **cloud-native and AI-powered applications**  
 
 ## **🔧 My Certifications & Expertise**  
 
