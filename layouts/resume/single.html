@@ -104,7 +104,7 @@
                               <div class="timeline-panel">
                                   <div class="timeline-heading">
                                       <h5>{{ .date_start | time.Format $global.Site.Params.dateFormat  }} - {{ if .date_end }}{{ .date_end | time.Format $global.Site.Params.dateFormat  }}{{ else }}Present{{ end }}<span class="middot-divider">.</span>{{.location}}</h5>
-                                      <h5 class="subheading"><em>{{ .title }}</em>{{ .title }}</h5>
+                                      <h5 class="subheading"><em>{{ .title }}</em></h5>
                                       <h5 class="subheading">
                                         <a href="{{ .company_url }}" target="_blank">{{ .company }}</a>
                                       </h5>
