@@ -1,0 +1,43 @@
+name: Compile Agentic Workflows
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/*.md'
+
+permissions:
+  contents: write
+
+jobs:
+  compile:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install gh-aw extension
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh extension install github/gh-aw || gh extension upgrade github/gh-aw
+
+      - name: Compile agentic workflows
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh aw compile
+
+      - name: Commit compiled lock files
+        run: |
+          if git diff --quiet; then
+            echo "No lock file changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/*.lock.yml
+          git commit -m "chore(aw): compile agentic workflows"
+          git push
