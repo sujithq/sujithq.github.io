@@ -18,6 +18,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          token: ${{ secrets.AW_WORKFLOWS_PAT }}
 
       - name: Install gh-aw extension
         env:
@@ -31,6 +32,8 @@ jobs:
         run: gh aw compile
 
       - name: Commit compiled lock files
+        env:
+          WORKFLOWS_PAT: ${{ secrets.AW_WORKFLOWS_PAT }}
         run: |
           if git diff --quiet; then
             echo "No lock file changes."
@@ -38,6 +41,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${WORKFLOWS_PAT}@github.com/${GITHUB_REPOSITORY}.git"
           git add .github/workflows/*.lock.yml
           git commit -m "chore(aw): compile agentic workflows"
           git push
