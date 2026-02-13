@@ -1,7 +1,7 @@
 +++
 date = '2025-02-13T13:01:28+01:00'
 draft = false
-title = 'Azure | DevOps | GitHub – Sujith Quintelier Resume'
+title = 'Azure | DevOps | GitHub | AI – Sujith Quintelier Resume'
 layout = 'single'
 [params]
     author = 'sujith'
