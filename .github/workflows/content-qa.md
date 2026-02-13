@@ -9,7 +9,7 @@ permissions: read-all
 engine: copilot
 tools:
   github:
-    toolsets: [pull-requests]
+    toolsets: [pull_requests]
   bash: ["git", "cat"]
 safe-outputs:
   add-comment:
