@@ -23,7 +23,7 @@ steps:
     with:
       fetch-depth: 0
   - name: Fetch base branch
-    run: git fetch origin ${{ github.base_ref }} --depth=1
+    run: git fetch origin ${{ github.event.repository.default_branch }} --depth=1
 ---
 
 ## Content QA Instructions
@@ -50,7 +50,7 @@ Required checks for other `content/**/*.md`:
 - Fenced code blocks must include a language identifier.
 
 Process:
-1. Use `git diff --name-only origin/${{ github.base_ref }}...HEAD -- content/` to list changed files.
+1. Use `git diff --name-only origin/${{ github.event.repository.default_branch }}...HEAD -- content/` to list changed files.
 2. For each file, read content and validate against the rules above.
 3. Collect failures and warnings with file + line references.
 
