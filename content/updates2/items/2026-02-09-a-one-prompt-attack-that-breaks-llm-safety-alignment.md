@@ -3,19 +3,19 @@ title: "security: A one-prompt attack that breaks LLM safety alignment"
 date: 2026-02-09T17:12:11.000Z
 slug: a-one-prompt-attack-that-breaks-llm-safety-alignment
 update_categories: ["security"]
-update_tags: ["LLM security", "prompt injection", "safety alignment", "Microsoft Security Blog"]
-update_bullets: ["No technical details about the attack, impacted models, conditions, or mitigations are included in the supplied content.", "Source referenced: Microsoft Security Blog, dated 2026-02-09 (per URL)."]
+update_tags: ["LLM safety", "prompt injection", "alignment", "insufficient source content"]
+update_bullets: ["No description of the “one-prompt attack” mechanism is included in the supplied content.", "No affected models, attack prerequisites, impact assessment, or evaluation results are provided in the excerpt.", "No defenses, mitigations, or recommended best practices are present in the excerpt."]
 timeframes: ["2026-02"]
 link: "https://www.microsoft.com/en-us/security/blog/2026/02/09/prompt-attack-breaks-llm-safety/"
 source: "Microsoft Security Blog"
 timeframeKey: "2026-02"
-id: "3A9FB19A143340C5EC8D55B5403D15875DFCF647A780DAF588D455BD63A37BB5"
+id: "C0C892DFBC28BCD29D63C61BA9FAEEF2A72D6F58BD56A1F70ABD0F0F38AA1006"
 contentHash: "4327685D2AF1622DC0493ACDA0CC7E43D27F024C948046ABF4C16560981C688F"
 draft: false
 type: "updates2"
-llmSummary: "The provided excerpt only states that a Microsoft Security Blog post titled “A one-prompt attack that breaks LLM safety alignment” exists and emphasizes the importance of safety alignment for LLMs and diffusion models."
+llmSummary: "The provided excerpt is only a short teaser and does not include the article’s technical details, findings, or mitigations."
 ---
 
-The provided excerpt only states that a Microsoft Security Blog post titled “A one-prompt attack that breaks LLM safety alignment” exists and emphasizes the importance of safety alignment for LLMs and diffusion models.
+The provided excerpt is only a short teaser and does not include the article’s technical details, findings, or mitigations.
 
 - **Source:** [Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/02/09/prompt-attack-breaks-llm-safety/)
