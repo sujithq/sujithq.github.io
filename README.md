@@ -34,11 +34,11 @@ The following technologies were used to build this personal site:
 
 - [Hugo](https://gohugo.io/): A fast and flexible static site generator written in Go.
 - [GitHub](https://github.com/): Version control system for managing code and collaboration.
-- [GitHub Pages](https://pages.github.com/): Hosting service to publish the site directly from the
+- [GitHub Pages](https://pages.github.com/): Hosting service to publish the site directly from the repository.
 - [GitHub Actions](https://docs.github.com/en/actions): Automating tasks such as building and deploying the site.
+- [GitHub Agentic Workflows](https://github.github.com/gh-aw/introduction/overview/): AI-powered automation for content QA and security updates.
 - Markdown: A lightweight markup language used for content creation.
 - HTML5 and CSS3 for the structure, layout, and styling.
-repository.
 - YAML: A human-readable data serialization format used for configuration files.
 - TOML: A configuration file format used by Hugo.
 - [Go](https://go.dev/): The programming language used by Hugo.
@@ -58,6 +58,45 @@ To run this personal site locally, follow these steps:
 Once the site is up and running, you can navigate through different sections using the navigation menu. The blog section contains a list of blog posts that can be read individually. In the contact section, you can find my email address and links to my social media profiles.
 
 Feel free to explore the site and get in touch if you have any questions, feedback, or opportunities for collaboration!
+
+## Agentic Workflows
+
+This repository includes AI-powered automation workflows:
+
+### 🔒 Security Advisory Responder
+
+Automatically responds to Dependabot security alerts by:
+- Analyzing vulnerability impact and actual package usage
+- Creating or enhancing PRs with detailed security analysis
+- Providing clear merge safety recommendations
+
+**Triggers:**
+- When Dependabot opens a security PR
+- When an issue is labeled "security"
+
+📚 **Documentation:** [Security Advisory Responder Guide](.github/workflows/SECURITY_ADVISORY_RESPONDER.md)
+
+🛠️ **Setup:** [Setup and Testing Guide](.github/workflows/SETUP_GUIDE.md)
+
+### ✅ Content QA
+
+Automatically reviews content changes for:
+- TOML frontmatter validation
+- Markdown formatting compliance
+- British English spelling preferences
+- Hugo-specific conventions
+
+**Trigger:** Pull requests modifying `content/**` files
+
+📚 **Workflow:** [content-qa.md](.github/workflows/content-qa.md)
+
+### Running Workflow Validation
+
+Test agentic workflow structure:
+
+```bash
+npm run validate-workflows
+```
 
 ## Contributing
 
