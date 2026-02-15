@@ -74,9 +74,9 @@ Automatically responds to Dependabot security alerts by:
 - When Dependabot opens a security PR
 - When an issue is labeled "security"
 
-📚 **Documentation:** [Security Advisory Responder Guide](.github/workflows/SECURITY_ADVISORY_RESPONDER.md)
+📚 **Documentation:** [Security Advisory Responder Guide](.github/workflows/docs/SECURITY_ADVISORY_RESPONDER.md)
 
-🛠️ **Setup:** [Setup and Testing Guide](.github/workflows/SETUP_GUIDE.md)
+🛠️ **Setup:** [Setup and Testing Guide](.github/workflows/docs/SETUP_GUIDE.md)
 
 ### ✅ Content QA
 

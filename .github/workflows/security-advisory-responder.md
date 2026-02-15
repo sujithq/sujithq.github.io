@@ -17,8 +17,7 @@ tools:
     toolsets: [pull_requests, issues, code_scanning]
   bash: ["git", "cat", "grep", "node", "npm", "dotnet", "jq"]
 safe-outputs:
-  create-pull-request:
-    max: 1
+  create-pull-request: {}
   add-comment:
     max: 1
     hide-older-comments: true
