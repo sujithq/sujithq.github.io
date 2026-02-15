@@ -13,7 +13,8 @@
     "simulate-series": "node scripts/simulate-series.js --series 'CSharp Async Await' --root-date 2025-09-17 --steps 7 --interval-days 7",
     "simulate-week1": "node scripts/publish-due-posts.js && node scripts/activate-series-links.js --series 'CSharp Async Await' --root-date 2025-09-17 --simulate --now 2025-09-24T12:00:00Z",
     "prebuild": "node scripts/sync-updates-from-jsonl.js",
-    "build": "hugo server -e production --cleanDestinationDir --gc --minify -D -F"
+    "build": "hugo server -e production --cleanDestinationDir --gc --minify -D -F",
+    "validate-workflows": "node scripts/validate-agentic-workflow.js .github/workflows/security-advisory-responder.md && node scripts/validate-agentic-workflow.js .github/workflows/content-qa.md"
   },
   "keywords": [],
   "author": "",
