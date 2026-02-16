@@ -6,23 +6,18 @@ on:
     types: [labeled]
   pull_request:
     types: [opened]
-permissions:
-  contents: write
-  pull-requests: write
-  issues: write
-  security-events: read
+permissions: read-all
 engine: copilot
 tools:
   github:
-    toolsets: [pull_requests, issues, code_scanning]
+    toolsets: [pull_requests, issues, code_security]
   bash: ["git", "cat", "grep", "node", "npm", "dotnet", "jq"]
 safe-outputs:
-  create-pull-request: {}
   add-comment:
     max: 1
     hide-older-comments: true
 network:
-  allowed: ["defaults", "registry.npmjs.org", "api.nuget.org"]
+  allowed: ["defaults", "node", "dotnet"]
 steps:
   - name: Checkout code
     uses: actions/checkout@v6
