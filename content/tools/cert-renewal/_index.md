@@ -20,31 +20,31 @@ certs:
   - code: az-700
     desc: Azure Network Engineer
     type: Associate
-    expires: 2026-06-25
+    expires: 2027-06-25
   - code: sc-300
     desc: Identity and Access Administrator
     type: Associate
-    expires: 2026-07-08
+    expires: 2027-07-08
   - code: sc-100
     desc: Cybersecurity Architect
     type: Expert
-    expires: 2026-07-29
+    expires: 2027-07-29
   - code: az-104
     desc: Azure Administrator
     type: Associate
-    expires: 2026-08-07
+    expires: 2027-08-07
   - code: az-305
     desc: Azure Solutions Architect
     type: Expert
-    expires: 2026-08-09
+    expires: 2027-08-09
   - code: az-400
     desc: DevOps Engineer
     type: Expert
-    expires: 2026-08-13
+    expires: 2027-08-13
   - code: az-204
     desc: Azure Developer
     type: Associate
-    expires: 2026-08-27
+    expires: 2027-08-27
 ---
 
 dummy data
