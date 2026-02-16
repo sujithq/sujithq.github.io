@@ -7,3 +7,5 @@
 *.yml linguist-detectable=true
 *.yaml linguist-detectable=true
 *.css linguist-detectable=true
+
+.github/workflows/*.lock.yml linguist-generated=true merge=ours
