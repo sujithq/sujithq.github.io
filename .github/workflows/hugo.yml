@@ -46,7 +46,7 @@ jobs:
         run: go version
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.2.0
         with:
           node-version: "20"
           cache: "npm"
@@ -71,7 +71,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v5.1.0
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
