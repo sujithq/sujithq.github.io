@@ -55,7 +55,7 @@ jobs:
       comment_repo: ""
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw/actions/setup@58d1d157fbac0f1204798500faefc4f7461ebe28 # v0.45.0
+        uses: github/gh-aw/actions/setup@852cb06ad52958b402ed982b69957ffc57ca0619 # v0.45.5
         with:
           destination: /opt/gh-aw/actions
       - name: Check workflow file timestamps
@@ -92,7 +92,7 @@ jobs:
       secret_verification_result: ${{ steps.validate-secret.outputs.verification_result }}
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw/actions/setup@58d1d157fbac0f1204798500faefc4f7461ebe28 # v0.45.0
+        uses: github/gh-aw/actions/setup@852cb06ad52958b402ed982b69957ffc57ca0619 # v0.45.5
         with:
           destination: /opt/gh-aw/actions
       - name: Create gh-aw temp directory
@@ -103,11 +103,11 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.AW_WORKFLOWS_PAT }}
       - name: Setup Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@d02c89dce7e1ba9ef629ce0680989b3a1cc72edb # v4
         with:
           node-version: "20"
       - name: Setup .NET
-        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        uses: actions/setup-dotnet@131b410979e0b49e2162c0718030257b22d6dc2c # v4
         with:
           dotnet-version: 9.0.x
 
@@ -786,12 +786,12 @@ jobs:
       total_count: ${{ steps.missing_tool.outputs.total_count }}
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw/actions/setup@58d1d157fbac0f1204798500faefc4f7461ebe28 # v0.45.0
+        uses: github/gh-aw/actions/setup@852cb06ad52958b402ed982b69957ffc57ca0619 # v0.45.5
         with:
           destination: /opt/gh-aw/actions
       - name: Download agent output artifact
         continue-on-error: true
-        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: agent-output
           path: /tmp/gh-aw/safeoutputs/
@@ -873,18 +873,18 @@ jobs:
       success: ${{ steps.parse_results.outputs.success }}
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw/actions/setup@58d1d157fbac0f1204798500faefc4f7461ebe28 # v0.45.0
+        uses: github/gh-aw/actions/setup@852cb06ad52958b402ed982b69957ffc57ca0619 # v0.45.5
         with:
           destination: /opt/gh-aw/actions
       - name: Download agent artifacts
         continue-on-error: true
-        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: agent-artifacts
           path: /tmp/gh-aw/threat-detection/
       - name: Download agent output artifact
         continue-on-error: true
-        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: agent-output
           path: /tmp/gh-aw/threat-detection/
@@ -969,7 +969,7 @@ jobs:
       activated: ${{ steps.check_membership.outputs.is_team_member == 'true' }}
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw/actions/setup@58d1d157fbac0f1204798500faefc4f7461ebe28 # v0.45.0
+        uses: github/gh-aw/actions/setup@852cb06ad52958b402ed982b69957ffc57ca0619 # v0.45.5
         with:
           destination: /opt/gh-aw/actions
       - name: Check team membership for workflow
@@ -1008,12 +1008,12 @@ jobs:
       process_safe_outputs_temporary_id_map: ${{ steps.process_safe_outputs.outputs.temporary_id_map }}
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw/actions/setup@58d1d157fbac0f1204798500faefc4f7461ebe28 # v0.45.0
+        uses: github/gh-aw/actions/setup@852cb06ad52958b402ed982b69957ffc57ca0619 # v0.45.5
         with:
           destination: /opt/gh-aw/actions
       - name: Download agent output artifact
         continue-on-error: true
-        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         with:
           name: agent-output
           path: /tmp/gh-aw/safeoutputs/
