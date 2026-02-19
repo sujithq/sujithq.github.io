@@ -3,19 +3,19 @@ title: "security: 80% of Fortune 500 use active AI Agents: Observability, govern
 date: 2026-02-10T16:00:00.000Z
 slug: 80-of-fortune-500-use-active-ai-agents-observability-governance-and-security-shape-the-new-frontier
 update_categories: ["security"]
-update_tags: ["Microsoft Security Blog", "Cyber Pulse report", "AI agents", "observability", "governance", "security"]
-update_bullets: ["States that Microsoft’s new Cyber Pulse report offers “straightforward, practical insights and guidance” on new cybersecurity risks.", "Frames AI-agent adoption (including “80% of Fortune 500 use active AI Agents”) as driving needs for observability, governance, and security.", "No concrete data, controls, or technical details are included in the provided content snippet."]
+update_tags: ["microsoft-security-blog", "cybersecurity", "ai-agents", "observability", "governance", "security", "report"]
+update_bullets: ["Links to Microsoft’s Cyber Pulse report for practical guidance on emerging cybersecurity risks.", "Frames AI agent adoption (notably among Fortune 500) as driving new requirements in observability, governance, and security."]
 timeframes: ["2026-02"]
 link: "https://www.microsoft.com/en-us/security/blog/2026/02/10/80-of-fortune-500-use-active-ai-agents-observability-governance-and-security-shape-the-new-frontier/"
 source: "Microsoft Security Blog"
 timeframeKey: "2026-02"
-id: "D4A5CFE52B2EE417976144F253D66F585289A40BCDE54F2E1A63F401364526F3"
+id: "3F6C9B03830CC6B2A798E34491483573F86F5B5457BE012AFCA9A116405785E7"
 contentHash: "7DBE5743814F9CD465F7A5F78269DAE8B4949BA21A0DA946318467498B3C5A45"
 draft: false
 type: "updates2"
-llmSummary: "A Microsoft Security Blog post promoting its Cyber Pulse report on cybersecurity risks related to AI agents, emphasizing observability, governance, and security. The provided excerpt contains no specific findings or recommendations beyond pointing readers to the report."
+llmSummary: "Microsoft Security Blog post promoting its Cyber Pulse report, focused on cybersecurity risks related to active AI agents and the need for observability, governance, and security."
 ---
 
-A Microsoft Security Blog post promoting its Cyber Pulse report on cybersecurity risks related to AI agents, emphasizing observability, governance, and security. The provided excerpt contains no specific findings or recommendations beyond pointing readers to the report.
+Microsoft Security Blog post promoting its Cyber Pulse report, focused on cybersecurity risks related to active AI agents and the need for observability, governance, and security.
 
 - **Source:** [Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/02/10/80-of-fortune-500-use-active-ai-agents-observability-governance-and-security-shape-the-new-frontier/)
