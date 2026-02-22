@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GPT-5 on Sujith Quintelier</title><link>https://quintelier.dev/tags/gpt-5/</link><description>Recent content in GPT-5 on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 08 Aug 2025 08:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/gpt-5/index.xml" rel="self" type="application/rss+xml"/><item><title>Which AI Model Should You Use with GitHub Copilot?</title><link>https://quintelier.dev/posts/2025/04/which-ai-model-to-use-with-github-copilot/</link><pubDate>Mon, 28 Apr 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/04/which-ai-model-to-use-with-github-copilot/</guid><description>&lt;h2 id="-important-update--august-2025">📢 Important Update — August 2025&lt;/h2>
+&lt;p>GitHub Copilot and ChatGPT have officially &lt;strong>deprecated GPT-4o&lt;/strong>.&lt;br>
+The &lt;strong>new recommended model&lt;/strong> is &lt;strong>GPT-5&lt;/strong>, now available in &lt;strong>public preview&lt;/strong> for GitHub Copilot (paid plans) and &lt;strong>default in ChatGPT&lt;/strong>.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-07-openai-gpt-5-is-now-in-public-preview-for-github-copilot/" target="_blank" rel="noopener noreferrer">GitHub changelog — GPT-5 public preview&lt;/a>&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-06-deprecation-of-gpt-4o-in-copilot-chat/" target="_blank" rel="noopener noreferrer">GitHub changelog — GPT-4o deprecation&lt;/a>&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://openai.com/index/introducing-gpt-5/" target="_blank" rel="noopener noreferrer">OpenAI GPT-5 announcement&lt;/a>&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="which-ai-model-should-i-use-with-github-copilot">Which AI model should I use with GitHub Copilot?&lt;/h2>
+&lt;p>Choosing the right AI model for your GitHub Copilot project can be tricky.&lt;br>
+Each model has strengths, and matching them to your workflow will help you get better results.&lt;/p></description></item></channel></rss>
