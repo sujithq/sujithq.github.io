@@ -5,6 +5,8 @@ on:
   pull_request:
     paths:
       - "content/**"
+  skip-bots: ["dependabot[bot]"]
+if: github.actor != 'dependabot[bot]'
 permissions: read-all
 engine: copilot
 tools:

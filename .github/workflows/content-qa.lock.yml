@@ -23,13 +23,15 @@
 #
 # Agentic content QA for Hugo markdown changes.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"027125a0e0468468e45c8e3121a204f131b6cae05669e5eb995daca59e658a89","compiler_version":"v0.49.4"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"39b79c15ae9d7b905265feba372e1f4105cc417763cb6f941e72550e4ad3404c","compiler_version":"v0.49.4"}
 
 name: "Content QA (Agentic)"
 "on":
   pull_request:
     paths:
     - content/**
+  # skip-bots: # Skip-bots processed as bot check in pre-activation job
+  # - dependabot[bot] # Skip-bots processed as bot check in pre-activation job
 
 permissions: {}
 
@@ -43,7 +45,8 @@ jobs:
   activation:
     needs: pre_activation
     if: >
-      (needs.pre_activation.outputs.activated == 'true') && ((github.event_name != 'pull_request') || (github.event.pull_request.head.repo.id == github.repository_id))
+      (needs.pre_activation.outputs.activated == 'true') && ((github.actor != 'dependabot[bot]') && ((github.event_name != 'pull_request') ||
+      (github.event.pull_request.head.repo.id == github.repository_id)))
     runs-on: ubuntu-slim
     permissions:
       contents: read
@@ -1003,10 +1006,11 @@ jobs:
           if-no-files-found: ignore
 
   pre_activation:
-    if: (github.event_name != 'pull_request') || (github.event.pull_request.head.repo.id == github.repository_id)
+    if: >
+      (github.actor != 'dependabot[bot]') && ((github.event_name != 'pull_request') || (github.event.pull_request.head.repo.id == github.repository_id))
     runs-on: ubuntu-slim
     outputs:
-      activated: ${{ steps.check_membership.outputs.is_team_member == 'true' }}
+      activated: ${{ (steps.check_membership.outputs.is_team_member == 'true') && (steps.check_skip_bots.outputs.skip_bots_ok == 'true') }}
       matched_command: ''
     steps:
       - name: Setup Scripts
@@ -1024,6 +1028,18 @@ jobs:
             const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
             setupGlobals(core, github, context, exec, io);
             const { main } = require('/opt/gh-aw/actions/check_membership.cjs');
+            await main();
+      - name: Check skip-bots
+        id: check_skip_bots
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        env:
+          GH_AW_SKIP_BOTS: dependabot[bot]
+          GH_AW_WORKFLOW_NAME: "Content QA (Agentic)"
+        with:
+          script: |
+            const { setupGlobals } = require('/opt/gh-aw/actions/setup_globals.cjs');
+            setupGlobals(core, github, context, exec, io);
+            const { main } = require('/opt/gh-aw/actions/check_skip_bots.cjs');
             await main();
 
   safe_outputs:
