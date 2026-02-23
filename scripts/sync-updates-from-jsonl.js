@@ -1,17 +1,31 @@
 // scripts/sync-updates-from-jsonl.js
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 
 const SRC = 'data/items.jsonl';
 const OUT_ITEMS_DIR = 'content/updates2/items';
 const OUT_ROOT = 'content/updates2';
 const OUT_TIMEFRAMES_DIR = 'content/updates2/timeframes';
+const MAX_FILENAME_SLUG_LENGTH = 90;
 
 function slugify(s) {
   return (s || '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
+}
+
+function toFilenameSlug(slug) {
+  if (!slug || slug.length <= MAX_FILENAME_SLUG_LENGTH) {
+    return slug;
+  }
+
+  const hash = crypto.createHash('sha1').update(slug).digest('hex').slice(0, 8);
+  const truncatedLength = MAX_FILENAME_SLUG_LENGTH - hash.length - 1;
+  const truncated = slug.slice(0, Math.max(1, truncatedLength)).replace(/-+$/g, '');
+
+  return `${truncated}-${hash}`;
 }
 
 function ensureDir(dir) { fs.mkdirSync(dir, { recursive: true }); }
@@ -38,11 +52,12 @@ for (const line of lines) {
   : title;
 
   const slug = slugify(title) || slugify(it.id);
+  const filenameSlug = toFilenameSlug(slug);
 
   // Create date prefix for filename (YYYY-MM-DD format)
   const publishedDate = new Date(it.published);
   const datePrefix = publishedDate.toISOString().split('T')[0]; // Gets YYYY-MM-DD
-  const filename = `${datePrefix}-${slug}`;
+  const filename = `${datePrefix}-${filenameSlug}`;
 
   cats.add(category);
   times.add(timeframe);
