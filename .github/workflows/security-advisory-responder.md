@@ -6,7 +6,8 @@ on:
     types: [labeled]
   pull_request:
     types: [opened]
-bots: ["dependabot[bot]"]
+  roles: all
+  bots: ["dependabot[bot]"]
 permissions: read-all
 engine: copilot
 tools:

@@ -12,6 +12,8 @@ permissions:
 jobs:
   compile:
     runs-on: ubuntu-24.04
+    env:
+      GH_AW_VERSION: v0.49.4
 
     steps:
       - name: Checkout code
@@ -24,7 +26,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh extension install github/gh-aw || gh extension upgrade github/gh-aw
+          gh extension install github/gh-aw --pin "$GH_AW_VERSION" || gh extension upgrade github/gh-aw --pin "$GH_AW_VERSION"
+          gh aw --version
 
       - name: Compile agentic workflows
         env:
