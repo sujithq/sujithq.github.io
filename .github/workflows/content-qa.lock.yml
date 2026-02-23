@@ -23,7 +23,7 @@
 #
 # Agentic content QA for Hugo markdown changes.
 #
-# frontmatter-hash: ae55fc01ee96bc08697ee00dbf7e2b493a6b910cdf91622e85ccca33b737630e
+# frontmatter-hash: 027125a0e0468468e45c8e3121a204f131b6cae05669e5eb995daca59e658a89
 
 name: "Content QA (Agentic)"
 "on":
@@ -98,6 +98,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           fetch-depth: 0
+          persist-credentials: false
       - env:
           BASE_BRANCH: ${{ github.event.repository.default_branch }}
         name: Fetch base branch

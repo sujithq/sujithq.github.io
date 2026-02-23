@@ -22,6 +22,7 @@ steps:
     uses: actions/checkout@v6
     with:
       fetch-depth: 0
+      persist-credentials: false
   - name: Fetch base branch
     env:
       BASE_BRANCH: ${{ github.event.repository.default_branch }}

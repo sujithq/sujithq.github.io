@@ -23,7 +23,7 @@
 #
 # Automated response to Dependabot security alerts and security-labeled issues.
 #
-# frontmatter-hash: 600a642bc2cbdd5fd8a3de2aca96b4a82d75d5861c29a18894dd92de4d63e692
+# frontmatter-hash: 98309c632bf0faf111478246bb78f105b3ccd6a9d0230b7ea8313419c4deb01b
 
 name: "Security Advisory Responder"
 "on":
@@ -101,6 +101,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           fetch-depth: 0
+          persist-credentials: false
           token: ${{ secrets.AW_WORKFLOWS_PAT }}
       - name: Setup Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
