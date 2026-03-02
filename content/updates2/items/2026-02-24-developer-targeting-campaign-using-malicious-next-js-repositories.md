@@ -3,19 +3,19 @@ title: "security: Developer-targeting campaign using malicious Next.js repositor
 date: 2026-02-24T17:28:24.000Z
 slug: developer-targeting-campaign-using-malicious-next-js-repositories
 update_categories: ["security"]
-update_tags: ["security", "supply-chain", "nextjs", "malware", "rce", "c2", "developer-workflow"]
-update_bullets: ["Malicious Next.js repositories were used as the initial lure for developers.", "Attack chain triggered during standard build processes, enabling RCE.", "Command-and-control was staged/hidden to blend into routine development activity."]
+update_tags: ["security", "malware", "supply-chain", "nextjs", "rce", "c2", "developer-workflows"]
+update_bullets: ["Attack chain: malicious Next.js repos trigger an RCE-to-C2 sequence during standard build processes.", "Evasion: staged C2 designed to hide within ordinary developer tasks and CI/build routines."]
 timeframes: ["2026-02"]
 link: "https://www.microsoft.com/en-us/security/blog/2026/02/24/c2-developer-targeting-campaign/"
 source: "Microsoft Security Blog"
 timeframeKey: "2026-02"
-id: "D7AFEC6ED1139E871E87124DD8616C2268E3127FBAA6C728F7447CC4218ECBB4"
+id: "53A021FD5A52D83F7B14CC6D46D099512B02853BA3EB2A74FF7A09160048CC3D"
 contentHash: "FA02051EEFE7665BF4DBC709973A287ABE7CB56A4041DCB7797B2EF697F76351"
 draft: false
 type: "updates2"
-llmSummary: "Microsoft reports a developer-targeting campaign that used malicious Next.js repositories to achieve covert remote code execution and stage command-and-control via normal build workflows."
+llmSummary: "Microsoft reports a developer-targeting campaign that used malicious Next.js repositories to achieve remote code execution and establish command-and-control via normal build workflows, aiming to blend into routine development activity."
 ---
 
-Microsoft reports a developer-targeting campaign that used malicious Next.js repositories to achieve covert remote code execution and stage command-and-control via normal build workflows.
+Microsoft reports a developer-targeting campaign that used malicious Next.js repositories to achieve remote code execution and establish command-and-control via normal build workflows, aiming to blend into routine development activity.
 
 - **Source:** [Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/02/24/c2-developer-targeting-campaign/)
