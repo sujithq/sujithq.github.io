@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitHub Security on Sujith Quintelier</title><link>https://quintelier.dev/series/github-security/</link><description>Recent content in GitHub Security on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 30 Sep 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/series/github-security/index.xml" rel="self" type="application/rss+xml"/><item><title>🤖 Automating Dependabot at Scale: GitHub Actions Strategy</title><link>https://quintelier.dev/posts/2025/09/automating-dependabot-at-scale-github-actions-strategy/</link><pubDate>Tue, 30 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/automating-dependabot-at-scale-github-actions-strategy/</guid><description>&lt;h2 id="the-challenge-the-90-day-dependabot-pause">The Challenge: The 90-Day Dependabot Pause&lt;/h2>
+&lt;p>If you&amp;rsquo;re managing multiple repositories in a GitHub organization, you&amp;rsquo;ve likely encountered a frustrating limitation: &lt;strong>Dependabot automatically pauses after 90 days of inactivity&lt;/strong>. When there are no merged pull requests or manual triggers, Dependabot simply stops creating new dependency updates. For organizations with dozens or hundreds of repositories, this can lead to a security and maintenance nightmare.&lt;/p>
+&lt;p>The problem compounds quickly:&lt;/p>
+&lt;ul>
+&lt;li>Some repositories might be stable but still need security updates&lt;/li>
+&lt;li>Manual intervention across many repos is time-consuming and error-prone&lt;/li>
+&lt;li>By the time you notice Dependabot has paused, you&amp;rsquo;re already behind on updates&lt;/li>
+&lt;li>Re-enabling requires manual UI interaction for each repository&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-solution-a-two-pronged-automation-strategy">The Solution: A Two-Pronged Automation Strategy&lt;/h2>
+&lt;p>This comprehensive GitHub Actions workflow system tackles this problem through both &lt;strong>proactive prevention&lt;/strong> and &lt;strong>early detection&lt;/strong>. Let me walk you through how it works.&lt;/p></description></item><item><title>Taming Dependabot: Bundle NuGet, npm, and GitHub Actions Updates Without Merge Conflicts</title><link>https://quintelier.dev/posts/2025/09/taming-dependabot-bundle-nuget-npm-github-actions-updates-without-merge-conflicts/</link><pubDate>Tue, 16 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/taming-dependabot-bundle-nuget-npm-github-actions-updates-without-merge-conflicts/</guid><description>&lt;p>If you’ve enabled &lt;strong>Dependabot&lt;/strong>, you probably love the automated updates but not the &lt;strong>PR storm&lt;/strong> and the &lt;strong>merge conflicts&lt;/strong> that happen when several PRs touch the same lockfiles or project files.&lt;/p>
+&lt;p>The cure is &lt;strong>Dependabot Groups&lt;/strong>: batch related updates into a single PR so you merge once and move on.&lt;/p>
+&lt;hr>
+&lt;h2 id="why-conflicts-happen">Why conflicts happen&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>npm&lt;/strong>: multiple PRs each rewrite &lt;code>package-lock.json&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>NuGet&lt;/strong>: several PRs change the same &lt;code>.csproj&lt;/code> / &lt;code>packages.lock.json&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>GitHub Actions&lt;/strong>: many small PRs bumping actions across several workflow files.&lt;/li>
+&lt;/ul>
+&lt;p>Merge one PR → the others go stale → conflicts or repeated rebases.&lt;/p></description></item><item><title>Getting started with Dependabot</title><link>https://quintelier.dev/posts/2025/08/dependabot-getting-started/</link><pubDate>Mon, 25 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/dependabot-getting-started/</guid><description>&lt;p>Dependabot is the easiest way to keep dependencies current and secure in your GitHub repositories. It can: alert on vulnerabilities, open PRs to fix them, and keep versions fresh with scheduled updates. This guide shows how to enable Dependabot, add a robust dependabot.yml, and include small optimisations for specific ecosystems.&lt;/p>
+&lt;h2 id="what-youll-set-up">What you’ll set up&lt;/h2>
+&lt;ul>
+&lt;li>Enable Dependabot alerts, security updates, and version updates.&lt;/li>
+&lt;li>Create and tune a &lt;code>.github/dependabot.yml&lt;/code> that covers your package managers.&lt;/li>
+&lt;li>Add optional Java metadata to improve PR quality.&lt;/li>
+&lt;/ul>
+&lt;h2 id="enable-dependabot-in-your-repository">Enable Dependabot in your repository&lt;/h2>
+&lt;p>Use the repository UI:&lt;/p></description></item></channel></rss>
