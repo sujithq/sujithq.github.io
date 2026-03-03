@@ -4,7 +4,7 @@ description: "Automated response to Dependabot security alerts and security-labe
 on:
   issues:
     types: [labeled]
-  pull_request:
+  pull_request_target:
     types: [opened]
   roles: all
   bots: ["dependabot[bot]"]
@@ -53,7 +53,7 @@ This workflow triggers on:
 
 First, identify what triggered this workflow:
 
-**If triggered by `pull_request.opened`:**
+**If triggered by `pull_request_target.opened`:**
 - Check if the PR author is `dependabot[bot]` or the title/body contains security-related keywords
 - If it's a Dependabot security PR, enhance it with usage analysis
 - If it's not a security-related PR, exit gracefully
