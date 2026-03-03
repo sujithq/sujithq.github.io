@@ -44,7 +44,7 @@ certs:
   - code: az-204
     desc: Azure Developer
     type: Associate
-    expires: 2026-08-27
+    expires: 2027-08-27
 ---
 
 dummy data
