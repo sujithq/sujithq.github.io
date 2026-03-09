@@ -7,7 +7,7 @@ robots = "noindex"
 outputs = ["HTML"]
 
 [[item]]
-  title = "Cloud Solution Architect AI + Apps"
+  title = "Cloud Solution Architect AI + App Innovation"
   company = "Microsoft"
   company_url = "https://www.microsoft.com"
   location = "Belgium"
