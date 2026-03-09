@@ -198,7 +198,7 @@ outputs = ["HTML"]
   organization_url = "https://github.com"
   title = "GitHub Certified Partner: GitHub Actions"
   url = "https://examregistration.github.com/certification/ACTIONS/"
-  certificate_url = "https://www.credly.com/badges/6ae13777-6422-4083-b469-b46d5cf16a33"
+  certificate_url = "https://learn.microsoft.com/api/credentials/share/en-us/SujithQuintelier/6B86503125DB5D0?sharingId=B2D5696D597C46D3"
   date_start = "2022-09-08"
   date_end = ""
   description = """
