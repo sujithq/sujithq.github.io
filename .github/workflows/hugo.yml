@@ -154,6 +154,10 @@ jobs:
         run: hugo --minify --gc --environment production
 
       - name: Commit & push results
+        if: |
+          github.event_name == 'push' && github.ref == 'refs/heads/main' ||
+          github.event_name == 'schedule' ||
+          github.event_name == 'workflow_dispatch'
         shell: bash
         run: |
           set -euo pipefail
@@ -182,6 +186,10 @@ jobs:
           fi
 
       - name: Deploy 🚀
+        if: |
+          github.event_name == 'push' && github.ref == 'refs/heads/main' ||
+          github.event_name == 'schedule' ||
+          github.event_name == 'workflow_dispatch'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
