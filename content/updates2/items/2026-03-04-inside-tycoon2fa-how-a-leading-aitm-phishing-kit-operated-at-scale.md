@@ -3,19 +3,19 @@ title: "security: Inside Tycoon2FA: How a leading AiTM phishing kit operated at 
 date: 2026-03-04T16:04:24.000Z
 slug: inside-tycoon2fa-how-a-leading-aitm-phishing-kit-operated-at-scale
 update_categories: ["security"]
-update_tags: ["security", "phishing", "phishing-as-a-service", "AiTM", "Microsoft", "Europol", "disruption"]
-update_bullets: ["Tycoon2FA characterized as a leading phishing-as-a-service platform using AiTM techniques.", "Campaigns attributed to the kit reached 500,000+ organizations monthly (per Microsoft).", "Microsoft DCU coordinated with Europol and industry partners to disrupt the kit’s infrastructure and operations."]
+update_tags: ["phishing", "PhaaS", "AiTM", "Tycoon2FA", "Microsoft-DCU", "Europol", "takedown"]
+update_bullets: ["Tycoon2FA described as a leading PhaaS platform using AiTM techniques.", "Campaigns attributed to the platform reportedly reached 500,000+ organizations per month.", "Microsoft DCU partnered with Europol and other industry partners to disrupt Tycoon2FA infrastructure and operations."]
 timeframes: ["2026-03"]
 link: "https://www.microsoft.com/en-us/security/blog/2026/03/04/inside-tycoon2fa-how-a-leading-aitm-phishing-kit-operated-at-scale/"
 source: "Microsoft Security Blog"
 timeframeKey: "2026-03"
-id: "14A4A5E34F6C9826C44CFFC3DE3FD4E8AFEAF7CE557C998D54266EC7697B6A6F"
+id: "ED15D6BE6976EBB655A6BFD9D1B1523A1C9094F4AB14F5AB6A88862C4C8572D3"
 contentHash: "A5DC2DC90BF338A061F35C0C084574D19C69214B49E6F8C8116DDEF5CDB5C111"
 draft: false
 type: "updates2"
-llmSummary: "Microsoft reports that the Tycoon2FA adversary-in-the-middle (AiTM) phishing-as-a-service kit supported campaigns targeting over 500,000 organizations per month and describes how it operated at scale. Microsoft’s Digital Crimes Unit, working with Europol and industry partners, disrupted Tycoon2FA’s infrastructure and operations."
+llmSummary: "Microsoft reports that the Tycoon2FA adversary-in-the-middle (AiTM) phishing-as-a-service kit enabled large-scale phishing campaigns and says it coordinated a disruption of the kit’s infrastructure with Europol and industry partners."
 ---
 
-Microsoft reports that the Tycoon2FA adversary-in-the-middle (AiTM) phishing-as-a-service kit supported campaigns targeting over 500,000 organizations per month and describes how it operated at scale. Microsoft’s Digital Crimes Unit, working with Europol and industry partners, disrupted Tycoon2FA’s infrastructure and operations.
+Microsoft reports that the Tycoon2FA adversary-in-the-middle (AiTM) phishing-as-a-service kit enabled large-scale phishing campaigns and says it coordinated a disruption of the kit’s infrastructure with Europol and industry partners.
 
 - **Source:** [Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/03/04/inside-tycoon2fa-how-a-leading-aitm-phishing-kit-operated-at-scale/)
