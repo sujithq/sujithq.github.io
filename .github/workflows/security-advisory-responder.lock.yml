@@ -60,7 +60,7 @@ jobs:
       title: ${{ steps.sanitized.outputs.title }}
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw/actions/setup@a0ed2f46906483dcf634e8694268e4fab9b21e65 # v0.53.3
+        uses: github/gh-aw/actions/setup@902845080df391b1f71845fcd7c303dfc0ac90b3 # v0.57.0
         with:
           destination: /opt/gh-aw/actions
       - name: Generate agentic run info
@@ -269,7 +269,7 @@ jobs:
       output_types: ${{ steps.collect_output.outputs.output_types }}
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw/actions/setup@a0ed2f46906483dcf634e8694268e4fab9b21e65 # v0.53.3
+        uses: github/gh-aw/actions/setup@902845080df391b1f71845fcd7c303dfc0ac90b3 # v0.57.0
         with:
           destination: /opt/gh-aw/actions
       - name: Create gh-aw temp directory
@@ -281,11 +281,11 @@ jobs:
           persist-credentials: false
           token: ${{ secrets.AW_WORKFLOWS_PAT }}
       - name: Setup Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: "20"
       - name: Setup .NET
-        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        uses: actions/setup-dotnet@c2fa09f4bde5ebb9d1777cf28262a3eb3db3ced7 # v5.2.0
         with:
           dotnet-version: 9.0.x
 
@@ -971,7 +971,7 @@ jobs:
       total_count: ${{ steps.missing_tool.outputs.total_count }}
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw/actions/setup@a0ed2f46906483dcf634e8694268e4fab9b21e65 # v0.53.3
+        uses: github/gh-aw/actions/setup@902845080df391b1f71845fcd7c303dfc0ac90b3 # v0.57.0
         with:
           destination: /opt/gh-aw/actions
       - name: Download agent output artifact
@@ -1079,7 +1079,7 @@ jobs:
       process_safe_outputs_temporary_id_map: ${{ steps.process_safe_outputs.outputs.temporary_id_map }}
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw/actions/setup@a0ed2f46906483dcf634e8694268e4fab9b21e65 # v0.53.3
+        uses: github/gh-aw/actions/setup@902845080df391b1f71845fcd7c303dfc0ac90b3 # v0.57.0
         with:
           destination: /opt/gh-aw/actions
       - name: Download agent output artifact
