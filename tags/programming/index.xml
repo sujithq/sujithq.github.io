@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming on Sujith Quintelier</title><link>https://quintelier.dev/tags/programming/</link><description>Recent content in Programming on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 29 Oct 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/programming/index.xml" rel="self" type="application/rss+xml"/><item><title>Mastering Asynchronous Programming with C# async/await - Part 7: Testing &amp; Debugging</title><link>https://quintelier.dev/posts/2025/10/csharp-async-await-part7/</link><pubDate>Wed, 29 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/csharp-async-await-part7/</guid><description>&lt;h2 id="part-7-testing-and-debugging-async-code">Part 7: Testing and Debugging Async Code&lt;/h2>
+&lt;p>You’ve learned how to &lt;em>write&lt;/em> async code — but how do you &lt;strong>test&lt;/strong> it and &lt;strong>debug&lt;/strong> it when things go wrong? Async introduces unique challenges: hidden continuations, exceptions in background tasks, and “lost” operations. Let’s tackle them.&lt;/p>
+&lt;hr>
+&lt;h2 id="writing-async-unit-tests">Writing Async Unit Tests&lt;/h2>
+&lt;p>Most modern test frameworks (xUnit, NUnit, MSTest) fully support async tests.&lt;/p>
+&lt;p>✅ Correct:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">[Fact]&lt;/span> &lt;span style="color:#75715e">// xUnit&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> Task GetNumberAsync_Returns42()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> result = &lt;span style="color:#66d9ef">await&lt;/span> GetNumberAsync();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Assert.Equal(&lt;span style="color:#ae81ff">42&lt;/span>, result);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>⚠️ Avoid this (blocks async code and may deadlock):&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 6: Advanced Topics</title><link>https://quintelier.dev/posts/2025/10/csharp-async-await-part6/</link><pubDate>Wed, 22 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/csharp-async-await-part6/</guid><description>&lt;h2 id="part-6-advanced-topics">Part 6: Advanced Topics&lt;/h2>
+&lt;p>Now that we’ve mastered the basics and patterns, let’s go further into &lt;strong>advanced async scenarios&lt;/strong> you’ll meet when optimizing throughput or designing libraries.&lt;/p>
+&lt;hr>
+&lt;h2 id="valuetask-vs-task">&lt;code>ValueTask&lt;/code> vs &lt;code>Task&lt;/code>&lt;/h2>
+&lt;p>&lt;code>Task&lt;/code> is a reference type allocated on the heap. In ultra‑hot paths where many calls &lt;strong>complete synchronously&lt;/strong>, &lt;code>ValueTask&lt;/code> can save allocations.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> ValueTask&amp;lt;&lt;span style="color:#66d9ef">int&lt;/span>&amp;gt; GetNumberAsync(&lt;span style="color:#66d9ef">bool&lt;/span> cached)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (cached) &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">42&lt;/span>; &lt;span style="color:#75715e">// completes synchronously (no allocation)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">await&lt;/span> Task.Delay(&lt;span style="color:#ae81ff">1000&lt;/span>); &lt;span style="color:#75715e">// completes asynchronously&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">42&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Guidelines&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Prefer &lt;code>Task&lt;/code> by default (simpler, safer).&lt;/li>
+&lt;li>Consider &lt;code>ValueTask&lt;/code> when profiling shows allocation pressure and many sync completions.&lt;/li>
+&lt;li>Don’t await a &lt;code>ValueTask&lt;/code> more than once and don’t store it; convert to &lt;code>Task&lt;/code> via &lt;code>.AsTask()&lt;/code> if you must pass it around.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="custom-awaiters-rare-but-educational">Custom Awaiters (rare, but educational)&lt;/h2>
+&lt;p>Anything with a &lt;code>GetAwaiter()&lt;/code> that returns an awaiter implementing &lt;code>INotifyCompletion&lt;/code> (or &lt;code>ICriticalNotifyCompletion&lt;/code>) is awaitable.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 5: Real-World Use Cases</title><link>https://quintelier.dev/posts/2025/10/csharp-async-await-part5/</link><pubDate>Wed, 15 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/csharp-async-await-part5/</guid><description>&lt;h2 id="part-5-real-world-use-cases">Part 5: Real-World Use Cases&lt;/h2>
+&lt;p>We’ve covered the foundations, pitfalls, and async patterns. Now let’s see how &lt;code>async&lt;/code>/&lt;code>await&lt;/code> shows up in &lt;strong>real applications&lt;/strong> — from APIs to UI apps.&lt;/p>
+&lt;hr>
+&lt;h2 id="use-case-1-calling-web-apis-with-httpclient">Use Case 1: Calling Web APIs with &lt;code>HttpClient&lt;/code>&lt;/h2>
+&lt;p>&lt;code>HttpClient&lt;/code> is fully async, making it ideal for network calls.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> Task GetWeatherAsync()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> client = &lt;span style="color:#66d9ef">new&lt;/span> HttpClient();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> response = &lt;span style="color:#66d9ef">await&lt;/span> client.GetStringAsync(&lt;span style="color:#e6db74">&amp;#34;https://api.weather.com/data&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(response);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This avoids blocking threads while waiting for the response.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 4: Patterns with Async</title><link>https://quintelier.dev/posts/2025/10/csharp-async-await-part4/</link><pubDate>Wed, 08 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/csharp-async-await-part4/</guid><description>&lt;h2 id="part-4-patterns-with-async">Part 4: Patterns with Async&lt;/h2>
+&lt;p>So far, we’ve looked at the basics and pitfalls of &lt;code>async&lt;/code>/&lt;code>await&lt;/code>. Now let’s move to &lt;strong>patterns&lt;/strong> that help you handle real-world scenarios like parallelism, cancellation, streaming, and timeouts.&lt;/p>
+&lt;hr>
+&lt;h2 id="pattern-1-running-tasks-in-parallel">Pattern 1: Running Tasks in Parallel&lt;/h2>
+&lt;p>Sometimes you want to start multiple operations and wait for all of them.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> Task FetchInParallelAsync()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> client = &lt;span style="color:#66d9ef">new&lt;/span> HttpClient();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> task1 = client.GetStringAsync(&lt;span style="color:#e6db74">&amp;#34;https://example.com/page1&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> task2 = client.GetStringAsync(&lt;span style="color:#e6db74">&amp;#34;https://example.com/page2&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">var&lt;/span> results = &lt;span style="color:#66d9ef">await&lt;/span> Task.WhenAll(task1, task2);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(&lt;span style="color:#e6db74">$&amp;#34;Page1 length: {results[0].Length}&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(&lt;span style="color:#e6db74">$&amp;#34;Page2 length: {results[1].Length}&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>✅ &lt;strong>Use &lt;code>Task.WhenAll&lt;/code>&lt;/strong> when you need &lt;em>all&lt;/em> tasks to finish.&lt;br>
+✅ &lt;strong>Use &lt;code>Task.WhenAny&lt;/code>&lt;/strong> when you only care about the first result:&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 3: Common Pitfalls and Best Practices</title><link>https://quintelier.dev/posts/2025/10/csharp-async-await-part3/</link><pubDate>Wed, 01 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/csharp-async-await-part3/</guid><description>&lt;h2 id="part-3-common-pitfalls--best-practices">Part 3: Common Pitfalls &amp;amp; Best Practices&lt;/h2>
+&lt;p>By now, you know how &lt;code>async&lt;/code>/&lt;code>await&lt;/code> works and how to run tasks sequentially or in parallel. But async programming in C# has some traps that can lead to &lt;strong>deadlocks, unhandled exceptions, or subtle bugs&lt;/strong>.&lt;/p>
+&lt;p>Let’s go through the most common pitfalls and how to avoid them.&lt;/p>
+&lt;hr>
+&lt;h2 id="pitfall-1-async-void">Pitfall 1: &lt;code>async void&lt;/code>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> DoWork()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">await&lt;/span> Task.Delay(&lt;span style="color:#ae81ff">1000&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">throw&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Exception(&lt;span style="color:#e6db74">&amp;#34;Boom!&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Why it’s bad:&lt;/p>
+&lt;ul>
+&lt;li>You &lt;strong>can’t await&lt;/strong> it → no way to know when it’s done.&lt;/li>
+&lt;li>Exceptions go directly to the &lt;strong>synchronization context&lt;/strong> (e.g., crash the app).&lt;/li>
+&lt;/ul>
+&lt;p>✅ &lt;strong>Best practice&lt;/strong>:&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 2: Deep Dive</title><link>https://quintelier.dev/posts/2025/09/csharp-async-await-part2/</link><pubDate>Wed, 24 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/csharp-async-await-part2/</guid><description>&lt;h2 id="part-2-deep-dive-into-async-and-await">Part 2: Deep Dive into &lt;code>async&lt;/code> and &lt;code>await&lt;/code>&lt;/h2>
+&lt;p>In Part 1, we saw why asynchronous programming matters and how &lt;code>async&lt;/code>/&lt;code>await&lt;/code> can make our apps more responsive. Now it’s time to &lt;strong>go deeper&lt;/strong> into how it actually works.&lt;/p>
+&lt;hr>
+&lt;h2 id="anatomy-of-an-async-method">Anatomy of an &lt;code>async&lt;/code> Method&lt;/h2>
+&lt;p>Let’s look at a simple method:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-csharp" data-lang="csharp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">async&lt;/span> Task DoWorkAsync()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;Step 1: Start work&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">await&lt;/span> Task.Delay(&lt;span style="color:#ae81ff">2000&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Console.WriteLine(&lt;span style="color:#e6db74">&amp;#34;Step 2: Work complete&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Breaking it down:&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await</title><link>https://quintelier.dev/posts/2025/09/csharp-async-await/</link><pubDate>Wed, 17 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/csharp-async-await/</guid><description>&lt;h2 id="complete-7-part-series">Complete 7-Part Series&lt;/h2>
+&lt;h3 id="series-navigation">Series Navigation&lt;/h3>
+&lt;ol>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/09/csharp-async-await-part1/">Part 1 – Introduction&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/09/csharp-async-await-part2/">Part 2 – Deep Dive&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/10/csharp-async-await-part3/">Part 3 – Pitfalls &amp;amp; Best Practices&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/10/csharp-async-await-part4/">Part 4 – Patterns&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/10/csharp-async-await-part5/">Part 5 – Real-World Use Cases&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/10/csharp-async-await-part6/">Part 6 – Advanced Topics&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://quintelier.dev/posts/2025/10/csharp-async-await-part7/">Part 7 – Testing &amp;amp; Debugging&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;p>Asynchronous programming is one of the most powerful features in modern C#. It keeps your applications &lt;strong>responsive, scalable, and efficient&lt;/strong> — but it can also be tricky to master.&lt;/p></description></item><item><title>Mastering Asynchronous Programming with C# async/await - Part 1: Introduction</title><link>https://quintelier.dev/posts/2025/09/csharp-async-await-part1/</link><pubDate>Wed, 17 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/csharp-async-await-part1/</guid><description>&lt;h2 id="part-1-introduction-to-asynchronous-programming">Part 1: Introduction to Asynchronous Programming&lt;/h2>
+&lt;p>When you build applications in C#, one of the biggest challenges is making them &lt;strong>fast and responsive&lt;/strong>. Whether you’re writing a desktop app that must keep its UI smooth, a web API that needs to handle thousands of requests, or a service that integrates with multiple external systems, &lt;strong>asynchronous programming&lt;/strong> is key.&lt;/p>
+&lt;p>But async/await can feel like magic ✨. Let’s break it down step by step.&lt;/p></description></item><item><title>Which AI Model Should You Use with GitHub Copilot?</title><link>https://quintelier.dev/posts/2025/04/which-ai-model-to-use-with-github-copilot/</link><pubDate>Mon, 28 Apr 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/04/which-ai-model-to-use-with-github-copilot/</guid><description>&lt;h2 id="-important-update--august-2025">📢 Important Update — August 2025&lt;/h2>
+&lt;p>GitHub Copilot and ChatGPT have officially &lt;strong>deprecated GPT-4o&lt;/strong>.&lt;br>
+The &lt;strong>new recommended model&lt;/strong> is &lt;strong>GPT-5&lt;/strong>, now available in &lt;strong>public preview&lt;/strong> for GitHub Copilot (paid plans) and &lt;strong>default in ChatGPT&lt;/strong>.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-07-openai-gpt-5-is-now-in-public-preview-for-github-copilot/" target="_blank" rel="noopener noreferrer">GitHub changelog — GPT-5 public preview&lt;/a>&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://github.blog/changelog/2025-08-06-deprecation-of-gpt-4o-in-copilot-chat/" target="_blank" rel="noopener noreferrer">GitHub changelog — GPT-4o deprecation&lt;/a>&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>&lt;a href="https://openai.com/index/introducing-gpt-5/" target="_blank" rel="noopener noreferrer">OpenAI GPT-5 announcement&lt;/a>&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="which-ai-model-should-i-use-with-github-copilot">Which AI model should I use with GitHub Copilot?&lt;/h2>
+&lt;p>Choosing the right AI model for your GitHub Copilot project can be tricky.&lt;br>
+Each model has strengths, and matching them to your workflow will help you get better results.&lt;/p></description></item></channel></rss>
