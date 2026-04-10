@@ -14,6 +14,7 @@
         <table id="cert-table" class="table table-bordered table-hover align-middle">
           <thead class="table-light">
             <tr>
+              <th>Icon</th>
               <th>Code</th>
               <th>Description</th>
               <th>Type</th>
@@ -63,8 +64,12 @@
       const startingIn = Math.ceil((renewalStart - today) / (1000 * 60 * 60 * 24));
 
       const statusClass = daysLeft <= 30 ? 'table-danger' : (daysLeft <= 90 ? 'table-warning' : '');
+      const iconHtml = cert.iconUrl
+        ? `<img src="${cert.iconUrl}" alt="${cert.code} icon" width="40" height="40" loading="lazy">`
+        : '';
       const row = `
         <tr class="${statusClass}">
+          <td>${iconHtml}</td>
           <td>${cert.code}</td>
           <td>${cert.desc}</td>
           <td>${cert.type}</td>
