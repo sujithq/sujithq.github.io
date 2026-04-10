@@ -64,8 +64,9 @@
       const startingIn = Math.ceil((renewalStart - today) / (1000 * 60 * 60 * 24));
 
       const statusClass = daysLeft <= 30 ? 'table-danger' : (daysLeft <= 90 ? 'table-warning' : '');
-      const iconHtml = cert.iconUrl
-        ? `<img src="${cert.iconUrl}" alt="${cert.code} icon" width="40" height="40" loading="lazy">`
+      const safeIconUrl = (cert.iconUrl && /^https:\/\//.test(cert.iconUrl)) ? cert.iconUrl : null;
+      const iconHtml = safeIconUrl
+        ? `<img src="${safeIconUrl}" alt="${cert.desc} certification icon" width="40" height="40" loading="lazy">`
         : '';
       const row = `
         <tr class="${statusClass}">
