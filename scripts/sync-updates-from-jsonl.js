@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 
-const SRC = 'data/items.jsonl';
+const SRC = 'db/items.jsonl';
 const OUT_ITEMS_DIR = 'content/updates2/items';
 const OUT_ROOT = 'content/updates2';
 const OUT_TIMEFRAMES_DIR = 'content/updates2/timeframes';

@@ -15,7 +15,7 @@ public class AppConfig
 
 public class OutputConfig
 {
-  public string dataFile { get; set; } = "data/items.jsonl";
+  public string dataFile { get; set; } = "db/items.jsonl";
   public string contentDir { get; set; } = "content/updates2";
 }
 
