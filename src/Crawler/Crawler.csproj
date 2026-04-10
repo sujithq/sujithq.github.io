@@ -36,9 +36,9 @@
 			<Link>state/processed.json</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<!--Copy initial data into output under data/items.jsonl-->
-		<None Include="../../data/items.jsonl">
-			<Link>data/items.jsonl</Link>
+		<!--Copy initial data into output under db/items.jsonl-->
+		<None Include="../../db/items.jsonl">
+			<Link>db/items.jsonl</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 		<!--Copy initial feeds into output under feed-config/feeds.json-->

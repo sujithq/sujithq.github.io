@@ -114,7 +114,7 @@ jobs:
           ls -la "${OUTDIR}"
           echo "::endgroup::"
 
-          # Run the app from OUTDIR so it writes to OUTDIR/data and OUTDIR/state
+          # Run the app from OUTDIR so it writes to OUTDIR/db and OUTDIR/state
           pushd "${OUTDIR}"
           if [ -f "./Crawler" ]; then
             ./Crawler
@@ -127,9 +127,9 @@ jobs:
           ls -laR "${OUTDIR}" || true
           echo "::endgroup::"
 
-          # Copy data/state back to repo root with clear logs
-          mkdir -p data state
-          for d in data state; do
+          # Copy db/state back to repo root with clear logs
+          mkdir -p db state
+          for d in db state; do
             if [ -d "${OUTDIR}/${d}" ]; then
               echo "Syncing ${OUTDIR}/${d} -> ./${d}"
               rsync -av "${OUTDIR}/${d}/" "./${d}/"
@@ -138,8 +138,8 @@ jobs:
             fi
           done
 
-          echo "::group::Repo data/ tree"
-          ls -laR data || true
+          echo "::group::Repo db/ tree"
+          ls -laR db || true
           echo "::endgroup::"
           echo "::group::Repo state/ tree"
           ls -laR state || true
@@ -165,7 +165,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin main
           git pull --rebase --autostash origin main || true
-          git add data/ content/ state/
+          git add db/ content/ state/
           if git diff --staged --quiet; then
             echo "No changes."
             exit 0
