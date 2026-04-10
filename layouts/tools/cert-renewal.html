@@ -3,6 +3,13 @@
   <div class="row mt-5">
     <div class="col-lg m-0">
       <h1 class="mb-4">Azure Certifications</h1>
+      
+      {{ if .Site.Data.certificates }}
+      <div class="alert alert-info" role="alert">
+        <small>Last updated: {{ .Site.Data.certificates.fetchedAt | time.Format "2006-01-02 15:04 MST" }}</small>
+      </div>
+      {{ end }}
+
       <div class="table-responsive">
         <table id="cert-table" class="table table-bordered table-hover align-middle">
           <thead class="table-light">
@@ -17,7 +24,7 @@
             </tr>
           </thead>
           <tbody id="cert-tbody"
-            data-certs='{{ .Params.certs | jsonify }}'>
+            data-certs='{{ .Site.Data.certificates.activeCertificates | jsonify }}'>
             <!-- Filled by JS -->
           </tbody>
         </table>
@@ -32,42 +39,43 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-  const tbody = document.getElementById('cert-tbody');
-  const certs = JSON.parse(tbody.dataset.certs);
-  const today = new Date();
+    const tbody = document.getElementById('cert-tbody');
+    const certs = JSON.parse(tbody.dataset.certs);
+    const today = new Date();
 
-  const certsWithDates = certs.map(cert => {
-    const expires = new Date(cert.expires);
-    const daysLeft = Math.ceil((expires - today) / (1000 * 60 * 60 * 24));
-    const renewalStart = new Date(expires);
-    renewalStart.setDate(expires.getDate() - 180);
-    const startingIn = Math.ceil((renewalStart - today) / (1000 * 60 * 60 * 24));
-    return { ...cert, expires, daysLeft, renewalStart, startingIn };
+    const certsWithDates = certs.map(cert => {
+      const expires = new Date(cert.expires);
+      const daysLeft = Math.ceil((expires - today) / (1000 * 60 * 60 * 24));
+      const renewalStart = new Date(expires);
+      renewalStart.setDate(expires.getDate() - 180);
+      const startingIn = Math.ceil((renewalStart - today) / (1000 * 60 * 60 * 24));
+      return { ...cert, expires, daysLeft, renewalStart, startingIn };
+    });
+
+    // Sort by "startingIn" ascending
+    certsWithDates.sort((a, b) => a.startingIn - b.startingIn);
+
+    certsWithDates.forEach(cert => {
+      const expires = new Date(cert.expires);
+      const daysLeft = Math.ceil((expires - today) / (1000 * 60 * 60 * 24));
+      const renewalStart = new Date(expires);
+      renewalStart.setDate(expires.getDate() - 180);
+      const startingIn = Math.ceil((renewalStart - today) / (1000 * 60 * 60 * 24));
+
+      const statusClass = daysLeft <= 30 ? 'table-danger' : (daysLeft <= 90 ? 'table-warning' : '');
+      const row = `
+        <tr class="${statusClass}">
+          <td>${cert.code}</td>
+          <td>${cert.desc}</td>
+          <td>${cert.type}</td>
+          <td>${expires.toLocaleDateString()}</td>
+          <td>${daysLeft}</td>
+          <td>${renewalStart.toLocaleDateString()}</td>
+          <td>${startingIn}</td>
+        </tr>
+      `;
+      tbody.insertAdjacentHTML('beforeend', row);
+    });
   });
-
-  // Sort by "startingIn" ascending
-  certsWithDates.sort((a, b) => a.startingIn - b.startingIn);
-
-  certsWithDates.forEach(cert => {
-    const expires = new Date(cert.expires);
-    const daysLeft = Math.ceil((expires - today) / (1000 * 60 * 60 * 24));
-    const renewalStart = new Date(expires);
-    renewalStart.setDate(expires.getDate() - 180);
-    const startingIn = Math.ceil((renewalStart - today) / (1000 * 60 * 60 * 24));
-
-    const row = `
-      <tr>
-        <td>${cert.code}</td>
-        <td>${cert.desc}</td>
-        <td>${cert.type}</td>
-        <td>${expires.toLocaleDateString()}</td>
-        <td>${daysLeft}</td>
-        <td>${renewalStart.toLocaleDateString()}</td>
-        <td>${startingIn}</td>
-      </tr>
-    `;
-    tbody.insertAdjacentHTML('beforeend', row);
-  });
-});
 </script>
 {{ end }}

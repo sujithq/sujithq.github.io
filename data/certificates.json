@@ -1,0 +1,155 @@
+{
+  "fetchedAt": "2026-04-10T16:49:11.422460Z",
+  "summary": {
+    "totalActive": 12,
+    "totalHistorical": 1,
+    "expiringWithin30Days": 0
+  },
+  "activeCertificates": [
+    {
+      "id": "A19CY6-365231",
+      "code": "AI Engineer",
+      "desc": "Microsoft Certified: Azure AI Engineer Associate",
+      "type": "Active",
+      "expires": "2027-01-11",
+      "daysUntilExpiry": 276,
+      "dateEarned": "2021-01-11T14:56:44+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "AE53F7-479AFP",
+      "code": "Cosmos DB Developer",
+      "desc": "Microsoft Certified: Azure Cosmos DB Developer Specialty",
+      "type": "Active",
+      "expires": "2027-03-10",
+      "daysUntilExpiry": 334,
+      "dateEarned": "2022-03-10T00:00:00+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-specialty-badge.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "892C07-EE9C31",
+      "code": "Security Engineer",
+      "desc": "Microsoft Certified: Azure Security Engineer Associate",
+      "type": "Active",
+      "expires": "2027-04-23",
+      "daysUntilExpiry": 378,
+      "dateEarned": "2020-04-23T14:09:27+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "14D1CA-66FF48",
+      "code": "Network Engineer",
+      "desc": "Microsoft Certified: Azure Network Engineer Associate",
+      "type": "Active",
+      "expires": "2027-06-24",
+      "daysUntilExpiry": 440,
+      "dateEarned": "2022-06-24T10:44:11+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "EB7C4E-8Z1500",
+      "code": "Identity and Access Administrator Associate",
+      "desc": "Microsoft Certified: Identity and Access Administrator Associate",
+      "type": "Active",
+      "expires": "2027-07-07",
+      "daysUntilExpiry": 453,
+      "dateEarned": "2022-07-07T08:57:45+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "50R549-801AA9",
+      "code": "GitHub Copilot",
+      "desc": "GitHub Copilot",
+      "type": "Active",
+      "expires": "2027-07-17",
+      "daysUntilExpiry": 463,
+      "dateEarned": "2025-07-17T07:49:42+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/github-copilot.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "V6F0EF-D050C8",
+      "code": "Cybersecurity Architect Expert",
+      "desc": "Microsoft Certified: Cybersecurity Architect Expert",
+      "type": "Active",
+      "expires": "2027-07-28",
+      "daysUntilExpiry": 474,
+      "dateEarned": "2022-07-28T08:19:51+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "CBK9CA-40CF3F",
+      "code": "Administrator",
+      "desc": "Microsoft Certified: Azure Administrator Associate",
+      "type": "Active",
+      "expires": "2027-08-06",
+      "daysUntilExpiry": 483,
+      "dateEarned": "2020-08-06T13:37:51+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "3539CC-BDEC67",
+      "code": "Solutions Architect",
+      "desc": "Microsoft Certified: Azure Solutions Architect Expert",
+      "type": "Active",
+      "expires": "2027-08-08",
+      "daysUntilExpiry": 485,
+      "dateEarned": "2020-08-08T23:59:59+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "0BF84B-E3BE08",
+      "code": "DevOps Engineer Expert",
+      "desc": "Microsoft Certified: DevOps Engineer Expert",
+      "type": "Active",
+      "expires": "2027-08-12",
+      "daysUntilExpiry": 489,
+      "dateEarned": "2020-08-12T13:41:46+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "416F81-4BASF1",
+      "code": "Developer",
+      "desc": "Microsoft Certified: Azure Developer Associate",
+      "type": "Active",
+      "expires": "2027-08-26",
+      "daysUntilExpiry": 503,
+      "dateEarned": "2020-08-26T13:54:29+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "6U3493-9B2936",
+      "code": "GitHub Actions",
+      "desc": "GitHub Actions",
+      "type": "Active",
+      "expires": "2028-02-20",
+      "daysUntilExpiry": 681,
+      "dateEarned": "2026-02-20T09:26:55+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/github-actions.svg",
+      "statusCategory": "active"
+    }
+  ],
+  "historicalCertificates": [
+    {
+      "id": "221JC5-885D53",
+      "code": "Solutions Architect",
+      "desc": "Microsoft Certified: Azure Solutions Architect Expert (Legacy)",
+      "type": "Expired",
+      "expires": "2022-08-08",
+      "daysUntilExpiry": 0,
+      "dateEarned": "2019-02-08T10:17:31+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg",
+      "statusCategory": "expiring_soon"
+    }
+  ]
+}
