@@ -13,7 +13,7 @@ jobs:
   compile:
     runs-on: ubuntu-24.04
     env:
-      GH_AW_VERSION: v0.51.6
+      GH_AW_VERSION: v0.67.1
 
     steps:
       - name: Checkout code
