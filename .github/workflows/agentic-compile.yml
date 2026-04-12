@@ -2,6 +2,8 @@ name: Compile Agentic Workflows
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 4 * * 1'  # Weekly on Monday at 04:00 UTC
   push:
     paths:
       - '.github/workflows/*.md'
