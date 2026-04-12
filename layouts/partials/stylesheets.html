@@ -66,16 +66,16 @@
   <link rel="stylesheet" href="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}">
 {{ end }}
 
-{{/* Load FontAwesome from CDN (fallback for missing webfonts) */}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TH/kv+ea6xqwvCARfL9F4Ce3Ii5AwwUqRGQg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-{{/* Optionally load local FontAwesome when webfonts are available */}}
-{{ if fileExists "assets/vendor/fontawesome/webfonts/fa-brands-400.woff2" }}
-  {{ $brands := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/brands.min.css")) }}
-  <link rel="stylesheet" href="{{ $brands.RelPermalink }}" integrity="{{ $brands.Data.Integrity }}">
-  {{ $regular := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/regular.min.css")) }}
-  <link rel="stylesheet" href="{{ $regular.RelPermalink }}" integrity="{{ $regular.Data.Integrity }}">
-  {{ $solid := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/solid.min.css")) }}
-  <link rel="stylesheet" href="{{ $solid.RelPermalink }}" integrity="{{ $solid.Data.Integrity }}">
-{{ end }}
+{{/* Load FontAwesome solid icons */}}
+{{ $solid := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/solid.min.css")) }}
+<link rel="stylesheet" href="{{ $solid.RelPermalink }}" integrity="{{ $solid.Data.Integrity }}">
+
+{{/* Load FontAwesome brands icons */}}
+{{ $brands := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/brands.min.css")) }}
+<link rel="stylesheet" href="{{ $brands.RelPermalink }}" integrity="{{ $brands.Data.Integrity }}">
+
+{{/* Load FontAwesome regular icons */}}
+{{ $regular := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/regular.min.css")) }}
+<link rel="stylesheet" href="{{ $regular.RelPermalink }}" integrity="{{ $regular.Data.Integrity }}">
 
 

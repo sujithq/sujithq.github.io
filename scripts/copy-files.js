@@ -112,5 +112,6 @@ function copyFolderRecursiveSync(source, destination) {
 copyFolderRecursiveSync('node_modules/prismjs/components', 'static/components');
 copyFolderRecursiveSync('node_modules/prismjs/themes', 'static/vendor/prismjs/css');
 copyFolderRecursiveSync('node_modules/prismjs/themes', 'assets/vendor/prismjs/css');
+copyFolderRecursiveSync('node_modules/@fortawesome/fontawesome-free/webfonts', 'assets/vendor/fontawesome/webfonts');
 
 console.log("\x1b[32mAll files copied successfully!\x1b[0m");
