@@ -115,7 +115,7 @@
     {{ if site.Params.widgets.archives.enabled}}
         <div class="accordion-item border border-primary">
             {{- $limit := default 5 site.Params.widgets.archives.limit -}}
-            {{- $postsPage := index (where site.Sections "Title" "Posts") 0 -}}
+            {{- $postsPage := index (where site.Sections "Section" "posts") 0 -}}
             {{- if $postsPage -}}
                 {{ $pages := where (where site.RegularPages "Section" "posts") ".Params.unlisted" "!=" true }}
                 {{ $archives := $pages.GroupByDate "2006" }}
