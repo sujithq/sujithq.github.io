@@ -26,7 +26,6 @@ steps:
     with:
       fetch-depth: 0
       persist-credentials: false
-      token: ${{ secrets.AW_WORKFLOWS_PAT }}
   - name: Setup Node.js
     uses: actions/setup-node@v4
     with:
