@@ -3,4 +3,4 @@
   themes = ["dark", "light"]
   environment = "development"
   updatesPageSize = 12
-  updatesRecentMonths = 6
+  updatesRecentMonths = 1
