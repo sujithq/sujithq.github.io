@@ -65,7 +65,8 @@
   {{/* Collect all visible update pages */}}
   {{ $pages := where (where site.RegularPages "Section" "updates2") ".Params.unlisted" "!=" true }}
   {{ $defaultRecentMonths := 6 }}
-  {{ $recentMonths := or .Params.recentMonths site.Params.updatesRecentMonths $defaultRecentMonths }}
+  {{ $recentMonthsRaw := or .Params.recentMonths site.Params.updatesRecentMonths $defaultRecentMonths }}
+  {{ $recentMonths := int $recentMonthsRaw }}
   {{ $showAll := eq .Params.showAll true }}
   {{ $recentCutoff := now.AddDate 0 (mul -1 $recentMonths) 0 }}
   {{ $displayPages := cond $showAll $pages (where $pages "Date" "ge" $recentCutoff) }}
