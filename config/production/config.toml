@@ -53,7 +53,7 @@ buildFuture = false
    parent = "tools"
  [[menu.main]]
    identifier = "cert-renewal"
-   name = "Azure Certification Renewal"
+   name = "Certification Renewal Tracker"
    url = "/tools/cert-renewal"
    weight = 2
    parent = "tools"
