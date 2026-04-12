@@ -2,71 +2,161 @@
 """Fetch Microsoft Learn and GitHub certificates data and save to JSON file."""
 
 import json
+import re
 import sys
 import urllib.request
 from pathlib import Path
 from datetime import datetime, timezone
+from typing import Any
 
 TRANSCRIPT_ID = "71pnqhwmx5xn8ww"
 API_URL = f"https://learn.microsoft.com/api/profiles/transcript/share/{TRANSCRIPT_ID}?locale=en-us&isModuleAssessment=true"
 OUTPUT_PATH = Path(__file__).parents[2] / "data" / "certificates.json"
 
-HEADERS = {
+HEADERS: dict[str, str] = {
     "User-Agent": "Mozilla/5.0 (compatible; Certificate renewal tracker)",
     "Accept": "application/json",
 }
 
 CATALOG_CERTIFICATIONS_URL = "https://learn.microsoft.com/api/catalog/?locale=en-us&type=certifications"
+EXAM_UID_PATTERN = re.compile(r"examUid=exam\.([A-Z]{2,3}-\d{3})", re.IGNORECASE)
+EXAM_TEXT_PATTERN = re.compile(r"\b([A-Z]{2,3}-\d{3})\b")
+
+CatalogMap = dict[str, dict[str, str | None]]
 
 
-def extract_certificate_code(cert_name, cert_id):
-    """Extract a compact code-like label from certificate name."""
+CERT_CODE_MAP: dict[str, str] = {
+    "microsoft certified: azure ai engineer associate": "AI-102",
+    "microsoft certified: azure cosmos db developer specialty": "DP-420",
+    "microsoft certified: azure security engineer associate": "AZ-500",
+    "microsoft certified: azure network engineer associate": "AZ-700",
+    "microsoft certified: identity and access administrator associate": "SC-300",
+    "microsoft certified: cybersecurity architect expert": "SC-100",
+    "microsoft certified: azure administrator associate": "AZ-104",
+    "microsoft certified: azure solutions architect expert": "AZ-305",
+    "microsoft certified: azure solutions architect expert (legacy)": "AZ-305",
+    "microsoft certified: devops engineer expert": "AZ-400",
+    "microsoft certified: azure developer associate": "AZ-204",
+    "microsoft certified: azure data engineer associate": "DP-203",
+    "microsoft certified: azure data scientist associate": "DP-100",
+    "microsoft certified: azure database administrator associate": "DP-300",
+    "microsoft certified: power bi data analyst associate": "PL-300",
+    "microsoft certified: azure fundamentals": "AZ-900",
+    "microsoft certified: azure ai fundamentals": "AI-900",
+    "microsoft certified: azure data fundamentals": "DP-900",
+    "microsoft certified: security, compliance, and identity fundamentals": "SC-900",
+    "github copilot": "GH-300",
+    "github actions": "GH-200",
+    "github foundations": "GH-900",
+    "github advanced security": "GH-500",
+    "github administration": "GH-100",
+}
+
+CERT_PAGE_CODE_CACHE: dict[str, str | None] = {}
+
+
+def fetch_text(url: str) -> str:
+    """Fetch text content from a URL."""
+    req = urllib.request.Request(url, headers=HEADERS)
+    with urllib.request.urlopen(req, timeout=30) as response:
+        return response.read().decode("utf-8")
+
+
+def fetch_exam_code_from_page(url: str | None) -> str | None:
+    """Extract the official exam code from a certification page."""
+    if not url:
+        return None
+
+    cached = CERT_PAGE_CODE_CACHE.get(url)
+    if cached is not None:
+        return cached
+
+    try:
+        html = fetch_text(url)
+    except Exception:
+        CERT_PAGE_CODE_CACHE[url] = None
+        return None
+
+    match = EXAM_UID_PATTERN.search(html)
+    if match:
+        code = match.group(1).upper()
+        CERT_PAGE_CODE_CACHE[url] = code
+        return code
+
+    for candidate in EXAM_TEXT_PATTERN.findall(html):
+        candidate = candidate.upper()
+        if candidate.startswith(("AZ-", "AI-", "DP-", "SC-", "PL-", "GH-", "MS-", "MB-", "MO-", "AB-")):
+            CERT_PAGE_CODE_CACHE[url] = candidate
+            return candidate
+
+    CERT_PAGE_CODE_CACHE[url] = None
+    return None
+
+
+def extract_certificate_code(cert_name: str, cert_id: str, catalog_map: CatalogMap | None = None) -> str:
+    """Return the official exam code for a certification."""
     if not cert_name:
         return cert_id or "unknown"
 
-    name_match = None
-    if "azure" in cert_name.lower():
-        import re
-        name_match = re.search(r"Azure\s+(.+?)(?:\s+Associate|\s+Expert|\s+Specialty|$)", cert_name, re.IGNORECASE)
-    if name_match:
-        return name_match.group(1).strip()
+    normalized_name = normalize_text(cert_name)
+
+    if catalog_map:
+        page_url = catalog_map.get(normalized_name, {}).get("url")
+        code = fetch_exam_code_from_page(page_url)
+        if code:
+            return code
+
+    code = CERT_CODE_MAP.get(normalized_name)
+    if code:
+        return code
 
     return cert_name.replace("Microsoft Certified:", "").strip()
 
 
-def fetch_json(url):
+def fetch_json(url: str) -> Any:
     """Fetch JSON data from a URL."""
     req = urllib.request.Request(url, headers=HEADERS)
     with urllib.request.urlopen(req, timeout=30) as response:
         return json.loads(response.read().decode("utf-8"))
 
 
-def normalize_text(value):
+def normalize_text(value: str | None) -> str:
     """Normalize text for resilient catalog name matching."""
     if not value:
         return ""
     return " ".join(value.replace("\ufffd", "").split()).strip().lower()
 
 
-def fetch_certification_icon_map():
-    """Fetch title->icon URL mappings for certifications from the MS Learn catalog."""
-    icon_map = {}
+def fetch_certification_catalog_map() -> CatalogMap:
+    """Fetch title->metadata mappings for certifications from the MS Learn catalog."""
+    catalog_map: CatalogMap = {}
     try:
         data = fetch_json(CATALOG_CERTIFICATIONS_URL)
-        items = data.get("certifications", []) if isinstance(data, dict) else []
+        items: list[Any] = []
+        if isinstance(data, dict):
+            raw_items = data.get("certifications", [])
+            if isinstance(raw_items, list):
+                items = raw_items
+
         for item in items:
-            title = normalize_text(item.get("title"))
-            icon_url = item.get("icon_url")
-            if title and icon_url and title not in icon_map:
-                icon_map[title] = icon_url
+            if not isinstance(item, dict):
+                continue
+            title = normalize_text(item.get("title") if isinstance(item.get("title"), str) else None)
+            icon_url = item.get("icon_url") if isinstance(item.get("icon_url"), str) else None
+            page_url = item.get("url") if isinstance(item.get("url"), str) else None
+            if title and title not in catalog_map:
+                catalog_map[title] = {
+                    "iconUrl": icon_url,
+                    "url": page_url,
+                }
     except Exception as exc:
         print(f"Could not fetch certification icon map from catalog: {exc}")
 
-    print(f"Certification catalog icon entries: {len(icon_map)}")
-    return icon_map
+    print(f"Certification catalog entries: {len(catalog_map)}")
+    return catalog_map
 
 
-def calculate_days_until_expiry(expiration_iso):
+def calculate_days_until_expiry(expiration_iso: str | None) -> int | None:
     """Calculate days until certificate expires."""
     if not expiration_iso:
         return None
@@ -79,10 +169,10 @@ def calculate_days_until_expiry(expiration_iso):
         return None
 
 
-def normalize_cert(cert, icon_map=None):
+def normalize_cert(cert: dict[str, Any], catalog_map: CatalogMap | None = None) -> dict[str, Any] | None:
     """Normalize certificate data for export. Returns None if cert has no expiration."""
-    if icon_map is None:
-        icon_map = {}
+    if catalog_map is None:
+        catalog_map = {}
     
     expiration = cert.get("expiration")
     
@@ -100,9 +190,9 @@ def normalize_cert(cert, icon_map=None):
         status_category = "expiring_soon"
     
     # Use API icon if available, fall back to catalog icon map (matched by normalized name)
-    icon_url = cert.get("iconUrl") or icon_map.get(normalize_text(cert_name))
+    icon_url = cert.get("iconUrl") or catalog_map.get(normalize_text(cert_name), {}).get("iconUrl")
     
-    normalized = {
+    normalized: dict[str, Any] = {
         "id": cert.get("certificationNumber", ""),
         "name": cert_name,
         "type": "microsoft_learn",
@@ -116,7 +206,7 @@ def normalize_cert(cert, icon_map=None):
     return normalized
 
 
-def to_hugo_certificate(cert, cert_type):
+def to_hugo_certificate(cert: dict[str, Any], cert_type: str, catalog_map: CatalogMap | None = None) -> dict[str, Any]:
     """Transform normalized certificate record to Hugo layout format."""
     cert_id = cert.get("id", "")
     cert_name = cert.get("name", "")
@@ -125,7 +215,7 @@ def to_hugo_certificate(cert, cert_type):
 
     return {
         "id": cert_id,
-        "code": extract_certificate_code(cert_name, cert_id),
+        "code": extract_certificate_code(cert_name, cert_id, catalog_map),
         "desc": cert_name,
         "type": cert_type,
         "expires": expires,
@@ -136,31 +226,33 @@ def to_hugo_certificate(cert, cert_type):
     }
 
 
-def fetch_certificates():
+def fetch_certificates() -> dict[str, Any]:
     """Fetch and normalize certificate data from MS Learn."""
     print(f"Fetching transcript from: {API_URL}")
     
     # Load icon URLs from the MS Learn certification catalog
-    icon_map = fetch_certification_icon_map()
+    catalog_map = fetch_certification_catalog_map()
     
     try:
         data = fetch_json(API_URL)
         
-        cert_data = data.get("certificationData", {})
-        active_certs = cert_data.get("activeCertifications", [])
-        historical_certs = cert_data.get("historicalCertifications", [])
+        cert_data: dict[str, Any] = data.get("certificationData", {}) if isinstance(data, dict) else {}
+        active_certs_raw = cert_data.get("activeCertifications", [])
+        historical_certs_raw = cert_data.get("historicalCertifications", [])
+        active_certs: list[dict[str, Any]] = [cert for cert in active_certs_raw if isinstance(cert, dict)] if isinstance(active_certs_raw, list) else []
+        historical_certs: list[dict[str, Any]] = [cert for cert in historical_certs_raw if isinstance(cert, dict)] if isinstance(historical_certs_raw, list) else []
         
         print(f"Fetched {len(active_certs)} active certificates")
         print(f"Fetched {len(historical_certs)} historical certificates")
         
         # Normalize certificates (filter out those without expiration)
-        normalized_active = [normalize_cert(cert, icon_map) for cert in active_certs]
+        normalized_active = [normalize_cert(cert, catalog_map) for cert in active_certs]
         normalized_active = [c for c in normalized_active if c is not None]
-        normalized_historical = [normalize_cert(cert, icon_map) for cert in historical_certs]
+        normalized_historical = [normalize_cert(cert, catalog_map) for cert in historical_certs]
         normalized_historical = [c for c in normalized_historical if c is not None]
         
         # Build Hugo-ready output structure
-        output = {
+        output: dict[str, Any] = {
             "fetchedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "summary": {
                 "totalActive": len(normalized_active),
@@ -168,11 +260,11 @@ def fetch_certificates():
                 "expiringWithin30Days": sum(1 for c in normalized_active if c.get("daysUntilExpiry") is not None and c["daysUntilExpiry"] < 30),
             },
             "activeCertificates": sorted(
-                [to_hugo_certificate(c, "Active") for c in normalized_active],
+                [to_hugo_certificate(c, "Active", catalog_map) for c in normalized_active],
                 key=lambda c: c.get("daysUntilExpiry") or 999999
             ),
             "historicalCertificates": [
-                to_hugo_certificate(c, "Expired") for c in normalized_historical
+                to_hugo_certificate(c, "Expired", catalog_map) for c in normalized_historical
             ],
         }
         

@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-12T02:52:35.544081Z",
+  "fetchedAt": "2026-04-12T05:01:09.111763Z",
   "summary": {
     "totalActive": 12,
     "totalHistorical": 1,
@@ -8,7 +8,7 @@
   "activeCertificates": [
     {
       "id": "A19CY6-365231",
-      "code": "AI Engineer",
+      "code": "AI-102",
       "desc": "Microsoft Certified: Azure AI Engineer Associate",
       "type": "Active",
       "expires": "2027-01-11",
@@ -19,7 +19,7 @@
     },
     {
       "id": "AE53F7-479AFP",
-      "code": "Cosmos DB Developer",
+      "code": "DP-420",
       "desc": "Microsoft Certified: Azure Cosmos DB Developer Specialty",
       "type": "Active",
       "expires": "2027-03-10",
@@ -30,7 +30,7 @@
     },
     {
       "id": "892C07-EE9C31",
-      "code": "Security Engineer",
+      "code": "AZ-500",
       "desc": "Microsoft Certified: Azure Security Engineer Associate",
       "type": "Active",
       "expires": "2027-04-23",
@@ -41,7 +41,7 @@
     },
     {
       "id": "14D1CA-66FF48",
-      "code": "Network Engineer",
+      "code": "AZ-700",
       "desc": "Microsoft Certified: Azure Network Engineer Associate",
       "type": "Active",
       "expires": "2027-06-24",
@@ -52,7 +52,7 @@
     },
     {
       "id": "EB7C4E-8Z1500",
-      "code": "Identity and Access Administrator Associate",
+      "code": "SC-300",
       "desc": "Microsoft Certified: Identity and Access Administrator Associate",
       "type": "Active",
       "expires": "2027-07-07",
@@ -63,7 +63,7 @@
     },
     {
       "id": "50R549-801AA9",
-      "code": "GitHub Copilot",
+      "code": "GH-300",
       "desc": "GitHub Copilot",
       "type": "Active",
       "expires": "2027-07-17",
@@ -74,7 +74,7 @@
     },
     {
       "id": "V6F0EF-D050C8",
-      "code": "Cybersecurity Architect Expert",
+      "code": "SC-100",
       "desc": "Microsoft Certified: Cybersecurity Architect Expert",
       "type": "Active",
       "expires": "2027-07-28",
@@ -85,7 +85,7 @@
     },
     {
       "id": "CBK9CA-40CF3F",
-      "code": "Administrator",
+      "code": "AZ-104",
       "desc": "Microsoft Certified: Azure Administrator Associate",
       "type": "Active",
       "expires": "2027-08-06",
@@ -96,7 +96,7 @@
     },
     {
       "id": "3539CC-BDEC67",
-      "code": "Solutions Architect",
+      "code": "AZ-305",
       "desc": "Microsoft Certified: Azure Solutions Architect Expert",
       "type": "Active",
       "expires": "2027-08-08",
@@ -107,7 +107,7 @@
     },
     {
       "id": "0BF84B-E3BE08",
-      "code": "DevOps Engineer Expert",
+      "code": "AZ-400",
       "desc": "Microsoft Certified: DevOps Engineer Expert",
       "type": "Active",
       "expires": "2027-08-12",
@@ -118,7 +118,7 @@
     },
     {
       "id": "416F81-4BASF1",
-      "code": "Developer",
+      "code": "AZ-204",
       "desc": "Microsoft Certified: Azure Developer Associate",
       "type": "Active",
       "expires": "2027-08-26",
@@ -129,7 +129,7 @@
     },
     {
       "id": "6U3493-9B2936",
-      "code": "GitHub Actions",
+      "code": "GH-200",
       "desc": "GitHub Actions",
       "type": "Active",
       "expires": "2028-02-20",
@@ -142,7 +142,7 @@
   "historicalCertificates": [
     {
       "id": "221JC5-885D53",
-      "code": "Solutions Architect",
+      "code": "AZ-300",
       "desc": "Microsoft Certified: Azure Solutions Architect Expert (Legacy)",
       "type": "Expired",
       "expires": "2022-08-08",
