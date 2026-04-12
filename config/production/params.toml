@@ -5,3 +5,4 @@
   pagerSize = 4
   dateFormat = "Jan 2, 2006"
   updatesPageSize = 12
+  updatesRecentMonths = 6

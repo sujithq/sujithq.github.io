@@ -64,13 +64,30 @@
 
   {{/* Collect all visible update pages */}}
   {{ $pages := where (where site.RegularPages "Section" "updates2") ".Params.unlisted" "!=" true }}
+  {{ $defaultRecentMonths := 6 }}
+  {{ $recentMonths := or .Params.recentMonths site.Params.updatesRecentMonths $defaultRecentMonths }}
+  {{ $showAll := eq .Params.showAll true }}
+  {{ $recentCutoff := now.AddDate 0 (mul -1 $recentMonths) 0 }}
+  {{ $displayPages := cond $showAll $pages (where $pages "Date" "ge" $recentCutoff) }}
 
   {{/* Allow custom page size via site param, fallback to 15 (different from posts page size) */}}
   {{ $defaultUpdatePageSize := 12 }}
   {{ $updatePageSize := or site.Params.updatesPageSize $defaultUpdatePageSize }}
 
+  <div class="row g-0 mt-3 mb-3">
+    <div class="col-lg-12 d-flex gap-2 flex-wrap align-items-center">
+      {{ if $showAll }}
+      <span class="badge text-bg-secondary fs-6">Showing full archive</span>
+      <a href="{{ (site.GetPage "section" "updates2").RelPermalink }}" class="btn btn-outline-primary">Show recent updates</a>
+      {{ else }}
+      <span class="badge text-bg-secondary fs-6">Showing last {{ $recentMonths }} months by default</span>
+      <a href="/updates/archive/" class="btn btn-outline-primary">Show full archive</a>
+      {{ end }}
+    </div>
+  </div>
+
   {{/* Create paginator with custom size */}}
-  {{ $paginator := .Paginate $pages $updatePageSize }}
+  {{ $paginator := .Paginate $displayPages $updatePageSize }}
   {{ $title := printf "%s - %d" .Title $paginator.PageNumber }}
 
   {{/* Pass only the current page's pages to archive partial so grouping reflects current page subset */}}

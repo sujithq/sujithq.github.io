@@ -2,3 +2,4 @@
   dateFormat = "Jan 2, 2006"
   pagerSize = 6
   updatesPageSize = 12
+  updatesRecentMonths = 6
