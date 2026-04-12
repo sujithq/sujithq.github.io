@@ -6,8 +6,7 @@ date: 2025-08-28
 lastmod: 2025-08-29
 draft: false
 toc: true
-description: "How we collect, use, and protect your personal data on this site."
-description: "Details data collected, purposes, retention, GDPR rights, consent (Microsoft Clarity), international transfers, and security."
+description: "How we collect, use, and protect your personal data on this site. Details data collected, purposes, retention, GDPR rights, consent (Microsoft Clarity), international transfers, and security."
 type: "legal"
 layout: "legal"
 ---
