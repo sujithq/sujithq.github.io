@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - '.github/workflows/*.md'
+      - '.github/workflows/*.lock.yml'
 
 permissions:
   contents: write
