@@ -66,6 +66,10 @@
   <link rel="stylesheet" href="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}">
 {{ end }}
 
+{{/* Load FontAwesome core CSS first */}}
+{{ $fontawesome := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/fontawesome.min.css")) }}
+<link rel="stylesheet" href="{{ $fontawesome.RelPermalink }}" integrity="{{ $fontawesome.Data.Integrity }}">
+
 {{/* Load FontAwesome solid icons */}}
 {{ $solid := partial "get-stylesheet.html" (dict "Resource" (resources.Get "vendor/fontawesome/css/solid.min.css")) }}
 <link rel="stylesheet" href="{{ $solid.RelPermalink }}" integrity="{{ $solid.Data.Integrity }}">

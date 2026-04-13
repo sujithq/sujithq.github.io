@@ -15,8 +15,8 @@
   {{- $processed = $processed | toCSS -}}
 {{- end -}}
 
-{{- /* Only run PostCSS on CSS assets (after toCSS when needed) */ -}}
-{{- if and $isProduction (eq $processed.MediaType.SubType "css") -}}
+{{- /* Only run PostCSS on first-party SCSS outputs; skip third-party vendor CSS */ -}}
+{{- if and $isProduction $isScss (eq $processed.MediaType.SubType "css") -}}
   {{- $processed = $processed | css.PostCSS -}}
 {{- end -}}
 

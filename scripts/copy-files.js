@@ -14,6 +14,7 @@ const filesToCopy = [
   { vendor: "swiper", fileName: "swiper-bundle.min.css", destination: "assets/vendor/swiper/css", source: "node_modules" },
   { vendor: "bootstrap-icons", fileName: "font/fonts/bootstrap-icons.woff", destination: "static/scss/fonts", source: "node_modules" },
   { vendor: "bootstrap-icons", fileName: "font/fonts/bootstrap-icons.woff2", destination: "static/scss/fonts", source: "node_modules" },
+  { vendor: "@fortawesome", fileName: "fontawesome-free/css/fontawesome.min.css", destination: "assets/vendor/fontawesome/css", source: "node_modules" },
   { vendor: "@fortawesome", fileName: "fontawesome-free/css/brands.min.css", destination: "assets/vendor/fontawesome/css", source: "node_modules" },
   { vendor: "@fortawesome", fileName: "fontawesome-free/css/regular.min.css", destination: "assets/vendor/fontawesome/css", source: "node_modules" },
   { vendor: "@fortawesome", fileName: "fontawesome-free/css/solid.min.css", destination: "assets/vendor/fontawesome/css", source: "node_modules" },
@@ -112,6 +113,6 @@ function copyFolderRecursiveSync(source, destination) {
 copyFolderRecursiveSync('node_modules/prismjs/components', 'static/components');
 copyFolderRecursiveSync('node_modules/prismjs/themes', 'static/vendor/prismjs/css');
 copyFolderRecursiveSync('node_modules/prismjs/themes', 'assets/vendor/prismjs/css');
-copyFolderRecursiveSync('node_modules/@fortawesome/fontawesome-free/webfonts', 'assets/vendor/fontawesome/webfonts');
+copyFolderRecursiveSync('node_modules/@fortawesome/fontawesome-free/webfonts', 'static/vendor/fontawesome/webfonts');
 
 console.log("\x1b[32mAll files copied successfully!\x1b[0m");
