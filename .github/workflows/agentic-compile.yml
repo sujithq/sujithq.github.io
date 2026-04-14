@@ -48,6 +48,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin "https://x-access-token:${WORKFLOWS_PAT}@github.com/${GITHUB_REPOSITORY}.git"
-          git add .github/workflows/*.lock.yml
+          git add .github/workflows/*.lock.yml .github/aw/actions-lock.json
+          if git diff --staged --quiet; then
+            echo "No staged changes to commit."
+            exit 0
+          fi
           git commit -m "chore(aw): compile agentic workflows"
           git push
