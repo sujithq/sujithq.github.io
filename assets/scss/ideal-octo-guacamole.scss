@@ -2,7 +2,7 @@
 // 0) Your variables & feature flags (put BEFORE Bootstrap imports)
 // ------------------------------
 
-@import "xebia/variables";
+@import "theme/variables";
 
 // F// ------------------------------
 // 3) Icons - Using Font Awesome (loads via Hugo templates)
@@ -164,11 +164,11 @@ $grid-breakpoints: (
 // ------------------------------
 // 2) Your theme & custom modules
 // ------------------------------
-@import "xebia/bootswatch";
-// @import "xebia/footer";
-// @import "xebia/scrolltop";
-// @import "xebia/sharingButtons"; // to be removed?
-// @import "xebia/timeline"; // to be removed?
+@import "theme/bootswatch";
+// @import "theme/footer";
+// @import "theme/scrolltop";
+// @import "theme/sharingButtons"; // to be removed?
+// @import "theme/timeline"; // to be removed?
 
 // ------------------------------
 // 3) Icons - Using Font Awesome instead of Bootstrap Icons

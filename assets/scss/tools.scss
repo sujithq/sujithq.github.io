@@ -2,7 +2,7 @@
 // 0) Your variables & feature flags (put BEFORE Bootstrap imports)
 // ------------------------------
 
-@import "xebia/variables";
+@import "theme/variables";
 //@import "xebia/variables_ms";
 
 // F// ------------------------------
@@ -165,11 +165,11 @@ $grid-breakpoints: (
 // ------------------------------
 // 2) Your theme & custom modules
 // ------------------------------
-@import "xebia/bootswatch";
-// @import "xebia/footer";
-@import "xebia/scrolltop";
-// @import "xebia/sharingButtons"; // Tools don't need sharing buttons
-// @import "xebia/timeline"; // Tools don't use timeline
+@import "theme/bootswatch";
+// @import "theme/footer";
+@import "theme/scrolltop";
+// @import "theme/sharingButtons"; // Tools don't need sharing buttons
+// @import "theme/timeline"; // Tools don't use timeline
 
 // ------------------------------
 // 3) Icons (heavy). Consider replacing with a subset of SVGs.

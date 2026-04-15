@@ -1,0 +1,32 @@
+/*--------------------------------------------------------------
+# Global Footer
+--------------------------------------------------------------*/
+
+:root,
+[data-bs-theme=light]{
+  --scroll-top-bg: #{$primary};
+  --default-color: #{$navbar-dark-color};
+}
+
+[data-bs-theme=dark]{
+  color-scheme: dark;
+  --default-color: #{$navbar-light-color};
+}
+
+.footer {
+
+    color: var(--default-color);
+    background-color: var(--background-color);
+    font-size: 14px;
+    position: relative;
+  }
+
+  .footer .copyright {
+    padding: 25px 0;
+    border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    color: var(--default-color);
+  }
+
+  .footer .copyright p {
+    margin-bottom: 0;
+  }

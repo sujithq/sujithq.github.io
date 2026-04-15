@@ -6,17 +6,17 @@
 // Import necessary Bootstrap variables for theme customization
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
-@import "xebia/variables";
+@import "theme/variables";
 //@import "xebia/variables_ms";";
 
 // ------------------------------
 // 2) Your theme & custom modules
 // ------------------------------
-@import "xebia/bootswatch";
-// @import "xebia/footer";
-// @import "xebia/scrolltop";
-// @import "xebia/sharingButtons"; // to be removed?
-// @import "xebia/timeline"; // to be removed?
+@import "theme/bootswatch";
+// @import "theme/footer";
+// @import "theme/scrolltop";
+// @import "theme/sharingButtons"; // to be removed?
+// @import "theme/timeline"; // to be removed?
 
 // ------------------------------
 // 3) Icons - Using Font Awesome instead of Bootstrap Icons
