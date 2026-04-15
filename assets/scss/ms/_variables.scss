@@ -9,30 +9,30 @@ $gray-300: #ededed !default;
 $gray-400: #cbc8d0 !default;
 $gray-500: #adb5bd !default;
 $gray-600: #868e96 !default;
-$gray-700: #444 !default;
+$gray-700: #323130 !default; // Fluent neutralPrimary
 $gray-800: #343a40 !default;
-$gray-900: #17141f !default;
+$gray-900: #201f1e !default; // Fluent neutralForegroundStaticInverted base
 $black: #000 !default;
 
-$blue: #0160ae !default; //#007bff !default;
-$indigo: #6a1d57 !default; //#6610f2 !default;
-$purple: #451c43 !default; //#593196 !default;
-$pink: #ad3b77 !default; //#e83e8c !default;
-$red: #c82f38 !default; //#fc3939 !default;
-$orange: #a95731 !default; //#fd7e14 !default;
-$yellow: #face08 !default; //#efa31d !default;
-$green: #1aac26 !default; //#13b955 !default;
-$teal: #24a2ae !default; //#31c99c !default;
-$cyan: #009cdc !default;
+$blue: #00A1F1 !default; // Microsoft blue (per provided palette)
+$indigo: #5c2d91 !default; // Microsoft purple
+$purple: #5c2d91 !default;
+$pink: #e3008c !default; // Microsoft magenta
+$red: #F65314 !default; // Microsoft red (per provided palette)
+$orange: #ca5010 !default; // Microsoft orange
+$yellow: #FFBB00 !default; // Microsoft yellow (per provided palette)
+$green: #7CBB00 !default; // Microsoft green (per provided palette)
+$teal: #038387 !default; // Microsoft teal
+$cyan: #00bcf2 !default; // Communication cyan
 
-$primary: $indigo !default; //$purple !default;
-$secondary: $pink !default; //#a991d4 !default;
+$primary: $blue !default; // Microsoft blue as primary
+$secondary: $indigo !default; // Purple accent as secondary
 $success: $green !default;
-$info: $blue !default; //$cyan !default;
+$info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
-$light: #f7f8fc !default; //$gray-200 !default;
-$dark: $purple !default; //$gray-900 !default;
+$light: #f3f2f1 !default; // Fluent neutral light
+$dark: $gray-900 !default; // Fluent neutral dark
 
 $min-contrast-ratio: 2.1 !default;
 
@@ -117,20 +117,28 @@ $web-font-path: "https://fonts.googleapis.com/css?family=#{$google-fonts-url}&di
 // $h5-font-size:                $font-size-base * 1.1 !default;
 // $h6-font-size:                $font-size-base * 1 !default;
 
+// Share button palette: distribute across four provided base colors
+// Segments (5 items each):
+// 1) Blue -> Green, 2) Green -> Yellow, 3) Yellow -> Red
 $resp-sharing-buttons: (
-  facebook: #1877f2,
-  twitter: $black,
-  tumblr: #39475d,
-  email: $gray-600,
-  pinterest: #e60023,
-  linkedin: #2767b1,
-  reddit: #f04b23,
-  xing: #1a7576,
-  whatsapp: #71c169,
-  hackernews: #d85623,
-  vk: #45668e,
-  telegram: #0088cc,
-  flipboard: #bf2626,
-    pocket: #ef4056,
-    buffer: #323b43,
+  // 1) Blue -> Green
+  facebook:  mix($blue,   $green, 100%),
+  twitter:   mix($blue,   $green, 75%),
+  tumblr:    mix($blue,   $green, 50%),
+  email:     mix($blue,   $green, 25%),
+  pinterest: mix($blue,   $green, 0%),   // = $green
+
+  // 2) Green -> Yellow
+  linkedin:  mix($green,  $yellow, 80%), // = $green
+  reddit:    mix($green,  $yellow, 60%),
+  xing:      mix($green,  $yellow, 40%),
+  whatsapp:  mix($green,  $yellow, 20%),
+  hackernews:mix($green,  $yellow, 0%),   // = $yellow
+
+  // 3) Yellow -> Red
+  vk:        mix($yellow, $red, 80%),    // = $yellow
+  telegram:  mix($yellow, $red, 60%),
+  flipboard: mix($yellow, $red, 40%),
+  pocket:    mix($yellow, $red, 20%),
+  buffer:    mix($yellow, $red, 0%)       // = $red
 );
