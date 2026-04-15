@@ -20,6 +20,11 @@
       "version": "v4.3.1",
       "sha": "67a3573c9a986a3f9c594539f4ab511d57bb3ce9"
     },
+    "actions/setup-dotnet@v5": {
+      "repo": "actions/setup-dotnet",
+      "version": "v5",
+      "sha": "c2fa09f4bde5ebb9d1777cf28262a3eb3db3ced7"
+    },
     "actions/setup-node@v4.4.0": {
       "repo": "actions/setup-node",
       "version": "v4.4.0",
