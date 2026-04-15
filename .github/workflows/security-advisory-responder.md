@@ -15,6 +15,8 @@ tools:
     toolsets: [pull_requests, issues, code_security]
   bash: ["git", "cat", "grep", "node", "npm", "dotnet", "jq"]
 safe-outputs:
+  noop:
+    report-as-issue: false
   add-comment:
     max: 1
     hide-older-comments: true
@@ -29,11 +31,11 @@ steps:
   - name: Setup Node.js
     uses: actions/setup-node@v4
     with:
-      node-version: '20'
+      node-version: '24'
   - name: Setup .NET
-    uses: actions/setup-dotnet@v4
+    uses: actions/setup-dotnet@v5
     with:
-      dotnet-version: '9.0.x'
+      dotnet-version: '10.0.x'
 ---
 
 ## Security Advisory Responder Instructions
