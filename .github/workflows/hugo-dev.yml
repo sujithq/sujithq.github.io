@@ -1,25 +1,36 @@
-name: Deploy Dev to GitHub Pages
+name: Deploy to Github Pages - copilot/fix-styling-experience-part
 
 on:
+  schedule:
+    - cron: '15 * * * *'
   push:
-    branches: [ dev ]
+    branches: [copilot/fix-styling-experience-part]
+  pull_request:
+    branches: [copilot/fix-styling-experience-part]
+  workflow_run:
+    workflows: ["Updates (Daily Refresh)", "Publish due posts"]
+    types: [completed]
   workflow_dispatch:
 
 env:
-  DOTNET_VERSION: '10.0.x'
+  DOTNET_VERSION: '10.0.x'   # <= set once; eg '9.0.x' or '10.0.x'
+  GO_VERSION: '1.26.x'
+  NODE_VERSION: '24'
+  HUGO_VERSION: '0.160.1'
 
 jobs:
   build:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-24.04-arm
     permissions:
       contents: write
+      id-token: write   # REQUIRED for OIDC
 
     steps:
-      - name: Checkout code (dev)
+      - name: Checkout code
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          ref: dev
 
       - name: Cache Hugo resources
         uses: actions/cache@v5
@@ -32,7 +43,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v6
         with:
-          go-version: "^1.23.3"
+          go-version: ${{ env.GO_VERSION }}
 
       - name: Check Go version
         run: go version
@@ -40,7 +51,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6.3.0
         with:
-          node-version: "20"
+          node-version: ${{ env.NODE_VERSION }}
           cache: "npm"
 
       - name: Install npm dependencies
@@ -52,8 +63,15 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.148.2"
+          hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
+
+      - name: Azure login (OIDC)
+        uses: azure/login@v3
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v5.2.0
@@ -99,7 +117,7 @@ jobs:
           ls -la "${OUTDIR}"
           echo "::endgroup::"
 
-          # Run the app from OUTDIR so it writes to OUTDIR/data and OUTDIR/state
+          # Run the app from OUTDIR so it writes to OUTDIR/db and OUTDIR/state
           pushd "${OUTDIR}"
           if [ -f "./Crawler" ]; then
             ./Crawler
@@ -112,9 +130,9 @@ jobs:
           ls -laR "${OUTDIR}" || true
           echo "::endgroup::"
 
-          # Copy data/state back to repo root with clear logs
-          mkdir -p data state
-          for d in data state; do
+          # Copy db/state back to repo root with clear logs
+          mkdir -p db state
+          for d in db state; do
             if [ -d "${OUTDIR}/${d}" ]; then
               echo "Syncing ${OUTDIR}/${d} -> ./${d}"
               rsync -av "${OUTDIR}/${d}/" "./${d}/"
@@ -123,8 +141,8 @@ jobs:
             fi
           done
 
-          echo "::group::Repo data/ tree"
-          ls -laR data || true
+          echo "::group::Repo db/ tree"
+          ls -laR db || true
           echo "::endgroup::"
           echo "::group::Repo state/ tree"
           ls -laR state || true
@@ -136,40 +154,45 @@ jobs:
 
       - name: Build
         if: always()
-        run: |
-          hugo --minify --gc \
-               --environment development \
-               --baseURL "https://dev.quintelier.dev/"
+        run: hugo --minify --gc --environment production
 
       - name: Commit & push results
+        if: |
+          github.event_name == 'push' && github.ref == 'refs/heads/copilot/fix-styling-experience-part' ||
+          github.event_name == 'schedule' ||
+          github.event_name == 'workflow_dispatch'
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git fetch origin dev
-          git pull --rebase --autostash origin dev || true
-          git add data/ content/ state/
+          git fetch origin copilot/fix-styling-experience-part
+          git pull --rebase --autostash origin copilot/fix-styling-experience-part || true
+          git add db/ content/ state/
           if git diff --staged --quiet; then
             echo "No changes."
             exit 0
           fi
-          git commit -m "chore(dev): update crawl outputs [skip ci]"
-          if git push origin HEAD:dev; then
-            echo "Pushed to dev successfully."
+          git commit -m "chore: update crawl outputs [skip ci]"
+          if git push; then
+            echo "Pushed successfully."
           else
             echo "Push rejected, attempting rebase and retry..."
-            git fetch origin dev
-            if git rebase origin/dev; then
-              git push origin HEAD:dev || git push --force-with-lease origin HEAD:dev
+            git fetch origin copilot/fix-styling-experience-part
+            if git rebase origin/copilot/fix-styling-experience-part; then
+              git push || git push --force-with-lease
             else
-              echo "Rebase conflicts; aborting and force-with-lease."
+              echo "Rebase had conflicts; aborting and using --force-with-lease to publish bot outputs."
               git rebase --abort || true
-              git push --force-with-lease origin HEAD:dev
+              git push --force-with-lease
             fi
           fi
 
       - name: Deploy 🚀
+        if: |
+          github.event_name == 'push' && github.ref == 'refs/heads/copilot/fix-styling-experience-part' ||
+          github.event_name == 'schedule' ||
+          github.event_name == 'workflow_dispatch'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.PAT_DEV_PAGES }}
