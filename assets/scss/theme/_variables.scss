@@ -1,2 +1,27 @@
-// Theme selector — change "xebia" to "ms" to switch themes
+// Palette selector: keep styling from xebia modules, switch only color tokens.
+// Allowed values: "xebia", "ms"
+$theme-color-palette: "xebia" !default;
+
 @import "../xebia/_variables";
+
+@if $theme-color-palette == "ms" {
+	// Brand and accent palette overrides (keep xebia semantic mappings/layout).
+	$blue: #00A1F1;
+	$indigo: #5c2d91;
+	$purple: #5c2d91;
+	$pink: #e3008c;
+	$red: #F65314;
+	$orange: #ca5010;
+	$yellow: #FFBB00;
+	$green: #7CBB00;
+	$teal: #038387;
+	$cyan: #00bcf2;
+
+	// Preserve xebia semantic role mapping while using ms color values.
+	$primary: $indigo;
+	$secondary: $pink;
+	$success: $green;
+	$info: $blue;
+	$warning: $yellow;
+	$danger: $red;
+}
