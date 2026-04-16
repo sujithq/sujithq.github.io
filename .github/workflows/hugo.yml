@@ -159,6 +159,15 @@ jobs:
         if: always()
         run: hugo --minify --gc --environment production
 
+
+      - name: Upload site artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: public
+
+
       - name: Commit & push results
         if: |
           github.event_name == 'push' && github.ref == 'refs/heads/main' ||
