@@ -43,6 +43,8 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
       "bg-primary", "bg-secondary", "bg-dark", "bg-light",
       "text-primary", "text-secondary", "text-dark", "text-light",
       "fas", "fab", "fa-adjust", "fa-sun", "fa-moon",
+      "timeline", "timeline-inverted", "timeline-panel", "timeline-image", "timeline-heading", "timeline-body",
+      "timeline-item", "timeline-content",
     ],
     deep: [
       /^bs-/,
@@ -57,6 +59,7 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
       /^btn-/,
       /^color-mode/,
       /^theme/,
+      /^timeline/,
       /dark/,
       /light/,
       /auto/,
