@@ -223,6 +223,10 @@ jobs:
     permissions:
       contents: write
     steps:
+
+      - name: Checkout repo
+        uses: actions/checkout@v6
+
       - uses: actions/download-artifact@v4
         with:
           name: site
@@ -247,6 +251,9 @@ jobs:
     permissions:
       contents: read
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+
       - uses: actions/download-artifact@v4
         with:
           name: site
