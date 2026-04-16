@@ -30,6 +30,10 @@ $cyan: #009cdc !default;
 $theme-color-palette: "xebia" !default;
 
 @if $theme-color-palette == "ms" {
+  // Override neutral grays for MS Fluent Design
+  $gray-700: #323130; // Fluent neutralPrimary
+  $gray-900: #201f1e; // Fluent neutralForegroundStaticInverted base
+  // Override color palette to Microsoft brand colors
   $blue: #00A1F1;
   $indigo: #5c2d91;
   $purple: #5c2d91;
@@ -42,14 +46,16 @@ $theme-color-palette: "xebia" !default;
   $cyan: #00bcf2;
 }
 
-$primary: $indigo !default; //$purple !default;
-$secondary: $pink !default; //#a991d4 !default;
+// Semantic assignments: ms maps primary→blue and secondary→indigo;
+// xebia maps primary→indigo and secondary→pink.
+$primary: if($theme-color-palette == "ms", $blue, $indigo) !default;
+$secondary: if($theme-color-palette == "ms", $indigo, $pink) !default;
 $success: $green !default;
-$info: $blue !default; //$cyan !default;
+$info: if($theme-color-palette == "ms", $cyan, $blue) !default;
 $warning: $yellow !default;
 $danger: $red !default;
-$light: #f7f8fc !default; //$gray-200 !default;
-$dark: $purple !default; //$gray-900 !default;
+$light: if($theme-color-palette == "ms", #f3f2f1, #f7f8fc) !default;
+$dark: if($theme-color-palette == "ms", $gray-900, $purple) !default;
 
 $min-contrast-ratio: 2.1 !default;
 
