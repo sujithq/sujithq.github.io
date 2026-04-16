@@ -7,7 +7,7 @@
 // 0) Your variables & feature flags (put BEFORE Bootstrap imports)
 // ------------------------------
 
-@import "theme/variables";
+@import "xebia/variables";
 //@import "xebia/variables_ms";
 
 // Feature flags — disable what you don't need
@@ -163,3 +163,4 @@ $grid-breakpoints: (
 
 // Generate utilities from the curated map above
 @import "node_modules/bootstrap/scss/utilities/api";
+

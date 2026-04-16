@@ -9,7 +9,7 @@
 // 0) Your variables & feature flags (put BEFORE Bootstrap imports)
 // ------------------------------
 
-@import "theme/variables";
+@import "xebia/variables";
 //@import "xebia/variables_ms";
 
 // F// ------------------------------
@@ -172,11 +172,11 @@ $grid-breakpoints: (
 // ------------------------------
 // 2) Your theme & custom modules
 // ------------------------------
-@import "theme/bootswatch";
-// @import "theme/footer";
-@import "theme/scrolltop";
-@import "theme/sharingButtons";
-// @import "theme/timeline";
+@import "xebia/bootswatch";
+// @import "xebia/footer";
+@import "xebia/scrolltop";
+@import "xebia/sharingButtons";
+// @import "xebia/timeline";
 
 // Import mobile-friendly pagination component
 @import "components/pagination";
@@ -185,3 +185,4 @@ $grid-breakpoints: (
 // 3) Icons (heavy). Consider replacing with a subset of SVGs.
 // ------------------------------
 // @import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";  // to be removed?
+

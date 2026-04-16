@@ -25,6 +25,23 @@ $green: #1aac26 !default; //#13b955 !default;
 $teal: #24a2ae !default; //#31c99c !default;
 $cyan: #009cdc !default;
 
+// Palette selector: keep xebia semantic styling and allow color palette switch.
+// Allowed values: "xebia", "ms"
+$theme-color-palette: "xebia" !default;
+
+@if $theme-color-palette == "ms" {
+  $blue: #00A1F1;
+  $indigo: #5c2d91;
+  $purple: #5c2d91;
+  $pink: #e3008c;
+  $red: #F65314;
+  $orange: #ca5010;
+  $yellow: #FFBB00;
+  $green: #7CBB00;
+  $teal: #038387;
+  $cyan: #00bcf2;
+}
+
 $primary: $indigo !default; //$purple !default;
 $secondary: $pink !default; //#a991d4 !default;
 $success: $green !default;
