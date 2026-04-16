@@ -1,0 +1,32 @@
+{{- /* 
+  Gallery Shortcode
+  Renders images from a directory as a responsive badge gallery
+  Usage: {{< gallery >}}
+  Images should be in assets/media/albums/badges/
+*/ -}}
+
+{{- $currentPage := .Page -}}
+{{- $images := resources.Match "media/albums/badges/*.{jpg,jpeg,png,webp}" -}}
+{{- $imageSorted := $images.ByExponent -}}
+
+<div class="container mt-0">
+  <div class="row row-cols-auto g-1 d-flex justify-content-center">
+    {{- range $imageSorted -}}
+      <div class="col">
+        <a data-fancybox="gallery-badges" href="{{ .RelPermalink }}">
+          {{- $name := .Name -}}
+          {{- if strings.HasSuffix $name ".jpg" -}}
+            {{- $webp := .Fill "100x100 q100 Center webp" -}}
+            {{- $fallback := .Fill "100x100 q100 Center" -}}
+            <picture>
+              <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+              <img src="{{ $fallback.RelPermalink }}" loading="lazy" alt="{{ $name }}" width="100" height="100">
+            </picture>
+          {{- else -}}
+            <img src="{{ .RelPermalink }}" loading="lazy" alt="{{ $name }}" width="100" height="100">
+          {{- end -}}
+        </a>
+      </div>
+    {{- end -}}
+  </div>
+</div>
