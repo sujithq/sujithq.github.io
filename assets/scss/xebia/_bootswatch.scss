@@ -324,6 +324,10 @@ pre[class*="language-"] {
   margin-top: var(--navbar-height);
 }
 
+.card-body .container {
+  margin-top: 0;
+}
+
 img {
   transition: transform 0.3s ease-in-out;
 }
