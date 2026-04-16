@@ -117,4 +117,3 @@ This personal site is licensed under the [MIT License](LICENSE). Feel free to us
  ![Buy Me A Coffee](bmc.png)
 
 ---
-
