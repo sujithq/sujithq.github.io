@@ -7,7 +7,7 @@
 
 {{- $currentPage := .Page -}}
 {{- $images := resources.Match "media/albums/badges/*.{jpg,jpeg,png,webp}" -}}
-{{- $imageSorted := $images.ByExponent -}}
+{{- $imageSorted := sort $images "Name" -}}
 
 <div class="container mt-0">
   <div class="row row-cols-auto g-1 d-flex justify-content-center">
