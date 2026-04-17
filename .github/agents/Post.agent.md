@@ -258,6 +258,12 @@ tags = ["CSharp", ".NET", "CI CD"]
 - Read the linked content and identify key announcements, scope, audience impact, limitations, and rollout details.
 - Cross-check important claims against official documentation when available.
 
+### 2a. Additional Link Discovery Depth
+- Follow additional links from the source page up to a maximum depth of 3.
+- Prioritise links that add technical clarity (official docs, specifications, release notes, security guidance).
+- Ignore non-content sitewide links (social, marketing, footer navigation) unless directly relevant to the topic.
+- Use discovered links to improve technical accuracy, but do not narrate this research process in the article body.
+
 ### 3. Align With Existing Style
 - Inspect similar posts in `content/posts/*/index.md` and reuse consistent structure patterns.
 - Keep the post practical, scannable, and action-oriented.
@@ -267,6 +273,8 @@ tags = ["CSharp", ".NET", "CI CD"]
 - Include required TOML front matter and a high-quality `cover_prompt`.
 - Ensure cover conventions are satisfied: `cover = true`, `author = "sujith"`, and cover target file `cover.jpg` in the post folder.
 - Do not include in-body image placeholders unless explicitly requested by the user.
+- Do not include meta commentary about the writing process (for example: "I reviewed", "I enriched", "checked links up to depth X", "this summary was generated from").
+- Present outcomes directly for end users, not the internal method.
 
 ### 5. Final Quality Pass
 - Validate formatting, taxonomy safety, markdown spacing, and link quality.
@@ -344,6 +352,10 @@ tags = ["CSharp", ".NET", "CI CD"]
 - Cost optimization considerations
 - Performance and scalability guidance
 - Compliance and governance awareness
+
+### Announcement Status Clarity
+- If a source is labelled as a release announcement but the feature stage is public preview, state both clearly and consistently.
+- Prefer wording such as: "announced in a release post" and "currently in public preview" to avoid ambiguity.
 
 ## Autonomous Operation
 
