@@ -68,7 +68,8 @@
   {{ $recentMonthsRaw := or .Params.recentMonths site.Params.updatesRecentMonths $defaultRecentMonths }}
   {{ $recentMonths := int $recentMonthsRaw }}
   {{ $showAll := eq .Params.showAll true }}
-  {{ $recentCutoff := now.AddDate 0 (mul -1 $recentMonths) 0 }}
+  {{ $negativeMonths := int (mul -1 (int $recentMonths)) }}
+  {{ $recentCutoff := now.AddDate 0 $negativeMonths 0 }}
   {{ $displayPages := cond $showAll $pages (where $pages "Date" "ge" $recentCutoff) }}
 
   {{/* Allow custom page size via site param, fallback to 15 (different from posts page size) */}}
