@@ -52,3 +52,6 @@ Thumbs.db
 
 # Keep data/content/state tracked (donâ€™t ignore)
 !.gitkeep
+
+# Hugo generated build stats
+hugo_stats.json

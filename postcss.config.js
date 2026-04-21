@@ -25,7 +25,8 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
       "dark",
       "light",
     ];
-    return extracted;
+      // Sort and deduplicate for deterministic CSS output (prevents hash churn)
+      return Array.from(new Set(extracted)).sort();
   },
   safelist: {
     standard: [
