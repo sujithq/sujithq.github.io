@@ -1,7 +1,19 @@
+const fs = require("fs");
+
+const HUGO_STATS_PATH = "./hugo_stats.json";
+const isProd = process.env.HUGO_ENVIRONMENT === "production";
+const hasHugoStats = fs.existsSync(HUGO_STATS_PATH);
+
 const purgecss = require("@fullhuman/postcss-purgecss")({
   content: ["./hugo_stats.json"],
   defaultExtractor: (content) => {
-    const els = JSON.parse(content).htmlElements;
+    let els = { tags: [], classes: [], ids: [] };
+    try {
+      els = JSON.parse(content).htmlElements || els;
+    } catch {
+      // Fallback keeps build stable if stats content is temporarily invalid.
+      return [];
+    }
     const extracted = [
       ...(els.tags || []),
       ...(els.classes || []),
@@ -88,6 +100,6 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
 
 module.exports = {
   plugins: [
-    ...(process.env.HUGO_ENVIRONMENT === "production" ? [purgecss] : []),
+    ...(isProd && hasHugoStats ? [purgecss] : []),
   ],
 };
