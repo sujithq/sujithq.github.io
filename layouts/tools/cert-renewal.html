@@ -3,10 +3,10 @@
   <div class="row mt-5">
     <div class="col-lg m-0">
       <h1 class="mb-4">Certification Renewal Tracker</h1>
-      
-      {{ if hugo.Data.certificates }}
+
+      {{ if site.Data.certificates }}
       <div class="alert alert-info" role="alert">
-        <small>Last updated: {{ hugo.Data.certificates.fetchedAt | time.Format "2006-01-02 15:04 MST" }}</small>
+        <small>Last updated: {{ site.Data.certificates.fetchedAt | time.Format "2006-01-02 15:04 MST" }}</small>
       </div>
       {{ end }}
 
@@ -25,7 +25,7 @@
             </tr>
           </thead>
           <tbody id="cert-tbody"
-            data-certs='{{ hugo.Data.certificates.activeCertificates | jsonify }}'>
+            data-certs='{{ site.Data.certificates.activeCertificates | jsonify }}'>
             <!-- Filled by JS -->
           </tbody>
         </table>
