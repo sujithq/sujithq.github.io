@@ -6,6 +6,13 @@
       <i class="fas fa-rss"></i> RSS
     </a>
   </p>
+  <p>
+    {{- $footerLinks := .Site.Menus.footer }}
+    {{- range $i, $item := $footerLinks }}
+      {{- if gt $i 0 }} • {{ end -}}
+      <a href="{{ $item.URL }}" class="text-white mx-1">{{ $item.Name }}</a>
+    {{- end }}
+  </p>
   <!-- <p>Made by <a href="https://thomaspark.co/">Thomas Park</a>.</p> -->
   <!-- <p>Code released under the <a href="https://github.com/sujithq/quintelier.dev/blob/master/LICENSE">MIT License</a>.</p> -->
   <p>Based on <a href="https://getbootstrap.com/" rel="nofollow">Bootstrap</a>. Icons from <a href="https://icons.getbootstrap.com/" rel="nofollow">Bootstrap Icons</a> and <a href="https://fontawesome.com/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="https://fonts.google.com/" rel="nofollow">Google</a>.</p>

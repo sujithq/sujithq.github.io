@@ -33,6 +33,8 @@ I do **not** sell personal data.
 
 ## Cookies & tracking
 
+For a full breakdown of the cookies used on this site, see the [Cookies page](/cookies/).
+
 This site runs **Microsoft Clarity** only after you **give consent** via the cookie banner. Without consent, Clarity is not loaded.
 
 ### Microsoft Clarity
@@ -85,7 +87,7 @@ You have the right to:
 - Withdraw consent at any time (does not affect past lawful processing)
 - Lodge a complaint with a supervisory authority (in Belgium: **Gegevensbeschermingsautoriteit / Autorité de protection des données**)
 
-To exercise rights, contact me at the email above.
+To exercise rights, contact me at the email above or via the [Contact page](/contact/).
 
 ## Security
 

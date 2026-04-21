@@ -7,6 +7,12 @@ buildFuture = false
 [menu]
 
   [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about"
+    weight = 0
+
+  [[menu.main]]
     identifier = "resume"
     name = "Resume"
     url = "/resume"
@@ -69,6 +75,23 @@ buildFuture = false
     name = "Updates"
     url = "/updates"
     weight = 5
+
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact"
+    weight = 6
+
+  [[menu.footer]]
+    identifier = "privacy"
+    name = "Privacy Policy"
+    url = "/privacy"
+    weight = 1
+  [[menu.footer]]
+    identifier = "cookies"
+    name = "Cookies"
+    url = "/cookies"
+    weight = 2
 
 # [params]
 #   prismjsTheme = "okaidia"
