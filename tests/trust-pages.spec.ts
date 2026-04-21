@@ -11,19 +11,19 @@ test.describe('Trust and Legal Pages', () => {
 
     // Verify key content exists
     await expect(page.locator('h1, h2').filter({ hasText: /about/i }).first()).toBeVisible();
-    await expect(page.getByText(/Sujith Quintelier/i)).toBeVisible();
-    await expect(page.getByText(/quintelier\.dev/i)).toBeVisible();
+    await expect(page.locator('#main').getByText(/Sujith Quintelier/i).first()).toBeVisible();
+    await expect(page.getByText(/quintelier\.dev/i).first()).toBeVisible();
 
     // Verify external links exist
     const linkedInLink = page.getByRole('link', { name: /linkedin/i });
     const githubLink = page.getByRole('link', { name: /github/i });
 
-    await expect(linkedInLink).toBeVisible();
-    await expect(githubLink).toBeVisible();
+    await expect(linkedInLink.first()).toBeVisible();
+    await expect(githubLink.first()).toBeVisible();
 
     // Verify links to other trust pages
-    await expect(page.getByRole('link', { name: /contact/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /privacy/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /contact/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /privacy/i }).first()).toBeVisible();
   });
 
   test('Contact page should be accessible and contain contact information', async ({ page }) => {
@@ -34,19 +34,19 @@ test.describe('Trust and Legal Pages', () => {
 
     // Verify key content exists
     await expect(page.locator('h1, h2').filter({ hasText: /contact/i }).first()).toBeVisible();
-    await expect(page.getByText(/sujith\.quintelier@gmail\.com/i)).toBeVisible();
+    await expect(page.getByText(/sujith\.quintelier@gmail\.com/i).first()).toBeVisible();
 
     // Verify email link exists
     const emailLink = page.getByRole('link', { name: /sujith\.quintelier@gmail\.com/i });
-    await expect(emailLink).toBeVisible();
-    await expect(emailLink).toHaveAttribute('href', /mailto:/);
+    await expect(emailLink.first()).toBeVisible();
+    await expect(emailLink.first()).toHaveAttribute('href', /mailto:/);
 
     // Verify security notice exists
-    await expect(page.getByText(/security/i)).toBeVisible();
+    await expect(page.getByText(/security/i).first()).toBeVisible();
 
     // Verify links to other trust pages
-    await expect(page.getByRole('link', { name: /about/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /privacy/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /about/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /privacy/i }).first()).toBeVisible();
   });
 
   test('Cookies page should be accessible and contain cookie policy', async ({ page }) => {
@@ -58,9 +58,9 @@ test.describe('Trust and Legal Pages', () => {
     // Verify key content exists
     await expect(page.locator('h1, h2').filter({ hasText: /cookies/i }).first()).toBeVisible();
 
-    // Verify mentions of key cookie categories
-    await expect(page.getByText(/Microsoft Clarity/i)).toBeVisible();
-    await expect(page.getByText(/consent/i)).toBeVisible();
+    // Verify mentions of key cookie categories in main content
+    await expect(page.locator('#main').getByText(/Microsoft Clarity/i).first()).toBeVisible();
+    await expect(page.locator('#main').getByText(/consent/i).first()).toBeVisible();
 
     // Verify links to Privacy Policy
     const privacyLinks = page.getByRole('link', { name: /privacy/i });
@@ -75,12 +75,12 @@ test.describe('Trust and Legal Pages', () => {
 
     // Verify key content exists
     await expect(page.locator('h1, h2').filter({ hasText: /privacy/i }).first()).toBeVisible();
-    await expect(page.getByText(/Sujith Quintelier/i)).toBeVisible();
+    await expect(page.locator('#main').getByText(/Sujith Quintelier/i).first()).toBeVisible();
 
     // Verify cross-links to new trust pages
-    await expect(page.getByRole('link', { name: /contact/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /cookies/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /about/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /contact/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /cookies/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /about/i }).first()).toBeVisible();
   });
 
   test('Trust pages should be in navigation menu', async ({ page }) => {
