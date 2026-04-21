@@ -60,6 +60,11 @@
 <!-- Theme color -->
 <meta name="theme-color" content="{{ .Site.Params.themeColor }}">
 
+<!-- Security meta fallbacks; Cloudflare response headers remain the source of truth -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://analytics.ahrefs.com https://d3js.org https://www.clarity.ms 'unsafe-eval' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https:;">
+
 <!-- Canonical -->
 <link rel="canonical" href="{{ .Permalink }}">
 

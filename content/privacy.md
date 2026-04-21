@@ -1,96 +1,72 @@
----
-title: "Privacy Policy"
-slug: "privacy"
-url: "/privacy/"
-date: 2025-08-28
-lastmod: 2025-08-29
-draft: false
-toc: true
-description: "How we collect, use, and protect your personal data on this site. Details data collected, purposes, retention, GDPR rights, consent (Microsoft Clarity), international transfers, and security."
-type: "legal"
-layout: "legal"
----
++++
+title = 'Privacy Policy'
+slug = 'privacy'
+url = '/privacy/'
+date = '2026-04-21 00:00:00Z'
+lastmod = '2026-04-21 00:00:00Z'
+draft = false
+toc = true
+description = 'How personal data is collected, used, and protected on quintelier.dev, plus your choices and rights.'
+type = 'legal'
+layout = 'legal'
+[params]
+  author = "sujith"
++++
 
-> **This page is provided as a helpful starting point and is _not_ legal advice.** \
-> Please adapt it to your situation and consult a professional if needed.
+> This page is a practical summary, not legal advice. Please adapt for your own needs if you reuse it.
+
+This policy applies to the root domain quintelier.dev, which serves static content for the blog, updates, and resume. Application subdomains (for example, `app.quintelier.dev`) are run separately and are outside the scope of this site and repository.
+
+For details on cookies and local storage, see the {{< relref "/cookies/" >}} page.
 
 ## Who I am
 
-This website is a personal blog operated by **Sujith Quintelier**. It is not affiliated with or endorsed by any employer or client.  
-**Contact:** `sujith.quintelier@gmail.com`
-
-**Website:** {{< relref "/" >}}  
-**Jurisdiction:** European Union (Belgium).
+This site is operated by **Sujith Quintelier** (Belgium). The fastest way to reach me is via the {{< relref "/contact/" >}} page or directly at `sujith.quintelier@gmail.com`.
 
 ## What personal data I collect and why
 
-This site collects the minimum necessary data. Depending on your interaction with the site, the following may be processed:
+- **Consent-based analytics (Microsoft Clarity):** Loaded only after you accept cookies. Interaction data (for example, session replays, clicks, scroll depth, device/viewport) is used to improve usability. Legal basis: consent.
+- **Contact information (if you write to me):** Name and email in your message so I can respond. Legal basis: legitimate interest/contract.
+- **Minimal operational data:** Standard web server logs used for troubleshooting and abuse prevention.
 
-- **Consent-based analytics data (Microsoft Clarity)**: If you **accept cookies**, Clarity may record interaction data (e.g., session replays, clicks, scrolls, device/viewport). I use this to improve content and usability (consent, Art. 6(1)(a) GDPR).
-- **Contact information (if you write to me)**: Name and email address contained in your message, used to respond (legitimate interest/contract, Art. 6(1)(b)(f) GDPR).
+I do not sell personal data or run advertising on this domain.
 
-I do **not** sell personal data.
+## Cookies and tracking
 
-## Cookies & tracking
-
-This site runs **Microsoft Clarity** only after you **give consent** via the cookie banner. Without consent, Clarity is not loaded.
-
-### Microsoft Clarity
-
-- **Provider:** Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA
-- **Purpose:** Analytics & user experience improvement (session replays, heatmaps)
-- **Data:** Page URLs, referrers, events (click/scroll), device/viewport, and consent status
-- **Retention:** Defined by Clarity; I keep aggregated insights as long as useful for UX improvements
-- **Legal basis:** Your consent (Art. 6(1)(a) GDPR)
-- **Opt-out/withdraw:** Use the cookie banner’s **Decline** option or reset your choice via the link below
-
-### Manage your consent
-
-Use this link to reset your cookie choice and re-open the banner:
-
-{{< consent-reset >}}
-
-If you have previously accepted, clicking the reset link will let you **decline** going forward.
+- Analytics is opt-in. If you decline cookies, Clarity is not loaded.
+- The theme toggle stores your preference locally so the site remembers light/dark mode.
+- Reset your choice anytime using the link on the {{< relref "/cookies/" >}} page.
 
 ## Legal bases I rely on
 
-- **Consent** — for any non-essential cookies/analytics (e.g., Microsoft Clarity)
-- **Legitimate interests** — site security, debugging, and essential operations
-- **Contract** — when you request something we need to deliver (e.g., replies to messages)
-- **Legal obligations** — where retention is required by law
+- **Consent** — for any non-essential analytics.
+- **Legitimate interests** — site security, debugging, and responding to your messages.
+- **Contract** — when you request something I need to deliver (for example, a reply).
+- **Legal obligations** — where retention is required by law.
 
 ## How I share data
 
-- **Service providers (processors):** Hosting/CDN, analytics (Microsoft Clarity). These providers process data on my behalf in line with their terms and applicable law.
-- **Legal compliance:** I may disclose data if required by law or to protect rights and safety.
+- **Service providers:** Hosting/CDN and analytics (Microsoft Clarity) process data on my behalf under their terms and safeguards.
+- **Legal compliance:** Data may be shared if required by law or to protect rights and safety.
 
-**International transfers:** Microsoft may process data in the United States and other regions. I rely on appropriate safeguards (e.g., Standard Contractual Clauses) provided by the vendor. See the provider’s privacy documentation for details.
+International transfers may occur when using Clarity. The provider relies on appropriate safeguards such as Standard Contractual Clauses; see their documentation for details.
 
 ## Data retention
 
-- **Analytics (Clarity):** retained per provider defaults; I keep aggregate insights as long as necessary for UX improvements.
-- **Contact emails:** kept as long as needed to respond and for reasonable record-keeping.
-
-I periodically review and minimise retention.
+- **Analytics:** Retained per provider defaults; aggregate insights are kept only as long as useful for UX improvements.
+- **Contact emails:** Kept as long as needed to respond and for reasonable record-keeping.
+- **Logs:** Rotated routinely for troubleshooting.
 
 ## Your rights (GDPR)
 
-You have the right to:
+You can request to access, correct, erase, or restrict processing of your data, object to processing, or request portability. You may withdraw consent at any time (past processing remains lawful). You can also lodge a complaint with the Belgian Data Protection Authority (**Gegevensbeschermingsautoriteit / Autorité de protection des données**).
 
-- Access and obtain a copy of your personal data
-- Rectify inaccurate or incomplete data
-- Erase data ("right to be forgotten"), where applicable
-- Restrict or object to processing, including profiling
-- Data portability
-- Withdraw consent at any time (does not affect past lawful processing)
-- Lodge a complaint with a supervisory authority (in Belgium: **Gegevensbeschermingsautoriteit / Autorité de protection des données**)
-
-To exercise rights, contact me at the email above.
+Contact me via {{< relref "/contact/" >}} to exercise these rights.
 
 ## Security
 
-I use reasonable administrative, technical, and organisational measures to protect your data. No method of transmission or storage is 100% secure; residual risk remains.
+The site is static and delivered over HTTPS with security headers managed at the edge. Reasonable technical and organisational measures are in place, but no transmission or storage is fully risk-free.
 
 ## Changes to this policy
 
-I may update this policy to reflect changes to the site, services, or law. Material changes will be highlighted.
+Material updates will be noted on this page. Check the {{< relref "/contact/" >}} page if you need to confirm authenticity of any notice.
