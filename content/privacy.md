@@ -3,7 +3,7 @@ title: "Privacy Policy"
 slug: "privacy"
 url: "/privacy/"
 date: 2025-08-28
-lastmod: 2025-08-29
+lastmod: 2026-04-21
 draft: false
 toc: true
 description: "How we collect, use, and protect your personal data on this site. Details data collected, purposes, retention, GDPR rights, consent (Microsoft Clarity), international transfers, and security."
@@ -16,11 +16,14 @@ layout: "legal"
 
 ## Who I am
 
-This website is a personal blog operated by **Sujith Quintelier**. It is not affiliated with or endorsed by any employer or client.  
-**Contact:** `sujith.quintelier@gmail.com`
+This website is a personal blog operated by **Sujith Quintelier**. It is not affiliated with or endorsed by any employer or client.
 
-**Website:** {{< relref "/" >}}  
-**Jurisdiction:** European Union (Belgium).
+**Contact:** For enquiries, visit our [Contact](/contact/) page or email `sujith.quintelier@gmail.com`
+
+**Website:** {{< relref "/" >}}
+**Jurisdiction:** European Union (Belgium)
+
+For more information about this site and its purpose, visit the [About](/about/) page.
 
 ## What personal data I collect and why
 
@@ -34,6 +37,8 @@ I do **not** sell personal data.
 ## Cookies & tracking
 
 This site runs **Microsoft Clarity** only after you **give consent** via the cookie banner. Without consent, Clarity is not loaded.
+
+For detailed information about cookies, see our [Cookies Policy](/cookies/).
 
 ### Microsoft Clarity
 
@@ -94,3 +99,11 @@ I use reasonable administrative, technical, and organisational measures to prote
 ## Changes to this policy
 
 I may update this policy to reflect changes to the site, services, or law. Material changes will be highlighted.
+
+**Last updated**: 21 April 2026
+
+## Related Policies
+
+- [Cookies Policy](/cookies/) - Detailed information about cookie usage
+- [Contact](/contact/) - Get in touch with privacy questions
+- [About](/about/) - Learn more about this site
