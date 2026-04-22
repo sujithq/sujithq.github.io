@@ -136,7 +136,7 @@ test.describe('Trust and Legal Pages', () => {
 
         const description = await page.locator('meta[name="description"]').getAttribute('content')
         expect(description).toBeTruthy()
-        expect(description!.length).toBeGreaterThan(50)
+        expect(description?.length ?? 0).toBeGreaterThan(50)
 
         const canonical = page.locator('link[rel="canonical"]')
         await expect(canonical).toHaveAttribute('href', new RegExp(url))
