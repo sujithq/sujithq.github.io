@@ -29,6 +29,7 @@ For more information about this site and its purpose, visit the [About](/about/)
 
 This site collects the minimum necessary data. Depending on your interaction with the site, the following may be processed:
 
+- **Default analytics (Ahrefs Analytics)**: Loaded by default as lightweight, privacy-focused analytics under legitimate interests (Art. 6(1)(f) GDPR). Collects aggregate page views and referrers; no session recording or personal profiling.
 - **Consent-based analytics data (Microsoft Clarity)**: If you **accept cookies**, Clarity may record interaction data (e.g., session replays, clicks, scrolls, device/viewport). I use this to improve content and usability (consent, Art. 6(1)(a) GDPR).
 - **Contact information (if you write to me)**: Name and email address contained in your message, used to respond (legitimate interest/contract, Art. 6(1)(b)(f) GDPR).
 
@@ -36,9 +37,17 @@ I do **not** sell personal data.
 
 ## Cookies & tracking
 
-This site runs **Microsoft Clarity** only after you **give consent** via the cookie banner. Without consent, Clarity is not loaded.
+This site loads **Ahrefs Analytics** by default as a lightweight analytics tool under legitimate interests. It runs **Microsoft Clarity** only after you **give consent** via the cookie banner. Without consent, Clarity is not loaded.
 
-For detailed information about cookies, see our [Cookies Policy](/cookies/).
+For detailed information about cookies and analytics used, see our [Cookies Policy](/cookies/).
+
+### Ahrefs Analytics
+
+- **Provider:** Ahrefs Pte. Ltd.
+- **Purpose:** Lightweight traffic analytics (page views, referrers)
+- **Data:** Aggregate traffic metrics; no session recording or personal profiling
+- **Legal basis:** Legitimate interests (Art. 6(1)(f) GDPR)
+- **Opt-out:** See [Ahrefs Analytics Privacy Policy](https://ahrefs.com/privacy) for opt-out options
 
 ### Microsoft Clarity
 
@@ -66,7 +75,7 @@ If you have previously accepted, clicking the reset link will let you **decline*
 
 ## How I share data
 
-- **Service providers (processors):** Hosting/CDN, analytics (Microsoft Clarity). These providers process data on my behalf in line with their terms and applicable law.
+- **Service providers (processors):** Hosting/CDN, analytics (Ahrefs Analytics, Microsoft Clarity). These providers process data on my behalf in line with their terms and applicable law.
 - **Legal compliance:** I may disclose data if required by law or to protect rights and safety.
 
 **International transfers:** Microsoft may process data in the United States and other regions. I rely on appropriate safeguards (e.g., Standard Contractual Clauses) provided by the vendor. See the provider’s privacy documentation for details.

@@ -21,7 +21,11 @@ Cookies are small text files that are placed on your device when you visit a web
 
 ## How We Use Cookies
 
-This site uses cookies only with your **explicit consent**. We do not load any tracking or analytics cookies until you accept them through our cookie consent banner.
+This site uses cookies and loads analytics scripts based on the following criteria:
+
+- **Essential cookies** are loaded without consent as they are necessary for site functionality.
+- **Ahrefs Analytics** is loaded by default (non-consent-based) as a lightweight, privacy-focused analytics tool.
+- **Microsoft Clarity** is loaded only after you provide **explicit consent** via the cookie consent banner.
 
 ### Essential Cookies
 
@@ -31,6 +35,20 @@ These cookies are necessary for the site to function and cannot be disabled:
 - **Consent status** - Remembers whether you have accepted or declined cookies
 
 These essential cookies do not track you and do not require consent under GDPR.
+
+### Analytics Scripts (Default)
+
+#### Ahrefs Analytics
+
+- **Provider**: Ahrefs Pte. Ltd.
+- **Purpose**: Lightweight site analytics to understand overall traffic and page performance
+- **Data collected**:
+  - Page views and referrers
+  - Aggregate traffic metrics (no session recording or personal profiling)
+- **Legal basis**: Legitimate interests (GDPR Art. 6(1)(f)) - non-consent-based, privacy-focused analytics
+- **Data retention**: As per Ahrefs Analytics retention policy
+
+For more details, see [Ahrefs Analytics Privacy Policy](https://ahrefs.com/privacy).
 
 ### Analytics Cookies (Consent Required)
 
@@ -57,9 +75,10 @@ For more details about Microsoft Clarity's data practices, see [Microsoft's Priv
 We categorise cookies as follows:
 
 1. **Strictly Necessary**: Required for site functionality (theme, consent)
-2. **Analytics**: Used with your consent to improve the site (Microsoft Clarity)
-3. **Marketing**: Not currently used on this site
-4. **Functional**: Not currently used on this site beyond essential preferences
+2. **Analytics (default)**: Ahrefs Analytics - lightweight traffic analytics loaded by default under legitimate interests
+3. **Analytics (consent-based)**: Microsoft Clarity - loaded only with your consent to improve the site
+4. **Marketing**: Not currently used on this site
+5. **Functional**: Not currently used on this site beyond essential preferences
 
 ## Your Consent Choices
 
@@ -100,9 +119,10 @@ Microsoft Clarity may process data in the United States and other regions. We re
 
 ## Third-Party Cookies
 
-This site only uses cookies from:
+This site only uses cookies/scripts from:
 
 - **quintelier.dev** (first-party essential cookies)
+- **Ahrefs Analytics** (third-party analytics, loaded by default under legitimate interests)
 - **Microsoft Clarity** (third-party analytics, consent required)
 
 We do not use cookies from advertising networks, social media platforms, or other third-party trackers.
