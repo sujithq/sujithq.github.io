@@ -8,7 +8,7 @@ on:
   pull_request:
     branches: [main]
   workflow_run:
-    workflows: ["Updates (Daily Refresh)", "Publish due posts"]
+    workflows: ["Publish due posts"]
     types: [completed]
   workflow_dispatch:
 
