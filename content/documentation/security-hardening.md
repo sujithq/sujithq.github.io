@@ -1,16 +1,16 @@
----
-title: "Security Hardening Configuration"
-slug: "security-hardening"
-date: 2026-04-21
-lastmod: 2026-04-21
-draft: false
-toc: true
-description: "Security hardening configuration for quintelier.dev including Cloudflare edge settings, CSP policies, and HTTPS enforcement."
-type: "documentation"
-robots: "noindex"
----
++++
+title = "Security Hardening Configuration"
+slug = "security-hardening"
+date = '2026-04-21T00:00:00Z'
+lastmod = '2026-04-21T00:00:00Z'
+draft = false
+toc = true
+description = "Security hardening configuration for quintelier.dev including Cloudflare edge settings, CSP policies, and HTTPS enforcement."
+type = "documentation"
+robots = "noindex"
++++
 
-# Security Hardening for quintelier.dev
+## Security Hardening for quintelier.dev
 
 This document outlines the security hardening measures implemented for the root domain **quintelier.dev** to improve trust signals, browser reputation, and security posture.
 
@@ -70,14 +70,14 @@ Trust pages provide transparency and identity verification, critical for browser
 The following HTTP response headers must be configured via **Cloudflare Response Header Rules** for the root domain:
 
 ```
-Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Strict-Transport-Security: max-age=31536000
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
 Referrer-Policy: strict-origin-when-cross-origin
 Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-eval' 'wasm-unsafe-eval' https://d3js.org https://analytics.ahrefs.com https://www.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: wss:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';
 ```
 
-**Note**: GitHub Pages cannot natively set all required HTTP security headers. Cloudflare edge rules are the authoritative source for these headers in production.
+**Note**: `includeSubDomains` and `preload` for HSTS should only be added once all subdomains are confirmed to be fully HTTPS-ready. GitHub Pages cannot natively set all required HTTP security headers. Cloudflare edge rules are the authoritative source for these headers in production.
 
 ### CSP Policy Rationale
 
@@ -144,8 +144,8 @@ Configure the following in **Cloudflare Dashboard > SSL/TLS**:
 
 3. **HSTS (HTTP Strict Transport Security)**: Enabled
    - `max-age=31536000` (1 year)
-   - `includeSubDomains` flag enabled
-   - `preload` flag enabled (for HSTS preload list submission)
+   - `includeSubDomains` flag: enable only after confirming every current and future subdomain is fully HTTPS-ready, as this directive applies to all subdomains
+   - `preload` flag: enable only after `includeSubDomains` prerequisite is met and you intend to submit to the HSTS preload list
 
 4. **Minimum TLS Version**: TLS 1.2 or higher
    - Disables legacy TLS 1.0/1.1
@@ -290,8 +290,8 @@ Navigate to **SSL/TLS** in Cloudflare Dashboard:
 3. **HSTS**:
    - Enable HSTS
    - Max-Age: `31536000` (12 months)
-   - Include subdomains: **Checked**
-   - Preload: **Checked**
+   - Include subdomains: enable only after confirming all subdomains are fully HTTPS-ready
+   - Preload: enable only after `includeSubDomains` prerequisite is confirmed
    - No-Sniff Header: **Checked**
 
 ### Step 3: Response Header Rules
@@ -307,7 +307,7 @@ Create a new rule for root domain:
 
 **Header Modifications**:
 
-1. **Set Static** `Strict-Transport-Security` = `max-age=31536000; includeSubDomains; preload`
+1. **Set Static** `Strict-Transport-Security` = `max-age=31536000` (add `includeSubDomains; preload` only after all subdomains are HTTPS-ready)
 2. **Set Static** `X-Content-Type-Options` = `nosniff`
 3. **Set Static** `X-Frame-Options` = `SAMEORIGIN`
 4. **Set Static** `Referrer-Policy` = `strict-origin-when-cross-origin`
