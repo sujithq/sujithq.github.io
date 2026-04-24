@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{- $radarData := resources.Get "tech-radar/data/radar.json" -}}
 
 <!-- Load radar CSS -->
 {{- with resources.Get "tech-radar/css/radar.css" }}
@@ -15,7 +16,9 @@
   <div class="row mt-5">
     <div class="col-lg m-0">
       <h1 class="mb-4">{{ .Title }}</h1>
-      <svg id="radar"></svg>
+      <svg id="radar"
+        {{- with $radarData }} data-radar-url="{{ .RelPermalink }}"{{- end }}
+        data-radar-date="{{ now.Format `2006.01.02` }}"></svg>
     </div>
   </div>
   <div class="row mt-5">
@@ -68,15 +71,12 @@
   {{- end }}
 {{- end }}
 
-<!-- Load and process radar data -->
-{{- with resources.Get "tech-radar/data/radar.json" }}
+{{- with resources.Get "js/radar-init.js" }}
   {{- if eq hugo.Environment "development" }}
-    {{- with . }}
-      {{ partial "radar/script.html" . }}
-    {{- end }}
+    <script src="{{ .RelPermalink }}"></script>
   {{- else }}
-    {{- with . | fingerprint }}
-      {{ partial "radar/script.html" . }}
+    {{- with . | js.Build (dict "minify" true) | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
     {{- end }}
   {{- end }}
 {{- end }}

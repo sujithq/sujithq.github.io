@@ -83,10 +83,13 @@
 
 {{ partial "stylesheets" . }}
 
-<script>
-  (function() {
-      let savedTheme = localStorage.getItem("theme") || document.documentElement.getAttribute("data-bs-theme") || "light";
-      document.documentElement.setAttribute("data-bs-theme", savedTheme);
-  })();
-</script>
+{{- with resources.Get "js/theme-init.js" }}
+  {{- if eq hugo.Environment "development" }}
+    <script src="{{ .RelPermalink }}"></script>
+  {{- else }}
+    {{- with . | js.Build (dict "minify" true) | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
 {{ partial "clarity-consent.html" . }}
