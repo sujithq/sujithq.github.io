@@ -84,7 +84,7 @@ test.describe('CIDR Calculator Tool', () => {
 
       // Verify error message appears
       await expect(page.locator('#alertBox')).toBeVisible()
-      await expect(page.getByText('Please enter a valid IPv4 address and CIDR prefix (0–32).')).toBeVisible()
+      await expect(page.locator('#alertBox')).toContainText(/Please enter a valid IPv4 address and CIDR prefix \(0[–-]32\)\./)
     })
   })
 })
