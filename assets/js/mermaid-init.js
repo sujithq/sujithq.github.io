@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function loadMermaid(callback) {
     if (window.mermaid) return callback();
     const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+    script.src = '/js/mermaid.min.js';
     script.onload = callback;
     script.onerror = () => console.error('Failed to load Mermaid library');
     document.head.appendChild(script);
