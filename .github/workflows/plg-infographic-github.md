@@ -32,6 +32,7 @@ safe-outputs:
     skip-archive: true
     allowed-paths:
       - docs/infographic.html
+      - infographic.html
   create-pull-request:
     draft: true
 
