@@ -45,9 +45,12 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    exclude-paths:
+      - ".github/workflows/*.lock.yml"
     groups:
       actions-all:
         patterns: ["*"]            # one PR for all action bumps
       actions-security:
         applies-to: security-updates
         patterns: ["*"]
+
