@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sujith Quintelier – Professional Profile</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      line-height: 1.6;
+    }
+
+    /* ── Layout ── */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1f6feb 0%, #0d47a1 60%, #6e40c9 100%);
+      border-radius: 1rem;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .hero-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 2.5rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.25rem;
+    }
+    .hero .tagline {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 1rem;
+    }
+    .hero .bio {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.25rem;
+    }
+    .badge {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ── Section titles ── */
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #58a6ff;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #21262d;
+    }
+
+    /* ── Two-column grid ── */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 600px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+    }
+    .card-full {
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Stat tiles ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 500px) {
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
+    .stat-tile {
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 0.75rem;
+      padding: 1.1rem 0.75rem;
+      text-align: center;
+    }
+    .stat-tile .number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1f6feb;
+      line-height: 1;
+    }
+    .stat-tile .label {
+      font-size: 0.75rem;
+      color: #8b949e;
+      margin-top: 0.3rem;
+    }
+
+    /* ── Cert group ── */
+    .cert-group { margin-bottom: 1rem; }
+    .cert-group-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #58a6ff;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .cert-list { list-style: none; }
+    .cert-list li {
+      font-size: 0.82rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #21262d;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      color: #c9d1d9;
+    }
+    .cert-list li:last-child { border-bottom: none; }
+    .cert-list li::before { content: "✅"; font-size: 0.7rem; flex-shrink: 0; padding-top: 0.2rem; }
+
+    /* ── Interests ── */
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .interest-chip {
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 0.4rem;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.78rem;
+      color: #c9d1d9;
+    }
+
+    /* ── What I do ── */
+    .do-list { list-style: none; }
+    .do-list li {
+      font-size: 0.85rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #21262d;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      color: #c9d1d9;
+    }
+    .do-list li:last-child { border-bottom: none; }
+    .do-icon { font-size: 1rem; flex-shrink: 0; }
+    .do-title { font-weight: 600; color: #e6edf3; }
+
+    /* ── Education ── */
+    .edu-item {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #21262d;
+    }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-item .degree { font-size: 0.88rem; font-weight: 600; color: #e6edf3; }
+    .edu-item .inst { font-size: 0.8rem; color: #8b949e; }
+    .edu-item .year {
+      font-size: 0.75rem;
+      background: #21262d;
+      border-radius: 999px;
+      padding: 0.1rem 0.5rem;
+      color: #58a6ff;
+      float: right;
+    }
+
+    /* ── Training ── */
+    .training-list { list-style: none; }
+    .training-list li {
+      font-size: 0.82rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #21262d;
+      color: #c9d1d9;
+      display: flex;
+      gap: 0.4rem;
+    }
+    .training-list li:last-child { border-bottom: none; }
+    .training-list li::before { content: "🎓"; font-size: 0.7rem; flex-shrink: 0; padding-top: 0.2rem; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #484f58;
+      margin-top: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- ── Hero ──────────────────────────────────────────── -->
+    <header class="hero" role="banner">
+      <div class="hero-avatar" aria-hidden="true">☕</div>
+      <h1>Sujith Quintelier</h1>
+      <p class="tagline">Azure Consultant · DevOps Architect · GitHub Trainer</p>
+      <p class="bio">
+        Over 25 years of IT expertise, specialising in cloud solutions, security,
+        automation, AI, and infrastructure as code.
+      </p>
+      <div class="badge-row" role="list" aria-label="Key roles">
+        <span class="badge" role="listitem">Azure</span>
+        <span class="badge" role="listitem">DevSecOps</span>
+        <span class="badge" role="listitem">GitHub</span>
+        <span class="badge" role="listitem">Terraform</span>
+        <span class="badge" role="listitem">AI &amp; ML</span>
+        <span class="badge" role="listitem">Platform Engineering</span>
+        <span class="badge" role="listitem">Security</span>
+      </div>
+    </header>
+
+    <!-- ── Stats ─────────────────────────────────────────── -->
+    <section aria-labelledby="stats-heading">
+      <h2 id="stats-heading" class="section-title"><span>By the Numbers</span></h2>
+      <div class="stats-row">
+        <div class="stat-tile">
+          <div class="number">25+</div>
+          <div class="label">Years in IT</div>
+        </div>
+        <div class="stat-tile">
+          <div class="number">20+</div>
+          <div class="label">Certifications</div>
+        </div>
+        <div class="stat-tile">
+          <div class="number">7</div>
+          <div class="label">GitHub Certs</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── What I Do + Interests ─────────────────────────── -->
+    <div class="grid-2">
+      <section class="card" aria-labelledby="whatido-heading">
+        <h2 id="whatido-heading" class="section-title"><span>What I Do Best</span></h2>
+        <ul class="do-list">
+          <li>
+            <span class="do-icon">🧠</span>
+            <span><span class="do-title">AI Solution Architecture</span> – Intelligent apps with Azure AI, cognitive services &amp; ML</span>
+          </li>
+          <li>
+            <span class="do-icon">☁️</span>
+            <span><span class="do-title">Cloud Architecture</span> – Robust, scalable Azure environments</span>
+          </li>
+          <li>
+            <span class="do-icon">🚀</span>
+            <span><span class="do-title">DevOps &amp; Automation</span> – CI/CD pipelines, IaC, and cloud automation</span>
+          </li>
+          <li>
+            <span class="do-icon">🏗</span>
+            <span><span class="do-title">Platform Engineering</span> – Internal developer platforms, golden paths</span>
+          </li>
+          <li>
+            <span class="do-icon">🔐</span>
+            <span><span class="do-title">Security &amp; Compliance</span> – Secure delivery pipelines, IAM, cloud security</span>
+          </li>
+          <li>
+            <span class="do-icon">🎓</span>
+            <span><span class="do-title">GitHub Training</span> – Actions, Copilot, Advanced Security, Administration</span>
+          </li>
+          <li>
+            <span class="do-icon">🛠</span>
+            <span><span class="do-title">Software Development</span> – Cloud-native &amp; AI-powered .NET applications</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="interests-heading">
+        <h2 id="interests-heading" class="section-title"><span>Interests</span></h2>
+        <div class="interests" role="list" aria-label="Technical interests">
+          <span class="interest-chip" role="listitem">Azure</span>
+          <span class="interest-chip" role="listitem">Dev(Sec)Ops</span>
+          <span class="interest-chip" role="listitem">GitHub</span>
+          <span class="interest-chip" role="listitem">Kubernetes</span>
+          <span class="interest-chip" role="listitem">Terraform</span>
+          <span class="interest-chip" role="listitem">Bicep</span>
+          <span class="interest-chip" role="listitem">Security</span>
+          <span class="interest-chip" role="listitem">NoSQL</span>
+          <span class="interest-chip" role="listitem">.NET</span>
+          <span class="interest-chip" role="listitem">Architecture</span>
+          <span class="interest-chip" role="listitem">AI &amp; ML</span>
+          <span class="interest-chip" role="listitem">Cognitive Services</span>
+          <span class="interest-chip" role="listitem">Platform Engineering</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- ── Certifications ────────────────────────────────── -->
+    <section class="card-full" aria-labelledby="certs-heading">
+      <h2 id="certs-heading" class="section-title"><span>Certifications</span></h2>
+      <div class="grid-2">
+        <div>
+          <div class="cert-group">
+            <p class="cert-group-title">☁️ Cloud &amp; Infrastructure</p>
+            <ul class="cert-list">
+              <li>Azure Solutions Architect</li>
+              <li>Azure Administrator</li>
+              <li>Azure Developer</li>
+              <li>Azure Network Engineer</li>
+              <li>Azure Cosmos DB Developer</li>
+            </ul>
+          </div>
+          <div class="cert-group">
+            <p class="cert-group-title">🔐 Security &amp; Identity</p>
+            <ul class="cert-list">
+              <li>Azure Security Engineer</li>
+              <li>Azure Identity &amp; Access Administrator</li>
+              <li>Azure Cybersecurity Architect</li>
+            </ul>
+          </div>
+          <div class="cert-group">
+            <p class="cert-group-title">🧠 AI</p>
+            <ul class="cert-list">
+              <li>Azure AI Engineer</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="cert-group">
+            <p class="cert-group-title">🛠 DevOps &amp; GitHub</p>
+            <ul class="cert-list">
+              <li>Azure DevOps Engineer</li>
+              <li>GitHub Foundations</li>
+              <li>GitHub Copilot</li>
+              <li>GitHub Actions</li>
+              <li>GitHub Advanced Security</li>
+              <li>GitHub Administration</li>
+              <li>GitHub Sales Professional</li>
+              <li>GitHub Technical Sales Professional</li>
+              <li>Terraform Associate (HashiCorp)</li>
+            </ul>
+          </div>
+          <div class="cert-group">
+            <p class="cert-group-title">🏗 Platform Engineering</p>
+            <ul class="cert-list">
+              <li>Platform Engineering Practitioner</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GitHub Training ───────────────────────────────── -->
+    <section class="card-full" aria-labelledby="training-heading">
+      <h2 id="training-heading" class="section-title"><span>GitHub Accredited Trainer</span></h2>
+      <p style="font-size:0.85rem;color:#8b949e;margin-bottom:0.75rem;">
+        Authorised to deliver the following official GitHub training courses:
+      </p>
+      <ul class="training-list">
+        <li>GitHub Actions</li>
+        <li>GitHub for Developers</li>
+        <li>GitHub Administration</li>
+        <li>GitHub Advanced Security – Getting Started</li>
+        <li>GitHub Migrations</li>
+        <li>GitHub Enterprise Importer</li>
+        <li>GitHub Copilot for Business Fundamentals</li>
+      </ul>
+    </section>
+
+    <!-- ── Education ─────────────────────────────────────── -->
+    <section class="card-full" aria-labelledby="edu-heading">
+      <h2 id="edu-heading" class="section-title"><span>Education</span></h2>
+      <div class="edu-item">
+        <span class="edu-item year">2000</span>
+        <div class="edu-item degree">Applied Informatics</div>
+        <div class="edu-item inst">Karel de Grote Hogeschool</div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-item year">1997</span>
+        <div class="edu-item degree">All Weapons</div>
+        <div class="edu-item inst">Voorbereidende Divisie Koninklijke Militaire School</div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-item year">1996</span>
+        <div class="edu-item degree">Economics-Mathematics</div>
+        <div class="edu-item inst">Koninklijk Atheneum Lokeren</div>
+      </div>
+    </section>
+
+    <!-- ── About ─────────────────────────────────────────── -->
+    <section class="card-full" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="section-title"><span>About</span></h2>
+      <p style="font-size:0.88rem;color:#c9d1d9;">
+        Hi, I'm Sujith Quintelier — an Azure, DevOps and GitHub consultant/trainer with over 25 years of
+        experience in IT. I specialise in cloud solutions, automation, and infrastructure as code,
+        helping teams streamline their workflows and build scalable, secure systems. Whether it's
+        optimising DevOps practices, architecting cloud-native solutions, or sharing knowledge through
+        training and consulting, I'm passionate about making technology work smarter.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>quintelier.dev · Generated from public profile data · Static page · No tracking</p>
+  </footer>
+</body>
+</html>
