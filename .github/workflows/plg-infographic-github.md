@@ -21,7 +21,14 @@ safe-outputs:
       Flag only genuinely risky web content such as JavaScript, event handlers,
       iframes, forms, remote scripts, external asset loading, credential capture,
       data exfiltration, or hidden tracking behaviour.
-  create-pull-request: {}
+  upload-artifact:
+    max-uploads: 1
+    retention-days: 7
+    skip-archive: true
+    allowed-paths:
+      - docs/infographic.html
+  create-pull-request:
+    draft: true
 
 metadata:
   inputs: "README.md"
@@ -41,5 +48,6 @@ metadata:
   - no external fonts, images, stylesheets, or scripts
   - no forms, iframes, embeds, tracking, or network requests
   - semantic, accessible markup with clear headings and sections
-5. Create a pull request that adds or updates this file
-6. Provide a clear PR description explaining the generated content and confirming the page is static with no active content
+5. Upload docs/infographic.html as a GitHub Actions artifact so the run exposes the generated page directly
+6. Create a draft pull request that adds or updates this file
+7. Provide a clear PR description explaining the generated content, confirming the page is static with no active content, and mentioning that the workflow artifact contains docs/infographic.html
