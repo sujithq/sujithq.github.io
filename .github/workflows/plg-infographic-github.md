@@ -55,5 +55,6 @@ metadata:
   - no forms, iframes, embeds, tracking, or network requests
   - semantic, accessible markup with clear headings and sections
 6. Upload docs/infographic.html as a GitHub Actions artifact so the run exposes the generated page directly
+  - use the exact upload path docs/infographic.html (not infographic.html)
 7. Create a draft pull request that adds or updates this file
 8. Provide a clear PR description explaining the generated content, confirming the page is static with no active content, and mentioning that the workflow artifact contains docs/infographic.html
