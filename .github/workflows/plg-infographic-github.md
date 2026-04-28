@@ -1,111 +1,32 @@
+---
 name: PLG Infographic Generator
-description: Multi-agent workflow to generate PLG infographic
+description: Generate PLG infographic and create PR
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - README.md
 
 permissions: read-all
 
-engine: copilot   # ✅ REQUIRED
+engine: copilot
 
 tools:
   github:
-    toolsets: [default]
+    toolsets: [repos, pull-requests]
+
+safe-outputs:
+  create-pull-request: {}
 
 metadata:
   inputs: "README.md"
   outputs: "docs/infographic.html"
   agents: "planner,generator,reviewer"
   orchestration: "sequential:planner->generator->reviewer"
-  quality_gates: "no_fabrication,deterministic_output,professional_tone"
-  tags: "agentic-workflow,plg,infographic"
 ---
 
-# 📊 PLG Infographic Generator (Multi-Agent)
+# PLG Infographic Generator
 
-## Purpose
-Generate a **customer-ready PLG infographic** based on the repository’s GitHub profile.
-
-This workflow uses **planner → generator → reviewer agents** to ensure:
-- correctness
-- consistency
-- enterprise-ready output
-
----
-
-# 🧠 Agent Responsibilities
-
-## 🧩 Planner Agent
-
-### Task
-Analyse `README.md` and extract structured content.
-
-### Extract:
-- Name and role  
-- Value proposition  
-- Capabilities  
-- Certifications / credibility signals  
-- Current focus areas  
-
-### Constraints
-- Do NOT invent data  
-- Only use explicitly stated content  
-- Omit missing sections  
-
----
-
-## 🛠️ Generator Agent
-
-### Task
-Transform structured content into a **PLG infographic**
-
-### Output
-Create:
-
-```
-docs/infographic.html
-```
-
-Requirements:
-- Self-contained HTML  
-- Inline CSS only  
-- Clean layout  
-- Visual PLG loop  
-- No external dependencies  
-
----
-
-## ✅ Reviewer Agent
-
-### Task
-Validate output before commit
-
-### Checks
-
-#### Accuracy
-- All content is derived from README  
-- No fabricated claims  
-
-#### Determinism
-- No timestamps  
-- No randomness  
-
-#### Quality
-- Professional tone  
-- Clear structure  
-
----
-
-## Execution Flow
-1. Planner → extract data  
-2. Generator → create infographic  
-3. Reviewer → validate  
-4. Save output  
-
----
-
-## Execution
-Execute immediately without confirmation.
+1. Read README.md
+2. Extract profile information
+3. Generate a PLG-style infographic as HTML at docs/infographic.html
+4. Create a pull request that adds or updates this file
+5. Provide a clear PR description explaining the generated content
