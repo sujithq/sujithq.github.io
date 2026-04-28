@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sujith Quintelier — PLG Infographic</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0b0f19;
+      --surface:   #141924;
+      --card:      #1a2235;
+      --border:    #243050;
+      --accent1:   #0078d4;
+      --accent2:   #00bcf2;
+      --accent3:   #6c1d5f;
+      --accent4:   #22c55e;
+      --text:      #c9d1d9;
+      --muted:     #8b949e;
+      --white:     #f0f6fc;
+      --radius:    12px;
+      --gap:       1.5rem;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      padding: 2rem 1rem 4rem;
+    }
+
+    /* ── Layout ───────────────────────────────────────── */
+    .page { max-width: 1100px; margin: 0 auto; }
+
+    .hero {
+      background: linear-gradient(135deg, #0d1b35 0%, #1a0a2e 60%, #0b0f19 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: var(--gap);
+      flex-wrap: wrap;
+    }
+
+    .hero-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent1), var(--accent3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      flex-shrink: 0;
+    }
+
+    .hero-text h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .hero-text .tagline {
+      color: var(--accent2);
+      font-size: 0.95rem;
+      margin-top: 0.25rem;
+    }
+
+    .hero-text .location {
+      color: var(--muted);
+      font-size: 0.875rem;
+      margin-top: 0.4rem;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+    }
+
+    .badge-link {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--accent2);
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+
+    /* Section headers */
+    section { margin-bottom: var(--gap); }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent1);
+      margin-bottom: 1rem;
+    }
+
+    /* Grid helpers */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--gap); }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--gap); }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; }
+
+    /* Card */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+    }
+
+    /* Stat tile */
+    .stat-tile {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+
+    .stat-tile .stat-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent2);
+      line-height: 1;
+    }
+
+    .stat-tile .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Repo table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th {
+      text-align: left;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.4rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.875rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .lang-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    /* Language bar */
+    .lang-bar-wrap { margin-top: 0.5rem; }
+
+    .lang-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      gap: 0.75rem;
+    }
+
+    .lang-name {
+      width: 100px;
+      font-size: 0.82rem;
+      flex-shrink: 0;
+    }
+
+    .lang-bar-bg {
+      flex: 1;
+      height: 8px;
+      background: var(--surface);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .lang-bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+    }
+
+    .lang-count {
+      width: 30px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    /* Cert tags */
+    .cert-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+
+    .cert-tag {
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: rgba(0,120,212,0.15);
+      border: 1px solid rgba(0,120,212,0.35);
+      color: var(--accent2);
+    }
+
+    .cert-tag.github {
+      background: rgba(108,29,95,0.2);
+      border-color: rgba(108,29,95,0.5);
+      color: #d2a8ff;
+    }
+
+    .cert-tag.legacy {
+      background: rgba(100,100,100,0.1);
+      border-color: rgba(100,100,100,0.25);
+      color: var(--muted);
+    }
+
+    /* XP progress-style */
+    .xp-bar-bg {
+      width: 100%;
+      height: 12px;
+      background: var(--surface);
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-top: 0.4rem;
+    }
+
+    .xp-bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    }
+
+    /* Highlights list */
+    .highlight-list { list-style: none; padding: 0; }
+
+    .highlight-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.875rem;
+    }
+
+    .highlight-list li:last-child { border-bottom: none; }
+
+    .highlight-list li::before {
+      content: "▸ ";
+      color: var(--accent1);
+      font-weight: 700;
+    }
+
+    /* Latest posts */
+    .post-item {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.85rem;
+    }
+
+    .post-item:last-child { border-bottom: none; }
+
+    .post-item a {
+      color: var(--accent2);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Emoji icon in section title */
+    .icon { margin-right: 0.4em; }
+  </style>
+</head>
+<body>
+<main class="page" role="main">
+
+  <!-- ── HERO / PROFILE ───────────────────────────────── -->
+  <header class="hero" aria-labelledby="profile-name">
+    <div class="hero-avatar" aria-hidden="true">🚀</div>
+    <div class="hero-text">
+      <h1 id="profile-name">Sujith Quintelier</h1>
+      <p class="tagline">Cloud Solutions Architect (AI Apps) @ Microsoft · Azure Architect · Dev(Sec)Ops Engineer · GitHub Accredited Trainer · Terraform Enthusiast</p>
+      <p class="location">📍 Belgium · <em>Views are my own.</em></p>
+      <nav class="hero-links" aria-label="Social links">
+        <a class="badge-link" href="https://quintelier.dev">🌐 quintelier.dev</a>
+        <a class="badge-link" href="https://www.linkedin.com/in/sujithquintelier/">💼 LinkedIn</a>
+        <a class="badge-link" href="https://twitter.com/SujithQ">🐦 @SujithQ</a>
+        <a class="badge-link" href="https://github.com/sujithq">🐙 GitHub</a>
+        <a class="badge-link" href="https://www.buymeacoffee.com/sujithq">☕ Buy Me a Coffee</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── KEY HIGHLIGHTS ───────────────────────────────── -->
+  <section aria-labelledby="highlights-heading">
+    <h2 class="section-title" id="highlights-heading"><span class="icon">✨</span>Key Highlights</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="font-size:0.9rem;color:var(--accent2);margin-bottom:0.6rem;">Focus Areas</h3>
+        <ul class="highlight-list">
+          <li>Azure, DevOps, GitHub &amp; Platform Engineering</li>
+          <li>AI Apps &amp; Model Context Protocol (MCP)</li>
+          <li>Building GitHub + Azure training content</li>
+          <li>Blog series at <strong>quintelier.dev</strong></li>
+          <li>Personal site: Hugo + GitHub Pages + GitHub Actions</li>
+          <li>AI-powered agentic workflows (Content QA, Security Responder)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="font-size:0.9rem;color:var(--accent2);margin-bottom:0.6rem;">Latest Blog Posts</h3>
+        <div class="post-item"><a href="https://quintelier.dev/posts/2026/04/azure-functions-core-tools-version-mismatch/">⚙️ Azure Functions Core Tools: Version Mismatch</a></div>
+        <div class="post-item"><a href="https://quintelier.dev/posts/2026/04/github-copilot-cli-auto-model-selection/">🤖 Copilot CLI Auto Model Selection is GA</a></div>
+        <div class="post-item"><a href="https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/">🧰 Manage agent skills with GitHub CLI</a></div>
+        <div class="post-item"><a href="https://quintelier.dev/posts/2026/04/azure-blob-storage-smart-tier-ga/">🧠 Azure Blob Storage Smart Tier is GA</a></div>
+        <div class="post-item"><a href="https://quintelier.dev/posts/2026/04/copilot-data-residency-us-eu-fedramp/">🌍 Copilot data residency for US, EU, FedRAMP</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GITHUB STATS ──────────────────────────────────── -->
+  <section aria-labelledby="github-stats-heading">
+    <h2 class="section-title" id="github-stats-heading"><span class="icon">📊</span>GitHub Stats</h2>
+    <div class="grid-4" style="margin-bottom:var(--gap);">
+      <div class="stat-tile"><div class="stat-value">101</div><div class="stat-label">Public Repos</div></div>
+      <div class="stat-tile"><div class="stat-value">30</div><div class="stat-label">Followers</div></div>
+      <div class="stat-tile"><div class="stat-value">58</div><div class="stat-label">Following</div></div>
+      <div class="stat-tile"><div class="stat-value">27</div><div class="stat-label">Total Stars</div></div>
+    </div>
+
+    <div class="grid-2">
+      <!-- Top repos -->
+      <div class="card">
+        <h3 style="font-size:0.9rem;color:var(--accent2);margin-bottom:0.75rem;">Top Repositories by Stars</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Repository</th>
+              <th>Lang</th>
+              <th>⭐</th>
+              <th>🍴</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>ideal-octo-guacamole</td><td>HTML</td><td>2</td><td>0</td></tr>
+            <tr><td>sujithq (profile)</td><td>PowerShell</td><td>2</td><td>0</td></tr>
+            <tr><td>updates</td><td>Python</td><td>1</td><td>0</td></tr>
+            <tr><td>aks-platform-engineering</td><td>TypeScript</td><td>1</td><td>0</td></tr>
+            <tr><td>cluster-api-charts</td><td>Smarty</td><td>1</td><td>0</td></tr>
+            <tr><td>generative-ai-for-beginners</td><td>—</td><td>1</td><td>0</td></tr>
+            <tr><td>training-manual</td><td>Shell</td><td>1</td><td>0</td></tr>
+            <tr><td>myenergy</td><td>HTML</td><td>1</td><td>0</td></tr>
+            <tr><td>gh-oidc</td><td>—</td><td>1</td><td>0</td></tr>
+            <tr><td>upptime</td><td>Markdown</td><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Languages -->
+      <div class="card">
+        <h3 style="font-size:0.9rem;color:var(--accent2);margin-bottom:0.75rem;">Most-Used Languages (by repo count)</h3>
+        <div class="lang-bar-wrap">
+          <div class="lang-row">
+            <span class="lang-name"><span class="lang-dot" style="background:#3178c6;"></span>TypeScript</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:100%;background:#3178c6;"></div></div>
+            <span class="lang-count">7</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name"><span class="lang-dot" style="background:#7b42bc;"></span>HCL</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:100%;background:#7b42bc;"></div></div>
+            <span class="lang-count">7</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name"><span class="lang-dot" style="background:#178600;"></span>C#</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:86%;background:#178600;"></div></div>
+            <span class="lang-count">6</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name"><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:86%;background:#3572A5;"></div></div>
+            <span class="lang-count">6</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name"><span class="lang-dot" style="background:#012456;"></span>PowerShell</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:71%;background:#012456;"></div></div>
+            <span class="lang-count">5</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name"><span class="lang-dot" style="background:#e34c26;"></span>HTML</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:71%;background:#e34c26;"></div></div>
+            <span class="lang-count">5</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name"><span class="lang-dot" style="background:#89e051;"></span>Shell</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:71%;background:#89e051;"></div></div>
+            <span class="lang-count">5</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name"><span class="lang-dot" style="background:#a97bff;"></span>SCSS</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:29%;background:#a97bff;"></div></div>
+            <span class="lang-count">2</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name"><span class="lang-dot" style="background:#384d54;"></span>Dockerfile</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:29%;background:#384d54;"></div></div>
+            <span class="lang-count">2</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name"><span class="lang-dot" style="background:#00ADD8;"></span>Go</span>
+            <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:29%;background:#00ADD8;"></div></div>
+            <span class="lang-count">2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MICROSOFT LEARN ──────────────────────────────── -->
+  <section aria-labelledby="mslearn-heading">
+    <h2 class="section-title" id="mslearn-heading"><span class="icon">🎓</span>Microsoft Learn Achievements</h2>
+    <div class="grid-4" style="margin-bottom:var(--gap);">
+      <div class="stat-tile"><div class="stat-value">1,623</div><div class="stat-label">Modules Completed</div></div>
+      <div class="stat-tile"><div class="stat-value">385</div><div class="stat-label">Learning Paths</div></div>
+      <div class="stat-tile"><div class="stat-value" style="font-size:1.6rem;">1,894,825</div><div class="stat-label">Total XP</div></div>
+      <div class="stat-tile"><div class="stat-value">1,216h</div><div class="stat-label">Training Time</div></div>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:var(--gap);">
+      <div class="stat-tile"><div class="stat-value">30</div><div class="stat-label">Active Certifications</div></div>
+      <div class="stat-tile"><div class="stat-value">34</div><div class="stat-label">Exams Passed</div></div>
+      <div class="stat-tile"><div class="stat-value">18</div><div class="stat-label">Applied Skills</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:var(--gap);">
+      <h3 style="font-size:0.9rem;color:var(--accent2);margin-bottom:0.75rem;">XP Progress</h3>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.35rem;">1,894,825 XP earned across 1,623 modules and 385 learning paths</p>
+      <div class="xp-bar-bg"><div class="xp-bar-fill" style="width:95%;"></div></div>
+    </div>
+
+    <!-- Active certs -->
+    <div class="card">
+      <h3 style="font-size:0.9rem;color:var(--accent2);margin-bottom:0.75rem;">Active Certifications</h3>
+
+      <p style="font-size:0.78rem;color:var(--muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Expert</p>
+      <div class="cert-list">
+        <span class="cert-tag">Azure Solutions Architect Expert</span>
+        <span class="cert-tag">DevOps Engineer Expert</span>
+        <span class="cert-tag">Cybersecurity Architect Expert</span>
+      </div>
+
+      <p style="font-size:0.78rem;color:var(--muted);margin:0.9rem 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Associate</p>
+      <div class="cert-list">
+        <span class="cert-tag">Azure Administrator</span>
+        <span class="cert-tag">Azure Developer</span>
+        <span class="cert-tag">Azure Security Engineer</span>
+        <span class="cert-tag">Azure AI Engineer</span>
+        <span class="cert-tag">Azure Network Engineer</span>
+        <span class="cert-tag">Identity &amp; Access Administrator</span>
+        <span class="cert-tag">Cosmos DB Developer Specialty</span>
+      </div>
+
+      <p style="font-size:0.78rem;color:var(--muted);margin:0.9rem 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Fundamentals</p>
+      <div class="cert-list">
+        <span class="cert-tag">Azure Fundamentals</span>
+        <span class="cert-tag">Azure AI Fundamentals</span>
+      </div>
+
+      <p style="font-size:0.78rem;color:var(--muted);margin:0.9rem 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;">GitHub</p>
+      <div class="cert-list">
+        <span class="cert-tag github">GitHub Actions</span>
+        <span class="cert-tag github">GitHub Copilot</span>
+        <span class="cert-tag github">GitHub Foundations</span>
+        <span class="cert-tag github">GitHub Advanced Security</span>
+        <span class="cert-tag github">GitHub Administration</span>
+      </div>
+
+      <p style="font-size:0.78rem;color:var(--muted);margin:0.9rem 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Legacy / Classic</p>
+      <div class="cert-list">
+        <span class="cert-tag legacy">MCSE: Cloud Platform &amp; Infrastructure</span>
+        <span class="cert-tag legacy">MCSA: Cloud Platform</span>
+        <span class="cert-tag legacy">MCSD: App Builder</span>
+        <span class="cert-tag legacy">MCSA: Web Applications</span>
+        <span class="cert-tag legacy">MS Specialist: Azure Solutions</span>
+        <span class="cert-tag legacy">MCP / MCTS .NET 4.x</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GITHUB CERTIFICATIONS ────────────────────────── -->
+  <section aria-labelledby="gh-certs-heading">
+    <h2 class="section-title" id="gh-certs-heading"><span class="icon">🐙</span>GitHub Certifications &amp; Accreditations</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="font-size:0.9rem;color:var(--accent2);margin-bottom:0.6rem;">Certifications</h3>
+        <div class="cert-list">
+          <span class="cert-tag github">Foundations</span>
+          <span class="cert-tag github">Actions</span>
+          <span class="cert-tag github">Copilot</span>
+          <span class="cert-tag github">Advanced Security</span>
+          <span class="cert-tag github">Administration</span>
+          <span class="cert-tag github">Sales Professional</span>
+          <span class="cert-tag github">FY26 Sales Professional</span>
+          <span class="cert-tag github">FY26 Revenue Motions</span>
+          <span class="cert-tag github">FY26 Advanced Security</span>
+          <span class="cert-tag github">FY26 Copilot</span>
+          <span class="cert-tag github">FY26 Platform</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="font-size:0.9rem;color:var(--accent2);margin-bottom:0.6rem;">Partner Delivery Credentials &amp; Accreditations</h3>
+        <div class="cert-list">
+          <span class="cert-tag github">AzDO → GitHub Migrations PDC</span>
+          <span class="cert-tag github">GitHub Migrations PDC</span>
+          <span class="cert-tag github">Advanced Security PDC</span>
+          <span class="cert-tag github">Copilot Core Skills PDC</span>
+          <span class="cert-tag github">Accredited: Actions</span>
+          <span class="cert-tag github">Accredited: For Developers</span>
+          <span class="cert-tag github">Accredited: Administration</span>
+          <span class="cert-tag github">Accredited: Advanced Security</span>
+          <span class="cert-tag github">Accredited: Migrations</span>
+          <span class="cert-tag github">Accredited: Enterprise Importer</span>
+          <span class="cert-tag github">Accredited: Copilot for Business</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── APPLIED SKILLS ───────────────────────────────── -->
+  <section aria-labelledby="applied-skills-heading">
+    <h2 class="section-title" id="applied-skills-heading"><span class="icon">🛠️</span>Microsoft Applied Skills (18)</h2>
+    <div class="card">
+      <div class="cert-list">
+        <span class="cert-tag">Deploy containers via AKS</span>
+        <span class="cert-tag">Configure secure access with Azure networking</span>
+        <span class="cert-tag">ASP.NET Core web app (API consumer)</span>
+        <span class="cert-tag">Secure Azure Files &amp; Blob Storage</span>
+        <span class="cert-tag">Deploy and configure Azure Monitor</span>
+        <span class="cert-tag">Azure AI Document Intelligence</span>
+        <span class="cert-tag">Azure AI Language (NLP)</span>
+        <span class="cert-tag">Azure AI Vision</span>
+        <span class="cert-tag">Security through a pipeline (Azure DevOps)</span>
+        <span class="cert-tag">Deploy cloud-native apps (Container Apps)</span>
+        <span class="cert-tag">Migrate SQL Server → Azure SQL DB</span>
+        <span class="cert-tag">Accelerate dev with GitHub Copilot</span>
+        <span class="cert-tag">Automate Azure Load Testing via Actions</span>
+        <span class="cert-tag">Streamline workflows with AI chat</span>
+        <span class="cert-tag">Generate reports with AI research agents</span>
+        <span class="cert-tag">Classes, properties &amp; methods in C#</span>
+        <span class="cert-tag">Azure management tasks</span>
+        <span class="cert-tag">Agentic AI Solutions (MCAPS Academy)</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Generated on 2026-04-28 · Data sources: GitHub API · sujithq/sujithq profile README · sujithq/ms-learn transcript.json · sujithq/sujithq.github.io README</p>
+    <p style="margin-top:0.3rem;">Static HTML · no external resources · no JavaScript · no tracking</p>
+  </footer>
+
+</main>
+</body>
+</html>
