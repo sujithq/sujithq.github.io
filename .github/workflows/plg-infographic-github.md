@@ -1,6 +1,6 @@
----
 name: PLG Infographic Generator
-description: Multi-agent workflow to generate and validate a PLG-style infographic from GitHub profile README
+description: Multi-agent workflow to generate PLG infographic
+
 on:
   workflow_dispatch:
   push:
@@ -14,33 +14,12 @@ tools:
     toolsets: [default]
 
 metadata:
-  inputs:
-    - README.md
-  outputs:
-    - docs/infographic.html
-
-  agents:
-    planner:
-      role: Analyse README and extract structured content
-    generator:
-      role: Generate infographic HTML
-    reviewer:
-      role: Validate output
-
-  orchestration:
-    strategy: sequential
-    flow:
-      - planner -> generator -> reviewer
-
-  quality_gates:
-    - no_fabrication
-    - deterministic_output
-    - professional_tone
-
-  tags:
-    - agentic-workflow
-    - plg
-    - infographic
+  inputs: "README.md"
+  outputs: "docs/infographic.html"
+  agents: "planner,generator,reviewer"
+  orchestration: "sequential:planner->generator->reviewer"
+  quality_gates: "no_fabrication,deterministic_output,professional_tone"
+  tags: "agentic-workflow,plg,infographic"
 ---
 
 # 📊 PLG Infographic Generator (Multi-Agent)
