@@ -30,6 +30,9 @@ safe-outputs:
     max-uploads: 1
     retention-days: 7
     skip-archive: true
+    staged: false
+    defaults:
+      if-no-files: ignore
     allowed-paths:
       - docs/infographic.html
       - infographic.html
@@ -58,6 +61,7 @@ metadata:
 ## Generate the infographic
 
 6. Synthesise all collected data into a PLG-style infographic as a single static HTML file at `docs/infographic.html`.
+  Write the file to disk before calling any safe output tools. Do not rely only on a `create_pull_request` patch to materialise the file.
   Include clearly labelled sections for:
   - profile summary (name, bio, location, social links)
   - GitHub stats (followers, total stars, top repos, languages)
@@ -71,7 +75,8 @@ metadata:
 
 ## Upload and PR
 
-8. Upload `docs/infographic.html` as a GitHub Actions artifact so the run exposes the page directly
-  - use the exact upload path `docs/infographic.html` (not `infographic.html`)
+8. Upload the generated HTML as a GitHub Actions artifact so the run exposes the page directly
+  - use a path that already exists at upload time (`docs/infographic.html` or `infographic.html`)
+  - do not call `upload_artifact` with a non-existent path
 9. Create a draft pull request that adds or updates `docs/infographic.html`
 10. Include in the PR description: a summary of the data sources used, confirmation the page is static with no active content, and that the artifact `docs/infographic.html` is attached to this run
