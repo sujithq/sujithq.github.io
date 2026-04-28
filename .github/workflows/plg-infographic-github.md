@@ -34,14 +34,14 @@ safe-outputs:
     defaults:
       if-no-files: ignore
     allowed-paths:
-      - docs/infographic.html
+      - static/infographic/index.html
       - infographic.html
   create-pull-request:
     draft: true
 
 metadata:
   inputs: "README.md, sujithq/sujithq README.md, sujithq/ms-learn transcript.json"
-  outputs: "docs/infographic.html"
+  outputs: "static/infographic/index.html"
 ---
 
 # PLG Infographic Generator
@@ -60,7 +60,7 @@ metadata:
 
 ## Generate the infographic
 
-6. Synthesise all collected data into a PLG-style infographic as a single static HTML file at `docs/infographic.html`.
+6. Synthesise all collected data into a PLG-style infographic as a single static HTML file at `static/infographic/index.html`.
   Write the file to disk before calling any safe output tools. Do not rely only on a `create_pull_request` patch to materialise the file.
   Include clearly labelled sections for:
   - profile summary (name, bio, location, social links)
@@ -76,7 +76,7 @@ metadata:
 ## Upload and PR
 
 8. Upload the generated HTML as a GitHub Actions artifact so the run exposes the page directly
-  - use a path that already exists at upload time (`docs/infographic.html` or `infographic.html`)
+  - use a path that already exists at upload time (`static/infographic/index.html` or `infographic.html`)
   - do not call `upload_artifact` with a non-existent path
-9. Create a draft pull request that adds or updates `docs/infographic.html`
-10. Include in the PR description: a summary of the data sources used, confirmation the page is static with no active content, and that the artifact `docs/infographic.html` is attached to this run
+9. Create a draft pull request that adds or updates `static/infographic/index.html`
+10. Include in the PR description: a summary of the data sources used, confirmation the page is static with no active content, and that the artifact `static/infographic/index.html` is attached to this run
