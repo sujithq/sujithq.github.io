@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sujith Quintelier — PLG Profile Infographic</title>
+  <style>
+    /* ── Reset & base ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    /* ── Layout ─────────────────────────────────────────────── */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #161b22 0%, #0d1117 60%, #0c1a2e 100%);
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0078d4 0%, #00bcf2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      flex-shrink: 0;
+      border: 3px solid #0078d4;
+    }
+    .hero-text { flex: 1; min-width: 200px; }
+    .hero-text h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #e6edf3;
+      letter-spacing: -0.02em;
+    }
+    .hero-text .role {
+      color: #58a6ff;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+    .hero-text .tagline {
+      color: #8b949e;
+      font-size: 0.875rem;
+      margin-top: 0.4rem;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+    }
+    .pill {
+      display: inline-block;
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: #1f2937;
+      border: 1px solid #30363d;
+      color: #8b949e;
+    }
+    .pill-blue  { background: #0c2d48; border-color: #0078d4; color: #58a6ff; }
+    .pill-green { background: #0a2010; border-color: #238636; color: #3fb950; }
+    .pill-purple{ background: #1a0a2e; border-color: #7c3aed; color: #a78bfa; }
+    .pill-orange{ background: #2a1500; border-color: #d97706; color: #fbbf24; }
+
+    /* ── Stat cards row ─────────────────────────────────────── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .stat-card .number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1;
+      color: #58a6ff;
+    }
+    .stat-card .label {
+      font-size: 0.78rem;
+      color: #8b949e;
+      margin-top: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Two-column grid ────────────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* ── Card ───────────────────────────────────────────────── */
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 1.4rem 1.25rem;
+    }
+    .card h2 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #e6edf3;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card h2 .icon { font-size: 1.1rem; }
+
+    /* ── Cert list ──────────────────────────────────────────── */
+    .cert-list { list-style: none; }
+    .cert-list li {
+      padding: 0.45rem 0;
+      border-bottom: 1px solid #21262d;
+      font-size: 0.86rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .cert-list li:last-child { border-bottom: none; }
+    .cert-badge {
+      display: inline-block;
+      padding: 0.1rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .badge-azure  { background: #0c2d48; color: #58a6ff; }
+    .badge-github { background: #1a0a2e; color: #a78bfa; }
+    .badge-tf     { background: #0a2010; color: #3fb950; }
+
+    /* ── Bar chart ──────────────────────────────────────────── */
+    .bar-list { list-style: none; }
+    .bar-item { margin-bottom: 0.65rem; }
+    .bar-label {
+      font-size: 0.82rem;
+      color: #c9d1d9;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.2rem;
+    }
+    .bar-label .count { color: #8b949e; font-size: 0.78rem; }
+    .bar-track {
+      background: #21262d;
+      border-radius: 999px;
+      height: 8px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #0078d4, #00bcf2);
+    }
+
+    /* ── Timeline ───────────────────────────────────────────── */
+    .timeline { position: relative; padding-left: 1.2rem; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.35rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #21262d;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
+    .tl-item::before {
+      content: "";
+      position: absolute;
+      left: -0.9rem;
+      top: 0.45rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0078d4;
+      border: 2px solid #0d1117;
+    }
+    .tl-year {
+      font-size: 0.7rem;
+      color: #8b949e;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .tl-title { font-size: 0.86rem; color: #e6edf3; }
+
+    /* ── Tag cloud ──────────────────────────────────────────── */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.7rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: #1f2937;
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+    }
+    .tag-lg { font-size: 1rem; background: #0c2d48; border-color: #0078d4; color: #58a6ff; }
+    .tag-md { font-size: 0.88rem; background: #1a0a2e; border-color: #7c3aed; color: #a78bfa; }
+
+    /* ── Focus areas ────────────────────────────────────────── */
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+    }
+    .focus-item {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 0.9rem 0.75rem;
+      text-align: center;
+    }
+    .focus-item .emoji { font-size: 1.6rem; display: block; margin-bottom: 0.35rem; }
+    .focus-item .name { font-size: 0.78rem; color: #c9d1d9; font-weight: 600; }
+
+    /* ── Full-width card ────────────────────────────────────── */
+    .full-width { margin-bottom: 1.5rem; }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #484f58;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #21262d;
+    }
+    footer a { color: #58a6ff; text-decoration: none; }
+  </style>
+</head>
+<body>
+<main class="page">
+
+  <!-- ══════════════════ HERO ════════════════════════════════ -->
+  <header class="hero" role="banner">
+    <div class="avatar" aria-hidden="true">SQ</div>
+    <div class="hero-text">
+      <h1>Sujith Quintelier</h1>
+      <p class="role">Cloud Solutions Architect (AI Apps) · Microsoft</p>
+      <p class="tagline">Azure Architect · Dev(Sec)Ops Engineer · GitHub Accredited Trainer · Terraform Enthusiast</p>
+      <nav class="hero-links" aria-label="Profile links">
+        <span class="pill pill-blue">🌐 quintelier.dev</span>
+        <span class="pill pill-blue">💼 LinkedIn</span>
+        <span class="pill pill-blue">🐦 @Sujithq</span>
+        <span class="pill pill-green">📊 mslearn.quintelier.dev</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══════════════════ STAT CARDS ══════════════════════════ -->
+  <section aria-label="Key statistics">
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="number">47</div>
+        <div class="label">Blog Posts</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">11</div>
+        <div class="label">Azure Certs</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">7</div>
+        <div class="label">GitHub Trainer Creds</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">2</div>
+        <div class="label">Other Certs</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TWO COLUMNS ═════════════════════════ -->
+  <div class="two-col">
+
+    <!-- Certifications -->
+    <section class="card" aria-labelledby="certs-heading">
+      <h2 id="certs-heading"><span class="icon" aria-hidden="true">🏅</span> Certifications</h2>
+      <ul class="cert-list">
+        <li><span class="cert-badge badge-azure">Azure</span> Cloud Solutions Architect</li>
+        <li><span class="cert-badge badge-azure">Azure</span> Cybersecurity Architect</li>
+        <li><span class="cert-badge badge-azure">Azure</span> Identity &amp; Access Administrator</li>
+        <li><span class="cert-badge badge-azure">Azure</span> DevOps Engineer</li>
+        <li><span class="cert-badge badge-azure">Azure</span> AI Engineer</li>
+        <li><span class="cert-badge badge-azure">Azure</span> Security Engineer</li>
+        <li><span class="cert-badge badge-azure">Azure</span> Network Engineer</li>
+        <li><span class="cert-badge badge-azure">Azure</span> Cosmos DB Developer</li>
+        <li><span class="cert-badge badge-tf">Terraform</span> Associate</li>
+        <li><span class="cert-badge badge-github">GitHub</span> Accredited Trainer ×7</li>
+      </ul>
+    </section>
+
+    <!-- Top Blog Topics -->
+    <section class="card" aria-labelledby="topics-heading">
+      <h2 id="topics-heading"><span class="icon" aria-hidden="true">📝</span> Top Blog Topics</h2>
+      <ul class="bar-list" aria-label="Blog post tag frequency">
+        <li class="bar-item">
+          <div class="bar-label"><span>Security</span><span class="count">12</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+        </li>
+        <li class="bar-item">
+          <div class="bar-label"><span>DevOps</span><span class="count">11</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+        </li>
+        <li class="bar-item">
+          <div class="bar-label"><span>C# / Programming</span><span class="count">8</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:67%"></div></div>
+        </li>
+        <li class="bar-item">
+          <div class="bar-label"><span>Async / Await</span><span class="count">8</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:67%"></div></div>
+        </li>
+        <li class="bar-item">
+          <div class="bar-label"><span>GitHub Actions</span><span class="count">5</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:42%"></div></div>
+        </li>
+        <li class="bar-item">
+          <div class="bar-label"><span>GitHub Copilot</span><span class="count">4</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:33%"></div></div>
+        </li>
+        <li class="bar-item">
+          <div class="bar-label"><span>Dependabot / CI/CD</span><span class="count">3</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- ══════════════════ FOCUS AREAS ═════════════════════════ -->
+  <section class="card full-width" aria-labelledby="focus-heading">
+    <h2 id="focus-heading"><span class="icon" aria-hidden="true">🎯</span> Focus Areas</h2>
+    <div class="focus-grid">
+      <div class="focus-item">
+        <span class="emoji" aria-hidden="true">☁️</span>
+        <span class="name">Azure Architecture</span>
+      </div>
+      <div class="focus-item">
+        <span class="emoji" aria-hidden="true">🔒</span>
+        <span class="name">Security &amp; DevSecOps</span>
+      </div>
+      <div class="focus-item">
+        <span class="emoji" aria-hidden="true">🐙</span>
+        <span class="name">GitHub Platform</span>
+      </div>
+      <div class="focus-item">
+        <span class="emoji" aria-hidden="true">🤖</span>
+        <span class="name">AI / Copilot</span>
+      </div>
+      <div class="focus-item">
+        <span class="emoji" aria-hidden="true">🏗️</span>
+        <span class="name">Terraform / IaC</span>
+      </div>
+      <div class="focus-item">
+        <span class="emoji" aria-hidden="true">⚙️</span>
+        <span class="name">Platform Engineering</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TWO COLUMNS (row 2) ═════════════════ -->
+  <div class="two-col">
+
+    <!-- Blog posting timeline -->
+    <section class="card" aria-labelledby="timeline-heading">
+      <h2 id="timeline-heading"><span class="icon" aria-hidden="true">📅</span> Blog Activity</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">2022</div>
+          <div class="tl-title">2 posts · AZ-700 prep, Azure Load Balancing</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2023</div>
+          <div class="tl-title">1 post · Azure Storage Redundancy</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2025</div>
+          <div class="tl-title">38 posts · Major ramp-up: Terraform, Copilot, AKS, C# async, DevSecOps series</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2026</div>
+          <div class="tl-title">5 posts YTD · Azure, GitHub Copilot updates</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Trainer Credentials -->
+    <section class="card" aria-labelledby="trainer-heading">
+      <h2 id="trainer-heading"><span class="icon" aria-hidden="true">🎓</span> GitHub Trainer Credentials</h2>
+      <ul class="cert-list">
+        <li><span class="cert-badge badge-github">GH</span> GitHub Actions</li>
+        <li><span class="cert-badge badge-github">GH</span> GitHub for Developers</li>
+        <li><span class="cert-badge badge-github">GH</span> GitHub Administration</li>
+        <li><span class="cert-badge badge-github">GH</span> Advanced Security (GAS)</li>
+        <li><span class="cert-badge badge-github">GH</span> Migrations</li>
+        <li><span class="cert-badge badge-github">GH</span> Enterprise Importer</li>
+        <li><span class="cert-badge badge-github">GH</span> Copilot for Business Fundamentals</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- ══════════════════ SKILLS TAG CLOUD ════════════════════ -->
+  <section class="card full-width" aria-labelledby="skills-heading">
+    <h2 id="skills-heading"><span class="icon" aria-hidden="true">🏷️</span> Skills &amp; Technologies</h2>
+    <div class="tag-cloud">
+      <span class="tag tag-lg">Azure</span>
+      <span class="tag tag-lg">GitHub</span>
+      <span class="tag tag-lg">DevSecOps</span>
+      <span class="tag tag-md">Terraform</span>
+      <span class="tag tag-md">GitHub Actions</span>
+      <span class="tag tag-md">GitHub Copilot</span>
+      <span class="tag tag-md">C#</span>
+      <span class="tag">Kubernetes / AKS</span>
+      <span class="tag">Bicep</span>
+      <span class="tag">Security</span>
+      <span class="tag">Platform Engineering</span>
+      <span class="tag">AI / MCP</span>
+      <span class="tag">Dependabot</span>
+      <span class="tag">Hugo</span>
+      <span class="tag">Blazor WASM</span>
+      <span class="tag">Playwright</span>
+      <span class="tag">Go</span>
+      <span class="tag">Python</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════ MS LEARN HIGHLIGHT ══════════════════ -->
+  <section class="card full-width" aria-labelledby="mslearn-heading">
+    <h2 id="mslearn-heading"><span class="icon" aria-hidden="true">📊</span> MS Learn Dashboard</h2>
+    <p style="font-size:0.875rem; color:#8b949e; margin-bottom:0.75rem;">
+      A live Blazor WebAssembly dashboard visualising the Microsoft Learn transcript — modules completed, trophies earned, and certifications achieved.
+    </p>
+    <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+      <span class="pill pill-blue">Modules tracked</span>
+      <span class="pill pill-orange">Training hours</span>
+      <span class="pill pill-green">XP earned</span>
+      <span class="pill pill-purple">Certifications</span>
+      <span class="pill pill-blue">Monthly progress chart</span>
+      <span class="pill pill-blue">Role distribution chart</span>
+    </div>
+    <p style="font-size:0.78rem; color:#484f58; margin-top:0.75rem;">
+      Live at: <strong style="color:#58a6ff;">mslearn.quintelier.dev</strong> · Updated daily via GitHub Actions
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Generated from public profile data · <a href="https://quintelier.dev">quintelier.dev</a> · Static HTML — no scripts, no external resources.</p>
+  <p style="margin-top:0.25rem;">Data sourced from sujithq/sujithq.github.io and sujithq/ms-learn repositories.</p>
+</footer>
+</body>
+</html>
