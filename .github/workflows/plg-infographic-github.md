@@ -6,48 +6,41 @@ on:
   push:
     paths:
       - README.md
-  schedule: daily
-mode: autonomous
-temperature: 0
 
-inputs:
-  - README.md
-
-outputs:
-  - docs/infographic.html
+permissions: read-all
 
 tools:
-  - repo_read
-  - repo_write
-  - html_generation
+  github:
+    toolsets: [default]
 
-agents:
-  - id: planner
-    role: Analyse and structure content
-    goal: Extract structured data from README and map to PLG model
-  - id: generator
-    role: Generate infographic
-    goal: Produce deterministic HTML infographic based on structured content
-  - id: reviewer
-    role: Validate output
-    goal: Ensure correctness, completeness, and determinism of generated artifact
+metadata:
+  inputs:
+    - README.md
+  outputs:
+    - docs/infographic.html
 
-orchestration:
-  strategy: sequential
-  flow:
-    - planner -> generator -> reviewer
+  agents:
+    planner:
+      role: Analyse README and extract structured content
+    generator:
+      role: Generate infographic HTML
+    reviewer:
+      role: Validate output
 
-quality_gates:
-  - no_fabrication
-  - deterministic_output
-  - required_sections
-  - professional_tone
+  orchestration:
+    strategy: sequential
+    flow:
+      - planner -> generator -> reviewer
 
-tags:
-  - agentic-workflow
-  - plg
-  - infographic
-  - multi-agent
+  quality_gates:
+    - no_fabrication
+    - deterministic_output
+    - professional_tone
+
+  tags:
+    - agentic-workflow
+    - plg
+    - infographic
 ---
 
 # 📊 PLG Infographic Generator (Multi-Agent)
