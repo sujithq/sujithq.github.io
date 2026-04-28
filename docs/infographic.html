@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sujith Quintelier – Profile Infographic</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      padding: 2rem 1rem 4rem;
+    }
+
+    /* ── Layout ── */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #161b22 0%, #1f2937 100%);
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0078d4 0%, #50e6ff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      flex-shrink: 0;
+      border: 3px solid #30363d;
+    }
+    .hero-text { flex: 1; min-width: 200px; }
+    .hero-text h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #f0f6fc;
+    }
+    .hero-text .role {
+      margin-top: 0.35rem;
+      font-size: 1rem;
+      color: #58a6ff;
+      font-weight: 600;
+    }
+    .hero-text .company {
+      font-size: 0.9rem;
+      color: #8b949e;
+      margin-top: 0.15rem;
+    }
+    .hero-text .location {
+      font-size: 0.85rem;
+      color: #8b949e;
+      margin-top: 0.5rem;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .link-pill {
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 20px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.8rem;
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    /* ── Stat bar ── */
+    .stat-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+    .stat-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+    }
+    .stat-card .number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #58a6ff;
+      line-height: 1;
+    }
+    .stat-card .label {
+      font-size: 0.75rem;
+      color: #8b949e;
+      margin-top: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Section card ── */
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .card h2 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #8b949e;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card h2::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      background: #58a6ff;
+      border-radius: 2px;
+    }
+
+    /* ── Two-column grid ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 600px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    /* ── Skill chips ── */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .chip {
+      background: #1f2937;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.8rem;
+      color: #c9d1d9;
+    }
+    .chip.azure  { border-color: #0078d4; color: #60b8ff; }
+    .chip.github { border-color: #6e40c9; color: #b88cf8; }
+    .chip.devops { border-color: #00b4d8; color: #5ce1fa; }
+    .chip.ai     { border-color: #16a34a; color: #4ade80; }
+    .chip.sec    { border-color: #dc2626; color: #f87171; }
+
+    /* ── Experience timeline ── */
+    .timeline { display: flex; flex-direction: column; gap: 1rem; }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 10px 1fr;
+      gap: 0.75rem;
+      align-items: start;
+    }
+    .tl-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #58a6ff;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .tl-item .tl-title { font-weight: 600; font-size: 0.9rem; color: #f0f6fc; }
+    .tl-item .tl-company { font-size: 0.8rem; color: #58a6ff; }
+    .tl-item .tl-period { font-size: 0.75rem; color: #8b949e; margin-top: 0.1rem; }
+    .tl-item .tl-desc { font-size: 0.78rem; color: #8b949e; margin-top: 0.25rem; }
+
+    /* ── Certification grid ── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 0.75rem;
+    }
+    .cert-item {
+      background: #1f2937;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+    }
+    .cert-item .cert-code {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #58a6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .cert-item .cert-name {
+      font-size: 0.76rem;
+      color: #c9d1d9;
+      margin-top: 0.15rem;
+      line-height: 1.3;
+    }
+
+    /* ── Blog topics ── */
+    .topic-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+    .topic-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: #c9d1d9;
+    }
+    .topic-item::before {
+      content: '▸';
+      color: #58a6ff;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      font-size: 0.72rem;
+      color: #484f58;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="page" role="main">
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Profile header">
+      <div class="avatar" role="img" aria-label="Profile avatar: initials SQ">SQ</div>
+      <div class="hero-text">
+        <h1>Sujith Quintelier</h1>
+        <p class="role">Cloud Solution Architect – AI &amp; App Innovation</p>
+        <p class="company">Microsoft · Belgium</p>
+        <p class="location">📍 Belgium &nbsp;·&nbsp; 🌐 quintelier.dev</p>
+        <nav class="links" aria-label="External profiles">
+          <span class="link-pill">github.com/sujithq</span>
+          <span class="link-pill">linkedin.com/in/sujith-quintelier</span>
+          <span class="link-pill">@sujithq</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stat-bar" aria-label="Key stats">
+      <div class="stat-card">
+        <div class="number">25+</div>
+        <div class="label">Years in IT</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">12</div>
+        <div class="label">Active Certs</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">3</div>
+        <div class="label">Expert/Specialty</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">30+</div>
+        <div class="label">Blog Posts</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">4</div>
+        <div class="label">GitHub Trainings</div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="card" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Core Specialisations</h2>
+      <div class="chips">
+        <span class="chip azure">Microsoft Azure</span>
+        <span class="chip azure">Cloud Architecture</span>
+        <span class="chip azure">Azure AI Services</span>
+        <span class="chip github">GitHub</span>
+        <span class="chip github">GitHub Copilot</span>
+        <span class="chip github">GitHub Actions</span>
+        <span class="chip github">GitHub Advanced Security</span>
+        <span class="chip devops">DevOps</span>
+        <span class="chip devops">CI/CD</span>
+        <span class="chip devops">Platform Engineering</span>
+        <span class="chip devops">Infrastructure as Code</span>
+        <span class="chip devops">Terraform</span>
+        <span class="chip ai">AI &amp; Machine Learning</span>
+        <span class="chip ai">LLM Integration</span>
+        <span class="chip sec">Security &amp; Compliance</span>
+        <span class="chip sec">Zero Trust</span>
+        <span class="chip">Kubernetes / AKS</span>
+        <span class="chip">Bicep</span>
+        <span class="chip">Training &amp; Enablement</span>
+      </div>
+    </section>
+
+    <!-- Two-column: Experience + Blog -->
+    <div class="two-col">
+
+      <!-- Experience -->
+      <section class="card" aria-labelledby="exp-heading">
+        <h2 id="exp-heading">Professional Experience</h2>
+        <div class="timeline">
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div>
+              <div class="tl-title">Cloud Solution Architect</div>
+              <div class="tl-company">Microsoft</div>
+              <div class="tl-period">Jan 2026 – Present</div>
+              <div class="tl-desc">AI &amp; App Innovation. Guiding customers on Azure AI, app modernisation, GitHub strategy, and developer productivity.</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div>
+              <div class="tl-title">Azure Architect · DevOps Enabler · Trainer</div>
+              <div class="tl-company">Xebia (fka Xpirit)</div>
+              <div class="tl-period">Jun 2023 – Jan 2026</div>
+              <div class="tl-desc">Azure, GitHub, DevOps, Platform Engineering, IaC. Delivered GitHub Foundations, Actions, Advanced Security, and Copilot training.</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div>
+              <div class="tl-title">Azure Architect</div>
+              <div class="tl-company">Ordina</div>
+              <div class="tl-period">Jan 2021 – Jun 2023</div>
+              <div class="tl-desc">Cloud architecture and Azure solutions for enterprise customers.</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Blog topics -->
+      <section class="card" aria-labelledby="blog-heading">
+        <h2 id="blog-heading">Blog – quintelier.dev</h2>
+        <p style="font-size:0.8rem;color:#8b949e;margin-bottom:0.8rem;">Technical articles, tutorials, and weekly update digests covering:</p>
+        <div class="topic-list">
+          <span class="topic-item">Azure Architecture</span>
+          <span class="topic-item">GitHub Copilot</span>
+          <span class="topic-item">GitHub Actions</span>
+          <span class="topic-item">Terraform for Azure</span>
+          <span class="topic-item">Azure Bicep</span>
+          <span class="topic-item">Security &amp; IAM</span>
+          <span class="topic-item">AKS Networking</span>
+          <span class="topic-item">AI &amp; LLMs</span>
+          <span class="topic-item">DevOps Practices</span>
+          <span class="topic-item">CI/CD Pipelines</span>
+          <span class="topic-item">Platform Engineering</span>
+          <span class="topic-item">Weekly Updates</span>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Certifications -->
+    <section class="card" aria-labelledby="cert-heading">
+      <h2 id="cert-heading">Active Microsoft &amp; GitHub Certifications (12)</h2>
+      <div class="cert-grid">
+
+        <div class="cert-item">
+          <div class="cert-code">AZ-305</div>
+          <div class="cert-name">Azure Solutions Architect Expert</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-code">AZ-400</div>
+          <div class="cert-name">DevOps Engineer Expert</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-code">SC-100</div>
+          <div class="cert-name">Cybersecurity Architect Expert</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-code">AI-102</div>
+          <div class="cert-name">Azure AI Engineer Associate</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-code">AZ-104</div>
+          <div class="cert-name">Azure Administrator Associate</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-code">AZ-204</div>
+          <div class="cert-name">Azure Developer Associate</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-code">AZ-500</div>
+          <div class="cert-name">Azure Security Engineer Associate</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-code">AZ-700</div>
+          <div class="cert-name">Azure Network Engineer Associate</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-code">SC-300</div>
+          <div class="cert-name">Identity and Access Administrator Associate</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-code">DP-420</div>
+          <div class="cert-name">Azure Cosmos DB Developer Specialty</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-code">GH-200</div>
+          <div class="cert-name">GitHub Actions</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-code">GH-300</div>
+          <div class="cert-name">GitHub Copilot</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Technology stack -->
+    <section class="card" aria-labelledby="tech-heading">
+      <h2 id="tech-heading">Site Technology Stack</h2>
+      <div class="chips">
+        <span class="chip">Hugo</span>
+        <span class="chip">GitHub Pages</span>
+        <span class="chip">GitHub Actions</span>
+        <span class="chip">Go</span>
+        <span class="chip">HTML5 &amp; CSS3</span>
+        <span class="chip">TypeScript</span>
+        <span class="chip">SCSS</span>
+        <span class="chip">TOML / YAML</span>
+        <span class="chip">Markdown</span>
+        <span class="chip">Playwright</span>
+        <span class="chip">Cloudflare CDN</span>
+        <span class="chip">GitHub Agentic Workflows</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Generated 2026-04-28 · quintelier.dev · Static HTML – no scripts, no external resources</p>
+  </footer>
+</body>
+</html>
