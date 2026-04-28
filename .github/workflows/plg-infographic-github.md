@@ -9,6 +9,8 @@ on:
 
 permissions: read-all
 
+engine: copilot   # ✅ REQUIRED
+
 tools:
   github:
     toolsets: [default]
