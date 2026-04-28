@@ -37,7 +37,7 @@ safe-outputs:
       - static/infographic/index.html
       - infographic.html
   create-pull-request:
-    draft: true
+    draft: false
 
 metadata:
   inputs: "README.md, sujithq/sujithq README.md, sujithq/ms-learn transcript.json"
@@ -78,5 +78,6 @@ metadata:
 8. Upload the generated HTML as a GitHub Actions artifact so the run exposes the page directly
   - use a path that already exists at upload time (`static/infographic/index.html` or `infographic.html`)
   - do not call `upload_artifact` with a non-existent path
-9. Create a draft pull request that adds or updates `static/infographic/index.html`
-10. Include in the PR description: a summary of the data sources used, confirmation the page is static with no active content, and that the artifact `static/infographic/index.html` is attached to this run
+9. Create a pull request (not draft) that adds or updates `static/infographic/index.html`
+10. Enable auto-merge on the created pull request when possible
+11. Include in the PR description: a summary of the data sources used, confirmation the page is static with no active content, and that the artifact `static/infographic/index.html` is attached to this run
