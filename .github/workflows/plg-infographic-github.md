@@ -11,6 +11,11 @@ engine: copilot
 
 tools:
   github:
+    allowed-repos:
+      - sujithq/ms-learn
+      - sujithq/sujithq
+      - andrediasbr/github-certification-ranking
+    min-integrity: none
     toolsets: [repos, pull_requests]
 
 safe-outputs:
@@ -40,14 +45,15 @@ metadata:
 # PLG Infographic Generator
 
 1. Read README.md
-2. Extract profile information
-3. Generate a PLG-style infographic as a single static HTML file at docs/infographic.html
-4. The HTML must be self-contained and safe:
+2. Fetch relevant public profile/project data from sujithq/ms-learn and sujithq/sujithq when needed
+3. Extract profile information
+4. Generate a PLG-style infographic as a single static HTML file at docs/infographic.html
+5. The HTML must be self-contained and safe:
   - inline CSS only
   - no JavaScript
   - no external fonts, images, stylesheets, or scripts
   - no forms, iframes, embeds, tracking, or network requests
   - semantic, accessible markup with clear headings and sections
-5. Upload docs/infographic.html as a GitHub Actions artifact so the run exposes the generated page directly
-6. Create a draft pull request that adds or updates this file
-7. Provide a clear PR description explaining the generated content, confirming the page is static with no active content, and mentioning that the workflow artifact contains docs/infographic.html
+6. Upload docs/infographic.html as a GitHub Actions artifact so the run exposes the generated page directly
+7. Create a draft pull request that adds or updates this file
+8. Provide a clear PR description explaining the generated content, confirming the page is static with no active content, and mentioning that the workflow artifact contains docs/infographic.html
