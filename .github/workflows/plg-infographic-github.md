@@ -1,10 +1,12 @@
 ---
 name: PLG Infographic Generator
 description: Multi-agent workflow to generate and validate a PLG-style infographic from GitHub profile README
-trigger:
-  - manual
-  - push: README.md
-  - schedule: daily
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - README.md
+  schedule: daily
 mode: autonomous
 temperature: 0
 
