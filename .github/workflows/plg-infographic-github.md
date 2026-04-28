@@ -11,7 +11,7 @@ engine: copilot
 
 tools:
   github:
-    toolsets: [repos, pull-requests]
+    toolsets: [repos, pull_requests]
 
 safe-outputs:
   create-pull-request: {}
