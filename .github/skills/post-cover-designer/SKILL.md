@@ -3,64 +3,97 @@ description: Designer-based blog cover creation workflow for Hugo posts
 applyTo: '.github/agents/Post.agent.md'
 ---
 
-## Skill Purpose
+# Post Cover Designer
 
-Use this skill to create consistent cover-image prompts for `designer.microsoft.com`
-and to standardise cover file output for Hugo posts in this repository.
+This skill creates a cover image for a Hugo blog post. It builds a tailored image prompt, generates the image directly, and saves it as `cover.jpg` in the correct post folder.
 
-## When To Use
+## When to use
 
-Use this skill for every new post created from a source link.
+- A new Hugo post is being created from a source link
+- A cover image is needed for an existing post that lacks one
+- The user asks to regenerate or redesign a post cover
 
-- Create a `cover_prompt` for front matter.
-- Produce implementation-ready instructions for generating and saving the cover.
-- Ensure path and filename match repository conventions.
-- Enforce a cover-only image strategy unless the user explicitly asks for additional in-body images.
+## Inputs required
 
-## Inputs
+Collect the following before proceeding (infer from the post content if already available):
 
-- Post title and slug
-- Post summary and target audience
-- Core technologies mentioned in the post
-- 3 to 5 key concepts to visualise
+- **Post title and slug** (e.g. `2024-06-15-azure-copilot-intro`)
+- **Post summary** (one or two sentences describing the post)
+- **Target audience** (e.g. cloud architects, developers, enterprise teams)
+- **Core technologies** mentioned in the post (e.g. Azure, Bicep, GitHub Actions)
+- **3–5 key concepts** to visualise (e.g. pipeline, deployment, cloud infrastructure)
 
-## Required Output Contract
+## Step 1 – Build the cover prompt
 
-1. Provide a Designer prompt ready to paste into `designer.microsoft.com`.
-1. Keep visual direction aligned with existing post covers: clean, technical,
-   modern, enterprise-friendly.
-1. Specify exact output filename as `cover.jpg`.
-1. Specify exact output path as
-   `content/posts/YYYY-MM-DD-slug/cover.jpg`.
-1. Ensure front matter includes:
-   - `cover = true`
-   - `author = "sujith"`
-   - `cover_prompt = '''...'''`
-1. Do not generate or suggest in-body image placeholders by default.
+Construct a focused image prompt using these rules:
 
-## Prompt Construction Rules
+- Use concrete nouns and visual anchors (e.g. "pipeline diagram", "cloud architecture blueprint") rather than generic adjectives.
+- Include at least one architecture or workflow metaphor that fits the article topic.
+- Reference topic-specific motifs tied to the technologies and concepts identified.
+- Specify composition style: clean, technical, modern, enterprise-friendly.
+- Include a colour direction (e.g. "deep blue and white tones with subtle gradients").
+- Keep the prompt concise but detailed enough to be unambiguous.
+- Avoid references to specific people, real logos, or copyrighted artwork styles.
+- Avoid visual clutter and text-heavy scenes.
 
-- Use concrete nouns and visual anchors instead of generic adjectives.
-- Include topic-specific icons or motifs tied to the source link content.
-- Mention composition style, colour direction, and target audience.
-- Keep the prompt concise enough to be editable, but detailed enough to reduce
-  ambiguity.
-- Avoid references to specific people, logos, or copyrighted artwork styles.
+Example prompt structure:
+```
+A clean, modern technical illustration showing [main concept], with [technology motifs],
+[composition details], [colour palette], suited for a [audience] audience.
+No people, no logos, no text overlays.
+```
 
-## Quality Checks
+## Step 2 – Generate the cover image
 
-- Prompt reflects the actual article content and not a generic template.
-- Prompt includes at least one architecture/workflow metaphor where appropriate.
-- Prompt avoids visual clutter and unreadable text-heavy scenes.
-- File path and filename are valid and match the post folder.
+Use the `generate_image` tool with the prompt constructed in Step 1.
 
-## Output Template
+- Set the aspect ratio to **16:9** (landscape, suitable for blog cover images).
+- Generate exactly **one image**.
+- If the tool supports a style parameter, use `"photorealistic"` or `"digital art"` — whichever produces the cleanest technical result.
 
-```text
-Designer Action:
+## Step 3 – Save the image
+
+Save the generated image to:
+
+```
+content/posts/<slug>/cover.jpg
+```
+
+Where `<slug>` is the full post folder name, e.g. `2024-06-15-azure-copilot-intro`.
+
+- Save as **JPEG** format with filename exactly `cover.jpg`.
+- If the target directory does not exist, create it.
+
+## Step 4 – Update front matter
+
+Ensure the post's front matter includes:
+
+```toml
+cover       = true
+author      = "sujith"
+cover_prompt = '''
+<the prompt used in Step 1>
+'''
+```
+
+## Step 5 – Provide the Designer fallback
+
+After completing Steps 2–4, also output the manual fallback for reference:
+
+```
+Designer Action (manual fallback):
 1. Open designer.microsoft.com.
 2. Paste this prompt:
    <cover_prompt_text>
 3. Export as JPG.
-4. Save as: content/posts/YYYY-MM-DD-slug/cover.jpg
+4. Save as: content/posts/<slug>/cover.jpg
 ```
+
+## Quality checks
+
+- [ ] Prompt reflects the actual article content, not a generic template.
+- [ ] Prompt includes at least one architecture/workflow metaphor where appropriate.
+- [ ] Prompt avoids visual clutter and text-heavy scenes.
+- [ ] Generated image is saved at the correct path with filename `cover.jpg`.
+- [ ] Front matter contains `cover = true`, `author = "sujith"`, and `cover_prompt`.
+- [ ] Designer fallback prompt is included in the output.
