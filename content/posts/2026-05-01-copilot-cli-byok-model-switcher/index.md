@@ -205,10 +205,52 @@ Run the interactive wizard to add your first profile:
 copilot-byok-model-switcher add
 ```
 
-The wizard prompts for provider type, base URL, model name, and API key. Keys
-are entered through a secure password prompt and stored in the config file. If
-you add a profile with identical settings to an existing one, the tool updates
+The wizard walks you through the following steps:
+
+1. **Profile name** — a short slug you will use in `use` commands (e.g. `azure-gpt`).
+2. **Profile type** — `byok` for API-key or bearer token endpoints, `copilot` for
+   the default service.
+3. **Provider type** — `openai`, `azure`, or `anthropic`.
+4. **Base URL** — the full endpoint URL (e.g.
+   `https://my-resource.openai.azure.com/openai/deployments/gpt-4o`).
+5. **Model** — the deployment or model identifier (e.g. `gpt-4o`).
+6. **Auth method** — API key entered via a secure password prompt, an environment
+   variable name (`apiKeyEnv`), or Azure CLI bearer token (`azureCliToken`).
+
+{{< image src="img/screenshot-add.png" alt="copilot-byok-model-switcher add wizard" caption="The interactive add wizard — replace this placeholder with a real screenshot." >}}
+
+If you add a profile with identical settings to an existing one, the tool updates
 the existing profile rather than creating a duplicate.
+
+#### Adding an Azure OpenAI profile with an API key environment variable
+
+When you choose the `apiKeyEnv` option during the wizard, the key is read from
+the named environment variable at runtime instead of being stored in the config
+file:
+
+```bash
+# Set the key in your shell profile (e.g. ~/.bashrc)
+export AZURE_OPENAI_KEY="sk-..."
+
+# Then add the profile — enter "apiKeyEnv" as auth method and "AZURE_OPENAI_KEY" as the variable name
+copilot-byok-model-switcher add
+```
+
+#### Adding a Foundry profile with bearer token auth (API keys disabled by policy)
+
+When prompted for the auth method choose `azureCliToken`. The tool will
+automatically call `az account get-access-token` before each session:
+
+```bash
+# Ensure you are logged in first
+az login
+
+copilot-byok-model-switcher add
+# provider type: azure
+# base URL:      https://my-foundry.openai.azure.com/openai/deployments/gpt-4o
+# model:         gpt-4o
+# auth method:   azureCliToken
+```
 
 ### Listing profiles
 
@@ -217,11 +259,24 @@ copilot-byok-model-switcher list
 ```
 
 Renders a formatted table of all profiles. The last-used profile is marked with
-`*` so you always know your current context.
+`*` so you always know your current context. The active config file path is
+shown below the table.
+
+```
+ Name             Type     Provider   Model      Auth
+ ──────────────── ──────── ────────── ────────── ────────────────
+ default *        copilot             auto
+ azure-gpt        byok     azure      gpt-4o     apiKeyEnv
+ foundry-rbac     byok     azure      gpt-4o     azureCliToken
+ anthropic-opus   byok     anthropic  claude...  apiKey
+ ollama-local     byok     openai     llama3.2
+```
+
+{{< image src="img/screenshot-list.png" alt="copilot-byok-model-switcher list output" caption="Formatted profile table — replace this placeholder with a real screenshot." >}}
 
 ### Switching models
 
-To activate a profile interactively:
+To activate a profile interactively (launches `gh copilot` in interactive mode):
 
 ```bash
 copilot-byok-model-switcher use azure-gpt
@@ -234,26 +289,73 @@ also pass a prompt directly:
 copilot-byok-model-switcher use azure-gpt -p "refactor this function for clarity"
 ```
 
+#### Using a Foundry RBAC profile (bearer token)
+
+For profiles with `azureCliToken: "auto"`, the tool fetches a fresh token before
+each invocation — no manual `az account get-access-token` required:
+
+```bash
+# Interactive mode
+copilot-byok-model-switcher use foundry-rbac
+
+# Non-interactive with a prompt
+copilot-byok-model-switcher use foundry-rbac -p "explain this Bicep template"
+```
+
+#### Allowing tools and controlling MCP servers
+
 Any flag that `gh copilot` accepts can be forwarded after the profile name:
 
 | Flag | Description |
 |---|---|
 | `-p` / `--prompt <text>` | Run non-interactively with a prompt |
 | `--allow-all-tools` | Allow all tools |
+| `--allow-all` / `--yolo` | Allow all tools and operations |
 | `--allow-tool <name>` | Allow a specific tool |
 | `--deny-tool <name>` | Deny a specific tool |
 | `--disable-mcp-server <name>` | Disable a named MCP server |
 | `--disable-builtin-mcps` | Disable all built-in MCP servers |
 
+```bash
+# Allow all tools (useful in scripted pipelines)
+copilot-byok-model-switcher use azure-gpt --allow-all-tools
+
+# YOLO mode — allow all tools and operations
+copilot-byok-model-switcher use azure-gpt --yolo -p "rewrite all tests to use xUnit"
+
+# Deny a specific tool
+copilot-byok-model-switcher use azure-gpt --deny-tool shell_exec -p "review this PR diff"
+
+# Disable one MCP server for this invocation only
+copilot-byok-model-switcher use foundry-rbac \
+  --disable-mcp-server foundry-mcp \
+  -p "generate a Terraform module for AKS"
+
+# Disable all built-in MCP servers
+copilot-byok-model-switcher use ollama-local --disable-builtin-mcps
+```
+
+When `-p` is passed, `--allow-all-tools` is injected automatically unless
+you already specified one of the permission flags above.
+
+{{< image src="img/screenshot-use.png" alt="copilot-byok-model-switcher use command" caption="Activating a profile and launching Copilot CLI — replace this placeholder with a real screenshot." >}}
+
 To jump back to the default Copilot service:
 
 ```bash
 copilot-byok-model-switcher default
+
+# Also works non-interactively
+copilot-byok-model-switcher default -p "what does this script do?"
 ```
 
 To reuse the last activated profile without typing its name:
 
 ```bash
+# Interactive mode
+copilot-byok-model-switcher last
+
+# Non-interactive
 copilot-byok-model-switcher last -p "explain this error"
 ```
 
@@ -268,20 +370,47 @@ copilot-byok-model-switcher manage
 From here you can use, remove, add, import, configure MCP compatibility servers,
 or exit, all from a single menu without remembering sub-command names.
 
+```
+? What do you want to do?
+❯ Use a profile
+  Add a profile
+  Remove profiles
+  Import from Foundry
+  Set MCP compatibility servers
+  Exit
+```
+
+{{< image src="img/screenshot-manage.png" alt="copilot-byok-model-switcher manage menu" caption="The manage interactive menu — replace this placeholder with a real screenshot." >}}
+
 ### Importing from Azure Foundry
 
-If you have Azure OpenAI deployments, the tool can discover and import them
-automatically using the Azure CLI:
+If you have Azure OpenAI / Azure AI Foundry deployments, the tool can discover
+and import them automatically using the Azure CLI:
 
 ```bash
-# Discover all accounts and prompt per deployment
+# Discover all accounts, prompt per deployment (interactive)
 copilot-byok-model-switcher import-foundry
+
+# Explicit per-deployment prompt mode
+copilot-byok-model-switcher import-foundry --mode each
 
 # Import all deployments without prompts
 copilot-byok-model-switcher import-foundry --all
 
-# Scope to one account and resource group
+# Scope to one account and resource group, add all without prompts
 copilot-byok-model-switcher import-foundry \
+  --account myfoundry \
+  --resource-group my-rg \
+  --all
+
+# Limit discovery to a specific subscription
+copilot-byok-model-switcher import-foundry \
+  --subscription 00000000-0000-0000-0000-000000000000 \
+  --all
+
+# Combine subscription and account filters
+copilot-byok-model-switcher import-foundry \
+  --subscription my-sub-name \
   --account myfoundry \
   --resource-group my-rg \
   --all
@@ -298,6 +427,8 @@ tool calls `az account get-access-token` automatically before each session and
 sets `COPILOT_PROVIDER_BEARER_TOKEN`, so you never need to handle token
 acquisition manually.
 
+{{< image src="img/screenshot-import-foundry.png" alt="copilot-byok-model-switcher import-foundry" caption="Discovering and importing Foundry deployments — replace this placeholder with a real screenshot." >}}
+
 ### MCP server compatibility
 
 Some BYOK or proxy profiles may conflict with certain MCP servers that expect
@@ -306,15 +437,41 @@ MCP servers the tool should disable automatically when a given profile is
 activated:
 
 ```bash
-# Interactively select servers to disable for a profile
+# Interactively select which servers to disable for a profile
 copilot-byok-model-switcher mcp-compat my-azure-profile
 
-# Disable none
+# Same as above but explicitly invoke the selection prompt
+copilot-byok-model-switcher mcp-compat my-azure-profile --action set
+
+# Disable all candidate servers automatically (no prompt)
+copilot-byok-model-switcher mcp-compat my-azure-profile --action all
+
+# Disable none of the candidate servers
 copilot-byok-model-switcher mcp-compat my-azure-profile --action none
 
-# Reset to prompt again on next interactive use
+# Reset the saved selection — you will be prompted again on the next interactive use
 copilot-byok-model-switcher mcp-compat my-azure-profile --action reset
 ```
+
+The default candidate server list is: `foundry-mcp`, `context7`, `msx-mcp`,
+`azure`, `workiq`, `powerbi-remote`.
+
+```
+? Select MCP servers to disable for profile "foundry-rbac"
+  (Use space to select, enter to confirm)
+❯ ◉ foundry-mcp
+  ◉ context7
+  ◯ msx-mcp
+  ◯ azure
+  ◯ workiq
+  ◯ powerbi-remote
+```
+
+{{< image src="img/screenshot-mcp-compat.png" alt="copilot-byok-model-switcher mcp-compat server selection" caption="Selecting which MCP servers to disable — replace this placeholder with a real screenshot." >}}
+
+Your selection is saved to the profile under `mcpCompatServers` and reused on
+every subsequent run. To disable the entire compat mode for a session, set
+`CBMS_DISABLE_MCP_COMPAT=off` before running the tool.
 
 ## Configuration
 
@@ -387,9 +544,21 @@ The three authentication patterns in use above are:
 # Interactive multi-select removal
 copilot-byok-model-switcher remove
 
-# Remove two profiles by name
+# Remove a single profile by name
+copilot-byok-model-switcher remove azure-gpt
+
+# Remove multiple profiles in one command
 copilot-byok-model-switcher remove azure-gpt ollama-local
 ```
+
+```
+? Select profiles to remove (Space to select, Enter to confirm)
+  ◯ azure-gpt
+  ◉ foundry-rbac
+  ◉ ollama-local
+```
+
+{{< image src="img/screenshot-remove.png" alt="copilot-byok-model-switcher remove multi-select" caption="Interactive profile removal — replace this placeholder with a real screenshot." >}}
 
 The `default` profile is protected and cannot be removed.
 
