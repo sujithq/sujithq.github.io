@@ -54,6 +54,8 @@ a .NET global tool that wraps the whole flow with a polished interactive interfa
 - A Copilot subscription (Free, Pro, Business, or Enterprise).
 - .NET 10 SDK or later (for the tool install).
 - An API key from Azure OpenAI, OpenAI, or Anthropic, or a local Ollama instance.
+  For Azure Foundry deployments with API keys disabled by policy, Azure CLI
+  (`az`) installed and logged in is sufficient.
 
 ## The manual BYOK approach
 
@@ -114,6 +116,45 @@ and default Copilot for general tasks - the workflow gets tedious:
   ones. Miss one and the CLI either errors or silently uses a stale value.
 - There is no profile concept, so nothing persists between terminal sessions.
 - Multi-machine or team setups have no portable config story.
+- In enterprise environments, **API keys for Azure OpenAI / Foundry hosted models
+  may be disabled by policy** (RBAC-only). In those cases `COPILOT_PROVIDER_API_KEY`
+  simply does not work, and you need a short-lived bearer token instead - which
+  adds yet another manual step to every session.
+
+### The bearer token problem: API keys disabled by policy
+
+Many enterprise Azure OpenAI and Azure AI Foundry deployments are configured
+with RBAC-only access, meaning API keys are **disabled at the resource level**.
+This is a deliberate security control enforced by platform teams, not a
+configuration mistake. When it applies, setting `COPILOT_PROVIDER_API_KEY`
+returns a 401 error and there is no way around it using standard key-based auth.
+
+The alternative is a short-lived bearer token obtained from Azure CLI:
+
+```bash
+# Fetch a bearer token from Azure CLI
+TOKEN=$(az account get-access-token \
+  --scope https://cognitiveservices.azure.com/.default \
+  --query accessToken -o tsv)
+
+export COPILOT_PROVIDER_BASE_URL=https://my-resource.openai.azure.com/openai/deployments/gpt-4o
+export COPILOT_PROVIDER_TYPE=azure
+export COPILOT_PROVIDER_BEARER_TOKEN=$TOKEN
+unset COPILOT_PROVIDER_API_KEY
+export COPILOT_MODEL=gpt-4o
+copilot
+```
+
+There are two problems with this manual approach:
+
+- Azure bearer tokens expire (typically after one hour). Every new session
+  requires a fresh `az account get-access-token` call.
+- You must remember to **unset** `COPILOT_PROVIDER_API_KEY`. If a stale key
+  value is present alongside a bearer token, the auth mode is ambiguous and the
+  request may fail.
+
+This is where `copilot-byok-model-switcher` adds the most value for Azure
+Foundry users.
 
 ## Introducing `copilot-byok-model-switcher`
 
@@ -250,6 +291,13 @@ Only chat-capable deployments are imported (embeddings are skipped). Re-running
 the command deduplicates profiles automatically, so it is safe to run after new
 deployments are created.
 
+Crucially, every profile created by `import-foundry` uses **bearer token auth
+by default** (`azureCliToken: "auto"`), not API keys. This is the correct
+behaviour for Foundry-hosted models where API keys are disabled by policy. The
+tool calls `az account get-access-token` automatically before each session and
+sets `COPILOT_PROVIDER_BEARER_TOKEN`, so you never need to handle token
+acquisition manually.
+
 ### MCP server compatibility
 
 Some BYOK or proxy profiles may conflict with certain MCP servers that expect
@@ -284,7 +332,7 @@ In Azure user-scoped mode the filename includes the tenant ID and username:
 `config.<tenantId>__<userName>.json`. This means each Azure identity gets an
 isolated profile set on the same machine.
 
-An example config file:
+An example config file showing all three authentication patterns:
 
 ```json
 {
@@ -302,6 +350,15 @@ An example config file:
       "model": "gpt-4o"
     },
     {
+      "name": "foundry-rbac",
+      "type": "byok",
+      "baseUrl": "https://my-resource.openai.azure.com/openai/deployments/gpt-4o",
+      "model": "gpt-4o",
+      "providerType": "azure",
+      "azureCliToken": "auto",
+      "tokenScope": "https://cognitiveservices.azure.com/.default"
+    },
+    {
       "name": "ollama-local",
       "type": "byok",
       "baseUrl": "http://localhost:11434",
@@ -311,9 +368,18 @@ An example config file:
 }
 ```
 
-Note that `apiKeyEnv` points to an environment variable name rather than storing
-the key in plain text, which is the safer approach for keys you already manage
-through other means.
+The three authentication patterns in use above are:
+
+- **`apiKeyEnv`**: points to an environment variable holding the key, keeping
+  secrets out of the config file. Used when API keys are enabled on the resource.
+- **`azureCliToken: "auto"`**: used when API keys are **disabled by policy**.
+  The tool runs `az account get-access-token` before each session and sets
+  `COPILOT_PROVIDER_BEARER_TOKEN` automatically. `COPILOT_PROVIDER_API_KEY` is
+  cleared to avoid auth-mode ambiguity. Set `tokenScope` to the Cognitive
+  Services default scope (`https://cognitiveservices.azure.com/.default`) for
+  Azure OpenAI endpoints.
+- **No auth fields**: for local endpoints like Ollama that do not require
+  authentication.
 
 ## Removing profiles
 
@@ -354,6 +420,12 @@ running the tool:
 ```bash
 export AZURE_OPENAI_KEY="your-key-here"
 ```
+
+**401 Unauthorized when using an API key against a Foundry endpoint**: the
+Azure resource likely has API keys disabled by policy. Use a bearer token
+profile instead (`azureCliToken: "auto"`). Ensure you are logged in with
+`az login` and that your identity has the **Cognitive Services OpenAI User** or
+**Contributor** role on the resource.
 
 **Model does not support tool calling**: Copilot CLI requires a model that
 supports tool/function calling and streaming. Check your provider's documentation
