@@ -171,7 +171,7 @@ coloured tables and interactive selection menus.
 Install directly from Nuget:
 
 ```bash
-dotnet tool install --global gh-copilot-byok"
+dotnet tool install --global gh-copilot-byok
 ```
 
 Or build from source:
