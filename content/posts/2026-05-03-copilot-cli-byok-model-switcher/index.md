@@ -1,8 +1,8 @@
 +++
 title = '🔑 Easier BYOK for GitHub Copilot CLI'
 slug = 'copilot-cli-byok-model-switcher'
-date = '2026-05-01 09:00:00Z'
-lastmod = '2026-05-01 09:00:00Z'
+date = '2026-05-03 09:00:00Z'
+lastmod = '2026-05-03 09:00:00Z'
 draft = false
 tags = [
   "GitHub",
@@ -24,6 +24,8 @@ series = [
   "GitHub Copilot"
 ]
 
+description = "Use the gh-copilot-byok .NET tool to switch between BYOK model profiles in GitHub Copilot CLI without juggling environment variables."
+
 layout = "single"
 [params]
     cover = true
@@ -34,8 +36,6 @@ layout = "single"
     Use a dark background with electric blue, teal, and green accents. Add subtle circuit-line patterns and a small .NET icon in one corner.
     Include a keyring icon to represent bring-your-own-key. Keep the composition uncluttered, enterprise-ready, and appealing to cloud engineers and .NET developers.
     '''
-
-description = "Use the gh-copilot-byok .NET tool to switch between BYOK model profiles in GitHub Copilot CLI without juggling environment variables."
 +++
 
 GitHub Copilot CLI supports **Bring Your Own Key** (BYOK), letting you point the
@@ -206,17 +206,17 @@ gh-copilot-byok add
 
 The wizard walks you through the following steps:
 
-1. **Profile name** — a short slug you will use in `use` commands (e.g. `azure-gpt`).
-2. **Profile type** — `byok` for API-key or bearer token endpoints, `copilot` for
+1. **Profile name**: a short slug you will use in `use` commands (e.g. `azure-gpt`).
+2. **Profile type**: `byok` for API-key or bearer token endpoints, `copilot` for
    the default service.
-3. **Provider type** — `openai`, `azure`, or `anthropic`.
-4. **Base URL** — the full endpoint URL (e.g.
+3. **Provider type**: `openai`, `azure`, or `anthropic`.
+4. **Base URL**: the full endpoint URL (e.g.
    `https://my-resource.openai.azure.com/openai/deployments/gpt-4o`).
-5. **Model** — the deployment or model identifier (e.g. `gpt-4o`).
-6. **Auth method** — API key entered via a secure password prompt, an environment
+5. **Model**: the deployment or model identifier (e.g. `gpt-4o`).
+6. **Auth method**: API key entered via a secure password prompt, an environment
    variable name (`apiKeyEnv`), or Azure CLI bearer token (`azureCliToken`).
 
-<!-- {{< image src="img/screenshot-add.png" alt="gh-copilot-byok add wizard" caption="The interactive add wizard — replace this placeholder with a real screenshot." >}} -->
+<!-- {{< image src="img/screenshot-add.png" alt="gh-copilot-byok add wizard" caption="The interactive add wizard: replace this placeholder with a real screenshot." >}} -->
 
 If you add a profile with identical settings to an existing one, the tool updates
 the existing profile rather than creating a duplicate.
@@ -231,7 +231,7 @@ file:
 # Set the key in your shell profile (e.g. ~/.bashrc)
 export AZURE_OPENAI_KEY="sk-..."
 
-# Then add the profile — enter "apiKeyEnv" as auth method and "AZURE_OPENAI_KEY" as the variable name
+# Then add the profile: enter "apiKeyEnv" as auth method and "AZURE_OPENAI_KEY" as the variable name
 gh-copilot-byok add
 ```
 
@@ -261,7 +261,7 @@ Renders a formatted table of all profiles. The last-used profile is marked with
 `*` so you always know your current context. The active config file path is
 shown below the table.
 
-```
+```text
  Name             Type     Provider   Model      Auth
  ──────────────── ──────── ────────── ────────── ────────────────
  default *        copilot             auto
@@ -271,7 +271,7 @@ shown below the table.
  ollama-local     byok     openai     llama3.2
 ```
 
-<!-- {{< image src="img/screenshot-list.png" alt="gh-copilot-byok list output" caption="Formatted profile table — replace this placeholder with a real screenshot." >}} -->
+<!-- {{< image src="img/screenshot-list.png" alt="gh-copilot-byok list output" caption="Formatted profile table: replace this placeholder with a real screenshot." >}} -->
 
 ### Switching models
 
@@ -291,7 +291,7 @@ gh-copilot-byok use azure-gpt -p "refactor this function for clarity"
 #### Using a Foundry RBAC profile (bearer token)
 
 For profiles with `azureCliToken: "auto"`, the tool fetches a fresh token before
-each invocation — no manual `az account get-access-token` required:
+each invocation, so no manual `az account get-access-token` call is required.
 
 ```bash
 # Interactive mode
@@ -319,7 +319,7 @@ Any flag that `gh copilot` accepts can be forwarded after the profile name:
 # Allow all tools (useful in scripted pipelines)
 gh-copilot-byok use azure-gpt --allow-all-tools
 
-# YOLO mode — allow all tools and operations
+# YOLO mode: allow all tools and operations
 gh-copilot-byok use azure-gpt --yolo -p "rewrite all tests to use xUnit"
 
 # Deny a specific tool
@@ -337,7 +337,7 @@ gh-copilot-byok use ollama-local --disable-builtin-mcps
 When `-p` is passed, `--allow-all-tools` is injected automatically unless
 you already specified one of the permission flags above.
 
-<!-- {{< image src="img/screenshot-use.png" alt="gh-copilot-byok use command" caption="Activating a profile and launching Copilot CLI — replace this placeholder with a real screenshot." >}} -->
+<!-- {{< image src="img/screenshot-use.png" alt="gh-copilot-byok use command" caption="Activating a profile and launching Copilot CLI: replace this placeholder with a real screenshot." >}} -->
 
 To jump back to the default Copilot service:
 
@@ -369,7 +369,7 @@ gh-copilot-byok manage
 From here you can use, remove, add, import, configure MCP compatibility servers,
 or exit, all from a single menu without remembering sub-command names.
 
-```
+```text
 ? What do you want to do?
 ❯ Use a profile
   Add a profile
@@ -379,7 +379,7 @@ or exit, all from a single menu without remembering sub-command names.
   Exit
 ```
 
-<!-- {{< image src="img/screenshot-manage.png" alt="gh-copilot-byok manage menu" caption="The manage interactive menu — replace this placeholder with a real screenshot." >}} -->
+<!-- {{< image src="img/screenshot-manage.png" alt="gh-copilot-byok manage menu" caption="The manage interactive menu: replace this placeholder with a real screenshot." >}} -->
 
 ### Importing from Azure Foundry
 
@@ -426,7 +426,7 @@ tool calls `az account get-access-token` automatically before each session and
 sets `COPILOT_PROVIDER_BEARER_TOKEN`, so you never need to handle token
 acquisition manually.
 
-<!-- {{< image src="img/screenshot-import-foundry.png" alt="gh-copilot-byok import-foundry" caption="Discovering and importing Foundry deployments — replace this placeholder with a real screenshot." >}} -->
+<!-- {{< image src="img/screenshot-import-foundry.png" alt="gh-copilot-byok import-foundry" caption="Discovering and importing Foundry deployments: replace this placeholder with a real screenshot." >}} -->
 
 ### MCP server compatibility
 
@@ -448,14 +448,14 @@ gh-copilot-byok mcp-compat my-azure-profile --action all
 # Disable none of the candidate servers
 gh-copilot-byok mcp-compat my-azure-profile --action none
 
-# Reset the saved selection — you will be prompted again on the next interactive use
+# Reset the saved selection: you will be prompted again on the next interactive use
 gh-copilot-byok mcp-compat my-azure-profile --action reset
 ```
 
 The default candidate server list is: `foundry-mcp`, `context7`, `msx-mcp`,
 `azure`, `workiq`, `powerbi-remote`.
 
-```
+```text
 ? Select MCP servers to disable for profile "foundry-rbac"
   (Use space to select, enter to confirm)
 ❯ ◉ foundry-mcp
@@ -466,7 +466,7 @@ The default candidate server list is: `foundry-mcp`, `context7`, `msx-mcp`,
   ◯ powerbi-remote
 ```
 
-<!-- {{< image src="img/screenshot-mcp-compat.png" alt="gh-copilot-byok mcp-compat server selection" caption="Selecting which MCP servers to disable — replace this placeholder with a real screenshot." >}} -->
+<!-- {{< image src="img/screenshot-mcp-compat.png" alt="gh-copilot-byok mcp-compat server selection" caption="Selecting which MCP servers to disable: replace this placeholder with a real screenshot." >}} -->
 
 Your selection is saved to the profile under `mcpCompatServers` and reused on
 every subsequent run. To disable the entire compat mode for a session, set
@@ -550,14 +550,14 @@ gh-copilot-byok remove azure-gpt
 gh-copilot-byok remove azure-gpt ollama-local
 ```
 
-```
+```text
 ? Select profiles to remove (Space to select, Enter to confirm)
   ◯ azure-gpt
   ◉ foundry-rbac
   ◉ ollama-local
 ```
 
-<!-- {{< image src="img/screenshot-remove.png" alt="gh-copilot-byok remove multi-select" caption="Interactive profile removal — replace this placeholder with a real screenshot." >}} -->
+<!-- {{< image src="img/screenshot-remove.png" alt="gh-copilot-byok remove multi-select" caption="Interactive profile removal: replace this placeholder with a real screenshot." >}} -->
 
 The `default` profile is protected and cannot be removed.
 
