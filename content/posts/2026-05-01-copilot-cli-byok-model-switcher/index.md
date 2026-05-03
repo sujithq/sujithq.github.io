@@ -3,7 +3,7 @@ title = '🔑 Easier BYOK for GitHub Copilot CLI'
 slug = 'copilot-cli-byok-model-switcher'
 date = '2026-05-01 09:00:00Z'
 lastmod = '2026-05-01 09:00:00Z'
-draft = true
+draft = false
 tags = [
   "GitHub",
   "GitHub Copilot",
@@ -35,7 +35,7 @@ layout = "single"
     Include a keyring icon to represent bring-your-own-key. Keep the composition uncluttered, enterprise-ready, and appealing to cloud engineers and .NET developers.
     '''
 
-description = "Use the copilot-byok-model-switcher .NET tool to switch between BYOK model profiles in GitHub Copilot CLI without juggling environment variables."
+description = "Use the gh-copilot-byok .NET tool to switch between BYOK model profiles in GitHub Copilot CLI without juggling environment variables."
 +++
 
 GitHub Copilot CLI supports **Bring Your Own Key** (BYOK), letting you point the
@@ -44,7 +44,7 @@ default Copilot service. The capability is powerful, but the raw workflow requir
 you to export several environment variables every time you switch providers. This
 post walks through the manual approach first, shows why it becomes cumbersome, and
 then introduces
-[`copilot-byok-model-switcher`](https://github.com/sujithq/gh-copilot-cli-model-switcher),
+[`gh-copilot-byok`](https://github.com/sujithq/gh-copilot-cli-model-switcher),
 a .NET global tool that wraps the whole flow with a polished interactive interface.
 
 ## Prerequisites
@@ -153,26 +153,25 @@ There are two problems with this manual approach:
   value is present alongside a bearer token, the auth mode is ambiguous and the
   request may fail.
 
-This is where `copilot-byok-model-switcher` adds the most value for Azure
+This is where `gh-copilot-byok` adds the most value for Azure
 Foundry users.
 
-## Introducing `copilot-byok-model-switcher`
+## Introducing `gh-copilot-byok`
 
-[`copilot-byok-model-switcher`](https://github.com/sujithq/gh-copilot-cli-model-switcher)
+[`gh-copilot-byok`](https://github.com/sujithq/gh-copilot-cli-model-switcher)
 is a .NET global tool that adds a persistent profile layer on top of the raw
 environment variables. Profiles are stored in
-`~/.copilot-byok-model-switcher/config.json` and the tool sets the correct
+`~/.gh-copilot-byok/config.json` and the tool sets the correct
 variables automatically when you activate one. It uses
 [Spectre.Console](https://spectreconsole.net/) for a clean terminal UI with
 coloured tables and interactive selection menus.
 
 ### Installation
 
-Install directly from GitHub Packages:
+Install directly from Nuget:
 
 ```bash
-dotnet tool install --global copilot-byok-model-switcher \
-  --add-source "https://nuget.pkg.github.com/sujithq/index.json"
+dotnet tool install --global gh-copilot-byok"
 ```
 
 Or build from source:
@@ -181,19 +180,19 @@ Or build from source:
 git clone https://github.com/sujithq/gh-copilot-cli-model-switcher.git
 cd gh-copilot-cli-model-switcher/dotnet/CopilotX
 dotnet pack
-dotnet tool install --global --add-source ./nupkg copilot-byok-model-switcher
+dotnet tool install --global --add-source ./nupkg gh-copilot-byok
 ```
 
 Verify the install:
 
 ```bash
-copilot-byok-model-switcher help
+gh-copilot-byok help
 ```
 
 To update later:
 
 ```bash
-dotnet tool update --global copilot-byok-model-switcher \
+dotnet tool update --global gh-copilot-byok \
   --add-source "https://nuget.pkg.github.com/sujithq/index.json"
 ```
 
@@ -202,7 +201,7 @@ dotnet tool update --global copilot-byok-model-switcher \
 Run the interactive wizard to add your first profile:
 
 ```bash
-copilot-byok-model-switcher add
+gh-copilot-byok add
 ```
 
 The wizard walks you through the following steps:
@@ -217,7 +216,7 @@ The wizard walks you through the following steps:
 6. **Auth method** — API key entered via a secure password prompt, an environment
    variable name (`apiKeyEnv`), or Azure CLI bearer token (`azureCliToken`).
 
-{{< image src="img/screenshot-add.png" alt="copilot-byok-model-switcher add wizard" caption="The interactive add wizard — replace this placeholder with a real screenshot." >}}
+<!-- {{< image src="img/screenshot-add.png" alt="gh-copilot-byok add wizard" caption="The interactive add wizard — replace this placeholder with a real screenshot." >}} -->
 
 If you add a profile with identical settings to an existing one, the tool updates
 the existing profile rather than creating a duplicate.
@@ -233,7 +232,7 @@ file:
 export AZURE_OPENAI_KEY="sk-..."
 
 # Then add the profile — enter "apiKeyEnv" as auth method and "AZURE_OPENAI_KEY" as the variable name
-copilot-byok-model-switcher add
+gh-copilot-byok add
 ```
 
 #### Adding a Foundry profile with bearer token auth (API keys disabled by policy)
@@ -245,7 +244,7 @@ automatically call `az account get-access-token` before each session:
 # Ensure you are logged in first
 az login
 
-copilot-byok-model-switcher add
+gh-copilot-byok add
 # provider type: azure
 # base URL:      https://my-foundry.openai.azure.com/openai/deployments/gpt-4o
 # model:         gpt-4o
@@ -255,7 +254,7 @@ copilot-byok-model-switcher add
 ### Listing profiles
 
 ```bash
-copilot-byok-model-switcher list
+gh-copilot-byok list
 ```
 
 Renders a formatted table of all profiles. The last-used profile is marked with
@@ -272,21 +271,21 @@ shown below the table.
  ollama-local     byok     openai     llama3.2
 ```
 
-{{< image src="img/screenshot-list.png" alt="copilot-byok-model-switcher list output" caption="Formatted profile table — replace this placeholder with a real screenshot." >}}
+<!-- {{< image src="img/screenshot-list.png" alt="gh-copilot-byok list output" caption="Formatted profile table — replace this placeholder with a real screenshot." >}} -->
 
 ### Switching models
 
 To activate a profile interactively (launches `gh copilot` in interactive mode):
 
 ```bash
-copilot-byok-model-switcher use azure-gpt
+gh-copilot-byok use azure-gpt
 ```
 
 This sets the environment variables, then hands off to `gh copilot`. You can
 also pass a prompt directly:
 
 ```bash
-copilot-byok-model-switcher use azure-gpt -p "refactor this function for clarity"
+gh-copilot-byok use azure-gpt -p "refactor this function for clarity"
 ```
 
 #### Using a Foundry RBAC profile (bearer token)
@@ -296,10 +295,10 @@ each invocation — no manual `az account get-access-token` required:
 
 ```bash
 # Interactive mode
-copilot-byok-model-switcher use foundry-rbac
+gh-copilot-byok use foundry-rbac
 
 # Non-interactive with a prompt
-copilot-byok-model-switcher use foundry-rbac -p "explain this Bicep template"
+gh-copilot-byok use foundry-rbac -p "explain this Bicep template"
 ```
 
 #### Allowing tools and controlling MCP servers
@@ -318,45 +317,45 @@ Any flag that `gh copilot` accepts can be forwarded after the profile name:
 
 ```bash
 # Allow all tools (useful in scripted pipelines)
-copilot-byok-model-switcher use azure-gpt --allow-all-tools
+gh-copilot-byok use azure-gpt --allow-all-tools
 
 # YOLO mode — allow all tools and operations
-copilot-byok-model-switcher use azure-gpt --yolo -p "rewrite all tests to use xUnit"
+gh-copilot-byok use azure-gpt --yolo -p "rewrite all tests to use xUnit"
 
 # Deny a specific tool
-copilot-byok-model-switcher use azure-gpt --deny-tool shell_exec -p "review this PR diff"
+gh-copilot-byok use azure-gpt --deny-tool shell_exec -p "review this PR diff"
 
 # Disable one MCP server for this invocation only
-copilot-byok-model-switcher use foundry-rbac \
+gh-copilot-byok use foundry-rbac \
   --disable-mcp-server foundry-mcp \
   -p "generate a Terraform module for AKS"
 
 # Disable all built-in MCP servers
-copilot-byok-model-switcher use ollama-local --disable-builtin-mcps
+gh-copilot-byok use ollama-local --disable-builtin-mcps
 ```
 
 When `-p` is passed, `--allow-all-tools` is injected automatically unless
 you already specified one of the permission flags above.
 
-{{< image src="img/screenshot-use.png" alt="copilot-byok-model-switcher use command" caption="Activating a profile and launching Copilot CLI — replace this placeholder with a real screenshot." >}}
+<!-- {{< image src="img/screenshot-use.png" alt="gh-copilot-byok use command" caption="Activating a profile and launching Copilot CLI — replace this placeholder with a real screenshot." >}} -->
 
 To jump back to the default Copilot service:
 
 ```bash
-copilot-byok-model-switcher default
+gh-copilot-byok default
 
 # Also works non-interactively
-copilot-byok-model-switcher default -p "what does this script do?"
+gh-copilot-byok default -p "what does this script do?"
 ```
 
 To reuse the last activated profile without typing its name:
 
 ```bash
 # Interactive mode
-copilot-byok-model-switcher last
+gh-copilot-byok last
 
 # Non-interactive
-copilot-byok-model-switcher last -p "explain this error"
+gh-copilot-byok last -p "explain this error"
 ```
 
 ### Interactive management
@@ -364,7 +363,7 @@ copilot-byok-model-switcher last -p "explain this error"
 The `manage` command provides a single interactive flow for all profile operations:
 
 ```bash
-copilot-byok-model-switcher manage
+gh-copilot-byok manage
 ```
 
 From here you can use, remove, add, import, configure MCP compatibility servers,
@@ -380,7 +379,7 @@ or exit, all from a single menu without remembering sub-command names.
   Exit
 ```
 
-{{< image src="img/screenshot-manage.png" alt="copilot-byok-model-switcher manage menu" caption="The manage interactive menu — replace this placeholder with a real screenshot." >}}
+<!-- {{< image src="img/screenshot-manage.png" alt="gh-copilot-byok manage menu" caption="The manage interactive menu — replace this placeholder with a real screenshot." >}} -->
 
 ### Importing from Azure Foundry
 
@@ -389,27 +388,27 @@ and import them automatically using the Azure CLI:
 
 ```bash
 # Discover all accounts, prompt per deployment (interactive)
-copilot-byok-model-switcher import-foundry
+gh-copilot-byok import-foundry
 
 # Explicit per-deployment prompt mode
-copilot-byok-model-switcher import-foundry --mode each
+gh-copilot-byok import-foundry --mode each
 
 # Import all deployments without prompts
-copilot-byok-model-switcher import-foundry --all
+gh-copilot-byok import-foundry --all
 
 # Scope to one account and resource group, add all without prompts
-copilot-byok-model-switcher import-foundry \
+gh-copilot-byok import-foundry \
   --account myfoundry \
   --resource-group my-rg \
   --all
 
 # Limit discovery to a specific subscription
-copilot-byok-model-switcher import-foundry \
+gh-copilot-byok import-foundry \
   --subscription 00000000-0000-0000-0000-000000000000 \
   --all
 
 # Combine subscription and account filters
-copilot-byok-model-switcher import-foundry \
+gh-copilot-byok import-foundry \
   --subscription my-sub-name \
   --account myfoundry \
   --resource-group my-rg \
@@ -427,7 +426,7 @@ tool calls `az account get-access-token` automatically before each session and
 sets `COPILOT_PROVIDER_BEARER_TOKEN`, so you never need to handle token
 acquisition manually.
 
-{{< image src="img/screenshot-import-foundry.png" alt="copilot-byok-model-switcher import-foundry" caption="Discovering and importing Foundry deployments — replace this placeholder with a real screenshot." >}}
+<!-- {{< image src="img/screenshot-import-foundry.png" alt="gh-copilot-byok import-foundry" caption="Discovering and importing Foundry deployments — replace this placeholder with a real screenshot." >}} -->
 
 ### MCP server compatibility
 
@@ -438,19 +437,19 @@ activated:
 
 ```bash
 # Interactively select which servers to disable for a profile
-copilot-byok-model-switcher mcp-compat my-azure-profile
+gh-copilot-byok mcp-compat my-azure-profile
 
 # Same as above but explicitly invoke the selection prompt
-copilot-byok-model-switcher mcp-compat my-azure-profile --action set
+gh-copilot-byok mcp-compat my-azure-profile --action set
 
 # Disable all candidate servers automatically (no prompt)
-copilot-byok-model-switcher mcp-compat my-azure-profile --action all
+gh-copilot-byok mcp-compat my-azure-profile --action all
 
 # Disable none of the candidate servers
-copilot-byok-model-switcher mcp-compat my-azure-profile --action none
+gh-copilot-byok mcp-compat my-azure-profile --action none
 
 # Reset the saved selection — you will be prompted again on the next interactive use
-copilot-byok-model-switcher mcp-compat my-azure-profile --action reset
+gh-copilot-byok mcp-compat my-azure-profile --action reset
 ```
 
 The default candidate server list is: `foundry-mcp`, `context7`, `msx-mcp`,
@@ -467,7 +466,7 @@ The default candidate server list is: `foundry-mcp`, `context7`, `msx-mcp`,
   ◯ powerbi-remote
 ```
 
-{{< image src="img/screenshot-mcp-compat.png" alt="copilot-byok-model-switcher mcp-compat server selection" caption="Selecting which MCP servers to disable — replace this placeholder with a real screenshot." >}}
+<!-- {{< image src="img/screenshot-mcp-compat.png" alt="gh-copilot-byok mcp-compat server selection" caption="Selecting which MCP servers to disable — replace this placeholder with a real screenshot." >}} -->
 
 Your selection is saved to the profile under `mcpCompatServers` and reused on
 every subsequent run. To disable the entire compat mode for a session, set
@@ -475,7 +474,7 @@ every subsequent run. To disable the entire compat mode for a session, set
 
 ## Configuration
 
-Profiles are stored in `~/.copilot-byok-model-switcher/`. The active config
+Profiles are stored in `~/.gh-copilot-byok/`. The active config
 file depends on the `COPILOT_BYOK_MODEL_SWITCHER_CONFIG_SCOPE` environment
 variable:
 
@@ -483,7 +482,7 @@ variable:
 |---|---|
 | `auto` (default) | Azure user-scoped config if `az account show` is available, otherwise global |
 | `azure-user` | Always use Azure user-scoped config |
-| `global` | Always use `~/.copilot-byok-model-switcher/config.json` |
+| `global` | Always use `~/.gh-copilot-byok/config.json` |
 
 In Azure user-scoped mode the filename includes the tenant ID and username:
 `config.<tenantId>__<userName>.json`. This means each Azure identity gets an
@@ -542,13 +541,13 @@ The three authentication patterns in use above are:
 
 ```bash
 # Interactive multi-select removal
-copilot-byok-model-switcher remove
+gh-copilot-byok remove
 
 # Remove a single profile by name
-copilot-byok-model-switcher remove azure-gpt
+gh-copilot-byok remove azure-gpt
 
 # Remove multiple profiles in one command
-copilot-byok-model-switcher remove azure-gpt ollama-local
+gh-copilot-byok remove azure-gpt ollama-local
 ```
 
 ```
@@ -558,7 +557,7 @@ copilot-byok-model-switcher remove azure-gpt ollama-local
   ◉ ollama-local
 ```
 
-{{< image src="img/screenshot-remove.png" alt="copilot-byok-model-switcher remove multi-select" caption="Interactive profile removal — replace this placeholder with a real screenshot." >}}
+<!-- {{< image src="img/screenshot-remove.png" alt="gh-copilot-byok remove multi-select" caption="Interactive profile removal — replace this placeholder with a real screenshot." >}} -->
 
 The `default` profile is protected and cannot be removed.
 
@@ -569,13 +568,13 @@ The GitHub Changelog
 that BYOK for Copilot is now available in VS Code. The CLI BYOK feature follows
 the same model: bring your own provider key, point the CLI at any
 OpenAI-compatible endpoint, and keep the Copilot interface you already know.
-`copilot-byok-model-switcher` makes the CLI side of that story practical for
+`gh-copilot-byok` makes the CLI side of that story practical for
 developers who work with more than one provider.
 
 ## Troubleshooting
 
-**Profile not found**: run `copilot-byok-model-switcher list` to see available
-profiles, or `copilot-byok-model-switcher add` to create one.
+**Profile not found**: run `gh-copilot-byok list` to see available
+profiles, or `gh-copilot-byok add` to create one.
 
 **Error executing gh copilot**: ensure Copilot CLI is installed:
 
@@ -604,7 +603,7 @@ recommended for best results.
 ## References
 
 - [Using your own LLM models in GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models)
-- [copilot-byok-model-switcher on GitHub](https://github.com/sujithq/gh-copilot-cli-model-switcher)
+- [gh-copilot-byok on GitHub](https://github.com/sujithq/gh-copilot-cli-model-switcher)
 - [GitHub Changelog: Bring Your Own Language Model Key in VS Code now available](https://github.blog/changelog/2026-04-22-bring-your-own-language-model-key-in-vs-code-now-available/)
 - [Getting started with GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-getting-started)
 - [Spectre.Console](https://spectreconsole.net/)
