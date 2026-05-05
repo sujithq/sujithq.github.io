@@ -52,7 +52,7 @@ For more details about my certifications and professional experience, please vis
 ## External Links
 
 - **GitHub**: [github.com/sujithq](https://github.com/sujithq)
-- **LinkedIn**: [linkedin.com/in/sujith-quintelier](https://www.linkedin.com/in/sujith-quintelier)
+- **LinkedIn**: [linkedin.com/in/sujithquintelier](https://www.linkedin.com/in/sujithquintelier)
 - **Twitter/X**: [@sujithq](https://twitter.com/sujithq)
 
 ## Contact
