@@ -128,10 +128,10 @@
                     <div class="accordion-body p-3">
                         {{ range $index, $item := first $limit ($archives) }}
                             {{ $KeyYear := .Key}}
-                            <p class="mb-0"><a href="{{ $postsPage.Permalink }}/#{{ $KeyYear }}">{{ $KeyYear }}</a>({{ len $item.Pages }})</p>
+                            <p class="mb-0"><a href="{{ printf "%s/#%s" (strings.TrimSuffix "/" $postsPage.Permalink) $KeyYear }}">{{ $KeyYear }}</a>({{ len $item.Pages }})</p>
                             {{ $pgs := $item.Pages.GroupByDate "January" }}
                             {{ range $idx, $it := $pgs }}
-                                <p class="ms-2 mb-0"><a href="{{ $postsPage.Permalink }}/#{{ $KeyYear }}{{ .Key }}">{{ .Key }}</a>({{ len $it.Pages }})</p>
+                                <p class="ms-2 mb-0"><a href="{{ printf "%s/#%s%s" (strings.TrimSuffix "/" $postsPage.Permalink) $KeyYear .Key }}">{{ .Key }}</a>({{ len $it.Pages }})</p>
                                 {{ range $inx, $itm := ($it.Pages) }}
                                     {{- $image := $itm.Resources.Get "cover.jpg" -}}
 
