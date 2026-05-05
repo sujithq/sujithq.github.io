@@ -96,6 +96,13 @@ buildFuture = false
     weight = 3
     parent = "legal"
 
+  [[menu.main]]
+    identifier = "legal-cookies"
+    name = "Cookies"
+    url = "/cookies/"
+    weight = 4
+    parent = "legal"
+
   # Footer legal links
   [[menu.footer]]
     identifier = "privacy"
