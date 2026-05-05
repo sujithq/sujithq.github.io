@@ -1,26 +1,32 @@
 {{ define "main" }}
-<div id="main" class="page page-legal container mt-5">
-  <article class="legal-article card border-primary mb-3">
-    <header class="page-header card-header text-center">
-      <h1 class="mb-0">{{ .Title }}</h1>
-      {{ with .Params.description }}<p class="lead mb-0 mt-3">{{ . }}</p>{{ end }}
-    </header>
+<div id="main" class="page page-legal container">
+  <div class="row mt-5">
+    <div class="col-lg m-0">
+      <article class="legal-article card border-primary mb-3">
+        <header class="page-header card-header text-center">
+          <h1 class="mb-0">{{ .Title }}</h1>
+          {{ with .Params.description }}<p class="lead mb-0 mt-3">{{ . }}</p>{{ end }}
+        </header>
 
-    <div class="card-body">
-      {{ if .Params.toc }}
-        <nav class="toc toc-legal mb-4">
-          {{ .TableOfContents }}
-        </nav>
-      {{ end }}
+        <div class="card-body">
+          <div class="container mt-0">
+            {{ if .Params.toc }}
+              <nav class="toc toc-legal mb-4">
+                {{ .TableOfContents }}
+              </nav>
+            {{ end }}
 
-      <div class="content">
-        {{ .Content }}
-      </div>
+            <div class="content">
+              {{ .Content }}
+            </div>
 
-      <footer class="page-footer">
-        <p class="last-updated mb-0">Last updated: {{ with .Lastmod }}{{ . | time.Format "2006-01-02" }}{{ else }}{{ .Date | time.Format "2006-01-02" }}{{ end }}</p>
-      </footer>
+            <footer class="page-footer">
+              <p class="last-updated mb-0">Last updated: {{ with .Lastmod }}{{ . | time.Format "2006-01-02" }}{{ else }}{{ .Date | time.Format "2006-01-02" }}{{ end }}</p>
+            </footer>
+          </div>
+        </div>
+      </article>
     </div>
-  </article>
+  </div>
 </div>
 {{ end }}
