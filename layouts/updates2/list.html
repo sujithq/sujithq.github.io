@@ -25,7 +25,15 @@
           {{ $tp := where $pagesForTerm "Section" "updates2" }}
           {{ $tp = where $tp ".Params.unlisted" "!=" true }}
           {{ $count := len $tp }}
-          <a href="{{ (site.GetPage (printf "/update_categories/%s" (urlize $term))).RelPermalink }}"><span class="badge rounded-pill bg-primary fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span></a>
+          {{ $termPage := $pagesForTerm.Page }}
+          {{ $termSlug := $term | lower | replace "’" "" | replace "'" "" | replace ":" "" | replaceRE "\\s+" "-" | replaceRE "[^[:alnum:]#\\+\\-]" "" | replaceRE "-+" "-" | strings.TrimPrefix "-" | strings.TrimSuffix "-" }}
+          {{ if $termPage }}
+          <a href="{{ $termPage.RelPermalink }}"><span class="badge rounded-pill bg-primary fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span></a>
+          {{ else if $termSlug }}
+          <a href="{{ printf "/update_categories/%s/" (urlquery $termSlug) }}"><span class="badge rounded-pill bg-primary fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span></a>
+          {{ else }}
+          <span class="badge rounded-pill bg-primary fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span>
+          {{ end }}
         {{- end -}}
     </div>
             </div>
@@ -37,7 +45,15 @@
           {{ $tp := where $pagesForTerm "Section" "updates2" }}
           {{ $tp = where $tp ".Params.unlisted" "!=" true }}
           {{ $count := len $tp }}
-          <a href="{{ (site.GetPage (printf "/update_tags/%s" (urlize $term))).RelPermalink }}"><span class="badge rounded-pill bg-secondary fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span></a>
+          {{ $termPage := $pagesForTerm.Page }}
+          {{ $termSlug := $term | lower | replace "’" "" | replace "'" "" | replace ":" "" | replaceRE "\\s+" "-" | replaceRE "[^[:alnum:]#\\+\\-]" "" | replaceRE "-+" "-" | strings.TrimPrefix "-" | strings.TrimSuffix "-" }}
+          {{ if $termPage }}
+          <a href="{{ $termPage.RelPermalink }}"><span class="badge rounded-pill bg-secondary fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span></a>
+          {{ else if $termSlug }}
+          <a href="{{ printf "/update_tags/%s/" (urlquery $termSlug) }}"><span class="badge rounded-pill bg-secondary fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span></a>
+          {{ else }}
+          <span class="badge rounded-pill bg-secondary fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span>
+          {{ end }}
         {{- end -}}
     </div>
     </div>
@@ -49,7 +65,15 @@
           {{ $tp := where $pagesForTerm "Section" "updates2" }}
           {{ $tp = where $tp ".Params.unlisted" "!=" true }}
           {{ $count := len $tp }}
-          <a href="{{ (site.GetPage (printf "/timeframes/%s" (urlize $term))).RelPermalink }}"><span class="badge rounded-pill bg-info text-dark fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span></a>
+          {{ $termPage := $pagesForTerm.Page }}
+          {{ $termSlug := $term | lower | replace "’" "" | replace "'" "" | replace ":" "" | replaceRE "\\s+" "-" | replaceRE "[^[:alnum:]#\\+\\-]" "" | replaceRE "-+" "-" | strings.TrimPrefix "-" | strings.TrimSuffix "-" }}
+          {{ if $termPage }}
+          <a href="{{ $termPage.RelPermalink }}"><span class="badge rounded-pill bg-info text-dark fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span></a>
+          {{ else if $termSlug }}
+          <a href="{{ printf "/timeframes/%s/" (urlquery $termSlug) }}"><span class="badge rounded-pill bg-info text-dark fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span></a>
+          {{ else }}
+          <span class="badge rounded-pill bg-info text-dark fs-5 mx-1">{{ $term }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $count }}</span></span>
+          {{ end }}
         {{- end -}}
     </div>
     </div>
