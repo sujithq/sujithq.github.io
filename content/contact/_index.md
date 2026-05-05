@@ -25,7 +25,7 @@ The best way to reach me is via email:
 
 You can also connect with me on:
 
-- **LinkedIn**: [linkedin.com/in/sujith-quintelier](https://www.linkedin.com/in/sujith-quintelier)
+- **LinkedIn**: [linkedin.com/in/sujithquintelier](https://www.linkedin.com/in/sujithquintelier)
 - **GitHub**: [github.com/sujithq](https://github.com/sujithq)
 - **Twitter/X**: [@sujithq](https://twitter.com/sujithq)
 
