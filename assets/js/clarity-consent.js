@@ -57,6 +57,8 @@
     var storageKey = normalizeValue(banner.getAttribute('data-storage-key') || 'clarityConsent');
     var showBanner = banner.getAttribute('data-show-banner') === 'true';
     var useGcm = banner.getAttribute('data-use-gcm') === 'true';
+    var clarityState = 'idle';
+    var clarityReadyCallbacks = [];
 
     function gtag() {
       window.dataLayer = window.dataLayer || [];
@@ -75,10 +77,40 @@
       });
     }
 
-    function loadClarity() {
+    function flushClarityReadyCallbacks() {
+      var callbacks = clarityReadyCallbacks.slice();
+      clarityReadyCallbacks = [];
+      callbacks.forEach(function (callback) {
+        try {
+          callback();
+        } catch (error) {
+          // Ignore callback errors.
+        }
+      });
+    }
+
+    function loadClarity(onReady) {
       if (!clarityId) {
         return;
       }
+
+      if (typeof onReady === 'function') {
+        clarityReadyCallbacks.push(onReady);
+      }
+
+      if (clarityState === 'loaded') {
+        flushClarityReadyCallbacks();
+        return;
+      }
+
+      if (clarityState === 'loading' || clarityState === 'blocked') {
+        if (clarityState === 'blocked') {
+          clarityReadyCallbacks = [];
+        }
+        return;
+      }
+
+      clarityState = 'loading';
 
       (function (c, l, a, r, i, t, y) {
         c[a] = c[a] || function () {
@@ -87,6 +119,14 @@
         t = l.createElement(r);
         t.async = 1;
         t.src = 'https://www.clarity.ms/tag/' + i;
+        t.onload = function () {
+          clarityState = 'loaded';
+          flushClarityReadyCallbacks();
+        };
+        t.onerror = function () {
+          clarityState = 'blocked';
+          clarityReadyCallbacks = [];
+        };
         y = l.getElementsByTagName(r)[0];
         y.parentNode.insertBefore(t, y);
       })(window, document, 'clarity', 'script', clarityId);
@@ -107,10 +147,11 @@
       }
 
       if (accepted) {
-        loadClarity();
-        if (typeof clarity === 'function') {
-          clarity('consent', 'yes');
-        }
+        loadClarity(function () {
+          if (typeof clarity === 'function') {
+            clarity('consent', 'yes');
+          }
+        });
       } else if (typeof clarity === 'function') {
         clarity('consent', 'no');
       }
@@ -129,10 +170,11 @@
       }
 
       if (stored === 'yes') {
-        loadClarity();
-        if (typeof clarity === 'function') {
-          clarity('consent', 'yes');
-        }
+        loadClarity(function () {
+          if (typeof clarity === 'function') {
+            clarity('consent', 'yes');
+          }
+        });
         return;
       }
 
