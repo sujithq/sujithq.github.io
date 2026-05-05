@@ -16,6 +16,7 @@ superuser = true
 
 # Role/position/tagline
 [params]
+  experience_start_year = 2000
   role = """
   * Azure Cloud Solutions Architect
   * Azure Cybersecurity Architect
@@ -96,7 +97,7 @@ url = "https://microsoft.com/"
 highlight_name = true
 +++
 
-I started my career as a **developer specializing in Microsoft technologies**, building applications with **.NET** and working on enterprise software solutions. Over the years, I expanded my expertise beyond development, diving deep into **cloud architecture, DevOps, AI, and cybersecurity**. Today, with over **25 years in IT**, I focus on **helping businesses design, implement, and secure modern cloud and AI solutions**.  
+I started my career as a **developer specializing in Microsoft technologies**, building applications with **.NET** and working on enterprise software solutions. Over the years, I expanded my expertise beyond development, diving deep into **cloud architecture, DevOps, AI, and cybersecurity**. Today, with over **{{< years-since 2000 >}} years in IT**, I focus on **helping businesses design, implement, and secure modern cloud and AI solutions**.  
 
 ## **🌍 My Cloud, AI & DevOps Journey**  
 

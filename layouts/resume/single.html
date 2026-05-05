@@ -13,7 +13,12 @@
             <h1 class="center-text">{{ .Title }}</h2>
             <h2 class="center-text"><a href="{{ .Params.organizations.url }}">{{.Params.organizations.name}}</a></h2>
             <div class="social-links  center-text">
-              {{ .Params.bio | markdownify}}
+              {{- $startYear := int (or .Params.experience_start_year 2000) -}}
+              {{- $years := sub now.Year $startYear -}}
+              {{- $bio := .Params.bio -}}
+              {{- $bio = replaceRE `over\s+\d+\+?\s+years` (printf "over %d years" $years) $bio -}}
+              {{- $bio = replaceRE `\d+\+\s+years` (printf "%d+ years" $years) $bio -}}
+              {{ $bio | markdownify}}
             </div>
           {{ end }}
         {{ end }}

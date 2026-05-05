@@ -17,7 +17,7 @@ This is the personal technical blog of **Sujith Quintelier**, hosted at **quinte
 
 ## Who I Am
 
-I'm **Sujith Quintelier**, an Azure and GitHub consultant with over 25 years of experience in IT. I specialise in:
+I'm **Sujith Quintelier**, an Azure and GitHub consultant with over {{< years-since 2000 >}} years of experience in IT. I specialise in:
 
 - **Cloud Architecture** with a focus on Microsoft Azure
 - **DevOps** practices and automation

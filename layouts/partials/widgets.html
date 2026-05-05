@@ -51,7 +51,12 @@
                                                                                             <a href="{{ .RelPermalink }}"><h5>{{ $authorTitle }}</h5></a>
                                                                                         {{ end }}
                                                                                         <div class="text-center">
-                                                                                            {{ .Params.about | markdownify }}
+                                                                                            {{- $startYear := int (or .Params.experience_start_year 2000) -}}
+                                                                                            {{- $years := sub now.Year $startYear -}}
+                                                                                            {{- $about := .Params.about -}}
+                                                                                            {{- $about = replaceRE `over\s+\d+\+?\s+years` (printf "over %d years" $years) $about -}}
+                                                                                            {{- $about = replaceRE `\d+\+\s+years` (printf "%d+ years" $years) $about -}}
+                                                                                            {{ $about | markdownify }}
                                                                                         </div>
                                                                                     {{ end }}
                           </div>
