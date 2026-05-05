@@ -61,13 +61,13 @@ buildFuture = false
  [[menu.main]]
    identifier = "resume"
    name = "Resume"
-   url = "/resume"
+   url = "/resume/"
    weight = 1
 
  [[menu.main]]
    identifier = "archives"
    name = "Archives"
-   url = "/posts"
+   url = "/posts/"
    weight = 2
 
  [[menu.main]]
@@ -77,19 +77,19 @@ buildFuture = false
  [[menu.main]]
    identifier = "tags"
    name = "Tags"
-   url = "/tags"
+   url = "/tags/"
    weight = 1
    parent = "taxonomy"
  [[menu.main]]
    identifier = "categories"
    name = "Categories"
-   url = "/categories"
+   url = "/categories/"
    weight = 2
    parent = "taxonomy"
  [[menu.main]]
    identifier = "series"
    name = "Series"
-   url = "/series"
+   url = "/series/"
    weight = 3
    parent = "taxonomy"
 
@@ -100,25 +100,25 @@ buildFuture = false
  [[menu.main]]
    identifier = "cidr-calculator"
    name = "CIDR Calculator"
-   url = "/tools/cidr-calculator"
+   url = "/tools/cidr-calculator/"
    weight = 1
    parent = "tools"
  [[menu.main]]
    identifier = "cert-renewal"
    name = "Certification Renewal Tracker"
-   url = "/tools/cert-renewal"
+   url = "/tools/cert-renewal/"
    weight = 2
    parent = "tools"
  [[menu.main]]
    identifier = "tech-radar"
    name = "Tech Radar"
-   url = "/tools/tech-radar"
+   url = "/tools/tech-radar/"
    weight = 3
    parent = "tools"
  [[menu.main]]
    identifier = "updates"
    name = "Updates"
-   url = "/updates"
+   url = "/updates/"
    weight = 5
 [services]
   # Disqus disabled site-wide to avoid third-party loads without explicit opt-in
