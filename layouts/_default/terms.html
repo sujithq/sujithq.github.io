@@ -9,9 +9,9 @@
       <h1 class="card-title"><i class="fas fa-layer-group mx-1"></i>{{ .Title }}</h1>
       <div class="d-flex gap-1 flex-wrap">
         {{ range .Data.Terms.Alphabetical }}
-          {{/* Count only updates2 items for these taxonomies */}}
+          {{/* Count only updates2 items for this term */}}
           {{ $termPages := where (where site.RegularPages "Section" "updates2") ".Params.unlisted" "!=" true }}
-          {{ $termPages = where $termPages (printf ".Params.%s" $.Type) "intersect" (slice $.Type) }}
+          {{ $termPages = where $termPages (printf ".Params.%s" $.Type) "intersect" (slice .Term) }}
           {{ $correctCount := len $termPages }}
           {{ if gt $correctCount 0 }}
             <a href="{{ .Page.RelPermalink }}"><span class="badge rounded-pill bg-primary fs-5 mx-1">{{ .Page.Title }}<span class="badge rounded-pill text-bg-danger mx-1 m-0">{{ $correctCount }}</span></span></a>
