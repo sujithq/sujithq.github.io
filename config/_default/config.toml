@@ -120,6 +120,28 @@ buildFuture = false
    name = "Updates"
    url = "/updates/"
    weight = 5
+ [[menu.main]]
+   identifier = "legal"
+   name = "Legal"
+   weight = 6
+ [[menu.main]]
+   identifier = "legal-contact"
+   name = "Contact"
+   url = "/contact/"
+   weight = 1
+   parent = "legal"
+ [[menu.main]]
+   identifier = "legal-about"
+   name = "About"
+   url = "/about/"
+   weight = 2
+   parent = "legal"
+ [[menu.main]]
+   identifier = "legal-privacy"
+   name = "Privacy"
+   url = "/privacy/"
+   weight = 3
+   parent = "legal"
 [services]
   # Disqus disabled site-wide to avoid third-party loads without explicit opt-in
   # [services.disqus]

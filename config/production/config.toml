@@ -7,33 +7,21 @@ buildFuture = false
 [menu]
 
   [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about/"
-    weight = 1
-
-  [[menu.main]]
-    identifier = "contact"
-    name = "Contact"
-    url = "/contact/"
-    weight = 2
-
-  [[menu.main]]
     identifier = "resume"
     name = "Resume"
     url = "/resume/"
-    weight = 3
+    weight = 1
 
   [[menu.main]]
     identifier = "archives"
     name = "Archives"
     url = "/posts/"
-    weight = 4
+    weight = 2
 
  [[menu.main]]
    identifier = "taxonomy"
    name = "Taxonomy"
-   weight = 5
+   weight = 3
  [[menu.main]]
    identifier = "tags"
    name = "Tags"
@@ -56,7 +44,7 @@ buildFuture = false
  [[menu.main]]
    identifier = "tools"
    name = "Tools"
-   weight = 6
+   weight = 4
  [[menu.main]]
    identifier = "cidr-calculator"
    name = "CIDR Calculator"
@@ -80,7 +68,33 @@ buildFuture = false
     identifier = "updates"
     name = "Updates"
     url = "/updates/"
-    weight = 7
+    weight = 5
+
+  [[menu.main]]
+    identifier = "legal"
+    name = "Legal"
+    weight = 6
+
+  [[menu.main]]
+    identifier = "legal-contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 1
+    parent = "legal"
+
+  [[menu.main]]
+    identifier = "legal-about"
+    name = "About"
+    url = "/about/"
+    weight = 2
+    parent = "legal"
+
+  [[menu.main]]
+    identifier = "legal-privacy"
+    name = "Privacy"
+    url = "/privacy/"
+    weight = 3
+    parent = "legal"
 
   # Footer legal links
   [[menu.footer]]
