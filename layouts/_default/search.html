@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-lg mt-3">
+      <div class="card border-primary mt-3">
+        <div class="search-result">
+          <h3 class="search-result--title section-title"></h3>
+          <div class="search-result--list article-list--compact"></div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    window.searchResultTitleTemplate = "{{ T `search.resultTitle` }}"
+</script>
+
+{{- $opts := dict "minify" hugo.IsProduction "JSXFactory" "createElement" -}}
+{{- $searchScript := resources.Get "ts/search.tsx" | js.Build $opts -}}
+<script type="text/javascript" src="{{ $searchScript.RelPermalink }}" defer></script>
+{{ end }}

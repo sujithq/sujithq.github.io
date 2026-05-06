@@ -2,7 +2,6 @@
 languageCode = 'en-us'
 title = 'Sujith Quintelier'
 baseURL = 'http://localhost:1313/'
-theme = ["github.com/sujithq/ideal-octo-guacamole"]
 
 [params]
   theme = "light"

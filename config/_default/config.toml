@@ -1,6 +1,5 @@
 languageCode = "en-us"
 title = "Sujith Quintelier"
-theme = ["github.com/sujithq/ideal-octo-guacamole"]
 resourceDir = "../resources"
 baseURL = "http://localhost:1313/"
 
