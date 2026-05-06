@@ -9,7 +9,7 @@ The certificate renewal page now uses a single data source:
 Pipeline:
 1. `scripts/fetch-certificates/fetch_certificates.py` fetches from Microsoft Learn.
 2. The script writes Hugo-ready output directly to `data/certificates.json`.
-3. `layouts/tools/cert-renewal.html` reads from `.Site.Data.certificates.activeCertificates`.
+3. `layouts/tools/cert-renewal.html` reads from `hugo.Data.certificates.activeCertificates`.
 
 ## Why This Is Better
 

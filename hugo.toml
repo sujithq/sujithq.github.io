@@ -1,5 +1,5 @@
 # Hugo Configuration
-languageCode = 'en-us'
+locale = 'en-us'
 title = 'Sujith Quintelier'
 baseURL = 'http://localhost:1313/'
 

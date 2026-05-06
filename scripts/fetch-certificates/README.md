@@ -8,7 +8,7 @@ Only one certificate data file is required:
 
 - `data/certificates.json`
 
-The Hugo template reads from this file via `.Site.Data.certificates`.
+The Hugo template reads from this file via `hugo.Data.certificates`.
 
 ## What the Script Does
 
