@@ -66,13 +66,15 @@ Open `http://127.0.0.1:1234/`.
 
 ### Production-like local server
 
-Use the production configuration locally, including the updates sync step:
+Build the production output with a localhost base URL and serve the generated `public/` folder:
 
 ```powershell
 npm run serve:prod-local
 ```
 
-This serves the site at `http://127.0.0.1:1234/` using the production environment.
+This serves the site at `http://127.0.0.1:1234/` using the generated production output.
+
+Press `Ctrl+C` to stop the local server.
 
 ### Generated updates indexes
 
