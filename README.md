@@ -85,6 +85,22 @@ Do not edit those generated filter indexes manually because the sync step
 rewrites them. Only the manual root pages such as `content/updates2/_index.md`
 and `content/updates2/archive/_index.md` should be maintained by hand.
 
+## Creating New Content
+
+Use the section-specific archetypes to scaffold front matter consistently.
+
+Create a new blog post (folder date should match front matter date):
+
+```powershell
+hugo new --kind posts posts/2026-05-06-example-post/index.md
+```
+
+Create a new legal page:
+
+```powershell
+hugo new --kind legal privacy.md
+```
+
 ## Usage
 
 Once the site is up and running, you can navigate through different sections using the navigation menu. The blog section contains a list of blog posts that can be read individually. In the contact section, you can find my email address and links to my social media profiles.
