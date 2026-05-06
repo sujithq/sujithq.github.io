@@ -1,15 +1,15 @@
----
-title: "About"
-slug: "about"
-url: "/about/"
-date: 2026-04-21
-lastmod: 2026-04-21
-draft: false
-toc: false
-description: "Learn about Sujith Quintelier and the purpose of quintelier.dev - a personal blog focused on Azure, GitHub, DevOps, and cloud technologies."
-type: "legal"
-layout: "legal"
----
++++
+title = 'About'
+slug = 'about'
+url = '/about/'
+date = 2026-04-21
+lastmod = 2026-04-21
+draft = false
+toc = false
+description = 'Learn about Sujith Quintelier and the purpose of quintelier.dev - a personal blog focused on Azure, GitHub, DevOps, and cloud technologies.'
+type = 'legal'
+layout = 'legal'
++++
 
 ## About quintelier.dev
 

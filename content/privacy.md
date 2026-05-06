@@ -1,15 +1,15 @@
----
-title: "Privacy Policy"
-slug: "privacy"
-url: "/privacy/"
-date: 2025-08-28
-lastmod: 2026-04-21
-draft: false
-toc: true
-description: "How we collect, use, and protect your personal data on this site. Details data collected, purposes, retention, GDPR rights, consent (Microsoft Clarity), international transfers, and security."
-type: "legal"
-layout: "legal"
----
++++
+title = 'Privacy Policy'
+slug = 'privacy'
+url = '/privacy/'
+date = 2025-08-28
+lastmod = 2026-04-21
+draft = false
+toc = true
+description = 'How we collect, use, and protect your personal data on this site. Details data collected, purposes, retention, GDPR rights, consent (Microsoft Clarity), international transfers, and security.'
+type = 'legal'
+layout = 'legal'
++++
 
 > **This page is provided as a helpful starting point and is _not_ legal advice.** \
 > Please adapt it to your situation and consult a professional if needed.

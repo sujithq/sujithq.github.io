@@ -1,15 +1,15 @@
----
-title: "Contact"
-slug: "contact"
-url: "/contact/"
-date: 2026-04-21
-lastmod: 2026-04-21
-draft: false
-toc: false
-description: "Get in touch with Sujith Quintelier for consulting, training, or collaboration opportunities."
-type: "legal"
-layout: "legal"
----
++++
+title = 'Contact'
+slug = 'contact'
+url = '/contact/'
+date = 2026-04-21
+lastmod = 2026-04-21
+draft = false
+toc = false
+description = 'Get in touch with Sujith Quintelier for consulting, training, or collaboration opportunities.'
+type = 'legal'
+layout = 'legal'
++++
 
 ## Get In Touch
 

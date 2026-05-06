@@ -1,15 +1,15 @@
----
-title: "Cookies Policy"
-slug: "cookies"
-url: "/cookies/"
-date: 2026-04-21
-lastmod: 2026-04-21
-draft: false
-toc: true
-description: "Learn about how cookies are used on quintelier.dev, what data is collected, and how to manage your consent preferences."
-type: "legal"
-layout: "legal"
----
++++
+title = 'Cookies Policy'
+slug = 'cookies'
+url = '/cookies/'
+date = 2026-04-21
+lastmod = 2026-04-21
+draft = false
+toc = true
+description = 'Learn about how cookies are used on quintelier.dev, what data is collected, and how to manage your consent preferences.'
+type = 'legal'
+layout = 'legal'
++++
 
 ## About This Policy
 
