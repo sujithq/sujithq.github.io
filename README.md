@@ -48,10 +48,31 @@ The following technologies were used to build this personal site:
 To run this personal site locally, follow these steps:
 
 1. Clone this repository: `git clone https://github.com/sujithq/sujithq.github.io.git`.
-2. Navigate to the project's directory: `cd sujithq.github.io.git`.
-3. Install any necessary dependencies: `go, hugo cli, dart-sass-embedded`.
-4. Start a local development server: `hugo server -p 1234`.
-5. Open your web browser and visit `http://localhost:1234` to view the site.
+2. Navigate to the project's directory: `cd sujithq.github.io`.
+3. Install the Node dependencies: `npm install`.
+4. Ensure Hugo Extended is installed and available on your `PATH`.
+
+## Local Running
+
+### Development server
+
+Use Hugo's default development server with live reload:
+
+```powershell
+hugo server -p 1234
+```
+
+Open `http://127.0.0.1:1234/`.
+
+### Production-like local server
+
+Use the production configuration locally, including the updates sync step:
+
+```powershell
+npm run serve:prod-local
+```
+
+This serves the site at `http://127.0.0.1:1234/` using the production environment.
 
 ## Usage
 
