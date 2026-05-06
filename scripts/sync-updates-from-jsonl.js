@@ -10,6 +10,7 @@ const OUT_ITEMS_DIR = 'content/updates2/items';
 const OUT_ROOT = 'content/updates2';
 const OUT_TIMEFRAMES_DIR = 'content/updates2/timeframes';
 const MAX_FILENAME_SLUG_LENGTH = 90;
+const GENERATED_BY = 'scripts/sync-updates-from-jsonl.js';
 
 function slugify(s) {
   return (s || '')
@@ -31,6 +32,23 @@ function toFilenameSlug(slug) {
 }
 
 function ensureDir(dir) { fs.mkdirSync(dir, { recursive: true }); }
+
+function tomlString(value) {
+  return JSON.stringify(value ?? '');
+}
+
+function buildGeneratedFilterIndexFrontMatter(fields) {
+  const lines = ['+++'];
+
+  for (const [key, value] of Object.entries(fields)) {
+    lines.push(`${key} = ${tomlString(value)}`);
+  }
+
+  lines.push(`generated_by = ${tomlString(GENERATED_BY)}`);
+  lines.push('+++');
+
+  return `${lines.join('\n')}\n`;
+}
 
 function buildItemFilename(item) {
   const title = (item.title || item.id || '').trim();
@@ -86,7 +104,13 @@ function pruneStaleFilterIndexes(expectedFilterIndexFiles) {
     }
 
     const content = fs.readFileSync(file, 'utf8');
-    if (!content.includes('type: "updates2-filter"')) {
+    const isLegacyGeneratedFilter = content.includes('type: "updates2-filter"');
+    const isTomlGeneratedFilter = content.includes('type = "updates2-filter"')
+      || content.includes("type = 'updates2-filter'");
+    const hasGeneratedMarker = content.includes(`generated_by = ${JSON.stringify(GENERATED_BY)}`)
+      || content.includes(`generated_by: ${JSON.stringify(GENERATED_BY)}`);
+
+    if (!isLegacyGeneratedFilter && !isTomlGeneratedFilter && !hasGeneratedMarker) {
       continue;
     }
 
@@ -266,13 +290,12 @@ ${it.llm?.Summary || ''}
 for (const cat of cats) {
   const dir = path.join(OUT_ROOT, slugify(cat));
   ensureDir(dir);
-  const stub = `---
-title: ${JSON.stringify(cat)}
-type: "updates2-filter"
-list_by: "category"
-update_category: "${cat}"
----
-`;
+  const stub = buildGeneratedFilterIndexFrontMatter({
+    title: cat,
+    type: 'updates2-filter',
+    list_by: 'category',
+    update_category: cat,
+  });
   const stubPath = path.join(dir, `_index.md`);
   fs.writeFileSync(stubPath, stub);
   expectedFilterIndexFiles.add(path.resolve(stubPath));
@@ -282,13 +305,12 @@ update_category: "${cat}"
 for (const tf of times) {
   const dir = path.join(OUT_TIMEFRAMES_DIR, slugify(tf));
   ensureDir(dir);
-  const stub = `---
-title: ${JSON.stringify(tf)}
-type: "updates2-filter"
-list_by: "timeframe"
-timeframe: "${tf}"
----
-`;
+  const stub = buildGeneratedFilterIndexFrontMatter({
+    title: tf,
+    type: 'updates2-filter',
+    list_by: 'timeframe',
+    timeframe: tf,
+  });
   const stubPath = path.join(dir, `_index.md`);
   fs.writeFileSync(stubPath, stub);
   expectedFilterIndexFiles.add(path.resolve(stubPath));
@@ -299,14 +321,13 @@ for (const combo of combos) {
   const [cat, tf] = combo.split(':::');
   const dir = path.join(OUT_ROOT, slugify(cat), slugify(tf));
   ensureDir(dir);
-  const stub = `---
-title: ${JSON.stringify(`${cat} — ${tf}`)}
-type: "updates2-filter"
-list_by: "category_timeframe"
-update_category: "${cat}"
-timeframe: "${tf}"
----
-`;
+  const stub = buildGeneratedFilterIndexFrontMatter({
+    title: `${cat} — ${tf}`,
+    type: 'updates2-filter',
+    list_by: 'category_timeframe',
+    update_category: cat,
+    timeframe: tf,
+  });
   const stubPath = path.join(dir, `_index.md`);
   fs.writeFileSync(stubPath, stub);
   expectedFilterIndexFiles.add(path.resolve(stubPath));
