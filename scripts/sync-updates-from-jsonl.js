@@ -10,6 +10,8 @@ const OUT_ITEMS_DIR = 'content/updates2/items';
 const OUT_ROOT = 'content/updates2';
 const OUT_TIMEFRAMES_DIR = 'content/updates2/timeframes';
 const MAX_FILENAME_SLUG_LENGTH = 90;
+// Generated updates2 filter indexes under content/updates2/**/_index.md should
+// not be edited by hand because this sync rewrites them on each run.
 const GENERATED_BY = 'scripts/sync-updates-from-jsonl.js';
 
 function slugify(s) {
