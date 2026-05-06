@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "clarity": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@microsoft/clarity-mcp-server@latest",
+        "--clarity_api_token",
+        "${CLARITY_API_TOKEN}"
+      ]
+    }
+  }
+}
