@@ -1,7 +1,7 @@
 // scripts/sync-updates-from-jsonl.js
-import fs from 'fs';
-import path from 'path';
-import crypto from 'crypto';
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
 
 const SRC = 'db/items.jsonl';
 const ARCHIVE = 'db/items.archive.jsonl';

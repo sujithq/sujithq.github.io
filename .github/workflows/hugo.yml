@@ -11,6 +11,15 @@ on:
     workflows: ["Publish due posts"]
     types: [completed]
   workflow_dispatch:
+    inputs:
+      run_prod_local_health:
+        description: 'Run Playwright local production health-check (Windows)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
 
 env:
   DOTNET_VERSION: '10.0.x'   # <= set once; eg '9.0.x' or '10.0.x'
@@ -211,6 +220,32 @@ jobs:
       #     folder: public
       #     clean: true
       #     single-commit: true
+
+
+  prod_local_health:
+    if: ${{ vars.RUN_PROD_LOCAL_HEALTH == 'true' || (github.event_name == 'workflow_dispatch' && github.event.inputs.run_prod_local_health == 'true') }}
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6.4.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Run local production health-check
+        run: npm run test:prod-local-health
 
 
   deploy_prod:
