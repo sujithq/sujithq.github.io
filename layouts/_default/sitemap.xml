@@ -7,7 +7,7 @@
   {{- range $pages }}
     {{- $robots := lower (default "index, follow" .Params.robots) }}
     {{- $isExcludedTools := and (in $excludedTypes .Type) (not .File) }}
-    {{- $isExcludedUpdates := and (eq .Section "updates2") (ne .Kind "section") }}
+    {{- $isExcludedUpdates := and (eq .Section "updates2") (strings.Contains .RelPermalink "/updates2/") }}
     {{- $isExcludedUpdatesV1 := eq .Section "updates" }}
     {{- $isExcluded := or $isExcludedTools $isExcludedUpdates $isExcludedUpdatesV1 }}
     {{- if and (not $isExcluded) (not (in $robots "noindex")) }}
