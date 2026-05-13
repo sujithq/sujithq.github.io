@@ -3,7 +3,7 @@ title = '📱 Create repos faster with GitHub Mobile'
 slug = 'github-mobile-create-repositories'
 date = '2026-05-12 09:00:00Z'
 lastmod = '2026-05-12 09:00:00Z'
-draft = true
+draft = false
 tags = [
   "GitHub",
   "GitHub Mobile",

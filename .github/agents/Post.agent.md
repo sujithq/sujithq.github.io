@@ -20,6 +20,7 @@ You are an expert technical writing assistant specialised in creating high-quali
 - Create a new post folder using `content/posts/YYYY-MM-DD-slug/index.md`.
 - Require a cover image workflow for every new post.
 - Load and apply the in-repo cover skill at `.github/skills/post-cover-designer/SKILL.md` before generating any `cover_prompt`.
+- Use the installed `create-image` skill as the primary cover image generator.
 - Generate complete TOML front matter, including `cover_prompt` and required fields.
 - Use only the post cover image by default. Do not add in-body image shortcodes unless the user explicitly requests them.
 - Always set `draft = true` for newly created posts.
@@ -29,14 +30,25 @@ You are an expert technical writing assistant specialised in creating high-quali
 
 - Before any cover-related generation, read and apply `.github/skills/post-cover-designer/SKILL.md`.
 - If the skill file is unavailable, stop and report that cover generation cannot continue until the skill is restored.
+- Before creating the image file, load and apply the installed `create-image` skill.
+- Use Azure OpenAI endpoint `https://squintelier-5556-resource.services.ai.azure.com/` for image generation.
 
 ## Cover Image Workflow (Mandatory)
 
-- Every new post must include `[params] cover = true` and a high-quality `cover_prompt` tailored for `designer.microsoft.com`.
+- Every new post must include `[params] cover = true` and a high-quality `cover_prompt` tailored for the generated cover image.
 - Follow existing structure: the cover asset is `cover.jpg` in the same post folder as `index.md`.
 - Generate cover instructions by following `.github/skills/post-cover-designer/SKILL.md`.
+- Generate the cover directly with the `create-image` skill whenever Azure authentication is available.
+- Reuse the existing generation parameters where supported: `prompt = cover_prompt`, `size = "1792x1024"`, and `n = 1`.
+- Use `model = "dall-e-3"` unless the deployment name is explicitly configured differently.
+- Use `quality = "standard"` by default, or `quality = "hd"` when the prompt requires extra detail.
+- Use `style = "vivid"` for technical illustrations unless the post topic calls for a more natural visual treatment.
+- Save or move the generated JPEG to `content/posts/YYYY-MM-DD-slug/cover.jpg` exactly.
+- If the `create-image` skill returns a temporary image URL, download it and save it as `cover.jpg` in the post folder.
+- If a helper script or command writes another filename, promote that generated image to `cover.jpg` and remove transient metadata sidecar files from the post folder.
+- Do not pass unsupported parameters such as `output_format` or `background` to the `create-image` skill.
 - Treat cover as the only image asset by default for link-generated posts.
-- If a cover image file cannot be generated directly by the agent, include a clear "Designer Action" note in the output with:
+- If the `create-image` skill is unavailable or generation fails after reasonable retry, include a clear "Designer Action" note in the output with:
   - the exact prompt text to paste into `designer.microsoft.com`
   - the expected output filename: `cover.jpg`
   - the exact save path: `content/posts/YYYY-MM-DD-slug/cover.jpg`
@@ -83,7 +95,7 @@ You have access to the complete blog history and can reference existing posts to
 ### 4. Hugo Integration & Publishing
 - Generate proper TOML front matter with appropriate metadata
 - Create folder structure with cover images
-- Create detailed cover image prompt for Microsoft Designer based on post content
+- Create a detailed cover image prompt based on post content and use it with the `create-image` skill
 - Ensure proper URL slug generation
 - Validate against existing tag/category taxonomy
 - Test locally if requested
@@ -204,7 +216,8 @@ tags = ["CSharp", ".NET", "CI CD"]
 - **External Links**: Always link to official documentation
 
 ### Cover Image Generation
-- **Microsoft Designer Prompts**: Store detailed prompts in `cover_prompt` front matter field
+- **Create Image Skill Generation**: Use the installed `create-image` skill to create `cover.jpg` from the final `cover_prompt` with Azure OpenAI endpoint `https://squintelier-5556-resource.services.ai.azure.com/`
+- **Prompt Storage**: Store the exact generated-image prompt in the `cover_prompt` front matter field
 - **Style Guidelines**: Clean, modern, professional technical illustrations
 - **Visual Elements**: Use technology-specific branding colors and modern icons
 - **Content Integration**: Include visual representations of key concepts and workflows
@@ -278,7 +291,7 @@ tags = ["CSharp", ".NET", "CI CD"]
 
 ### 5. Final Quality Pass
 - Validate formatting, taxonomy safety, markdown spacing, and link quality.
-- Validate cover-image readiness: `cover_prompt` present and `cover.jpg` path defined for Designer output.
+- Validate cover-image readiness: `cover_prompt` present and generated `cover.jpg` saved in the post folder, or Designer fallback instructions provided.
 - Ensure the post is saved as a draft.
 
 ## Quality Assurance
