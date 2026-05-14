@@ -70,11 +70,8 @@ metadata:
    - Semantic, accessible markup with clear headings and sections
    - Visual style should be professional and clean, suited to a resume context
 
-## Upload and PR
+## Create PR
 
-7. Upload the generated HTML as a GitHub Actions artifact so the run exposes the page directly
-   - Use `static/resume-infographic/index.html` as the upload path — ensure this file exists before calling the upload tool
-   - Do not call `upload_artifact` with a non-existent path
-8. Create a pull request (not draft) that adds or updates `static/resume-infographic/index.html`
-9. Enable auto-merge on the created pull request when possible
-10. Include in the PR description: a summary of the data sources used, confirmation the page is static with no active content, and that the artifact `static/resume-infographic/index.html` is attached to this run
+7. Create a pull request (not draft) that adds or updates `static/resume-infographic/index.html`
+8. Enable auto-merge on the created pull request when possible
+9. Include in the PR description: a summary of the data sources used and confirmation the page is static with no active content
