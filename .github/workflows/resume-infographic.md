@@ -12,7 +12,7 @@ engine: copilot
 tools:
   github:
     allowed-repos:
-      - sujithq/sujithq.github.io
+      - sujithq/*
     min-integrity: none
     toolsets: [repos, pull_requests]
 
