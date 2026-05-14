@@ -1,0 +1,81 @@
+---
+name: Resume Infographic Generator
+description: Generate resume infographic and create PR
+
+on:
+  workflow_dispatch:
+
+permissions: read-all
+
+engine: copilot
+
+tools:
+  github:
+    allowed-repos:
+      - sujithq/sujithq.github.io
+    min-integrity: none
+    toolsets: [repos, pull_requests]
+
+network:
+  allowed: ["defaults"]
+
+safe-outputs:
+  threat-detection:
+    prompt: |
+      This workflow is expected to generate a static infographic page.
+      Treat plain HTML and CSS used only for layout and styling as benign.
+      Flag only genuinely risky web content such as JavaScript, event handlers,
+      iframes, forms, remote scripts, external asset loading, credential capture,
+      data exfiltration, or hidden tracking behaviour.
+  upload-artifact:
+    max-uploads: 1
+    retention-days: 7
+    skip-archive: true
+    staged: false
+    defaults:
+      if-no-files: ignore
+    allowed-paths:
+      - static/resume-infographic/index.html
+      - resume-infographic.html
+  create-pull-request:
+    draft: false
+
+metadata:
+  inputs: "content/resume/experiences/_index.md, content/resume/accomplishments/_index.md, https://quintelier.dev/resume, https://www.linkedin.com/in/sujithquintelier"
+  outputs: "static/resume-infographic/index.html"
+---
+
+# Resume Infographic Generator
+
+## Data sources — collect all before generating
+
+1. **Work experience**: read `content/resume/experiences/_index.md` from the current repo (sujithq/sujithq.github.io)
+2. **Accomplishments and certifications**: read `content/resume/accomplishments/_index.md` from the current repo
+3. **Resume page**: fetch the live resume page at `https://quintelier.dev/resume` to extract any additional information visible to visitors
+4. **LinkedIn profile**: fetch `https://www.linkedin.com/in/sujithquintelier` to extract publicly available professional details such as headline, summary, skills, education, and endorsements — use only what is publicly accessible without authentication
+
+## Generate the infographic
+
+5. Synthesise all collected data into a resume-style infographic as a single static HTML file at `static/resume-infographic/index.html`.
+   Write the file to disk before calling any safe output tools. Do not rely only on a `create_pull_request` patch to materialise the file.
+   Include clearly labelled sections for:
+   - Profile summary (name, current role, location, contact and social links)
+   - Professional experience timeline (company, title, period, short description)
+   - Certifications and accomplishments (grouped by category: Microsoft/Azure, GitHub, Legacy, Applied Skills)
+   - Key skills and technology focus areas (derived from experience and certifications)
+   - Education or additional context if available from LinkedIn
+6. The HTML must be self-contained and safe:
+   - Inline CSS only — no external stylesheets, fonts, or scripts
+   - No JavaScript, event handlers, or inline scripts
+   - No iframes, forms, embeds, tracking pixels, or network requests
+   - Semantic, accessible markup with clear headings and sections
+   - Visual style should be professional and clean, suited to a resume context
+
+## Upload and PR
+
+7. Upload the generated HTML as a GitHub Actions artifact so the run exposes the page directly
+   - Use a path that already exists at upload time (`static/resume-infographic/index.html` or `resume-infographic.html`)
+   - Do not call `upload_artifact` with a non-existent path
+8. Create a pull request (not draft) that adds or updates `static/resume-infographic/index.html`
+9. Enable auto-merge on the created pull request when possible
+10. Include in the PR description: a summary of the data sources used, confirmation the page is static with no active content, and that the artifact `static/resume-infographic/index.html` is attached to this run
