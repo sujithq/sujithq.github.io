@@ -36,7 +36,6 @@ safe-outputs:
       if-no-files: ignore
     allowed-paths:
       - static/resume-infographic/index.html
-      - resume-infographic.html
   create-pull-request:
     draft: false
 
@@ -51,13 +50,13 @@ metadata:
 
 1. **Work experience**: read `content/resume/experiences/_index.md` from the current repo (sujithq/sujithq.github.io)
 2. **Accomplishments and certifications**: read `content/resume/accomplishments/_index.md` from the current repo
-3. **Resume page**: fetch the live resume page at `https://quintelier.dev/resume` to extract any additional information visible to visitors
-4. **LinkedIn profile**: fetch `https://www.linkedin.com/in/sujithquintelier` to extract publicly available professional details such as headline, summary, skills, education, and endorsements — use only what is publicly accessible without authentication
+3. **Resume page**: fetch the live resume page at `https://quintelier.dev/resume` to extract visible text content including page title, section headings, role descriptions, and any publicly displayed contact or profile information
+4. **LinkedIn profile**: fetch `https://www.linkedin.com/in/sujithquintelier` to read only the publicly accessible, unauthenticated view of the profile — extract headline, current role, location, and skills or endorsements visible without logging in; do not attempt to log in, bypass access controls, or scrape content that requires authentication
 
 ## Generate the infographic
 
 5. Synthesise all collected data into a resume-style infographic as a single static HTML file at `static/resume-infographic/index.html`.
-   Write the file to disk before calling any safe output tools. Do not rely only on a `create_pull_request` patch to materialise the file.
+   Write the file to disk before calling any safe output tools. Do not rely only on a `create_pull_request` patch to create the file on disk.
    Include clearly labelled sections for:
    - Profile summary (name, current role, location, contact and social links)
    - Professional experience timeline (company, title, period, short description)
@@ -74,7 +73,7 @@ metadata:
 ## Upload and PR
 
 7. Upload the generated HTML as a GitHub Actions artifact so the run exposes the page directly
-   - Use a path that already exists at upload time (`static/resume-infographic/index.html` or `resume-infographic.html`)
+   - Use `static/resume-infographic/index.html` as the upload path — ensure this file exists before calling the upload tool
    - Do not call `upload_artifact` with a non-existent path
 8. Create a pull request (not draft) that adds or updates `static/resume-infographic/index.html`
 9. Enable auto-merge on the created pull request when possible
