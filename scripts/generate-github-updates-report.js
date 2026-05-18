@@ -2,8 +2,21 @@ const fs = require('fs');
 const path = require('path');
 
 const ITEM_FILES = ['db/items.archive.jsonl', 'db/items.jsonl'];
-const REPORT_FILE = 'reports/github-latest-updates.md';
 const SOURCE = 'GitHub';
+
+function getArgValue(name, fallback) {
+  const prefix = `--${name}=`;
+  const arg = process.argv.find(value => value.startsWith(prefix));
+  return arg ? arg.slice(prefix.length) : fallback;
+}
+
+const scope = getArgValue('scope', 'github');
+const reportFile = getArgValue(
+  'output',
+  scope === 'copilot'
+    ? 'reports/github-copilot-latest-updates.md'
+    : 'reports/github-latest-updates.md'
+);
 
 function readJsonl(file) {
   if (!fs.existsSync(file)) {
@@ -101,6 +114,33 @@ function getLifecycleLabel(item) {
   return 'Update';
 }
 
+function isCopilotRelated(item) {
+  const text = [
+    item.title,
+    item.llm?.Summary,
+    ...(item.llm?.Bullets || []),
+    ...(item.llm?.Tags || []),
+  ]
+    .join(' ')
+    .toLowerCase();
+
+  return [
+    'copilot',
+    'codex',
+    'gpt-',
+    'claude',
+    'gemini',
+    'grok',
+    'opus',
+    'sonnet',
+    'haiku',
+    'auto model selection',
+    'model picker',
+    'bring your own key',
+    'byok',
+  ].some(term => text.includes(term));
+}
+
 function escapeTableCell(value) {
   return String(value || '')
     .replace(/\r?\n/g, ' ')
@@ -141,7 +181,28 @@ function pickLatestByFeature(items) {
     .sort((left, right) => new Date(left.published) - new Date(right.published));
 }
 
+function getReportMetadata() {
+  if (scope === 'copilot') {
+    return {
+      title: 'GitHub Copilot Latest Updates Timeline',
+      slug: 'github-copilot-latest-updates-timeline',
+      summary: 'Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.',
+      heading: 'GitHub Copilot Latest Updates Timeline',
+      filterNote: 'The list is filtered to GitHub Copilot updates and updates that affect Copilot usage, models, agents, IDE integrations, metrics, or enterprise controls.',
+    };
+  }
+
+  return {
+    title: 'GitHub Latest Updates Timeline',
+    slug: 'github-latest-updates-timeline',
+    summary: 'Deduplicated chronological list of GitHub-sourced feature updates.',
+    heading: 'GitHub Latest Updates Timeline',
+    filterNote: 'The list includes all GitHub-sourced updates available in the local feed data.',
+  };
+}
+
 function renderReport(items) {
+  const metadata = getReportMetadata();
   const newestItem = items.at(-1);
   const reportDate = newestItem
     ? new Date(newestItem.published).toISOString().slice(0, 10)
@@ -157,9 +218,9 @@ function renderReport(items) {
   });
 
   return `---
-post_title: GitHub Latest Updates Timeline
+post_title: ${metadata.title}
 author1: Sujith Quintelier
-post_slug: github-latest-updates-timeline
+post_slug: ${metadata.slug}
 microsoft_alias: suquinte
 featured_image: ""
 categories:
@@ -169,16 +230,18 @@ tags:
   - Copilot
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
-summary: Deduplicated chronological list of GitHub-sourced feature updates.
+summary: ${metadata.summary}
 post_date: ${reportDate}
 generated_by: scripts/generate-github-updates-report.js
 ---
 
-## GitHub Latest Updates Timeline
+## ${metadata.heading}
 
 This report is stored outside the Hugo site content folders. It is based on
 \`db/items.archive.jsonl\` and \`db/items.jsonl\`, filtered to items where
 \`source\` is \`GitHub\`.
+
+${metadata.filterNote}
 
 The list is chronological and deduplicated by feature lifecycle. When a feature
 appeared in preview and later became generally available, only the latest state
@@ -195,10 +258,14 @@ const githubItems = ITEM_FILES
   .flatMap(readJsonl)
   .filter(item => item.source === SOURCE && item.title && item.link && item.published);
 
-const latestItems = pickLatestByFeature(githubItems);
+const scopedItems = scope === 'copilot'
+  ? githubItems.filter(isCopilotRelated)
+  : githubItems;
+const latestItems = pickLatestByFeature(scopedItems);
 const report = renderReport(latestItems);
 
-fs.mkdirSync(path.dirname(REPORT_FILE), { recursive: true });
-fs.writeFileSync(REPORT_FILE, report, 'utf8');
+fs.mkdirSync(path.dirname(reportFile), { recursive: true });
+fs.writeFileSync(reportFile, report, 'utf8');
 
-console.log(`Wrote ${latestItems.length} GitHub updates to ${REPORT_FILE}.`);
+const scopeLabel = scope === 'copilot' ? 'GitHub Copilot-related' : 'GitHub';
+console.log(`Wrote ${latestItems.length} ${scopeLabel} updates to ${reportFile}.`);

@@ -22,6 +22,8 @@ This report is stored outside the Hugo site content folders. It is based on
 `db/items.archive.jsonl` and `db/items.jsonl`, filtered to items where
 `source` is `GitHub`.
 
+The list includes all GitHub-sourced updates available in the local feed data.
+
 The list is chronological and deduplicated by feature lifecycle. When a feature
 appeared in preview and later became generally available, only the latest state
 is shown. When a deprecation notice was followed by completed deprecation, the
