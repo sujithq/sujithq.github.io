@@ -14,11 +14,14 @@
     "simulate-series": "node scripts/simulate-series.js --series 'CSharp Async Await' --root-date 2025-09-17 --steps 7 --interval-days 7",
     "simulate-week1": "node scripts/publish-due-posts.js && node scripts/activate-series-links.js --series 'CSharp Async Await' --root-date 2025-09-17 --simulate --now 2025-09-24T12:00:00Z",
     "fix-updates2-filenames": "node scripts/shorten-updates2-item-filenames.js",
-    "serve:prod-local": "node scripts/sync-updates-from-jsonl.js && hugo -e production --gc --minify -D -F --baseURL http://127.0.0.1:1234/ && node scripts/serve-public.js",
-    "prebuild": "node scripts/sync-updates-from-jsonl.js",
+    "backfill-github-changelog": "node scripts/backfill-github-changelog.js --months=13",
+    "generate-github-report": "node scripts/generate-github-updates-report.js",
+    "sync-updates": "node scripts/sync-updates-from-jsonl.js && npm run generate-github-report",
+    "serve:prod-local": "npm run sync-updates && hugo -e production --gc --minify -D -F --baseURL http://127.0.0.1:1234/ && node scripts/serve-public.js",
+    "prebuild": "npm run sync-updates",
     "build": "hugo -e production --cleanDestinationDir --gc --minify -D -F",
     "validate-workflows": "node scripts/validate-agentic-workflow.js .github/workflows/security-advisory-responder.md && node scripts/validate-agentic-workflow.js .github/workflows/content-qa.md",
-    "build:prod": "node scripts/sync-updates-from-jsonl.js && hugo -e production --cleanDestinationDir --gc --minify -D -F"
+    "build:prod": "npm run sync-updates && hugo -e production --cleanDestinationDir --gc --minify -D -F"
   },
   "keywords": [],
   "author": "",
