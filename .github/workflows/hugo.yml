@@ -162,7 +162,7 @@ jobs:
 
 
       - name: Build Update pages
-        run: node scripts/sync-updates-from-jsonl.js
+        run: npm run sync-updates
 
       - name: Build
         if: always()
@@ -189,7 +189,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin main
           git pull --rebase --autostash origin main || true
-          git add db/ content/ state/
+          git add db/ content/ state/ reports/
           if git diff --staged --quiet; then
             echo "No changes."
             exit 0
