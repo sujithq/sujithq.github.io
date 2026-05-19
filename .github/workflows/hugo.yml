@@ -282,8 +282,7 @@ jobs:
     # otherwise secrets (PAT) are not available on pull_request.
     if: |
       github.event_name == 'pull_request' &&
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.actor != 'dependabot[bot]'
+      github.event.pull_request.head.repo.full_name == github.repository
     permissions:
       contents: read
     steps:
