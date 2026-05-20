@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-05-18
+post_date: 2026-05-19
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -862,3 +862,8 @@ completed deprecation is shown.
 | 2026-05-18 | [Ask questions in context with Copilot on web](https://github.blog/changelog/2026-05-18-ask-questions-in-context-with-copilot-on-web) | Update | Copilot chat on the web now opens directly on the page you’re viewing, so you can ask questions in context with less switching between pages. |
 | 2026-05-18 | [Copilot cloud agent: Fast, cost-efficient models for simple tasks](https://github.blog/changelog/2026-05-18-copilot-cloud-agent-fast-cost-efficient-models-for-simple-tasks) | Update | GitHub Copilot cloud agent now supports additional models, letting users choose fast, cost-efficient options for simpler tasks. The change expands the set of models available when delegating work to the cloud agent. |
 | 2026-05-18 | [One-click fixes for failing Actions with Copilot cloud agent](https://github.blog/changelog/2026-05-18-one-click-fixes-for-failing-actions-with-copilot-cloud-agent) | Update | GitHub Actions failures can now be handed to Copilot cloud agent with one click for Copilot Business and Copilot Enterprise subscribers. The new "Fix with Copilot" button starts an automated fix flow for failed jobs. |
+| 2026-05-19 | [Removal of code_scanning_upload field from rate_limit API endpoint](https://github.blog/changelog/2026-05-19-removal-of-code_scanning_upload-field-from-rate_limit-api-endpoint) | Update | GitHub removed the `code_scanning_upload` field from the REST API `rate_limit` endpoint response as of May 19, 2026. The field no longer appears in the `resources` object. |
+| 2026-05-19 | [Start a GitHub Advanced Security trial from a risk assessment](https://github.blog/changelog/2026-05-19-start-a-github-advanced-security-trial-from-a-risk-assessment) | Update | Eligible enterprise admins can start a GitHub Advanced Security trial directly from a Secret Protection or Code Security risk assessment. This lets them begin evaluating the products without leaving the assessment flow. |
+| 2026-05-19 | [Expanded OIDC support for Dependabot and code scanning](https://github.blog/changelog/2026-05-19-expanded-oidc-support-for-dependabot-and-code-scanning) | Update | Dependabot and code scanning now support OpenID Connect (OIDC) authentication for organization-level private registries on Cloudsmith and Google Artifact Registry. |
+| 2026-05-19 | [Gemini 3.5 Flash is generally available for GitHub Copilot](https://github.blog/changelog/2026-05-19-gemini-3-5-flash-is-generally-available-for-github-copilot) | Generally available | Gemini 3.5 Flash is now generally available in GitHub Copilot. GitHub says it is rolling out broadly and positions it as a Flash-tier model with near-Pro coding quality, but the note does not include technical details beyond that. |
+| 2026-05-19 | [Easily apply Copilot code review feedback with Copilot cloud agent](https://github.blog/changelog/2026-05-19-easily-apply-copilot-code-review-feedback-with-copilot-cloud-agent) | Update | GitHub renamed Copilot code review’s "Implement suggestion" button to "Fix with Copilot". The updated flow now includes a UI dialog for more control when applying suggestions with the Copilot cloud agent. |
