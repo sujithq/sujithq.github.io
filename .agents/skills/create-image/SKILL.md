@@ -59,8 +59,8 @@ client = AzureOpenAI(
 result = client.images.generate(
     model="gpt-image-2",
     prompt="A serene mountain landscape at sunset",
-    size="1024x1024",
-    quality="standard"
+    size="1536x1024",
+    quality="medium"
 )
 
 print(result.data[0].url)
@@ -70,8 +70,8 @@ print(result.data[0].url)
 
 - `prompt`: Description of the image (1-4000 chars, required)
 - `model`: `gpt-image-2` or `gpt-image-1.5` (use deployment name)
-- `size`: `1024x1024`, `1024x1792`, or `1792x1024` (default: `1024x1024`)
-- `quality`: `standard` or `hd` (default: `standard`)
+- `size`: Use model-supported dimensions such as `1024x1024`, `1024x1536`, or `1536x1024` (default: `1024x1024`)
+- `quality`: `low`, `medium`, `high`, or `auto` for GPT Image models (use `medium` by default)
 - `n`: Number of images (model-specific limits apply)
 - `style`: Optional stylistic control if supported by the deployed model
 
@@ -80,8 +80,8 @@ print(result.data[0].url)
 1. Be specific and descriptive
 2. Include style, mood, and atmosphere details
 3. Specify key visual elements and composition
-4. Use portrait (`1024x1792`) for vertical, landscape (`1792x1024`) for horizontal images
-5. Use `hd` quality only when user specifically requests high detail
+4. Use portrait (`1024x1536`) for vertical, landscape (`1536x1024`) for horizontal images
+5. Use `high` quality only when the user specifically requests extra detail; use `low` for faster or lower-cost drafts
 
 ## Output
 
