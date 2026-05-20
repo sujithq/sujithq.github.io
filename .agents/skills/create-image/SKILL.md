@@ -1,16 +1,18 @@
 ---
-description: Generate images using Azure OpenAI DALL-E models. Use this skill when the user asks to create images, generate visuals, or produce artwork using AI.
+description: Generate images using Azure OpenAI GPT Image models. Use this skill when the user asks to create images, generate visuals, or produce artwork using AI.
 license: MIT
 metadata:
     github-path: skills/create-image
-    github-ref: refs/tags/v1.8.0
+    github-ref: refs/tags/v1.9.0
     github-repo: https://github.com/sujithq/skills
-    github-tree-sha: 8a852c3020100b36500a1ec9f1861907b7f49821
+    github-tree-sha: e127627414a7b0b5d250ff91e32a4af401a5f791
+    github-commit-sha: de17fc6ae58a0c6f1ce428d7fa9edb0d3afa308e
+    version: v1.9.0
 name: create-image
 ---
 # Image Generation with Azure OpenAI
 
-This skill generates images using Azure OpenAI's DALL-E models through direct API calls.
+This skill generates images using Azure OpenAI GPT Image models through direct API calls.
 
 ## When to use
 
@@ -22,7 +24,7 @@ This skill generates images using Azure OpenAI's DALL-E models through direct AP
 ## Prerequisites
 
 User must have:
-1. Azure OpenAI resource with deployed DALL-E model (`dall-e-3` or `dall-e-2`)
+1. Azure OpenAI resource with deployed GPT Image model (`gpt-image-2` or `gpt-image-1.5`)
 2. Azure authentication configured:
    - **Recommended**: Azure CLI (`az login`) with "Cognitive Services OpenAI User" role
    - **Alternative**: API key (if enabled on the endpoint)
@@ -55,7 +57,7 @@ client = AzureOpenAI(
 )
 
 result = client.images.generate(
-    model="dall-e-3",
+    model="gpt-image-2",
     prompt="A serene mountain landscape at sunset",
     size="1024x1024",
     quality="standard"
@@ -67,11 +69,11 @@ print(result.data[0].url)
 ### Parameters
 
 - `prompt`: Description of the image (1-4000 chars, required)
-- `model`: `dall-e-3` or `dall-e-2` (use deployment name)
+- `model`: `gpt-image-2` or `gpt-image-1.5` (use deployment name)
 - `size`: `1024x1024`, `1024x1792`, or `1792x1024` (default: `1024x1024`)
 - `quality`: `standard` or `hd` (default: `standard`)
-- `n`: Number of images (1 for dall-e-3, 1-10 for dall-e-2)
-- `style`: `natural` or `vivid` (dall-e-3 only)
+- `n`: Number of images (model-specific limits apply)
+- `style`: Optional stylistic control if supported by the deployed model
 
 ### Prompt crafting tips
 
