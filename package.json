@@ -4,6 +4,7 @@
   "description": "Sujith Quintelier\r https://quintelier.dev/",
   "main": "index.js",
   "scripts": {
+    "clean:public": "node scripts/clean-public.js",
     "copy-files": "node scripts/copy-files.js",
     "postinstall": "npm run copy-files",
     "test": "playwright test",
@@ -19,10 +20,11 @@
     "generate-github-copilot-report": "node scripts/generate-github-updates-report.js --scope=copilot",
     "sync-updates": "node scripts/sync-updates-from-jsonl.js && npm run generate-github-report && npm run generate-github-copilot-report",
     "serve:prod-local": "npm run sync-updates && hugo -e production --gc --minify -D -F --baseURL http://127.0.0.1:1234/ && node scripts/serve-public.js",
-    "prebuild": "npm run sync-updates",
-    "build": "hugo -e production --cleanDestinationDir --gc --minify -D -F",
+    "prebuild": "npm run clean:public && npm run sync-updates",
+    "prebuild:prod": "npm run clean:public && npm run sync-updates",
+    "build": "hugo -e production --gc --minify -D -F --templateMetrics --templateMetricsHints",
     "validate-workflows": "node scripts/validate-agentic-workflow.js .github/workflows/security-advisory-responder.md && node scripts/validate-agentic-workflow.js .github/workflows/content-qa.md",
-    "build:prod": "npm run sync-updates && hugo -e production --cleanDestinationDir --gc --minify -D -F"
+    "build:prod": "hugo -e production --gc --minify -D -F --templateMetrics --templateMetricsHints"
   },
   "keywords": [],
   "author": "",

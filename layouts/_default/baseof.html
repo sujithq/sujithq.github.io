@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}" data-bs-theme="{{ .Site.Params.theme }}" tabindex="0">
     <head>
-        {{ partial "head" . }}
+        {{ partialCached "head" . }}
     </head>
     <body>
         <header id="header" class="header sticky-top">

@@ -88,10 +88,8 @@
                 <hr class="d-lg-none my-2 text-white-50">
               </li>
               <li class="nav-item">
-                {{- $query := first 1 (where .Site.Pages "Layout" "==" "search") -}}
-                {{- if $query -}}
-                    {{- $searchPage := index $query 0 -}}
-                    <form class="d-flex search-form align-items-center" action="{{ $searchPage.RelPermalink }}" {{ with .OutputFormats.Get "json" -}}data-json="{{ .Permalink }}" {{- end }} data-bs-theme="dark">
+                {{- with site.GetPage "/search" -}}
+                    <form class="d-flex search-form align-items-center" action="{{ .RelPermalink }}" {{ with $.OutputFormats.Get "json" -}}data-json="{{ .Permalink }}" {{- end }} data-bs-theme="dark">
                         <input name="keyword" class="form-control me-2" type="search" placeholder="keywords">
                         <button title="Search" class="btn btn-secondary" type="submit">
                             <svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"></path><circle cx="10" cy="10" r="7"></circle><line x1="21" y1="21" x2="15" y2="15"></line></svg>

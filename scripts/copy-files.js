@@ -1,6 +1,45 @@
 const fs = require('fs');
 const path = require('path');
 
+const COPY_RETRY_ERRORS = new Set(['EPERM', 'EBUSY']);
+const COPY_RETRIES = 3;
+const COPY_RETRY_DELAY_MS = 150;
+
+let copiedCount = 0;
+let skippedCount = 0;
+
+function sleepSync(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+function copyFileWithRetry(sourceFile, destinationFile) {
+  for (let attempt = 1; attempt <= COPY_RETRIES; attempt++) {
+    try {
+      fs.copyFileSync(sourceFile, destinationFile);
+      copiedCount += 1;
+      return true;
+    } catch (error) {
+      const isRetryable = COPY_RETRY_ERRORS.has(error.code);
+      const isLastAttempt = attempt === COPY_RETRIES;
+
+      if (isRetryable && !isLastAttempt) {
+        sleepSync(COPY_RETRY_DELAY_MS);
+        continue;
+      }
+
+      if (isRetryable) {
+        skippedCount += 1;
+        console.warn(`\x1b[33mSkipped locked file '${destinationFile}' (${error.code}).\x1b[0m`);
+        return false;
+      }
+
+      throw error;
+    }
+  }
+
+  return false;
+}
+
 // List of vendors and files to copy
 const filesToCopy = [
   { vendor: "aos", fileName: "dist/aos.js", destination: "assets/vendor/aos/js", source: "node_modules" },
@@ -40,8 +79,6 @@ function copyNodeModuleFile(source, vendor, fileName, destination) {
   if (!fs.existsSync(vendorPath)) {
     console.error(`\x1b[31mVendor path '${vendorPath}' does not exist.\x1b[0m`);
     return;
-  } else {
-    console.log(`\x1b[33mVendor path '${vendorPath}' exists.\x1b[0m`);
   }
   console.log(`\x1b[33mVendor path '${vendorPath}' exists.\x1b[0m`);
 
@@ -57,9 +94,10 @@ function copyNodeModuleFile(source, vendor, fileName, destination) {
 
   // Copy the file
   const destinationFile = path.join(destination, path.basename(fileName));
-  fs.copyFileSync(sourceFile, destinationFile);
-
-  console.log(`\x1b[32mCopied '${sourceFile}' to '${destinationFile}'.\x1b[0m`);
+  const didCopy = copyFileWithRetry(sourceFile, destinationFile);
+  if (didCopy) {
+    console.log(`\x1b[32mCopied '${sourceFile}' to '${destinationFile}'.\x1b[0m`);
+  }
 }
 
 // Loop through each entry and call copyNodeModuleFile
@@ -74,9 +112,10 @@ Promise.all(filesToCopy.map(entry => {
     }
   });
 })).then(() => {
-  console.log("\x1b[32mAll files copied successfully!\x1b[0m");
+  console.log("\x1b[32mVendor files copy phase complete.\x1b[0m");
 }).catch(error => {
   console.error(`\x1b[31mError copying files: ${error.message}\x1b[0m`);
+  process.exitCode = 1;
 });
 
 /**
@@ -102,8 +141,10 @@ function copyFolderRecursiveSync(source, destination) {
     if (entry.isDirectory()) {
       copyFolderRecursiveSync(sourcePath, destinationPath);
     } else {
-      fs.copyFileSync(sourcePath, destinationPath);
-      console.log(`\x1b[32mCopied '${sourcePath}' to '${destinationPath}'.\x1b[0m`);
+      const didCopy = copyFileWithRetry(sourcePath, destinationPath);
+      if (didCopy) {
+        console.log(`\x1b[32mCopied '${sourcePath}' to '${destinationPath}'.\x1b[0m`);
+      }
     }
   }
 }
@@ -115,4 +156,4 @@ copyFolderRecursiveSync('node_modules/prismjs/themes', 'static/vendor/prismjs/cs
 copyFolderRecursiveSync('node_modules/prismjs/themes', 'assets/vendor/prismjs/css');
 copyFolderRecursiveSync('node_modules/@fortawesome/fontawesome-free/webfonts', 'static/vendor/fontawesome/webfonts');
 
-console.log("\x1b[32mAll files copied successfully!\x1b[0m");
+console.log(`\x1b[32mCopy complete: ${copiedCount} copied, ${skippedCount} skipped.\x1b[0m`);

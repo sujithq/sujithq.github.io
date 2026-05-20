@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Hugo Site in Devcontainer",
+			"type": "shell",
+			"command": "npm",
+			"args": ["run", "build:prod"],
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}
