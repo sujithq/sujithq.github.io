@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-05-19
+post_date: 2026-05-20
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -867,3 +867,6 @@ completed deprecation is shown.
 | 2026-05-19 | [Expanded OIDC support for Dependabot and code scanning](https://github.blog/changelog/2026-05-19-expanded-oidc-support-for-dependabot-and-code-scanning) | Update | Dependabot and code scanning now support OpenID Connect (OIDC) authentication for organization-level private registries on Cloudsmith and Google Artifact Registry. |
 | 2026-05-19 | [Gemini 3.5 Flash is generally available for GitHub Copilot](https://github.blog/changelog/2026-05-19-gemini-3-5-flash-is-generally-available-for-github-copilot) | Generally available | Gemini 3.5 Flash is now generally available in GitHub Copilot. GitHub says it is rolling out broadly and positions it as a Flash-tier model with near-Pro coding quality, but the note does not include technical details beyond that. |
 | 2026-05-19 | [Easily apply Copilot code review feedback with Copilot cloud agent](https://github.blog/changelog/2026-05-19-easily-apply-copilot-code-review-feedback-with-copilot-cloud-agent) | Update | GitHub renamed Copilot code review’s "Implement suggestion" button to "Fix with Copilot". The updated flow now includes a UI dialog for more control when applying suggestions with the Copilot cloud agent. |
+| 2026-05-20 | [Semantic issue search in Copilot Chat](https://github.blog/changelog/2026-05-20-semantic-issue-search-in-copilot-chat) | Update | GitHub Copilot Chat on the web now supports natural-language issue search, grouping, and analysis using a new semantic issues index. Results are context-aware and intended to help users find relevant issues more quickly. |
+| 2026-05-20 | [Auto model selection now routes based on your task in VS Code](https://github.blog/changelog/2026-05-20-auto-model-selection-now-routes-based-on-your-task-in-vs-code) | Update | GitHub Copilot auto model selection in VS Code now routes tasks to the best model based on utilization and model health metrics. GitHub says this is intended to improve quality, reliability, and token efficiency. |
+| 2026-05-20 | [Updates to available models in Copilot on web](https://github.blog/changelog/2026-05-20-updates-to-available-models-in-copilot-on-web) | Update | GitHub updated the model selection available for Copilot Chat on the web to improve consistency and response quality. The post says model choice is being limited, but the provided excerpt does not include the full list of changes. |
