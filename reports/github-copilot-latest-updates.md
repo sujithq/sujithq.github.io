@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-05-20
+post_date: 2026-05-21
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -417,3 +417,4 @@ completed deprecation is shown.
 | 2026-05-20 | [Auto model selection now routes based on your task in VS Code](https://github.blog/changelog/2026-05-20-auto-model-selection-now-routes-based-on-your-task-in-vs-code) | Update | GitHub Copilot auto model selection in VS Code now routes tasks to the best model based on utilization and model health metrics. GitHub says this is intended to improve quality, reliability, and token efficiency. |
 | 2026-05-20 | [Updates to available models in Copilot on web](https://github.blog/changelog/2026-05-20-updates-to-available-models-in-copilot-on-web) | Update | GitHub updated the model selection available for Copilot Chat on the web to improve consistency and response quality. The post says model choice is being limited, but the provided excerpt does not include the full list of changes. |
 | 2026-05-20 | [Copilot usage metrics reports now use GitHub-owned download URLs](https://github.blog/changelog/2026-05-20-copilot-usage-metrics-reports-now-use-github-owned-download-urls) | Update | Copilot usage metrics report downloads now use a GitHub-owned custom domain instead of Azure Front Door URLs. GitHub says this improves URL stability. |
+| 2026-05-21 | [GitHub Copilot for Eclipse is open source](https://github.blog/changelog/2026-05-21-github-copilot-for-eclipse-is-open-source) | Update | GitHub Copilot for Eclipse is now open source. The code is available on GitHub under the MIT license. |
