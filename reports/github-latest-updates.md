@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-05-21
+post_date: 2026-05-22
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -874,3 +874,4 @@ completed deprecation is shown.
 | 2026-05-20 | [Copilot usage metrics reports now use GitHub-owned download URLs](https://github.blog/changelog/2026-05-20-copilot-usage-metrics-reports-now-use-github-owned-download-urls) | Update | Copilot usage metrics report downloads now use a GitHub-owned custom domain instead of Azure Front Door URLs. GitHub says this improves URL stability. |
 | 2026-05-21 | [Issue fields are now in public preview for all organizations](https://github.blog/changelog/2026-05-21-issue-fields-are-now-in-public-preview-for-all-organizations) | Public preview | GitHub has made issue fields available in public preview for all organizations on github.com and GitHub Enterprise Cloud with data residency. The feature lets teams define typed metadata on issues, such as Priority and Effort. |
 | 2026-05-21 | [GitHub Copilot for Eclipse is open source](https://github.blog/changelog/2026-05-21-github-copilot-for-eclipse-is-open-source) | Update | GitHub Copilot for Eclipse is now open source. The code is available on GitHub under the MIT license. |
+| 2026-05-22 | [Staged publishing and new install-time controls for npm](https://github.blog/changelog/2026-05-22-staged-publishing-and-new-install-time-controls-for-npm) | Update | GitHub announced two npm supply-chain security updates: staged publishing is now generally available, and npm install gets new source अनुमति flags for file, remote, and directory dependencies. These new flags extend the existing --allow-git control. |
