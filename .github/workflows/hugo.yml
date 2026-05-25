@@ -108,6 +108,7 @@ jobs:
         run: dotnet build src/Crawler/Crawler.csproj -c Release --no-restore
 
       - name: Run crawler and sync artifacts
+        id: crawler
         continue-on-error: true
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -159,6 +160,18 @@ jobs:
           echo "::group::Repo state/ tree"
           ls -laR state || true
           echo "::endgroup::"
+
+      - name: Report crawler failure
+        if: ${{ always() && steps.crawler.outcome == 'failure' }}
+        shell: bash
+        run: |
+          message="Crawler failed, but the workflow will continue with the last available generated data."
+          echo "::warning::${message}"
+          {
+            echo "## Crawler warning"
+            echo
+            echo "${message}"
+          } >> "$GITHUB_STEP_SUMMARY"
 
 
       - name: Build Update pages
