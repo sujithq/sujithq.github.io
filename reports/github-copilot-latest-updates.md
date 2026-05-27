@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-05-21
+post_date: 2026-05-26
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -418,3 +418,5 @@ completed deprecation is shown.
 | 2026-05-20 | [Updates to available models in Copilot on web](https://github.blog/changelog/2026-05-20-updates-to-available-models-in-copilot-on-web) | Update | GitHub updated the model selection available for Copilot Chat on the web to improve consistency and response quality. The post says model choice is being limited, but the provided excerpt does not include the full list of changes. |
 | 2026-05-20 | [Copilot usage metrics reports now use GitHub-owned download URLs](https://github.blog/changelog/2026-05-20-copilot-usage-metrics-reports-now-use-github-owned-download-urls) | Update | Copilot usage metrics report downloads now use a GitHub-owned custom domain instead of Azure Front Door URLs. GitHub says this improves URL stability. |
 | 2026-05-21 | [GitHub Copilot for Eclipse is open source](https://github.blog/changelog/2026-05-21-github-copilot-for-eclipse-is-open-source) | Update | GitHub Copilot for Eclipse is now open source. The code is available on GitHub under the MIT license. |
+| 2026-05-26 | [Target Copilot models to organizations with model rules](https://github.blog/changelog/2026-05-26-target-copilot-models-to-organizations-with-model-rules) | Update | GitHub added targeted Copilot model rules for enterprise owners. This lets them control which Copilot models are available to each organization, instead of applying the same model availability across the whole enterprise. |
+| 2026-05-26 | [Copilot Memory has more controls for deletion, scope, and the Copilot CLI](https://github.blog/changelog/2026-05-26-copilot-memory-has-more-controls-for-deletion-scope-and-the-copilot-cli) | Update | GitHub updated Copilot Memory with better deletion controls, a repository-level disable option, and additional memory controls in Copilot CLI. The feature remains in public preview. |
