@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-05-26
+post_date: 2026-05-28
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -882,3 +882,6 @@ completed deprecation is shown.
 | 2026-05-26 | [Target Copilot models to organizations with model rules](https://github.blog/changelog/2026-05-26-target-copilot-models-to-organizations-with-model-rules) | Update | GitHub added targeted Copilot model rules for enterprise owners. This lets them control which Copilot models are available to each organization, instead of applying the same model availability across the whole enterprise. |
 | 2026-05-26 | [GitHub Code Quality: Repository Enablement API](https://github.blog/changelog/2026-05-26-github-code-quality-repository-enablement-api) | Update | GitHub Code Quality now has a Repository Enablement API in public preview. It adds two new endpoints to programmatically enable and configure Code Quality on individual repositories. |
 | 2026-05-26 | [Copilot Memory has more controls for deletion, scope, and the Copilot CLI](https://github.blog/changelog/2026-05-26-copilot-memory-has-more-controls-for-deletion-scope-and-the-copilot-cli) | Update | GitHub updated Copilot Memory with better deletion controls, a repository-level disable option, and additional memory controls in Copilot CLI. The feature remains in public preview. |
+| 2026-05-28 | [Claude Opus 4.8 is generally available for GitHub Copilot](https://github.blog/changelog/2026-05-28-claude-opus-4-8-is-generally-available-for-github-copilot) | Generally available | Claude Opus 4.8 is now generally available in GitHub Copilot. GitHub says early testing showed improved code understanding and generation compared with earlier models. |
+| 2026-05-28 | [CodeQL 2.25.5 improves query accuracy for GitHub Actions](https://github.blog/changelog/2026-05-28-codeql-2-25-5-improves-query-accuracy-for-github-actions) | Update | CodeQL 2.25.5 was released with query accuracy improvements for GitHub Actions, along with additional accuracy improvements across C/C++. |
+| 2026-05-28 | [Hard budget limits now available for GitHub Advanced Security](https://github.blog/changelog/2026-05-28-hard-budget-limits-now-available-for-github-advanced-security) | Update | GitHub Advanced Security now supports hard budget limits for GHAS SKUs, allowing enterprise admins and billing managers to prevent teams from exceeding allocated license budgets. This applies to license-based GHAS products. |

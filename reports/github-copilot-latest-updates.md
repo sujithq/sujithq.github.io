@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-05-26
+post_date: 2026-05-28
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -420,3 +420,4 @@ completed deprecation is shown.
 | 2026-05-21 | [GitHub Copilot for Eclipse is open source](https://github.blog/changelog/2026-05-21-github-copilot-for-eclipse-is-open-source) | Update | GitHub Copilot for Eclipse is now open source. The code is available on GitHub under the MIT license. |
 | 2026-05-26 | [Target Copilot models to organizations with model rules](https://github.blog/changelog/2026-05-26-target-copilot-models-to-organizations-with-model-rules) | Update | GitHub added targeted Copilot model rules for enterprise owners. This lets them control which Copilot models are available to each organization, instead of applying the same model availability across the whole enterprise. |
 | 2026-05-26 | [Copilot Memory has more controls for deletion, scope, and the Copilot CLI](https://github.blog/changelog/2026-05-26-copilot-memory-has-more-controls-for-deletion-scope-and-the-copilot-cli) | Update | GitHub updated Copilot Memory with better deletion controls, a repository-level disable option, and additional memory controls in Copilot CLI. The feature remains in public preview. |
+| 2026-05-28 | [Claude Opus 4.8 is generally available for GitHub Copilot](https://github.blog/changelog/2026-05-28-claude-opus-4-8-is-generally-available-for-github-copilot) | Generally available | Claude Opus 4.8 is now generally available in GitHub Copilot. GitHub says early testing showed improved code understanding and generation compared with earlier models. |
