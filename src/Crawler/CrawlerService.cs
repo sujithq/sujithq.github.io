@@ -87,6 +87,11 @@ public class CrawlerService
           _logger.LogWarning("Too many requests for: {Url}", f.Url);
           continue;
         }
+        if (e.StatusCode == HttpStatusCode.Forbidden)
+        {
+          _logger.LogWarning("Forbidden (403) for: {Url}", f.Url);
+          continue;
+        }
         throw;
       }
 
