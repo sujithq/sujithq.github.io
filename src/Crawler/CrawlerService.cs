@@ -274,12 +274,9 @@ public class CrawlerService
 
   static bool LooksLikeJson(string payload)
   {
-    foreach (var c in payload)
-    {
-      if (char.IsWhiteSpace(c)) continue;
-      return c == '{' || c == '[';
-    }
-    return false;
+    var trimmed = payload.AsSpan().TrimStart();
+    if (trimmed.IsEmpty) return false;
+    return trimmed[0] == '{' || trimmed[0] == '[';
   }
 
   static List<SyndicationItem> ParseXmlFeed(string payload, string feedUrl)
@@ -327,7 +324,7 @@ public class CrawlerService
       }
 
       var item = new SyndicationItem(title, summary, uri);
-      if (!string.IsNullOrWhiteSpace(id)) item.Id = id!;
+      if (!string.IsNullOrWhiteSpace(id)) item.Id = id;
       if (datePublished != default) item.PublishDate = datePublished;
       if (dateModified != default) item.LastUpdatedTime = dateModified;
       if (!string.IsNullOrWhiteSpace(summary))
