@@ -257,19 +257,32 @@ public class CrawlerService
     await File.WriteAllTextAsync(path, json, Encoding.UTF8);
   }
 
-  async Task<List<SyndicationItem>> LoadFeedItemsAsync(FeedEntry feedEntry)
+  private async Task<List<SyndicationItem>> LoadFeedItemsAsync(FeedEntry feedEntry)
   {
     using var response = await _http.GetAsync(feedEntry.Url);
-    response.EnsureSuccessStatusCode();
+    if (!response.IsSuccessStatusCode)
+    {
+      throw new HttpRequestException(
+        $"Feed request failed for '{feedEntry.Url}' with status code {(int)response.StatusCode} ({response.StatusCode}).",
+        null,
+        response.StatusCode);
+    }
 
     var payload = await response.Content.ReadAsStringAsync();
     if (string.IsNullOrWhiteSpace(payload))
       return [];
 
-    if (LooksLikeJson(payload))
+    var mediaType = response.Content.Headers.ContentType?.MediaType;
+    if (IsJsonContentType(mediaType) || LooksLikeJson(payload))
       return ParseJsonFeed(payload, feedEntry.Url);
 
     return ParseXmlFeed(payload, feedEntry.Url);
+  }
+
+  static bool IsJsonContentType(string? mediaType)
+  {
+    if (string.IsNullOrWhiteSpace(mediaType)) return false;
+    return mediaType.Contains("json", StringComparison.OrdinalIgnoreCase);
   }
 
   static bool LooksLikeJson(string payload)
