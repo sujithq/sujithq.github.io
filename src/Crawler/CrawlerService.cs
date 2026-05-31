@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.ServiceModel.Syndication;
 using System.Text;
 using System.Text.Json;
+using System.Globalization;
 using System.Xml;
 
 namespace Crawler;
@@ -17,19 +18,22 @@ public class CrawlerService
   private readonly IHtmlTextExtractor _extractor;
   private readonly ILlmClient _llm;
   private readonly LlmProviderConfig _llmProvider;
+  private readonly HttpClient _http;
 
   public CrawlerService(
       ILogger<CrawlerService> logger,
       IOptions<AppConfig> appOptions,
       IHtmlTextExtractor extractor,
       ILlmClient llm,
-      LlmProviderConfig llmProviderConfig)
+      LlmProviderConfig llmProviderConfig,
+      IHttpClientFactory httpClientFactory)
   {
     _logger = logger;
     _app = appOptions.Value;
     _extractor = extractor;
     _llm = llm;
     _llmProvider = llmProviderConfig;
+    _http = httpClientFactory.CreateClient("crawler");
   }
 
   public async Task<int> RunAsync(bool verbose)
@@ -73,12 +77,10 @@ public class CrawlerService
 
 
       _logger.LogInformation("Processing feed: {Url}", f.Url);
-      SyndicationFeed? feed;
+      List<SyndicationItem> feedItems;
       try
       {
-        using (var reader = XmlReader.Create(f.Url))
-          feed = SyndicationFeed.Load(reader);
-
+        feedItems = await LoadFeedItemsAsync(f);
       }
       catch (HttpRequestException e)
       {
@@ -94,17 +96,32 @@ public class CrawlerService
         }
         throw;
       }
-
-      if (feed == null)
+      catch (InvalidDataException e)
       {
-        _logger.LogWarning("Feed returned null: {Url}", f.Url);
+        _logger.LogWarning(e, "Skipping unparseable feed: {Url}", f.Url);
+        continue;
+      }
+      catch (XmlException e)
+      {
+        _logger.LogWarning(e, "Skipping invalid XML feed payload: {Url}", f.Url);
+        continue;
+      }
+      catch (JsonException e)
+      {
+        _logger.LogWarning(e, "Skipping invalid JSON feed payload: {Url}", f.Url);
+        continue;
+      }
+
+      if (feedItems.Count == 0)
+      {
+        _logger.LogWarning("Feed returned no items: {Url}", f.Url);
         continue;
       }
 
       var cutoff = DateTimeOffset.UtcNow.AddDays(-Math.Abs(_app.fetch.maxAgeDays));
-      var items = feed.Items.Where(i => (i.PublishDate != default && i.PublishDate >= cutoff) ||
+      var items = feedItems.Where(i => (i.PublishDate != default && i.PublishDate >= cutoff) ||
                                        (i.LastUpdatedTime != default && i.LastUpdatedTime >= cutoff))
-                            .OrderByDescending(i => i.PublishDate != default ? i.PublishDate : i.LastUpdatedTime);
+                           .OrderByDescending(i => i.PublishDate != default ? i.PublishDate : i.LastUpdatedTime);
       foreach (var item in items)
       {
         _logger.LogDebug("Item candidate: {Title} ({Link})", item.Title?.Text, item.Links.FirstOrDefault()?.Uri?.ToString());
@@ -238,5 +255,105 @@ public class CrawlerService
   {
     var json = JsonSerializer.Serialize(st, new JsonSerializerOptions { WriteIndented = true });
     await File.WriteAllTextAsync(path, json, Encoding.UTF8);
+  }
+
+  async Task<List<SyndicationItem>> LoadFeedItemsAsync(FeedEntry feedEntry)
+  {
+    using var response = await _http.GetAsync(feedEntry.Url);
+    response.EnsureSuccessStatusCode();
+
+    var payload = await response.Content.ReadAsStringAsync();
+    if (string.IsNullOrWhiteSpace(payload))
+      return [];
+
+    if (LooksLikeJson(payload))
+      return ParseJsonFeed(payload, feedEntry.Url);
+
+    return ParseXmlFeed(payload, feedEntry.Url);
+  }
+
+  static bool LooksLikeJson(string payload)
+  {
+    foreach (var c in payload)
+    {
+      if (char.IsWhiteSpace(c)) continue;
+      return c == '{' || c == '[';
+    }
+    return false;
+  }
+
+  static List<SyndicationItem> ParseXmlFeed(string payload, string feedUrl)
+  {
+    using var stringReader = new StringReader(payload);
+    using var reader = XmlReader.Create(stringReader);
+    var feed = SyndicationFeed.Load(reader);
+    if (feed == null)
+    {
+      throw new InvalidDataException($"Unable to parse feed payload as XML: {feedUrl}");
+    }
+    return feed.Items.ToList();
+  }
+
+  static List<SyndicationItem> ParseJsonFeed(string payload, string feedUrl)
+  {
+    using var doc = JsonDocument.Parse(payload);
+    var root = doc.RootElement;
+    if (root.ValueKind != JsonValueKind.Object ||
+        !root.TryGetProperty("items", out var itemsElement) ||
+        itemsElement.ValueKind != JsonValueKind.Array)
+    {
+      throw new InvalidDataException($"Unable to parse feed payload as JSON Feed: {feedUrl}");
+    }
+
+    var items = new List<SyndicationItem>();
+    foreach (var itemElement in itemsElement.EnumerateArray())
+    {
+      if (itemElement.ValueKind != JsonValueKind.Object) continue;
+
+      var title = TryGetString(itemElement, "title") ?? "(untitled)";
+      var link = TryGetString(itemElement, "url") ?? TryGetString(itemElement, "external_url");
+      var id = TryGetString(itemElement, "id");
+      var datePublished = ParseDate(TryGetString(itemElement, "date_published"));
+      var dateModified = ParseDate(TryGetString(itemElement, "date_modified"));
+
+      var summaryHtml = TryGetString(itemElement, "content_html");
+      var summaryText = TryGetString(itemElement, "content_text") ?? TryGetString(itemElement, "summary");
+      var summary = summaryHtml ?? summaryText ?? string.Empty;
+
+      Uri? uri = null;
+      if (!string.IsNullOrWhiteSpace(link) && Uri.TryCreate(link, UriKind.Absolute, out var parsed))
+      {
+        uri = parsed;
+      }
+
+      var item = new SyndicationItem(title, summary, uri);
+      if (!string.IsNullOrWhiteSpace(id)) item.Id = id!;
+      if (datePublished != default) item.PublishDate = datePublished;
+      if (dateModified != default) item.LastUpdatedTime = dateModified;
+      if (!string.IsNullOrWhiteSpace(summary))
+      {
+        item.Summary = summaryHtml != null
+          ? SyndicationContent.CreateHtmlContent(summary)
+          : SyndicationContent.CreatePlaintextContent(summary);
+      }
+
+      items.Add(item);
+    }
+
+    return items;
+  }
+
+  static string? TryGetString(JsonElement element, string propertyName)
+  {
+    if (!element.TryGetProperty(propertyName, out var value)) return null;
+    return value.ValueKind == JsonValueKind.String ? value.GetString() : null;
+  }
+
+  static DateTimeOffset ParseDate(string? dateValue)
+  {
+    if (string.IsNullOrWhiteSpace(dateValue)) return default;
+    return DateTimeOffset.TryParse(dateValue, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out var parsed)
+      ? parsed
+      : default;
   }
 }
