@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-05-29
+post_date: 2026-06-01
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -886,3 +886,5 @@ completed deprecation is shown.
 | 2026-05-28 | [CodeQL 2.25.5 improves query accuracy for GitHub Actions](https://github.blog/changelog/2026-05-28-codeql-2-25-5-improves-query-accuracy-for-github-actions) | Update | CodeQL 2.25.5 was released with query accuracy improvements for GitHub Actions, along with additional accuracy improvements across C/C++. |
 | 2026-05-28 | [Hard budget limits now available for GitHub Advanced Security](https://github.blog/changelog/2026-05-28-hard-budget-limits-now-available-for-github-advanced-security) | Update | GitHub Advanced Security now supports hard budget limits for GHAS SKUs, allowing enterprise admins and billing managers to prevent teams from exceeding allocated license budgets. This applies to license-based GHAS products. |
 | 2026-05-29 | [Copilot usage metrics API adds cohorts for AI adoption](https://github.blog/changelog/2026-05-29-copilot-usage-metrics-api-adds-cohorts-for-ai-adoption) | Update | GitHub’s Copilot usage metrics API now classifies engaged users into AI adoption cohorts, giving teams a more detailed view of how Copilot is being used. The change is intended to help measure adoption beyond simple activity counts. |
+| 2026-06-01 | [Updates to GitHub Copilot billing and plans](https://github.blog/changelog/2026-06-01-updates-to-github-copilot-billing-and-plans) | Update | GitHub Copilot now uses usage-based billing for all users. Copilot code review also consumes GitHub Actions minutes, in addition to GitHub billing. |
+| 2026-06-01 | [Evaluation models in auto for individual plans](https://github.blog/changelog/2026-06-01-evaluation-models-in-auto-for-individual-plans) | Update | GitHub Copilot now includes evaluation models for individual non-enterprise users, and these models may be selected by Copilot auto model selection. Users can disable evaluation-model usage in Copilot. |
