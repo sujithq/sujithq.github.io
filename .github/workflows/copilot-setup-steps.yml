@@ -8,10 +8,11 @@ jobs:
   copilot-setup-steps:
     runs-on: ubuntu-24.04 # ubuntu-latest
     env:
-      # Prefer repository variables because cloud-agent runs may not receive Actions secrets.
-      AZURE_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID || secrets.AZURE_CLIENT_ID }}
-      AZURE_TENANT_ID: ${{ vars.AZURE_TENANT_ID || secrets.AZURE_TENANT_ID }}
-      AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID || secrets.AZURE_SUBSCRIPTION_ID }}
+      # Hardcoded non-sensitive Azure identifiers — safe to commit, required for cloud-agent runs
+      # which do not receive Actions secrets or repository variables.
+      AZURE_CLIENT_ID: 2d9952c6-0a40-4dc1-bc60-e1bd069e11fd # ${{ vars.AZURE_CLIENT_ID || secrets.AZURE_CLIENT_ID }}
+      AZURE_TENANT_ID: 2dfe981e-73de-4774-96bf-57b42ca243d8 # ${{ vars.AZURE_TENANT_ID || secrets.AZURE_TENANT_ID }}
+      AZURE_SUBSCRIPTION_ID: 27ab9d9b-03ae-4560-9e84-16cfc5dbfb08 # ${{ vars.AZURE_SUBSCRIPTION_ID || secrets.AZURE_SUBSCRIPTION_ID }}
       FOUNDRY_ENDPOINT: https://squintelier-5556-resource.services.ai.azure.com/
 
     # Set the permissions to the lowest permissions possible needed for your steps.
