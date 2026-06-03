@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-24.04 # ubuntu-latest
     env:
       # Hardcoded non-sensitive Azure identifiers.
-      AZURE_CLIENT_ID: 2d9952c6-0a40-4dc1-bc60-e1bd069e11fd
-      AZURE_TENANT_ID: 2dfe981e-73de-4774-96bf-57b42ca243d8
-      AZURE_SUBSCRIPTION_ID: 27ab9d9b-03ae-4560-9e84-16cfc5dbfb08
       FOUNDRY_ENDPOINT: https://squintelier-5556-resource.services.ai.azure.com/
+      CLIENT_ID: 2d9952c6-0a40-4dc1-bc60-e1bd069e11fd
+      TENANT_ID: 2dfe981e-73de-4774-96bf-57b42ca243d8
+      SUBSCRIPTION_ID: 27ab9d9b-03ae-4560-9e84-16cfc5dbfb08
 
     # Set the permissions to the lowest permissions possible needed for your steps.
     # Copilot will be given its own token for its operations.
@@ -63,25 +63,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          missing=0
+          client_id="${CLIENT_ID:-}"
+          tenant_id="${TENANT_ID:-}"
+          subscription_id="${SUBSCRIPTION_ID:-}"
 
-          if [ -z "${AZURE_CLIENT_ID:-}" ]; then
-            echo "::error::Missing AZURE_CLIENT_ID"
-            missing=1
-          fi
-
-          if [ -z "${AZURE_TENANT_ID:-}" ]; then
-            echo "::error::Missing AZURE_TENANT_ID"
-            missing=1
-          fi
-
-          if [ -z "${AZURE_SUBSCRIPTION_ID:-}" ]; then
-            echo "::error::Missing AZURE_SUBSCRIPTION_ID"
-            missing=1
-          fi
-
-          if [ "$missing" -ne 0 ]; then
-            echo "::error::Azure OIDC preflight failed. Hardcoded AZURE_CLIENT_ID, AZURE_TENANT_ID, and AZURE_SUBSCRIPTION_ID are missing or empty."
+          if [ -z "$client_id" ] || [ -z "$tenant_id" ] || [ -z "$subscription_id" ]; then
+            echo "::error::Azure OIDC preflight failed. One or more hardcoded Azure identifiers are empty."
             exit 1
           fi
 
@@ -90,9 +77,9 @@ jobs:
       - name: Azure login (OIDC)
         uses: azure/login@v2
         with:
-          client-id: ${{ env.AZURE_CLIENT_ID }}
-          tenant-id: ${{ env.AZURE_TENANT_ID }}
-          subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
+          client-id: ${{ env.CLIENT_ID }}
+          tenant-id: ${{ env.TENANT_ID }}
+          subscription-id: ${{ env.SUBSCRIPTION_ID }}
 
       - name: Validate Azure session
         shell: bash
