@@ -8,9 +8,10 @@ jobs:
   copilot-setup-steps:
     runs-on: ubuntu-24.04 # ubuntu-latest
     env:
-      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      # Prefer repository variables because cloud-agent runs may not receive Actions secrets.
+      AZURE_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID || secrets.AZURE_CLIENT_ID }}
+      AZURE_TENANT_ID: ${{ vars.AZURE_TENANT_ID || secrets.AZURE_TENANT_ID }}
+      AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID || secrets.AZURE_SUBSCRIPTION_ID }}
       FOUNDRY_ENDPOINT: https://squintelier-5556-resource.services.ai.azure.com/
 
     # Set the permissions to the lowest permissions possible needed for your steps.
@@ -58,6 +59,27 @@ jobs:
       - name: Install Python dependencies
         run: python -m pip install --upgrade pip openai azure-identity
 
+      - name: Show Azure config source availability
+        shell: bash
+        env:
+          VAR_AZURE_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
+          VAR_AZURE_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
+          VAR_AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          SEC_AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          SEC_AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          SEC_AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        run: |
+          set -euo pipefail
+
+          if [ -n "${VAR_AZURE_CLIENT_ID:-}" ]; then echo "AZURE_CLIENT_ID source: vars"; fi
+          if [ -n "${SEC_AZURE_CLIENT_ID:-}" ]; then echo "AZURE_CLIENT_ID source: secrets"; fi
+
+          if [ -n "${VAR_AZURE_TENANT_ID:-}" ]; then echo "AZURE_TENANT_ID source: vars"; fi
+          if [ -n "${SEC_AZURE_TENANT_ID:-}" ]; then echo "AZURE_TENANT_ID source: secrets"; fi
+
+          if [ -n "${VAR_AZURE_SUBSCRIPTION_ID:-}" ]; then echo "AZURE_SUBSCRIPTION_ID source: vars"; fi
+          if [ -n "${SEC_AZURE_SUBSCRIPTION_ID:-}" ]; then echo "AZURE_SUBSCRIPTION_ID source: secrets"; fi
+
       - name: Validate Azure auth inputs
         shell: bash
         run: |
@@ -65,22 +87,22 @@ jobs:
           missing=0
 
           if [ -z "${AZURE_CLIENT_ID:-}" ]; then
-            echo "::error::Missing secret AZURE_CLIENT_ID"
+            echo "::error::Missing AZURE_CLIENT_ID"
             missing=1
           fi
 
           if [ -z "${AZURE_TENANT_ID:-}" ]; then
-            echo "::error::Missing secret AZURE_TENANT_ID"
+            echo "::error::Missing AZURE_TENANT_ID"
             missing=1
           fi
 
           if [ -z "${AZURE_SUBSCRIPTION_ID:-}" ]; then
-            echo "::error::Missing secret AZURE_SUBSCRIPTION_ID"
+            echo "::error::Missing AZURE_SUBSCRIPTION_ID"
             missing=1
           fi
 
           if [ "$missing" -ne 0 ]; then
-            echo "::error::Azure OIDC preflight failed. Add all required repository secrets before delegating cloud runs."
+            echo "::error::Azure OIDC preflight failed. Set AZURE_CLIENT_ID, AZURE_TENANT_ID, and AZURE_SUBSCRIPTION_ID as repository variables (preferred) or Actions secrets."
             exit 1
           fi
 
