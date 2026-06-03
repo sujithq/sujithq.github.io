@@ -39,5 +39,12 @@ This repository contains the source code and content for my personal technical b
 - When adding code, prefer modern, idiomatic patterns for the language in use.
 - When suggesting images or diagrams, describe them clearly for later manual creation.
 
+## Delegated Post Runs (Mandatory)
+- Complete post generation in one run: both `index.md` and `cover.jpg` must be produced together.
+- Do not treat a draft without `cover.jpg` as success.
+- Before generating covers, run Microsoft Foundry and Azure authentication preflight.
+- Use endpoint `https://squintelier-5556-resource.services.ai.azure.com/` for image generation.
+- If authentication fails, report a blocked run with remediation instead of committing partial output.
+
 ## References
 - [Hugo Documentation](https://gohugo.io/documentation/)

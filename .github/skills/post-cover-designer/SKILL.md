@@ -6,6 +6,7 @@ applyTo: '.github/agents/Post.agent.md'
 # Post Cover Designer
 
 This skill creates a cover image for a Hugo blog post. It builds a tailored image prompt, generates the image directly, and saves it as `cover.jpg` in the correct post folder.
+Treat cover creation as part of one complete post run, not a later follow-up step.
 
 ## When to use
 
@@ -45,7 +46,11 @@ No people, no logos, no text overlays.
 
 ## Step 2 – Generate the cover image
 
-Use the `generate_image` tool with the prompt constructed in Step 1.
+Use the installed `create-image` skill with the prompt constructed in Step 1.
+
+- Use endpoint `https://squintelier-5556-resource.services.ai.azure.com/`.
+- Confirm Azure authentication is active before generating.
+- If authentication is missing, sign in first and continue in the same run.
 
 - Set the aspect ratio to **16:9** (landscape, suitable for blog cover images).
 - Generate exactly **one image**.
@@ -97,3 +102,4 @@ Designer Action (manual fallback):
 - [ ] Generated image is saved at the correct path with filename `cover.jpg`.
 - [ ] Front matter contains `cover = true`, `author = "sujith"`, and `cover_prompt`.
 - [ ] Designer fallback prompt is included in the output.
+- [ ] Post run is considered complete only when both `index.md` and `cover.jpg` are present.
