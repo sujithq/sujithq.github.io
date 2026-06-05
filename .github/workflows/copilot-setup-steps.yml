@@ -72,7 +72,7 @@ jobs:
           echo "Azure auth input preflight passed."
 
       - name: Azure login (OIDC)
-        uses: azure/login@v2
+        uses: azure/login@v3
         with:
           client-id: 2d9952c6-0a40-4dc1-bc60-e1bd069e11fd
           tenant-id: 2dfe981e-73de-4774-96bf-57b42ca243d8
