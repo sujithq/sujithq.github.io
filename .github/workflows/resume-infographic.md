@@ -14,10 +14,17 @@ tools:
     allowed-repos:
       - sujithq/*
     min-integrity: none
-    toolsets: [repos, pull_requests]
+    toolsets: [repos]
 
 network:
   allowed: ["defaults"]
+
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v6
+    with:
+      fetch-depth: 1
+      persist-credentials: false
 
 safe-outputs:
   threat-detection:

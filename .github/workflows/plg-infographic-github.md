@@ -16,7 +16,14 @@ tools:
       - sujithq/sujithq
       - andrediasbr/github-certification-ranking
     min-integrity: none
-    toolsets: [repos, pull_requests, search]
+    toolsets: [repos, search]
+
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v6
+    with:
+      fetch-depth: 1
+      persist-credentials: false
 
 safe-outputs:
   threat-detection:
