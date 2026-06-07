@@ -1,6 +1,6 @@
 ---
 name: PLG Infographic Generator
-description: Generate PLG infographic and create PR
+description: Generate PLG infographic artifact
 
 on:
   workflow_dispatch:
@@ -34,14 +34,11 @@ safe-outputs:
     defaults:
       if-no-files: ignore
     allowed-paths:
-      - static/infographic/index.html
       - infographic.html
-  create-pull-request:
-    draft: false
 
 metadata:
   inputs: "README.md, content/resume/accomplishments/_index.md, sujithq/sujithq README.md, sujithq/ms-learn transcript.json"
-  outputs: "static/infographic/index.html"
+  outputs: "infographic.html"
 ---
 
 # PLG Infographic Generator
@@ -63,8 +60,8 @@ metadata:
 
 ## Generate the infographic
 
-7. Synthesise all collected data into a PLG-style infographic as a single static HTML file at `static/infographic/index.html`.
-  Write the file to disk before calling any safe output tools. Do not rely only on a `create_pull_request` patch to materialise the file.
+7. Synthesise all collected data into a PLG-style infographic as a single static HTML file at `infographic.html`.
+  Write the file to disk before calling any safe output tools. This output is an artifact only, so do not create or update a site file under `static/`.
   Include clearly labelled sections for:
   - profile summary (name, bio, location, social links)
   - GitHub stats (followers, total stars, top repos, languages)
@@ -77,11 +74,9 @@ metadata:
   - no iframes, forms, Credly embeds, tracking pixels, or network requests
   - semantic, accessible markup with clear headings and sections
 
-## Upload and PR
+## Upload artifact
 
 9. Upload the generated HTML as a GitHub Actions artifact so the run exposes the page directly
-  - use a path that already exists at upload time (`static/infographic/index.html` or `infographic.html`)
+  - use a path that already exists at upload time (`infographic.html`)
   - do not call `upload_artifact` with a non-existent path
-10. Create a pull request (not draft) that adds or updates `static/infographic/index.html`
-11. Enable auto-merge on the created pull request when possible
-12. Include in the PR description: a summary of the data sources used, confirmation the page is static with no active content, and that the artifact `static/infographic/index.html` is attached to this run
+10. Do not create a pull request or commit the generated HTML back to the repository.

@@ -1,6 +1,6 @@
 ---
 name: Resume Infographic Generator
-description: Generate resume infographic and create PR
+description: Generate resume infographic artifact
 
 on:
   workflow_dispatch:
@@ -35,13 +35,11 @@ safe-outputs:
     defaults:
       if-no-files: ignore
     allowed-paths:
-      - static/resume-infographic/index.html
-  create-pull-request:
-    draft: false
+      - resume-infographic.html
 
 metadata:
   inputs: "content/resume/experiences/_index.md, content/resume/accomplishments/_index.md, https://quintelier.dev/resume, https://www.linkedin.com/in/sujithquintelier"
-  outputs: "static/resume-infographic/index.html"
+  outputs: "resume-infographic.html"
 ---
 
 # Resume Infographic Generator
@@ -55,8 +53,8 @@ metadata:
 
 ## Generate the infographic
 
-5. Synthesise all collected data into a resume-style infographic as a single static HTML file at `static/resume-infographic/index.html`.
-   Write the file to disk before calling any safe output tools. Do not rely only on a `create_pull_request` patch to create the file on disk.
+5. Synthesise all collected data into a resume-style infographic as a single static HTML file at `resume-infographic.html`.
+   Write the file to disk before calling any safe output tools. This output is an artifact only, so do not create or update a site file under `static/`.
    Include clearly labelled sections for:
    - Profile summary (name, current role, location, contact and social links)
    - Professional experience timeline (company, title, period, short description)
@@ -70,8 +68,9 @@ metadata:
    - Semantic, accessible markup with clear headings and sections
    - Visual style should be professional and clean, suited to a resume context
 
-## Create PR
+## Upload artifact
 
-7. Create a pull request (not draft) that adds or updates `static/resume-infographic/index.html`
-8. Enable auto-merge on the created pull request when possible
-9. Include in the PR description: a summary of the data sources used and confirmation the page is static with no active content
+7. Upload the generated HTML as a GitHub Actions artifact so the run exposes the page directly.
+   - use a path that already exists at upload time (`resume-infographic.html`)
+   - do not call `upload_artifact` with a non-existent path
+8. Do not create a pull request or commit the generated HTML back to the repository.
