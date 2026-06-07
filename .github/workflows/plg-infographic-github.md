@@ -44,7 +44,7 @@ safe-outputs:
       - infographic.html
 
 metadata:
-  inputs: "README.md, content/resume/accomplishments/_index.md, sujithq/sujithq README.md, sujithq/ms-learn transcript.json"
+  inputs: "README.md, content/resume/accomplishments/_index.md, sujithq/sujithq README.md, sujithq/ms-learn transcript.json, https://www.credly.com/users/sujith"
   outputs: "infographic.html"
 ---
 
