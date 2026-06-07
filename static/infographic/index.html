@@ -64,6 +64,16 @@
   .highlight-text strong { color: var(--accent2); }
   .post-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
   .post-item { padding: 8px 12px; background: var(--surface2); border-radius: 8px; border-left: 3px solid var(--accent); font-size: .85rem; color: var(--text); }
+  .credly-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 18px; }
+  @media (max-width: 560px) { .credly-summary { grid-template-columns: 1fr; } }
+  .credly-box { background: var(--surface2); border-radius: 8px; padding: 14px; border: 1px solid var(--border); }
+  .credly-box .value { display: block; font-size: 1.5rem; font-weight: 700; color: var(--gold); }
+  .credly-box .label { display: block; font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-top: 4px; }
+  .credly-link { display: inline-block; margin-bottom: 16px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(227,179,65,.4); color: var(--gold); text-decoration: none; background: rgba(227,179,65,.08); font-size: .82rem; }
+  .credly-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .credly-item { padding: 10px 12px; background: var(--surface2); border-radius: 8px; border: 1px solid var(--border); }
+  .credly-item strong { color: var(--accent2); }
+  .credly-item span { display: block; font-size: .78rem; color: var(--muted); margin-top: 2px; }
   footer { text-align: center; padding: 24px; font-size: .78rem; color: var(--muted); border-top: 1px solid var(--border); }
   footer strong { color: var(--accent); }
 </style>
@@ -85,6 +95,7 @@
     <a href="https://www.linkedin.com/in/sujithquintelier/">LinkedIn</a>
     <a href="https://twitter.com/SujithQ">Twitter/X</a>
     <a href="https://github.com/sujithq">GitHub</a>
+    <a href="https://www.credly.com/users/sujith">Credly</a>
     <a href="https://app.pluralsight.com/profile/sujithq">Pluralsight</a>
     <a href="https://www.buymeacoffee.com/sujithq">Buy Me a Coffee</a>
   </nav>
@@ -162,6 +173,20 @@
     <p style="margin-top:14px; font-size:.8rem; color:var(--muted);">+ 14 additional legacy Microsoft certifications</p>
   </section>
 
+  <section class="card" aria-labelledby="credly-heading">
+    <h2 class="card-title" id="credly-heading">&#127942; Credly Profile</h2>
+    <a class="credly-link" href="https://www.credly.com/users/sujith">View public Credly profile</a>
+    <div class="credly-summary">
+      <div class="credly-box"><span class="value">17</span><span class="label">Credly-linked accomplishments</span></div>
+      <div class="credly-box"><span class="value">4</span><span class="label">Badge issuers represented</span></div>
+    </div>
+    <ul class="credly-list">
+      <li class="credly-item"><strong>GitHub badges</strong><span>4 public badge links covering Admin, Advanced Security, Foundations, and Sales Validation.</span></li>
+      <li class="credly-item"><strong>Cloud + infrastructure</strong><span>HashiCorp Terraform Associate (002/003) and AWS Cloud Quest: Cloud Practitioner are already represented in the accomplishment data.</span></li>
+      <li class="credly-item"><strong>Legacy Microsoft badges</strong><span>10 Credly-backed Microsoft exams and certifications are captured from the local resume source as a fallback when the live profile is unavailable.</span></li>
+    </ul>
+  </section>
+
   <section class="card" aria-labelledby="highlights-heading">
     <h2 class="card-title" id="highlights-heading">&#10024; Key Highlights</h2>
     <ul class="highlight-list">
@@ -193,7 +218,7 @@
 </main>
 
 <footer>
-  <p>Generated <strong>2026-05-20</strong> from GitHub API, MS Learn transcript (sujithq/ms-learn), and GitHub profile README (sujithq/sujithq). Static HTML &bull; No JavaScript &bull; No external dependencies.</p>
+  <p>Generated <strong>2026-05-20</strong> from GitHub API, MS Learn transcript (sujithq/ms-learn), GitHub profile README (sujithq/sujithq), and Credly-backed accomplishment data. Static HTML &bull; No JavaScript &bull; No external dependencies.</p>
 </footer>
 
 </body>

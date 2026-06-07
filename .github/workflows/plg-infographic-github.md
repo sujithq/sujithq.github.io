@@ -40,7 +40,7 @@ safe-outputs:
     draft: false
 
 metadata:
-  inputs: "README.md, sujithq/sujithq README.md, sujithq/ms-learn transcript.json"
+  inputs: "README.md, content/resume/accomplishments/_index.md, sujithq/sujithq README.md, sujithq/ms-learn transcript.json"
   outputs: "static/infographic/index.html"
 ---
 
@@ -57,27 +57,31 @@ metadata:
   - aggregate total stars and forks across all public repos
   - most-used programming languages (from public repos)
 5. **GitHub certification ranking**: read relevant files from repo `andrediasbr/github-certification-ranking` if useful
+6. **Credly profile**: try to read the public profile at `https://www.credly.com/users/sujith`
+  - capture the public profile URL and any visible public badge counts, issuers, or notable badges
+  - if the profile cannot be fetched, fall back to `content/resume/accomplishments/_index.md` in this repo and summarise the existing Credly badge links already listed there
 
 ## Generate the infographic
 
-6. Synthesise all collected data into a PLG-style infographic as a single static HTML file at `static/infographic/index.html`.
+7. Synthesise all collected data into a PLG-style infographic as a single static HTML file at `static/infographic/index.html`.
   Write the file to disk before calling any safe output tools. Do not rely only on a `create_pull_request` patch to materialise the file.
   Include clearly labelled sections for:
   - profile summary (name, bio, location, social links)
   - GitHub stats (followers, total stars, top repos, languages)
   - Microsoft Learn certifications and learning achievements (from transcript.json)
+  - Credly badges and certifications (profile link plus a concise summary of public badges or the local fallback data)
   - key highlights from the GitHub profile README
-7. The HTML must be self-contained and safe:
+8. The HTML must be self-contained and safe:
   - inline CSS only — no external stylesheets, fonts, or scripts
   - no JavaScript, event handlers, or inline scripts
-  - no iframes, forms, embeds, tracking pixels, or network requests
+  - no iframes, forms, Credly embeds, tracking pixels, or network requests
   - semantic, accessible markup with clear headings and sections
 
 ## Upload and PR
 
-8. Upload the generated HTML as a GitHub Actions artifact so the run exposes the page directly
+9. Upload the generated HTML as a GitHub Actions artifact so the run exposes the page directly
   - use a path that already exists at upload time (`static/infographic/index.html` or `infographic.html`)
   - do not call `upload_artifact` with a non-existent path
-9. Create a pull request (not draft) that adds or updates `static/infographic/index.html`
-10. Enable auto-merge on the created pull request when possible
-11. Include in the PR description: a summary of the data sources used, confirmation the page is static with no active content, and that the artifact `static/infographic/index.html` is attached to this run
+10. Create a pull request (not draft) that adds or updates `static/infographic/index.html`
+11. Enable auto-merge on the created pull request when possible
+12. Include in the PR description: a summary of the data sources used, confirmation the page is static with no active content, and that the artifact `static/infographic/index.html` is attached to this run
