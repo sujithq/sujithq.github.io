@@ -3,6 +3,8 @@
 
 import json
 import re
+import shutil
+import subprocess
 import sys
 import urllib.request
 from pathlib import Path
@@ -226,8 +228,121 @@ def to_hugo_certificate(cert: dict[str, Any], cert_type: str, catalog_map: Catal
     }
 
 
+def fetch_credly_badges() -> list[dict[str, Any]]:
+    """Fetch Credly badge data from the rendered profile page using Playwright."""
+    node_path = shutil.which("node") or shutil.which("node.exe")
+    npm_path = shutil.which("npm") or shutil.which("npm.cmd") or shutil.which("npm.exe")
+    npx_path = shutil.which("npx") or shutil.which("npx.cmd") or shutil.which("npx.exe")
+
+    if node_path is None or npm_path is None or npx_path is None:
+        print("Skipping Credly badges: node/npm not available in this environment", file=sys.stderr)
+        return []
+
+    repo_root = Path(__file__).resolve().parents[2]
+    node_modules = repo_root / "node_modules" / "@playwright" / "test"
+    if not node_modules.exists():
+        print("Installing project dependencies for Credly badge extraction...")
+        subprocess.run([npm_path, "install", "--ignore-scripts", "--no-audit", "--no-fund"], cwd=repo_root, check=True)
+
+    playwright_bin = repo_root / "node_modules" / "playwright" / "index.js"
+    if not playwright_bin.exists():
+        print("Installing Playwright package for Credly badge extraction...")
+        subprocess.run([npm_path, "install", "--ignore-scripts", "--no-audit", "--no-fund"], cwd=repo_root, check=True)
+
+    browser_cache = Path.home() / ".cache" / "ms-playwright"
+    if not any(browser_cache.glob("chromium-*")):
+        try:
+            subprocess.run([npx_path, "playwright", "install", "chromium"], cwd=repo_root, check=True, capture_output=True, text=True)
+        except subprocess.CalledProcessError as exc:
+            print(f"Playwright browser install warning: {exc.stderr or exc.stdout}", file=sys.stderr)
+
+    script = r'''
+const { chromium } = require('@playwright/test');
+
+function normalizeDate(value) {
+  if (!value) return null;
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
+}
+
+function parseBadges(text) {
+  const lines = text
+    .split('\n')
+    .map((line) => line.replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+
+  const badges = [];
+  const seen = new Set();
+
+  for (let i = 0; i < lines.length - 2; i += 1) {
+    const name = lines[i];
+    const issuer = lines[i + 1];
+    const statusLine = lines[i + 2];
+
+    if (!/^(Issued|Expires|Expired)\b/i.test(statusLine)) continue;
+
+    const statusMatch = statusLine.match(/^(Issued|Expires|Expired)\s+(.*)$/i);
+    if (!statusMatch) continue;
+
+    const statusType = statusMatch[1].toLowerCase();
+    const statusValue = statusMatch[2].trim();
+    const key = [name, issuer, statusType, statusValue].map((part) => part.toLowerCase()).join('||');
+    if (seen.has(key)) continue;
+    seen.add(key);
+
+    const issuedDate = statusType === 'issued' ? normalizeDate(statusValue) : null;
+    const expiration = statusType === 'expires' || statusType === 'expired' ? normalizeDate(statusValue) : null;
+
+    badges.push({
+      id: `credly-${badges.length + 1}`,
+      name,
+      issuer,
+      status: statusType === 'expired' ? 'Expired' : 'Active',
+      statusCategory: statusType === 'expired' ? 'inactive' : 'active',
+      dateEarned: issuedDate,
+      expiration,
+      source: 'credly',
+      iconUrl: null,
+      code: name,
+    });
+  }
+
+  return badges;
+}
+
+(async () => {
+  const browser = await chromium.launch({ headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1600 } });
+    await page.goto('https://www.credly.com/users/sujith/badges', { waitUntil: 'networkidle', timeout: 120000 });
+    await page.locator('body').waitFor({ state: 'visible', timeout: 120000 });
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(1500);
+    const text = await page.locator('body').innerText();
+    console.log(JSON.stringify(parseBadges(text)));
+  } finally {
+    await browser.close();
+  }
+})();
+'''
+
+    result = subprocess.run([node_path, "-e", script], cwd=repo_root, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(result.stderr or result.stdout, file=sys.stderr)
+        return []
+
+    raw = result.stdout.strip()
+    if not raw:
+        return []
+
+    parsed = json.loads(raw)
+    if not isinstance(parsed, list):
+        return []
+    return parsed
+
+
 def fetch_certificates() -> dict[str, Any]:
-    """Fetch and normalize certificate data from MS Learn."""
+    """Fetch and normalize certificate data from MS Learn and Credly."""
     print(f"Fetching transcript from: {API_URL}")
     
     # Load icon URLs from the MS Learn certification catalog
@@ -251,21 +366,40 @@ def fetch_certificates() -> dict[str, Any]:
         normalized_historical = [normalize_cert(cert, catalog_map) for cert in historical_certs]
         normalized_historical = [c for c in normalized_historical if c is not None]
         
+        credly_badges = fetch_credly_badges()
+        credly_hugo = [
+            {
+                "id": badge.get("id", ""),
+                "code": extract_certificate_code(badge.get("name", ""), badge.get("id", ""), catalog_map),
+                "desc": badge.get("name", ""),
+                "type": "credly",
+                "expires": badge.get("expiration", "").split("T")[0] if badge.get("expiration") else "",
+                "daysUntilExpiry": calculate_days_until_expiry(badge.get("expiration")),
+                "dateEarned": badge.get("dateEarned"),
+                "iconUrl": badge.get("iconUrl"),
+                "statusCategory": badge.get("statusCategory", "active"),
+            }
+            for badge in credly_badges
+        ]
+
+        active_certificates = sorted(
+            [to_hugo_certificate(c, "Active", catalog_map) for c in normalized_active],
+            key=lambda c: c.get("daysUntilExpiry") or 999999
+        ) + credly_hugo
+
         # Build Hugo-ready output structure
         output: dict[str, Any] = {
             "fetchedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "summary": {
-                "totalActive": len(normalized_active),
+                "totalActive": len(active_certificates),
                 "totalHistorical": len(normalized_historical),
-                "expiringWithin30Days": sum(1 for c in normalized_active if c.get("daysUntilExpiry") is not None and c["daysUntilExpiry"] < 30),
+                "expiringWithin30Days": sum(1 for c in active_certificates if c.get("daysUntilExpiry") is not None and c["daysUntilExpiry"] < 30),
             },
-            "activeCertificates": sorted(
-                [to_hugo_certificate(c, "Active", catalog_map) for c in normalized_active],
-                key=lambda c: c.get("daysUntilExpiry") or 999999
-            ),
+            "activeCertificates": active_certificates,
             "historicalCertificates": [
                 to_hugo_certificate(c, "Expired", catalog_map) for c in normalized_historical
             ],
+            "credlyBadges": credly_hugo,
         }
         
         return output

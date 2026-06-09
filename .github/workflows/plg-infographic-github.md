@@ -9,6 +9,12 @@ permissions: read-all
 
 engine: copilot
 
+steps:
+  - collect-data
+  - generate-infographic
+  - upload-artifact
+  - create-pull-request
+
 tools:
   github:
     allowed-repos:
@@ -40,7 +46,7 @@ safe-outputs:
     draft: false
 
 metadata:
-  inputs: "README.md, sujithq/sujithq README.md, sujithq/ms-learn transcript.json"
+  inputs: "README.md, sujithq/sujithq README.md, sujithq/ms-learn transcript.json, Credly badge wallet page https://credly.com/users/sujith/badges"
   outputs: "static/infographic/index.html"
 ---
 
@@ -56,6 +62,7 @@ metadata:
   - top 10 repositories ordered by stars (name, stargazerCount, forkCount, primaryLanguage)
   - aggregate total stars and forks across all public repos
   - most-used programming languages (from public repos)
+4. **Credly badge profile**: read the rendered Credly profile page at `https://credly.com/users/sujith/badges` and extract the visible badge wallet data available on the page (badge name, issuer, issued/expiry text where shown).
 5. **GitHub certification ranking**: read relevant files from repo `andrediasbr/github-certification-ranking` if useful
 
 ## Generate the infographic
@@ -66,6 +73,7 @@ metadata:
   - profile summary (name, bio, location, social links)
   - GitHub stats (followers, total stars, top repos, languages)
   - Microsoft Learn certifications and learning achievements (from transcript.json)
+  - Credly badge highlights from the rendered badge wallet page
   - key highlights from the GitHub profile README
 7. The HTML must be self-contained and safe:
   - inline CSS only — no external stylesheets, fonts, or scripts
