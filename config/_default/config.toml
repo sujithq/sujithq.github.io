@@ -115,6 +115,12 @@ buildFuture = false
    weight = 3
    parent = "tools"
  [[menu.main]]
+   identifier = "ubb-simulator"
+   name = "UBB Simulator"
+   url = "/tools/ubb/"
+   weight = 4
+   parent = "tools"
+ [[menu.main]]
    identifier = "updates"
    name = "Updates"
    url = "/updates/"

@@ -171,6 +171,232 @@ $grid-breakpoints: (
 // @import "xebia/sharingButtons"; // Tools don't need sharing buttons
 // @import "xebia/timeline"; // Tools don't use timeline
 
+.ubb-page {
+   --ubb-bg-dark: #0b1324;
+   --ubb-bg-mid: #11203f;
+   --ubb-accent: #3da9fc;
+   --ubb-text-soft: #6b7280;
+   --ubb-card-border: #e2e8f0;
+}
+
+.ubb-hero {
+   background: linear-gradient(135deg, var(--ubb-bg-dark), var(--ubb-bg-mid));
+   color: #f8fafc;
+   border-radius: 1.5rem;
+   padding: 1.5rem;
+   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
+}
+
+.ubb-kicker {
+   display: inline-block;
+   border-radius: 999px;
+   background: rgba(248, 250, 252, 0.12);
+   color: #bfdbfe;
+   padding: 0.25rem 0.75rem;
+   font-size: 0.8rem;
+   font-weight: 600;
+}
+
+.ubb-hero h1 {
+   font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+   font-weight: 700;
+}
+
+.ubb-hero-text {
+   color: #cbd5e1;
+   max-width: 62ch;
+}
+
+.ubb-stat-card {
+   background: rgba(248, 250, 252, 0.08);
+   border: 1px solid rgba(191, 219, 254, 0.2);
+   border-radius: 1rem;
+   padding: 0.75rem 0.9rem;
+}
+
+.ubb-stat-label {
+   color: #bfdbfe;
+   font-size: 0.8rem;
+}
+
+.ubb-stat-value {
+   color: #f8fafc;
+   font-size: 1.2rem;
+   font-weight: 700;
+}
+
+.ubb-card {
+   border: 1px solid var(--ubb-card-border);
+   border-radius: 1.25rem;
+   box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+}
+
+.ubb-card-title {
+   font-size: 1.15rem;
+   margin-bottom: 0.3rem;
+   font-weight: 700;
+}
+
+.ubb-muted {
+   color: var(--ubb-text-soft);
+   font-size: 0.92rem;
+}
+
+.ubb-field-grid {
+   display: grid;
+   gap: 0.9rem;
+}
+
+.ubb-mode-tabs {
+   background: #e2e8f0;
+   border-radius: 0.8rem;
+   padding: 0.25rem;
+   display: flex;
+   gap: 0.25rem;
+}
+
+.ubb-mode-tab {
+   border: 0;
+   background: transparent;
+   color: #334155;
+   border-radius: 0.6rem;
+   padding: 0.5rem 0.9rem;
+   font-size: 0.9rem;
+   font-weight: 600;
+}
+
+.ubb-mode-tab.active {
+   background: #ffffff;
+   box-shadow: 0 1px 4px rgba(15, 23, 42, 0.1);
+}
+
+.ubb-info-box {
+   background: #dbeafe;
+   color: #1e3a8a;
+   border-radius: 0.9rem;
+   border: 1px solid #bfdbfe;
+   padding: 0.85rem 1rem;
+   font-size: 0.9rem;
+}
+
+.ubb-step-row {
+   display: grid;
+   gap: 0.8rem;
+   border: 1px solid #e2e8f0;
+   border-radius: 0.9rem;
+   padding: 0.85rem;
+   margin-bottom: 0.75rem;
+}
+
+.ubb-step-title {
+   font-size: 0.95rem;
+   font-weight: 700;
+}
+
+.ubb-step-description {
+   color: #64748b;
+   font-size: 0.82rem;
+   margin-top: 0.2rem;
+}
+
+.ubb-node {
+   border: 1px solid #cbd5e1;
+   border-radius: 0.9rem;
+   padding: 0.85rem;
+   background: #ffffff;
+   transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ubb-node-title {
+   font-size: 0.9rem;
+   font-weight: 700;
+}
+
+.ubb-node-detail {
+   margin-top: 0.35rem;
+   font-size: 0.82rem;
+   color: #475569;
+}
+
+.ubb-node.is-idle {
+   border-color: #cbd5e1;
+   background: #ffffff;
+}
+
+.ubb-node.is-pass {
+   border-color: #6ee7b7;
+   background: #ecfdf5;
+}
+
+.ubb-node.is-warn {
+   border-color: #fcd34d;
+   background: #fffbeb;
+}
+
+.ubb-node.is-block {
+   border-color: #fca5a5;
+   background: #fef2f2;
+}
+
+.ubb-log {
+   background: #020617;
+   color: #e2e8f0;
+   border-radius: 0.9rem;
+   padding: 0.9rem;
+   max-height: 21rem;
+   overflow: auto;
+   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+   font-size: 0.76rem;
+   line-height: 1.45;
+}
+
+.ubb-log-line {
+   margin-bottom: 0.35rem;
+}
+
+.ubb-presets {
+   display: grid;
+   gap: 0.6rem;
+}
+
+.ubb-preset-btn {
+   text-align: left;
+   border: 1px solid #e2e8f0;
+   border-radius: 0.9rem;
+   background: #ffffff;
+   padding: 0.75rem;
+   transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.ubb-preset-btn:hover,
+.ubb-preset-btn:focus-visible {
+   border-color: var(--ubb-accent);
+   background: #f0f9ff;
+   outline: 0;
+}
+
+.ubb-preset-title {
+   font-weight: 700;
+   font-size: 0.9rem;
+}
+
+.ubb-preset-description {
+   font-size: 0.8rem;
+   color: #64748b;
+   margin-top: 0.2rem;
+}
+
+@media (min-width: 576px) {
+   .ubb-field-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+
+   .ubb-step-row {
+      grid-template-columns: 1fr 160px;
+      align-items: start;
+   }
+}
+
 // ------------------------------
 // 3) Icons (heavy). Consider replacing with a subset of SVGs.
 // ------------------------------

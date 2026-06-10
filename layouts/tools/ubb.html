@@ -1,0 +1,200 @@
+{{ define "main" }}
+<div class="container ubb-page py-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <section class="ubb-hero mb-4">
+        <p class="ubb-kicker mb-2">GitHub Copilot UBB governance simulator</p>
+        <h1 class="mb-3">Interactive AI Credits Flow</h1>
+        <p class="ubb-hero-text mb-4">
+          Explore how requests are evaluated through user-level controls, shared credits, and metered guardrails.
+          Use single-request and multi-step agentic flows to demonstrate where requests pass, warn, or stop.
+        </p>
+        <div class="row g-3">
+          <div class="col-6 col-lg-3">
+            <div class="ubb-stat-card">
+              <div class="ubb-stat-label">User used</div>
+              <div id="ubb-stat-user-used" class="ubb-stat-value">0</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="ubb-stat-card">
+              <div class="ubb-stat-label">Pool</div>
+              <div id="ubb-stat-pool" class="ubb-stat-value">0</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="ubb-stat-card">
+              <div class="ubb-stat-label">Cost centre</div>
+              <div id="ubb-stat-cost-centre" class="ubb-stat-value">0</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="ubb-stat-card">
+              <div class="ubb-stat-label">Enterprise cap</div>
+              <div id="ubb-stat-enterprise" class="ubb-stat-value">0</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-xl-4">
+      <div class="card ubb-card h-100">
+        <div class="card-body">
+          <h2 class="ubb-card-title">Controls</h2>
+          <p class="ubb-muted mb-3">Change guardrails and re-run the simulation.</p>
+
+          <div class="d-grid gap-2 d-sm-flex mb-3">
+            <button id="ubb-user-standard" class="btn btn-primary flex-fill" type="button">Standard user</button>
+            <button id="ubb-user-architect" class="btn btn-outline-primary flex-fill" type="button">Architect override</button>
+          </div>
+
+          <div class="ubb-field-grid">
+            <div>
+              <label class="form-label fw-semibold" for="ubb-universal-limit">Universal user-level budget</label>
+              <input id="ubb-universal-limit" class="form-control" type="number" min="0" step="100" />
+              <div class="form-text">Default hard cap per user.</div>
+            </div>
+            <div>
+              <label class="form-label fw-semibold" for="ubb-individual-limit">Individual override</label>
+              <input id="ubb-individual-limit" class="form-control" type="number" min="0" step="100" />
+              <div class="form-text">Used for architect/power users.</div>
+            </div>
+            <div>
+              <label class="form-label fw-semibold" for="ubb-pool-remaining">Shared pool remaining</label>
+              <input id="ubb-pool-remaining" class="form-control" type="number" min="0" step="1000" />
+              <div class="form-text">Included credits before paid mode.</div>
+            </div>
+            <div>
+              <label class="form-label fw-semibold" for="ubb-cost-centre-remaining">Cost centre metered remaining</label>
+              <input id="ubb-cost-centre-remaining" class="form-control" type="number" min="0" step="1000" />
+              <div class="form-text">Checked after pool exhaustion.</div>
+            </div>
+            <div>
+              <label class="form-label fw-semibold" for="ubb-enterprise-remaining">Enterprise metered remaining</label>
+              <input id="ubb-enterprise-remaining" class="form-control" type="number" min="0" step="1000" />
+              <div class="form-text">Final global cap after pool exhaustion.</div>
+            </div>
+
+            <div>
+              <div class="d-grid gap-2 d-sm-flex">
+                <button id="ubb-reset" class="btn btn-outline-secondary flex-fill" type="button">Reset</button>
+                <button id="ubb-run" class="btn btn-success flex-fill" type="button">Run</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-8">
+      <div class="card ubb-card mb-4">
+        <div class="card-body">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div>
+              <h2 class="ubb-card-title mb-1">Simulation mode</h2>
+              <p class="ubb-muted mb-0">Run a single request or a multi-step agentic workflow.</p>
+            </div>
+            <div class="ubb-mode-tabs" role="tablist" aria-label="Simulation mode tabs">
+              <button id="ubb-mode-single" class="ubb-mode-tab active" type="button" role="tab" aria-selected="true">Single request</button>
+              <button id="ubb-mode-agentic" class="ubb-mode-tab" type="button" role="tab" aria-selected="false">Agentic workflow</button>
+            </div>
+          </div>
+
+          <div id="ubb-single-panel" class="mt-4">
+            <label class="form-label fw-semibold" for="ubb-single-request">Request size in AI credits</label>
+            <input id="ubb-single-request" class="form-control" type="number" min="0" step="100" />
+            <div class="form-text">Example: 1,200 for normal usage; 4,000 to exceed a 2,500 ULB.</div>
+          </div>
+
+          <div id="ubb-agentic-panel" class="mt-4 d-none">
+            <div id="ubb-agentic-summary" class="ubb-info-box mb-3"></div>
+            <div id="ubb-steps"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card ubb-card mb-4">
+        <div class="card-body">
+          <h2 class="ubb-card-title">Flow diagram</h2>
+          <div class="row g-3 mt-1">
+            <div class="col-md-4">
+              <div id="ubb-node-user" class="ubb-node">
+                <div class="ubb-node-title">1. User-level control</div>
+                <div id="ubb-node-user-detail" class="ubb-node-detail"></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div id="ubb-node-pool" class="ubb-node">
+                <div class="ubb-node-title">2. Shared pool</div>
+                <div id="ubb-node-pool-detail" class="ubb-node-detail"></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div id="ubb-node-paid" class="ubb-node">
+                <div class="ubb-node-title">3. Paid mode</div>
+                <div class="ubb-node-detail">Only after pool is exhausted.</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div id="ubb-node-cost-centre" class="ubb-node">
+                <div class="ubb-node-title">4. Cost centre</div>
+                <div id="ubb-node-cost-centre-detail" class="ubb-node-detail"></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div id="ubb-node-enterprise" class="ubb-node">
+                <div class="ubb-node-title">5. Enterprise cap</div>
+                <div id="ubb-node-enterprise-detail" class="ubb-node-detail"></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div id="ubb-node-result" class="ubb-node">
+                <div class="ubb-node-title">Result</div>
+                <div id="ubb-node-result-detail" class="ubb-node-detail">Run a scenario.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card ubb-card h-100">
+            <div class="card-body">
+              <h2 class="ubb-card-title">Execution log</h2>
+              <div id="ubb-log" class="ubb-log" aria-live="polite">Run a scenario to see the decision trail.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card ubb-card h-100">
+            <div class="card-body">
+              <h2 class="ubb-card-title">Scenario presets</h2>
+              <div id="ubb-presets" class="ubb-presets"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-lg-12">
+          {{ partial "gitads-banner.html" (dict "size" "col-lg-12") }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{- with resources.Get "js/ubb-simulator.js" }}
+  {{- if eq hugo.Environment "development" }}
+    <script src="{{ .RelPermalink }}"></script>
+  {{- else }}
+    {{- with . | js.Build (dict "minify" true) | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{ end }}

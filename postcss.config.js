@@ -44,6 +44,7 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
     standard: [
       "active", "show", "fade", "collapse", "collapsing", "modal-backdrop",
       "dark", "light", "auto",
+      "ubb-node", "ubb-actions-cell", "is-idle", "is-pass", "is-warn", "is-block",
       "dropdown-item-dark", "dropdown-item-light",
       "bs-theme", "data-bs-theme",
       "color-mode-toggler", "color-mode-toggle",
