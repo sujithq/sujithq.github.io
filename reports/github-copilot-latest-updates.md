@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-06-02
+post_date: 2026-06-10
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -432,3 +432,6 @@ completed deprecation is shown.
 | 2026-06-02 | [Copilot SDK is now generally available](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available) | Generally available | GitHub Copilot SDK is now generally available. It provides a stable API and production-ready support for embedding Copilot’s agentic engine into applications, services, and developer tools. |
 | 2026-06-02 | [Expanded technical preview availability for the GitHub Copilot app](https://github.blog/changelog/2026-06-02-expanded-technical-preview-availability-for-the-github-copilot-app) | Technical preview | GitHub has expanded the technical preview of the Copilot app to all existing Copilot Pro, Pro+, Business, and Enterprise customers. The app is available for download on Windows, macOS, and Linux. |
 | 2026-06-02 | [GPT-4.1 deprecated](https://github.blog/changelog/2026-06-02-gpt-4-1-deprecated) | Deprecated | GitHub deprecated GPT-4.1 in all GitHub Copilot experiences on June 1, 2026. The affected surface areas include Copilot Chat, inline edits, ask and agent modes, and code completions. |
+| 2026-06-09 | [Claude Fable 5 is generally available for GitHub Copilot](https://github.blog/changelog/2026-06-09-claude-fable-5-is-generally-available-for-github-copilot) | Generally available | Claude Fable 5 from Anthropic is now generally available in GitHub Copilot. GitHub describes it as a Mythos-class model aimed at long-horizon, autonomous coding and knowledge-work tasks. |
+| 2026-06-10 | [Dedicated security review command now available in Copilot CLI](https://github.blog/changelog/2026-06-10-dedicated-security-review-command-now-available-in-copilot-cli) | Update | GitHub Copilot CLI now includes an experimental /security-review slash command for running security reviews on code changes directly in the CLI. The feature is in public preview. |
+| 2026-06-10 | [Copilot Chat now sees your agent sessions](https://github.blog/changelog/2026-06-10-copilot-chat-now-sees-your-agent-sessions) | Update | GitHub Copilot Chat on the web now has a better handoff to Copilot cloud agent sessions. It also adds the ability to search and query past agent sessions. |
