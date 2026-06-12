@@ -1,0 +1,93 @@
+name: generate-image
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: Image prompt to render
+        required: true
+        type: string
+      slug:
+        description: Slug used for the committed PNG filename
+        required: true
+        type: string
+      size:
+        description: Image size
+        required: false
+        default: 1536x1024
+        type: string
+      quality:
+        description: Image quality
+        required: false
+        default: medium
+        type: string
+      style:
+        description: Image style
+        required: false
+        default: ''
+        type: string
+      branch:
+        description: Branch to commit the image to
+        required: false
+        type: string
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_OPENAI_ENDPOINT: ${{ vars.AZURE_OPENAI_ENDPOINT || 'https://squintelier-5556-resource.services.ai.azure.com/' }}
+      AZURE_OPENAI_IMAGE_MODEL: ${{ vars.AZURE_OPENAI_IMAGE_MODEL || 'gpt-image-2' }}
+
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.branch || github.ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Azure login
+        uses: azure/login@v3
+        with:
+          client-id: ${{ secrets.CLIENT_ID }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          subscription-id: ${{ secrets.SUB_ID }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install openai azure-identity
+
+      - name: Generate image
+        run: |
+          python scripts/create_image.py \
+            --prompt "${{ inputs.prompt }}" \
+            --output output.png \
+            --endpoint "${{ env.AZURE_OPENAI_ENDPOINT }}" \
+            --model "${{ env.AZURE_OPENAI_IMAGE_MODEL }}" \
+            --size "${{ inputs.size }}" \
+            --quality "${{ inputs.quality }}" \
+            --style "${{ inputs.style }}"
+
+      - name: Save image
+        run: |
+          mkdir -p content/posts/${{ inputs.slug }}
+          mv output.png content/posts/${{ inputs.slug }}/cover.jpg
+
+      - name: Commit image
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add content/posts/${{ inputs.slug }}/cover.jpg
+          if git diff --cached --quiet; then
+            echo "No image changes to commit"
+            exit 0
+          fi
+          git commit -m "Add cover image for ${{ inputs.slug }}"
+          git push origin HEAD:${{ inputs.branch || github.ref }}
