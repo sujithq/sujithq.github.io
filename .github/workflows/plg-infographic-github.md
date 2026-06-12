@@ -9,12 +9,6 @@ permissions: read-all
 
 engine: copilot
 
-steps:
-  - collect-data
-  - generate-infographic
-  - upload-artifact
-  - create-pull-request
-
 tools:
   github:
     allowed-repos:
