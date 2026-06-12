@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-06-10
+post_date: 2026-06-11
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -435,3 +435,4 @@ completed deprecation is shown.
 | 2026-06-09 | [Claude Fable 5 is generally available for GitHub Copilot](https://github.blog/changelog/2026-06-09-claude-fable-5-is-generally-available-for-github-copilot) | Generally available | Claude Fable 5 from Anthropic is now generally available in GitHub Copilot. GitHub describes it as a Mythos-class model aimed at long-horizon, autonomous coding and knowledge-work tasks. |
 | 2026-06-10 | [Dedicated security review command now available in Copilot CLI](https://github.blog/changelog/2026-06-10-dedicated-security-review-command-now-available-in-copilot-cli) | Update | GitHub Copilot CLI now includes an experimental /security-review slash command for running security reviews on code changes directly in the CLI. The feature is in public preview. |
 | 2026-06-10 | [Copilot Chat now sees your agent sessions](https://github.blog/changelog/2026-06-10-copilot-chat-now-sees-your-agent-sessions) | Update | GitHub Copilot Chat on the web now has a better handoff to Copilot cloud agent sessions. It also adds the ability to search and query past agent sessions. |
+| 2026-06-11 | [Copilot CLI: Configure everything from one place with /settings](https://github.blog/changelog/2026-06-11-copilot-cli-configure-everything-from-one-place-with-settings) | Update | GitHub Copilot CLI adds a unified /settings command for managing configuration in one place. It consolidates older commands like /theme, /streamer-mode, and /experimental, along with other previously separate options. |
