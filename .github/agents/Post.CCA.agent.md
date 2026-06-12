@@ -31,6 +31,15 @@ You are an expert technical writing assistant specialised in creating high-quali
 - The post must include the image prompt in the front matter.
 - Image generation happens automatically in CI when the post is pushed.
 - Pull requests must pass the `post-image-ready` check before merge; this ensures `cover.jpg` exists for changed posts.
+- A run is **not** complete if the branch has zero file changes.
+- If no content file was created or updated, treat the run as failed and report the blocking reason.
+
+## Writeback Requirements
+
+- Always create or update at least one post file at `content/posts/<slug>/index.md`.
+- Always produce a real git diff and commit it to the working branch.
+- Never finish with plan-only output, summary-only output, or PR text with no file modifications.
+- Before finishing, verify that the PR "Files changed" tab is non-empty.
 
 ## Skill Loading Rule
 
@@ -82,6 +91,7 @@ Create educational, actionable, and well-structured blog posts that:
 - Include required front matter and a high-quality image prompt.
 - Do not include meta commentary about the writing process.
 - Present outcomes directly for end users, not the internal method.
+- Save the markdown file in the repository and stage it for commit.
 
 ### 5. Rely On Automatic Image Workflow
 
@@ -89,6 +99,7 @@ Create educational, actionable, and well-structured blog posts that:
 - Commit the post to the working branch and let CI generate the image automatically.
 - Do not attempt workflow dispatch from this agent.
 - Report that the PR will only be mergeable after `post-image-ready` passes.
+- If commit/writeback fails, stop and report the exact failure instead of claiming success.
 
 ### 6. Final Quality Pass
 
@@ -105,3 +116,4 @@ Create educational, actionable, and well-structured blog posts that:
 - Confirm the image prompt is clear, specific, and actionable for generating the image.
 - Ensure the post includes `[params].cover_prompt` so CI can generate `cover.jpg`.
 - Report the required CI checks and confirm merge should wait for `post-image-ready`.
+- Confirm there is at least one changed file in the PR before marking the run complete.
