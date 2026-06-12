@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-06-11
+post_date: 2026-06-12
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -914,3 +914,4 @@ completed deprecation is shown.
 | 2026-06-11 | [AI usage report updates](https://github.blog/changelog/2026-06-11-ai-usage-report-updates) | Update | AI usage reports now include GitHub AI Credits usage in the standard report fields. To track AI credit consumption, use the quantity field for AI credit quantity and gross_amount for the associated amount. |
 | 2026-06-11 | [Bot-created pull requests can run workflows if approved](https://github.blog/changelog/2026-06-11-bot-created-pull-requests-can-run-workflows-if-approved) | Update | Pull requests created by `github-actions[bot]` can now run CI/CD workflows after a user approves them. The approval step is required as a security check before generated code is allowed to trigger workflows. |
 | 2026-06-11 | [GitHub Enterprise Server 3.21 is now generally available](https://github.blog/changelog/2026-06-11-github-enterprise-server-3-21-is-now-generally-available) | Generally available | GitHub Enterprise Server 3.21 is now generally available. The release adds improvements in deployment efficiency, monitoring, code security, and policy management, including organization custom properties now generally available. |
+| 2026-06-12 | [GitHub Actions: Minimum version enforcement timeline for self-hosted runners](https://github.blog/changelog/2026-06-12-github-actions-minimum-version-enforcement-timeline-for-self-hosted-runners) | Update | GitHub Actions is resuming enforcement of minimum version requirements for self-hosted runners on github.com and GitHub Enterprise Cloud with Data Residency. The post says this is part of a broader effort to rebuild enforcement, but the excerpt does not include the specific minimum versions or timeline details. |
