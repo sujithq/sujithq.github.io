@@ -30,9 +30,13 @@ on:
         description: Branch to commit the image to
         required: false
         type: string
+  push:
+    paths:
+      - content/posts/**/index.md
 
 jobs:
-  generate:
+  generate-manual:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     env:
       AZURE_OPENAI_ENDPOINT: ${{ vars.AZURE_OPENAI_ENDPOINT || 'https://squintelier-5556-resource.services.ai.azure.com/' }}
@@ -43,9 +47,16 @@ jobs:
       contents: write
 
     steps:
+      - name: Resolve target branch
+        id: branch
+        run: |
+          TARGET_BRANCH="${{ inputs.branch || github.ref_name }}"
+          TARGET_BRANCH="${TARGET_BRANCH#refs/heads/}"
+          echo "target_branch=$TARGET_BRANCH" >> "$GITHUB_OUTPUT"
+
       - uses: actions/checkout@v6
         with:
-          ref: ${{ inputs.branch || github.ref }}
+          ref: ${{ steps.branch.outputs.target_branch }}
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -90,4 +101,136 @@ jobs:
             exit 0
           fi
           git commit -m "Add cover image for ${{ inputs.slug }}"
-          git push origin HEAD:${{ inputs.branch || github.ref }}
+          git push origin HEAD:${{ steps.branch.outputs.target_branch }}
+
+  generate-auto:
+    if: ${{ github.event_name == 'push' && github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    env:
+      AZURE_OPENAI_ENDPOINT: ${{ vars.AZURE_OPENAI_ENDPOINT || 'https://squintelier-5556-resource.services.ai.azure.com/' }}
+      AZURE_OPENAI_IMAGE_MODEL: ${{ vars.AZURE_OPENAI_IMAGE_MODEL || 'gpt-image-2' }}
+      IMAGE_SIZE: 1536x1024
+      IMAGE_QUALITY: medium
+      IMAGE_STYLE: ''
+
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref_name }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Azure login
+        uses: azure/login@v3
+        with:
+          client-id: ${{ secrets.CLIENT_ID }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          subscription-id: ${{ secrets.SUB_ID }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install openai azure-identity
+
+      - name: Resolve changed posts needing images
+        id: targets
+        run: |
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+
+          if [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+            git diff --name-only "$BEFORE" "$AFTER" -- 'content/posts/**/index.md' > changed-posts.txt
+          else
+            git diff-tree --no-commit-id --name-only -r "$AFTER" -- 'content/posts/**/index.md' > changed-posts.txt
+          fi
+
+          python - <<'PY'
+          import pathlib
+          import subprocess
+          import tomllib
+
+          changed = [
+              line.strip()
+              for line in pathlib.Path("changed-posts.txt").read_text(encoding="utf-8").splitlines()
+              if line.strip()
+          ]
+
+          targets = []
+          for rel_path in changed:
+              post_path = pathlib.Path(rel_path)
+              if not post_path.exists():
+                  continue
+
+              cover_path = post_path.parent / "cover.jpg"
+              if cover_path.exists():
+                  continue
+
+              text = post_path.read_text(encoding="utf-8")
+              if not text.startswith("+++"):
+                  continue
+
+              parts = text.split("+++", 2)
+              if len(parts) < 3:
+                  continue
+
+              front_matter = parts[1]
+              data = tomllib.loads(front_matter)
+              params = data.get("params", {}) if isinstance(data, dict) else {}
+              prompt = params.get("cover_prompt")
+              if not prompt:
+                  continue
+
+              slug = data.get("slug") or post_path.parent.name
+              prompt_single_line = " ".join(str(prompt).split())
+              targets.append((str(slug), prompt_single_line))
+
+          with pathlib.Path("targets.tsv").open("w", encoding="utf-8") as handle:
+              for slug, prompt in targets:
+                  handle.write(f"{slug}\t{prompt}\n")
+          PY
+
+          COUNT=$(wc -l < targets.tsv | tr -d '[:space:]')
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "Resolved $COUNT post(s) needing cover images"
+
+      - name: Generate images
+        if: ${{ steps.targets.outputs.count != '0' }}
+        run: |
+          while IFS=$'\t' read -r SLUG PROMPT; do
+            if [ -z "$SLUG" ] || [ -z "$PROMPT" ]; then
+              continue
+            fi
+
+            python scripts/create_image.py \
+              --prompt "$PROMPT" \
+              --output "output-${SLUG}.png" \
+              --endpoint "${{ env.AZURE_OPENAI_ENDPOINT }}" \
+              --model "${{ env.AZURE_OPENAI_IMAGE_MODEL }}" \
+              --size "${{ env.IMAGE_SIZE }}" \
+              --quality "${{ env.IMAGE_QUALITY }}" \
+              --style "${{ env.IMAGE_STYLE }}"
+
+            mkdir -p "content/posts/${SLUG}"
+            mv "output-${SLUG}.png" "content/posts/${SLUG}/cover.jpg"
+            git add "content/posts/${SLUG}/cover.jpg"
+          done < targets.tsv
+
+      - name: Commit generated images
+        if: ${{ steps.targets.outputs.count != '0' }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          if git diff --cached --quiet; then
+            echo "No image changes to commit"
+            exit 0
+          fi
+          git commit -m "Add generated cover images"
+          git push origin HEAD:${{ github.ref_name }}

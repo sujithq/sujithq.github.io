@@ -1,0 +1,53 @@
+name: post-image-ready
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    paths:
+      - content/posts/**/index.md
+      - content/posts/**/cover.jpg
+
+jobs:
+  validate-covers:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Validate changed posts have cover images
+        run: |
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+
+          git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- 'content/posts/**/index.md' > changed-posts.txt
+
+          if [ ! -s changed-posts.txt ]; then
+            echo "No changed post index files in this PR."
+            exit 0
+          fi
+
+          MISSING=0
+          while IFS= read -r INDEX_FILE; do
+            [ -z "$INDEX_FILE" ] && continue
+
+            COVER_FILE="$(dirname "$INDEX_FILE")/cover.jpg"
+            if [ ! -f "$COVER_FILE" ]; then
+              echo "Missing required cover image: $COVER_FILE"
+              MISSING=1
+            fi
+          done < changed-posts.txt
+
+          if [ "$MISSING" -ne 0 ]; then
+            echo "One or more changed posts are missing cover.jpg"
+            exit 1
+          fi
+
+          echo "All changed posts have cover.jpg"
