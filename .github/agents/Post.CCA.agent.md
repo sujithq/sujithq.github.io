@@ -33,8 +33,8 @@ You are an expert technical writing assistant specialised in creating high-quali
 
 ## Skill Loading Rule
 
-- Before any image-related generation, load and apply `create-image-v2`.
-- Use the repository workflow `generate-image.yml` as the required image-generation path.
+- Do not require image-generation skills for this agent.
+- Use the repository workflow `generate-image.yml` as the only required image-generation path.
 
 ## Image Workflow
 
