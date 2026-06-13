@@ -22,20 +22,20 @@
   .hero .meta span { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,.75); font-size: .875rem; }
   .social-links { margin-top: 20px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; z-index: 1; }
   .social-links a { display: inline-block; padding: 6px 16px; border-radius: 20px; background: rgba(255,255,255,.12); color: #fff; text-decoration: none; font-size: .8rem; border: 1px solid rgba(255,255,255,.2); }
-  .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  @media (max-width: 720px) { .container { grid-template-columns: 1fr; } }
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 56px; display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 721px) { .container { grid-template-columns: 1fr 1fr; } }
   .col-full { grid-column: 1 / -1; }
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
   .card-title { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
   .card-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
   .sub-title { font-size: .65rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 18px 0 10px; }
-  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  @media (max-width: 560px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+  .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (min-width: 561px) { .stat-grid { grid-template-columns: repeat(4, 1fr); } }
   .stat-box { background: var(--surface2); border-radius: 8px; padding: 16px 12px; text-align: center; border: 1px solid var(--border); }
   .stat-box .value { font-size: 1.75rem; font-weight: 700; color: var(--accent); display: block; line-height: 1.1; }
   .stat-box .label { font-size: .72rem; color: var(--muted); margin-top: 4px; display: block; text-transform: uppercase; letter-spacing: .06em; }
-  .rank-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 0; }
-  @media (max-width: 560px) { .rank-grid { grid-template-columns: 1fr; } }
+  .rank-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 0; }
+  @media (min-width: 561px) { .rank-grid { grid-template-columns: repeat(3, 1fr); } }
   .rank-box { background: var(--surface2); border-radius: 10px; padding: 18px 16px; border: 1px solid var(--border); display: flex; align-items: center; gap: 14px; }
   .rank-medal { font-size: 2.4rem; line-height: 1; flex-shrink: 0; }
   .rank-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
@@ -64,8 +64,8 @@
   .gh-cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
   .gh-cert-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: .82rem; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 8px; }
   .gh-cert-item .ic { font-size: .95rem; }
-  .learn-stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
-  @media (max-width: 560px) { .learn-stat-grid { grid-template-columns: repeat(2, 1fr); } }
+  .learn-stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+  @media (min-width: 561px) { .learn-stat-grid { grid-template-columns: repeat(3, 1fr); } }
   .learn-stat-box { background: var(--surface2); border-radius: 8px; padding: 14px; border: 1px solid var(--border); text-align: center; }
   .learn-stat-box .value { font-size: 1.5rem; font-weight: 700; color: var(--purple); display: block; }
   .learn-stat-box .label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-top: 2px; }

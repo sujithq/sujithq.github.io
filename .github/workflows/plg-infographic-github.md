@@ -74,6 +74,7 @@ metadata:
   - no JavaScript, event handlers, or inline scripts
   - no iframes, forms, embeds, tracking pixels, or network requests
   - semantic, accessible markup with clear headings and sections
+  - **mobile-first CSS**: base styles target small screens (single-column layout); use `@media (min-width: …)` breakpoints to progressively enhance for wider viewports — never use `max-width` media queries for layout
 
 ## Upload and PR
 
