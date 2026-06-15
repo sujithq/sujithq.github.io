@@ -30,8 +30,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.60.0",
-    "@types/node": "^25.9.2",
+    "@playwright/test": "^1.61.0",
+    "@types/node": "^25.9.3",
     "autoprefixer": "^10.5.0",
     "postcss": "^8.5.15",
     "postcss-cli": "^11.0.1"
