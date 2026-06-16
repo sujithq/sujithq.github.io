@@ -6,7 +6,7 @@
   "scripts": {
     "clean:public": "node scripts/clean-public.js",
     "copy-files": "node scripts/copy-files.js",
-    "postinstall": "npm run copy-files",
+    "postinstall": "npm run copy-files && node scripts/patch-gray-matter.js",
     "test": "playwright test",
     "test:prod-local-health": "playwright test tests/prod-local-health.spec.ts --workers=1",
     "upd": "playwright test --update-snapshots",
@@ -48,5 +48,8 @@
     "gray-matter": "^4.0.3",
     "prismjs": "^1.30.0",
     "swiper": "^12.2.0"
+  },
+  "overrides": {
+    "js-yaml": "^4.1.0"
   }
 }
