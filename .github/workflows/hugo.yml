@@ -50,11 +50,12 @@ jobs:
         run: |
           if [[ "${{ steps.fetch_meta.outcome }}" == "success" ]]; then
             UPDATE_TYPE="${{ steps.fetch_meta.outputs.update-type }}"
-            if [[ "$UPDATE_TYPE" == "version-update:semver-major" ]]; then
-              echo "proceed=true" >> "$GITHUB_OUTPUT"
-            else
-              echo "Skipping build: dependabot $UPDATE_TYPE update"
+            if [[ "$UPDATE_TYPE" == "version-update:semver-patch" || "$UPDATE_TYPE" == "version-update:semver-minor" ]]; then
+              echo "Skipping build: dependabot $UPDATE_TYPE update" >&2
               echo "proceed=false" >> "$GITHUB_OUTPUT"
+            else
+              # Proceed for semver-major and any unknown/empty types to avoid accidental skips.
+              echo "proceed=true" >> "$GITHUB_OUTPUT"
             fi
           else
             echo "proceed=true" >> "$GITHUB_OUTPUT"
