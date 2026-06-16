@@ -48,7 +48,7 @@ jobs:
       - id: gate
         shell: bash
         run: |
-          if [[ "${{ github.actor }}" == "dependabot[bot]" && "${{ github.event_name }}" == "pull_request" ]]; then
+          if [[ "${{ steps.fetch_meta.outcome }}" == "success" ]]; then
             UPDATE_TYPE="${{ steps.fetch_meta.outputs.update-type }}"
             if [[ "$UPDATE_TYPE" == "version-update:semver-major" ]]; then
               echo "proceed=true" >> "$GITHUB_OUTPUT"
