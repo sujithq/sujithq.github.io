@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-06-12
+post_date: 2026-06-15
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -437,3 +437,4 @@ completed deprecation is shown.
 | 2026-06-10 | [Copilot Chat now sees your agent sessions](https://github.blog/changelog/2026-06-10-copilot-chat-now-sees-your-agent-sessions) | Update | GitHub Copilot Chat on the web now has a better handoff to Copilot cloud agent sessions. It also adds the ability to search and query past agent sessions. |
 | 2026-06-11 | [Copilot CLI: Configure everything from one place with /settings](https://github.blog/changelog/2026-06-11-copilot-cli-configure-everything-from-one-place-with-settings) | Update | GitHub Copilot CLI adds a unified /settings command for managing configuration in one place. It consolidates older commands like /theme, /streamer-mode, and /experimental, along with other previously separate options. |
 | 2026-06-12 | [Copilot code review: New configurations and controls](https://github.blog/changelog/2026-06-12-copilot-code-review-new-configurations-and-controls) | Update | GitHub added new ways to configure Copilot code review, including organization runner controls, support for Copilot content exclusion, and removal of the repository custom instructions character limit. |
+| 2026-06-15 | [Copilot usage metrics now include more of your active users](https://github.blog/changelog/2026-06-15-copilot-usage-metrics-now-include-more-of-your-active-users) | Update | GitHub Copilot usage metrics now use server-side telemetry in addition to client-side signals, so reports include more active users. The change affects enterprise usage reports and improves coverage of user activity. |

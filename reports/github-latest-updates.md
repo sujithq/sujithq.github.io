@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-06-12
+post_date: 2026-06-15
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -916,3 +916,4 @@ completed deprecation is shown.
 | 2026-06-11 | [GitHub Enterprise Server 3.21 is now generally available](https://github.blog/changelog/2026-06-11-github-enterprise-server-3-21-is-now-generally-available) | Generally available | GitHub Enterprise Server 3.21 is now generally available. The release adds improvements in deployment efficiency, monitoring, code security, and policy management, including organization custom properties now generally available. |
 | 2026-06-12 | [GitHub Actions: Minimum version enforcement timeline for self-hosted runners](https://github.blog/changelog/2026-06-12-github-actions-minimum-version-enforcement-timeline-for-self-hosted-runners) | Update | GitHub Actions is resuming enforcement of minimum version requirements for self-hosted runners on github.com and GitHub Enterprise Cloud with Data Residency. The post says this is part of a broader effort to rebuild enforcement, but the excerpt does not include the specific minimum versions or timeline details. |
 | 2026-06-12 | [Copilot code review: New configurations and controls](https://github.blog/changelog/2026-06-12-copilot-code-review-new-configurations-and-controls) | Update | GitHub added new ways to configure Copilot code review, including organization runner controls, support for Copilot content exclusion, and removal of the repository custom instructions character limit. |
+| 2026-06-15 | [Copilot usage metrics now include more of your active users](https://github.blog/changelog/2026-06-15-copilot-usage-metrics-now-include-more-of-your-active-users) | Update | GitHub Copilot usage metrics now use server-side telemetry in addition to client-side signals, so reports include more active users. The change affects enterprise usage reports and improves coverage of user activity. |
