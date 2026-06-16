@@ -31,8 +31,40 @@ env:
 
 
 jobs:
+  should_build:
+    runs-on: ubuntu-latest
+    outputs:
+      proceed: ${{ steps.gate.outputs.proceed }}
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - id: fetch_meta
+        if: github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: gate
+        shell: bash
+        run: |
+          if [[ "${{ github.actor }}" == "dependabot[bot]" && "${{ github.event_name }}" == "pull_request" ]]; then
+            UPDATE_TYPE="${{ steps.fetch_meta.outputs.update-type }}"
+            if [[ "$UPDATE_TYPE" == "version-update:semver-major" ]]; then
+              echo "proceed=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "Skipping build: dependabot $UPDATE_TYPE update"
+              echo "proceed=false" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          fi
+
   build:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    needs: [should_build]
+    if: |
+      needs.should_build.outputs.proceed == 'true' &&
+      (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-26.04-arm
     permissions:
       contents: write
