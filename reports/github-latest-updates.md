@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-06-15
+post_date: 2026-06-16
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -917,3 +917,6 @@ completed deprecation is shown.
 | 2026-06-12 | [GitHub Actions: Minimum version enforcement timeline for self-hosted runners](https://github.blog/changelog/2026-06-12-github-actions-minimum-version-enforcement-timeline-for-self-hosted-runners) | Update | GitHub Actions is resuming enforcement of minimum version requirements for self-hosted runners on github.com and GitHub Enterprise Cloud with Data Residency. The post says this is part of a broader effort to rebuild enforcement, but the excerpt does not include the specific minimum versions or timeline details. |
 | 2026-06-12 | [Copilot code review: New configurations and controls](https://github.blog/changelog/2026-06-12-copilot-code-review-new-configurations-and-controls) | Update | GitHub added new ways to configure Copilot code review, including organization runner controls, support for Copilot content exclusion, and removal of the repository custom instructions character limit. |
 | 2026-06-15 | [Copilot usage metrics now include more of your active users](https://github.blog/changelog/2026-06-15-copilot-usage-metrics-now-include-more-of-your-active-users) | Update | GitHub Copilot usage metrics now use server-side telemetry in addition to client-side signals, so reports include more active users. The change affects enterprise usage reports and improves coverage of user activity. |
+| 2026-06-16 | [Organization-level enablement for GitHub Code Quality](https://github.blog/changelog/2026-06-16-organization-level-enablement-for-github-code-quality) | Update | GitHub Code Quality can now be enabled or disabled at the organization level with one toggle. This replaces the need to configure the feature repository by repository. |
+| 2026-06-16 | [GitHub Code Quality generally available July 20, 2026](https://github.blog/changelog/2026-06-16-github-code-quality-generally-available-july-20-2026) | Generally available | GitHub Code Quality, currently in public preview, will reach general availability on July 20, 2026. The preview has been used by enterprises to detect maintainability and reliability issues, enforce quality gates, and track code coverage. |
+| 2026-06-16 | [GitHub Models is no longer available to new customers](https://github.blog/changelog/2026-06-16-github-models-is-no-longer-available-to-new-customers) | Update | GitHub is retiring GitHub Models. As an initial step, new customers can no longer use it, while existing organizations or enterprises that have already used it are not affected by this announcement. |
