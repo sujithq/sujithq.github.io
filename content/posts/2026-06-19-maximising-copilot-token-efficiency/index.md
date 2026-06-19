@@ -34,7 +34,7 @@ layout = "single"
 description = "Master token efficiency in Copilot sessions: learn prompt caching, auto model selection, and practical strategies to stretch your credits further."
 +++
 
-With GitHub Copilot shifting to usage-based billing, every token in an agentic session now carries real cost. The good news? GitHub and Microsoft have spent months engineering the Copilot harness to be smarter about how it spends those tokens. This guide walks you through the key efficiency improvements—and practical habits that'll help your credits go further.
+With GitHub Copilot shifting to usage-based billing, every token in an agentic session now carries real cost. The good news? GitHub and Microsoft have spent months engineering the Copilot harness to be smarter about how it spends those tokens. This guide walks you through the key efficiency improvements, along with practical habits that will help your credits go further.
 
 ## Understanding the Cost of Agentic Sessions
 
@@ -80,7 +80,7 @@ Result: ~94% cache hit rate for agentic workloads, meaning only a small fraction
 
 ### Tool Search and Deferred Loading
 
-Agents can access dozens of tools—MCP servers, built-in tools, extensions. Historically, every tool definition was loaded into context on every request, even if unused.
+Agents can access dozens of tools, including MCP servers, built-in tools, and extensions. Historically, every tool definition was loaded into context on every request, even if unused.
 
 Tool search flips this: tools are deferred, and the model sees only lightweight metadata (name and description) upfront. The heavy parameter schemas load on demand when the model actually calls a tool.
 
@@ -190,7 +190,7 @@ Auto model selection is live across supported Copilot experiences today. To lear
 - [How to get more out of your AI credits](https://docs.github.com/en/copilot/how-tos/manage-and-track-spending/manage-company-spending)
 - [Copilot Discussions](https://github.com/orgs/community/discussions/categories/copilot-conversations)
 
-The engineering investment is clear: every token now goes further. Pair that with deliberate habits—keeping sessions focused, trusting Auto to route intelligently, and monitoring your usage—and you'll get more value from each credit you spend.
+The engineering investment is clear: every token now goes further. Pair that with deliberate habits: keep sessions focused, trust Auto to route intelligently, and monitor your usage. Then you will get more value from each credit you spend.
 
 ---
 
