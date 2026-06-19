@@ -127,7 +127,7 @@ Quick explanations, focused edits, and multi-file refactorings don't all benefit
 
 ### Real-Time Model Health
 
-A dynamic engine tracks model availability, utilization, speed, error rates, and cost. A model may be capable of handling your task, but if it's under heavy load, a more efficient model might deliver faster results at lower cost.
+A dynamic engine tracks model availability, utilisation, speed, error rates, and cost. A model may be capable of handling your task, but if it's under heavy load, a more efficient model might deliver faster results at lower cost.
 
 ### Task-Aware Routing (HyDRA)
 
