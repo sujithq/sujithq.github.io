@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-06-17
+post_date: 2026-06-18
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -442,3 +442,8 @@ completed deprecation is shown.
 | 2026-06-17 | [Agent finder for GitHub Copilot now available](https://github.blog/changelog/2026-06-17-agent-finder-for-github-copilot-now-available) | Update | GitHub Copilot now includes agent finder, a feature for selecting which MCP servers, skills, canvases, agents, and tools an agent should use. GitHub says it reduces the need to manually wire these components and helps avoid filling the context window. |
 | 2026-06-17 | [Auto mode in Copilot Chat available for all users](https://github.blog/changelog/2026-06-17-auto-mode-in-copilot-chat-available-for-all-users) | Update | GitHub Copilot auto model selection is now generally available in Copilot Chat on github.com and the GitHub mobile app for all Copilot plans. In auto mode, Copilot selects the model for the chat request. |
 | 2026-06-17 | [Enterprise-managed settings now support bypass permission controls](https://github.blog/changelog/2026-06-17-enterprise-managed-settings-now-support-bypass-permission-controls) | Update | Enterprise administrators can now set `disableBypassPermissionsMode` to `"disable"` in enterprise-managed `settings.json` to prevent GitHub Copilot CLI and VS Code from bypassing permission controls. |
+| 2026-06-18 | [Generated release notes credit you for Copilot pull requests](https://github.blog/changelog/2026-06-18-generated-release-notes-credit-you-for-copilot-pull-requests) | Update | Generated release notes now credit Copilot pull requests in the list of merged pull requests since the last release. This affects the automatically generated release notes output. |
+| 2026-06-18 | [Copilot-authored pull requests now included in author searches](https://github.blog/changelog/2026-06-18-copilot-authored-pull-requests-now-included-in-author-searches) | Update | Pull request searches using the `author:` qualifier now include pull requests opened by the Copilot cloud agent on a user’s behalf. For example, `author:@me` on GitHub pull requests will return those Copilot-authored PRs as well. |
+| 2026-06-18 | [Copilot code review: AGENTS.md support and UI improvements](https://github.blog/changelog/2026-06-18-copilot-code-review-agents-md-support-and-ui-improvements) | Update | Copilot code review now reads repository-level AGENTS.md files and adds a Request button to make it easier to ask Copilot for a review on draft pull requests. GitHub says these updates are generally available. |
+| 2026-06-18 | [MAI-Code-1-Flash available on more Copilot surfaces](https://github.blog/changelog/2026-06-18-mai-code-1-flash-available-on-more-copilot-surfaces) | Update | MAI-Code-1-Flash is now available in additional GitHub Copilot surfaces. The model can be used in Copilot CLI, the GitHub Copilot app, Copilot Chat on GitHub, and Visual Studio Code. |
+| 2026-06-18 | [Upcoming deprecation of Opus 4.6 (fast)](https://github.blog/changelog/2026-06-18-upcoming-deprecation-of-opus-4-6-fast) | Upcoming deprecation | GitHub will deprecate Opus 4.6 (fast) across all Copilot experiences on June 29, 2026. This includes Copilot Chat, inline edits, ask and agent modes, and code completions. |
