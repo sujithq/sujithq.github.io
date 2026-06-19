@@ -50,6 +50,6 @@
     "swiper": "^12.2.0"
   },
   "overrides": {
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.2.0"
   }
 }
