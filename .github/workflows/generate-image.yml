@@ -7,8 +7,8 @@ on:
         description: Image prompt to render
         required: true
         type: string
-      slug:
-        description: Slug used for the committed PNG filename
+      folder:
+        description: Post folder name with date prefix (e.g., 2026-06-19-my-post)
         required: true
         type: string
       size:
@@ -88,19 +88,19 @@ jobs:
 
       - name: Save image
         run: |
-          mkdir -p content/posts/${{ inputs.slug }}
-          mv output.png content/posts/${{ inputs.slug }}/cover.jpg
+          mkdir -p content/posts/${{ inputs.folder }}
+          mv output.png content/posts/${{ inputs.folder }}/cover.jpg
 
       - name: Commit image
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add content/posts/${{ inputs.slug }}/cover.jpg
+          git add content/posts/${{ inputs.folder }}/cover.jpg
           if git diff --cached --quiet; then
             echo "No image changes to commit"
             exit 0
           fi
-          git commit -m "Add cover image for ${{ inputs.slug }}"
+          git commit -m "Add cover image for ${{ inputs.folder }}"
           git push origin HEAD:${{ steps.branch.outputs.target_branch }}
 
   generate-auto:
@@ -188,13 +188,13 @@ jobs:
               if not prompt:
                   continue
 
-              slug = data.get("slug") or post_path.parent.name
+              folder = post_path.parent.name
               prompt_single_line = " ".join(str(prompt).split())
-              targets.append((str(slug), prompt_single_line))
+              targets.append((folder, prompt_single_line))
 
           with pathlib.Path("targets.tsv").open("w", encoding="utf-8") as handle:
-              for slug, prompt in targets:
-                  handle.write(f"{slug}\t{prompt}\n")
+              for folder, prompt in targets:
+                  handle.write(f"{folder}\t{prompt}\n")
           PY
 
           COUNT=$(wc -l < targets.tsv | tr -d '[:space:]')
@@ -204,23 +204,23 @@ jobs:
       - name: Generate images
         if: ${{ steps.targets.outputs.count != '0' }}
         run: |
-          while IFS=$'\t' read -r SLUG PROMPT; do
-            if [ -z "$SLUG" ] || [ -z "$PROMPT" ]; then
+          while IFS=$'\t' read -r FOLDER PROMPT; do
+            if [ -z "$FOLDER" ] || [ -z "$PROMPT" ]; then
               continue
             fi
 
             python scripts/create_image.py \
               --prompt "$PROMPT" \
-              --output "output-${SLUG}.png" \
+              --output "output-${FOLDER}.png" \
               --endpoint "${{ env.AZURE_OPENAI_ENDPOINT }}" \
               --model "${{ env.AZURE_OPENAI_IMAGE_MODEL }}" \
               --size "${{ env.IMAGE_SIZE }}" \
               --quality "${{ env.IMAGE_QUALITY }}" \
               --style "${{ env.IMAGE_STYLE }}"
 
-            mkdir -p "content/posts/${SLUG}"
-            mv "output-${SLUG}.png" "content/posts/${SLUG}/cover.jpg"
-            git add "content/posts/${SLUG}/cover.jpg"
+            mkdir -p "content/posts/${FOLDER}"
+            mv "output-${FOLDER}.png" "content/posts/${FOLDER}/cover.jpg"
+            git add "content/posts/${FOLDER}/cover.jpg"
           done < targets.tsv
 
       - name: Commit generated images
