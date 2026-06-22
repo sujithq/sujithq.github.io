@@ -3,7 +3,7 @@ title = '🖥️ GitHub Copilot App is Generally Available'
 slug = 'github-copilot-app-generally-available'
 date = '2026-06-22 09:00:00Z'
 lastmod = '2026-06-22 09:00:00Z'
-draft = true
+draft = false
 tags = [
   "GitHub",
   "GitHub Copilot",
