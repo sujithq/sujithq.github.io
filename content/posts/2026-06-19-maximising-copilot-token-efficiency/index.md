@@ -192,7 +192,6 @@ Auto model selection is live across supported Copilot experiences today. To lear
 
 The engineering investment is clear: every token now goes further. Pair that with deliberate habits: keep sessions focused, trust Auto to route intelligently, and monitor your usage. Then you will get more value from each credit you spend.
 
-
 ---
 
 ## References
