@@ -67,6 +67,7 @@ jobs:
       needs.should_build.outputs.proceed == 'true' &&
       (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-26.04-arm
+    environment: copilot
     permissions:
       contents: write
       id-token: write   # REQUIRED for OIDC
