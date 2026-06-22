@@ -3,7 +3,7 @@ title = 'Maximising Copilot Token Efficiency 🚀'
 slug = 'maximising-copilot-token-efficiency'
 date = '2026-06-19 06:00:00Z'
 lastmod = '2026-06-19 06:00:00Z'
-draft = true
+draft = false
 tags = [
   "GitHub",
   "GitHub Copilot",
