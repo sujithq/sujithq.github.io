@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-06-19
+post_date: 2026-06-22
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -448,3 +448,4 @@ completed deprecation is shown.
 | 2026-06-18 | [MAI-Code-1-Flash available on more Copilot surfaces](https://github.blog/changelog/2026-06-18-mai-code-1-flash-available-on-more-copilot-surfaces) | Update | MAI-Code-1-Flash is now available in additional GitHub Copilot surfaces. The model can be used in Copilot CLI, the GitHub Copilot app, Copilot Chat on GitHub, and Visual Studio Code. |
 | 2026-06-18 | [Upcoming deprecation of Opus 4.6 (fast)](https://github.blog/changelog/2026-06-18-upcoming-deprecation-of-opus-4-6-fast) | Upcoming deprecation | GitHub will deprecate Opus 4.6 (fast) across all Copilot experiences on June 29, 2026. This includes Copilot Chat, inline edits, ask and agent modes, and code completions. |
 | 2026-06-19 | [AI credits consumed per user now in the Copilot usage metrics API](https://github.blog/changelog/2026-06-19-ai-credits-consumed-per-user-now-in-the-copilot-usage-metrics-api) | Update | The Copilot usage metrics API now includes per-user AI credits consumed per day. The new data is derived from the same AI credits consumption source used by the usage-based billing API. |
+| 2026-06-22 | [New features and Claude as agent provider preview in JetBrains IDEs](https://github.blog/changelog/2026-06-22-new-features-and-claude-as-agent-provider-preview-in-jetbrains-ides) | Update | GitHub added support for organization and enterprise agents in JetBrains IDEs, along with Copilot CLI message queueing/steering and a new agent debug logs summary view. The update also previews Claude as an agent provider in JetBrains IDEs. |
