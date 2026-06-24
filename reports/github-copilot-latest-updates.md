@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-06-22
+post_date: 2026-06-23
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -449,3 +449,5 @@ completed deprecation is shown.
 | 2026-06-18 | [Upcoming deprecation of Opus 4.6 (fast)](https://github.blog/changelog/2026-06-18-upcoming-deprecation-of-opus-4-6-fast) | Upcoming deprecation | GitHub will deprecate Opus 4.6 (fast) across all Copilot experiences on June 29, 2026. This includes Copilot Chat, inline edits, ask and agent modes, and code completions. |
 | 2026-06-19 | [AI credits consumed per user now in the Copilot usage metrics API](https://github.blog/changelog/2026-06-19-ai-credits-consumed-per-user-now-in-the-copilot-usage-metrics-api) | Update | The Copilot usage metrics API now includes per-user AI credits consumed per day. The new data is derived from the same AI credits consumption source used by the usage-based billing API. |
 | 2026-06-22 | [New features and Claude as agent provider preview in JetBrains IDEs](https://github.blog/changelog/2026-06-22-new-features-and-claude-as-agent-provider-preview-in-jetbrains-ides) | Update | GitHub added support for organization and enterprise agents in JetBrains IDEs, along with Copilot CLI message queueing/steering and a new agent debug logs summary view. The update also previews Claude as an agent provider in JetBrains IDEs. |
+| 2026-06-23 | [GitHub Copilot app support for BYOK](https://github.blog/changelog/2026-06-23-github-copilot-app-support-for-byok) | Update | GitHub Copilot app now supports bring your own key (BYOK), allowing agent sessions to use customer-managed model providers. Supported providers include OpenAI, Azure OpenAI, Microsoft Foundry, Anthropic, and more. |
+| 2026-06-23 | [Copilot CLI: New terminal interface is generally available](https://github.blog/changelog/2026-06-23-copilot-cli-new-terminal-interface-is-generally-available) | Generally available | GitHub Copilot CLI’s redesigned terminal interface is now generally available. It adds a tabbed layout for working with GitHub directly from the terminal. |
