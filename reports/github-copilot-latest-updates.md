@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-06-25
+post_date: 2026-06-26
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -453,3 +453,6 @@ completed deprecation is shown.
 | 2026-06-25 | [GitHub Copilot for Jira is now generally available](https://github.blog/changelog/2026-06-25-github-copilot-for-jira-is-now-generally-available) | Generally available | GitHub Copilot for Jira is now generally available after a public preview that began in March 2026. GitHub says it has added several improvements since preview, including model selection. |
 | 2026-06-25 | [Enterprise-managed settings now support strictKnownMarketplaces in VS Code and GitHub Copilot CLI](https://github.blog/changelog/2026-06-25-enterprise-managed-settings-now-support-strictknownmarketplaces-in-vs-code-and-the-cli) | Update | GitHub added enterprise-managed support for `strictKnownMarketplaces` in VS Code and GitHub Copilot CLI. The setting is in public preview and lets enterprises control which plugins users can install. |
 | 2026-06-25 | [Copilot code review: Analysis depth and efficiency updates](https://github.blog/changelog/2026-06-25-copilot-code-review-analysis-depth-and-efficiency-updates) | Update | Copilot code review now uses built-in file exploration tools from the Copilot CLI and SDK. GitHub says this improves review cost efficiency without changing the existing workflow. |
+| 2026-06-26 | [GitHub Desktop 3.6: Worktrees and deeper Copilot integration](https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration) | Update | GitHub Desktop 3.6 adds Git worktree support and expands GitHub Copilot integration for commit authoring and merge conflict resolution. It brings more of the Git workflow into Desktop. |
+| 2026-06-26 | [MAI-Code-1-Flash for Copilot Business and Copilot Enterprise](https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise) | Update | MAI-Code-1-Flash, Microsoft AI’s in-house coding model, is now generally available for GitHub Copilot Business and Copilot Enterprise. It builds on its recent expansion across Copilot surfaces and is described as purpose-built for coding and optimized. |
+| 2026-06-26 | [Track total merges by adoption phase in enterprise and organization reports](https://github.blog/changelog/2026-06-26-track-total-merges-by-adoption-phase-in-enterprise-and-organization-reports) | Update | GitHub enterprise and organization reports now include the total number of pull requests merged by each AI adoption phase cohort. This extends the adoption phase metrics previously added to the Copilot usage metrics API. |
