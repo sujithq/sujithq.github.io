@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Productivity on Sujith Quintelier</title><link>https://quintelier.dev/tags/dev-productivity/</link><description>Recent content in Dev Productivity on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 11 Aug 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/dev-productivity/index.xml" rel="self" type="application/rss+xml"/><item><title>Auto-triage CI failures with Copilot</title><link>https://quintelier.dev/posts/2025/08/ai-triage-github-actions-with-copilot/</link><pubDate>Mon, 11 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/ai-triage-github-actions-with-copilot/</guid><description>&lt;p&gt;Failures happen: the key is shortening time-to-understanding. In this guide, you’ll automate triage when a GitHub Actions workflow fails: pull logs and artifacts, get an AI summary from GitHub Models, open an issue with concrete next steps, and optionally assign it to the Copilot coding agent.&lt;/p&gt;
+&lt;h2 id="what-youll-build"&gt;What you’ll build&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Trigger on failed workflow runs you care about&lt;/li&gt;
+&lt;li&gt;Collect logs and artifacts for context&lt;/li&gt;
+&lt;li&gt;Call GitHub Models for a concise summary and probable fix&lt;/li&gt;
+&lt;li&gt;File a GitHub issue with reproduction hints and links&lt;/li&gt;
+&lt;li&gt;Optionally assign the issue to the Copilot coding agent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="prerequisites"&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub Actions enabled in your repo&lt;/li&gt;
+&lt;li&gt;GitHub Models access and a token for inference:
+&lt;ul&gt;
+&lt;li&gt;If you’re using a fine-grained PAT: add &lt;code&gt;models:read&lt;/code&gt; scope&lt;/li&gt;
+&lt;li&gt;Or use &lt;code&gt;secrets.GITHUB_TOKEN&lt;/code&gt; in public repos where Models are enabled for the org&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Optional: Copilot coding agent enabled at the org or user level to assign issues to&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="workflow-ai-assisted-failure-triage"&gt;Workflow: AI-assisted failure triage&lt;/h2&gt;
+&lt;p&gt;Below is a complete workflow you can drop into &lt;code&gt;.github/workflows/ai-triage.yml&lt;/code&gt;. It triggers when selected workflows complete and only proceeds if they failed.&lt;/p&gt;</description></item><item><title>🤖 GitHub Copilot Agent: Your AI Pair Programmer</title><link>https://quintelier.dev/posts/2025/04/github-copilot-agent-mode/</link><pubDate>Thu, 10 Apr 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/04/github-copilot-agent-mode/</guid><description>&lt;p&gt;GitHub Copilot just levelled up. The long-anticipated &lt;strong&gt;Agent Mode&lt;/strong&gt; is no longer in preview and is officially rolling out to all users of &lt;strong&gt;Visual Studio Code&lt;/strong&gt;, including the stable release. If you&amp;rsquo;ve ever dreamed of having a truly &lt;strong&gt;autonomous AI pair programmer&lt;/strong&gt; that doesn&amp;rsquo;t just suggest lines of code but actively edits files, runs commands, and debugs your code — your wish has come true.&lt;/p&gt;
+&lt;h2 id="-what-is-copilot-agent-mode"&gt;💡 What is Copilot Agent Mode?&lt;/h2&gt;
+&lt;p&gt;Agent Mode is a major upgrade to GitHub Copilot. Unlike traditional autocomplete and inline suggestions, &lt;strong&gt;Agent Mode enables Copilot to understand your workspace and perform complex, multi-step tasks&lt;/strong&gt; — from generating code to fixing bugs, running tests, editing multiple files, and executing terminal commands.&lt;/p&gt;</description></item></channel></rss>

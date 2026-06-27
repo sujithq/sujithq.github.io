@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Developer Productivity on Sujith Quintelier</title><link>https://quintelier.dev/tags/developer-productivity/</link><description>Recent content in Developer Productivity on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 22 Jun 2026 09:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/developer-productivity/index.xml" rel="self" type="application/rss+xml"/><item><title>🖥️ GitHub Copilot App is Generally Available</title><link>https://quintelier.dev/posts/2026/06/github-copilot-app-generally-available/</link><pubDate>Mon, 22 Jun 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/06/github-copilot-app-generally-available/</guid><description>&lt;p&gt;GitHub has announced that the &lt;strong&gt;GitHub Copilot app is now generally available&lt;/strong&gt; on macOS, Windows, and Linux.
+Previously available as a technical preview for paid Copilot subscribers, the app is now open to all paid
+Copilot plans without restrictions.&lt;/p&gt;
+&lt;h2 id="what-is-the-github-copilot-app"&gt;What is the GitHub Copilot app&lt;/h2&gt;
+&lt;p&gt;The GitHub Copilot app is a native desktop application purpose-built for agent-driven development. Unlike
+IDE extensions that augment a text editor, this app is a standalone environment where you direct AI agents
+across your full development lifecycle: from triaging an issue through to merging the resulting pull request,
+without switching between a terminal, browser, and IDE.&lt;/p&gt;</description></item><item><title>🎨 Generate with GPT-image-2</title><link>https://quintelier.dev/posts/2026/05/create-image-skill-azure-openai/</link><pubDate>Wed, 13 May 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/05/create-image-skill-azure-openai/</guid><description>&lt;p&gt;The new &lt;code&gt;create-image&lt;/code&gt; skill brings GPT-image-2 generation into the developer
+workflow. Instead of opening a browser, copying a prompt into a design tool, and
+manually moving files around, you can generate visuals from your terminal or
+agent workflow using Azure OpenAI.&lt;/p&gt;
+&lt;p&gt;It is a custom skill I created in the &lt;code&gt;sujithq/skills&lt;/code&gt; repository, so the goal is
+practical automation rather than a generic image-generation tutorial.&lt;/p&gt;
+&lt;p&gt;That makes it useful for blog covers, documentation diagrams, UI placeholders,
+presentation visuals, and quick concept exploration. The important bit is that
+the skill is designed for developer environments: it uses Azure OpenAI, supports
+keyless Azure RBAC authentication, and saves the generated output into your
+project.&lt;/p&gt;</description></item><item><title>📱 Create repos faster with GitHub Mobile</title><link>https://quintelier.dev/posts/2026/05/github-mobile-create-repositories/</link><pubDate>Tue, 12 May 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/05/github-mobile-create-repositories/</guid><description>&lt;p&gt;GitHub has announced that you can now create repositories directly from the
+GitHub Mobile app on both iOS and Android. This removes a common friction point
+for developers who capture ideas away from their desktop and want to start a
+project immediately.&lt;/p&gt;
+&lt;p&gt;If you track client app improvements, this is a practical quality-of-life update
+that turns GitHub Mobile into a stronger day-to-day creation tool, not only a
+triage and review companion.&lt;/p&gt;</description></item><item><title>🔑 Easier BYOK for GitHub Copilot CLI</title><link>https://quintelier.dev/posts/2026/05/copilot-cli-byok-model-switcher/</link><pubDate>Sun, 03 May 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/05/copilot-cli-byok-model-switcher/</guid><description>&lt;p&gt;GitHub Copilot CLI supports &lt;strong&gt;Bring Your Own Key&lt;/strong&gt; (BYOK), letting you point the
+CLI at any OpenAI-compatible endpoint, Azure OpenAI, or Anthropic instead of the
+default Copilot service. The capability is powerful, but the raw workflow requires
+you to export several environment variables every time you switch providers. This
+post walks through the manual approach first, shows why it becomes cumbersome, and
+then introduces
+&lt;a href="https://github.com/sujithq/gh-copilot-cli-model-switcher" target="_blank" rel="noopener noreferrer"&gt;&lt;code&gt;gh-copilot-byok&lt;/code&gt;&lt;/a&gt;,
+a .NET global tool that wraps the whole flow with a polished interactive interface.&lt;/p&gt;</description></item><item><title>⚙️ Azure Functions Core Tools: Version Mismatch</title><link>https://quintelier.dev/posts/2026/04/azure-functions-core-tools-version-mismatch/</link><pubDate>Thu, 23 Apr 2026 11:30:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/04/azure-functions-core-tools-version-mismatch/</guid><description>&lt;h2 id="azure-functions-core-tools-why-your-version-is-wrong-and-how-to-fix-it"&gt;Azure Functions Core Tools: Why Your Version Is “Wrong” (and How to Fix It)&lt;/h2&gt;
+&lt;p&gt;If you’ve worked with Azure Functions locally, chances are you’ve hit this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;func --version → 4.7.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Even though you just installed:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm install -g azure-functions-core-tools@4.9.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Or Visual Studio shows something like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Releases\4.125.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;…and now nothing makes sense.&lt;/p&gt;
+&lt;p&gt;This is not a bug.&lt;br&gt;
+This is a &lt;strong&gt;system design issue&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="the-problem-there-is-no-single-source-of-truth"&gt;The problem: there is no single “source of truth”&lt;/h2&gt;
+&lt;p&gt;Azure Functions Core Tools is distributed through &lt;strong&gt;multiple independent channels&lt;/strong&gt;:&lt;/p&gt;</description></item><item><title>🤖 Copilot CLI Auto Model Selection is GA</title><link>https://quintelier.dev/posts/2026/04/github-copilot-cli-auto-model-selection/</link><pubDate>Mon, 20 Apr 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/04/github-copilot-cli-auto-model-selection/</guid><description>&lt;p&gt;GitHub Copilot CLI now supports &lt;strong&gt;auto model selection&lt;/strong&gt;, generally available across all Copilot plans. Instead of choosing a specific model for every session, you can let Copilot route each request to the most efficient model available at that moment.&lt;/p&gt;
+&lt;h2 id="the-problem-with-manual-model-selection"&gt;The problem with manual model selection&lt;/h2&gt;
+&lt;p&gt;Copilot supports a growing roster of models: GPT-5.4, GPT-5.3-Codex, Claude Sonnet 4.6, Claude Haiku 4.5, and more. Each has different strengths, latency profiles, and premium request multipliers. Picking the right one requires constant context-switching, and even when you do pick correctly, you can hit rate limits on popular models during peak hours.&lt;/p&gt;</description></item><item><title>🧰 Manage agent skills with GitHub CLI</title><link>https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/</link><pubDate>Fri, 17 Apr 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/</guid><description>&lt;p&gt;GitHub has introduced &lt;code&gt;gh skill&lt;/code&gt;, a new GitHub CLI command set for managing agent
+skills from repositories. This release is in &lt;strong&gt;public preview&lt;/strong&gt;, and it gives
+teams a practical workflow to install, update, and publish reusable AI agent
+capabilities.&lt;/p&gt;
+&lt;p&gt;The changelog entry is tagged as a release event, but the feature lifecycle is
+currently &lt;strong&gt;public preview&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If you use coding agents across multiple tools, this matters because it creates
+a repeatable way to distribute task-specific instructions and scripts while
+adding stronger provenance and version controls.&lt;/p&gt;</description></item><item><title>🤖 When to Use GitHub Models, Azure AI Foundry, and OpenAI</title><link>https://quintelier.dev/posts/2025/09/when-to-use-github-models-azure-ai-foundry-openai/</link><pubDate>Tue, 23 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/when-to-use-github-models-azure-ai-foundry-openai/</guid><description>&lt;h2 id="-when-to-use-github-models-azure-ai-foundry-and-openai"&gt;🤖 When to Use GitHub Models, Azure AI Foundry, and OpenAI&lt;/h2&gt;
+&lt;p&gt;Artificial intelligence is moving fast, and so are the platforms that deliver it.&lt;br&gt;
+For many teams, the question isn’t &lt;em&gt;“Can we use AI?”&lt;/em&gt; but &lt;em&gt;“Where should we use it from?”&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Between &lt;strong&gt;GitHub Models&lt;/strong&gt;, &lt;strong&gt;Azure AI Foundry&lt;/strong&gt;, and &lt;strong&gt;OpenAI&lt;/strong&gt;, developers and enterprises alike face an abundance of choice. The reality is that there is no single “best” option — the right one depends on your perspective and your stage in the AI journey.&lt;/p&gt;</description></item><item><title>🚀 GitHub Copilot: The AI-Powered Coding Assistant</title><link>https://quintelier.dev/posts/2025/03/github-copilot-the-ai-powered-coding-assistant/</link><pubDate>Sat, 15 Mar 2025 07:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/github-copilot-the-ai-powered-coding-assistant/</guid><description>&lt;h2 id="introduction"&gt;&lt;strong&gt;Introduction&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;GitHub Copilot is an AI-powered coding assistant developed by GitHub in collaboration with OpenAI. It acts as a pair programmer, providing real-time code suggestions, autocompletions, and entire function implementations based on context. Whether you&amp;rsquo;re writing JavaScript, Python, C#, or even Terraform, Copilot speeds up development and improves productivity.&lt;/p&gt;
+&lt;p&gt;In this article, we’ll explore what GitHub Copilot is, how it works, its benefits, limitations, and best practices for maximizing its potential.&lt;/p&gt;</description></item></channel></rss>

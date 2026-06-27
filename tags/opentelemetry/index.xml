@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OpenTelemetry on Sujith Quintelier</title><link>https://quintelier.dev/tags/opentelemetry/</link><description>Recent content in OpenTelemetry on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 02 Jun 2026 09:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/opentelemetry/index.xml" rel="self" type="application/rss+xml"/><item><title>📊 Monitor AI Coding Agents with Grafana</title><link>https://quintelier.dev/posts/2026/06/monitor-ai-coding-agents-grafana-app-insights/</link><pubDate>Tue, 02 Jun 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/06/monitor-ai-coding-agents-grafana-app-insights/</guid><description>&lt;p&gt;AI coding agents are now a real line item in most engineering budgets. GitHub
+Copilot, Claude Code, OpenClaw, and the next thing your team installs all
+generate tokens, calls, latency, and cost — but very little of that is visible
+unless you wire it up. The Azure Managed Grafana team has now published a
+ready-made path to do exactly that, using OpenTelemetry, Application Insights,
+and a small set of curated dashboards.&lt;/p&gt;</description></item></channel></rss>
