@@ -47,7 +47,7 @@
     "glob": "^13.0.6",
     "gray-matter": "^4.0.3",
     "prismjs": "^1.30.0",
-    "swiper": "^12.2.0"
+    "swiper": "^14.0.1"
   },
   "overrides": {
     "js-yaml": "^4.2.0"
