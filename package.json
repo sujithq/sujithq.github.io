@@ -30,14 +30,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.61.0",
-    "@types/node": "^26.0.0",
-    "autoprefixer": "^10.5.0",
-    "postcss": "^8.5.15",
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.0.1",
+    "autoprefixer": "^10.5.2",
+    "postcss": "^8.5.16",
     "postcss-cli": "^11.0.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^7.2.0",
+    "@fortawesome/fontawesome-free": "^7.3.0",
     "@fullhuman/postcss-purgecss": "^8.0.0",
     "@iarna/toml": "^3.0.0",
     "aos": "^2.3.4",
