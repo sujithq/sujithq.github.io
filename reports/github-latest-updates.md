@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-06-26
+post_date: 2026-06-29
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -955,4 +955,7 @@ completed deprecation is shown.
 | 2026-06-25 | [Copilot code review: Analysis depth and efficiency updates](https://github.blog/changelog/2026-06-25-copilot-code-review-analysis-depth-and-efficiency-updates) | Update | Copilot code review now uses built-in file exploration tools from the Copilot CLI and SDK. GitHub says this improves review cost efficiency without changing the existing workflow. |
 | 2026-06-26 | [GitHub Desktop 3.6: Worktrees and deeper Copilot integration](https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration) | Update | GitHub Desktop 3.6 adds Git worktree support and expands GitHub Copilot integration for commit authoring and merge conflict resolution. It brings more of the Git workflow into Desktop. |
 | 2026-06-26 | [MAI-Code-1-Flash for Copilot Business and Copilot Enterprise](https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise) | Update | MAI-Code-1-Flash, Microsoft AI’s in-house coding model, is now generally available for GitHub Copilot Business and Copilot Enterprise. It builds on its recent expansion across Copilot surfaces and is described as purpose-built for coding and optimized. |
+| 2026-06-26 | [Read-only Actions cache for untrusted triggers](https://github.blog/changelog/2026-06-26-read-only-actions-cache-for-untrusted-triggers) | Update | GitHub Actions now uses read-only cache tokens on the default branch for workflow events that can be triggered without repository write permissions. This narrows cache access for untrusted triggers by applying least privilege. |
 | 2026-06-26 | [Track total merges by adoption phase in enterprise and organization reports](https://github.blog/changelog/2026-06-26-track-total-merges-by-adoption-phase-in-enterprise-and-organization-reports) | Update | GitHub enterprise and organization reports now include the total number of pull requests merged by each AI adoption phase cohort. This extends the adoption phase metrics previously added to the Copilot usage metrics API. |
+| 2026-06-29 | [Restrict issue creation to collaborators only](https://github.blog/changelog/2026-06-29-restrict-issue-creation-to-collaborators-only) | Update | Repository admins can now limit issue creation to collaborators with write access. This adds control over who can open issues and helps reduce unwanted issue creation. |
+| 2026-06-29 | [Claude Opus 4.8 (fast mode) is now in preview for GitHub Copilot](https://github.blog/changelog/2026-06-29-claude-opus-4-8-fast-mode-is-now-in-preview-for-github-copilot) | Update | GitHub Copilot is rolling out Claude Opus 4.8 in preview with fast mode enabled. GitHub says fast mode increases output token speed while keeping the same model intelligence. |
