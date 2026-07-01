@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-06-29
+post_date: 2026-06-30
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -457,3 +457,5 @@ completed deprecation is shown.
 | 2026-06-26 | [MAI-Code-1-Flash for Copilot Business and Copilot Enterprise](https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise) | Update | MAI-Code-1-Flash, Microsoft AI’s in-house coding model, is now generally available for GitHub Copilot Business and Copilot Enterprise. It builds on its recent expansion across Copilot surfaces and is described as purpose-built for coding and optimized. |
 | 2026-06-26 | [Track total merges by adoption phase in enterprise and organization reports](https://github.blog/changelog/2026-06-26-track-total-merges-by-adoption-phase-in-enterprise-and-organization-reports) | Update | GitHub enterprise and organization reports now include the total number of pull requests merged by each AI adoption phase cohort. This extends the adoption phase metrics previously added to the Copilot usage metrics API. |
 | 2026-06-29 | [Claude Opus 4.8 (fast mode) is now in preview for GitHub Copilot](https://github.blog/changelog/2026-06-29-claude-opus-4-8-fast-mode-is-now-in-preview-for-github-copilot) | Update | GitHub Copilot is rolling out Claude Opus 4.8 in preview with fast mode enabled. GitHub says fast mode increases output token speed while keeping the same model intelligence. |
+| 2026-06-30 | [Copilot Agent is now available in JetBrains AI Assistant](https://github.blog/changelog/2026-06-30-copilot-agent-is-now-available-in-jetbrains-ai-assistant) | Update | GitHub and JetBrains announced a deeper integration between JetBrains AI Assistant and GitHub Copilot. Copilot Agent is now available inside JetBrains AI Assistant. |
+| 2026-06-30 | [Claude Sonnet 5 is generally available for GitHub Copilot](https://github.blog/changelog/2026-06-30-claude-sonnet-5-is-generally-available-for-github-copilot) | Generally available | Claude Sonnet 5 is now generally available in GitHub Copilot. GitHub says it offers strong coding performance for everyday development and agentic workflows as a new Sonnet-class model option. |
