@@ -1,0 +1,32 @@
+GitHub Copilot Agent Mode is rolling out to all users of Visual Studio Code, including the stable release. Agent Mode enables Copilot to understand your workspace and perform complex, multi-step tasks—from generating code to fixing bugs, running tests, editing multiple files, and executing terminal commands.
+
+What is Copilot Agent Mode?
+Agent Mode is a major upgrade to GitHub Copilot. Unlike traditional autocomplete and inline suggestions, Agent Mode enables Copilot to perform tasks such as:
+- Refactor legacy code to modern frameworks
+- Bootstrap applications from scratch
+- Write and execute tests, then fix failing ones
+- Generate documentation for existing code
+- Integrate new libraries and modify config files
+- Suggest code edits across multiple files
+
+How Does It Work?
+Agent Mode uses workspace search, code edits, terminal commands, and context awareness to break down your request, reason about next steps, and execute them iteratively.
+
+How To Enable It in VS Code:
+1. Enable Agent Mode in Settings: 'GitHub > Copilot: Enable Chat Agent Mode'
+2. Open Copilot Chat
+3. Switch to Agent Mode in the chat dropdown
+4. Type your task and let Copilot work
+
+When to Use Agent Mode (vs. Edit Mode):
+- Use Agent Mode for multi-file, iterative, or terminal tasks
+- Use Edit Mode for focused changes to a single file or snippet
+
+What’s Coming Next?
+- Better undo support
+- Improved terminal visibility and error feedback
+- Notebook integration for Jupyter workflows
+- More granular context control
+
+Final Thoughts:
+GitHub Copilot Agent Mode is a glimpse into the future of software development. It’s a collaborator that understands your code, runs it, tests it, and fixes it. Fire up Visual Studio Code, switch on Agent Mode, and start building with your AI teammate.

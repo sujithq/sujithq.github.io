@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Github on Sujith Quintelier</title><link>https://quintelier.dev/tags/github/</link><description>Recent content in Github on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 22 Jun 2026 09:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>🖥️ GitHub Copilot App is Generally Available</title><link>https://quintelier.dev/posts/2026/06/github-copilot-app-generally-available/</link><pubDate>Mon, 22 Jun 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/06/github-copilot-app-generally-available/</guid><description>&lt;p&gt;GitHub has announced that the &lt;strong&gt;GitHub Copilot app is now generally available&lt;/strong&gt; on macOS, Windows, and Linux.
+Previously available as a technical preview for paid Copilot subscribers, the app is now open to all paid
+Copilot plans without restrictions.&lt;/p&gt;
+&lt;h2 id="what-is-the-github-copilot-app"&gt;What is the GitHub Copilot app&lt;/h2&gt;
+&lt;p&gt;The GitHub Copilot app is a native desktop application purpose-built for agent-driven development. Unlike
+IDE extensions that augment a text editor, this app is a standalone environment where you direct AI agents
+across your full development lifecycle: from triaging an issue through to merging the resulting pull request,
+without switching between a terminal, browser, and IDE.&lt;/p&gt;</description></item><item><title>Maximising Copilot Token Efficiency 🚀</title><link>https://quintelier.dev/posts/2026/06/maximising-copilot-token-efficiency/</link><pubDate>Fri, 19 Jun 2026 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/06/maximising-copilot-token-efficiency/</guid><description>&lt;p&gt;With GitHub Copilot shifting to usage-based billing, every token in an agentic session now carries real cost. The good news? GitHub and Microsoft have spent months engineering the Copilot harness to be smarter about how it spends those tokens. This guide walks you through the key efficiency improvements, along with practical habits that will help your credits go further.&lt;/p&gt;
+&lt;h2 id="understanding-the-cost-of-agentic-sessions"&gt;Understanding the Cost of Agentic Sessions&lt;/h2&gt;
+&lt;p&gt;When you use Copilot in a longer coding session, especially with agents performing multi-step tasks, token usage quickly compounds. Each request repeats:&lt;/p&gt;</description></item><item><title>📱 Create repos faster with GitHub Mobile</title><link>https://quintelier.dev/posts/2026/05/github-mobile-create-repositories/</link><pubDate>Tue, 12 May 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/05/github-mobile-create-repositories/</guid><description>&lt;p&gt;GitHub has announced that you can now create repositories directly from the
+GitHub Mobile app on both iOS and Android. This removes a common friction point
+for developers who capture ideas away from their desktop and want to start a
+project immediately.&lt;/p&gt;
+&lt;p&gt;If you track client app improvements, this is a practical quality-of-life update
+that turns GitHub Mobile into a stronger day-to-day creation tool, not only a
+triage and review companion.&lt;/p&gt;</description></item><item><title>🔑 Easier BYOK for GitHub Copilot CLI</title><link>https://quintelier.dev/posts/2026/05/copilot-cli-byok-model-switcher/</link><pubDate>Sun, 03 May 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/05/copilot-cli-byok-model-switcher/</guid><description>&lt;p&gt;GitHub Copilot CLI supports &lt;strong&gt;Bring Your Own Key&lt;/strong&gt; (BYOK), letting you point the
+CLI at any OpenAI-compatible endpoint, Azure OpenAI, or Anthropic instead of the
+default Copilot service. The capability is powerful, but the raw workflow requires
+you to export several environment variables every time you switch providers. This
+post walks through the manual approach first, shows why it becomes cumbersome, and
+then introduces
+&lt;a href="https://github.com/sujithq/gh-copilot-cli-model-switcher" target="_blank" rel="noopener noreferrer"&gt;&lt;code&gt;gh-copilot-byok&lt;/code&gt;&lt;/a&gt;,
+a .NET global tool that wraps the whole flow with a polished interactive interface.&lt;/p&gt;</description></item><item><title>🛠️ Agentic Infographic Workflow Postmortem</title><link>https://quintelier.dev/posts/2026/04/agentic-infographic-workflow-postmortem/</link><pubDate>Tue, 28 Apr 2026 21:30:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/04/agentic-infographic-workflow-postmortem/</guid><description>&lt;p&gt;I recently built an agentic GitHub Actions workflow to generate a static PLG
+infographic from multiple public data sources and open a pull request with the
+output.&lt;/p&gt;
+&lt;p&gt;It worked eventually, but only after a sequence of failures that were useful to
+analyse. This post documents exactly how the workflow was created, what broke,
+and how each issue was resolved.&lt;/p&gt;
+&lt;h2 id="what-the-workflow-was-meant-to-do"&gt;What the workflow was meant to do&lt;/h2&gt;
+&lt;p&gt;The goal was simple:&lt;/p&gt;</description></item><item><title>🤖 Copilot CLI Auto Model Selection is GA</title><link>https://quintelier.dev/posts/2026/04/github-copilot-cli-auto-model-selection/</link><pubDate>Mon, 20 Apr 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/04/github-copilot-cli-auto-model-selection/</guid><description>&lt;p&gt;GitHub Copilot CLI now supports &lt;strong&gt;auto model selection&lt;/strong&gt;, generally available across all Copilot plans. Instead of choosing a specific model for every session, you can let Copilot route each request to the most efficient model available at that moment.&lt;/p&gt;
+&lt;h2 id="the-problem-with-manual-model-selection"&gt;The problem with manual model selection&lt;/h2&gt;
+&lt;p&gt;Copilot supports a growing roster of models: GPT-5.4, GPT-5.3-Codex, Claude Sonnet 4.6, Claude Haiku 4.5, and more. Each has different strengths, latency profiles, and premium request multipliers. Picking the right one requires constant context-switching, and even when you do pick correctly, you can hit rate limits on popular models during peak hours.&lt;/p&gt;</description></item><item><title>🧰 Manage agent skills with GitHub CLI</title><link>https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/</link><pubDate>Fri, 17 Apr 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/</guid><description>&lt;p&gt;GitHub has introduced &lt;code&gt;gh skill&lt;/code&gt;, a new GitHub CLI command set for managing agent
+skills from repositories. This release is in &lt;strong&gt;public preview&lt;/strong&gt;, and it gives
+teams a practical workflow to install, update, and publish reusable AI agent
+capabilities.&lt;/p&gt;
+&lt;p&gt;The changelog entry is tagged as a release event, but the feature lifecycle is
+currently &lt;strong&gt;public preview&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If you use coding agents across multiple tools, this matters because it creates
+a repeatable way to distribute task-specific instructions and scripts while
+adding stronger provenance and version controls.&lt;/p&gt;</description></item><item><title>🔒 GitHub Advanced Security Certification Guide (GH-500) - Complete Prep</title><link>https://quintelier.dev/posts/2025/10/github-certification-journey-gh-500/</link><pubDate>Sun, 05 Oct 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/10/github-certification-journey-gh-500/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Welcome to Part 5 of the &lt;strong&gt;GitHub Certification Journey&lt;/strong&gt;! 🛡️&lt;/p&gt;
+&lt;p&gt;After mastering GitHub Foundations (GH-900), GitHub Administration (GH-100), GitHub Actions (GH-200), and GitHub Copilot (GH-300), you&amp;rsquo;re ready to dive deep into &lt;strong&gt;GitHub Advanced Security&lt;/strong&gt; - the comprehensive security platform that transforms how teams identify, manage, and remediate vulnerabilities throughout the software development lifecycle. The &lt;strong&gt;GH-500 GitHub Advanced Security&lt;/strong&gt; certification validates your ability to implement, configure, and manage enterprise-grade security practices.&lt;/p&gt;</description></item><item><title>GitHub Weekly – 2025 Week 36</title><link>https://quintelier.dev/updates-v1/github-weekly-2025-week-36/</link><pubDate>Tue, 02 Sep 2025 05:33:51 +0000</pubDate><guid>https://quintelier.dev/updates-v1/github-weekly-2025-week-36/</guid><description>&lt;h2 id="this-period-at-a-glance"&gt;This period at a glance&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Window:&lt;/strong&gt; 2025-09-01 → 2025-09-07 (Europe/Brussels)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-09-01-graphql-api-resource-limits" target="_blank" rel="noopener noreferrer"&gt;GraphQL API resource limits&lt;/a&gt;&lt;/strong&gt; — GitHub has introduced new resource limits for its GraphQL API effective September 1, 2025. These limits are designed to improve API reliability and performance.
+&lt;ul&gt;
+&lt;li&gt;New resource limits applied to GitHub GraphQL API requests&lt;/li&gt;
+&lt;li&gt;Limits include maximum query complexity and depth&lt;/li&gt;
+&lt;li&gt;Changes take effect starting September 1, 2025&lt;/li&gt;
+&lt;li&gt;Documentation updated to reflect new limits&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>🤖 GitHub Copilot Certification Guide (GH-300) - AI Development Mastery</title><link>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-300/</link><pubDate>Fri, 29 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-300/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Welcome to Part 4 of the &lt;strong&gt;GitHub Certification Journey&lt;/strong&gt;! 🤖&lt;/p&gt;
+&lt;p&gt;After mastering GitHub Foundations (GH-900), GitHub Administration (GH-100), and GitHub Actions (GH-200), you&amp;rsquo;re ready to embrace the future of software development with &lt;strong&gt;GitHub Copilot&lt;/strong&gt; - the revolutionary AI pair programmer that transforms how developers write, review, and maintain code. The &lt;strong&gt;GH-300 GitHub Copilot&lt;/strong&gt; certification validates your expertise in AI-powered development workflows, prompt engineering, and enterprise AI governance.&lt;/p&gt;
+&lt;p&gt;This comprehensive guide provides everything needed to pass the GH-300 exam and become a GitHub Copilot expert. Whether you&amp;rsquo;re a developer seeking to amplify productivity, a team lead implementing AI development practices, or an enterprise architect designing AI-powered development strategies, this preparation roadmap will take you from basic AI assistance to advanced enterprise Copilot mastery.&lt;/p&gt;</description></item><item><title>GitHub Weekly – 2025 Week 35</title><link>https://quintelier.dev/updates-v1/github-weekly-2025-week-35/</link><pubDate>Wed, 27 Aug 2025 05:33:06 +0000</pubDate><guid>https://quintelier.dev/updates-v1/github-weekly-2025-week-35/</guid><description>&lt;h2 id="this-period-at-a-glance"&gt;This period at a glance&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Window:&lt;/strong&gt; 2025-08-25 → 2025-08-31 (Europe/Brussels)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-29-copilots-next-edit-suggestion-nes-in-public-preview-in-jetbrains" target="_blank" rel="noopener noreferrer"&gt;Copilot’s next edit suggestion (NES) in public preview in JetBrains&lt;/a&gt;&lt;/strong&gt; — GitHub Copilot&amp;rsquo;s Next Edit Suggestion (NES) feature is now available in public preview for JetBrains IDEs as of August 29, 2025.
+&lt;ul&gt;
+&lt;li&gt;NES provides inline suggestions for the next code edit within JetBrains IDEs.&lt;/li&gt;
+&lt;li&gt;Feature is in public preview and accessible to users of supported JetBrains products.&lt;/li&gt;
+&lt;li&gt;Release date: 2025-08-29.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-28-added-support-for-webp-images" target="_blank" rel="noopener noreferrer"&gt;Added support for WebP images&lt;/a&gt;&lt;/strong&gt; — GitHub now supports WebP image format as of August 28, 2025.
+&lt;ul&gt;
+&lt;li&gt;WebP images can be uploaded and displayed on GitHub.&lt;/li&gt;
+&lt;li&gt;Support is available platform-wide as of 2025-08-28.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions" target="_blank" rel="noopener noreferrer"&gt;Copilot coding agent now supports AGENTS.md custom instructions&lt;/a&gt;&lt;/strong&gt; — GitHub Copilot coding agent now supports custom instructions defined in AGENTS.md files as of August 28, 2025.
+&lt;ul&gt;
+&lt;li&gt;Copilot coding agent can read and apply custom instructions from AGENTS.md files.&lt;/li&gt;
+&lt;li&gt;Feature available starting August 28, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-28-start-and-track-copilot-coding-agent-tasks-from-raycast" target="_blank" rel="noopener noreferrer"&gt;Start and track Copilot coding agent tasks from Raycast&lt;/a&gt;&lt;/strong&gt; — GitHub Copilot coding agent tasks can now be started and tracked directly from Raycast as of August 28, 2025.
+&lt;ul&gt;
+&lt;li&gt;Users can initiate Copilot coding agent tasks from Raycast.&lt;/li&gt;
+&lt;li&gt;Task progress and status can be monitored within Raycast.&lt;/li&gt;
+&lt;li&gt;Integration available starting August 28, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-28-improvements-to-the-home-dashboard-available-in-public-preview" target="_blank" rel="noopener noreferrer"&gt;Improvements to the home dashboard available in public preview&lt;/a&gt;&lt;/strong&gt; — GitHub has released public preview improvements to the home dashboard as of August 28, 2025.
+&lt;ul&gt;
+&lt;li&gt;Improvements to GitHub&amp;rsquo;s home dashboard are now available in public preview.&lt;/li&gt;
+&lt;li&gt;The update was announced on August 28, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-28-openai-gpt-5-mini-is-now-available-in-public-preview-in-visual-studio-jetbrains-ides-xcode-and-eclipse" target="_blank" rel="noopener noreferrer"&gt;OpenAI GPT-5 mini is now available in public preview in Visual Studio, JetBrains IDEs, Xcode, and Eclipse&lt;/a&gt;&lt;/strong&gt; — OpenAI has released GPT-5 mini in public preview for integration with Visual Studio, JetBrains IDEs, Xcode, and Eclipse as of August 28, 2025.
+&lt;ul&gt;
+&lt;li&gt;GPT-5 mini is now available in public preview.&lt;/li&gt;
+&lt;li&gt;Supported IDEs include Visual Studio, JetBrains IDEs, Xcode, and Eclipse.&lt;/li&gt;
+&lt;li&gt;Announcement date: August 28, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-28-github-copilot-in-visual-studio-august-update" target="_blank" rel="noopener noreferrer"&gt;GitHub Copilot in Visual Studio — August update&lt;/a&gt;&lt;/strong&gt; — The August 2025 update for GitHub Copilot in Visual Studio introduces improvements and new features to enhance coding assistance within the IDE.
+&lt;ul&gt;
+&lt;li&gt;GitHub Copilot integration in Visual Studio received an update in August 2025.&lt;/li&gt;
+&lt;li&gt;The update includes enhancements to coding suggestions and overall user experience.&lt;/li&gt;
+&lt;li&gt;Available globally as of August 28, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-27-create-sub-issues-with-copilot-in-public-preview" target="_blank" rel="noopener noreferrer"&gt;Create sub-issues with Copilot in public preview&lt;/a&gt;&lt;/strong&gt; — GitHub has launched a public preview feature allowing users to create sub-issues using Copilot.
+&lt;ul&gt;
+&lt;li&gt;GitHub introduced the ability to create sub-issues with Copilot in public preview as of August 27, 2025.&lt;/li&gt;
+&lt;li&gt;This feature helps users break down issues into smaller, manageable parts using AI assistance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-27-copilot-code-review-generally-available-in-xcode-and-new-admin-control" target="_blank" rel="noopener noreferrer"&gt;Copilot code review: Generally available in Xcode and new admin control&lt;/a&gt;&lt;/strong&gt; — GitHub Copilot code review is now generally available in Xcode. A new admin control feature has been introduced to manage its usage.
+&lt;ul&gt;
+&lt;li&gt;Copilot code review feature is generally available in Xcode as of August 27, 2025.&lt;/li&gt;
+&lt;li&gt;New administrative control added to manage Copilot code review usage.&lt;/li&gt;
+&lt;li&gt;Update announced by GitHub on August 27, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-27-copilot-code-completion-now-uses-the-gpt-4-1-copilot-model" target="_blank" rel="noopener noreferrer"&gt;Copilot code completion now uses the GPT-4.1 Copilot model&lt;/a&gt;&lt;/strong&gt; — GitHub Copilot&amp;rsquo;s code completion feature has been updated to use the GPT-4.1 Copilot model as of August 27, 2025.
+&lt;ul&gt;
+&lt;li&gt;GitHub Copilot now uses the GPT-4.1 Copilot model for code completion.&lt;/li&gt;
+&lt;li&gt;The update was released on August 27, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Getting started with Dependabot</title><link>https://quintelier.dev/posts/2025/08/dependabot-getting-started/</link><pubDate>Mon, 25 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/dependabot-getting-started/</guid><description>&lt;p&gt;Dependabot is the easiest way to keep dependencies current and secure in your GitHub repositories. It can: alert on vulnerabilities, open PRs to fix them, and keep versions fresh with scheduled updates. This guide shows how to enable Dependabot, add a robust dependabot.yml, and include small optimisations for specific ecosystems.&lt;/p&gt;
+&lt;h2 id="what-youll-set-up"&gt;What you’ll set up&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Enable Dependabot alerts, security updates, and version updates.&lt;/li&gt;
+&lt;li&gt;Create and tune a &lt;code&gt;.github/dependabot.yml&lt;/code&gt; that covers your package managers.&lt;/li&gt;
+&lt;li&gt;Add optional Java metadata to improve PR quality.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="enable-dependabot-in-your-repository"&gt;Enable Dependabot in your repository&lt;/h2&gt;
+&lt;p&gt;Use the repository UI:&lt;/p&gt;</description></item><item><title>🚀 GitHub Actions Certification Guide (GH-200) - Complete Prep</title><link>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-200/</link><pubDate>Fri, 22 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-200/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Welcome to Part 3 of the &lt;strong&gt;GitHub Certification Journey&lt;/strong&gt;! 🎯&lt;/p&gt;
+&lt;p&gt;After mastering GitHub Foundations (GH-900) and GitHub Administration (GH-100), you&amp;rsquo;re ready to dive deep into &lt;strong&gt;GitHub Actions&lt;/strong&gt; - the powerhouse automation platform that transforms how teams build, test, and deploy software. The &lt;strong&gt;GH-200 GitHub Actions&lt;/strong&gt; certification validates your ability to design, implement, and manage CI/CD pipelines at enterprise scale.&lt;/p&gt;
+&lt;p&gt;This comprehensive guide provides everything needed to pass the GH-200 exam and become a GitHub Actions expert. Whether you&amp;rsquo;re a DevOps engineer, platform team member, or developer looking to automate workflows, this preparation roadmap will take you from YAML basics to advanced enterprise automation patterns.&lt;/p&gt;</description></item><item><title>GitHub Weekly – 2025 Week 34</title><link>https://quintelier.dev/updates-v1/github-weekly-2025-week-34/</link><pubDate>Tue, 19 Aug 2025 05:33:52 +0000</pubDate><guid>https://quintelier.dev/updates-v1/github-weekly-2025-week-34/</guid><description>&lt;h2 id="this-period-at-a-glance"&gt;This period at a glance&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Window:&lt;/strong&gt; 2025-08-18 → 2025-08-24 (Europe/Brussels)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-22-premium-request-overage-policy-is-generally-available-for-copilot-business-and-enterprise" target="_blank" rel="noopener noreferrer"&gt;Premium request overage policy is generally available for Copilot Business and Enterprise&lt;/a&gt;&lt;/strong&gt; — GitHub has made the premium request overage policy generally available for Copilot Business and Enterprise as of August 22, 2025.
+&lt;ul&gt;
+&lt;li&gt;Premium request overage policy now generally available for Copilot Business and Enterprise.&lt;/li&gt;
+&lt;li&gt;Applies to all regions as of August 22, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-21-graphql-explorer-removal-from-api-documentation-on-november-1-2025" target="_blank" rel="noopener noreferrer"&gt;GraphQL Explorer removal from API documentation on November 1, 2025&lt;/a&gt;&lt;/strong&gt; — GitHub will remove the GraphQL Explorer from its API documentation on November 1, 2025.
+&lt;ul&gt;
+&lt;li&gt;GraphQL Explorer will be deprecated and removed from GitHub API documentation on November 1, 2025.&lt;/li&gt;
+&lt;li&gt;Users will need to use alternative tools for exploring the GitHub GraphQL API after this date.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-21-enterprises-can-create-organization-roles-for-use-across-their-enterprise-and-custom-role-limits-have-been-increased" target="_blank" rel="noopener noreferrer"&gt;Enterprises can create organization roles for use across their enterprise, and custom role limits have been increased&lt;/a&gt;&lt;/strong&gt; — GitHub has updated enterprise management features, allowing enterprises to create organization roles usable across their entire enterprise. The limit on custom roles has also been increased.
+&lt;ul&gt;
+&lt;li&gt;Enterprises can now define organization roles that apply across all organizations within the enterprise.&lt;/li&gt;
+&lt;li&gt;The maximum number of custom roles per enterprise has been raised.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-21-pull-request-files-changed-public-preview-experience-august-21-updates" target="_blank" rel="noopener noreferrer"&gt;Pull request “Files changed” public preview experience – August 21 updates&lt;/a&gt;&lt;/strong&gt; — GitHub updated the public preview experience for the Pull Request &amp;ldquo;Files changed&amp;rdquo; tab on August 21, 2025.
+&lt;ul&gt;
+&lt;li&gt;Updated the Pull Request &amp;ldquo;Files changed&amp;rdquo; public preview experience on August 21, 2025.&lt;/li&gt;
+&lt;li&gt;Improvements aim to enhance code review workflow in the preview feature.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-21-dependencies-on-issues" target="_blank" rel="noopener noreferrer"&gt;Dependencies on issues&lt;/a&gt;&lt;/strong&gt; — GitHub introduced a new feature allowing users to set dependencies between issues as of August 21, 2025.
+&lt;ul&gt;
+&lt;li&gt;Users can now mark issues as dependent on other issues to better track task relationships.&lt;/li&gt;
+&lt;li&gt;This feature was released globally on August 21, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-21-copilot-generated-commit-messages-on-github-com-is-in-public-preview" target="_blank" rel="noopener noreferrer"&gt;Copilot generated commit messages on github.com is in public preview&lt;/a&gt;&lt;/strong&gt; — GitHub has launched a public preview of Copilot-generated commit messages on github.com as of August 21, 2025.
+&lt;ul&gt;
+&lt;li&gt;Copilot-generated commit messages feature is now available in public preview on github.com.&lt;/li&gt;
+&lt;li&gt;The update was announced by GitHub on August 21, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-20-sunset-notice-copilot-knowledge-bases" target="_blank" rel="noopener noreferrer"&gt;Sunset notice: Copilot knowledge bases&lt;/a&gt;&lt;/strong&gt; — GitHub announced the sunset of Copilot knowledge bases effective August 20, 2025.
+&lt;ul&gt;
+&lt;li&gt;GitHub is discontinuing Copilot knowledge bases as of August 20, 2025.&lt;/li&gt;
+&lt;li&gt;Users relying on Copilot knowledge bases should prepare for the feature&amp;rsquo;s retirement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-19-gemini-2-5-pro-is-generally-available-in-copilot" target="_blank" rel="noopener noreferrer"&gt;Gemini 2.5 Pro is generally available in Copilot&lt;/a&gt;&lt;/strong&gt; — GitHub Copilot now generally offers Gemini 2.5 Pro as of August 20, 2025.
+&lt;ul&gt;
+&lt;li&gt;Gemini 2.5 Pro is generally available in GitHub Copilot starting August 20, 2025.&lt;/li&gt;
+&lt;li&gt;This update enhances the AI capabilities within Copilot for users globally.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-19-secret-scanning-configuring-patterns-in-push-protection-is-now-generally-available" target="_blank" rel="noopener noreferrer"&gt;Secret scanning: Configuring patterns in push protection is now generally available&lt;/a&gt;&lt;/strong&gt; — GitHub has made the feature to configure patterns in secret scanning push protection generally available as of August 19, 2025.
+&lt;ul&gt;
+&lt;li&gt;Secret scanning push protection now supports user-configured patterns.&lt;/li&gt;
+&lt;li&gt;This feature is generally available across GitHub as of August 19, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-19-agents-panel-launch-copilot-coding-agent-tasks-anywhere-on-github-com" target="_blank" rel="noopener noreferrer"&gt;Agents panel: Launch Copilot coding agent tasks anywhere on github.com&lt;/a&gt;&lt;/strong&gt; — GitHub has launched the Copilot coding agent tasks feature accessible anywhere on github.com as of August 19, 2025.
+&lt;ul&gt;
+&lt;li&gt;The Agents panel now allows launching Copilot coding agent tasks from any page on github.com.&lt;/li&gt;
+&lt;li&gt;This update was released on August 19, 2025.&lt;/li&gt;
+&lt;li&gt;The feature enhances developer workflow by integrating Copilot tasks directly into the GitHub interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>🏢 GitHub Administration Certification Guide (GH-100) - Enterprise Mastery</title><link>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-100/</link><pubDate>Fri, 15 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-100/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Welcome to Part 2 of the &lt;strong&gt;GitHub Certification Journey&lt;/strong&gt;! 🏢&lt;/p&gt;
+&lt;p&gt;After mastering GitHub Foundations (GH-900), you&amp;rsquo;re ready to tackle &lt;strong&gt;GitHub Administration&lt;/strong&gt; - the comprehensive enterprise administration certification that validates your ability to manage, govern, and administer GitHub at organisational scale. The &lt;strong&gt;GH-100 GitHub Administration&lt;/strong&gt; certification demonstrates your expertise in enterprise GitHub management, user governance, and organisational administration.&lt;/p&gt;
+&lt;p&gt;This comprehensive guide provides everything needed to pass the GH-100 exam and become a GitHub Enterprise administrator. Whether you&amp;rsquo;re an IT administrator, enterprise architect, or platform engineer responsible for GitHub governance, this preparation roadmap will take you from basic administrative knowledge to advanced enterprise GitHub management.&lt;/p&gt;</description></item><item><title>GitHub Weekly – 2025 Week 33</title><link>https://quintelier.dev/updates-v1/github-weekly-2025-week-33/</link><pubDate>Wed, 13 Aug 2025 12:50:21 +0000</pubDate><guid>https://quintelier.dev/updates-v1/github-weekly-2025-week-33/</guid><description>&lt;h2 id="this-period-at-a-glance"&gt;This period at a glance&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Window:&lt;/strong&gt; 2025-08-11 → 2025-08-17 (Europe/Brussels)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-15-deprecating-copilot-text-completion-for-pull-request-descriptions" target="_blank" rel="noopener noreferrer"&gt;Deprecating Copilot text completion for pull request descriptions&lt;/a&gt;&lt;/strong&gt; — GitHub will deprecate Copilot&amp;rsquo;s text completion feature for pull request descriptions starting August 15, 2025.
+&lt;ul&gt;
+&lt;li&gt;Copilot text completion for pull request descriptions will be deprecated.&lt;/li&gt;
+&lt;li&gt;Deprecation takes effect on August 15, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-15-github-actions-policy-now-supports-blocking-and-sha-pinning-actions" target="_blank" rel="noopener noreferrer"&gt;GitHub Actions policy now supports blocking and SHA pinning actions&lt;/a&gt;&lt;/strong&gt; — GitHub Actions policy now allows administrators to block specific actions and require SHA pinning for actions, effective August 15, 2025.
+&lt;ul&gt;
+&lt;li&gt;Administrators can block the use of specific actions in workflows.&lt;/li&gt;
+&lt;li&gt;SHA pinning can be enforced, requiring actions to reference a specific commit hash.&lt;/li&gt;
+&lt;li&gt;Update applies globally to GitHub Actions as of August 15, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-14-codeql-expands-kotlin-support-and-additional-accuracy-improvements" target="_blank" rel="noopener noreferrer"&gt;CodeQL expands Kotlin support and additional accuracy improvements&lt;/a&gt;&lt;/strong&gt; — CodeQL has expanded its support for the Kotlin programming language and introduced several accuracy improvements as of August 14, 2025.
+&lt;ul&gt;
+&lt;li&gt;Expanded CodeQL support for the Kotlin language&lt;/li&gt;
+&lt;li&gt;Implemented additional accuracy improvements in CodeQL analysis&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-14-clearer-pull-request-reviewer-status-and-enhanced-email-filtering" target="_blank" rel="noopener noreferrer"&gt;Clearer pull request reviewer status and enhanced email filtering&lt;/a&gt;&lt;/strong&gt; — GitHub has updated pull request reviewer status indicators for greater clarity and improved email filtering options as of August 14, 2025.
+&lt;ul&gt;
+&lt;li&gt;Pull request reviewer statuses are now displayed more clearly in the GitHub UI.&lt;/li&gt;
+&lt;li&gt;New and enhanced email filtering options are available for notifications.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-13-model-context-protocol-mcp-support-for-jetbrains-eclipse-and-xcode-is-now-generally-available" target="_blank" rel="noopener noreferrer"&gt;Model Context Protocol (MCP) support for JetBrains, Eclipse, and Xcode is now generally available&lt;/a&gt;&lt;/strong&gt; — GitHub has announced general availability of Model Context Protocol (MCP) support for JetBrains, Eclipse, and Xcode IDEs as of August 14, 2025.
+&lt;ul&gt;
+&lt;li&gt;MCP support is now generally available for JetBrains, Eclipse, and Xcode.&lt;/li&gt;
+&lt;li&gt;Release date: August 14, 2025.&lt;/li&gt;
+&lt;li&gt;Applies to GitHub integrations with these IDEs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-13-expanded-file-type-support-for-attachments-across-issues-pull-requests-and-discussions" target="_blank" rel="noopener noreferrer"&gt;Expanded file type support for attachments across issues, pull requests, and discussions&lt;/a&gt;&lt;/strong&gt; — GitHub has expanded the types of files that can be attached to issues, pull requests, and discussions as of August 14, 2025.
+&lt;ul&gt;
+&lt;li&gt;Expanded file type support for attachments across issues, pull requests, and discussions on GitHub.&lt;/li&gt;
+&lt;li&gt;Update effective from August 14, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-13-added-last_authenticated_at-to-the-copilot-user-management-api" target="_blank" rel="noopener noreferrer"&gt;Added last_authenticated_at to the Copilot user management API&lt;/a&gt;&lt;/strong&gt; — GitHub updated the Copilot user management API on August 13, 2025, to include a new field, last_authenticated_at.
+&lt;ul&gt;
+&lt;li&gt;Added last_authenticated_at field to the Copilot user management API to track the last authentication time of users.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-13-spark-resilience-improvements" target="_blank" rel="noopener noreferrer"&gt;Spark resilience improvements&lt;/a&gt;&lt;/strong&gt; — GitHub announced improvements to Spark&amp;rsquo;s resilience on August 13, 2025, enhancing stability and fault tolerance.
+&lt;ul&gt;
+&lt;li&gt;GitHub updated Spark to improve resilience and fault tolerance.&lt;/li&gt;
+&lt;li&gt;The update was released on August 13, 2025.&lt;/li&gt;
+&lt;li&gt;No specific version or region details were provided.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-13-gpt-5-mini-now-available-in-github-copilot-in-public-preview" target="_blank" rel="noopener noreferrer"&gt;GPT-5 mini now available in GitHub Copilot in public preview&lt;/a&gt;&lt;/strong&gt; — GitHub Copilot has introduced GPT-5 mini in public preview as of August 13, 2025.
+&lt;ul&gt;
+&lt;li&gt;GPT-5 mini is now available in GitHub Copilot.&lt;/li&gt;
+&lt;li&gt;The feature is released in public preview starting August 13, 2025.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://github.blog/changelog/2025-08-13-github-mcp-server-secret-scanning-push-protection-and-more" target="_blank" rel="noopener noreferrer"&gt;GitHub MCP Server: Secret scanning, push protection, and more&lt;/a&gt;&lt;/strong&gt; — GitHub MCP Server update on August 13, 2025 introduces secret scanning and push protection features to enhance code security.
+&lt;ul&gt;
+&lt;li&gt;Introduced secret scanning to detect sensitive data in code repositories.&lt;/li&gt;
+&lt;li&gt;Added push protection to prevent accidental commits of secrets.&lt;/li&gt;
+&lt;li&gt;Update released on August 13, 2025, applicable to GitHub MCP Server.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>⚙️ Automated Updates Pipeline</title><link>https://quintelier.dev/posts/2025/08/automated-updates-pipeline/</link><pubDate>Wed, 13 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/automated-updates-pipeline/</guid><description>&lt;h2 id="why-this-pipeline-exists"&gt;Why this pipeline exists&lt;/h2&gt;
+&lt;p&gt;Manually curating weekly platform updates (Azure service changes, GitHub changelog entries, Terraform provider releases) is repetitive, time‑sensitive, and error‑prone. This pipeline automates the whole path from data acquisition → AI summarisation → Hugo markdown generation → commit, delivering consistent, timestamped update posts under &lt;code&gt;content/updates&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="highlevel-architecture"&gt;High‑level architecture&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;┌───────────────┐ cron 05:15 UTC ┌───────────────────┐ grouped items ┌──────────────────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;│ GitHub Action │ ─────────────────&amp;gt; │ PowerShell Script │ ───────────────&amp;gt; │ AI Summarisation │
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;└─────┬─────────┘ └──────────┬────────┘ └────────┬─────────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; │ commit (if changed) │ filtered items │ summaries
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; V V V
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Repo content &amp;lt;────────────── write markdown posts &amp;lt;──────────── assemble front matter
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="scheduling--cadence"&gt;Scheduling &amp;amp; cadence&lt;/h2&gt;
+&lt;p&gt;The workflow runs daily at &lt;code&gt;05:15 UTC&lt;/code&gt; but per‑source publication cadence is controlled inside the script using a frequency map (&lt;code&gt;Azure=weekly,GitHub=weekly,Terraform=weekly&lt;/code&gt; by default). The script:&lt;/p&gt;</description></item><item><title>Auto-triage CI failures with Copilot</title><link>https://quintelier.dev/posts/2025/08/ai-triage-github-actions-with-copilot/</link><pubDate>Mon, 11 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/ai-triage-github-actions-with-copilot/</guid><description>&lt;p&gt;Failures happen: the key is shortening time-to-understanding. In this guide, you’ll automate triage when a GitHub Actions workflow fails: pull logs and artifacts, get an AI summary from GitHub Models, open an issue with concrete next steps, and optionally assign it to the Copilot coding agent.&lt;/p&gt;
+&lt;h2 id="what-youll-build"&gt;What you’ll build&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Trigger on failed workflow runs you care about&lt;/li&gt;
+&lt;li&gt;Collect logs and artifacts for context&lt;/li&gt;
+&lt;li&gt;Call GitHub Models for a concise summary and probable fix&lt;/li&gt;
+&lt;li&gt;File a GitHub issue with reproduction hints and links&lt;/li&gt;
+&lt;li&gt;Optionally assign the issue to the Copilot coding agent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="prerequisites"&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub Actions enabled in your repo&lt;/li&gt;
+&lt;li&gt;GitHub Models access and a token for inference:
+&lt;ul&gt;
+&lt;li&gt;If you’re using a fine-grained PAT: add &lt;code&gt;models:read&lt;/code&gt; scope&lt;/li&gt;
+&lt;li&gt;Or use &lt;code&gt;secrets.GITHUB_TOKEN&lt;/code&gt; in public repos where Models are enabled for the org&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Optional: Copilot coding agent enabled at the org or user level to assign issues to&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="workflow-ai-assisted-failure-triage"&gt;Workflow: AI-assisted failure triage&lt;/h2&gt;
+&lt;p&gt;Below is a complete workflow you can drop into &lt;code&gt;.github/workflows/ai-triage.yml&lt;/code&gt;. It triggers when selected workflows complete and only proceeds if they failed.&lt;/p&gt;</description></item><item><title>🐙 GitHub Certification Journey: Part 1 - GitHub Foundations (GH-900)</title><link>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-900/</link><pubDate>Fri, 08 Aug 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/08/github-certification-journey-gh-900/</guid><description>&lt;p&gt;Welcome to the GitHub Certification Journey! This comprehensive guide covers everything you need to master the &lt;strong&gt;GitHub Foundations (GH-900)&lt;/strong&gt; certification. Whether you&amp;rsquo;re new to Git and GitHub or looking to validate your foundational knowledge, this post provides complete coverage of all exam domains with practical examples and hands-on exercises.&lt;/p&gt;
+&lt;h2 id="why-github-foundations-certification-matters"&gt;Why GitHub Foundations Certification Matters&lt;/h2&gt;
+&lt;p&gt;The GitHub Foundations certification validates your understanding of Git version control and GitHub collaboration fundamentals. As the entry point to GitHub&amp;rsquo;s certification pathway, it demonstrates your ability to:&lt;/p&gt;</description></item><item><title>🔄 GitHub updates for March 14, 2025</title><link>https://quintelier.dev/posts/2025/03/github-updates-march-14-2025/</link><pubDate>Fri, 14 Mar 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/03/github-updates-march-14-2025/</guid><description>&lt;h2 id="introduction-github-changelog--latest-updates--enhancements"&gt;&lt;strong&gt;Introduction: GitHub Changelog – Latest Updates &amp;amp; Enhancements&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Stay up to date with the latest &lt;strong&gt;GitHub updates, features, and improvements&lt;/strong&gt; designed to enhance your development experience. Whether it’s &lt;strong&gt;security and compliance advancements&lt;/strong&gt;, &lt;strong&gt;performance optimizations&lt;/strong&gt;, or &lt;strong&gt;new tools for automation and insights&lt;/strong&gt;, this changelog keeps you informed about what’s new and how it can benefit your workflow.&lt;/p&gt;
+&lt;p&gt;In this edition, we’re covering &lt;strong&gt;GitHub’s PCI DSS v4.0 compliance&lt;/strong&gt; for enterprise customers and the &lt;strong&gt;general availability of GitHub Actions Performance Metrics&lt;/strong&gt;, helping teams gain deeper insights into their CI/CD workflows. Let’s dive into the details! 🚀&lt;/p&gt;</description></item><item><title>🚀 Find Stale Branches Across All GitHub Repos</title><link>https://quintelier.dev/posts/2025/01/retrieve-stale-branches-github-organization/</link><pubDate>Tue, 14 Jan 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/01/retrieve-stale-branches-github-organization/</guid><description>&lt;p&gt;Keeping your GitHub repositories clean is crucial for maintainability. Over time, branches pile up, making it difficult to track what’s relevant. If you’re managing multiple repositories in an organization, manually identifying stale branches can be a hassle.&lt;/p&gt;
+&lt;p&gt;Luckily, with the &lt;strong&gt;GitHub CLI (&lt;code&gt;gh&lt;/code&gt;)&lt;/strong&gt;, you can automate this process and generate a &lt;strong&gt;report of all non-main branches along with their last authors&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This guide walks you through a &lt;strong&gt;Bash script&lt;/strong&gt; that:&lt;br&gt;
+✅ Retrieves all repositories in an organization&lt;br&gt;
+✅ Lists branches, excluding &lt;code&gt;main&lt;/code&gt;, &lt;code&gt;master&lt;/code&gt;, and &lt;code&gt;azure-master&lt;/code&gt;&lt;br&gt;
+✅ Identifies the last commit author for each branch&lt;br&gt;
+✅ Groups the results by author for better visibility&lt;/p&gt;</description></item></channel></rss>
