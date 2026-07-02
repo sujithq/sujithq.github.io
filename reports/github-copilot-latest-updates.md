@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-06-30
+post_date: 2026-07-01
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -459,3 +459,9 @@ completed deprecation is shown.
 | 2026-06-29 | [Claude Opus 4.8 (fast mode) is now in preview for GitHub Copilot](https://github.blog/changelog/2026-06-29-claude-opus-4-8-fast-mode-is-now-in-preview-for-github-copilot) | Update | GitHub Copilot is rolling out Claude Opus 4.8 in preview with fast mode enabled. GitHub says fast mode increases output token speed while keeping the same model intelligence. |
 | 2026-06-30 | [Copilot Agent is now available in JetBrains AI Assistant](https://github.blog/changelog/2026-06-30-copilot-agent-is-now-available-in-jetbrains-ai-assistant) | Update | GitHub and JetBrains announced a deeper integration between JetBrains AI Assistant and GitHub Copilot. Copilot Agent is now available inside JetBrains AI Assistant. |
 | 2026-06-30 | [Claude Sonnet 5 is generally available for GitHub Copilot](https://github.blog/changelog/2026-06-30-claude-sonnet-5-is-generally-available-for-github-copilot) | Generally available | Claude Sonnet 5 is now generally available in GitHub Copilot. GitHub says it offers strong coding performance for everyday development and agentic workflows as a new Sonnet-class model option. |
+| 2026-07-01 | [Browser tools for GitHub Copilot in VS Code are generally available](https://github.blog/changelog/2026-07-01-browser-tools-for-github-copilot-in-vs-code-are-generally-available) | Generally available | Browser tools for GitHub Copilot in VS Code are now generally available. GitHub also clarified which permissions remain under user control and noted that existing network domain controls still apply. |
+| 2026-07-01 | [Set AI credit session limits in Copilot CLI and SDK](https://github.blog/changelog/2026-07-01-set-ai-credit-session-limits-in-copilot-cli-and-sdk) | Update | GitHub Copilot CLI and the GitHub Copilot SDK now support AI credit session limits, letting you cap how much an agent can spend in a single session. This is intended to help control usage during longer-running agent workflows. |
+| 2026-07-01 | [Copilot vision is generally available](https://github.blog/changelog/2026-07-01-copilot-vision-is-generally-available) | Generally available | Copilot Vision is now generally available. You can attach images and PDFs to chat prompts so Copilot can use them alongside your code when responding. |
+| 2026-07-01 | [Kimi K2.7 Code is generally available in GitHub Copilot](https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot) | Generally available | Kimi K2.7 Code is now generally available in GitHub Copilot. It is the first open-weight model available as a selectable option in the Copilot model picker. |
+| 2026-07-01 | [New C++ language server config skill for Copilot CLI](https://github.blog/changelog/2026-07-01-new-c-language-server-config-skill-for-copilot-cli) | Update | The Microsoft C++ Language Server is now available as a Copilot Plugins marketplace plugin. It includes a built-in setup skill for Copilot CLI to automate project setup. |
+| 2026-07-01 | [Enterprises can default to auto model selection](https://github.blog/changelog/2026-07-01-enterprises-can-default-to-auto-model-selection) | Update | Enterprise admins can now set `model: auto` in enterprise-managed `managed-settings.json` so GitHub Copilot uses auto model selection by default for new conversations. This setting is added in `.github-private/.github/copilot/managed-settings.json` for enterprise-managed configuration. |
