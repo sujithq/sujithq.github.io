@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-07-01
+post_date: 2026-07-02
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -465,3 +465,7 @@ completed deprecation is shown.
 | 2026-07-01 | [Kimi K2.7 Code is generally available in GitHub Copilot](https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot) | Generally available | Kimi K2.7 Code is now generally available in GitHub Copilot. It is the first open-weight model available as a selectable option in the Copilot model picker. |
 | 2026-07-01 | [New C++ language server config skill for Copilot CLI](https://github.blog/changelog/2026-07-01-new-c-language-server-config-skill-for-copilot-cli) | Update | The Microsoft C++ Language Server is now available as a Copilot Plugins marketplace plugin. It includes a built-in setup skill for Copilot CLI to automate project setup. |
 | 2026-07-01 | [Enterprises can default to auto model selection](https://github.blog/changelog/2026-07-01-enterprises-can-default-to-auto-model-selection) | Update | Enterprise admins can now set `model: auto` in enterprise-managed `managed-settings.json` so GitHub Copilot uses auto model selection by default for new conversations. This setting is added in `.github-private/.github/copilot/managed-settings.json` for enterprise-managed configuration. |
+| 2026-07-02 | [Copilot agent session streaming is now in public preview](https://github.blog/changelog/2026-07-02-copilot-agent-session-streaming-is-now-in-public-preview) | Public preview | GitHub has put Copilot agent session streaming into public preview for Enterprise Cloud customers with enterprise managed users. Session data is available across Copilot clients, including cloud agents on github.com and data-resident deployments. |
+| 2026-07-02 | [Copilot CLI no longer needs a personal access token in GitHub Actions](https://github.blog/changelog/2026-07-02-copilot-cli-no-longer-needs-a-personal-access-token-in-github-actions) | Update | GitHub Copilot CLI can now run in GitHub Actions with the built-in GITHUB_TOKEN. A personal access token is no longer required for this workflow. |
+| 2026-07-02 | [Upcoming deprecation of Gemini 2.5 Pro and Gemini 3 Flash](https://github.blog/changelog/2026-07-02-upcoming-deprecation-of-gemini-2-5-pro-and-gemini-3-flash) | Upcoming deprecation | GitHub will deprecate Gemini 2.5 Pro and Gemini 3 Flash across all Copilot experiences on July 31. This includes Copilot Chat, inline edits, ask and agent modes, and code completions. |
+| 2026-07-02 | [Improved accuracy and coverage in Copilot usage metrics reports](https://github.blog/changelog/2026-07-02-improved-accuracy-and-coverage-in-copilot-usage-metrics-reports) | Update | GitHub improved the Copilot usage metrics API to make reports more complete and accurate. The update adds support for Copilot CLI suggested lines of code and includes users that were previously only partially captured. |
