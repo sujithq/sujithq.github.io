@@ -31,7 +31,7 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.61.1",
-    "@types/node": "^26.0.1",
+    "@types/node": "^26.1.0",
     "autoprefixer": "^10.5.2",
     "postcss": "^8.5.16",
     "postcss-cli": "^11.0.1"
