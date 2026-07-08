@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-07-02
+post_date: 2026-07-08
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -469,3 +469,7 @@ completed deprecation is shown.
 | 2026-07-02 | [Copilot CLI no longer needs a personal access token in GitHub Actions](https://github.blog/changelog/2026-07-02-copilot-cli-no-longer-needs-a-personal-access-token-in-github-actions) | Update | GitHub Copilot CLI can now run in GitHub Actions with the built-in GITHUB_TOKEN. A personal access token is no longer required for this workflow. |
 | 2026-07-02 | [Upcoming deprecation of Gemini 2.5 Pro and Gemini 3 Flash](https://github.blog/changelog/2026-07-02-upcoming-deprecation-of-gemini-2-5-pro-and-gemini-3-flash) | Upcoming deprecation | GitHub will deprecate Gemini 2.5 Pro and Gemini 3 Flash across all Copilot experiences on July 31. This includes Copilot Chat, inline edits, ask and agent modes, and code completions. |
 | 2026-07-02 | [Improved accuracy and coverage in Copilot usage metrics reports](https://github.blog/changelog/2026-07-02-improved-accuracy-and-coverage-in-copilot-usage-metrics-reports) | Update | GitHub improved the Copilot usage metrics API to make reports more complete and accurate. The update adds support for Copilot CLI suggested lines of code and includes users that were previously only partially captured. |
+| 2026-07-07 | [Copilot Billing Preview app will be retired on August 3](https://github.blog/changelog/2026-07-07-copilot-billing-preview-app-will-be-retired-on-august-3) | Update | GitHub will retire the Copilot Billing Preview app on August 3, 2026. Users who rely on it for Copilot spend review are directed to use built-in GitHub visibility instead. |
+| 2026-07-07 | [GitHub Copilot app available to all](https://github.blog/changelog/2026-07-07-github-copilot-app-available-to-all) | Update | The GitHub Copilot app is now available on all Copilot plans. Users can sign in with a GitHub account and use it for agent-driven development from desktop on macOS, Windows, and Linux. |
+| 2026-07-08 | [Kimi K2.7 now available for Copilot Business and Enterprise](https://github.blog/changelog/2026-07-07-kimi-k2-7-now-available-for-copilot-business-and-enterprise) | Update | Kimi K2.7 is now available on GitHub Copilot Business and Enterprise. This expands availability beyond the Copilot Pro, Pro+, and Max plans announced on July 1, 2026. |
+| 2026-07-08 | [Add review cycles and time to adoption phases in the usage API](https://github.blog/changelog/2026-07-07-add-review-cycles-and-time-to-adoption-phases-in-the-usage-api) | Update | The Copilot usage metrics API adds two review-velocity fields for each AI adoption phase in enterprise and organization reports. The new data extends the adoption phase cohort fields with review cycles and time in phase. |
