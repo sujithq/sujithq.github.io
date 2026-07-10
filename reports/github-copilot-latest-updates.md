@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-07-08
+post_date: 2026-07-09
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -479,3 +479,5 @@ completed deprecation is shown.
 | 2026-07-08 | [GitHub Copilot in Visual Studio Code, June 2026 releases](https://github.blog/changelog/2026-07-08-github-copilot-in-visual-studio-code-june-2026-releases) | Update | This changelog covers GitHub Copilot updates in Visual Studio Code across VS Code v1.123 through v1.127, released during June and early July 2026. The provided excerpt does not include specific feature or bug-fix details. |
 | 2026-07-08 | [Deploy managed Copilot settings via MDM in VS Code and CLI](https://github.blog/changelog/2026-07-08-deploy-managed-copilot-settings-via-mdm-in-vs-code-and-cli) | Update | Enterprise admins can now push managed GitHub Copilot settings to devices using native MDM or file-based configuration, in addition to the existing server-managed channel. The update applies to VS Code and the CLI. |
 | 2026-07-08 | [Enterprise-managed OpenTelemetry export for VS Code and CLI](https://github.blog/changelog/2026-07-08-enterprise-managed-opentelemetry-export-for-vs-code-and-cli) | Update | GitHub Copilot now supports enterprise-managed OpenTelemetry export for VS Code and CLI, letting organizations direct telemetry to an approved collector centrally instead of requiring developers to set OTEL_* environment variables. The configuration is delivered through enterprise-managed settings. |
+| 2026-07-09 | [Ask Copilot for a repository overview](https://github.blog/changelog/2026-07-09-ask-copilot-for-a-repository-overview) | Update | GitHub Copilot can now provide a high-level overview of a repository from the repository home page. The feature is meant to help users quickly understand repositories they are exploring for the first time. |
+| 2026-07-09 | [OpenAI’s GPT-5.6 Sol, Terra, and Luna are now available in GitHub Copilot](https://github.blog/changelog/2026-07-09-openais-gpt-5-6-sol-terra-and-luna-are-now-available-in-github-copilot) | Update | GitHub Copilot is rolling out OpenAI’s GPT-5.6 family. The release adds three variants — Sol, Terra, and Luna — so users can choose a model based on the task. |

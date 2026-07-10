@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-07-08
+post_date: 2026-07-09
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -999,3 +999,6 @@ completed deprecation is shown.
 | 2026-07-08 | [Deploy managed Copilot settings via MDM in VS Code and CLI](https://github.blog/changelog/2026-07-08-deploy-managed-copilot-settings-via-mdm-in-vs-code-and-cli) | Update | Enterprise admins can now push managed GitHub Copilot settings to devices using native MDM or file-based configuration, in addition to the existing server-managed channel. The update applies to VS Code and the CLI. |
 | 2026-07-08 | [Enterprise-managed OpenTelemetry export for VS Code and CLI](https://github.blog/changelog/2026-07-08-enterprise-managed-opentelemetry-export-for-vs-code-and-cli) | Update | GitHub Copilot now supports enterprise-managed OpenTelemetry export for VS Code and CLI, letting organizations direct telemetry to an approved collector centrally instead of requiring developers to set OTEL_* environment variables. The configuration is delivered through enterprise-managed settings. |
 | 2026-07-08 | [Innersource security advisories are generally available](https://github.blog/changelog/2026-07-08-innersource-security-advisories-are-generally-available) | Generally available | GitHub Advanced Security enterprise customers can now publish internal security advisories for innersource repositories. These advisories work like open source advisories, but visibility is restricted to repositories owned by the enterprise. |
+| 2026-07-09 | [Ask Copilot for a repository overview](https://github.blog/changelog/2026-07-09-ask-copilot-for-a-repository-overview) | Update | GitHub Copilot can now provide a high-level overview of a repository from the repository home page. The feature is meant to help users quickly understand repositories they are exploring for the first time. |
+| 2026-07-09 | [Organization-level targeting for GitHub Code Quality](https://github.blog/changelog/2026-07-09-organization-level-targeting-for-github-code-quality) | Update | GitHub Code Quality now supports organization-level targeting, letting owners enable or disable it for only selected repositories instead of the entire organization. This adds finer-grained control over rollout and removal. |
+| 2026-07-09 | [OpenAI’s GPT-5.6 Sol, Terra, and Luna are now available in GitHub Copilot](https://github.blog/changelog/2026-07-09-openais-gpt-5-6-sol-terra-and-luna-are-now-available-in-github-copilot) | Update | GitHub Copilot is rolling out OpenAI’s GPT-5.6 family. The release adds three variants — Sol, Terra, and Luna — so users can choose a model based on the task. |
