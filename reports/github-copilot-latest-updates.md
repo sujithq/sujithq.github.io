@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-07-09
+post_date: 2026-07-10
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -481,3 +481,4 @@ completed deprecation is shown.
 | 2026-07-08 | [Enterprise-managed OpenTelemetry export for VS Code and CLI](https://github.blog/changelog/2026-07-08-enterprise-managed-opentelemetry-export-for-vs-code-and-cli) | Update | GitHub Copilot now supports enterprise-managed OpenTelemetry export for VS Code and CLI, letting organizations direct telemetry to an approved collector centrally instead of requiring developers to set OTEL_* environment variables. The configuration is delivered through enterprise-managed settings. |
 | 2026-07-09 | [Ask Copilot for a repository overview](https://github.blog/changelog/2026-07-09-ask-copilot-for-a-repository-overview) | Update | GitHub Copilot can now provide a high-level overview of a repository from the repository home page. The feature is meant to help users quickly understand repositories they are exploring for the first time. |
 | 2026-07-09 | [OpenAI’s GPT-5.6 Sol, Terra, and Luna are now available in GitHub Copilot](https://github.blog/changelog/2026-07-09-openais-gpt-5-6-sol-terra-and-luna-are-now-available-in-github-copilot) | Update | GitHub Copilot is rolling out OpenAI’s GPT-5.6 family. The release adds three variants — Sol, Terra, and Luna — so users can choose a model based on the task. |
+| 2026-07-10 | [GitHub Mobile: Improved filters and sorting for Copilot sessions](https://github.blog/changelog/2026-07-10-github-mobile-improved-filters-and-sorting-for-copilot-sessions) | Update | GitHub Mobile now supports improved filtering and sorting for Copilot sessions. The update is meant to make it easier to find specific sessions as the list grows. |

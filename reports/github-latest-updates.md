@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-07-09
+post_date: 2026-07-10
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1002,3 +1002,8 @@ completed deprecation is shown.
 | 2026-07-09 | [Ask Copilot for a repository overview](https://github.blog/changelog/2026-07-09-ask-copilot-for-a-repository-overview) | Update | GitHub Copilot can now provide a high-level overview of a repository from the repository home page. The feature is meant to help users quickly understand repositories they are exploring for the first time. |
 | 2026-07-09 | [Organization-level targeting for GitHub Code Quality](https://github.blog/changelog/2026-07-09-organization-level-targeting-for-github-code-quality) | Update | GitHub Code Quality now supports organization-level targeting, letting owners enable or disable it for only selected repositories instead of the entire organization. This adds finer-grained control over rollout and removal. |
 | 2026-07-09 | [OpenAI’s GPT-5.6 Sol, Terra, and Luna are now available in GitHub Copilot](https://github.blog/changelog/2026-07-09-openais-gpt-5-6-sol-terra-and-luna-are-now-available-in-github-copilot) | Update | GitHub Copilot is rolling out OpenAI’s GPT-5.6 family. The release adds three variants — Sol, Terra, and Luna — so users can choose a model based on the task. |
+| 2026-07-09 | [New pull requests dashboard is now generally available](https://github.blog/changelog/2026-07-09-new-pull-requests-dashboard-is-now-generally-available) | Generally available | GitHub’s refreshed pull requests dashboard is now generally available at github.com/pulls. It provides a single place to track, prioritize, and act on pull requests that need attention. |
+| 2026-07-10 | [GitHub Mobile: Improved filters and sorting for Copilot sessions](https://github.blog/changelog/2026-07-10-github-mobile-improved-filters-and-sorting-for-copilot-sessions) | Update | GitHub Mobile now supports improved filtering and sorting for Copilot sessions. The update is meant to make it easier to find specific sessions as the list grows. |
+| 2026-07-10 | [Per-user states for multi-user budgets in the REST API](https://github.blog/changelog/2026-07-10-per-user-states-for-multi-user-budgets-in-the-rest-api) | Update | GitHub REST API now returns per-user progress for multi-user budgets from a single endpoint. This lets clients identify users nearing their limits without making separate requests. |
+| 2026-07-10 | [Clearer names for secret scanning detector types](https://github.blog/changelog/2026-07-10-clearer-names-for-secret-scanning-detector-types) | Update | GitHub is renaming secret scanning detector types to make it clearer how each detector finds secrets. This is a naming-only change. |
+| 2026-07-10 | [CodeQL 2.26.0 adds Kotlin 2.4.0 support and AI prompt injection detection](https://github.blog/changelog/2026-07-10-codeql-2-26-0-adds-kotlin-2-4-0-support-and-ai-prompt-injection-detection) | Update | CodeQL 2.26.0 adds support for Kotlin 2.4.0 and introduces detection for AI prompt injection issues in code scanning. The release updates the static analysis engine used by GitHub code scanning. |
