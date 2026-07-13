@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-07-10
+post_date: 2026-07-13
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1007,3 +1007,4 @@ completed deprecation is shown.
 | 2026-07-10 | [Per-user states for multi-user budgets in the REST API](https://github.blog/changelog/2026-07-10-per-user-states-for-multi-user-budgets-in-the-rest-api) | Update | GitHub REST API now returns per-user progress for multi-user budgets from a single endpoint. This lets clients identify users nearing their limits without making separate requests. |
 | 2026-07-10 | [Clearer names for secret scanning detector types](https://github.blog/changelog/2026-07-10-clearer-names-for-secret-scanning-detector-types) | Update | GitHub is renaming secret scanning detector types to make it clearer how each detector finds secrets. This is a naming-only change. |
 | 2026-07-10 | [CodeQL 2.26.0 adds Kotlin 2.4.0 support and AI prompt injection detection](https://github.blog/changelog/2026-07-10-codeql-2-26-0-adds-kotlin-2-4-0-support-and-ai-prompt-injection-detection) | Update | CodeQL 2.26.0 adds support for Kotlin 2.4.0 and introduces detection for AI prompt injection issues in code scanning. The release updates the static analysis engine used by GitHub code scanning. |
+| 2026-07-13 | [Separate SSO and Organizations pages in Settings](https://github.blog/changelog/2026-07-13-separate-sso-and-organizations-pages-in-settings) | Update | GitHub split the combined SSO & Organizations page in user settings into two separate pages: SSO and Organizations. The change is intended to make these settings easier to find and manage. |
