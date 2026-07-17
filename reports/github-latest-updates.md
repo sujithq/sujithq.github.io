@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-07-15
+post_date: 2026-07-16
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1015,3 +1015,7 @@ completed deprecation is shown.
 | 2026-07-14 | [GitHub Copilot for JetBrains expands BYOK capabilities](https://github.blog/changelog/2026-07-14-github-copilot-for-jetbrains-expands-byok-capabilities) | Update | GitHub Copilot for JetBrains now supports expanded bring-your-own-key (BYOK) customization across all Copilot tiers, with broader model provider flexibility and improved plugin/provider experiences. The update also includes changes to conversational interactions in the IDE. |
 | 2026-07-15 | [GitHub Copilot in Visual Studio — June update](https://github.blog/changelog/2026-07-14-github-copilot-in-visual-studio-june-update) | Update | June 2026’s Visual Studio Copilot update focuses on usage visibility, a new trust layer for MCP servers, and the first C++ scenarios. The post emphasizes controls and clarity rather than new broad functionality. |
 | 2026-07-15 | [Improvements to secret scanning and public monitoring](https://github.blog/changelog/2026-07-15-improvements-to-secret-scanning-and-public-monitoring) | Update | GitHub rolled out updates to secret scanning and public monitoring. Resend is now a secret scanning partner, and secret scanning can detect new secret types from APIclub. |
+| 2026-07-16 | [Xcode 27 runner image now in public preview](https://github.blog/changelog/2026-07-16-xcode-27-runner-image-now-in-public-preview) | Public preview | GitHub-hosted macOS runners now support Xcode 27 in public preview, letting you build and test Apple apps against the latest Xcode version. This is an early-access runner image release. |
+| 2026-07-16 | [REST API endpoints for Visual Studio Subscription management](https://github.blog/changelog/2026-07-16-rest-api-endpoints-for-visual-studio-subscription-management) | Update | GitHub Enterprise Cloud admins can now use REST API endpoints to manage Visual Studio Subscription (VSS) assignments programmatically. The new endpoint returns all VSS assignments for an enterprise, including assignment details. |
+| 2026-07-16 | [Repository admins can archive pull requests](https://github.blog/changelog/2026-07-16-repository-admins-can-archive-pull-requests) | Update | Repository admins can archive pull requests to remove them from public view without deleting them. Archived pull requests are closed and locked. |
+| 2026-07-16 | [Advanced search for Projects is generally available](https://github.blog/changelog/2026-07-16-advanced-search-for-projects-is-generally-available) | Generally available | GitHub Projects views now support advanced search in the filter bar. You can combine conditions with logical AND and OR to build more precise views without maintaining a separate setup. |
