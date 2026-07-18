@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-07-15
+post_date: 2026-07-17
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -484,3 +484,7 @@ completed deprecation is shown.
 | 2026-07-14 | [Security reviews now available in the GitHub Copilot app](https://github.blog/changelog/2026-07-14-security-reviews-now-available-in-the-github-copilot-app) | Update | GitHub Copilot app now supports running security reviews on in-flight code changes with the /security-review slash command. The feature is available in public preview. |
 | 2026-07-14 | [GitHub Copilot for JetBrains expands BYOK capabilities](https://github.blog/changelog/2026-07-14-github-copilot-for-jetbrains-expands-byok-capabilities) | Update | GitHub Copilot for JetBrains now supports expanded bring-your-own-key (BYOK) customization across all Copilot tiers, with broader model provider flexibility and improved plugin/provider experiences. The update also includes changes to conversational interactions in the IDE. |
 | 2026-07-15 | [GitHub Copilot in Visual Studio — June update](https://github.blog/changelog/2026-07-14-github-copilot-in-visual-studio-june-update) | Update | June 2026’s Visual Studio Copilot update focuses on usage visibility, a new trust layer for MCP servers, and the first C++ scenarios. The post emphasizes controls and clarity rather than new broad functionality. |
+| 2026-07-17 | [GitHub Mobile: Fix pull request comments with Copilot cloud agent](https://github.blog/changelog/2026-07-17-github-mobile-fix-pull-request-comments-with-copilot-cloud-agent) | Update | GitHub Mobile now lets you select “Fix with Copilot” from Copilot code review pull request comments. The action is available in the pull request’s main view and uses the Copilot cloud agent. |
+| 2026-07-17 | [Copilot code review: Customization and configurability improvements](https://github.blog/changelog/2026-07-17-copilot-code-review-customization-and-configurability-improvements) | Update | Copilot code review now supports a firewall, custom setup steps, and independent runner configurations. It also reads custom instructions from the head branch to make testing and validation easier. |
+| 2026-07-17 | [GitHub Copilot app now available in the usage metrics API](https://github.blog/changelog/2026-07-17-github-copilot-app-now-available-in-the-usage-metrics-api) | Update | The GitHub Copilot usage metrics API now includes GitHub Copilot app usage in enterprise and organization 1-day and 28-day reports. This adds admin visibility into Copilot app usage data. |
+| 2026-07-17 | [Repository-level GitHub Copilot usage metrics generally available](https://github.blog/changelog/2026-07-17-repository-level-github-copilot-usage-metrics-generally-available) | Generally available | GitHub Copilot usage metrics REST API now includes repository-level activity. Two new endpoints provide a daily per-repository breakdown of pull request activity for Copilot coding agent and Copilot code review. |

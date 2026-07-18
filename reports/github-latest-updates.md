@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-07-16
+post_date: 2026-07-17
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1019,3 +1019,7 @@ completed deprecation is shown.
 | 2026-07-16 | [REST API endpoints for Visual Studio Subscription management](https://github.blog/changelog/2026-07-16-rest-api-endpoints-for-visual-studio-subscription-management) | Update | GitHub Enterprise Cloud admins can now use REST API endpoints to manage Visual Studio Subscription (VSS) assignments programmatically. The new endpoint returns all VSS assignments for an enterprise, including assignment details. |
 | 2026-07-16 | [Repository admins can archive pull requests](https://github.blog/changelog/2026-07-16-repository-admins-can-archive-pull-requests) | Update | Repository admins can archive pull requests to remove them from public view without deleting them. Archived pull requests are closed and locked. |
 | 2026-07-16 | [Advanced search for Projects is generally available](https://github.blog/changelog/2026-07-16-advanced-search-for-projects-is-generally-available) | Generally available | GitHub Projects views now support advanced search in the filter bar. You can combine conditions with logical AND and OR to build more precise views without maintaining a separate setup. |
+| 2026-07-17 | [GitHub Mobile: Fix pull request comments with Copilot cloud agent](https://github.blog/changelog/2026-07-17-github-mobile-fix-pull-request-comments-with-copilot-cloud-agent) | Update | GitHub Mobile now lets you select “Fix with Copilot” from Copilot code review pull request comments. The action is available in the pull request’s main view and uses the Copilot cloud agent. |
+| 2026-07-17 | [Copilot code review: Customization and configurability improvements](https://github.blog/changelog/2026-07-17-copilot-code-review-customization-and-configurability-improvements) | Update | Copilot code review now supports a firewall, custom setup steps, and independent runner configurations. It also reads custom instructions from the head branch to make testing and validation easier. |
+| 2026-07-17 | [GitHub Copilot app now available in the usage metrics API](https://github.blog/changelog/2026-07-17-github-copilot-app-now-available-in-the-usage-metrics-api) | Update | The GitHub Copilot usage metrics API now includes GitHub Copilot app usage in enterprise and organization 1-day and 28-day reports. This adds admin visibility into Copilot app usage data. |
+| 2026-07-17 | [Repository-level GitHub Copilot usage metrics generally available](https://github.blog/changelog/2026-07-17-repository-level-github-copilot-usage-metrics-generally-available) | Generally available | GitHub Copilot usage metrics REST API now includes repository-level activity. Two new endpoints provide a daily per-repository breakdown of pull request activity for Copilot coding agent and Copilot code review. |
