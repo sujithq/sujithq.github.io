@@ -32,12 +32,12 @@
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@types/node": "^26.1.1",
-    "autoprefixer": "^10.5.2",
-    "postcss": "^8.5.19",
+    "autoprefixer": "^10.5.4",
+    "postcss": "^8.5.20",
     "postcss-cli": "^11.0.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^7.3.0",
+    "@fortawesome/fontawesome-free": "^7.3.1",
     "@fullhuman/postcss-purgecss": "^8.0.0",
     "@iarna/toml": "^3.0.0",
     "aos": "^2.3.4",
@@ -47,7 +47,7 @@
     "glob": "^13.0.6",
     "gray-matter": "^4.0.3",
     "prismjs": "^1.30.0",
-    "swiper": "^14.0.5"
+    "swiper": "^14.0.6"
   },
   "overrides": {
     "js-yaml": "^4.2.0"
