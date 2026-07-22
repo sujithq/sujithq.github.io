@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-07-17
+post_date: 2026-07-21
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -488,3 +488,5 @@ completed deprecation is shown.
 | 2026-07-17 | [Copilot code review: Customization and configurability improvements](https://github.blog/changelog/2026-07-17-copilot-code-review-customization-and-configurability-improvements) | Update | Copilot code review now supports a firewall, custom setup steps, and independent runner configurations. It also reads custom instructions from the head branch to make testing and validation easier. |
 | 2026-07-17 | [GitHub Copilot app now available in the usage metrics API](https://github.blog/changelog/2026-07-17-github-copilot-app-now-available-in-the-usage-metrics-api) | Update | The GitHub Copilot usage metrics API now includes GitHub Copilot app usage in enterprise and organization 1-day and 28-day reports. This adds admin visibility into Copilot app usage data. |
 | 2026-07-17 | [Repository-level GitHub Copilot usage metrics generally available](https://github.blog/changelog/2026-07-17-repository-level-github-copilot-usage-metrics-generally-available) | Generally available | GitHub Copilot usage metrics REST API now includes repository-level activity. Two new endpoints provide a daily per-repository breakdown of pull request activity for Copilot coding agent and Copilot code review. |
+| 2026-07-20 | [Copilot users can now see AI credits used per billing cycle](https://github.blog/changelog/2026-07-20-copilot-users-can-now-see-ai-credits-used-per-billing-cycle) | Update | Copilot Business and Copilot Enterprise users can now view how many AI credits they have used in the current billing cycle, even if they do not have an individual budget. The usage count is available in GitHub Copilot usage. |
+| 2026-07-21 | [Gemini 3.6 Flash is now available in GitHub Copilot](https://github.blog/changelog/2026-07-21-gemini-3-6-flash-is-now-available-in-github-copilot) | Update | GitHub Copilot is rolling out Gemini 3.6 Flash, Google’s latest Flash model. GitHub says it is intended for web and app development, coding, and longer-horizon agentic tasks, with configurable behavior. |
