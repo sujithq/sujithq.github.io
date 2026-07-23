@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-07-21
+post_date: 2026-07-22
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -490,3 +490,4 @@ completed deprecation is shown.
 | 2026-07-17 | [Repository-level GitHub Copilot usage metrics generally available](https://github.blog/changelog/2026-07-17-repository-level-github-copilot-usage-metrics-generally-available) | Generally available | GitHub Copilot usage metrics REST API now includes repository-level activity. Two new endpoints provide a daily per-repository breakdown of pull request activity for Copilot coding agent and Copilot code review. |
 | 2026-07-20 | [Copilot users can now see AI credits used per billing cycle](https://github.blog/changelog/2026-07-20-copilot-users-can-now-see-ai-credits-used-per-billing-cycle) | Update | Copilot Business and Copilot Enterprise users can now view how many AI credits they have used in the current billing cycle, even if they do not have an individual budget. The usage count is available in GitHub Copilot usage. |
 | 2026-07-21 | [Gemini 3.6 Flash is now available in GitHub Copilot](https://github.blog/changelog/2026-07-21-gemini-3-6-flash-is-now-available-in-github-copilot) | Update | GitHub Copilot is rolling out Gemini 3.6 Flash, Google’s latest Flash model. GitHub says it is intended for web and app development, coding, and longer-horizon agentic tasks, with configurable behavior. |
+| 2026-07-22 | [New Copilot usage metrics impact dashboard](https://github.blog/changelog/2026-07-22-new-copilot-usage-metrics-impact-dashboard) | Update | GitHub released a new Copilot metrics impact dashboard for enterprise administrators and organization owners. It is meant to help them report Copilot impact using usage metrics and related data. |

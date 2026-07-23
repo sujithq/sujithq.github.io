@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-07-21
+post_date: 2026-07-22
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1026,3 +1026,5 @@ completed deprecation is shown.
 | 2026-07-20 | [Copilot users can now see AI credits used per billing cycle](https://github.blog/changelog/2026-07-20-copilot-users-can-now-see-ai-credits-used-per-billing-cycle) | Update | Copilot Business and Copilot Enterprise users can now view how many AI credits they have used in the current billing cycle, even if they do not have an individual budget. The usage count is available in GitHub Copilot usage. |
 | 2026-07-20 | [AI credit pools for cost centers in the billing UI](https://github.blog/changelog/2026-07-20-ai-credit-pools-for-cost-centers-in-the-billing-ui) | Update | GitHub Billing UI now lets you manage a cost center’s AI credit pool directly when creating or editing cost centers. Before this change, that configuration was only available through another interface. |
 | 2026-07-21 | [Gemini 3.6 Flash is now available in GitHub Copilot](https://github.blog/changelog/2026-07-21-gemini-3-6-flash-is-now-available-in-github-copilot) | Update | GitHub Copilot is rolling out Gemini 3.6 Flash, Google’s latest Flash model. GitHub says it is intended for web and app development, coding, and longer-horizon agentic tasks, with configurable behavior. |
+| 2026-07-22 | [Upcoming GHES change impacting uploading support bundles](https://github.blog/changelog/2026-07-22-upcoming-ghes-change-impacting-uploading-support-bundles) | Update | GitHub will begin rejecting some GHES support bundle uploads starting August 18, 2026 because of an upcoming security change. Administrators should review the new upload requirements before that date to avoid failed submissions. |
+| 2026-07-22 | [New Copilot usage metrics impact dashboard](https://github.blog/changelog/2026-07-22-new-copilot-usage-metrics-impact-dashboard) | Update | GitHub released a new Copilot metrics impact dashboard for enterprise administrators and organization owners. It is meant to help them report Copilot impact using usage metrics and related data. |
