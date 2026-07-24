@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitHub CLI on Sujith Quintelier</title><link>https://quintelier.dev/tags/github-cli/</link><description>Recent content in GitHub CLI on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 13 May 2026 09:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/github-cli/index.xml" rel="self" type="application/rss+xml"/><item><title>🎨 Generate with GPT-image-2</title><link>https://quintelier.dev/posts/2026/05/create-image-skill-azure-openai/</link><pubDate>Wed, 13 May 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/05/create-image-skill-azure-openai/</guid><description>&lt;p&gt;The new &lt;code&gt;create-image&lt;/code&gt; skill brings GPT-image-2 generation into the developer
+workflow. Instead of opening a browser, copying a prompt into a design tool, and
+manually moving files around, you can generate visuals from your terminal or
+agent workflow using Azure OpenAI.&lt;/p&gt;
+&lt;p&gt;It is a custom skill I created in the &lt;code&gt;sujithq/skills&lt;/code&gt; repository, so the goal is
+practical automation rather than a generic image-generation tutorial.&lt;/p&gt;
+&lt;p&gt;That makes it useful for blog covers, documentation diagrams, UI placeholders,
+presentation visuals, and quick concept exploration. The important bit is that
+the skill is designed for developer environments: it uses Azure OpenAI, supports
+keyless Azure RBAC authentication, and saves the generated output into your
+project.&lt;/p&gt;</description></item><item><title>🔑 Easier BYOK for GitHub Copilot CLI</title><link>https://quintelier.dev/posts/2026/05/copilot-cli-byok-model-switcher/</link><pubDate>Sun, 03 May 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/05/copilot-cli-byok-model-switcher/</guid><description>&lt;p&gt;GitHub Copilot CLI supports &lt;strong&gt;Bring Your Own Key&lt;/strong&gt; (BYOK), letting you point the
+CLI at any OpenAI-compatible endpoint, Azure OpenAI, or Anthropic instead of the
+default Copilot service. The capability is powerful, but the raw workflow requires
+you to export several environment variables every time you switch providers. This
+post walks through the manual approach first, shows why it becomes cumbersome, and
+then introduces
+&lt;a href="https://github.com/sujithq/gh-copilot-cli-model-switcher" target="_blank" rel="noopener noreferrer"&gt;&lt;code&gt;gh-copilot-byok&lt;/code&gt;&lt;/a&gt;,
+a .NET global tool that wraps the whole flow with a polished interactive interface.&lt;/p&gt;</description></item><item><title>🤖 Copilot CLI Auto Model Selection is GA</title><link>https://quintelier.dev/posts/2026/04/github-copilot-cli-auto-model-selection/</link><pubDate>Mon, 20 Apr 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/04/github-copilot-cli-auto-model-selection/</guid><description>&lt;p&gt;GitHub Copilot CLI now supports &lt;strong&gt;auto model selection&lt;/strong&gt;, generally available across all Copilot plans. Instead of choosing a specific model for every session, you can let Copilot route each request to the most efficient model available at that moment.&lt;/p&gt;
+&lt;h2 id="the-problem-with-manual-model-selection"&gt;The problem with manual model selection&lt;/h2&gt;
+&lt;p&gt;Copilot supports a growing roster of models: GPT-5.4, GPT-5.3-Codex, Claude Sonnet 4.6, Claude Haiku 4.5, and more. Each has different strengths, latency profiles, and premium request multipliers. Picking the right one requires constant context-switching, and even when you do pick correctly, you can hit rate limits on popular models during peak hours.&lt;/p&gt;</description></item><item><title>🧰 Manage agent skills with GitHub CLI</title><link>https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/</link><pubDate>Fri, 17 Apr 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/</guid><description>&lt;p&gt;GitHub has introduced &lt;code&gt;gh skill&lt;/code&gt;, a new GitHub CLI command set for managing agent
+skills from repositories. This release is in &lt;strong&gt;public preview&lt;/strong&gt;, and it gives
+teams a practical workflow to install, update, and publish reusable AI agent
+capabilities.&lt;/p&gt;
+&lt;p&gt;The changelog entry is tagged as a release event, but the feature lifecycle is
+currently &lt;strong&gt;public preview&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If you use coding agents across multiple tools, this matters because it creates
+a repeatable way to distribute task-specific instructions and scripts while
+adding stronger provenance and version controls.&lt;/p&gt;</description></item><item><title>🚀 Find Stale Branches Across All GitHub Repos</title><link>https://quintelier.dev/posts/2025/01/retrieve-stale-branches-github-organization/</link><pubDate>Tue, 14 Jan 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/01/retrieve-stale-branches-github-organization/</guid><description>&lt;p&gt;Keeping your GitHub repositories clean is crucial for maintainability. Over time, branches pile up, making it difficult to track what’s relevant. If you’re managing multiple repositories in an organization, manually identifying stale branches can be a hassle.&lt;/p&gt;
+&lt;p&gt;Luckily, with the &lt;strong&gt;GitHub CLI (&lt;code&gt;gh&lt;/code&gt;)&lt;/strong&gt;, you can automate this process and generate a &lt;strong&gt;report of all non-main branches along with their last authors&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This guide walks you through a &lt;strong&gt;Bash script&lt;/strong&gt; that:&lt;br&gt;
+✅ Retrieves all repositories in an organization&lt;br&gt;
+✅ Lists branches, excluding &lt;code&gt;main&lt;/code&gt;, &lt;code&gt;master&lt;/code&gt;, and &lt;code&gt;azure-master&lt;/code&gt;&lt;br&gt;
+✅ Identifies the last commit author for each branch&lt;br&gt;
+✅ Groups the results by author for better visibility&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Agent Skills on Sujith Quintelier</title><link>https://quintelier.dev/tags/agent-skills/</link><description>Recent content in Agent Skills on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 13 May 2026 09:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/agent-skills/index.xml" rel="self" type="application/rss+xml"/><item><title>🎨 Generate with GPT-image-2</title><link>https://quintelier.dev/posts/2026/05/create-image-skill-azure-openai/</link><pubDate>Wed, 13 May 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/05/create-image-skill-azure-openai/</guid><description>&lt;p&gt;The new &lt;code&gt;create-image&lt;/code&gt; skill brings GPT-image-2 generation into the developer
+workflow. Instead of opening a browser, copying a prompt into a design tool, and
+manually moving files around, you can generate visuals from your terminal or
+agent workflow using Azure OpenAI.&lt;/p&gt;
+&lt;p&gt;It is a custom skill I created in the &lt;code&gt;sujithq/skills&lt;/code&gt; repository, so the goal is
+practical automation rather than a generic image-generation tutorial.&lt;/p&gt;
+&lt;p&gt;That makes it useful for blog covers, documentation diagrams, UI placeholders,
+presentation visuals, and quick concept exploration. The important bit is that
+the skill is designed for developer environments: it uses Azure OpenAI, supports
+keyless Azure RBAC authentication, and saves the generated output into your
+project.&lt;/p&gt;</description></item><item><title>🧰 Manage agent skills with GitHub CLI</title><link>https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/</link><pubDate>Fri, 17 Apr 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/</guid><description>&lt;p&gt;GitHub has introduced &lt;code&gt;gh skill&lt;/code&gt;, a new GitHub CLI command set for managing agent
+skills from repositories. This release is in &lt;strong&gt;public preview&lt;/strong&gt;, and it gives
+teams a practical workflow to install, update, and publish reusable AI agent
+capabilities.&lt;/p&gt;
+&lt;p&gt;The changelog entry is tagged as a release event, but the feature lifecycle is
+currently &lt;strong&gt;public preview&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If you use coding agents across multiple tools, this matters because it creates
+a repeatable way to distribute task-specific instructions and scripts while
+adding stronger provenance and version controls.&lt;/p&gt;</description></item></channel></rss>

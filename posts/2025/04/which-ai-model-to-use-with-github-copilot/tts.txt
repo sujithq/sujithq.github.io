@@ -1,0 +1,27 @@
+Choosing the right AI model for your GitHub Copilot project can be tricky. Each model has its own strengths, and understanding which one fits your needs best can make a big difference.
+
+As of July 31, 2025, here’s the current landscape:
+- For a balance of cost and performance: GPT-4.1, Claude Sonnet 4, or Claude 3.5 Sonnet are solid choices.
+- For fast, lightweight tasks: o4-mini, Claude 3.5 Sonnet, or Gemini 2.0 Flash work well.
+- For deep reasoning or complex debugging: Claude Opus 4, Claude Sonnet 4, o3, or Gemini 2.5 Pro are ideal.
+- For multimodal inputs (like images): Gemini 2.0 Flash or GPT-4.1 are your go-to options.
+
+Prioritizing speed:
+- o4-mini: Fast, efficient, and cost-effective. Best for rapid prototyping, explaining small code snippets, learning new concepts, and generating boilerplate code.
+- Consider other models for multi-file or deep reasoning tasks.
+
+Balanced AI models:
+- Claude 3.5 Sonnet: Reliable all-rounder for writing documentation, answering language-specific questions, and generating concise code snippets.
+- GPT-4.1: Versatile performer for explaining code blocks, writing comments, generating reusable code, and handling multilingual prompts.
+
+Models for complex projects:
+- Claude Sonnet 4: Problem solver for refactoring large codebases, planning complex architectures, and designing algorithms.
+- Claude Opus 4: Advanced problem solver for full functions, classes, multi-file logic, debugging, and analyzing complex architectures.
+- Gemini 2.5 Pro: Advanced researcher for scientific data, multi-file logic, and complex debugging.
+- o3: Precision expert for optimizing performance-critical code, debugging, writing structured code, and summarizing logs.
+
+Multimodal capabilities:
+- Gemini 2.0 Flash: Visual problem-solver for diagrams, UI mockups, front-end development, and layout debugging.
+
+Final thoughts:
+The key to choosing the right model is matching it to the task at hand. Experimentation is the best way to learn and refine your approach.
