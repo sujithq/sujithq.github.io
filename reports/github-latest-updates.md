@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-07-22
+post_date: 2026-07-23
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1028,3 +1028,8 @@ completed deprecation is shown.
 | 2026-07-21 | [Gemini 3.6 Flash is now available in GitHub Copilot](https://github.blog/changelog/2026-07-21-gemini-3-6-flash-is-now-available-in-github-copilot) | Update | GitHub Copilot is rolling out Gemini 3.6 Flash, Google’s latest Flash model. GitHub says it is intended for web and app development, coding, and longer-horizon agentic tasks, with configurable behavior. |
 | 2026-07-22 | [Upcoming GHES change impacting uploading support bundles](https://github.blog/changelog/2026-07-22-upcoming-ghes-change-impacting-uploading-support-bundles) | Update | GitHub will begin rejecting some GHES support bundle uploads starting August 18, 2026 because of an upcoming security change. Administrators should review the new upload requirements before that date to avoid failed submissions. |
 | 2026-07-22 | [New Copilot usage metrics impact dashboard](https://github.blog/changelog/2026-07-22-new-copilot-usage-metrics-impact-dashboard) | Update | GitHub released a new Copilot metrics impact dashboard for enterprise administrators and organization owners. It is meant to help them report Copilot impact using usage metrics and related data. |
+| 2026-07-23 | [Agent automation controls in GitHub Issues in public preview](https://github.blog/changelog/2026-07-23-agent-automation-controls-in-github-issues-in-public-preview) | Public preview | GitHub Issues now exposes the reason behind agent-driven changes and lets users review proposed automation actions before they are applied. The feature is in public preview. |
+| 2026-07-23 | [Multi-select fields for Projects and Issues in public preview](https://github.blog/changelog/2026-07-23-multi-select-fields-for-projects-and-issues-in-public-preview) | Public preview | GitHub Projects and Issue fields now support multi-select fields in public preview, allowing a single field to store multiple values. This lets you tag an item with all relevant labels or categories instead of choosing just one. |
+| 2026-07-23 | [GitHub Mobile: Fix failing Actions checks with Copilot cloud agent](https://github.blog/changelog/2026-07-23-github-mobile-fix-failing-actions-checks-with-copilot-cloud-agent) | Update | GitHub Mobile now lets you ask Copilot coding agent to investigate and fix failing GitHub Actions checks on a pull request directly from the mobile app. The feature starts from a failed check and uses Copilot cloud agent to work on the issue. |
+| 2026-07-23 | [GitHub MCP Server supports the next MCP specification](https://github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification) | Update | GitHub MCP Server will support the upcoming MCP spec ahead of its official release. The key protocol change is a move to a stateless core on 28 July 2026. |
+| 2026-07-23 | [Copilot cloud agent for Linear is now generally available](https://github.blog/changelog/2026-07-23-copilot-cloud-agent-for-linear-is-now-generally-available) | Generally available | GitHub says Copilot cloud agent is now generally available for Linear. Users can assign Linear issues to the agent, which then analyzes the issue contents and works asynchronously in the background. |
