@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-07-23
+post_date: 2026-07-24
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1033,3 +1033,4 @@ completed deprecation is shown.
 | 2026-07-23 | [GitHub Mobile: Fix failing Actions checks with Copilot cloud agent](https://github.blog/changelog/2026-07-23-github-mobile-fix-failing-actions-checks-with-copilot-cloud-agent) | Update | GitHub Mobile now lets you ask Copilot coding agent to investigate and fix failing GitHub Actions checks on a pull request directly from the mobile app. The feature starts from a failed check and uses Copilot cloud agent to work on the issue. |
 | 2026-07-23 | [GitHub MCP Server supports the next MCP specification](https://github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification) | Update | GitHub MCP Server will support the upcoming MCP spec ahead of its official release. The key protocol change is a move to a stateless core on 28 July 2026. |
 | 2026-07-23 | [Copilot cloud agent for Linear is now generally available](https://github.blog/changelog/2026-07-23-copilot-cloud-agent-for-linear-is-now-generally-available) | Generally available | GitHub says Copilot cloud agent is now generally available for Linear. Users can assign Linear issues to the agent, which then analyzes the issue contents and works asynchronously in the background. |
+| 2026-07-24 | [Claude Opus 5 is now available in GitHub Copilot](https://github.blog/changelog/2026-07-24-claude-opus-5-is-now-available-in-github-copilot) | Update | GitHub Copilot now supports Claude Opus 5, Anthropic’s latest Opus model. GitHub says it is intended for complex, long-running coding tasks that need careful reasoning and tool use. |
