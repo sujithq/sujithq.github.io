@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-07-24
+post_date: 2026-07-28
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1034,3 +1034,6 @@ completed deprecation is shown.
 | 2026-07-23 | [GitHub MCP Server supports the next MCP specification](https://github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification) | Update | GitHub MCP Server will support the upcoming MCP spec ahead of its official release. The key protocol change is a move to a stateless core on 28 July 2026. |
 | 2026-07-23 | [Copilot cloud agent for Linear is now generally available](https://github.blog/changelog/2026-07-23-copilot-cloud-agent-for-linear-is-now-generally-available) | Generally available | GitHub says Copilot cloud agent is now generally available for Linear. Users can assign Linear issues to the agent, which then analyzes the issue contents and works asynchronously in the background. |
 | 2026-07-24 | [Claude Opus 5 is now available in GitHub Copilot](https://github.blog/changelog/2026-07-24-claude-opus-5-is-now-available-in-github-copilot) | Update | GitHub Copilot now supports Claude Opus 5, Anthropic’s latest Opus model. GitHub says it is intended for complex, long-running coding tasks that need careful reasoning and tool use. |
+| 2026-07-27 | [Enterprise managed settings in the GitHub Copilot app and Copilot cloud agent](https://github.blog/changelog/2026-07-27-enterprise-managed-settings-now-apply-to-the-github-copilot-app) | Update | GitHub Copilot app and Copilot cloud agent now support enterprise managed settings, letting organizations apply the same centrally managed Copilot policies across the enterprise. |
+| 2026-07-27 | [Manage GitHub Copilot app access with a dedicated policy](https://github.blog/changelog/2026-07-27-manage-github-copilot-app-access-with-a-dedicated-policy) | Update | GitHub Copilot now has a dedicated policy for controlling app access at both the enterprise and organization levels. This separates Copilot app access from the previous broader access controls. |
+| 2026-07-28 | [GitHub Copilot for JetBrains adds improved OpenTelemetry configuration and model management](https://github.blog/changelog/2026-07-27-github-copilot-for-jetbrains-adds-improvved-opentelemetry-configuration-and-model-management) | Update | GitHub Copilot for JetBrains now includes improved OpenTelemetry configuration and model management. The update also adds support for connecting MCP servers and custom agents in Claude agent flows. |
