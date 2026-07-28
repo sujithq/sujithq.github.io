@@ -406,6 +406,15 @@ def fetch_certificates() -> dict[str, Any]:
         
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
+        if OUTPUT_PATH.exists():
+            try:
+                with open(OUTPUT_PATH, encoding="utf-8") as existing:
+                    cached_output = json.load(existing)
+                if isinstance(cached_output, dict):
+                    print(f"Using existing certificates data from: {OUTPUT_PATH}")
+                    return cached_output
+            except Exception as fallback_error:
+                print(f"Could not load existing certificates data: {fallback_error}", file=sys.stderr)
         sys.exit(1)
 
 
