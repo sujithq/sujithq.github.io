@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-07-28
+post_date: 2026-07-29
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -499,3 +499,5 @@ completed deprecation is shown.
 | 2026-07-28 | [GitHub Copilot for JetBrains adds improved OpenTelemetry configuration and model management](https://github.blog/changelog/2026-07-27-github-copilot-for-jetbrains-adds-improvved-opentelemetry-configuration-and-model-management) | Update | GitHub Copilot for JetBrains now includes improved OpenTelemetry configuration and model management. The update also adds support for connecting MCP servers and custom agents in Claude agent flows. |
 | 2026-07-28 | [Grok 4.5 is now available in GitHub Copilot](https://github.blog/changelog/2026-07-28-grok-4-5-is-now-available-in-github-copilot) | Update | Grok 4.5 is now rolling out in GitHub Copilot. GitHub says the xAI model is intended for fast, agentic coding and complex multi-step workflows, with a large context window. |
 | 2026-07-28 | [GitHub Copilot app usage metrics now expand across report rollups](https://github.blog/changelog/2026-07-28-github-copilot-app-usage-metrics-now-expand-across-report-rollups) | Update | GitHub Copilot app usage metrics are now included in more of the Copilot usage metrics API. Individual app activity is now attributed to users in the enterprise-user and organization-user reports. |
+| 2026-07-29 | [Default model enablement for Copilot Business and Enterprise](https://github.blog/changelog/2026-07-29-default-model-enablement-for-copilot-business-and-enterprise) | Update | GitHub is introducing a global default enablement policy for generally available Copilot models on Copilot Business and Copilot Enterprise plans. New GA models will be enabled by default instead of requiring admins to turn each one on manually. |
+| 2026-07-29 | [Copilot code review: Agent skills and MCP now generally available](https://github.blog/changelog/2026-07-29-copilot-code-review-agent-skills-and-mcp-now-generally-available) | Generally available | Copilot code review now generally supports agent skills and MCP servers for all Copilot Pro, Pro+, Business, and Enterprise users. These features have moved from public preview to general availability. |
