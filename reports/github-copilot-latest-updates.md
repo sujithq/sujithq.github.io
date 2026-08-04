@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-07-31
+post_date: 2026-08-03
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -505,3 +505,6 @@ completed deprecation is shown.
 | 2026-07-30 | [GitHub Models is now retired](https://github.blog/changelog/2026-07-30-github-models-is-now-retired) | Update | GitHub Models was retired on July 30, 2026. The playground, model catalog, inference API, and bring-your-own-key (BYOK) access are no longer available to customers. |
 | 2026-07-31 | [Enterprise teams model policy targeting in public preview](https://github.blog/changelog/2026-07-31-enterprise-teams-model-policy-targeting-in-public-preview) | Public preview | GitHub has added user-based model policy targeting for enterprise teams in public preview. It is available to GitHub Enterprise customers with Copilot Business or Copilot Enterprise licenses and lets AI administrators set a baseline policy. |
 | 2026-07-31 | [Gemini 2.5 Pro and Gemini 3 Flash deprecated](https://github.blog/changelog/2026-07-31-gemini-2-5-pro-and-gemini-3-flash-deprecated) | Deprecated | GitHub has deprecated Gemini 2.5 Pro and Gemini 3 Flash across all Copilot experiences as of July 31, 2026. This includes Copilot Chat, inline edits, ask and agent modes, and code completions. |
+| 2026-07-31 | [Upcoming August 2026 model deprecations in GitHub Copilot](https://github.blog/changelog/2026-07-31-upcoming-august-2026-model-deprecations-in-github-copilot) | Update | GitHub Copilot will deprecate several models across all Copilot experiences on September 1, 2026. The affected experiences include Copilot Chat, inline edits, ask and agent modes, and code completions. |
+| 2026-08-03 | [Trigger Copilot automations with comments](https://github.blog/changelog/2026-08-03-trigger-copilot-automations-with-comments) | Update | GitHub now supports triggering Copilot cloud agent automations from new issue comments and pull request comments. This enables comment-based workflows such as generating documentation. |
+| 2026-08-03 | [Customize the reasoning level for Copilot cloud agent](https://github.blog/changelog/2026-08-03-customize-the-reasoning-level-for-copilot-cloud-agent) | Update | GitHub Copilot cloud agent now lets you set the reasoning level for supported models when delegating a task. This gives you control over how much reasoning the agent uses for a request. |
