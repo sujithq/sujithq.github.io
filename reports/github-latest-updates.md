@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-08-03
+post_date: 2026-08-04
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1058,3 +1058,9 @@ completed deprecation is shown.
 | 2026-08-03 | [Trigger Copilot automations with comments](https://github.blog/changelog/2026-08-03-trigger-copilot-automations-with-comments) | Update | GitHub now supports triggering Copilot cloud agent automations from new issue comments and pull request comments. This enables comment-based workflows such as generating documentation. |
 | 2026-08-03 | [Enterprise team specialization for managed settings](https://github.blog/changelog/2026-08-03-enterprise-team-specialization-for-managed-settings) | Update | Enterprise administrators can now apply managed settings using itemized configuration files targeted at enterprise teams. This lets large organizations delegate more specific governance without routing every change through central admins or relying on a single global configuration. |
 | 2026-08-03 | [Customize the reasoning level for Copilot cloud agent](https://github.blog/changelog/2026-08-03-customize-the-reasoning-level-for-copilot-cloud-agent) | Update | GitHub Copilot cloud agent now lets you set the reasoning level for supported models when delegating a task. This gives you control over how much reasoning the agent uses for a request. |
+| 2026-08-04 | [CodeQL 2.26.2 adds Swift 6.3.3 and Kotlin 2.4.10 support](https://github.blog/changelog/2026-08-04-codeql-2-26-2-adds-swift-6-3-3-and-kotlin-2-4-10-support) | Update | CodeQL 2.26.2 has been released with support for Swift 6.3.3 and Kotlin 2.4.10. It is the static analysis engine used by GitHub code scanning. |
+| 2026-08-04 | [Code coverage automatic enablement in Code Quality settings](https://github.blog/changelog/2026-08-04-code-coverage-automatic-enablement-in-code-quality-settings) | Update | GitHub added a new Code Quality setting that can automatically generate a code coverage workflow with AI. The change is meant to reduce setup time for coverage in repositories. |
+| 2026-08-04 | [Customize Dependabot pull request branch names](https://github.blog/changelog/2026-08-04-customize-dependabot-pull-request-branch-names) | Update | Dependabot now supports custom pull request branch names through new `pull-request-branch-name` settings in `.github/dependabot.yml`. You can configure a prefix, maximum length, and separators for segments and words. |
+| 2026-08-04 | [Upcoming deprecation of GitHub Spark on github.com](https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com) | Upcoming deprecation | GitHub Spark will stop accepting new users and new app creation starting August 4, 2026. Existing users can keep using Spark until August 31, 2026. |
+| 2026-08-04 | [Retiring the Copilot Billing Preview app](https://github.blog/changelog/2026-08-04-retiring-the-copilot-billing-preview-app) | Update | GitHub has retired the Copilot Billing Preview app and it is no longer available. Copilot spend can now be reviewed and managed directly in GitHub billing settings. |
+| 2026-08-04 | [Customize code scanning default setup at scale](https://github.blog/changelog/2026-08-04-customize-code-scanning-default-setup-at-scale) | Update | GitHub added a new repository property, `github-codeql-config-file`, that lets you apply a custom configuration file to code scanning default setup. This gives you control over how CodeQL runs on repositories at scale. |
