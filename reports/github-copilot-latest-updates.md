@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-08-04
+post_date: 2026-08-06
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -509,3 +509,4 @@ completed deprecation is shown.
 | 2026-08-03 | [Trigger Copilot automations with comments](https://github.blog/changelog/2026-08-03-trigger-copilot-automations-with-comments) | Update | GitHub now supports triggering Copilot cloud agent automations from new issue comments and pull request comments. This enables comment-based workflows such as generating documentation. |
 | 2026-08-03 | [Customize the reasoning level for Copilot cloud agent](https://github.blog/changelog/2026-08-03-customize-the-reasoning-level-for-copilot-cloud-agent) | Update | GitHub Copilot cloud agent now lets you set the reasoning level for supported models when delegating a task. This gives you control over how much reasoning the agent uses for a request. |
 | 2026-08-04 | [Retiring the Copilot Billing Preview app](https://github.blog/changelog/2026-08-04-retiring-the-copilot-billing-preview-app) | Update | GitHub has retired the Copilot Billing Preview app and it is no longer available. Copilot spend can now be reviewed and managed directly in GitHub billing settings. |
+| 2026-08-06 | [Kimi K3 is now available in GitHub Copilot](https://github.blog/changelog/2026-08-06-kimi-k3-is-now-available-in-github-copilot) | Update | GitHub has resumed rolling out Kimi K3 in GitHub Copilot. The model is billed at provider list pricing under usage-based billing. |

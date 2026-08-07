@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-08-04
+post_date: 2026-08-06
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1064,3 +1064,4 @@ completed deprecation is shown.
 | 2026-08-04 | [Upcoming deprecation of GitHub Spark on github.com](https://github.blog/changelog/2026-08-04-upcoming-deprecation-of-github-spark-on-github-com) | Upcoming deprecation | GitHub Spark will stop accepting new users and new app creation starting August 4, 2026. Existing users can keep using Spark until August 31, 2026. |
 | 2026-08-04 | [Retiring the Copilot Billing Preview app](https://github.blog/changelog/2026-08-04-retiring-the-copilot-billing-preview-app) | Update | GitHub has retired the Copilot Billing Preview app and it is no longer available. Copilot spend can now be reviewed and managed directly in GitHub billing settings. |
 | 2026-08-04 | [Customize code scanning default setup at scale](https://github.blog/changelog/2026-08-04-customize-code-scanning-default-setup-at-scale) | Update | GitHub added a new repository property, `github-codeql-config-file`, that lets you apply a custom configuration file to code scanning default setup. This gives you control over how CodeQL runs on repositories at scale. |
+| 2026-08-06 | [Kimi K3 is now available in GitHub Copilot](https://github.blog/changelog/2026-08-06-kimi-k3-is-now-available-in-github-copilot) | Update | GitHub has resumed rolling out Kimi K3 in GitHub Copilot. The model is billed at provider list pricing under usage-based billing. |
