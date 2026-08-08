@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-08-06
+post_date: 2026-08-07
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -510,3 +510,9 @@ completed deprecation is shown.
 | 2026-08-03 | [Customize the reasoning level for Copilot cloud agent](https://github.blog/changelog/2026-08-03-customize-the-reasoning-level-for-copilot-cloud-agent) | Update | GitHub Copilot cloud agent now lets you set the reasoning level for supported models when delegating a task. This gives you control over how much reasoning the agent uses for a request. |
 | 2026-08-04 | [Retiring the Copilot Billing Preview app](https://github.blog/changelog/2026-08-04-retiring-the-copilot-billing-preview-app) | Update | GitHub has retired the Copilot Billing Preview app and it is no longer available. Copilot spend can now be reviewed and managed directly in GitHub billing settings. |
 | 2026-08-06 | [Kimi K3 is now available in GitHub Copilot](https://github.blog/changelog/2026-08-06-kimi-k3-is-now-available-in-github-copilot) | Update | GitHub has resumed rolling out Kimi K3 in GitHub Copilot. The model is billed at provider list pricing under usage-based billing. |
+| 2026-08-07 | [MCP allowlists in enterprise managed settings](https://github.blog/changelog/2026-08-06-mcp-allowlists-in-enterprise-managed-settings) | Update | GitHub added enterprise-managed settings to centrally control which MCP servers GitHub Copilot clients can run. Enterprise owners can now use `allowedMcpServers` and `deniedMcpServers` to allowlist or block specific MCP servers. |
+| 2026-08-07 | [GitHub Code Quality no longer adds Copilot as a reviewer](https://github.blog/changelog/2026-08-07-github-code-quality-no-longer-adds-copilot-as-a-reviewer) | Update | Enabling GitHub Code Quality on a repository no longer creates a ruleset that automatically requests GitHub Copilot as a reviewer on pull requests. Existing repositories with that ruleset are affected only if they already have it configured. |
+| 2026-08-07 | [Copilot usage metrics API adds agent app activity](https://github.blog/changelog/2026-08-07-copilot-usage-metrics-api-adds-agent-app-activity) | Update | The Copilot usage metrics API now includes activity from agent apps used in GitHub workflows. This extends usage reporting to agents from partners such as Claude and Codex. |
+| 2026-08-07 | [Copilot code review effort levels are generally available](https://github.blog/changelog/2026-08-07-copilot-code-review-effort-levels-are-generally-available) | Generally available | GitHub Copilot code review effort levels are now generally available. Lite and Balanced let you choose review depth based on the complexity and risk of the code change. |
+| 2026-08-07 | [Copilot impact dashboard adds a return on investment section](https://github.blog/changelog/2026-08-07-copilot-impact-dashboard-adds-a-return-on-investment-section) | Update | The Copilot impact dashboard now includes a “Potential return on investment” section. It links Copilot spend to pull request output to help estimate ROI. |
+| 2026-08-07 | [GitHub Copilot weekly releases — August 3](https://github.blog/changelog/2026-08-07-github-copilot-weekly-releases-august-3) | Update | GitHub Copilot’s August 3 weekly release notes mention updates across the desktop app, CLI, and VS Code focused on resuming and organizing work, reviewing changes, and asking questions without losing context. The provided excerpt does not include the specific feature details. |
