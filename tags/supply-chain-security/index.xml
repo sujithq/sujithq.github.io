@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Supply Chain Security on Sujith Quintelier</title><link>https://quintelier.dev/tags/supply-chain-security/</link><description>Recent content in Supply Chain Security on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 17 Apr 2026 09:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/supply-chain-security/index.xml" rel="self" type="application/rss+xml"/><item><title>🧰 Manage agent skills with GitHub CLI</title><link>https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/</link><pubDate>Fri, 17 Apr 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/</guid><description>&lt;p&gt;GitHub has introduced &lt;code&gt;gh skill&lt;/code&gt;, a new GitHub CLI command set for managing agent
+skills from repositories. This release is in &lt;strong&gt;public preview&lt;/strong&gt;, and it gives
+teams a practical workflow to install, update, and publish reusable AI agent
+capabilities.&lt;/p&gt;
+&lt;p&gt;The changelog entry is tagged as a release event, but the feature lifecycle is
+currently &lt;strong&gt;public preview&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If you use coding agents across multiple tools, this matters because it creates
+a repeatable way to distribute task-specific instructions and scripts while
+adding stronger provenance and version controls.&lt;/p&gt;</description></item></channel></rss>

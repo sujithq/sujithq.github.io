@@ -1,0 +1,27 @@
+GitHub Copilot is more than just an autocomplete tool—it's a powerful AI assistant you can tailor to your team's needs. With the latest features in VS Code, you can now define custom instructions, prompts, and chat modes to make Copilot work exactly the way you want.
+
+This post walks you through customizing Copilot for your projects, with hands-on steps, theory, and examples.
+
+Step 1: Repository Custom Instructions
+- Add a .github/copilot-instructions.md file to guide Copilot with project-specific context and standards.
+- Instructions are included in every Copilot Chat request in your repo.
+- Keep them short and focused: project purpose, folder structure, coding standards, and key tools.
+
+Step 2: File-Specific Instructions
+- Use .instructions.md files in .github/instructions/ to target rules to certain files or folders using glob patterns.
+- Use applyTo in the frontmatter to specify which files the instructions apply to.
+
+Step 3: Reusable Prompts
+- Use .prompt.md files in .github/prompts/ for repeatable workflows, accessible via slash commands in Copilot Chat.
+
+Step 4: Custom Chat Modes
+- Use .chatmode.md files in .github/chatmodes/ to define specialized Copilot personalities and workflows.
+
+Recap:
+By combining repository instructions, file-specific rules, reusable prompts, and custom chat modes, you can make GitHub Copilot a true teammate. It will understand your project, enforce your standards, and help accelerate your workflow.
+
+Next steps:
+- Try these features in your own projects.
+- Explore more on GitHub Docs and VS Code Docs.
+
+Happy customizing!

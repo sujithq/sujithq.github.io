@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Agentic Workflows on Sujith Quintelier</title><link>https://quintelier.dev/tags/agentic-workflows/</link><description>Recent content in Agentic Workflows on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 28 Apr 2026 21:30:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/agentic-workflows/index.xml" rel="self" type="application/rss+xml"/><item><title>🛠️ Agentic Infographic Workflow Postmortem</title><link>https://quintelier.dev/posts/2026/04/agentic-infographic-workflow-postmortem/</link><pubDate>Tue, 28 Apr 2026 21:30:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/04/agentic-infographic-workflow-postmortem/</guid><description>&lt;p&gt;I recently built an agentic GitHub Actions workflow to generate a static PLG
+infographic from multiple public data sources and open a pull request with the
+output.&lt;/p&gt;
+&lt;p&gt;It worked eventually, but only after a sequence of failures that were useful to
+analyse. This post documents exactly how the workflow was created, what broke,
+and how each issue was resolved.&lt;/p&gt;
+&lt;h2 id="what-the-workflow-was-meant-to-do"&gt;What the workflow was meant to do&lt;/h2&gt;
+&lt;p&gt;The goal was simple:&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NuGet on Sujith Quintelier</title><link>https://quintelier.dev/tags/nuget/</link><description>Recent content in NuGet on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 16 Sep 2025 06:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/nuget/index.xml" rel="self" type="application/rss+xml"/><item><title>Taming Dependabot: Bundle NuGet, npm, and GitHub Actions Updates Without Merge Conflicts</title><link>https://quintelier.dev/posts/2025/09/taming-dependabot-bundle-nuget-npm-github-actions-updates-without-merge-conflicts/</link><pubDate>Tue, 16 Sep 2025 06:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2025/09/taming-dependabot-bundle-nuget-npm-github-actions-updates-without-merge-conflicts/</guid><description>&lt;p&gt;If you’ve enabled &lt;strong&gt;Dependabot&lt;/strong&gt;, you probably love the automated updates but not the &lt;strong&gt;PR storm&lt;/strong&gt; and the &lt;strong&gt;merge conflicts&lt;/strong&gt; that happen when several PRs touch the same lockfiles or project files.&lt;/p&gt;
+&lt;p&gt;The cure is &lt;strong&gt;Dependabot Groups&lt;/strong&gt;: batch related updates into a single PR so you merge once and move on.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="why-conflicts-happen"&gt;Why conflicts happen&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;npm&lt;/strong&gt;: multiple PRs each rewrite &lt;code&gt;package-lock.json&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NuGet&lt;/strong&gt;: several PRs change the same &lt;code&gt;.csproj&lt;/code&gt; / &lt;code&gt;packages.lock.json&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub Actions&lt;/strong&gt;: many small PRs bumping actions across several workflow files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Merge one PR → the others go stale → conflicts or repeated rebases.&lt;/p&gt;</description></item></channel></rss>

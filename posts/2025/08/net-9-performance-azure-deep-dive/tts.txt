@@ -1,0 +1,47 @@
+.NET 9 represents a significant leap forward in performance optimization, especially for Azure-hosted applications. With cloud costs rising and performance expectations high, these improvements can impact both user experience and your Azure bill.
+
+Executive Summary:
+- 60% faster compression with zlib-ng
+- 2-4x faster exception handling
+- 10% reduction in binary size for Native AOT applications
+- Significant startup time improvements for container workloads
+- Enhanced JIT optimizations with dynamic PGO
+
+JIT Compiler Optimizations:
+- Dynamic Profile-Guided Optimization (PGO) now profiles type checks and casts, creating optimized fast paths for common scenarios.
+- Loop optimizations (induction variable widening, strength reduction) improve data processing workloads.
+
+Container Performance:
+- Native AOT binary size reduction means faster deployment and reduced storage costs.
+- DATAS (Dynamic Adaptation to Application Sizes) adjusts garbage collection based on memory usage patterns.
+
+Networking Performance:
+- HTTP client and SSL/TLS improvements for Azure applications.
+- Reduced TLS handshake allocations and optimized packet handling.
+
+Azure-Specific Scenarios:
+- Improved connection pooling and exception handling for Azure SQL.
+- Blob and queue operations benefit from improved networking and compression.
+
+Benchmarking:
+- Minimal API performance: 15% faster cold start, 20% higher throughput, 12% lower memory usage, 25ms → 19ms P99 latency.
+- Azure Functions: Faster exception handling and JSON parsing.
+
+Memory Management:
+- DATAS is now default, providing benefits for Azure workloads.
+- Object stack allocation reduces heap pressure for short-lived objects.
+
+Monitoring:
+- Application Insights integration and custom metrics for performance tracking.
+
+Migration Strategy:
+- Baseline current performance, create .NET 9 test environment, progressive rollout, and performance validation.
+
+Troubleshooting:
+- Enable detailed JIT diagnostics and memory usage analysis.
+
+Best Practices:
+- Container optimization, configuration for Azure Container Apps, health checks, and monitoring.
+
+Conclusion:
+.NET 9's performance improvements offer substantial benefits for Azure workloads, from reduced cloud costs to improved user experience. Methodical migration, monitoring, and understanding these improvements are key to success.
