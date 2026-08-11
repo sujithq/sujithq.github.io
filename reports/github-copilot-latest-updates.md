@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-08-07
+post_date: 2026-08-10
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -516,3 +516,4 @@ completed deprecation is shown.
 | 2026-08-07 | [Copilot code review effort levels are generally available](https://github.blog/changelog/2026-08-07-copilot-code-review-effort-levels-are-generally-available) | Generally available | GitHub Copilot code review effort levels are now generally available. Lite and Balanced let you choose review depth based on the complexity and risk of the code change. |
 | 2026-08-07 | [Copilot impact dashboard adds a return on investment section](https://github.blog/changelog/2026-08-07-copilot-impact-dashboard-adds-a-return-on-investment-section) | Update | The Copilot impact dashboard now includes a “Potential return on investment” section. It links Copilot spend to pull request output to help estimate ROI. |
 | 2026-08-07 | [GitHub Copilot weekly releases — August 3](https://github.blog/changelog/2026-08-07-github-copilot-weekly-releases-august-3) | Update | GitHub Copilot’s August 3 weekly release notes mention updates across the desktop app, CLI, and VS Code focused on resuming and organizing work, reviewing changes, and asking questions without losing context. The provided excerpt does not include the specific feature details. |
+| 2026-08-10 | [Copilot on web expands conversation controls](https://github.blog/changelog/2026-08-10-copilot-on-web-expands-conversation-controls) | Update | GitHub updated Copilot Chat on github.com with new conversation controls to make the web experience easier to use. The changes include quicker access to recent chats and the ability to minimize the chat panel. |

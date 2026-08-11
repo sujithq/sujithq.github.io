@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-08-07
+post_date: 2026-08-10
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1075,3 +1075,6 @@ completed deprecation is shown.
 | 2026-08-07 | [Copilot impact dashboard adds a return on investment section](https://github.blog/changelog/2026-08-07-copilot-impact-dashboard-adds-a-return-on-investment-section) | Update | The Copilot impact dashboard now includes a “Potential return on investment” section. It links Copilot spend to pull request output to help estimate ROI. |
 | 2026-08-07 | [Enterprises can now install third-party GitHub Apps](https://github.blog/changelog/2026-08-07-enterprises-can-now-install-third-party-github-apps) | Update | Enterprise owners can now install public GitHub Apps built outside their enterprise on enterprise accounts. This enables third-party integrations for enterprise management scenarios. |
 | 2026-08-07 | [GitHub Copilot weekly releases — August 3](https://github.blog/changelog/2026-08-07-github-copilot-weekly-releases-august-3) | Update | GitHub Copilot’s August 3 weekly release notes mention updates across the desktop app, CLI, and VS Code focused on resuming and organizing work, reviewing changes, and asking questions without losing context. The provided excerpt does not include the specific feature details. |
+| 2026-08-10 | [Custom thread subscriptions are being deprecated](https://github.blog/changelog/2026-08-10-custom-thread-subscriptions-are-being-deprecated) | Deprecated | GitHub is deprecating custom thread subscription settings for notifications. Users will no longer be able to configure them, and support for existing custom thread subscription settings will be removed. |
+| 2026-08-10 | [GitHub billing in India now supports automatic recurring payments](https://github.blog/changelog/2026-08-10-github-billing-in-india-now-supports-automatic-recurring-payments) | Update | GitHub billing in India now supports automatic recurring payments for monthly and annual bills when using eligible saved credit cards. The change uses a payment mandate for recurring charges. |
+| 2026-08-10 | [Copilot on web expands conversation controls](https://github.blog/changelog/2026-08-10-copilot-on-web-expands-conversation-controls) | Update | GitHub updated Copilot Chat on github.com with new conversation controls to make the web experience easier to use. The changes include quicker access to recent chats and the ability to minimize the chat panel. |
