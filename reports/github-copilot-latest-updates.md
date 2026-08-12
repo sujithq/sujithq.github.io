@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-08-10
+post_date: 2026-08-11
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -517,3 +517,7 @@ completed deprecation is shown.
 | 2026-08-07 | [Copilot impact dashboard adds a return on investment section](https://github.blog/changelog/2026-08-07-copilot-impact-dashboard-adds-a-return-on-investment-section) | Update | The Copilot impact dashboard now includes a “Potential return on investment” section. It links Copilot spend to pull request output to help estimate ROI. |
 | 2026-08-07 | [GitHub Copilot weekly releases — August 3](https://github.blog/changelog/2026-08-07-github-copilot-weekly-releases-august-3) | Update | GitHub Copilot’s August 3 weekly release notes mention updates across the desktop app, CLI, and VS Code focused on resuming and organizing work, reviewing changes, and asking questions without losing context. The provided excerpt does not include the specific feature details. |
 | 2026-08-10 | [Copilot on web expands conversation controls](https://github.blog/changelog/2026-08-10-copilot-on-web-expands-conversation-controls) | Update | GitHub updated Copilot Chat on github.com with new conversation controls to make the web experience easier to use. The changes include quicker access to recent chats and the ability to minimize the chat panel. |
+| 2026-08-11 | [MAI-Code-1.1-Flash available in GitHub Copilot](https://github.blog/changelog/2026-08-11-mai-code-1-1-flash-available-in-github-copilot) | Update | MAI-Code-1.1-Flash is rolling out in GitHub Copilot. It adds native vision support for image understanding and improves coding quality over MAI-Code-1-Flash. |
+| 2026-08-11 | [Upcoming deprecation of MAI-Code-1-Flash](https://github.blog/changelog/2026-08-11-upcoming-deprecation-of-mai-code-1-flash) | Upcoming deprecation | GitHub will deprecate MAI-Code-1-Flash across all GitHub Copilot experiences on September 10, 2026. The suggested replacement is MAI-Code-1.1-Flash. |
+| 2026-08-11 | [Copilot memory and Ollama in GitHub Copilot for JetBrains](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains) | Update | GitHub Copilot for JetBrains adds persistent memory, local model access via Ollama, and additional enterprise controls. The update also improves chat workflows and fixes reliability issues with MCP servers. |
+| 2026-08-11 | [GitHub Enterprise Server 3.22 release candidate](https://github.blog/changelog/2026-08-11-github-enterprise-server-3-22-release-candidate) | Update | GitHub Enterprise Server 3.22 release candidate is now available. The post says it introduces new platform capabilities, with one highlighted change being administrator configuration for Copilot CLI. |
