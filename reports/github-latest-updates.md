@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-08-11
+post_date: 2026-08-12
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1084,3 +1084,5 @@ completed deprecation is shown.
 | 2026-08-11 | [Automatically migrate branch protection rules to repository rulesets](https://github.blog/changelog/2026-08-11-automatically-migrate-branch-protection-rules-to-repository-rulesets) | Update | GitHub now lets you convert existing branch protection rules into repository rulesets from repository settings. This provides a direct migration path to the newer policy framework. |
 | 2026-08-11 | [Copilot memory and Ollama in GitHub Copilot for JetBrains](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains) | Update | GitHub Copilot for JetBrains adds persistent memory, local model access via Ollama, and additional enterprise controls. The update also improves chat workflows and fixes reliability issues with MCP servers. |
 | 2026-08-11 | [GitHub Enterprise Server 3.22 release candidate](https://github.blog/changelog/2026-08-11-github-enterprise-server-3-22-release-candidate) | Update | GitHub Enterprise Server 3.22 release candidate is now available. The post says it introduces new platform capabilities, with one highlighted change being administrator configuration for Copilot CLI. |
+| 2026-08-12 | [Rule insights for organizations in public preview](https://github.blog/changelog/2026-08-12-rule-insights-for-organizations-in-public-preview) | Public preview | GitHub has released the rule insights dashboard in public preview for organizations. It provides a visual overview of how repository rulesets are evaluated and enforced at the organization level. |
+| 2026-08-12 | [Agent Plugins 1.0 in VS Code, Copilot CLI, and the Copilot app](https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app) | Update | GitHub published Agent Plugins 1.0, enabling a plugin to be built once and used across compatible agent clients. The release is available in VS Code, Copilot CLI, and the Copilot app, with support announced alongside AWS, Anysphere, Microsoft, OpenAI, and Vercel. |

@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-08-11
+post_date: 2026-08-12
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -521,3 +521,4 @@ completed deprecation is shown.
 | 2026-08-11 | [Upcoming deprecation of MAI-Code-1-Flash](https://github.blog/changelog/2026-08-11-upcoming-deprecation-of-mai-code-1-flash) | Upcoming deprecation | GitHub will deprecate MAI-Code-1-Flash across all GitHub Copilot experiences on September 10, 2026. The suggested replacement is MAI-Code-1.1-Flash. |
 | 2026-08-11 | [Copilot memory and Ollama in GitHub Copilot for JetBrains](https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains) | Update | GitHub Copilot for JetBrains adds persistent memory, local model access via Ollama, and additional enterprise controls. The update also improves chat workflows and fixes reliability issues with MCP servers. |
 | 2026-08-11 | [GitHub Enterprise Server 3.22 release candidate](https://github.blog/changelog/2026-08-11-github-enterprise-server-3-22-release-candidate) | Update | GitHub Enterprise Server 3.22 release candidate is now available. The post says it introduces new platform capabilities, with one highlighted change being administrator configuration for Copilot CLI. |
+| 2026-08-12 | [Agent Plugins 1.0 in VS Code, Copilot CLI, and the Copilot app](https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app) | Update | GitHub published Agent Plugins 1.0, enabling a plugin to be built once and used across compatible agent clients. The release is available in VS Code, Copilot CLI, and the Copilot app, with support announced alongside AWS, Anysphere, Microsoft, OpenAI, and Vercel. |
