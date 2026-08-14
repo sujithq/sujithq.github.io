@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-08-12
+post_date: 2026-08-13
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1086,3 +1086,6 @@ completed deprecation is shown.
 | 2026-08-11 | [GitHub Enterprise Server 3.22 release candidate](https://github.blog/changelog/2026-08-11-github-enterprise-server-3-22-release-candidate) | Update | GitHub Enterprise Server 3.22 release candidate is now available. The post says it introduces new platform capabilities, with one highlighted change being administrator configuration for Copilot CLI. |
 | 2026-08-12 | [Rule insights for organizations in public preview](https://github.blog/changelog/2026-08-12-rule-insights-for-organizations-in-public-preview) | Public preview | GitHub has released the rule insights dashboard in public preview for organizations. It provides a visual overview of how repository rulesets are evaluated and enforced at the organization level. |
 | 2026-08-12 | [Agent Plugins 1.0 in VS Code, Copilot CLI, and the Copilot app](https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app) | Update | GitHub published Agent Plugins 1.0, enabling a plugin to be built once and used across compatible agent clients. The release is available in VS Code, Copilot CLI, and the Copilot app, with support announced alongside AWS, Anysphere, Microsoft, OpenAI, and Vercel. |
+| 2026-08-13 | [Gemini 3.7 Flash is now available in GitHub Copilot](https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot) | Update | GitHub Copilot is rolling out Gemini 3.7 Flash, Google’s latest Flash model. GitHub says early testing showed improvements in web and app development and agentic tasks. |
+| 2026-08-13 | [Block users from comments in personal repositories](https://github.blog/changelog/2026-08-13-block-users-from-comments-in-personal-repositories) | Update | GitHub now lets you block or unblock users directly from comments on pull requests and issues in repositories owned by personal accounts. The action can be performed from the comment interface. |
+| 2026-08-13 | [License data quality improvements](https://github.blog/changelog/2026-08-13-license-data-quality-improvements) | Update | GitHub now sources license information for dependency graph software components from package registries such as npmjs.org and PyPI. This is intended to improve the accuracy and completeness of displayed license data. |
