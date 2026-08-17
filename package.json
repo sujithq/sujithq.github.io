@@ -31,9 +31,9 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.62.1",
-    "@types/node": "^26.1.2",
+    "@types/node": "^26.2.0",
     "autoprefixer": "^10.5.4",
-    "postcss": "^8.5.25",
+    "postcss": "^8.5.26",
     "postcss-cli": "^11.0.1"
   },
   "dependencies": {
@@ -47,7 +47,7 @@
     "glob": "^13.0.6",
     "gray-matter": "^4.0.3",
     "prismjs": "^1.30.0",
-    "swiper": "^14.0.7"
+    "swiper": "^14.1.0"
   },
   "overrides": {
     "js-yaml": "^4.2.0"
