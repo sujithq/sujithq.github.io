@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-08-14
+post_date: 2026-08-18
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1091,3 +1091,5 @@ completed deprecation is shown.
 | 2026-08-14 | [GitHub Copilot weekly releases — August 10](https://github.blog/changelog/2026-08-13-github-copilot-weekly-releases-august-10) | Update | GitHub Copilot’s August 10 weekly release adds new models, portable plugins, and workflow improvements for agents. The updates are aimed at making Copilot more flexible across editors, the command line, and the Copilot app. |
 | 2026-08-14 | [Grok 4.6 is now available in GitHub Copilot](https://github.blog/changelog/2026-08-14-grok-4-6-is-now-available-in-github-copilot) | Update | Grok 4.6 is now rolling out in GitHub Copilot as a new reasoning model from xAI. GitHub says it is intended for agentic coding and complex multi-step workflows. |
 | 2026-08-14 | [Multiple redirect URIs and token refresh for OAuth apps](https://github.blog/changelog/2026-08-14-multiple-redirect-uris-and-token-refresh-for-oauth-apps) | Update | GitHub updated OAuth app and GitHub App platform support to improve app security. The changes include optional expiring access tokens with refresh tokens for OAuth apps, and support for multiple redirect URIs. |
+| 2026-08-18 | [Credential revocation and deauthorization by token type](https://github.blog/changelog/2026-08-18-credential-revocation-and-deauthorization-by-token-type) | Update | GitHub added self-service incident response actions to deauthorize and revoke user credentials by token type and by specific user. The update extends existing credential revocation workflows for security incidents. |
+| 2026-08-18 | [Enterprise managed settings in GitHub Copilot for JetBrains](https://github.blog/changelog/2026-08-18-enterprise-managed-settings-in-github-copilot-for-jetbrains) | Update | GitHub Copilot for JetBrains now supports enterprise managed settings. Administrators can centrally control plugin governance, MCP server access, OpenTelemetry, and permission modes across the enterprise. |

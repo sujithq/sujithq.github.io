@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-08-14
+post_date: 2026-08-18
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -524,3 +524,4 @@ completed deprecation is shown.
 | 2026-08-13 | [Gemini 3.7 Flash is now available in GitHub Copilot](https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot) | Update | GitHub Copilot is rolling out Gemini 3.7 Flash, Google’s latest Flash model. GitHub says early testing showed improvements in web and app development and agentic tasks. |
 | 2026-08-14 | [GitHub Copilot weekly releases — August 10](https://github.blog/changelog/2026-08-13-github-copilot-weekly-releases-august-10) | Update | GitHub Copilot’s August 10 weekly release adds new models, portable plugins, and workflow improvements for agents. The updates are aimed at making Copilot more flexible across editors, the command line, and the Copilot app. |
 | 2026-08-14 | [Grok 4.6 is now available in GitHub Copilot](https://github.blog/changelog/2026-08-14-grok-4-6-is-now-available-in-github-copilot) | Update | Grok 4.6 is now rolling out in GitHub Copilot as a new reasoning model from xAI. GitHub says it is intended for agentic coding and complex multi-step workflows. |
+| 2026-08-18 | [Enterprise managed settings in GitHub Copilot for JetBrains](https://github.blog/changelog/2026-08-18-enterprise-managed-settings-in-github-copilot-for-jetbrains) | Update | GitHub Copilot for JetBrains now supports enterprise managed settings. Administrators can centrally control plugin governance, MCP server access, OpenTelemetry, and permission modes across the enterprise. |
