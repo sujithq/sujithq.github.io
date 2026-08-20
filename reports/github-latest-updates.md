@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-08-18
+post_date: 2026-08-19
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1093,3 +1093,5 @@ completed deprecation is shown.
 | 2026-08-14 | [Multiple redirect URIs and token refresh for OAuth apps](https://github.blog/changelog/2026-08-14-multiple-redirect-uris-and-token-refresh-for-oauth-apps) | Update | GitHub updated OAuth app and GitHub App platform support to improve app security. The changes include optional expiring access tokens with refresh tokens for OAuth apps, and support for multiple redirect URIs. |
 | 2026-08-18 | [Credential revocation and deauthorization by token type](https://github.blog/changelog/2026-08-18-credential-revocation-and-deauthorization-by-token-type) | Update | GitHub added self-service incident response actions to deauthorize and revoke user credentials by token type and by specific user. The update extends existing credential revocation workflows for security incidents. |
 | 2026-08-18 | [Enterprise managed settings in GitHub Copilot for JetBrains](https://github.blog/changelog/2026-08-18-enterprise-managed-settings-in-github-copilot-for-jetbrains) | Update | GitHub Copilot for JetBrains now supports enterprise managed settings. Administrators can centrally control plugin governance, MCP server access, OpenTelemetry, and permission modes across the enterprise. |
+| 2026-08-19 | [Track organization code quality trends](https://github.blog/changelog/2026-08-19-track-organization-code-quality-trends) | Update | GitHub’s organization-level Code Quality dashboard now has a Trends tab. It shows code quality changes across repositories over time instead of only a point-in-time view. |
+| 2026-08-19 | [CodeQL 2.26.3 improves GitHub Actions queries and JavaScript modeling](https://github.blog/changelog/2026-08-19-codeql-2-26-3-improves-github-actions-queries-and-javascript-modeling) | Update | CodeQL 2.26.3 adds source modeling for JavaScript, TypeScript, and Vue, and updates several GitHub Actions queries for better accuracy. It is a CodeQL release used by GitHub code scanning. |
