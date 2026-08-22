@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-08-18
+post_date: 2026-08-21
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -525,3 +525,5 @@ completed deprecation is shown.
 | 2026-08-14 | [GitHub Copilot weekly releases — August 10](https://github.blog/changelog/2026-08-13-github-copilot-weekly-releases-august-10) | Update | GitHub Copilot’s August 10 weekly release adds new models, portable plugins, and workflow improvements for agents. The updates are aimed at making Copilot more flexible across editors, the command line, and the Copilot app. |
 | 2026-08-14 | [Grok 4.6 is now available in GitHub Copilot](https://github.blog/changelog/2026-08-14-grok-4-6-is-now-available-in-github-copilot) | Update | Grok 4.6 is now rolling out in GitHub Copilot as a new reasoning model from xAI. GitHub says it is intended for agentic coding and complex multi-step workflows. |
 | 2026-08-18 | [Enterprise managed settings in GitHub Copilot for JetBrains](https://github.blog/changelog/2026-08-18-enterprise-managed-settings-in-github-copilot-for-jetbrains) | Update | GitHub Copilot for JetBrains now supports enterprise managed settings. Administrators can centrally control plugin governance, MCP server access, OpenTelemetry, and permission modes across the enterprise. |
+| 2026-08-21 | [Shared agentic work with GitHub Copilot in Microsoft Teams](https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams) | Update | GitHub Copilot can now be started from Microsoft Teams by mentioning @GitHub in a channel, thread, or direct message. This creates a shared agent session that participants can view and help guide. |
+| 2026-08-21 | [The new GitHub Copilot experience in Slack](https://github.blog/changelog/2026-08-21-the-new-github-copilot-experience-in-slack) | Update | GitHub’s Slack integration now includes agentic GitHub Copilot capabilities from Copilot CLI and the Copilot app, available in public preview. Users can interact with @GitHub in Slack to work with these features. |

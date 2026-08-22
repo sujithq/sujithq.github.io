@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-08-20
+post_date: 2026-08-21
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1100,3 +1100,6 @@ completed deprecation is shown.
 | 2026-08-20 | [Code scanning adds a mitigated alert dismissal reason](https://github.blog/changelog/2026-08-20-code-scanning-adds-a-mitigated-alert-dismissal-reason) | Update | Code scanning now supports dismissing alerts with the reason "Mitigated" when the vulnerability still exists in code but is offset by external controls, such as a web application firewall or network protections. |
 | 2026-08-20 | [Windows 11 arm64 VS2026 image generally available](https://github.blog/changelog/2026-08-20-windows-11-arm64-vs2026-image-generally-available) | Generally available | Windows 11 arm64 images with Visual Studio 2026 are now generally available on standard and larger GitHub-hosted runners. Workflows can use the new image by updating the runner image reference. |
 | 2026-08-20 | [Pinning saved views to the repository issues sidebar is generally available and more](https://github.blog/changelog/2026-08-20-pin-projects-views-and-milestones-to-the-repository-sidebar) | Generally available | GitHub now lets you pin saved views to a repository’s issues sidebar, so frequently used views are easier to access. The feature is generally available. |
+| 2026-08-21 | [Shared agentic work with GitHub Copilot in Microsoft Teams](https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams) | Update | GitHub Copilot can now be started from Microsoft Teams by mentioning @GitHub in a channel, thread, or direct message. This creates a shared agent session that participants can view and help guide. |
+| 2026-08-21 | [The new GitHub Copilot experience in Slack](https://github.blog/changelog/2026-08-21-the-new-github-copilot-experience-in-slack) | Update | GitHub’s Slack integration now includes agentic GitHub Copilot capabilities from Copilot CLI and the Copilot app, available in public preview. Users can interact with @GitHub in Slack to work with these features. |
+| 2026-08-21 | [Better tools for managing blocked users](https://github.blog/changelog/2026-08-21-better-tools-for-managing-blocked-users) | Update | GitHub updated blocked-user management for personal accounts and organizations. The blocked users list now supports search, sorting, and pagination to make large lists easier to manage. |
