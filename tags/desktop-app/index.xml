@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Desktop App on Sujith Quintelier</title><link>https://quintelier.dev/tags/desktop-app/</link><description>Recent content in Desktop App on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 22 Jun 2026 09:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/tags/desktop-app/index.xml" rel="self" type="application/rss+xml"/><item><title>🖥️ GitHub Copilot App is Generally Available</title><link>https://quintelier.dev/posts/2026/06/github-copilot-app-generally-available/</link><pubDate>Mon, 22 Jun 2026 09:00:00 +0000</pubDate><guid>https://quintelier.dev/posts/2026/06/github-copilot-app-generally-available/</guid><description>&lt;p&gt;GitHub has announced that the &lt;strong&gt;GitHub Copilot app is now generally available&lt;/strong&gt; on macOS, Windows, and Linux.
+Previously available as a technical preview for paid Copilot subscribers, the app is now open to all paid
+Copilot plans without restrictions.&lt;/p&gt;
+&lt;h2 id="what-is-the-github-copilot-app"&gt;What is the GitHub Copilot app&lt;/h2&gt;
+&lt;p&gt;The GitHub Copilot app is a native desktop application purpose-built for agent-driven development. Unlike
+IDE extensions that augment a text editor, this app is a standalone environment where you direct AI agents
+across your full development lifecycle: from triaging an issue through to merging the resulting pull request,
+without switching between a terminal, browser, and IDE.&lt;/p&gt;</description></item></channel></rss>
