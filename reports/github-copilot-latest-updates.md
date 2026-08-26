@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-08-21
+post_date: 2026-08-25
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -527,3 +527,4 @@ completed deprecation is shown.
 | 2026-08-18 | [Enterprise managed settings in GitHub Copilot for JetBrains](https://github.blog/changelog/2026-08-18-enterprise-managed-settings-in-github-copilot-for-jetbrains) | Update | GitHub Copilot for JetBrains now supports enterprise managed settings. Administrators can centrally control plugin governance, MCP server access, OpenTelemetry, and permission modes across the enterprise. |
 | 2026-08-21 | [Shared agentic work with GitHub Copilot in Microsoft Teams](https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams) | Update | GitHub Copilot can now be started from Microsoft Teams by mentioning @GitHub in a channel, thread, or direct message. This creates a shared agent session that participants can view and help guide. |
 | 2026-08-21 | [The new GitHub Copilot experience in Slack](https://github.blog/changelog/2026-08-21-the-new-github-copilot-experience-in-slack) | Update | GitHub’s Slack integration now includes agentic GitHub Copilot capabilities from Copilot CLI and the Copilot app, available in public preview. Users can interact with @GitHub in Slack to work with these features. |
+| 2026-08-25 | [GitHub Copilot app Customize tab is generally available](https://github.blog/changelog/2026-08-25-github-copilot-app-customize-tab-is-generally-available) | Generally available | GitHub Copilot’s new Customize tab in the Copilot app is now generally available. It is meant to connect Copilot with a team’s existing tools, knowledge, and workflows, including MCP. |
