@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-08-25
+post_date: 2026-08-27
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1107,3 +1107,6 @@ completed deprecation is shown.
 | 2026-08-25 | [Block users directly from security advisories](https://github.blog/changelog/2026-08-25-block-users-directly-from-security-advisories) | Update | GitHub now lets repository owners block a user directly from a security advisory page in public repositories. The feature is available for repositories owned by organizations or personal accounts. |
 | 2026-08-25 | [GitHub Copilot app Customize tab is generally available](https://github.blog/changelog/2026-08-25-github-copilot-app-customize-tab-is-generally-available) | Generally available | GitHub Copilot’s new Customize tab in the Copilot app is now generally available. It is meant to connect Copilot with a team’s existing tools, knowledge, and workflows, including MCP. |
 | 2026-08-25 | [Rule insights dashboard generally available](https://github.blog/changelog/2026-08-25-rule-insights-dashboard-generally-available) | Generally available | The rule insights dashboard is now generally available for both repositories and organizations. It provides a visual, high-level view of how GitHub evaluates and enforces repository rules. |
+| 2026-08-26 | [GitHub Apps can now access enterprise billing data](https://github.blog/changelog/2026-08-26-github-apps-can-now-access-enterprise-billing-data) | Update | GitHub Apps can now be granted access to enterprise billing data by enterprise owners. The app configuration flow now includes an enterprise billing permission that can be selected when creating or updating an app. |
+| 2026-08-26 | [Global model policy generally available](https://github.blog/changelog/2026-08-26-global-model-policy-generally-available) | Generally available | GitHub is gradually rolling out enforcement of a default global model policy for generally available GitHub Copilot models on Copilot Business and Copilot Enterprise plans. The policy was announced in July and is now generally available. |
+| 2026-08-27 | [Enterprise-managed settings now support autoUpdate for plugin marketplaces](https://github.blog/changelog/2026-08-26-enterprise-managed-settings-now-support-autoupdate-for-plugin-marketplaces) | Update | Enterprise-managed settings now let admins enable automatic updates for specific plugin marketplaces by setting `autoUpdate: true` on an `extraKnownMarketplaces` entry. Supported clients will check the marketplace and update it automatically. |

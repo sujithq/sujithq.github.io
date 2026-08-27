@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-08-25
+post_date: 2026-08-26
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -528,3 +528,4 @@ completed deprecation is shown.
 | 2026-08-21 | [Shared agentic work with GitHub Copilot in Microsoft Teams](https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams) | Update | GitHub Copilot can now be started from Microsoft Teams by mentioning @GitHub in a channel, thread, or direct message. This creates a shared agent session that participants can view and help guide. |
 | 2026-08-21 | [The new GitHub Copilot experience in Slack](https://github.blog/changelog/2026-08-21-the-new-github-copilot-experience-in-slack) | Update | GitHub’s Slack integration now includes agentic GitHub Copilot capabilities from Copilot CLI and the Copilot app, available in public preview. Users can interact with @GitHub in Slack to work with these features. |
 | 2026-08-25 | [GitHub Copilot app Customize tab is generally available](https://github.blog/changelog/2026-08-25-github-copilot-app-customize-tab-is-generally-available) | Generally available | GitHub Copilot’s new Customize tab in the Copilot app is now generally available. It is meant to connect Copilot with a team’s existing tools, knowledge, and workflows, including MCP. |
+| 2026-08-26 | [Global model policy generally available](https://github.blog/changelog/2026-08-26-global-model-policy-generally-available) | Generally available | GitHub is gradually rolling out enforcement of a default global model policy for generally available GitHub Copilot models on Copilot Business and Copilot Enterprise plans. The policy was announced in July and is now generally available. |
