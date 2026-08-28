@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-08-27
+post_date: 2026-08-28
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -530,3 +530,4 @@ completed deprecation is shown.
 | 2026-08-25 | [GitHub Copilot app Customize tab is generally available](https://github.blog/changelog/2026-08-25-github-copilot-app-customize-tab-is-generally-available) | Generally available | GitHub Copilot’s new Customize tab in the Copilot app is now generally available. It is meant to connect Copilot with a team’s existing tools, knowledge, and workflows, including MCP. |
 | 2026-08-26 | [Global model policy generally available](https://github.blog/changelog/2026-08-26-global-model-policy-generally-available) | Generally available | GitHub is gradually rolling out enforcement of a default global model policy for generally available GitHub Copilot models on Copilot Business and Copilot Enterprise plans. The policy was announced in July and is now generally available. |
 | 2026-08-27 | [Copilot code review: Resolution reasons and expanded capabilities](https://github.blog/changelog/2026-08-27-copilot-code-review-resolution-reasons-and-expanded-capabilities) | Update | Copilot code review now supports two additional pull request types: PRs authored by bots (including Copilot cloud agent) and very large pull requests. GitHub also added resolution reasons for code review outcomes. |
+| 2026-08-28 | [Upcoming changes to GitHub Copilot policies and billing](https://github.blog/changelog/2026-08-28-upcoming-changes-to-github-copilot-policies-and-billing) | Update | GitHub says three upcoming changes are coming to Copilot policies and billing. The post is a notice to review the updates, but the provided excerpt does not include the actual policy or billing details. |

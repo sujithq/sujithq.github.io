@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-08-27
+post_date: 2026-08-28
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1114,3 +1114,4 @@ completed deprecation is shown.
 | 2026-08-27 | [Actions retention will cover checks, workflow runs, and statuses](https://github.blog/changelog/2026-08-27-actions-retention-will-cover-checks-workflow-runs-and-statuses) | Update | Starting October 1, 2026, GitHub Actions retention settings will also apply to checks, workflow runs, and statuses, in addition to artifacts and logs. These data types will follow the same retention policy going forward. |
 | 2026-08-27 | [Copilot code review: Resolution reasons and expanded capabilities](https://github.blog/changelog/2026-08-27-copilot-code-review-resolution-reasons-and-expanded-capabilities) | Update | Copilot code review now supports two additional pull request types: PRs authored by bots (including Copilot cloud agent) and very large pull requests. GitHub also added resolution reasons for code review outcomes. |
 | 2026-08-27 | [Better label management on issues is generally available](https://github.blog/changelog/2026-08-27-label-archiving-is-generally-available) | Generally available | GitHub says improved label management for issues is now generally available. The update is aimed at making labels easier to organize and find in repositories with large or growing label lists. |
+| 2026-08-28 | [Upcoming changes to GitHub Copilot policies and billing](https://github.blog/changelog/2026-08-28-upcoming-changes-to-github-copilot-policies-and-billing) | Update | GitHub says three upcoming changes are coming to Copilot policies and billing. The post is a notice to review the updates, but the provided excerpt does not include the actual policy or billing details. |
