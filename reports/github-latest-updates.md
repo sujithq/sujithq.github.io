@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-08-28
+post_date: 2026-08-31
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1116,3 +1116,4 @@ completed deprecation is shown.
 | 2026-08-28 | [Upcoming changes to GitHub Copilot policies and billing](https://github.blog/changelog/2026-08-28-upcoming-changes-to-github-copilot-policies-and-billing) | Update | GitHub says three upcoming changes are coming to Copilot policies and billing. The post is a notice to review the updates, but the provided excerpt does not include the actual policy or billing details. |
 | 2026-08-28 | [GitHub Copilot weekly releases — August 24](https://github.blog/changelog/2026-08-28-github-copilot-weekly-releases-august-24) | Update | GitHub Copilot’s August 24 weekly release notes highlight more control over Copilot behavior across Slack, Teams, the app, CLI, and IDEs. The post mentions team sessions in Slack and Teams plus broader customization options, but the provided excerpt does not include specific feature details. |
 | 2026-08-28 | [GitHub Copilot in Visual Studio — August update](https://github.blog/changelog/2026-08-28-github-copilot-in-visual-studio-august-update-2) | Update | GitHub Copilot in Visual Studio’s August 2026 update adds more control over Copilot reasoning, model selection, sharing specialized agents within teams, and timing code review requests. The post is a high-level changelog summary rather than a detailed feature list. |
+| 2026-08-31 | [GitHub Copilot in VS Code, August 2026 releases](https://github.blog/changelog/2026-08-31-github-copilot-in-vs-code-august-2026-releases) | Update | VS Code v1.132 through v1.135, released in August 2026, add improvements to GitHub Copilot workflows focused on organizing agent sessions, reviewing changes, and navigating longer conversations. The changelog also mentions updates to Agent Host, but the provided excerpt does not include the details. |
