@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-08-31
+post_date: 2026-09-01
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -532,3 +532,7 @@ completed deprecation is shown.
 | 2026-08-28 | [GitHub Copilot weekly releases — August 24](https://github.blog/changelog/2026-08-28-github-copilot-weekly-releases-august-24) | Update | GitHub Copilot’s August 24 weekly release notes highlight more control over Copilot behavior across Slack, Teams, the app, CLI, and IDEs. The post mentions team sessions in Slack and Teams plus broader customization options, but the provided excerpt does not include specific feature details. |
 | 2026-08-28 | [GitHub Copilot in Visual Studio — August update](https://github.blog/changelog/2026-08-28-github-copilot-in-visual-studio-august-update-2) | Update | GitHub Copilot in Visual Studio’s August 2026 update adds more control over Copilot reasoning, model selection, sharing specialized agents within teams, and timing code review requests. The post is a high-level changelog summary rather than a detailed feature list. |
 | 2026-08-31 | [GitHub Copilot in VS Code, August 2026 releases](https://github.blog/changelog/2026-08-31-github-copilot-in-vs-code-august-2026-releases) | Update | VS Code v1.132 through v1.135, released in August 2026, add improvements to GitHub Copilot workflows focused on organizing agent sessions, reviewing changes, and navigating longer conversations. The changelog also mentions updates to Agent Host, but the provided excerpt does not include the details. |
+| 2026-08-31 | [Selected GitHub Copilot models deprecated](https://github.blog/changelog/2026-08-31-selected-github-copilot-models-deprecated) | Deprecated | GitHub has deprecated selected Copilot models across most Copilot experiences, including Chat, inline edits, ask and agent modes, and code completions, effective September 1, 2026. The post notes that the affected models are no longer available in those experiences. |
+| 2026-08-31 | [Copilot model access update for GitHub Team plans](https://github.blog/changelog/2026-08-31-copilot-model-access-update-for-github-team-plans) | Update | GitHub updated how Copilot model access is determined for users with seats in more than one organization. The change is intended to keep billing and governance aligned. |
+| 2026-09-01 | [Claude Fable 5.1 is generally available in GitHub Copilot](https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot) | Generally available | Claude Fable 5.1 from Anthropic is now generally available in GitHub Copilot. GitHub says it is intended for long-horizon, autonomous coding and knowledge-work tasks. |
+| 2026-09-01 | [Copilot code review can now approve pull requests](https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests) | Update | Copilot code review can now indicate when a pull request is ready for approval, and repository admins can authorize it to approve the PR. The approval capability is disabled by default. |
