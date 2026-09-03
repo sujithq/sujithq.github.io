@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-09-01
+post_date: 2026-09-02
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -536,3 +536,5 @@ completed deprecation is shown.
 | 2026-08-31 | [Copilot model access update for GitHub Team plans](https://github.blog/changelog/2026-08-31-copilot-model-access-update-for-github-team-plans) | Update | GitHub updated how Copilot model access is determined for users with seats in more than one organization. The change is intended to keep billing and governance aligned. |
 | 2026-09-01 | [Claude Fable 5.1 is generally available in GitHub Copilot](https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot) | Generally available | Claude Fable 5.1 from Anthropic is now generally available in GitHub Copilot. GitHub says it is intended for long-horizon, autonomous coding and knowledge-work tasks. |
 | 2026-09-01 | [Copilot code review can now approve pull requests](https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests) | Update | Copilot code review can now indicate when a pull request is ready for approval, and repository admins can authorize it to approve the PR. The approval capability is disabled by default. |
+| 2026-09-02 | [Content exclusions generally available in Copilot app and CLI](https://github.blog/changelog/2026-09-02-content-exclusions-generally-available-in-copilot-app-and-cli) | Generally available | GitHub Copilot app and CLI now honor content exclusion policies set at the enterprise, organization, and repository levels. Excluded files will not be used as context by Copilot. |
+| 2026-09-02 | [Enterprise-managed settings support any default model](https://github.blog/changelog/2026-09-02-enterprise-managed-settings-support-any-default-model) | Update | Enterprise-managed settings can now set any supported GitHub Copilot model as the default for new conversations. This lets enterprises choose the default model that best matches their workflow. |

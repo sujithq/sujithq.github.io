@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-09-01
+post_date: 2026-09-02
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1125,3 +1125,5 @@ completed deprecation is shown.
 | 2026-09-01 | [Copilot code review can now approve pull requests](https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests) | Update | Copilot code review can now indicate when a pull request is ready for approval, and repository admins can authorize it to approve the PR. The approval capability is disabled by default. |
 | 2026-09-01 | [Set an expiration date for individual user budgets](https://github.blog/changelog/2026-09-01-set-an-expiration-date-for-individual-user-budgets) | Update | GitHub now lets you set an optional expiration date on an individual user budget. When the date is reached, GitHub automatically removes the budget; the feature is generally available. |
 | 2026-09-01 | [Enterprise Live Migrations from GHES to ghe.com generally available](https://github.blog/changelog/2026-09-01-enterprise-live-migrations-from-ghes-to-ghe-com-generally-available) | Generally available | Enterprise Live Migrations is now generally available for near-zero-downtime repository migrations from GitHub Enterprise Server (GHES) to GitHub Enterprise Cloud with Data Residency (GHEC DR). |
+| 2026-09-02 | [Content exclusions generally available in Copilot app and CLI](https://github.blog/changelog/2026-09-02-content-exclusions-generally-available-in-copilot-app-and-cli) | Generally available | GitHub Copilot app and CLI now honor content exclusion policies set at the enterprise, organization, and repository levels. Excluded files will not be used as context by Copilot. |
+| 2026-09-02 | [Enterprise-managed settings support any default model](https://github.blog/changelog/2026-09-02-enterprise-managed-settings-support-any-default-model) | Update | Enterprise-managed settings can now set any supported GitHub Copilot model as the default for new conversations. This lets enterprises choose the default model that best matches their workflow. |
