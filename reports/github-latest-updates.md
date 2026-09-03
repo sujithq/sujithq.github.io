@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-09-02
+post_date: 2026-09-03
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1127,3 +1127,7 @@ completed deprecation is shown.
 | 2026-09-01 | [Enterprise Live Migrations from GHES to ghe.com generally available](https://github.blog/changelog/2026-09-01-enterprise-live-migrations-from-ghes-to-ghe-com-generally-available) | Generally available | Enterprise Live Migrations is now generally available for near-zero-downtime repository migrations from GitHub Enterprise Server (GHES) to GitHub Enterprise Cloud with Data Residency (GHEC DR). |
 | 2026-09-02 | [Content exclusions generally available in Copilot app and CLI](https://github.blog/changelog/2026-09-02-content-exclusions-generally-available-in-copilot-app-and-cli) | Generally available | GitHub Copilot app and CLI now honor content exclusion policies set at the enterprise, organization, and repository levels. Excluded files will not be used as context by Copilot. |
 | 2026-09-02 | [Enterprise-managed settings support any default model](https://github.blog/changelog/2026-09-02-enterprise-managed-settings-support-any-default-model) | Update | Enterprise-managed settings can now set any supported GitHub Copilot model as the default for new conversations. This lets enterprises choose the default model that best matches their workflow. |
+| 2026-09-03 | [CodeQL 2.26.4 improves GitHub actions security detections](https://github.blog/changelog/2026-09-03-codeql-2-26-4-improves-github-actions-security-detections) | Update | CodeQL 2.26.4 is a new release that adds support for Go 1.27 and improves GitHub Actions security detections. It is part of the static analysis engine used by GitHub code scanning. |
+| 2026-09-03 | [Reopening Copilot Business and Enterprise signups](https://github.blog/changelog/2026-09-03-reopening-copilot-business-and-enterprise-signups) | Update | GitHub is gradually reopening sign-ups for Copilot Business and Copilot Enterprise for customers paying by credit card or PayPal over the next few weeks. Availability is rolling out gradually to people who have been waiting to start. |
+| 2026-09-03 | [Gemini 3.8 Flash is now available in GitHub Copilot](https://github.blog/changelog/2026-09-03-gemini-3-8-flash-is-now-available-in-github-copilot) | Update | GitHub Copilot now supports Gemini 3.8 Flash, Google’s latest Flash model. GitHub says early testing showed strong performance on complex terminal-based coding tasks. |
+| 2026-09-03 | [GitHub CLI Linux package signing key expires September 5](https://github.blog/changelog/2026-09-03-github-cli-linux-package-signing-key-expires-september-5) | Update | The GitHub CLI Linux package repository signing key expires on September 5, 2026. After that date, repository metadata in APT and RPM workflows will be affected starting with the first release published after expiration. |

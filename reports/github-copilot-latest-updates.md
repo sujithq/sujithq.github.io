@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-09-02
+post_date: 2026-09-03
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -538,3 +538,5 @@ completed deprecation is shown.
 | 2026-09-01 | [Copilot code review can now approve pull requests](https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests) | Update | Copilot code review can now indicate when a pull request is ready for approval, and repository admins can authorize it to approve the PR. The approval capability is disabled by default. |
 | 2026-09-02 | [Content exclusions generally available in Copilot app and CLI](https://github.blog/changelog/2026-09-02-content-exclusions-generally-available-in-copilot-app-and-cli) | Generally available | GitHub Copilot app and CLI now honor content exclusion policies set at the enterprise, organization, and repository levels. Excluded files will not be used as context by Copilot. |
 | 2026-09-02 | [Enterprise-managed settings support any default model](https://github.blog/changelog/2026-09-02-enterprise-managed-settings-support-any-default-model) | Update | Enterprise-managed settings can now set any supported GitHub Copilot model as the default for new conversations. This lets enterprises choose the default model that best matches their workflow. |
+| 2026-09-03 | [Reopening Copilot Business and Enterprise signups](https://github.blog/changelog/2026-09-03-reopening-copilot-business-and-enterprise-signups) | Update | GitHub is gradually reopening sign-ups for Copilot Business and Copilot Enterprise for customers paying by credit card or PayPal over the next few weeks. Availability is rolling out gradually to people who have been waiting to start. |
+| 2026-09-03 | [Gemini 3.8 Flash is now available in GitHub Copilot](https://github.blog/changelog/2026-09-03-gemini-3-8-flash-is-now-available-in-github-copilot) | Update | GitHub Copilot now supports Gemini 3.8 Flash, Google’s latest Flash model. GitHub says early testing showed strong performance on complex terminal-based coding tasks. |
