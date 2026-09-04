@@ -1,8 +1,8 @@
 +++
 title = '🧰 Claude vs Copilot in VS Code: Meet the Harness'
 slug = 'claude-vs-copilot-harness-vs-code'
-date = '2026-09-04 08:00:00Z'
-lastmod = '2026-09-04 08:00:00Z'
+date = '2026-09-04 06:00:00Z'
+lastmod = '2026-09-04 06:00:00Z'
 draft = false
 tags = [
   "GitHub Copilot",
