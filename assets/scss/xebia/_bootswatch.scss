@@ -119,6 +119,25 @@ a {
   border-color: $table-border-color;
 }
 
+.table-responsive {
+  margin: 1.5rem 0;
+
+  > .table {
+    margin-bottom: 0;
+  }
+
+  thead th {
+    background-color: var(--bs-tertiary-bg);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  th,
+  td {
+    padding: .6rem .75rem;
+  }
+}
+
 .table-primary,
 .table-secondary,
 .table-success,

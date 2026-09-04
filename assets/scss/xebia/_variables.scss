@@ -67,9 +67,10 @@ $link-hover-color: $primary !default;
 
 // Tables
 
-$table-color: initial !default;
+// Bootstrap CSS vars keep borders visible and dark-mode aware
+$table-color: var(--bs-body-color) !default;
 
-$table-border-color: rgba(0, 0, 0, 0.05) !default;
+$table-border-color: var(--bs-border-color) !default;
 
 // Forms
 

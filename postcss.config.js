@@ -57,6 +57,8 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
       "bg-primary", "bg-secondary", "bg-dark", "bg-light",
       "text-primary", "text-secondary", "text-dark", "text-light",
       "fas", "fab", "fa-adjust", "fa-sun", "fa-moon",
+      "table", "table-bordered", "table-striped", "table-hover", "table-responsive",
+      "text-start", "text-center", "text-end",
     ],
     deep: [
       /^bs-/,

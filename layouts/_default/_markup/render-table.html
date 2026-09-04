@@ -1,0 +1,29 @@
+{{- $classes := slice "table" "table-bordered" "table-striped" "table-hover" -}}
+{{- with .Attributes.class }}{{ $classes = $classes | append . }}{{ end -}}
+<div class="table-responsive">
+<table class="{{ delimit $classes " " }}"
+  {{- range $k, $v := .Attributes }}
+    {{- if and $v (ne $k "class") }}
+      {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+    {{- end }}
+  {{- end }}>
+  <thead>
+    {{- range .THead }}
+    <tr>
+      {{- range . }}
+      <th scope="col"{{ with .Alignment }} class="text-{{ if eq . "left" }}start{{ else if eq . "right" }}end{{ else }}{{ . }}{{ end }}"{{ end }}>{{ .Text }}</th>
+      {{- end }}
+    </tr>
+    {{- end }}
+  </thead>
+  <tbody>
+    {{- range .TBody }}
+    <tr>
+      {{- range . }}
+      <td{{ with .Alignment }} class="text-{{ if eq . "left" }}start{{ else if eq . "right" }}end{{ else }}{{ . }}{{ end }}"{{ end }}>{{ .Text }}</td>
+      {{- end }}
+    </tr>
+    {{- end }}
+  </tbody>
+</table>
+</div>
