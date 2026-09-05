@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentation on Sujith Quintelier</title><link>https://quintelier.dev/documentation/</link><description>Recent content in Documentation on Sujith Quintelier</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://quintelier.dev/documentation/index.xml" rel="self" type="application/rss+xml"/><item><title>Security Hardening Configuration</title><link>https://quintelier.dev/documentation/security-hardening/</link><pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate><guid>https://quintelier.dev/documentation/security-hardening/</guid><description>&lt;h2 id="security-hardening-for-quintelierdev"&gt;Security Hardening for quintelier.dev&lt;/h2&gt;
+&lt;p&gt;This document outlines the security hardening measures implemented for the root domain &lt;strong&gt;quintelier.dev&lt;/strong&gt; to improve trust signals, browser reputation, and security posture.&lt;/p&gt;
+&lt;h2 id="scope"&gt;Scope&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;In Scope (This Repository)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Root domain content: blog, resume, updates, tools, and legal pages&lt;/li&gt;
+&lt;li&gt;Hugo configuration for navigation and trust pages&lt;/li&gt;
+&lt;li&gt;Meta tag fallback policies for security headers&lt;/li&gt;
+&lt;li&gt;Static site generation and content structure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Out of Scope (External Configuration)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;App subdomain (app.quintelier.dev) - managed separately&lt;/li&gt;
+&lt;li&gt;DNS configuration&lt;/li&gt;
+&lt;li&gt;Cloudflare edge rules and settings&lt;/li&gt;
+&lt;li&gt;GitHub Pages hosting configuration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="phase-1-trust-pages"&gt;Phase 1: Trust Pages&lt;/h2&gt;
+&lt;p&gt;Trust pages provide transparency and identity verification, critical for browser reputation and SmartScreen evaluation.&lt;/p&gt;</description></item></channel></rss>
