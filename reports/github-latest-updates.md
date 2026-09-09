@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-09-04
+post_date: 2026-09-09
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1135,3 +1135,6 @@ completed deprecation is shown.
 | 2026-09-04 | [New API endpoint provides privacy-safe star history data](https://github.blog/changelog/2026-09-04-new-api-endpoint-provides-privacy-safe-star-history-data) | Update | GitHub added a new REST API endpoint for repository star history that lets users track star growth over time without exposing individual stargazer identities. This follows earlier restrictions on stargazer listing endpoints to admins and collaborators. |
 | 2026-09-04 | [GPT-6 Astra is generally available in GitHub Copilot](https://github.blog/changelog/2026-09-04-gpt-6-astra-is-generally-available-in-github-copilot) | Generally available | GPT-6 Astra from OpenAI is now generally available in GitHub Copilot. GitHub says the model is intended for long-horizon, autonomous coding and agentic tasks. |
 | 2026-09-04 | [GitHub Copilot weekly releases — August 31](https://github.blog/changelog/2026-09-04-github-copilot-weekly-releases-august-31) | Update | GitHub Copilot’s latest weekly release adds more model choice and content protection controls. VS Code also gets new options for managing agent sessions and preparing pull requests for merge. |
+| 2026-09-08 | [New customer portal help.github.com](https://github.blog/changelog/2026-09-08-new-customer-portal-help-github-com) | Update | GitHub moved and redesigned its support portal to help.github.com. The new portal combines support, documentation, learning, community, account resources, and Copilot-powered search in one place. |
+| 2026-09-08 | [GitHub Enterprise Server 3.22 is now generally available](https://github.blog/changelog/2026-09-08-github-enterprise-server-3-22-is-now-generally-available) | Generally available | GitHub Enterprise Server 3.22 is generally available. The release adds new platform capabilities, including administrator configuration for Copilot CLI. |
+| 2026-09-09 | [Enterprise-managed sandbox in Copilot for JetBrains](https://github.blog/changelog/2026-09-08-enterprise-managed-sandbox-in-copilot-for-jetbrains) | Update | Copilot for JetBrains now supports enterprise-managed sandbox policies, along with cross-file cursor jumps for next edit suggestions, global project context in chat, and enterprise policy diagnostics. The update also adds a new terminal Copilot connection. |

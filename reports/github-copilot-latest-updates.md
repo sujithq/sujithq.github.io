@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-09-04
+post_date: 2026-09-09
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -541,3 +541,6 @@ completed deprecation is shown.
 | 2026-09-03 | [Gemini 3.8 Flash is now available in GitHub Copilot](https://github.blog/changelog/2026-09-03-gemini-3-8-flash-is-now-available-in-github-copilot) | Update | GitHub Copilot now supports Gemini 3.8 Flash, Google’s latest Flash model. GitHub says early testing showed strong performance on complex terminal-based coding tasks. |
 | 2026-09-04 | [GPT-6 Astra is generally available in GitHub Copilot](https://github.blog/changelog/2026-09-04-gpt-6-astra-is-generally-available-in-github-copilot) | Generally available | GPT-6 Astra from OpenAI is now generally available in GitHub Copilot. GitHub says the model is intended for long-horizon, autonomous coding and agentic tasks. |
 | 2026-09-04 | [GitHub Copilot weekly releases — August 31](https://github.blog/changelog/2026-09-04-github-copilot-weekly-releases-august-31) | Update | GitHub Copilot’s latest weekly release adds more model choice and content protection controls. VS Code also gets new options for managing agent sessions and preparing pull requests for merge. |
+| 2026-09-08 | [New customer portal help.github.com](https://github.blog/changelog/2026-09-08-new-customer-portal-help-github-com) | Update | GitHub moved and redesigned its support portal to help.github.com. The new portal combines support, documentation, learning, community, account resources, and Copilot-powered search in one place. |
+| 2026-09-08 | [GitHub Enterprise Server 3.22 is now generally available](https://github.blog/changelog/2026-09-08-github-enterprise-server-3-22-is-now-generally-available) | Generally available | GitHub Enterprise Server 3.22 is generally available. The release adds new platform capabilities, including administrator configuration for Copilot CLI. |
+| 2026-09-09 | [Enterprise-managed sandbox in Copilot for JetBrains](https://github.blog/changelog/2026-09-08-enterprise-managed-sandbox-in-copilot-for-jetbrains) | Update | Copilot for JetBrains now supports enterprise-managed sandbox policies, along with cross-file cursor jumps for next edit suggestions, global project context in chat, and enterprise policy diagnostics. The update also adds a new terminal Copilot connection. |
