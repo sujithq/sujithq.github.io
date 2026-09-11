@@ -27,11 +27,11 @@ network:
   allowed: ["defaults", "node", "dotnet"]
 steps:
   - name: Setup Node.js
-    uses: actions/setup-node@v4
+    uses: actions/setup-node@v7
     with:
       node-version: '24'
   - name: Setup .NET
-    uses: actions/setup-dotnet@v5
+    uses: actions/setup-dotnet@v6
     with:
       dotnet-version: '10.0.x'
 ---

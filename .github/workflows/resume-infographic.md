@@ -9,7 +9,7 @@ permissions: read-all
 
 engine:
   id: copilot
-  model: gpt-6-astra
+  model: large # gpt-5.6-sol # gpt-6-astra
 
 tools:
   bash: ["cat"]
