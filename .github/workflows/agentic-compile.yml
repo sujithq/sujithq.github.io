@@ -16,7 +16,7 @@ jobs:
   compile:
     runs-on: ubuntu-26.04-arm
     env:
-      GH_AW_VERSION: v0.71.5
+      GH_AW_VERSION: v0.87.2
 
     steps:
       - name: Checkout code
