@@ -9,6 +9,9 @@ on:
   roles: all
   bots: ["dependabot[bot]"]
 permissions: read-all
+checkout:
+  repository: ${{ github.repository }}
+  ref: ${{ github.event.pull_request.base.sha }}
 engine: copilot
 tools:
   github:
@@ -23,11 +26,6 @@ safe-outputs:
 network:
   allowed: ["defaults", "node", "dotnet"]
 steps:
-  - name: Checkout code
-    uses: actions/checkout@v6
-    with:
-      fetch-depth: 0
-      persist-credentials: false
   - name: Setup Node.js
     uses: actions/setup-node@v4
     with:

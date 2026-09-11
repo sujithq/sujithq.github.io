@@ -10,6 +10,7 @@ permissions: read-all
 engine: copilot
 
 tools:
+  bash: ["cat"]
   github:
     allowed-repos:
       - sujithq/ms-learn

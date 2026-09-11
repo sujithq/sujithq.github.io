@@ -12,6 +12,7 @@ engine:
   model: gpt-5-mini
 
 tools:
+  bash: ["cat"]
   github:
     allowed-repos:
       - sujithq/*
