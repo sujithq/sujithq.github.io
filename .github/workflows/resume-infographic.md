@@ -9,7 +9,7 @@ permissions: read-all
 
 engine:
   id: copilot
-  model: gpt-5-mini
+  model: gpt-6-astra
 
 tools:
   github:
