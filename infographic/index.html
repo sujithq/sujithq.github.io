@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujith Quintelier — PLG Infographic</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0f19; --surface: #141925; --card: #1c2333; --border: #2a3347;
+      --accent: #0078d4; --accent2: #00bcf2; --text: #c9d1d9; --muted: #8b949e;
+      --white: #f0f6fc; --radius: 12px; --gap: 1rem;
+    }
+    body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; padding:1rem; }
+    .page { max-width:1200px; margin:0 auto; }
+    .grid-2 { display:grid; grid-template-columns:1fr; gap:var(--gap); }
+    .grid-3 { display:grid; grid-template-columns:1fr; gap:var(--gap); }
+    @media (min-width:640px) { .grid-3 { grid-template-columns:1fr 1fr; } }
+    @media (min-width:900px) { .grid-2 { grid-template-columns:1fr 1fr; } .grid-3 { grid-template-columns:1fr 1fr 1fr; } }
+    .hero { background:linear-gradient(135deg,#0d1b2e 0%,#1a0e3a 50%,#0b1a2e 100%); border:1px solid var(--border); border-radius:var(--radius); padding:2rem 1.5rem; margin-bottom:var(--gap); display:flex; flex-direction:column; align-items:center; text-align:center; gap:1rem; }
+    @media (min-width:640px) { .hero { flex-direction:row; text-align:left; padding:2.5rem 2rem; } }
+    .hero-avatar { width:96px; height:96px; border-radius:50%; border:3px solid var(--accent); flex-shrink:0; }
+    .hero-title { font-size:1.75rem; font-weight:700; color:var(--white); }
+    .hero-role { font-size:1rem; color:var(--accent2); margin-top:0.25rem; }
+    .hero-bio { font-size:0.9rem; color:var(--muted); margin-top:0.5rem; }
+    .badge-row { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.75rem; }
+    .badge { background:var(--card); border:1px solid var(--border); border-radius:999px; padding:0.2rem 0.75rem; font-size:0.78rem; color:var(--accent2); }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.25rem; }
+    .section-title { font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; display:flex; align-items:center; gap:0.4rem; }
+    .section-title::after { content:""; flex:1; height:1px; background:var(--border); }
+    .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:var(--gap); }
+    @media (min-width:640px) { .stat-grid { grid-template-columns:repeat(4,1fr); } }
+    .stat-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1rem 0.75rem; text-align:center; }
+    .stat-num { font-size:2rem; font-weight:800; color:var(--accent2); }
+    .stat-label { font-size:0.72rem; color:var(--muted); margin-top:0.2rem; text-transform:uppercase; letter-spacing:0.08em; }
+    .repo-list { list-style:none; }
+    .repo-list li { display:flex; justify-content:space-between; align-items:center; padding:0.55rem 0; border-bottom:1px solid var(--border); font-size:0.85rem; gap:0.5rem; }
+    .repo-list li:last-child { border-bottom:none; }
+    .repo-name { color:var(--accent2); font-weight:600; flex:1; word-break:break-word; }
+    .repo-meta { display:flex; gap:0.6rem; flex-shrink:0; color:var(--muted); font-size:0.78rem; }
+    .lang-dot { display:inline-block; width:0.65rem; height:0.65rem; border-radius:50%; margin-right:0.2rem; }
+    .lang-bar { margin-bottom:0.75rem; }
+    .lang-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem; font-size:0.82rem; }
+    .lang-track { background:var(--border); border-radius:999px; height:6px; overflow:hidden; }
+    .lang-fill { height:100%; border-radius:999px; background:var(--accent); }
+    .cert-list { list-style:none; }
+    .cert-list li { padding:0.5rem 0; border-bottom:1px solid var(--border); font-size:0.82rem; display:flex; align-items:flex-start; gap:0.5rem; }
+    .cert-list li:last-child { border-bottom:none; }
+    .cert-icon { font-size:1rem; flex-shrink:0; margin-top:0.1rem; }
+    .cert-name { color:var(--white); font-weight:600; }
+    .cert-date { color:var(--muted); font-size:0.75rem; margin-top:0.15rem; }
+    .pill-list { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .pill { background:var(--surface); border:1px solid var(--border); border-radius:999px; padding:0.25rem 0.75rem; font-size:0.78rem; color:var(--text); }
+    .social-list { display:flex; flex-direction:column; gap:0.5rem; }
+    .social-link { color:var(--accent2); text-decoration:none; font-size:0.85rem; display:flex; align-items:center; gap:0.4rem; }
+    .social-icon { font-size:1rem; }
+    .post-list { list-style:none; }
+    .post-list li { padding:0.45rem 0; border-bottom:1px solid var(--border); font-size:0.82rem; color:var(--text); }
+    .post-list li:last-child { border-bottom:none; }
+    .post-link { color:var(--accent2); text-decoration:none; }
+    .footer { text-align:center; margin-top:2rem; font-size:0.75rem; color:var(--muted); padding-bottom:1rem; }
+    .footer a { color:var(--accent2); text-decoration:none; }
+    .mt { margin-top:var(--gap); }
+  </style>
+</head>
+<body>
+<main class="page" role="main">
+
+  <header class="hero" aria-label="Profile summary">
+    <img class="hero-avatar" src="https://avatars.githubusercontent.com/u/1705501?v=4" alt="Avatar of Sujith Quintelier" width="96" height="96">
+    <div>
+      <h1 class="hero-title">Sujith Quintelier</h1>
+      <p class="hero-role">☁️ Cloud Solutions Architect (AI Apps) @ Microsoft &nbsp;|&nbsp; 🇧🇪 Belgium</p>
+      <p class="hero-bio">Azure Architect · Dev(Sec)Ops Engineer · GitHub Accredited Trainer · Terraform Enthusiast</p>
+      <div class="badge-row">
+        <span class="badge">📝 quintelier.dev</span>
+        <span class="badge">🐦 @SujithQ</span>
+        <span class="badge">🐙 github/sujithq</span>
+        <span class="badge">🏢 @microsoft</span>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="ghstats-heading">
+    <h2 id="ghstats-heading" class="section-title">📊 GitHub Stats</h2>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num">132</div><div class="stat-label">Public Repos</div></div>
+      <div class="stat-card"><div class="stat-num">35</div><div class="stat-label">Followers</div></div>
+      <div class="stat-card"><div class="stat-num">9</div><div class="stat-label">Total Stars</div></div>
+      <div class="stat-card"><div class="stat-num">2012</div><div class="stat-label">Member Since</div></div>
+    </div>
+  </section>
+
+  <div class="grid-2 mt">
+    <section class="card" aria-labelledby="repos-heading">
+      <h2 id="repos-heading" class="section-title">⭐ Top Repositories</h2>
+      <ul class="repo-list">
+        <li><span class="repo-name">ideal-octo-guacamole</span><span class="repo-meta">⭐ 2 <span><span class="lang-dot" style="background:#e34c26;"></span>HTML</span></span></li>
+        <li><span class="repo-name">updates</span><span class="repo-meta">⭐ 1 <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span></span></li>
+        <li><span class="repo-name">aks-platform-engineering</span><span class="repo-meta">⭐ 1 <span><span class="lang-dot" style="background:#3178c6;"></span>TypeScript</span></span></li>
+        <li><span class="repo-name">cluster-api-charts</span><span class="repo-meta">⭐ 1 <span><span class="lang-dot" style="background:#dce775;"></span>Smarty</span></span></li>
+        <li><span class="repo-name">generative-ai-for-beginners</span><span class="repo-meta">⭐ 1 &nbsp;—</span></li>
+        <li><span class="repo-name">training-manual</span><span class="repo-meta">⭐ 1 <span><span class="lang-dot" style="background:#89e051;"></span>Shell</span></span></li>
+        <li><span class="repo-name">myenergy</span><span class="repo-meta">⭐ 1 <span><span class="lang-dot" style="background:#e34c26;"></span>HTML</span></span></li>
+        <li><span class="repo-name">gh-oidc</span><span class="repo-meta">⭐ 1 &nbsp;—</span></li>
+      </ul>
+    </section>
+    <section class="card" aria-labelledby="langs-heading">
+      <h2 id="langs-heading" class="section-title">💻 Languages Used</h2>
+      <div class="lang-bar"><div class="lang-row"><span><span class="lang-dot" style="background:#178600;"></span>C#</span><span>13 repos</span></div><div class="lang-track"><div class="lang-fill" style="width:100%;background:#178600;"></div></div></div>
+      <div class="lang-bar"><div class="lang-row"><span><span class="lang-dot" style="background:#3178c6;"></span>TypeScript</span><span>9 repos</span></div><div class="lang-track"><div class="lang-fill" style="width:69%;background:#3178c6;"></div></div></div>
+      <div class="lang-bar"><div class="lang-row"><span><span class="lang-dot" style="background:#012456;"></span>PowerShell</span><span>6 repos</span></div><div class="lang-track"><div class="lang-fill" style="width:46%;background:#012456;"></div></div></div>
+      <div class="lang-bar"><div class="lang-row"><span><span class="lang-dot" style="background:#3572A5;"></span>Python</span><span>5 repos</span></div><div class="lang-track"><div class="lang-fill" style="width:38%;background:#3572A5;"></div></div></div>
+      <div class="lang-bar"><div class="lang-row"><span><span class="lang-dot" style="background:#e34c26;"></span>HTML</span><span>5 repos</span></div><div class="lang-track"><div class="lang-fill" style="width:38%;background:#e34c26;"></div></div></div>
+      <div class="lang-bar"><div class="lang-row"><span><span class="lang-dot" style="background:#f1e05a;"></span>JavaScript</span><span>3 repos</span></div><div class="lang-track"><div class="lang-fill" style="width:23%;background:#f1e05a;"></div></div></div>
+      <div class="lang-bar"><div class="lang-row"><span><span class="lang-dot" style="background:#89e051;"></span>Shell</span><span>3 repos</span></div><div class="lang-track"><div class="lang-fill" style="width:23%;background:#89e051;"></div></div></div>
+      <div class="lang-bar"><div class="lang-row"><span><span class="lang-dot" style="background:#aaa;"></span>Others</span><span>Bicep · Java · Rust</span></div><div class="lang-track"><div class="lang-fill" style="width:8%;"></div></div></div>
+    </section>
+  </div>
+
+  <section aria-labelledby="learn-heading" class="mt">
+    <h2 id="learn-heading" class="section-title">🎓 Microsoft Learn Achievements</h2>
+    <div class="stat-grid" style="grid-template-columns:1fr 1fr;">
+      <div class="stat-card"><div class="stat-num">2,037,000</div><div class="stat-label">Total XP</div></div>
+      <div class="stat-card"><div class="stat-num">1,677</div><div class="stat-label">Modules Completed</div></div>
+      <div class="stat-card"><div class="stat-num">398</div><div class="stat-label">Learning Paths</div></div>
+      <div class="stat-card"><div class="stat-num">77,380</div><div class="stat-label">Training Minutes</div></div>
+    </div>
+
+    <div class="grid-2 mt">
+      <section class="card" aria-labelledby="active-certs-heading">
+        <h3 id="active-certs-heading" class="section-title">✅ Active Certifications (32 total · 36 exams passed)</h3>
+        <ul class="cert-list">
+          <li><span class="cert-icon">🤖</span><div><div class="cert-name">GitHub Certified: Agentic AI Developer</div><div class="cert-date">2026-07-27 · expires 2027-07-27</div></div></li>
+          <li><span class="cert-icon">🤖</span><div><div class="cert-name">Microsoft Certified: Agentic AI Business Solutions Architect</div><div class="cert-date">2026-08-28 · expires 2027-08-28</div></div></li>
+          <li><span class="cert-icon">⚙️</span><div><div class="cert-name">GitHub Actions</div><div class="cert-date">2026-02-20 · expires 2028-02-20</div></div></li>
+          <li><span class="cert-icon">🤖</span><div><div class="cert-name">GitHub Copilot</div><div class="cert-date">2025-07-17 · expires 2027-07-17</div></div></li>
+          <li><span class="cert-icon">🔐</span><div><div class="cert-name">Microsoft Certified: Cybersecurity Architect Expert</div><div class="cert-date">2022-07-28</div></div></li>
+          <li><span class="cert-icon">🏗️</span><div><div class="cert-name">Microsoft Certified: Azure Solutions Architect Expert</div><div class="cert-date">2020-08-08</div></div></li>
+          <li><span class="cert-icon">🔄</span><div><div class="cert-name">Microsoft Certified: DevOps Engineer Expert</div><div class="cert-date">2020-08-12</div></div></li>
+          <li><span class="cert-icon">🧠</span><div><div class="cert-name">Microsoft Certified: Azure AI Engineer Associate</div><div class="cert-date">2021-01-11</div></div></li>
+          <li><span class="cert-icon">🗄️</span><div><div class="cert-name">Microsoft Certified: Azure Cosmos DB Developer Specialty</div><div class="cert-date">2022-03-10</div></div></li>
+          <li><span class="cert-icon">🌐</span><div><div class="cert-name">Microsoft Certified: Azure Network Engineer Associate</div><div class="cert-date">2022-06-24</div></div></li>
+          <li><span class="cert-icon">🔑</span><div><div class="cert-name">Microsoft Certified: Identity and Access Administrator</div><div class="cert-date">2022-07-07</div></div></li>
+          <li><span class="cert-icon">☁️</span><div><div class="cert-name">Microsoft Certified: Azure Administrator Associate</div><div class="cert-date">2020-08-06</div></div></li>
+          <li><span class="cert-icon">💻</span><div><div class="cert-name">Microsoft Certified: Azure Developer Associate</div><div class="cert-date">2020-08-26</div></div></li>
+          <li><span class="cert-icon">🔒</span><div><div class="cert-name">Microsoft Certified: Azure Security Engineer Associate</div><div class="cert-date">2020-04-23</div></div></li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="applied-heading">
+        <h3 id="applied-heading" class="section-title">🛠️ Microsoft Applied Skills (20)</h3>
+        <ul class="cert-list">
+          <li><span class="cert-icon">🤖</span><div><div class="cert-name">Resolve GitHub issues by using GitHub Copilot</div></div></li>
+          <li><span class="cert-icon">🔐</span><div><div class="cert-name">Manage GitHub secret scanning by using GitHub Copilot</div></div></li>
+          <li><span class="cert-icon">☁️</span><div><div class="cert-name">Get started with Azure management tasks</div></div></li>
+          <li><span class="cert-icon">💻</span><div><div class="cert-name">Get started with classes, properties, and methods in C#</div></div></li>
+          <li><span class="cert-icon">��</span><div><div class="cert-name">Generate reports with AI research agents</div></div></li>
+          <li><span class="cert-icon">💬</span><div><div class="cert-name">Streamline business workflows with AI chat</div></div></li>
+          <li><span class="cert-icon">⚡</span><div><div class="cert-name">Accelerate AI-assisted development by using GitHub Copilot</div></div></li>
+          <li><span class="cert-icon">🗄️</span><div><div class="cert-name">Migrate SQL Server workloads to Azure SQL Database</div></div></li>
+          <li><span class="cert-icon">📦</span><div><div class="cert-name">Deploy cloud-native apps using Azure Container Apps</div></div></li>
+          <li><span class="cert-icon">👁️</span><div><div class="cert-name">Build an Azure AI Vision solution</div></div></li>
+          <li><span class="cert-icon">✨</span><div><div class="cert-name">+ 10 more applied skills credentials</div></div></li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <section class="card mt" aria-labelledby="credly-heading">
+    <h2 id="credly-heading" class="section-title">🏅 Credly Badge Wallet Highlights</h2>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">Sourced from MS Learn transcript data and GitHub profile (credly.com/users/sujith/badges). The Credly page was not publicly accessible during generation.</p>
+    <div class="pill-list">
+      <span class="pill">🤖 GitHub: Agentic AI Developer</span>
+      <span class="pill">🤖 Agentic AI Business Solutions Architect</span>
+      <span class="pill">⚙️ GitHub Actions Certified</span>
+      <span class="pill">🤖 GitHub Copilot Certified</span>
+      <span class="pill">🔐 Cybersecurity Architect Expert</span>
+      <span class="pill">🏗️ Azure Solutions Architect Expert</span>
+      <span class="pill">🔄 DevOps Engineer Expert</span>
+      <span class="pill">🧠 Azure AI Engineer Associate</span>
+      <span class="pill">🗄️ Azure Cosmos DB Developer Specialty</span>
+      <span class="pill">🌐 Azure Network Engineer Associate</span>
+      <span class="pill">🔑 Identity &amp; Access Administrator</span>
+      <span class="pill">🔒 Azure Security Engineer Associate</span>
+      <span class="pill">☁️ Azure Administrator Associate</span>
+      <span class="pill">💻 Azure Developer Associate</span>
+      <span class="pill">🤖 Azure AI Fundamentals</span>
+      <span class="pill">☁️ Azure Fundamentals</span>
+      <span class="pill">📦 Terraform Associate</span>
+      <span class="pill">👨‍🏫 GitHub Accredited Trainer</span>
+    </div>
+  </section>
+
+  <div class="grid-3 mt">
+    <section class="card" aria-labelledby="highlights-heading">
+      <h2 id="highlights-heading" class="section-title">✨ Key Highlights</h2>
+      <ul class="cert-list">
+        <li><span class="cert-icon">📖</span><div><div class="cert-name">Technical Blog</div><div class="cert-date">quintelier.dev — Azure, DevOps, GitHub, AI</div></div></li>
+        <li><span class="cert-icon">🎓</span><div><div class="cert-name">GitHub Accredited Trainer</div><div class="cert-date">Actions · Administration · Advanced Security · Migrations · Copilot</div></div></li>
+        <li><span class="cert-icon">⚡</span><div><div class="cert-name">Platform Engineering Practitioner</div><div class="cert-date">AKS, Terraform, Container Apps</div></div></li>
+        <li><span class="cert-icon">🤖</span><div><div class="cert-name">AI &amp; Agentic Expertise</div><div class="cert-date">Azure AI, GitHub Copilot CLI, MCP</div></div></li>
+        <li><span class="cert-icon">🛡️</span><div><div class="cert-name">Security Focus</div><div class="cert-date">Cybersecurity Architect Expert · Advanced Security</div></div></li>
+        <li><span class="cert-icon">🌍</span><div><div class="cert-name">Open Source</div><div class="cert-date">Training manuals, platform engineering tools</div></div></li>
+      </ul>
+    </section>
+
+    <section class="card" aria-labelledby="connect-heading">
+      <h2 id="connect-heading" class="section-title">🔗 Connect</h2>
+      <nav class="social-list" aria-label="Social links">
+        <a class="social-link" href="https://quintelier.dev" rel="noopener"><span class="social-icon">🌐</span> quintelier.dev</a>
+        <a class="social-link" href="https://github.com/sujithq" rel="noopener"><span class="social-icon">🐙</span> github.com/sujithq</a>
+        <a class="social-link" href="https://www.linkedin.com/in/sujithquintelier/" rel="noopener"><span class="social-icon">��</span> LinkedIn</a>
+        <a class="social-link" href="https://twitter.com/SujithQ" rel="noopener"><span class="social-icon">🐦</span> @SujithQ</a>
+        <a class="social-link" href="https://app.pluralsight.com/profile/sujithq" rel="noopener"><span class="social-icon">📚</span> Pluralsight</a>
+        <a class="social-link" href="https://www.buymeacoffee.com/sujithq" rel="noopener"><span class="social-icon">☕</span> Buy Me a Coffee</a>
+        <a class="social-link" href="https://credly.com/users/sujith/badges" rel="noopener"><span class="social-icon">🏅</span> Credly Badges</a>
+        <a class="social-link" href="https://learn.microsoft.com/en-us/users/SujithQuintelier/" rel="noopener"><span class="social-icon">🎓</span> MS Learn Profile</a>
+      </nav>
+    </section>
+
+    <section class="card" aria-labelledby="blog-heading">
+      <h2 id="blog-heading" class="section-title">📝 Latest Blog Posts</h2>
+      <ul class="post-list">
+        <li><a class="post-link" href="https://quintelier.dev/posts/2026/06/github-copilot-app-generally-available/" rel="noopener">🖥️ GitHub Copilot App is Generally Available</a></li>
+        <li><a class="post-link" href="https://quintelier.dev/posts/2026/06/maximising-copilot-token-efficiency/" rel="noopener">Maximising Copilot Token Efficiency 🚀</a></li>
+        <li><a class="post-link" href="https://quintelier.dev/posts/2026/06/monitor-ai-coding-agents-grafana-app-insights/" rel="noopener">📊 Monitor AI Coding Agents with Grafana</a></li>
+        <li><a class="post-link" href="https://quintelier.dev/posts/2026/05/create-image-skill-azure-openai/" rel="noopener">🎨 Generate with GPT-image-2</a></li>
+        <li><a class="post-link" href="https://quintelier.dev/posts/2026/05/github-mobile-create-repositories/" rel="noopener">📱 Create repos faster with GitHub Mobile</a></li>
+        <li><a class="post-link" href="https://quintelier.dev/posts/2026/05/copilot-cli-byok-model-switcher/" rel="noopener">🔑 Easier BYOK for GitHub Copilot CLI</a></li>
+        <li><a class="post-link" href="https://quintelier.dev/posts/2026/04/agentic-infographic-workflow-postmortem/" rel="noopener">🛠️ Agentic Infographic Workflow Postmortem</a></li>
+        <li><a class="post-link" href="https://quintelier.dev/posts/2026/04/github-copilot-cli-auto-model-selection/" rel="noopener">🤖 Copilot CLI Auto Model Selection is GA</a></li>
+        <li><a class="post-link" href="https://quintelier.dev/posts/2026/04/manage-agent-skills-github-cli/" rel="noopener">🧰 Manage agent skills with GitHub CLI</a></li>
+      </ul>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>Generated 2026-09-02 · Sources: GitHub API · MS Learn Transcript · GitHub Profile README · <a href="https://quintelier.dev">quintelier.dev</a></p>
+    <p style="margin-top:0.25rem;">Fully static page — no JavaScript, no external requests, no tracking.</p>
+  </footer>
+
+</main>
+</body>
+</html>

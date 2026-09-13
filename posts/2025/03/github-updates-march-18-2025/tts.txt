@@ -1,0 +1,17 @@
+Stay up to date with the latest GitHub updates, features, and improvements designed to enhance your development experience. Whether it’s security and compliance advancements, performance optimizations, or new tools for automation and insights, this changelog keeps you informed about what’s new and how it can benefit your workflow.
+
+Inspired by our previous release, working with Copilot Chat on GitHub has become even more seamless. You can instantly preview HTML files, edit files you’ve created, and work on issues right away. Several exciting new capabilities give you more control and flexibility.
+
+What’s new:
+- Preview your rendered HTML files directly in the side panel
+- Edit files in the side panel to seamlessly refine and adjust them
+- Generate and preview Mermaid diagrams for fast visualizations
+- Keep tabs on your issues in the same right side panel
+- Track issues or pull requests in responses rendered in a familiar GitHub style
+- Smoother streaming experience and enhanced rendering of attachments
+
+Try it out:
+- What are the last five pull requests I made?
+- Create a commit flow diagram in a markdown file.
+- List the latest issues assigned to me.
+- Create a colored 3D Rubik’s cube using only HTML and CSS.

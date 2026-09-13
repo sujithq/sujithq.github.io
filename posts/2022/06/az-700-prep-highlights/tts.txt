@@ -1,0 +1,87 @@
+This blog post captures my notes from the AZ-700 course, which is designed to teach Network Engineers how to design, implement, and maintain Azure networking solutions. The course covers a wide range of networking topics, including:
+
+- Designing, implementing, and managing core Azure networking infrastructure
+- Hybrid networking connections for on-premises integration
+- Load balancing strategies for optimizing traffic distribution
+- Routing and private access to Azure services
+- Network security and traffic filtering
+- Monitoring and troubleshooting network connectivity
+
+Virtual Networks (VNets)
+Azure Virtual Networks (VNets) are the backbone of networking in Azure, allowing resources to communicate securely.
+
+VNet Capabilities
+Azure VNets support:
+- Communication with the internet
+- Communication between Azure resources
+- Secure connectivity to on-premises networks
+- Traffic filtering using NSGs (Network Security Groups)
+- Routing network traffic efficiently
+
+VNet Address Space
+Azure VNets use private IP address ranges as defined in RFC 1918:
+- 10.0.0.0 - 10.255.255.255 (10/8)
+- 172.16.0.0 - 172.31.255.255 (172.16/12)
+- 192.168.0.0 - 192.168.255.255 (192.168/16)
+
+Subnet Allocation
+Azure reserves 5 IPs per subnet:
+- x.x.x.0: Network address
+- x.x.x.1: Default gateway
+- x.x.x.2 & x.x.x.3: Azure DNS mapping
+- x.x.x.255: Broadcast address
+
+Scopes in Azure
+In Azure, every resource must have a unique name within its defined scope. Scopes are hierarchical:
+1. Global (e.g., Storage Accounts)
+2. Management Group
+3. Subscription
+4. Resource Group (e.g., VNets)
+5. Resource (individual resource instances)
+
+Regions & Availability Zones
+Resources in a VNet must be in the same region, but cross-region connectivity is possible. VNets can be linked across different subscriptions.
+Availability Zones provide high availability by distributing resources across physically separate data centers within a region.
+- Zonal Services: Resources pinned to a specific zone
+- Zone-Redundant Services: Automatically replicated across zones
+- Non-Regional Services: Resilient to zone-wide and region-wide failures
+
+Public IPs in Azure
+Public IPs enable external communication for Azure resources. They can be static (unchanging) or dynamic (reassigned upon restart).
+- Basic SKU: Static/Dynamic, open by default, no AZ support
+- Standard SKU: Static only, secure by default (NSG required), zone-redundant
+
+DNS Resolution in Azure
+Azure provides both public and private DNS services to resolve domain names.
+- Public DNS: Manages internet-facing domain names (A/AAAA/CNAME records)
+- Private DNS: Internal name resolution within VNets (Private Zones, Azure-provided, Custom DNS)
+Azure's built-in DNS resolver: 168.63.129.16
+DNS forwarding allows on-premises resources to resolve Azure hostnames, ensuring seamless hybrid connectivity.
+
+VNet Peering for Cross-Network Connectivity
+Azure VNet Peering allows seamless communication between VNets without a VPN.
+- Regional Peering: Same Azure region, high bandwidth, low latency
+- Global Peering: Cross-region, uses Azure backbone
+Benefits: Secure private communication, no internet exposure, no need for VPN gateways, supports NSGs, works across subscriptions and tenants
+
+Gateway Transit for Shared VPN Access
+Gateway Transit allows one VNet to use another VNet’s VPN gateway for cross-premises connectivity. Use case: A hub-and-spoke topology where a single gateway in the hub VNet provides VPN access to multiple spokes.
+
+Azure Traffic Routing
+Azure manages traffic routing through:
+- System Routes: Default routes created by Azure (Internet traffic via Internet Gateway, private traffic stays within VNet)
+- Custom Routes (UDRs): Use route tables to override system routes (e.g., direct traffic to a firewall appliance)
+
+Default Route Table:
+- Source: Default, Destination: 0.0.0.0/0, Next Hop: Internet
+- Source: Default, Destination: 10.0.0.0/8, Next Hop: None
+- Source: Default, Destination: 192.168.0.0/16, Next Hop: None
+
+Final Thoughts
+This post provides a comprehensive summary of key Azure networking concepts from AZ-700. Understanding VNets, peering, DNS, and routing is essential for designing scalable, secure, and high-performing cloud networks.
+Key Takeaways:
+- Master VNet and subnet design to optimize address space
+- Use peering and gateway transit for hybrid connectivity
+- Leverage DNS solutions to simplify name resolution
+- Control traffic with NSGs & UDRs for security and compliance
+If you're studying for AZ-700, focus on hands-on labs to reinforce concepts!
