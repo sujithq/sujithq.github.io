@@ -1,0 +1,4 @@
+azure-identity==1.25.3
+cryptography>=50.0.0
+openai==3.8.0
+pip-audit==2.10.1

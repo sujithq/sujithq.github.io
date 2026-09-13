@@ -242,12 +242,12 @@ def fetch_credly_badges() -> list[dict[str, Any]]:
     node_modules = repo_root / "node_modules" / "@playwright" / "test"
     if not node_modules.exists():
         print("Installing project dependencies for Credly badge extraction...")
-        subprocess.run([npm_path, "install", "--ignore-scripts", "--no-audit", "--no-fund"], cwd=repo_root, check=True)
+        subprocess.run([npm_path, "ci", "--ignore-scripts", "--no-audit", "--no-fund"], cwd=repo_root, check=True)
 
     playwright_bin = repo_root / "node_modules" / "playwright" / "index.js"
     if not playwright_bin.exists():
         print("Installing Playwright package for Credly badge extraction...")
-        subprocess.run([npm_path, "install", "--ignore-scripts", "--no-audit", "--no-fund"], cwd=repo_root, check=True)
+        subprocess.run([npm_path, "ci", "--ignore-scripts", "--no-audit", "--no-fund"], cwd=repo_root, check=True)
 
     browser_cache = Path.home() / ".cache" / "ms-playwright"
     if not any(browser_cache.glob("chromium-*")):

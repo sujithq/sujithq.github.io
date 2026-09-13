@@ -95,7 +95,9 @@
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="zFn6YUC1ofEcLJXv92lDUA" async></script>
 {{- end }}
 
-<script src="https://d3js.org/d3.v7.min.js"></script>
+{{- with resources.Get "vendor/d3/js/d3.min.js" | fingerprint }}
+  <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+{{- end }}
 
 {{- with resources.Get "tech-radar/js/radar.js" }}
   {{- if eq hugo.Environment "development" }}
@@ -110,15 +112,16 @@
   {{- end }}
 {{- end }}
 
+{{- $mermaid := resources.Get "js/mermaid.js" | js.Build (dict "targetPath" "js/mermaid.min.js" "minify" true) | fingerprint }}
 {{- with resources.Get "js/mermaid-init.js" }}
   {{- if eq hugo.Environment "development" }}
     {{- with . | js.Build }}
-      <script src="{{ .RelPermalink }}"></script>
+      <script src="{{ .RelPermalink }}" data-mermaid-src="{{ $mermaid.RelPermalink }}" data-mermaid-integrity="{{ $mermaid.Data.Integrity }}"></script>
     {{- end }}
   {{- else }}
     {{- $opts := dict "minify" true }}
     {{- with . | js.Build $opts | fingerprint }}
-      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous" data-mermaid-src="{{ $mermaid.RelPermalink }}" data-mermaid-integrity="{{ $mermaid.Data.Integrity }}"></script>
     {{- end }}
   {{- end }}
 {{- end }}

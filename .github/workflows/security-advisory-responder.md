@@ -13,6 +13,13 @@ checkout:
   repository: ${{ github.repository }}
   ref: ${{ github.event.pull_request.base.sha }}
 engine: copilot
+sandbox:
+  agent:
+    version: v0.28.16
+    images:
+      agent: ghcr.io/github/gh-aw-firewall/agent:0.28.16@sha256:57a3e27388a6d7d32719088581e52567727fa0bf2f0d477bf565b0c4baa12a3f
+      apiProxy: ghcr.io/github/gh-aw-firewall/api-proxy:0.28.16@sha256:cd400948638ffe1b87ec319abf73fa29b6ac9881b015da58bba971c4cc13a400
+      squid: ghcr.io/github/gh-aw-firewall/squid:0.28.16@sha256:452197f2e241b2cda8eb0b5674960aa8ca544a64dc242e24f8263c3df6452919
 tools:
   github:
     toolsets: [pull_requests, issues, code_security]
@@ -24,14 +31,14 @@ safe-outputs:
     max: 1
     hide-older-comments: true
 network:
-  allowed: ["defaults", "node", "dotnet"]
+  allowed: ["defaults", "node", "dotnet", "packagefeedproxy.microsoft.io", "ms-feed-25.pkgs.visualstudio.com"]
 steps:
   - name: Setup Node.js
-    uses: actions/setup-node@v7
+    uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
     with:
-      node-version: '24'
+      node-version: '24.21.0'
   - name: Setup .NET
-    uses: actions/setup-dotnet@v6
+    uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68
     with:
       dotnet-version: '10.0.x'
 ---

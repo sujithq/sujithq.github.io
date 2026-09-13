@@ -55,26 +55,24 @@ jobs:
           TARGET_BRANCH="${TARGET_BRANCH#refs/heads/}"
           echo "target_branch=$TARGET_BRANCH" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: ${{ steps.branch.outputs.target_branch }}
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
-          python-version: '3.11'
+          python-version-file: '.python-version'
 
       - name: Azure login
-        uses: azure/login@v3
+        uses: azure/login@a641126d1b8aa4d1fa005f4f92df94a3a4c4c906
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install openai azure-identity
+        run: python -m pip install --require-hashes -r requirements.txt
 
       - name: Generate image
         run: |
@@ -120,27 +118,25 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
           ref: ${{ github.ref_name }}
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
-          python-version: '3.11'
+          python-version-file: '.python-version'
 
       - name: Azure login
-        uses: azure/login@v3
+        uses: azure/login@a641126d1b8aa4d1fa005f4f92df94a3a4c4c906
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install openai azure-identity
+        run: python -m pip install --require-hashes -r requirements.txt
 
       - name: Resolve changed posts needing images
         id: targets

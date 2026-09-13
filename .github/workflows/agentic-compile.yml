@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/*.md'
       - '.github/workflows/*.lock.yml'
+      - '.github/workflows/agentic-compile.yml'
 
 permissions:
   contents: write
@@ -16,11 +17,11 @@ jobs:
   compile:
     runs-on: ubuntu-26.04-arm
     env:
-      GH_AW_VERSION: v0.88.7
+      GH_AW_VERSION: v0.89.10
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
           token: ${{ secrets.AW_WORKFLOWS_PAT }}
@@ -29,13 +30,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh extension install github/gh-aw --pin "$GH_AW_VERSION" || gh extension upgrade github/gh-aw --pin "$GH_AW_VERSION"
+          gh extension install github/gh-aw --pin "$GH_AW_VERSION"
           gh aw --version
 
       - name: Compile agentic workflows
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh aw compile
+        run: gh aw compile --force-refresh-action-pins --force-refresh-container-pins
 
       - name: Commit compiled lock files
         env:

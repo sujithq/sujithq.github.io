@@ -49,8 +49,56 @@ To run this personal site locally, follow these steps:
 
 1. Clone this repository: `git clone https://github.com/sujithq/sujithq.github.io.git`.
 2. Navigate to the project's directory: `cd sujithq.github.io`.
-3. Install the Node dependencies: `npm install`.
-4. Ensure Hugo Extended is installed and available on your `PATH`.
+3. Use Node.js 24.21.0 from [.nvmrc](.nvmrc), npm 11.19.0, and `npm ci`.
+4. Ensure Hugo Extended 0.166.0 or newer is available on your `PATH`.
+
+On Windows, run builds inside WSL. Keep the build checkout and `node_modules`
+under the Linux home directory, not `/mnt/c`, for faster filesystem access.
+The devcontainer provides the pinned Node, npm, and Hugo tools.
+
+### Dependency Security
+
+JavaScript dependencies are locked in [package-lock.json](package-lock.json).
+Run `npm ci` after pulling dependency changes so installed packages and copied
+browser assets match the lockfile. Mermaid is bundled by Hugo from npm packages;
+do not restore a prebuilt bundle under `static/js` because its embedded
+dependencies bypass npm overrides and auditing.
+
+Python uses [.python-version](.python-version) and the hash-verified
+[requirements.txt](requirements.txt). Create an isolated environment with uv:
+
+```bash
+uv venv --managed-python --python 3.14.7 .venv
+uv pip sync --python .venv/bin/python --require-hashes requirements.txt
+.venv/bin/python -m pip_audit --vulnerability-service osv --strict
+```
+
+Use `.venv/Scripts/python.exe` instead of `.venv/bin/python` on Windows.
+After changing [requirements.in](requirements.in), regenerate the lockfile:
+
+```bash
+uv pip compile requirements.in --python-version 3.14 --universal \
+	--generate-hashes --emit-index-url \
+	--index-url https://packagefeedproxy.microsoft.io/pypi/simple \
+	--output-file requirements.txt
+```
+
+The .NET 10 crawler uses [nuget.config](nuget.config) and a NuGet lockfile.
+Restore with `dotnet restore src/Crawler/Crawler.csproj --locked-mode`.
+Known transitive NuGet vulnerabilities fail restore. The independent
+[dependency checks](.github/workflows/dependency-checks.yml) run on pull requests,
+including Dependabot pull requests, and weekly.
+
+Compatibility decisions from the September 2026 update:
+
+- npm 12 rejects the package proxy's alternate tarball host. Keep npm 11.19.0;
+	the devcontainer applies explicit patches to its bundled `brace-expansion`,
+	`tar`, `ip-address`, and `undici` dependencies. Recheck these when upgrading npm.
+- Azure OpenAI remains on a preview because the crawler uses its preview token
+	limit API. The project explicitly references the current OpenAI client too.
+- Agent workflows use compiler 0.89.10, firewall 0.28.16, and immutable action
+	and image pins. Strict mode requires its compiler-managed MCP gateway 0.4.20;
+	do not disable strict mode to override that internal dependency.
 
 ## Local Running
 

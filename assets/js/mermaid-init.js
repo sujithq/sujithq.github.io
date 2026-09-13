@@ -1,5 +1,8 @@
 // Lightweight Mermaid integration: transforms ```mermaid code fences into rendered diagrams.
 // Loads mermaid only if such fences are present to avoid unnecessary payload.
+const mermaidSource = document.currentScript?.dataset.mermaidSrc;
+const mermaidIntegrity = document.currentScript?.dataset.mermaidIntegrity;
+
 document.addEventListener('DOMContentLoaded', () => {
   const codeBlocks = document.querySelectorAll('pre code.language-mermaid, pre code.mermaid');
   if (!codeBlocks.length) return; // No mermaid content on this page
@@ -7,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function loadMermaid(callback) {
     if (window.mermaid) return callback();
     const script = document.createElement('script');
-    script.src = '/js/mermaid.min.js';
+    script.src = mermaidSource;
+    script.integrity = mermaidIntegrity;
+    script.crossOrigin = 'anonymous';
     script.onload = callback;
     script.onerror = () => console.error('Failed to load Mermaid library');
     document.head.appendChild(script);

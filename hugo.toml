@@ -64,8 +64,8 @@ baseURL = 'http://localhost:1313/'
 
 [module]
   [module.hugoVersion]
-    extended = false
-    min      = "0.145.0"
+    extended = true
+    min      = "0.166.0"
   [[module.mounts]]
     source = "assets"
     target = "assets"

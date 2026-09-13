@@ -23,9 +23,8 @@ on:
 
 env:
   DOTNET_VERSION: '10.0.x'   # <= set once; eg '9.0.x' or '10.0.x'
-  GO_VERSION: '1.26.x'
-  NODE_VERSION: '24'
-  HUGO_VERSION: '0.160.1'
+  GO_VERSION: '1.27.1'
+  HUGO_VERSION: '0.166.0'
 
 
 
@@ -42,7 +41,7 @@ jobs:
     steps:
       - id: fetch_meta
         if: github.event_name == 'pull_request'
-        uses: dependabot/fetch-metadata@v3
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98
 
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -76,12 +75,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
 
       - name: Cache Hugo resources
-        uses: actions/cache@v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         env:
           cache-name: cache-hugo-resources
         with:
@@ -89,7 +88,7 @@ jobs:
           key: ${{ env.cache-name }}
 
       - name: Set up Go
-        uses: actions/setup-go@v7
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
         with:
           go-version: ${{ env.GO_VERSION }}
 
@@ -97,32 +96,32 @@ jobs:
         run: go version
 
       - name: Set up Node.js
-        uses: actions/setup-node@v7.0.0
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: '.nvmrc'
           cache: "npm"
 
       - name: Install npm dependencies
         run: |
           $PSVersionTable
-          npm install
+          npm ci
         shell: pwsh
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78
         with:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
       - name: Azure login (OIDC)
-        uses: azure/login@v3
+        uses: azure/login@a641126d1b8aa4d1fa005f4f92df94a3a4c4c906
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v6
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
@@ -138,7 +137,7 @@ jobs:
           echo "OUTDIR=src/Crawler/bin/Release/$TFM" >> "$GITHUB_ENV"
 
       - name: Restore
-        run: dotnet restore src/Crawler/Crawler.csproj
+        run: dotnet restore src/Crawler/Crawler.csproj --locked-mode --configfile nuget.config
 
       - name: Build
         run: dotnet build src/Crawler/Crawler.csproj -c Release --no-restore
@@ -160,7 +159,7 @@ jobs:
 
           # Publish to a clean OUTDIR so working dir + outputs are deterministic
           rm -rf "${OUTDIR}"
-          dotnet publish src/Crawler/Crawler.csproj -c Release -o "${OUTDIR}"
+          dotnet publish src/Crawler/Crawler.csproj -c Release --no-restore -o "${OUTDIR}"
 
           echo "::group::Published OUTDIR contents"
           ls -la "${OUTDIR}"
@@ -220,7 +219,7 @@ jobs:
 
       - name: Upload site artifact
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: site
           path: public
@@ -276,19 +275,19 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
       - name: Set up Node.js
-        uses: actions/setup-node@v7.0.0
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version-file: '.nvmrc'
           cache: npm
 
       - name: Install npm dependencies
         run: npm ci
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78
         with:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
@@ -309,15 +308,15 @@ jobs:
     steps:
 
       - name: Checkout repo
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
           name: site
           path: public
 
       - name: Deploy 🚀 (prod)
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445
         with:
           branch: gh-pages
           folder: public
@@ -336,18 +335,18 @@ jobs:
       contents: read
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false   # 🔴 THIS IS CRITICAL
 
 
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
         with:
           name: site
           path: public
 
       - name: Deploy 🚀 (PR preview -> dev repo)
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445
         with:
           token: ${{ secrets.PAT_DEV_PAGES }}
           repository-name: sujithq/sujithq.github.io.dev

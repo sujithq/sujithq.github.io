@@ -10,7 +10,7 @@
     {{- $isExcludedTools := and (in $excludedTypes .Type) (not .File) }}
     {{- $isExcludedUpdatesPath := and (hasPrefix .RelPermalink "/updates/") (ne .RelPermalink "/updates/") }}
     {{- $isExcludedUpdates2Path := hasPrefix .RelPermalink "/updates2/" }}
-    {{- $isExcludedUpdates := and (eq .Section "updates2") (not .IsNode) }}
+    {{- $isExcludedUpdates := and (eq .Section "updates2") (not .IsBranch) }}
     {{- $isExcludedUpdatesV1 := eq .Section "updates" }}
     {{- $isExcludedUpdateTaxonomy := in $excludedTaxonomies .Type }}
     {{- $isPaginationPage := in .RelPermalink "/page/" }}

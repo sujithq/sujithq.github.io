@@ -11,11 +11,11 @@ import json
 try:
     from openai import AzureOpenAI
     from azure.identity import DefaultAzureCredential, get_bearer_token_provider
-except ImportError:
-    print("Installing required packages...")
-    os.system("pip install openai azure-identity")
-    from openai import AzureOpenAI
-    from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+except ImportError as error:
+    raise SystemExit(
+        "Install the pinned dependencies with: "
+        "python -m pip install --require-hashes -r requirements.txt"
+    ) from error
 
 # Configuration
 AZURE_ENDPOINT = "https://squintelier-5556-resource.services.ai.azure.com/"

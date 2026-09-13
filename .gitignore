@@ -53,3 +53,5 @@ Thumbs.db
 # Keep data/content/state tracked (donâ€™t ignore)
 !.gitkeep
 .tmp/
+.venv/
+__pycache__/
