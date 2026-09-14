@@ -3,6 +3,16 @@ description: 'Documentation and content creation standards'
 applyTo: '**/*.md'
 ---
 
+## Scope Exceptions
+
+The front matter rules below apply to general Markdown documentation. Three locations use their own format and are excluded:
+
+- `content/**/*.md`: Hugo pages use TOML front matter delimited by `+++`. For `content/posts/*/index.md`, follow `posts.instructions.md`.
+- `.github/workflows/*.md`: GitHub Agentic Workflow files use the gh-aw YAML frontmatter schema, validated by `gh aw compile`.
+- `editorial/weekly/**`: weekly editorial packets follow `editorial.instructions.md`. `blog-draft.md` uses Hugo TOML front matter with `draft = true`.
+
+The content, formatting and structure rules still apply everywhere.
+
 ## Markdown Content Rules
 
 The following markdown content rules are enforced in the validators:
