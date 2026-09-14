@@ -2,7 +2,9 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
 const path = require('node:path');
+const yaml = require('js-yaml');
 
 const helper = require('../../scripts/weekly-csa-blog.js');
 
@@ -12,6 +14,51 @@ const PACKET_DIR = 'editorial/weekly/2026-09-07';
 function fixture(name) {
   return path.join(FIXTURES, name);
 }
+
+const workflowPath = path.join(__dirname, '..', '..', '.github', 'workflows', 'weekly-csa-blog');
+const workflow = fs.readFileSync(`${workflowPath}.md`, 'utf8');
+const frontmatter = yaml.load(workflow.split('---')[1]);
+const compiled = yaml.load(fs.readFileSync(`${workflowPath}.lock.yml`, 'utf8'));
+const agentRun = compiled.jobs.agent.steps.find((step) => step.run?.includes('copilot_harness.cjs')).run;
+const firewallLine = agentRun.split('\n').find((line) => line.includes('"allowDomains"'));
+const firewall = JSON.parse(firewallLine.match(/'(\{.*\})'/)[1]);
+
+test('weekly research permits proxy-aware curl in the source and compiled agent command', () => {
+  assert.ok(frontmatter.tools.bash.includes('curl:*'));
+  assert.ok(!frontmatter.tools.bash.includes('*'), 'do not grant unrestricted shell access');
+  assert.match(agentRun, /--allow-tool [^\n]*shell\(curl:\*\)/);
+  assert.doesNotMatch(agentRun, /--allow-all-tools/);
+  assert.match(workflow, /curl --fail --silent --show-error --location --max-time 60 <url>/);
+  assert.match(workflow, /inherited `HTTPS_PROXY` and `HTTP_PROXY`/);
+  assert.match(workflow, /A failed request or an HTTP error is not a successfully reached source/);
+});
+
+test('the firewall permits official research hosts including the configured Azure Updates feed', () => {
+  const research = workflow.split('### Step 2:')[1].split('### Step 3:')[0];
+  const urls = [...research.matchAll(/`(https:\/\/[^`]+)`/g)].map((match) => match[1]);
+  const feeds = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'feed-config', 'feeds.json'), 'utf8'));
+  const azureFeed = feeds.find((feed) => feed.Name === 'Azure Updates').Url;
+  assert.ok(urls.includes(azureFeed), 'research must include the official Azure Updates RSS endpoint');
+  assert.ok(frontmatter.network.allowed.includes(new URL(azureFeed).hostname));
+
+  for (const url of urls) {
+    assert.ok(firewall.network.allowDomains.includes(new URL(url).hostname), `${url} must pass through AWF`);
+  }
+  assert.equal(firewall.network.isolation, true);
+  assert.equal(frontmatter.sandbox.agent.version, 'v0.28.16');
+  assert.deepEqual(firewall.container.images, frontmatter.sandbox.agent.images);
+  assert.ok(!firewall.network.allowDomains.includes('*'), 'do not allow arbitrary network destinations');
+});
+
+test('unreachable research still produces an incomplete run rather than a quiet week', () => {
+  assert.match(workflow, /successfully reach at least three.*including at least one GitHub source and at least one Microsoft or Azure source/);
+  assert.match(workflow, /If you reach fewer, report blocked or incomplete research.*create no packet and no pull request/);
+  assert.match(workflow, /Never report a quiet week when the cause is an unreachable source/);
+  assert.ok(compiled.jobs.conclusion, 'retain the job that fails report_incomplete runs');
+  const incomplete = compiled.jobs.conclusion.steps.find((step) => step.id === 'report_incomplete');
+  assert.match(incomplete.with.script, /report_incomplete_handler\.cjs/);
+  assert.notEqual(incomplete['continue-on-error'], true, 'incomplete research must still fail');
+});
 
 test('reporting period is the previous complete Monday to Sunday week', () => {
   const edition = helper.resolveEdition({ now: Date.parse('2026-09-09T12:00:00Z') });
