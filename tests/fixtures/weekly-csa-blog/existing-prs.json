@@ -1,0 +1,16 @@
+[
+  {
+    "number": 511,
+    "title": "editorial: weekly-csa-2026-09-07 packet",
+    "state": "CLOSED",
+    "url": "https://github.com/sujithq/sujithq.github.io/pull/511",
+    "headRefName": "editorial/weekly-csa-2026-09-07"
+  },
+  {
+    "number": 498,
+    "title": "chore: unrelated change",
+    "state": "MERGED",
+    "url": "https://github.com/sujithq/sujithq.github.io/pull/498",
+    "headRefName": "chore/unrelated"
+  }
+]

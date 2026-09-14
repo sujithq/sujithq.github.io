@@ -1,0 +1,2 @@
+editorial/weekly/2026-09-07/digest.md
+content/posts/2026-09-07-example/index.md
