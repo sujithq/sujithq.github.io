@@ -1,0 +1,161 @@
+{
+  "edition_date": "2026-09-14",
+  "outcome": "packet",
+  "reporting_period": {
+    "timezone": "Europe/Paris",
+    "start_inclusive": "2026-09-07T00:00:00+02:00",
+    "end_exclusive": "2026-09-14T00:00:00+02:00"
+  },
+  "source_coverage": {
+    "required": ["github-changelog", "azure-updates", "microsoft-learn", "azure-devops-blog"],
+    "reached": ["github-changelog", "github-blog", "github-docs", "azure-updates", "microsoft-learn", "azure-devops-blog", "vscode-updates"],
+    "failed": []
+  },
+  "sources": [
+    {
+      "id": "gh-managed-perms",
+      "title": "Enterprise managed permissions for GitHub Copilot agent operations",
+      "url": "https://github.blog/changelog/2026-09-09-enterprise-managed-permissions-for-github-copilot-agent-operations/",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-09",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "gh-cache-mode",
+      "title": "Control GitHub Actions cache access with cache-mode",
+      "url": "https://github.blog/changelog/2026-09-10-control-github-actions-cache-access-with-cache-mode/",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-10",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "gh-secret-block",
+      "title": "Block pull requests with exposed secrets from merging",
+      "url": "https://github.blog/changelog/2026-09-09-block-pull-requests-with-exposed-secrets-from-merging/",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-09",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "gh-autofix-quality",
+      "title": "Remediate Code Quality findings with agentic autofix",
+      "url": "https://github.blog/changelog/2026-09-09-remediate-code-quality-findings-with-agentic-autofix/",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-09",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "azure-copilot-troubleshoot",
+      "title": "[Launched] Generally Available: Azure Copilot Troubleshooting Agent",
+      "url": "https://azure.microsoft.com/updates?id=570980",
+      "publisher": "Azure Updates RSS",
+      "published": "2026-09-10",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "azure-azd-extension",
+      "title": "[Launched] Generally Available: Azure Developer CLI (azd) Extension Framework",
+      "url": "https://azure.microsoft.com/updates?id=570881",
+      "publisher": "Azure Updates RSS",
+      "published": "2026-09-08",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "azure-devops-blog-home",
+      "title": "Azure DevOps Blog (homepage listing, no in-window posts found)",
+      "url": "https://devblogs.microsoft.com/devops/",
+      "publisher": "Azure DevOps Blog",
+      "published": "2026-09-14",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "github-changelog-home",
+      "title": "GitHub Changelog (homepage listing)",
+      "url": "https://github.blog/changelog/",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-14",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "github-blog-home",
+      "title": "GitHub Blog (homepage listing)",
+      "url": "https://github.blog/",
+      "publisher": "GitHub Blog",
+      "published": "2026-09-14",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "microsoft-learn-home",
+      "title": "Microsoft Learn (homepage)",
+      "url": "https://learn.microsoft.com/en-us/",
+      "publisher": "Microsoft Learn",
+      "published": "2026-09-14",
+      "accessed": "2026-09-14"
+    },
+    {
+      "id": "vscode-updates-1-137",
+      "title": "Visual Studio Code September 2026 (version 1.137) release notes",
+      "url": "https://code.visualstudio.com/updates/v1_137",
+      "publisher": "VS Code Release Notes",
+      "published": "2026-09-14",
+      "accessed": "2026-09-14"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "GitHub Copilot enterprise managed permissions for agent operations are generally available for GitHub Copilot Business and GitHub Copilot Enterprise administrators as of 9 September 2026.",
+      "type": "verified",
+      "source_ids": ["gh-managed-perms"]
+    },
+    {
+      "claim": "Managed permissions cover shell commands, file reads and edits, and network domains, and can be set to blocked, human-approval-required, or auto-allowed.",
+      "type": "verified",
+      "source_ids": ["gh-managed-perms"]
+    },
+    {
+      "claim": "Managed restrictions cannot be weakened by user or workspace settings, auto-approval, or previously saved approvals.",
+      "type": "verified",
+      "source_ids": ["gh-managed-perms"]
+    },
+    {
+      "claim": "These controls apply across the GitHub Copilot app, GitHub Copilot CLI, and Visual Studio Code sessions using Agent Host.",
+      "type": "verified",
+      "source_ids": ["gh-managed-perms"]
+    },
+    {
+      "claim": "cache-mode lets GitHub Actions workflows or jobs apply least-privilege cache access (read, write, write-only) and is generally available on all plans as of 10 September 2026, helping prevent cache poisoning.",
+      "type": "verified",
+      "source_ids": ["gh-cache-mode"]
+    },
+    {
+      "claim": "A new repository ruleset rule blocks pull requests introducing exposed secrets from merging, complementing existing push protection, announced 9 September 2026.",
+      "type": "verified",
+      "source_ids": ["gh-secret-block"]
+    },
+    {
+      "claim": "The Azure Copilot Troubleshooting Agent is a unified, built-in Azure Copilot capability for investigating and resolving operational issues, generally available as of 10 September 2026 via Azure Copilot and Azure Support.",
+      "type": "verified",
+      "source_ids": ["azure-copilot-troubleshoot"]
+    },
+    {
+      "claim": "The Azure Developer CLI (azd) Extension Framework is generally available as of 8 September 2026, enabling custom capability extensions for azd.",
+      "type": "verified",
+      "source_ids": ["azure-azd-extension"]
+    },
+    {
+      "claim": "No Azure DevOps Blog post published in the 7-13 September 2026 reporting window was found; the closest recent posts were dated between 26 and 31 August 2026.",
+      "type": "verified",
+      "source_ids": ["azure-devops-blog-home"]
+    },
+    {
+      "claim": "Treating managed permissions, cache-mode, and merge-time secret blocking as a coordinated hardening effort for the same reporting week is an editorial interpretation, not a claim made by GitHub.",
+      "type": "recommendation",
+      "source_ids": ["gh-managed-perms", "gh-cache-mode", "gh-secret-block"]
+    },
+    {
+      "claim": "Enterprises should treat managed permissions as a prerequisite for expanding Copilot agent mode beyond a small pilot group, and should map agent operations to existing risk/control categories before rollout.",
+      "type": "recommendation",
+      "source_ids": ["gh-managed-perms"]
+    }
+  ]
+}
