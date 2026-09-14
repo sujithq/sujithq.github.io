@@ -8,6 +8,7 @@
     "copy-files": "node scripts/copy-files.js",
     "postinstall": "npm run copy-files && node scripts/patch-gray-matter.js",
     "test": "playwright test",
+    "test:unit": "node --test \"tests/unit/*.test.js\"",
     "test:prod-local-health": "playwright test tests/prod-local-health.spec.ts --workers=1",
     "upd": "playwright test --update-snapshots",
     "publish-due-posts": "node scripts/publish-due-posts.js",
@@ -23,7 +24,7 @@
     "prebuild": "npm run clean:public && npm run sync-updates",
     "prebuild:prod": "npm run clean:public && npm run sync-updates",
     "build": "hugo -e production --gc --minify -D -F --templateMetrics --templateMetricsHints",
-    "validate-workflows": "node scripts/validate-agentic-workflow.js .github/workflows/security-advisory-responder.md && node scripts/validate-agentic-workflow.js .github/workflows/content-qa.md",
+    "validate-workflows": "node scripts/validate-agentic-workflow.js .github/workflows/security-advisory-responder.md && node scripts/validate-agentic-workflow.js .github/workflows/content-qa.md && node scripts/validate-agentic-workflow.js .github/workflows/weekly-csa-blog.md",
     "build:prod": "hugo -e production --gc --minify -D -F --templateMetrics --templateMetricsHints"
   },
   "keywords": [],

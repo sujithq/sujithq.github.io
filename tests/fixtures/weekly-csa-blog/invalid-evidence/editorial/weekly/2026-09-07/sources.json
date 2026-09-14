@@ -1,0 +1,59 @@
+{
+  "edition_date": "2026-09-07",
+  "outcome": "packet",
+  "reporting_period": {
+    "timezone": "Europe/Paris",
+    "start_inclusive": "2026-08-31T00:00:00+02:00",
+    "end_exclusive": "2026-09-07T00:00:00+02:00"
+  },
+  "source_coverage": {
+    "required": [
+      "github-changelog",
+      "azure-updates",
+      "microsoft-learn",
+      "azure-devops-blog"
+    ],
+    "reached": [
+      "github-changelog",
+      "azure-updates",
+      "microsoft-learn",
+      "azure-devops-blog"
+    ],
+    "failed": []
+  },
+  "sources": [
+    {
+      "id": "gh-changelog-example",
+      "title": "Example platform governance update",
+      "url": "https://github.blog/changelog/example",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-02",
+      "accessed": "2026-09-07"
+    },
+    {
+      "id": "azure-update-example",
+      "title": "Example Azure policy update",
+      "url": "https://azure.microsoft.com/updates/example",
+      "publisher": "Azure Updates",
+      "published": "September 2026",
+      "accessed": "2026-09-07"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The governance control became generally available on 2026-09-02.",
+      "type": "verified",
+      "source_ids": [
+        "missing-source"
+      ]
+    },
+    {
+      "claim": "Pilot the policy in a non-production organisation first.",
+      "type": "recommendation",
+      "source_ids": [
+        "gh-changelog-example",
+        "azure-update-example"
+      ]
+    }
+  ]
+}
