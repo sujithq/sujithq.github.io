@@ -45,6 +45,13 @@ This repository contains the source code and content for my personal technical b
 - Before generating covers, run Microsoft Foundry and Azure authentication preflight.
 - Use endpoint `https://squintelier-5556-resource.services.ai.azure.com/` for image generation.
 - If authentication fails, report a blocked run with remediation instead of committing partial output.
+- These rules apply to post generation under `content/posts/`. They do not apply to editorial preparation under `editorial/weekly/`, which never produces a post and therefore never needs image-generation credentials.
+
+## Editorial Packets
+- `editorial/weekly/YYYY-MM-DD/` holds weekly research packets produced by the Weekly CSA Blog Research workflow.
+- Packets are editorial material, not publication-ready posts, and must stay outside `content/` and `static/`.
+- Promotion to `content/posts/YYYY-MM-DD-slug/index.md` is a separate, human-approved step that still requires `index.md` and `cover.jpg` together.
+- See `.github/workflows/docs/WEEKLY_CSA_BLOG.md`.
 
 ## References
 - [Hugo Documentation](https://gohugo.io/documentation/)

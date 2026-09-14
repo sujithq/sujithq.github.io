@@ -26,6 +26,14 @@ An agent that validates content changes in pull requests.
 |----------|---------|
 | [content-qa.md](content-qa.md) | **Workflow definition** - Agent instructions for content validation |
 
+### 📰 Weekly CSA Blog Research
+
+An agent that researches the previous complete week of GitHub, Azure and DevOps announcements and prepares an editorial packet.
+
+| Document | Purpose |
+|----------|---------|
+| [WEEKLY_CSA_BLOG.md](WEEKLY_CSA_BLOG.md) | **Feature guide** - Activation, schedule, deliverables, validation and promotion |
+
 ## 🎯 What Are Agentic Workflows?
 
 Agentic workflows are AI-powered automations that run on GitHub Actions. Unlike traditional CI/CD workflows that follow fixed scripts, agentic workflows use AI agents to make intelligent decisions, analyze complex scenarios, and take contextual actions.
