@@ -28,13 +28,13 @@ sandbox:
 tools:
   github:
     toolsets: [pull_requests]
-  web-fetch:
-  bash: ["node", "cat", "ls", "mkdir", "grep", "head", "tail", "jq", "git"]
+  bash: ["curl:*", "node", "cat", "ls", "mkdir", "grep", "head", "tail", "jq", "git"]
 network:
   allowed:
     - defaults
     - github
     - "azure.microsoft.com"
+    - "www.microsoft.com" # Azure Updates RSS endpoint in feed-config/feeds.json
     - "azure.status.microsoft"
     - "techcommunity.microsoft.com"
     - "learn.microsoft.com"
@@ -108,11 +108,21 @@ Otherwise, research only announcements published inside the reporting period, wh
 
 ### Step 2: Research official sources
 
-Use the `web-fetch` tool for these official public sources:
+Fetch these official public sources with `curl` through the shell tool.
+Copilot's native `web-fetch` may not be exposed in the firewall's offline/BYOK
+mode; a tool permission alone does not provide it.
+
+Use `curl --fail --silent --show-error --location --max-time 60 <url>`.
+Keep the inherited `HTTPS_PROXY` and `HTTP_PROXY` settings so requests and
+redirects pass through the firewall. Do not use raw Node `fetch` or `https.get`
+without proxy support, disable the proxy, or bypass the network allowlist.
+A failed request or an HTTP error is not a successfully reached source.
 
 - GitHub Changelog: `https://github.blog/changelog/` and the GitHub Blog.
 - GitHub documentation: `https://docs.github.com/`.
 - Azure Updates: `https://azure.microsoft.com/updates/` and the Azure Blog.
+  Its official RSS feed is `https://www.microsoft.com/releasecommunications/api/v2/azure/rss`;
+  use it to find announcements, then verify claims against the linked originals.
 - Microsoft Learn: `https://learn.microsoft.com/`.
 - Azure DevOps Blog: `https://devblogs.microsoft.com/devops/`.
 - VS Code release notes: `https://code.visualstudio.com/updates`.
