@@ -39,6 +39,9 @@ jobs:
           npm ci
           npm audit --audit-level=low
 
+      - name: Run unit tests
+        run: npm run test:unit
+
       - name: Restore and build the crawler
         run: |
           dotnet restore src/Crawler/Crawler.csproj --locked-mode --configfile nuget.config
