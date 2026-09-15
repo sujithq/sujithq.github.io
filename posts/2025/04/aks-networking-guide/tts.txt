@@ -1,0 +1,30 @@
+Networking in Azure Kubernetes Service (AKS) provides the backbone for secure and efficient containerized workloads. Microsoft offers several networking models in AKS, each tailored for specific requirements and use cases. This post explores these networking options: Azure CNI, Azure CNI Overlay, Kubenet, and Azure CNI powered by Cilium, along with recent updates from Azure.
+
+Kubenet:
+- Simple and traditional networking approach in AKS
+- Pods receive IPs from a logically different IP range separate from the node's IP range
+- Supports basic network segmentation and routing
+- Lower complexity compared to Azure CNI, suitable for simpler environments
+
+Note: Kubenet networking for AKS will be retired on March 31, 2028. After this date, you cannot create new AKS clusters with kubenet networking. Existing clusters will continue to work, but you cannot create new node pools with kubenet networking. You can migrate existing clusters to Azure CNI or Azure CNI Overlay.
+
+Azure CNI:
+- Provides direct integration with Azure's virtual networking capabilities
+- Each pod gets its own IP address within your virtual network
+- Simplified communication with other Azure resources without NAT
+- Ideal for applications requiring high-speed networking and tight integration
+
+Azure CNI Overlay:
+- Enhances Azure CNI by allowing pods to use IP addresses from a private overlay network
+- Increases IP address availability, addressing scaling challenges
+- Separate pod CIDR ranges, conserving IP space in your primary VNet
+- Ideal for large-scale clusters with extensive pod requirements
+
+Azure CNI Powered by Cilium:
+- Combines Azure CNI with Cilium's advanced networking and security features
+- Rich observability, enhanced security through eBPF-based filtering, and improved network policy enforcement
+- Policy enforcement at Layer 3/4 and Layer 7
+- High-performance networking with eBPF
+
+Conclusion:
+Choosing the right networking solution for your AKS clusters depends on your application's scalability, security, and integration requirements. Azure's diverse networking models offer flexibility to address various scenarios, from simple setups to highly complex, secure environments. Stay updated with Azure’s improvements to keep your clusters performant, scalable, and secure.

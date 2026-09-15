@@ -1,0 +1,47 @@
+This guide shows how to build a privacy-first AI energy assistant using C#, the open-source GPT-OSS-20B model, Retrieval-Augmented Generation (RAG), and custom tool calling. The assistant analyzes solar, gas, and weather data completely offline, with no cloud dependencies.
+
+Features:
+- Solar production analysis
+- Gas usage intelligence
+- Grid import/export insights
+- Weather context
+- Tool-based actions via natural language
+- Complete privacy: all data processed locally
+
+Setup:
+- .NET SDK 9+ installed
+- For testing: GitHub Models platform
+- For production: Ollama for local LLMs
+- Energy data in JSON format
+
+Why GPT-OSS?
+- Open-source, permissive license
+- Optimized for local deployment
+- Advanced capabilities for energy analysis
+
+Flexible deployment:
+- Development: GitHub Models for model comparison
+- Production: Ollama for privacy and control
+
+Sample queries:
+- "When did I generate the most solar power?"
+- "How does cold weather affect my gas usage?"
+- "Show me details for August 2nd"
+
+Security and privacy:
+- Development mode: test data only
+- Production mode: all data stays local
+
+Advanced extensions:
+- Weather integration
+- Smart home integration
+- Machine learning analytics
+
+Best practices:
+- Regular backups
+- Data validation
+- Performance optimization
+- Model management
+
+Next steps:
+- Add configuration management, visualization, real-time integration, advanced AI, enterprise features, and mobile support.
