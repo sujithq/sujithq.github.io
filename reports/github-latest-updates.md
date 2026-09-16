@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-09-14
+post_date: 2026-09-15
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1150,4 +1150,8 @@ completed deprecation is shown.
 | 2026-09-10 | [GitHub Copilot weekly releases — September 7](https://github.blog/changelog/2026-09-10-github-copilot-weekly-releases-september-7) | Update | GitHub Copilot’s Sept. 7 weekly release adds Jira integration in Copilot app and adaptive model orchestration via Project HydraFusion in Copilot CLI. It also introduces new agent automation in Visual Studio Code. |
 | 2026-09-11 | [Auto-resolution and analysis updates in Copilot code review](https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review) | Update | Copilot code review now auto-resolves its own comments after you address them, and it can generate commit messages when you apply its code suggestions. The update also includes behind-the-scenes analysis changes. |
 | 2026-09-11 | [Add VS Code Agents to Copilot usage metrics](https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics) | Update | GitHub Copilot usage metrics now include generally available activity metrics for the dedicated VS Code Agents window. This lets enterprises and organizations track adoption and engagement for VS Code Agents alongside other Copilot usage. |
+| 2026-09-11 | [Profiles now show your highest achievement badge tier](https://github.blog/changelog/2026-09-11-profiles-now-show-your-highest-achievement-badge-tier) | Update | GitHub profiles now display the highest tier earned for achievements that have multiple levels. Before this change, profiles could show the first tier earned even after a user progressed further. |
 | 2026-09-14 | [Configure cost and quality in Copilot auto model selection](https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection) | Update | GitHub Copilot auto model selection now has three tiers: efficiency, balance, and intelligence. These let you choose how auto weighs cost, quality, and response time. |
+| 2026-09-15 | [SHA-1 in HTTPS on GitHub sunset](https://github.blog/changelog/2026-09-15-sha-1-in-https-on-github-sunset) | Update | GitHub has completed the scheduled sunset of SHA-1 for HTTPS on github.com and partner services. SHA-1 is now disabled for HTTPS connections. |
+| 2026-09-15 | [GitHub Copilot suggests custom properties definitions](https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions) | Update | GitHub Copilot can now suggest allowed values when creating custom properties for repositories in an organization. The feature is in public preview for GitHub Copilot Business and Copilot users. |
+| 2026-09-15 | [Enforce GitHub Advanced Security configurations](https://github.blog/changelog/2026-09-15-enforce-github-advanced-security-configurations) | Update | Enterprise administrators can now enforce GitHub Advanced Security configurations at the enterprise level. This blocks organization and repository administrators from changing those settings. |
