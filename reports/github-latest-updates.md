@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-09-15
+post_date: 2026-09-16
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1155,3 +1155,7 @@ completed deprecation is shown.
 | 2026-09-15 | [SHA-1 in HTTPS on GitHub sunset](https://github.blog/changelog/2026-09-15-sha-1-in-https-on-github-sunset) | Update | GitHub has completed the scheduled sunset of SHA-1 for HTTPS on github.com and partner services. SHA-1 is now disabled for HTTPS connections. |
 | 2026-09-15 | [GitHub Copilot suggests custom properties definitions](https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions) | Update | GitHub Copilot can now suggest allowed values when creating custom properties for repositories in an organization. The feature is in public preview for GitHub Copilot Business and Copilot users. |
 | 2026-09-15 | [Enforce GitHub Advanced Security configurations](https://github.blog/changelog/2026-09-15-enforce-github-advanced-security-configurations) | Update | Enterprise administrators can now enforce GitHub Advanced Security configurations at the enterprise level. This blocks organization and repository administrators from changing those settings. |
+| 2026-09-16 | [Code scanning AI Scan no longer requires CodeQL default setup](https://github.blog/changelog/2026-09-16-code-scanning-ai-scan-no-longer-requires-codeql-default-setup) | Update | AI Scan for pull requests can now find security vulnerabilities even when CodeQL default setup is not enabled on a repository. Previously, AI Scan for pull requests required CodeQL default setup. |
+| 2026-09-16 | [Copilot budget increase requests are generally available](https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available) | Generally available | GitHub Copilot now supports a request flow for users who have exhausted their AI credits, allowing them to ask for a budget increase instead of being fully blocked from credit-consuming features. The feature is now generally available. |
+| 2026-09-16 | [SCIM user responses now include a profileUrl attribute](https://github.blog/changelog/2026-09-16-scim-user-responses-now-include-a-profileurl-attribute) | Update | GitHub SCIM user responses now include the RFC 7643 standard `profileUrl` attribute. It returns the absolute URL of the GitHub account linked to the external identity. |
+| 2026-09-16 | [Automate SSO authorization for classic PATs and SSH keys](https://github.blog/changelog/2026-09-16-automate-sso-authorization-for-classic-pats-and-ssh-keys) | Update | GitHub Enterprise Cloud now lets enterprise admins automate SSO authorization for existing classic PATs and SSH keys across organizations, removing the need for developers to authorize each org manually. |

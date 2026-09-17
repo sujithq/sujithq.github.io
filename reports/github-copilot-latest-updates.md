@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-09-15
+post_date: 2026-09-16
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -549,3 +549,4 @@ completed deprecation is shown.
 | 2026-09-11 | [Add VS Code Agents to Copilot usage metrics](https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics) | Update | GitHub Copilot usage metrics now include generally available activity metrics for the dedicated VS Code Agents window. This lets enterprises and organizations track adoption and engagement for VS Code Agents alongside other Copilot usage. |
 | 2026-09-14 | [Configure cost and quality in Copilot auto model selection](https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection) | Update | GitHub Copilot auto model selection now has three tiers: efficiency, balance, and intelligence. These let you choose how auto weighs cost, quality, and response time. |
 | 2026-09-15 | [GitHub Copilot suggests custom properties definitions](https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions) | Update | GitHub Copilot can now suggest allowed values when creating custom properties for repositories in an organization. The feature is in public preview for GitHub Copilot Business and Copilot users. |
+| 2026-09-16 | [Copilot budget increase requests are generally available](https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available) | Generally available | GitHub Copilot now supports a request flow for users who have exhausted their AI credits, allowing them to ask for a budget increase instead of being fully blocked from credit-consuming features. The feature is now generally available. |
