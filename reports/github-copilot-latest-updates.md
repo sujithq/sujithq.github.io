@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-09-16
+post_date: 2026-09-17
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -550,3 +550,5 @@ completed deprecation is shown.
 | 2026-09-14 | [Configure cost and quality in Copilot auto model selection](https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection) | Update | GitHub Copilot auto model selection now has three tiers: efficiency, balance, and intelligence. These let you choose how auto weighs cost, quality, and response time. |
 | 2026-09-15 | [GitHub Copilot suggests custom properties definitions](https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions) | Update | GitHub Copilot can now suggest allowed values when creating custom properties for repositories in an organization. The feature is in public preview for GitHub Copilot Business and Copilot users. |
 | 2026-09-16 | [Copilot budget increase requests are generally available](https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available) | Generally available | GitHub Copilot now supports a request flow for users who have exhausted their AI credits, allowing them to ask for a budget increase instead of being fully blocked from credit-consuming features. The feature is now generally available. |
+| 2026-09-17 | [Agentic CLI customizations now in the usage metrics API](https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api) | Update | GitHub Copilot’s usage metrics API now includes agentic CLI activity for skills, custom agents, MCP servers, slash commands, and plugins. This extends existing CLI report coverage with additional customization metrics. |
+| 2026-09-17 | [Copilot impact dashboard now shows feature engagement](https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement) | Update | The Copilot impact dashboard now includes feature engagement data, showing how many active users regularly use key Copilot features. Enterprise administrators can use it to identify widely adopted experiences and those that may need more attention. |

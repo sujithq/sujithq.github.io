@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-09-16
+post_date: 2026-09-17
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1159,3 +1159,7 @@ completed deprecation is shown.
 | 2026-09-16 | [Copilot budget increase requests are generally available](https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available) | Generally available | GitHub Copilot now supports a request flow for users who have exhausted their AI credits, allowing them to ask for a budget increase instead of being fully blocked from credit-consuming features. The feature is now generally available. |
 | 2026-09-16 | [SCIM user responses now include a profileUrl attribute](https://github.blog/changelog/2026-09-16-scim-user-responses-now-include-a-profileurl-attribute) | Update | GitHub SCIM user responses now include the RFC 7643 standard `profileUrl` attribute. It returns the absolute URL of the GitHub account linked to the external identity. |
 | 2026-09-16 | [Automate SSO authorization for classic PATs and SSH keys](https://github.blog/changelog/2026-09-16-automate-sso-authorization-for-classic-pats-and-ssh-keys) | Update | GitHub Enterprise Cloud now lets enterprise admins automate SSO authorization for existing classic PATs and SSH keys across organizations, removing the need for developers to authorize each org manually. |
+| 2026-09-17 | [Workflow execution protections in GitHub Actions generally available](https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available) | Generally available | Workflow execution protections in GitHub Actions are now generally available for GitHub Enterprise, organizations, and repositories. The feature lets you define an allowlist to control who can execute workflows. |
+| 2026-09-17 | [Ubuntu 26 generally available and latest migration](https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration) | Generally available | Ubuntu 26.04 runner images for GitHub Actions are now generally available and fully supported for production workflows on x64 and arm64. The release notes also mention a migration update. |
+| 2026-09-17 | [Agentic CLI customizations now in the usage metrics API](https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api) | Update | GitHub Copilot’s usage metrics API now includes agentic CLI activity for skills, custom agents, MCP servers, slash commands, and plugins. This extends existing CLI report coverage with additional customization metrics. |
+| 2026-09-17 | [Copilot impact dashboard now shows feature engagement](https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement) | Update | The Copilot impact dashboard now includes feature engagement data, showing how many active users regularly use key Copilot features. Enterprise administrators can use it to identify widely adopted experiences and those that may need more attention. |
