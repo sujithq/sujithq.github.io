@@ -1,0 +1,40 @@
+Terraform is a powerful Infrastructure as Code (IaC) tool that enables you to define, provision, and manage Azure resources using declarative configuration files. This blog series, Zero to Hero: Terraform for Azure, will take you through Terraform from the basics to advanced topics, using hands-on examples tailored for Azure.
+
+In this first post, we focus on setting up your development environment and deploying your first resource on Azure using Terraform.
+
+Prerequisites:
+- An Azure account (a free account works fine)
+- Basic knowledge of Azure (nice to have, but not required)
+
+Setup options:
+1. Local installation (best for long-term development)
+2. Using Docker (best for isolated environments)
+
+Local Installation:
+- Download Terraform for your OS and verify installation with 'terraform version'.
+- Install Azure CLI for authentication and resource management. Verify with 'az version'.
+- Install Visual Studio Code and the Terraform extension.
+
+Using Docker:
+- Install Docker.
+- Run Terraform inside a container.
+- Mount a volume to work with local files.
+
+Authenticating with Azure:
+- Login using Azure CLI: 'az login'.
+- Set the desired subscription: 'az account set --subscription <subscription-id>'.
+- For automation, use a Service Principal: 'az ad sp create-for-rbac --name terraform-sp --role Contributor --scopes /subscriptions/<subscription-id> --sdk-auth'.
+
+Writing Your First Terraform Configuration:
+- Initialize a Terraform project: 'mkdir terraform-azure && cd terraform-azure'.
+- Create a new Terraform file: 'touch main.tf'.
+- Define the Terraform configuration in 'main.tf'.
+- Initialize Terraform: 'terraform init'.
+- Preview changes: 'terraform plan'.
+- Apply the configuration: 'terraform apply -auto-approve'.
+
+Cleaning Up and Next Steps:
+- Remove deployed resources: 'terraform destroy -auto-approve'.
+- Next steps: In Part 2, explore Terraform state management and remote backends.
+
+Stay tuned for more hands-on Terraform learning!
