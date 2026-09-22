@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-09-18
+post_date: 2026-09-21
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -554,3 +554,4 @@ completed deprecation is shown.
 | 2026-09-18 | [Upcoming deprecation of selected GitHub Copilot models in mid-October](https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october) | Upcoming deprecation | GitHub will deprecate selected Copilot models across all Copilot experiences on October 19, 2026. The affected models include those used in Copilot Chat, inline edits, ask and agent modes, and code completions. |
 | 2026-09-18 | [GitHub Copilot weekly releases — September 14](https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14) | Update | GitHub Copilot’s weekly release adds new model selection options, updates to code review, and Sentry integration in the Copilot app. The post also mentions additional admin updates and new agent features. |
 | 2026-09-18 | [Copilot code review: An improved review experience](https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience) | Update | GitHub updated Copilot code review to make review changes easier to track over time, auto-resolve more of its own suggestions, and generate commit messages when suggestions are accepted. |
+| 2026-09-21 | [Grok 4.7 is now available in GitHub Copilot](https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot) | Update | Grok 4.7 is rolling out in GitHub Copilot. GitHub describes it as xAI’s latest reasoning model, intended for agentic coding and complex multistep workflows. |
