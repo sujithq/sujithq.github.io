@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-09-21
+post_date: 2026-09-23
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -555,3 +555,8 @@ completed deprecation is shown.
 | 2026-09-18 | [GitHub Copilot weekly releases — September 14](https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14) | Update | GitHub Copilot’s weekly release adds new model selection options, updates to code review, and Sentry integration in the Copilot app. The post also mentions additional admin updates and new agent features. |
 | 2026-09-18 | [Copilot code review: An improved review experience](https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience) | Update | GitHub updated Copilot code review to make review changes easier to track over time, auto-resolve more of its own suggestions, and generate commit messages when suggestions are accepted. |
 | 2026-09-21 | [Grok 4.7 is now available in GitHub Copilot](https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot) | Update | Grok 4.7 is rolling out in GitHub Copilot. GitHub describes it as xAI’s latest reasoning model, intended for agentic coding and complex multistep workflows. |
+| 2026-09-22 | [OpenAI’s GPT-6 Sol and GPT-6 Luna now available](https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available) | Update | GitHub Copilot now includes two additional OpenAI GPT-6 models: GPT-6 Sol and GPT-6 Luna. They join the previously available GPT-6 Astra as selectable model options. |
+| 2026-09-22 | [Claude Opus 5.5 is now available in GitHub Copilot](https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot) | Update | Claude Opus 5.5 is now available in GitHub Copilot. GitHub says it can be used for agentic coding, long-running agentic tasks, and knowledge work. |
+| 2026-09-22 | [Faster C++ code intelligence with whole codebase indexing](https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing) | Update | GitHub Copilot CLI now supports whole-codebase indexing for C++ repositories, improving code intelligence performance. The change is aimed at large C++ codebases with many interconnected files. |
+| 2026-09-23 | [New features and improvements in Copilot for JetBrains](https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains) | Update | GitHub Copilot for JetBrains 1.18.0 adds AI-assisted tool approvals, more control over agent conversations, and organization-wide shared skills and instructions. It also includes plan review support with Codex. |
+| 2026-09-23 | [OpenTelemetry in the GitHub Copilot app](https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app) | Update | The GitHub Copilot app now supports OpenTelemetry configuration via enterprise-managed settings. This lets organizations observe Copilot agent performance and interactions with models and tools. |

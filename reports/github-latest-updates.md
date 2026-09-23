@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-09-22
+post_date: 2026-09-23
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1169,3 +1169,10 @@ completed deprecation is shown.
 | 2026-09-21 | [Grok 4.7 is now available in GitHub Copilot](https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot) | Update | Grok 4.7 is rolling out in GitHub Copilot. GitHub describes it as xAI’s latest reasoning model, intended for agentic coding and complex multistep workflows. |
 | 2026-09-21 | [GitHub Enterprise adds credential inventory exports](https://github.blog/changelog/2026-09-21-github-enterprise-adds-credential-inventory-exports) | Update | GitHub Enterprise now lets enterprise owners export a complete inventory of credentials that can access the enterprise. The export includes SSH keys, classic and fine-grained personal access tokens, OAuth App access tokens, and other credential types. |
 | 2026-09-22 | [Refreshed repository pull requests page generally available](https://github.blog/changelog/2026-09-21-refreshed-repository-pull-requests-page-generally-available) | Generally available | GitHub has generally available a refreshed repository pull requests page for all users. The update is intended to make pull requests easier to find and act on from one place. |
+| 2026-09-22 | [Deprecation notice: All-platform CodeQL bundle](https://github.blog/changelog/2026-09-22-deprecation-notice-all-platform-codeql-bundle) | Update | GitHub has deprecated the all-platform CodeQL bundle starting with CodeQL CLI 2.27.0. The deprecated artifacts are codeql-bundle.tar.gz and codeql-bundle.tar.zst, which previously included binaries for all supported platforms. |
+| 2026-09-22 | [Security improvements for SSH](https://github.blog/changelog/2026-09-22-security-improvements-for-ssh) | Update | GitHub is updating SSH security by removing several older algorithms, adding a new one, and requiring larger RSA SSH keys. The change tightens supported SSH configurations to improve security. |
+| 2026-09-22 | [OpenAI’s GPT-6 Sol and GPT-6 Luna now available](https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available) | Update | GitHub Copilot now includes two additional OpenAI GPT-6 models: GPT-6 Sol and GPT-6 Luna. They join the previously available GPT-6 Astra as selectable model options. |
+| 2026-09-22 | [Claude Opus 5.5 is now available in GitHub Copilot](https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot) | Update | Claude Opus 5.5 is now available in GitHub Copilot. GitHub says it can be used for agentic coding, long-running agentic tasks, and knowledge work. |
+| 2026-09-22 | [Faster C++ code intelligence with whole codebase indexing](https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing) | Update | GitHub Copilot CLI now supports whole-codebase indexing for C++ repositories, improving code intelligence performance. The change is aimed at large C++ codebases with many interconnected files. |
+| 2026-09-23 | [New features and improvements in Copilot for JetBrains](https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains) | Update | GitHub Copilot for JetBrains 1.18.0 adds AI-assisted tool approvals, more control over agent conversations, and organization-wide shared skills and instructions. It also includes plan review support with Codex. |
+| 2026-09-23 | [OpenTelemetry in the GitHub Copilot app](https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app) | Update | The GitHub Copilot app now supports OpenTelemetry configuration via enterprise-managed settings. This lets organizations observe Copilot agent performance and interactions with models and tools. |
