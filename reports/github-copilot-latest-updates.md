@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-09-23
+post_date: 2026-09-25
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -562,3 +562,4 @@ completed deprecation is shown.
 | 2026-09-23 | [OpenTelemetry in the GitHub Copilot app](https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app) | Update | The GitHub Copilot app now supports OpenTelemetry configuration via enterprise-managed settings. This lets organizations observe Copilot agent performance and interactions with models and tools. |
 | 2026-09-23 | [Local sandboxing in the GitHub Copilot app](https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app) | Update | GitHub Copilot app now supports local sandboxing to limit the impact of unintended commands by restricting access to local files, network resources, and credentials. The feature is configured in the app. |
 | 2026-09-23 | [More ways to request and configure Copilot code reviews](https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews) | Update | GitHub Copilot code review now supports more personal configuration options, is available to a broader set of Copilot plans, and adds an enterprise-level default setting. These changes are generally available. |
+| 2026-09-25 | [Default Enablement of Copilot Features for Copilot Business and Enterprise](https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise) | Update | GitHub is introducing a global default policy that enables generally available Copilot features and supported client capabilities in enterprise and organization Copilot settings. The change takes effect over a 28-day window. |
