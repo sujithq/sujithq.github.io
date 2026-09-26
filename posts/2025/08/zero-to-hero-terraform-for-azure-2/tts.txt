@@ -1,0 +1,18 @@
+In Part 2 of the Zero to Hero: Terraform for Azure series, you'll learn about Terraform state management and remote backends. This guide covers why state is crucial, how to configure Azure Storage as a remote backend, implement state locking for team safety, and master essential state management commands. By the end, you'll have production-ready state management for secure team collaboration and robust infrastructure management.
+
+Key topics:
+- What is Terraform state and why it matters
+- Local state limitations
+- Setting up Azure Storage remote backend
+- Configuring remote backend securely
+- Migrating to remote backend
+- State locking with Azure Blob Storage
+- Essential state management commands
+- Multi-environment state management
+- Team collaboration best practices
+- Troubleshooting common issues
+- Security considerations
+- Best practices summary
+
+Next steps:
+In Part 3, you'll learn about variables, outputs, and data sources to create dynamic and reusable Terraform configurations for different environments and use cases.
