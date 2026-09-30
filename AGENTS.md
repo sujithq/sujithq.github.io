@@ -24,8 +24,10 @@ before making changes. Path-specific guidance lives in
 - Use accessible, role-based Playwright locators and web-first assertions.
 - New posts are complete only when both `index.md` and `cover.jpg` exist.
 - Before generating a cover, authenticate to Azure and use the configured
-  Microsoft Foundry image endpoint. If authentication fails, stop and report
-  the blocked run rather than committing a partial post.
+  Microsoft Foundry image endpoint
+  (`https://squintelier-5556-resource.services.ai.azure.com/`). If
+  authentication fails, stop and report the blocked run rather than committing
+  a partial post.
 - Editorial packets under `editorial/weekly/` are not publication-ready posts
   and must stay outside `content/` and `static/`.
 - Never commit credentials. Use environment variables for crawler provider
