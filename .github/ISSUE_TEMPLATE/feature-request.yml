@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest an improvement to the site or its automation.
+title: "[feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Need
+      description: What problem would this feature solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the desired outcome and any alternatives considered.
+    validations:
+      required: true

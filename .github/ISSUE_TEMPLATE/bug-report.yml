@@ -1,0 +1,20 @@
+name: Bug report
+description: Report a reproducible problem with the site, crawler, or workflows.
+title: "[bug] "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: List the smallest set of steps or commands that reproduces it.
+    validations:
+      required: true

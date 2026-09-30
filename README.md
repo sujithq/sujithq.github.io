@@ -2,6 +2,7 @@
 # sujithq.github.io
 
 [![Deploy Hugo site to Pages](https://github.com/sujithq/sujithq.github.io/actions/workflows/hugo.yml/badge.svg)](https://github.com/sujithq/sujithq.github.io/actions/workflows/hugo.yml)
+[![AI Ready](https://img.shields.io/badge/AI--Ready-yes-brightgreen?style=flat)](https://github.com/johnpapa/ai-ready)
 
 Welcome to my personal [site](https://quintelier.dev)! This repository contains the code and assets for my personal website, where I showcase my cv, blog, and other information about myself.
 
@@ -225,4 +226,3 @@ This personal site is licensed under the [MIT License](LICENSE). Feel free to us
  ![Buy Me A Coffee](bmc.png)
 
 ---
-
