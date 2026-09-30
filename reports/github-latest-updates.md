@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-09-28
+post_date: 2026-09-29
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1190,3 +1190,6 @@ completed deprecation is shown.
 | 2026-09-25 | [Enterprise managed settings in-product validator](https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator) | Update | GitHub Copilot now includes an in-product validator for enterprise managed settings. It checks for malformed JSON, unsupported configurations, invalid team mappings, and similar issues that could block settings from working correctly. |
 | 2026-09-28 | [Claude Sonnet 5.5 in GitHub Copilot](https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot) | Update | Claude Sonnet 5.5 is now generally available in GitHub Copilot. GitHub says it is intended for well-scoped everyday tasks such as building features and fixing bugs. |
 | 2026-09-28 | [Self-hosted runner version enforcement date has moved](https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved) | Update | GitHub has moved the enforcement date for minimum version requirements on self-hosted runners in GitHub Actions for GitHub Enterprise Cloud. The change ships on Monday, September 28, 2026, with full enforcement starting after that date. |
+| 2026-09-29 | [GPT-6.1 Sol in GitHub Copilot](https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot) | Update | GPT-6.1 Sol is now generally available and rolling out in GitHub Copilot. GitHub says it can be used for agentic coding and terminal workflows with strong multistep performance. |
+| 2026-09-29 | [Bring business context with external custom properties](https://github.blog/changelog/2026-09-29-bring-business-context-with-external-custom-properties) | Update | GitHub now supports external custom properties so repository business context can be synced from a system of record such as a CMDB, internal developer portal, or other in-house system. This lets teams attach external metadata to repositories more seamlessly. |
+| 2026-09-29 | [Repository custom runner settings for Dependabot](https://github.blog/changelog/2026-09-29-repository-custom-runner-settings-for-dependabot) | Update | Repository administrators can now set the runner type, optional custom label, and optional runner group for Dependabot version and security updates. This extends existing runner configuration options for Dependabot. |
