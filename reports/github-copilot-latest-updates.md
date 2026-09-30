@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-09-29
+post_date: 2026-09-30
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -569,3 +569,4 @@ completed deprecation is shown.
 | 2026-09-25 | [Enterprise managed settings in-product validator](https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator) | Update | GitHub Copilot now includes an in-product validator for enterprise managed settings. It checks for malformed JSON, unsupported configurations, invalid team mappings, and similar issues that could block settings from working correctly. |
 | 2026-09-28 | [Claude Sonnet 5.5 in GitHub Copilot](https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot) | Update | Claude Sonnet 5.5 is now generally available in GitHub Copilot. GitHub says it is intended for well-scoped everyday tasks such as building features and fixing bugs. |
 | 2026-09-29 | [GPT-6.1 Sol in GitHub Copilot](https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot) | Update | GPT-6.1 Sol is now generally available and rolling out in GitHub Copilot. GitHub says it can be used for agentic coding and terminal workflows with strong multistep performance. |
+| 2026-09-30 | [HydraFusion in VS Code and the GitHub Copilot app](https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app) | Update | HydraFusion research preview is now available in Visual Studio Code and the GitHub Copilot app, expanding access beyond Copilot CLI. It appears in the model picker in both products. |

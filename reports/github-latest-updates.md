@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-09-29
+post_date: 2026-09-30
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1193,3 +1193,6 @@ completed deprecation is shown.
 | 2026-09-29 | [GPT-6.1 Sol in GitHub Copilot](https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot) | Update | GPT-6.1 Sol is now generally available and rolling out in GitHub Copilot. GitHub says it can be used for agentic coding and terminal workflows with strong multistep performance. |
 | 2026-09-29 | [Bring business context with external custom properties](https://github.blog/changelog/2026-09-29-bring-business-context-with-external-custom-properties) | Update | GitHub now supports external custom properties so repository business context can be synced from a system of record such as a CMDB, internal developer portal, or other in-house system. This lets teams attach external metadata to repositories more seamlessly. |
 | 2026-09-29 | [Repository custom runner settings for Dependabot](https://github.blog/changelog/2026-09-29-repository-custom-runner-settings-for-dependabot) | Update | Repository administrators can now set the runner type, optional custom label, and optional runner group for Dependabot version and security updates. This extends existing runner configuration options for Dependabot. |
+| 2026-09-30 | [X25519-only TLS ends for GHE.com on October 7](https://github.blog/changelog/2026-09-30-x25519-only-tls-ends-for-ghe-com-on-september-15) | Update | Starting October 7, 2026, GitHub Enterprise Cloud with data residency (GHE.com) will stop accepting TLS connections from clients that support only X25519 for key agreement. Most customers are not expected to be affected. |
+| 2026-09-30 | [HydraFusion in VS Code and the GitHub Copilot app](https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app) | Update | HydraFusion research preview is now available in Visual Studio Code and the GitHub Copilot app, expanding access beyond Copilot CLI. It appears in the model picker in both products. |
+| 2026-09-30 | [GitHub Advanced Security trials for GitHub Team](https://github.blog/changelog/2026-09-30-github-advanced-security-trials-for-github-team) | Update | GitHub Team customers can now start self-serve trials of GitHub Advanced Security from an organization’s Overview page and Billing settings. The trial lets teams evaluate GitHub Code Security and GitHub Secret Protection. |
