@@ -1,0 +1,16 @@
+Stay up to date with the latest GitHub updates, features, and improvements designed to enhance your development experience. Whether it’s security and compliance advancements, performance optimizations, or new tools for automation and insights, this changelog keeps you informed about what’s new and how it can benefit your workflow.
+
+In this edition, we’re covering GitHub’s PCI DSS v4.0 compliance for enterprise customers and the general availability of GitHub Actions Performance Metrics, helping teams gain deeper insights into their CI/CD workflows.
+
+GitHub is now PCI DSS v4.0 compliant with our 4.0 service provider attestation available to customers.
+GitHub’s Payment Card Industry Data Security Standard (PCI DSS) v4.0 service provider Attestation of Compliance (AoC) and the corresponding shared responsibility matrix has been completed. This enables customers to meet their own PCI DSS compliance needs using GitHub as part of their development environment. Enterprise customers can obtain copies of GitHub’s AoC or Shared Responsibility Matrix by reaching out to their account manager.
+
+Actions Performance Metrics are generally available and Enterprise-level metrics are in public preview.
+Performance Metrics for GitHub Actions are now generally available for repositories and organizations. Members can view workflow and job performance data including queue times and failure rates going back as far as one year. Organization members can view this data aggregated across all repositories. Enterprise-level metrics are in public preview for Enterprise admins, including usage and performance metrics across all repositories and organizations. These metrics can be found in the Enterprise UI under the "Insights" tab.
+
+Summary:
+- PCI DSS v4.0 compliance for GitHub
+- Actions Performance Metrics GA for repo/org, public preview for Enterprise
+- Insights for CI/CD workflows and performance
+
+For more details, see the official GitHub changelog.
