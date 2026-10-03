@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-01
+post_date: 2026-10-02
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1207,3 +1207,9 @@ completed deprecation is shown.
 | 2026-10-01 | [GitHub Copilot can now interact with desktop apps with computer use](https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps) | Update | GitHub Copilot computer use is now in public preview in Copilot CLI and the Copilot app on macOS and Windows. It can interact with desktop applications on the user’s behalf. |
 | 2026-10-01 | [Structured forms for private vulnerability reports](https://github.blog/changelog/2026-10-01-structured-forms-for-private-vulnerability-reports) | Update | Private vulnerability reports now support structured forms to collect the details needed for triage, including a reproducible proof of concept. This replaces reliance on a single free-text field with a more guided intake flow. |
 | 2026-10-01 | [Rate limits for private vulnerability reports](https://github.blog/changelog/2026-10-01-rate-limits-for-private-vulnerability-reports) | Update | GitHub is adding rate limits for private vulnerability reports to reduce low-quality and automated submissions that can obscure important reports. The change caps how many new reports a single account can submit. |
+| 2026-10-02 | [Repository security advisory comments API in public preview](https://github.blog/changelog/2026-10-02-repository-security-advisory-comments-api-in-public-preview) | Public preview | GitHub has added REST API support for reading, adding, and editing comments on repository security advisories. The API also works for advisories created from private vulnerability reports. |
+| 2026-10-02 | [Confidential comments on repository security advisories](https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories) | Update | GitHub now supports confidential comments on repository security advisories. These comments are visible only to users with write access to the repository, allowing private discussion of a report. |
+| 2026-10-02 | [New fields for SecurityAdvisory GraphQL API](https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api) | Update | GitHub added five new fields to the SecurityAdvisory GraphQL object, allowing more of the GitHub Advisory Database to be read directly through GraphQL instead of using the REST API. The changelog notes one of the new fields as cveId. |
+| 2026-10-02 | [Selected models in GitHub Copilot deprecated](https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated) | Deprecated | GitHub deprecated several Copilot models across all Copilot experiences on October 2, 2026. The change applies to Copilot Chat, inline edits, ask and agent modes, and code completions. |
+| 2026-10-02 | [Copilot code review: API support and new default effort level](https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level) | Update | GitHub Copilot code review can now be requested through both the REST and GraphQL APIs, and each request can specify an effort level. The default effort level has changed to Balanced. |
+| 2026-10-02 | [Stateless GitHub App installation tokens rolled out](https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out) | Update | GitHub has completed the staged rollout of the stateless GitHub App installation token format. By default, newly minted installation tokens now use the new format. |

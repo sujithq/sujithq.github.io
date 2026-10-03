@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-10-01
+post_date: 2026-10-02
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -573,3 +573,5 @@ completed deprecation is shown.
 | 2026-10-01 | [Dynamic workflows in Copilot CLI and the Copilot app](https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app) | Update | Dynamic workflows are now available in Copilot CLI, the GitHub Copilot app, and the GitHub Copilot SDK. They let you define an orchestration in code. |
 | 2026-10-01 | [GitHub Copilot in VS Code, September 2026 releases](https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases) | Update | September 2026 GitHub Copilot in VS Code releases cover VS Code v1.136 through v1.140 and focus on streamlining agent-driven development from implementation through pull request merge. The update adds automations for repeatable tasks and agent merge support. |
 | 2026-10-01 | [GitHub Copilot can now interact with desktop apps with computer use](https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps) | Update | GitHub Copilot computer use is now in public preview in Copilot CLI and the Copilot app on macOS and Windows. It can interact with desktop applications on the user’s behalf. |
+| 2026-10-02 | [Selected models in GitHub Copilot deprecated](https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated) | Deprecated | GitHub deprecated several Copilot models across all Copilot experiences on October 2, 2026. The change applies to Copilot Chat, inline edits, ask and agent modes, and code completions. |
+| 2026-10-02 | [Copilot code review: API support and new default effort level](https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level) | Update | GitHub Copilot code review can now be requested through both the REST and GraphQL APIs, and each request can specify an effort level. The default effort level has changed to Balanced. |
