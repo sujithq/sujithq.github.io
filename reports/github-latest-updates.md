@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-02
+post_date: 2026-10-05
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1211,5 +1211,8 @@ completed deprecation is shown.
 | 2026-10-02 | [Confidential comments on repository security advisories](https://github.blog/changelog/2026-10-02-confidential-comments-on-repository-security-advisories) | Update | GitHub now supports confidential comments on repository security advisories. These comments are visible only to users with write access to the repository, allowing private discussion of a report. |
 | 2026-10-02 | [New fields for SecurityAdvisory GraphQL API](https://github.blog/changelog/2026-10-02-new-fields-for-securityadvisory-graphql-api) | Update | GitHub added five new fields to the SecurityAdvisory GraphQL object, allowing more of the GitHub Advisory Database to be read directly through GraphQL instead of using the REST API. The changelog notes one of the new fields as cveId. |
 | 2026-10-02 | [Selected models in GitHub Copilot deprecated](https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated) | Deprecated | GitHub deprecated several Copilot models across all Copilot experiences on October 2, 2026. The change applies to Copilot Chat, inline edits, ask and agent modes, and code completions. |
+| 2026-10-02 | [npm staged publishing now supports creating new packages](https://github.blog/changelog/2026-10-02-npm-staged-publishing-now-supports-creating-new-packages) | Update | npm staged publishing now supports creating new packages. You can create a new package with `npm stage publish` using either a local session or a granular access token, including a stage-only token. |
+| 2026-10-02 | [Unvalidated npm trusted publishing configurations now expire](https://github.blog/changelog/2026-10-02-unvalidated-npm-trusted-publishing-configurations-now-expire) | Update | Unvalidated npm trusted publishing configurations now expire 48 hours after creation and can no longer authorize publishing. This reduces the risk of a repository or project name changing after the configuration is created. |
 | 2026-10-02 | [Copilot code review: API support and new default effort level](https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level) | Update | GitHub Copilot code review can now be requested through both the REST and GraphQL APIs, and each request can specify an effort level. The default effort level has changed to Balanced. |
 | 2026-10-02 | [Stateless GitHub App installation tokens rolled out](https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out) | Update | GitHub has completed the staged rollout of the stateless GitHub App installation token format. By default, newly minted installation tokens now use the new format. |
+| 2026-10-05 | [Secret scanning adds detectors for Lovable, Supabase, and more](https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more) | Update | GitHub Secret Scanning added new detectors for secrets from Lovable Labs, Pydantic Services Inc., and Supabase. A new provider also joined the secret scanning partnership program. |
