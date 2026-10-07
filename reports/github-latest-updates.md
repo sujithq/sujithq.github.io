@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-05
+post_date: 2026-10-06
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1216,3 +1216,6 @@ completed deprecation is shown.
 | 2026-10-02 | [Copilot code review: API support and new default effort level](https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level) | Update | GitHub Copilot code review can now be requested through both the REST and GraphQL APIs, and each request can specify an effort level. The default effort level has changed to Balanced. |
 | 2026-10-02 | [Stateless GitHub App installation tokens rolled out](https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out) | Update | GitHub has completed the staged rollout of the stateless GitHub App installation token format. By default, newly minted installation tokens now use the new format. |
 | 2026-10-05 | [Secret scanning adds detectors for Lovable, Supabase, and more](https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more) | Update | GitHub Secret Scanning added new detectors for secrets from Lovable Labs, Pydantic Services Inc., and Supabase. A new provider also joined the secret scanning partnership program. |
+| 2026-10-06 | [Code scanning AI Scan enablement status in security overview](https://github.blog/changelog/2026-10-06-code-scanning-ai-scan-enablement-status-in-security-overview) | Update | GitHub added AI Scan for pull requests enablement status to the security overview coverage view for organizations and enterprises. The code scanning summary now indicates which repositories have AI Scan enabled or not enabled. |
+| 2026-10-06 | [Stacked pull requests generally available](https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available) | Generally available | GitHub stacked pull requests are now generally available. The feature lets you split large changes into smaller, focused pull requests that can be reviewed independently and merged together. |
+| 2026-10-06 | [Update your IDE to restore agent activity in Copilot usage metrics](https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics) | Update | GitHub says some Copilot usage metrics showed declining agent activity and agent lines of code even as overall usage increased because of an IDE-related issue. A fix is rolling out, and users should update their IDE to restore correct agent activity reporting. |

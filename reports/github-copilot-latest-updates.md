@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-10-02
+post_date: 2026-10-06
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -575,3 +575,4 @@ completed deprecation is shown.
 | 2026-10-01 | [GitHub Copilot can now interact with desktop apps with computer use](https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps) | Update | GitHub Copilot computer use is now in public preview in Copilot CLI and the Copilot app on macOS and Windows. It can interact with desktop applications on the user’s behalf. |
 | 2026-10-02 | [Selected models in GitHub Copilot deprecated](https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated) | Deprecated | GitHub deprecated several Copilot models across all Copilot experiences on October 2, 2026. The change applies to Copilot Chat, inline edits, ask and agent modes, and code completions. |
 | 2026-10-02 | [Copilot code review: API support and new default effort level](https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level) | Update | GitHub Copilot code review can now be requested through both the REST and GraphQL APIs, and each request can specify an effort level. The default effort level has changed to Balanced. |
+| 2026-10-06 | [Update your IDE to restore agent activity in Copilot usage metrics](https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics) | Update | GitHub says some Copilot usage metrics showed declining agent activity and agent lines of code even as overall usage increased because of an IDE-related issue. A fix is rolling out, and users should update their IDE to restore correct agent activity reporting. |
