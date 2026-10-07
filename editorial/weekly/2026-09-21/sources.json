@@ -1,0 +1,153 @@
+{
+  "edition_date": "2026-09-21",
+  "outcome": "packet",
+  "reporting_period": {
+    "timezone": "Europe/Paris",
+    "start_inclusive": "2026-09-14T00:00:00+02:00",
+    "end_exclusive": "2026-09-21T00:00:00+02:00"
+  },
+  "source_coverage": {
+    "required": ["github-changelog", "azure-updates", "microsoft-learn", "azure-devops-blog"],
+    "reached": ["github-changelog", "azure-updates", "microsoft-learn", "azure-devops-blog", "docs-github", "vscode-updates"],
+    "failed": []
+  },
+  "sources": [
+    {
+      "id": "gh-workflow-exec-protections",
+      "title": "Workflow execution protections in GitHub Actions generally available",
+      "url": "https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-17",
+      "accessed": "2026-09-21"
+    },
+    {
+      "id": "gh-enforce-advanced-security",
+      "title": "Enforce GitHub Advanced Security configurations",
+      "url": "https://github.blog/changelog/2026-09-15-enforce-github-advanced-security-configurations",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-15",
+      "accessed": "2026-09-21"
+    },
+    {
+      "id": "gh-copilot-budget-increase",
+      "title": "Copilot budget increase requests are generally available",
+      "url": "https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-16",
+      "accessed": "2026-09-21"
+    },
+    {
+      "id": "azure-foundry-egress-controls",
+      "title": "Public Preview: Network egress controls for hosted agents in Microsoft Foundry",
+      "url": "https://azure.microsoft.com/updates?id=571821",
+      "publisher": "Azure Updates",
+      "published": "2026-09-18",
+      "accessed": "2026-09-21"
+    },
+    {
+      "id": "azure-foundry-agent365-controls",
+      "title": "Generally Available: Enable and disable controls for Microsoft Foundry agents in Agent 365",
+      "url": "https://azure.microsoft.com/updates?id=571826",
+      "publisher": "Azure Updates",
+      "published": "2026-09-18",
+      "accessed": "2026-09-21"
+    },
+    {
+      "id": "azure-postgresql-mcp-skills",
+      "title": "Public Preview: PostgreSQL skills and MCP plugin for Azure Database for PostgreSQL",
+      "url": "https://azure.microsoft.com/updates?id=569664",
+      "publisher": "Azure Updates",
+      "published": "2026-09-16",
+      "accessed": "2026-09-21"
+    },
+    {
+      "id": "azure-rss-feed",
+      "title": "Azure service updates RSS feed (weekly crawl)",
+      "url": "https://www.microsoft.com/releasecommunications/api/v2/azure/rss",
+      "publisher": "Azure Updates",
+      "published": "2026-09-18",
+      "accessed": "2026-09-21"
+    },
+    {
+      "id": "gh-docs-homepage",
+      "title": "GitHub Docs homepage (source-reachability check)",
+      "url": "https://docs.github.com/",
+      "publisher": "GitHub Docs",
+      "published": "2026-09-21",
+      "accessed": "2026-09-21"
+    },
+    {
+      "id": "azure-devops-blog-feed",
+      "title": "Azure DevOps Blog (no new posts within reporting period; latest post September 10, 2026)",
+      "url": "https://devblogs.microsoft.com/devops/feed/",
+      "publisher": "Azure DevOps Blog",
+      "published": "2026-09-10",
+      "accessed": "2026-09-21"
+    },
+    {
+      "id": "vscode-updates-sept",
+      "title": "Visual Studio Code September 2026 release notes",
+      "url": "https://code.visualstudio.com/updates",
+      "publisher": "VS Code Release Notes",
+      "published": "2026-09-01",
+      "accessed": "2026-09-21"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "Workflow execution protections for GitHub Actions, previously in public preview, became generally available for GitHub Enterprise, organizations, and repositories on 2026-09-17.",
+      "type": "verified",
+      "source_ids": ["gh-workflow-exec-protections"]
+    },
+    {
+      "claim": "General availability of workflow execution protections adds workflow file targeting, insights for auditing rule impact, and a REST API to manage execution protections as code.",
+      "type": "verified",
+      "source_ids": ["gh-workflow-exec-protections"]
+    },
+    {
+      "claim": "Workflow execution protections address pull_request_target vulnerabilities such as Pwn Requests through new secure defaults.",
+      "type": "verified",
+      "source_ids": ["gh-workflow-exec-protections"]
+    },
+    {
+      "claim": "Enterprise administrators can now enforce GitHub Advanced Security configurations so organization and repository administrators cannot override enterprise-level settings, with three enforcement levels available.",
+      "type": "verified",
+      "source_ids": ["gh-enforce-advanced-security"]
+    },
+    {
+      "claim": "GitHub Copilot budget increase requests are generally available for Copilot Business and Enterprise plans under usage-based billing, letting members request more budget on hitting a limit and owners approve or adjust it in place; the feature is unavailable for enterprises with managed users.",
+      "type": "verified",
+      "source_ids": ["gh-copilot-budget-increase"]
+    },
+    {
+      "claim": "Microsoft Foundry added a public preview of network egress controls for hosted agents, announced 2026-09-18.",
+      "type": "verified",
+      "source_ids": ["azure-foundry-egress-controls"]
+    },
+    {
+      "claim": "Enable and disable controls for Microsoft Foundry agents in Agent 365 reached general availability on 2026-09-18.",
+      "type": "verified",
+      "source_ids": ["azure-foundry-agent365-controls"]
+    },
+    {
+      "claim": "A public preview of PostgreSQL skills and an MCP plugin for Azure Database for PostgreSQL was announced 2026-09-16.",
+      "type": "verified",
+      "source_ids": ["azure-postgresql-mcp-skills"]
+    },
+    {
+      "claim": "The Azure DevOps Blog published no new posts inside the 2026-09-14 to 2026-09-20 reporting window; its most recent post was published 2026-09-10.",
+      "type": "verified",
+      "source_ids": ["azure-devops-blog-feed"]
+    },
+    {
+      "claim": "GitHub Copilot budget increase requests overlap closely with the existing 2026-09-13 GitHub Copilot FinOps blog post, reducing the novelty of a dedicated article on that topic this week.",
+      "type": "recommendation",
+      "source_ids": ["gh-copilot-budget-increase"]
+    },
+    {
+      "claim": "Workflow execution protections GA is the strongest candidate for a full article this week because it combines high enterprise impact, direct CSA relevance to DevOps governance, and strong novelty versus existing blog coverage.",
+      "type": "recommendation",
+      "source_ids": ["gh-workflow-exec-protections"]
+    }
+  ]
+}
