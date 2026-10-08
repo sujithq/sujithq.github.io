@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-06
+post_date: 2026-10-07
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1219,3 +1219,7 @@ completed deprecation is shown.
 | 2026-10-06 | [Code scanning AI Scan enablement status in security overview](https://github.blog/changelog/2026-10-06-code-scanning-ai-scan-enablement-status-in-security-overview) | Update | GitHub added AI Scan for pull requests enablement status to the security overview coverage view for organizations and enterprises. The code scanning summary now indicates which repositories have AI Scan enabled or not enabled. |
 | 2026-10-06 | [Stacked pull requests generally available](https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available) | Generally available | GitHub stacked pull requests are now generally available. The feature lets you split large changes into smaller, focused pull requests that can be reviewed independently and merged together. |
 | 2026-10-06 | [Update your IDE to restore agent activity in Copilot usage metrics](https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics) | Update | GitHub says some Copilot usage metrics showed declining agent activity and agent lines of code even as overall usage increased because of an IDE-related issue. A fix is rolling out, and users should update their IDE to restore correct agent activity reporting. |
+| 2026-10-07 | [Discover local models in GitHub Copilot CLI](https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli) | Update | GitHub Copilot CLI version 1.0.94-0 adds a /model command so you can discover supported local models from within the CLI instead of leaving your workflow. |
+| 2026-10-07 | [Local sandboxing for GitHub Copilot now generally available](https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available) | Generally available | Local sandboxing for GitHub Copilot is now generally available. It is supported in GitHub Copilot CLI, the GitHub Copilot app, and VS Code sessions using Agent Host. |
+| 2026-10-07 | [Purpose-built model for leaked secret detection](https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection) | Update | GitHub announced a new purpose-built, context-aware model for leaked secret detection as part of Secret Protection. It is intended to improve secret detection in code workflows, including those that involve AI agents. |
+| 2026-10-07 | [Claude Haiku 5.5 in GitHub Copilot](https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot) | Update | Claude Haiku 5.5 is now generally available in GitHub Copilot. GitHub describes it as a lightweight model for fast, high-volume tasks such as subagents, quick edits, and terminal work. |

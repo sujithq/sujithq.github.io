@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-10-06
+post_date: 2026-10-07
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -576,3 +576,6 @@ completed deprecation is shown.
 | 2026-10-02 | [Selected models in GitHub Copilot deprecated](https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated) | Deprecated | GitHub deprecated several Copilot models across all Copilot experiences on October 2, 2026. The change applies to Copilot Chat, inline edits, ask and agent modes, and code completions. |
 | 2026-10-02 | [Copilot code review: API support and new default effort level](https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level) | Update | GitHub Copilot code review can now be requested through both the REST and GraphQL APIs, and each request can specify an effort level. The default effort level has changed to Balanced. |
 | 2026-10-06 | [Update your IDE to restore agent activity in Copilot usage metrics](https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics) | Update | GitHub says some Copilot usage metrics showed declining agent activity and agent lines of code even as overall usage increased because of an IDE-related issue. A fix is rolling out, and users should update their IDE to restore correct agent activity reporting. |
+| 2026-10-07 | [Discover local models in GitHub Copilot CLI](https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli) | Update | GitHub Copilot CLI version 1.0.94-0 adds a /model command so you can discover supported local models from within the CLI instead of leaving your workflow. |
+| 2026-10-07 | [Local sandboxing for GitHub Copilot now generally available](https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available) | Generally available | Local sandboxing for GitHub Copilot is now generally available. It is supported in GitHub Copilot CLI, the GitHub Copilot app, and VS Code sessions using Agent Host. |
+| 2026-10-07 | [Claude Haiku 5.5 in GitHub Copilot](https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot) | Update | Claude Haiku 5.5 is now generally available in GitHub Copilot. GitHub describes it as a lightweight model for fast, high-volume tasks such as subagents, quick edits, and terminal work. |
