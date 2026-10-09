@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-07
+post_date: 2026-10-08
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1223,3 +1223,6 @@ completed deprecation is shown.
 | 2026-10-07 | [Local sandboxing for GitHub Copilot now generally available](https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available) | Generally available | Local sandboxing for GitHub Copilot is now generally available. It is supported in GitHub Copilot CLI, the GitHub Copilot app, and VS Code sessions using Agent Host. |
 | 2026-10-07 | [Purpose-built model for leaked secret detection](https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection) | Update | GitHub announced a new purpose-built, context-aware model for leaked secret detection as part of Secret Protection. It is intended to improve secret detection in code workflows, including those that involve AI agents. |
 | 2026-10-07 | [Claude Haiku 5.5 in GitHub Copilot](https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot) | Update | Claude Haiku 5.5 is now generally available in GitHub Copilot. GitHub describes it as a lightweight model for fast, high-volume tasks such as subagents, quick edits, and terminal work. |
+| 2026-10-08 | [Draft pull requests count toward pull request limits](https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits) | Update | GitHub now lets repository maintainers configure pull request limits so draft pull requests are counted too. Before this change, draft PRs were excluded from those limits. |
+| 2026-10-08 | [Screen readers can navigate timelines as lists](https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists) | Update | GitHub issue and pull request timelines are now exposed to screen readers as lists. Assistive technology can announce the list structure, item count, and current position while users move through a timeline. |
+| 2026-10-08 | [Triage role users or higher can now archive pull requests](https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests) | Update | GitHub now allows users with the triage role or higher to archive and unarchive pull requests. Before this change, only repository administrators could perform this action. |
