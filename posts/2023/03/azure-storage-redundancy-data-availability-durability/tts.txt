@@ -1,0 +1,43 @@
+Azure Storage automatically stores multiple copies of your data to protect against failures, power outages, and even massive natural disasters. Redundancy ensures that your data remains available and durable even when failures occur.
+
+This guide covers all redundancy options available in Azure Storage and how they impact data durability, availability, and failover scenarios.
+
+Primary Region Redundancy
+Azure Storage always maintains three copies of your data in the primary region. There are two replication options:
+- LRS (Locally Redundant Storage): Synchronously copies your data three times within a single physical location in the primary region. Lowest-cost option. Not recommended for applications requiring high availability.
+- ZRS (Zone-Redundant Storage): Synchronously replicates data across three availability zones within the primary region. Recommended for high-availability applications. Protects against data center failures.
+
+Secondary Region Redundancy (Geo-Redundancy)
+For higher durability, Azure allows replicating data to a secondary region, located hundreds of miles away from the primary region. When creating a storage account, you select the primary region, and Azure assigns a paired secondary region (which cannot be changed).
+Azure Storage provides two geo-redundancy options:
+- GRS (Geo-Redundant Storage): Synchronously (LRS) within the primary region, asynchronously to a single physical location in the secondary region. Protects against regional outages. Data in the secondary region is not readable unless failover occurs.
+- GZRS (Geo-Zone-Redundant Storage): Synchronously (ZRS) replicates across three availability zones in the primary region, asynchronously copies to a single location in the secondary region. Best for mission-critical applications. Protects against both zonal & regional failures.
+
+Read Access to Secondary Region
+By default, GRS and GZRS replicate data to a secondary region but do not allow direct access. If your application requires read access to the secondary region during a primary region outage, you can enable:
+- RA-GRS (Read-Access Geo-Redundant Storage)
+- RA-GZRS (Read-Access Geo-Zone-Redundant Storage)
+Data can be read from the secondary region. Secondary region lags behind the primary (async replication). In a disaster scenario, some data might be lost since replication to the secondary region is asynchronous.
+
+Comparison: Durability & Availability
+Durability & Availability Parameters:
+- LRS: ≥ 11 9's durability, ≥ 99.9% availability (99% for Cool/Archive), 3 copies (single location)
+- ZRS: ≥ 12 9's durability, ≥ 99.9% availability (99% for Cool/Archive), 3 copies (across zones)
+- (RA-)GRS: ≥ 16 9's durability, ≥ 99.9% for GRS / 99.99% for RA-GRS availability, 6 copies (3 primary + 3 secondary)
+- (RA-)GZRS: ≥ 16 9's durability, ≥ 99.9% for GZRS / 99.99% for RA-GZRS availability, 6 copies (ZRS primary + LRS secondary)
+
+Availability Based on Outage Scenarios:
+- Node failure within a data center: LRS, ZRS, (RA-)GRS, (RA-)GZRS all protected
+- Single data center failure: ZRS, (RA-)GRS, (RA-)GZRS protected
+- Primary region failure (regional outage): (RA-)GRS, (RA-)GZRS protected
+- Read access to secondary during primary outage: RA-GRS, RA-GZRS protected
+
+Which Azure Storage Redundancy Should You Choose?
+- Cost-sensitive workloads, backups, non-critical data: LRS
+- High availability within the primary region: ZRS
+- Disaster recovery and regional failover protection: GRS
+- Mission-critical workloads requiring both zonal & regional protection: GZRS
+- Applications requiring immediate read access to secondary: RA-GRS / RA-GZRS
+
+Final Thoughts
+Azure Storage offers multiple redundancy options to ensure data durability and availability. Choosing the right replication strategy depends on business requirements, cost considerations, and read requirements. For mission-critical applications, GZRS (or RA-GZRS) is best. Otherwise, ZRS or GRS might be sufficient depending on your redundancy needs.
