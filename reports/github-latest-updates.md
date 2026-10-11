@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-09
+post_date: 2026-10-10
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1228,3 +1228,4 @@ completed deprecation is shown.
 | 2026-10-08 | [Copilot code review: New organization billing options and controls](https://github.blog/changelog/2026-10-08-copilot-code-review-new-organization-billing-options-and-controls) | Update | GitHub added billing and license controls for Copilot code review at the organization level. Organization owners can now bill code review usage to the org for members with Copilot licenses and manage related controls. |
 | 2026-10-09 | [CodeQL 2.27.2 improves C++, Go, Rust, and JavaScript analysis](https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis) | Update | CodeQL 2.27.2 is available with a new C++ regular-expression parser and analysis improvements for C++, Go, Rust, and JavaScript. The update applies to the static analysis engine used by GitHub code scanning. |
 | 2026-10-09 | [GitHub Copilot weekly releases — October 5](https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5) | Update | GitHub Copilot’s weekly release note says this update improves cross-account and cross-environment use, while adding more control over agent access and work management. The excerpt also references GitHub Copilot Claude Haiku, but no further details are included. |
+| 2026-10-10 | [New controls and chat improvements in Copilot for JetBrains](https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains) | Update | GitHub Copilot for JetBrains now lets users control the default model and MCP server, and includes updates that make diagnostics easier to resolve. The release also improves chat navigation and account controls. |
