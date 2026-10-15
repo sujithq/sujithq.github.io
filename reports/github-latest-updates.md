@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-14
+post_date: 2026-10-15
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1242,3 +1242,8 @@ completed deprecation is shown.
 | 2026-10-13 | [GitHub App improvements for least privilege and management](https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management) | Update | GitHub released several GitHub App changes aimed at reducing reliance on classic PATs, improving app management, and helping apps request fewer sensitive permissions. The post indicates additional usability improvements for managing GitHub Apps, but the excerpt does not include the full list of changes. |
 | 2026-10-14 | [GitHub Actions workflow lockfiles in public preview](https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview) | Public preview | GitHub Actions workflow dependency lockfiles are now in public preview for GitHub Enterprise Cloud, GitHub Enterprise Cloud with data residency, Team, and Free plans. They let workflows pin dependencies more reliably even if tags or branches later move. |
 | 2026-10-14 | [HydraFusion updates and new Max option](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option) | Update | HydraFusion now has an updated model pool and improved orchestration workflows. A new HydraFusion Max option is also available, with both offerings supported in VS Code, the GitHub Copilot app, and GitHub Copilot. |
+| 2026-10-15 | [Email notifications for repository push events have been retired](https://github.blog/changelog/2026-10-15-email-notifications-for-repository-push-events-have-been-retired) | Update | As of October 15, 2026, GitHub no longer sends email notifications for repository push events. The feature was retired to help prevent spam and abuse. |
+| 2026-10-15 | [Agentic autofix for code scanning alerts general availability](https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability) | Update | Agentic autofix for code scanning alerts is now generally available. It can investigate relevant files across a codebase and propose fixes for alerts in a developer-like workflow. |
+| 2026-10-15 | [AI Scan for pull requests generally available](https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available) | Generally available | AI Scan for pull requests is now generally available in code scanning. It complements CodeQL by detecting vulnerabilities in pull request changes for languages and frameworks not currently covered by CodeQL. |
+| 2026-10-15 | [Upcoming deprecation of selected GitHub Copilot models in mid-November](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november) | Upcoming deprecation | GitHub will deprecate several Copilot models on November 16, 2026. The change applies across Copilot Chat, inline edits, ask and agent modes, and code completions. |
+| 2026-10-15 | [Download GitHub Code Quality license usage as a CSV](https://github.blog/changelog/2026-10-15-download-github-code-quality-license-usage-as-a-csv) | Update | GitHub Code Quality now lets administrators download a CSV report of license usage to reconcile license counts with internal records. The report lists each active committer covered by the license usage data. |

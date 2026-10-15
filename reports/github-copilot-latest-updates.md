@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-10-14
+post_date: 2026-10-15
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -585,3 +585,4 @@ completed deprecation is shown.
 | 2026-10-13 | [Enterprise managed settings enforcement updates](https://github.blog/changelog/2026-10-13-enterprise-managed-settings-enforcement-updates) | Update | Enterprise admins can now require supported GitHub Copilot clients to fetch current server-managed settings at startup rather than using cached policy. GitHub is also adding minimum client version enforcement. |
 | 2026-10-13 | [Gemini 4 Argon in GitHub Copilot](https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot) | Update | Gemini 4 Argon is now generally available in GitHub Copilot. GitHub says it is intended for complex coding, agentic, and reasoning tasks. |
 | 2026-10-14 | [HydraFusion updates and new Max option](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option) | Update | HydraFusion now has an updated model pool and improved orchestration workflows. A new HydraFusion Max option is also available, with both offerings supported in VS Code, the GitHub Copilot app, and GitHub Copilot. |
+| 2026-10-15 | [Upcoming deprecation of selected GitHub Copilot models in mid-November](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november) | Upcoming deprecation | GitHub will deprecate several Copilot models on November 16, 2026. The change applies across Copilot Chat, inline edits, ask and agent modes, and code completions. |
