@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-10-13
+post_date: 2026-10-14
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -584,3 +584,4 @@ completed deprecation is shown.
 | 2026-10-12 | [Client telemetry user attribution and configurable capture](https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture) | Update | Enterprise administrators can now attribute GitHub Copilot activity to a user in managed settings without collecting prompts, responses, or tool content. A new `telemetry.capture.identity` setting provides configurable client telemetry capture options. |
 | 2026-10-13 | [Enterprise managed settings enforcement updates](https://github.blog/changelog/2026-10-13-enterprise-managed-settings-enforcement-updates) | Update | Enterprise admins can now require supported GitHub Copilot clients to fetch current server-managed settings at startup rather than using cached policy. GitHub is also adding minimum client version enforcement. |
 | 2026-10-13 | [Gemini 4 Argon in GitHub Copilot](https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot) | Update | Gemini 4 Argon is now generally available in GitHub Copilot. GitHub says it is intended for complex coding, agentic, and reasoning tasks. |
+| 2026-10-14 | [HydraFusion updates and new Max option](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option) | Update | HydraFusion now has an updated model pool and improved orchestration workflows. A new HydraFusion Max option is also available, with both offerings supported in VS Code, the GitHub Copilot app, and GitHub Copilot. |

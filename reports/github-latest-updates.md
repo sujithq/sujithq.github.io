@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-13
+post_date: 2026-10-14
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1240,3 +1240,5 @@ completed deprecation is shown.
 | 2026-10-13 | [Audit GitHub Code Quality finding dismissals and reopenings](https://github.blog/changelog/2026-10-13-audit-github-code-quality-finding-dismissals-and-reopenings) | Update | GitHub audit logs now include manual dismissals and reopenings of GitHub Code Quality findings at the organization or enterprise level. This lets admins review actions on findings that appear in a repository’s default-branch backlog or other Code Quality views. |
 | 2026-10-13 | [Gemini 4 Argon in GitHub Copilot](https://github.blog/changelog/2026-10-13-gemini-4-argon-in-github-copilot) | Update | Gemini 4 Argon is now generally available in GitHub Copilot. GitHub says it is intended for complex coding, agentic, and reasoning tasks. |
 | 2026-10-13 | [GitHub App improvements for least privilege and management](https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management) | Update | GitHub released several GitHub App changes aimed at reducing reliance on classic PATs, improving app management, and helping apps request fewer sensitive permissions. The post indicates additional usability improvements for managing GitHub Apps, but the excerpt does not include the full list of changes. |
+| 2026-10-14 | [GitHub Actions workflow lockfiles in public preview](https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview) | Public preview | GitHub Actions workflow dependency lockfiles are now in public preview for GitHub Enterprise Cloud, GitHub Enterprise Cloud with data residency, Team, and Free plans. They let workflows pin dependencies more reliably even if tags or branches later move. |
+| 2026-10-14 | [HydraFusion updates and new Max option](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option) | Update | HydraFusion now has an updated model pool and improved orchestration workflows. A new HydraFusion Max option is also available, with both offerings supported in VS Code, the GitHub Copilot app, and GitHub Copilot. |
