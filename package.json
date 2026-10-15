@@ -57,7 +57,7 @@
     "swiper": "^14.2.0"
   },
   "overrides": {
-    "dompurify": "^3.4.14",
+    "dompurify": "^3.4.16",
     "js-yaml": "^4.3.2"
   }
 }
