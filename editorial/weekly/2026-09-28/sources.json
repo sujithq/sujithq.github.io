@@ -1,0 +1,119 @@
+{
+  "edition_date": "2026-09-28",
+  "outcome": "packet",
+  "reporting_period": {
+    "timezone": "Europe/Paris",
+    "start_inclusive": "2026-09-21T00:00:00+02:00",
+    "end_exclusive": "2026-09-28T00:00:00+02:00"
+  },
+  "source_coverage": {
+    "required": ["github-changelog", "azure-updates", "microsoft-learn", "azure-devops-blog"],
+    "reached": ["github-changelog", "azure-updates", "microsoft-learn", "azure-devops-blog", "vscode-updates", "github-docs"],
+    "failed": []
+  },
+  "sources": [
+    {
+      "id": "gh-proof-of-presence",
+      "title": "Require proof of presence for high-impact actions",
+      "url": "https://github.blog/changelog/2026-09-24-require-proof-of-presence-for-high-impact-actions",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-24",
+      "accessed": "2026-09-28"
+    },
+    {
+      "id": "gh-local-sandboxing",
+      "title": "Local sandboxing in the GitHub Copilot app",
+      "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-23",
+      "accessed": "2026-09-28"
+    },
+    {
+      "id": "gh-otel-copilot",
+      "title": "OpenTelemetry in the GitHub Copilot app",
+      "url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-22",
+      "accessed": "2026-09-28"
+    },
+    {
+      "id": "gh-credential-inventory",
+      "title": "GitHub Enterprise adds credential inventory exports",
+      "url": "https://github.blog/changelog/2026-09-21-github-enterprise-adds-credential-inventory-exports",
+      "publisher": "GitHub Changelog",
+      "published": "2026-09-21",
+      "accessed": "2026-09-28"
+    },
+    {
+      "id": "vscode-1-139",
+      "title": "Visual Studio Code 1.139: agent sessions in Dev Containers on remote hosts",
+      "url": "https://code.visualstudio.com/updates",
+      "publisher": "VS Code release notes",
+      "published": "2026-09-23",
+      "accessed": "2026-09-28"
+    },
+    {
+      "id": "azure-updates-rss",
+      "title": "Azure service updates RSS feed (reviewed for the reporting period)",
+      "url": "https://www.microsoft.com/releasecommunications/api/v2/azure/rss",
+      "publisher": "Azure Updates",
+      "published": "2026-09-25",
+      "accessed": "2026-09-28"
+    },
+    {
+      "id": "azure-devops-blog-checked",
+      "title": "Azure DevOps Blog (checked, no post published in the reporting period)",
+      "url": "https://devblogs.microsoft.com/devops/",
+      "publisher": "Azure DevOps Blog",
+      "published": "2026-08-27",
+      "accessed": "2026-09-28"
+    }
+  ],
+  "claims": [
+    {
+      "claim": "GitHub added a public preview feature requiring proof of presence (interactive re-authentication or MFA via the enterprise's IdP) before high-impact actions on EMU enterprises using Microsoft Entra ID, announced 24 September 2026.",
+      "type": "verified",
+      "source_ids": ["gh-proof-of-presence"]
+    },
+    {
+      "claim": "Proof of presence sessions remain valid for two hours after a successful challenge, and support for gating pull request merges is planned but not yet available.",
+      "type": "verified",
+      "source_ids": ["gh-proof-of-presence"]
+    },
+    {
+      "claim": "GitHub Copilot app now supports local sandboxing to limit agent access to files, network resources and credentials, configured per project, announced 23 September 2026.",
+      "type": "verified",
+      "source_ids": ["gh-local-sandboxing"]
+    },
+    {
+      "claim": "GitHub Copilot app now supports OpenTelemetry configuration through enterprise-managed settings, generally available as of 22 September 2026.",
+      "type": "verified",
+      "source_ids": ["gh-otel-copilot"]
+    },
+    {
+      "claim": "GitHub Enterprise owners can now export a complete inventory of credentials able to access the enterprise, generally available as of 21 September 2026.",
+      "type": "verified",
+      "source_ids": ["gh-credential-inventory"]
+    },
+    {
+      "claim": "VS Code 1.139 (released 23 September 2026) added the ability to run agent sessions inside a project's Dev Container on SSH, Tunnel and WSL remote hosts.",
+      "type": "verified",
+      "source_ids": ["vscode-1-139"]
+    },
+    {
+      "claim": "No Azure DevOps Blog post was published inside the reporting period; the two most recent posts found were dated 5 August 2026 and 27 August 2026.",
+      "type": "verified",
+      "source_ids": ["azure-devops-blog-checked"]
+    },
+    {
+      "claim": "Azure Updates RSS did not surface a CSA-priority announcement inside the reporting period that outranked the GitHub Changelog candidates; the most recent relevant preview items reviewed were dated 21 to 25 September 2026 and covered infrastructure/database services outside this week's editorial focus.",
+      "type": "recommendation",
+      "source_ids": ["azure-updates-rss"]
+    },
+    {
+      "claim": "Proof of presence is the strongest candidate for a full article this week because it has the highest combined enterprise impact, CSA relevance, security/governance and novelty scores among verified candidates.",
+      "type": "recommendation",
+      "source_ids": ["gh-proof-of-presence", "gh-local-sandboxing", "gh-otel-copilot", "gh-credential-inventory"]
+    }
+  ]
+}
