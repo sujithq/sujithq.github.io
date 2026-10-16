@@ -43,6 +43,21 @@
     "Name": "Microsoft Command Line Blog",
     "Category": "commandline",
     "Url": "https://commandline.microsoft.com/feed"
+  },
+  {
+    "Name": "VS Code Updates and Blog",
+    "Category": "vscode",
+    "Url": "https://code.visualstudio.com/feed.xml"
+  },
+  {
+    "Name": "GitHub Copilot CLI releases",
+    "Category": "copilot-cli",
+    "Url": "https://github.com/github/copilot-cli/releases.atom",
+    "ExcludeTitlePattern": "-\\d+$"
+  },
+  {
+    "Name": "Visual Studio Blog",
+    "Category": "visualstudio",
+    "Url": "https://devblogs.microsoft.com/visualstudio/feed/"
   }
-
 ]

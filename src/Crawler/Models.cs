@@ -81,6 +81,8 @@ public class FeedEntry
   public string Name { get; set; } = string.Empty;
   public string Url { get; set; } = string.Empty;
   public string Category { get; set; } = string.Empty;
+  // Optional case-insensitive regex; matching item titles are skipped (for example pre-release tags).
+  public string? ExcludeTitlePattern { get; set; }
 }
 
 public class LlmOutput

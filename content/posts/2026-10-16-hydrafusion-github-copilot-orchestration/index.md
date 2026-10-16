@@ -2,7 +2,7 @@
 title = '🐉 Using HydraFusion Across Copilot Surfaces'
 slug = 'hydrafusion-github-copilot-orchestration'
 date = '2026-10-16 00:00:00+02:00'
-lastmod = '2026-10-16 00:00:00+02:00'
+lastmod = '2026-10-16 07:50:00+02:00'
 draft = false
 tags = [
   "GitHub",
@@ -27,6 +27,7 @@ layout = "single"
 [params]
     cover = true
     author = "sujith"
+    living = true
     cover_prompt = '''A clean, modern technical illustration of multi-model orchestration for AI-assisted coding.
     Show a central orchestrator hub shaped like a geometric multi-headed node that routes a single coding task into three parallel workflow lanes: a single straight path, a cascade path with a quality gate that escalates to a larger model node, and a critique path where one drafting node is reviewed by several smaller reviewer nodes whose feedback merges back into one refined output.
     Place three subtle surface frames at the edges: a terminal window, a code editor panel, and a desktop app window, each connected to the hub by thin glowing lines.
@@ -42,6 +43,24 @@ Picking a model used to be the last decision you made before pressing Enter. The
 HydraFusion is documented under GitHub's early-access docs and is currently a **research preview**. That means no SLA, behaviour that can change, and a clear statement from GitHub that it is not intended for production workloads. It is still very usable for real coding tasks today, as long as you understand how it spends AI credits and where it is (and is not) available.
 
 This post covers what HydraFusion is, how to enable it on each Copilot surface, and the limitations worth knowing before you hand it a large task.
+
+## Last verified
+
+HydraFusion changes quickly, so this is a living guide. An automated check compares it with the official documentation and the release notes of each tool, and every update is reviewed by a human before it is published. The table shows which versions the steps were last checked against.
+
+<!-- living-post:verified:start -->
+| Surface | Version reviewed | Source | Reviewed on |
+| --- | --- | --- | --- |
+| GitHub Docs | Using HydraFusion (early access) | [Docs](https://docs.github.com/en/early-access/copilot/hydrafusion) | 2026-10-16 |
+| GitHub Changelog | Up to 14 October 2026 | [Changelog](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option) | 2026-10-16 |
+| VS Code | 1.140 | [Release notes](https://code.visualstudio.com/updates/v1_140) | 2026-10-16 |
+| VS Code Insiders | Not yet recorded | [Release notes](https://code.visualstudio.com/updates) | Pending |
+| Copilot CLI | Not yet recorded | [Releases](https://github.com/github/copilot-cli/releases) | Pending |
+| Copilot app | No separate release notes | Tracked through the GitHub Changelog | 2026-10-16 |
+| Visual Studio | Not supported | [Visual Studio Blog](https://devblogs.microsoft.com/visualstudio/) | 2026-10-16 |
+<!-- living-post:verified:end -->
+
+Does a step no longer match what you see in your version? [Report an outdated step](https://github.com/sujithq/sujithq.github.io/issues/new?template=outdated-post.yml&title=%5Boutdated%5D+hydrafusion-github-copilot-orchestration&post=https%3A%2F%2Fquintelier.dev%2Fposts%2F2026%2F10%2Fhydrafusion-github-copilot-orchestration%2F) and include your tool version.
 
 ## What HydraFusion is
 
@@ -252,6 +271,10 @@ HydraFusion moves Copilot from "choose the best model" to "choose the best way t
 - Expect higher credit consumption on multi-pass patterns and review your working tree before committing.
 
 Because this is a research preview, GitHub is actively asking for feedback. Share your results, including session IDs or debug logs, in the [HydraFusion feedback discussion](https://github.com/orgs/community/discussions/206492) or through `/feedback` in Copilot CLI.
+
+## Change log
+
+- **2026-10-16**: First published. Added the "Last verified" table and automated release-note checks.
 
 ## References
 

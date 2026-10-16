@@ -7,6 +7,7 @@ using System.ServiceModel.Syndication;
 using System.Text;
 using System.Text.Json;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Xml;
 
 namespace Crawler;
@@ -119,8 +120,12 @@ public class CrawlerService
       }
 
       var cutoff = DateTimeOffset.UtcNow.AddDays(-Math.Abs(_app.fetch.maxAgeDays));
+      var excludeTitle = string.IsNullOrWhiteSpace(f.ExcludeTitlePattern)
+        ? null
+        : new Regex(f.ExcludeTitlePattern, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant, TimeSpan.FromSeconds(1));
       var items = feedItems.Where(i => (i.PublishDate != default && i.PublishDate >= cutoff) ||
                                        (i.LastUpdatedTime != default && i.LastUpdatedTime >= cutoff))
+                           .Where(i => excludeTitle is null || !excludeTitle.IsMatch(i.Title?.Text ?? string.Empty))
                            .OrderByDescending(i => i.PublishDate != default ? i.PublishDate : i.LastUpdatedTime);
       foreach (var item in items)
       {

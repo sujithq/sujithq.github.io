@@ -1,0 +1,16 @@
+{
+  "posts": {
+    "hydrafusion": {
+      "handled_item_ids": [
+        "6181910557802714A00C75E94AC67A61C313F3E9A1C997A8771BA8CC24754E1A",
+        "965246603CEEDAE486D82CD1FC8F6C42FE7A4C713173A87B5B7D9E4490B9E5F4"
+      ],
+      "handled_issue_numbers": [],
+      "page_hashes": {
+        "https://docs.github.com/en/early-access/copilot/hydrafusion": "14e887ea65a8f3d03931471d3b86d6171d7c6932e61e5ec15d38bede10f41055"
+      },
+      "verified_versions": {},
+      "last_checked": "2026-10-16"
+    }
+  }
+}

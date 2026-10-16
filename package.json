@@ -24,7 +24,7 @@
     "prebuild": "npm run clean:public && npm run sync-updates",
     "prebuild:prod": "npm run clean:public && npm run sync-updates",
     "build": "hugo -e production --gc --minify -D -F --templateMetrics --templateMetricsHints",
-    "validate-workflows": "node scripts/validate-agentic-workflow.js .github/workflows/security-advisory-responder.md && node scripts/validate-agentic-workflow.js .github/workflows/content-qa.md && node scripts/validate-agentic-workflow.js .github/workflows/weekly-csa-blog.md",
+    "validate-workflows": "node scripts/validate-agentic-workflow.js .github/workflows/security-advisory-responder.md && node scripts/validate-agentic-workflow.js .github/workflows/content-qa.md && node scripts/validate-agentic-workflow.js .github/workflows/weekly-csa-blog.md && node scripts/validate-agentic-workflow.js .github/workflows/living-post-refresh.md",
     "build:prod": "hugo -e production --gc --minify -D -F --templateMetrics --templateMetricsHints"
   },
   "keywords": [],

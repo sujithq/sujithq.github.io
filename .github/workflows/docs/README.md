@@ -34,6 +34,14 @@ An agent that researches the previous complete week of GitHub, Azure and DevOps 
 |----------|---------|
 | [WEEKLY_CSA_BLOG.md](WEEKLY_CSA_BLOG.md) | **Feature guide** - Activation, schedule, deliverables, validation and promotion |
 
+### 🔄 Living Post Refresh
+
+An agent that checks living blog posts against official release notes and documentation and proposes updates as a draft pull request.
+
+| Document | Purpose |
+|----------|---------|
+| [LIVING_POSTS.md](LIVING_POSTS.md) | **Feature guide** - Sources, activation, making a post living, limits and planned Markdown release-note support |
+
 ## 🎯 What Are Agentic Workflows?
 
 Agentic workflows are AI-powered automations that run on GitHub Actions. Unlike traditional CI/CD workflows that follow fixed scripts, agentic workflows use AI agents to make intelligent decisions, analyze complex scenarios, and take contextual actions.

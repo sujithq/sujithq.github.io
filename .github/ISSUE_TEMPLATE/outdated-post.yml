@@ -1,0 +1,35 @@
+name: Report an outdated step
+description: Tell us when a blog post no longer matches what you see in your version of a tool.
+title: "[outdated] "
+labels:
+  - outdated-post
+body:
+  - type: input
+    id: post
+    attributes:
+      label: Post URL
+      description: The blog post that is out of date.
+      placeholder: https://quintelier.dev/posts/...
+    validations:
+      required: true
+  - type: input
+    id: tool
+    attributes:
+      label: Tool and version
+      description: For example "VS Code 1.142.0", "VS Code Insiders 1.143", "Copilot CLI 1.0.98" or "Copilot app 0.12".
+    validations:
+      required: true
+  - type: textarea
+    id: difference
+    attributes:
+      label: What is different?
+      description: Which step or screenshot no longer matches, and what do you see instead?
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Release note or documentation link
+      description: Optional. A link that describes the change, if you know one.
+    validations:
+      required: false

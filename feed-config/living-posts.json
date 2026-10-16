@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": "hydrafusion",
+      "path": "content/posts/2026-10-16-hydrafusion-github-copilot-orchestration/index.md",
+      "lookback_days": 30,
+      "keywords": ["HydraFusion", "model orchestration"],
+      "categories": ["github", "vscode", "copilot-cli", "visualstudio"],
+      "watch_pages": ["https://docs.github.com/en/early-access/copilot/hydrafusion"],
+      "surfaces": [
+        {
+          "id": "vscode",
+          "label": "VS Code",
+          "category": "vscode",
+          "version_pattern": "^Visual Studio Code (\\d+\\.\\d+)$"
+        },
+        {
+          "id": "vscode-insiders",
+          "label": "VS Code Insiders",
+          "category": "vscode",
+          "version_pattern": "^Visual Studio Code (\\d+\\.\\d+) \\(Insiders\\)$"
+        },
+        {
+          "id": "copilot-cli",
+          "label": "Copilot CLI",
+          "category": "copilot-cli",
+          "version_pattern": "^v?(\\d+\\.\\d+\\.\\d+)$"
+        }
+      ]
+    }
+  ]
+}

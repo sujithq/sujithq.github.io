@@ -13,6 +13,7 @@ description: What to update when changing this repository and what done requires
 | Crawler code or project files | Crawler tests and dependency lock files when applicable |
 | A blog post | `index.md` and `cover.jpg` in the same post directory |
 | Weekly editorial automation | Workflow documentation and packet validation |
+| A living post or the living-post refresh | `feed-config/living-posts.json`, `state/living-posts.json`, `LIVING_POSTS.md`, and `living-post-refresh.js validate` |
 | Agentic workflow source | Its compiled `.lock.yml` and `npm run validate-workflows` |
 | Agent guidance | `AGENTS.md`, pointers, and scoped instructions |
 

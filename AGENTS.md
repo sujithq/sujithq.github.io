@@ -56,6 +56,7 @@ test. Run the checks relevant to the files changed.
 | Crawler code or project files | Crawler tests, `nuget.config` or lock files when dependencies change |
 | A blog post | Its `index.md`, `cover.jpg`, and post-specific images together |
 | Weekly editorial automation | `.github/workflows/docs/WEEKLY_CSA_BLOG.md` and packet validation |
+| A living post or the living-post refresh | `feed-config/living-posts.json`, `state/living-posts.json`, `.github/workflows/docs/LIVING_POSTS.md`, and `node scripts/living-post-refresh.js validate --post=<id>` |
 | Agentic workflow source | Its compiled `.lock.yml` and `npm run validate-workflows` |
 | Repository contributor guidance | This file, pointer files, and the applicable `.github/instructions/` file |
 
