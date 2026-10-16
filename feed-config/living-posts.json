@@ -12,19 +12,22 @@
           "id": "vscode",
           "label": "VS Code",
           "category": "vscode",
-          "version_pattern": "^Visual Studio Code (\\d+\\.\\d+)$"
+          "version_pattern": "^Visual Studio Code (\\d+\\.\\d+)$",
+          "release_notes_url": "https://code.visualstudio.com/updates/v{version_underscore}"
         },
         {
           "id": "vscode-insiders",
           "label": "VS Code Insiders",
           "category": "vscode",
-          "version_pattern": "^Visual Studio Code (\\d+\\.\\d+) \\(Insiders\\)$"
+          "version_pattern": "^Visual Studio Code (\\d+\\.\\d+) \\(Insiders\\)$",
+          "release_notes_url": "https://code.visualstudio.com/updates/v{version_underscore}"
         },
         {
           "id": "copilot-cli",
           "label": "Copilot CLI",
           "category": "copilot-cli",
-          "version_pattern": "^v?(\\d+\\.\\d+\\.\\d+)$"
+          "version_pattern": "^v?(\\d+\\.\\d+\\.\\d+)$",
+          "release_notes_url": "https://github.com/github/copilot-cli/releases/tag/v{version}"
         }
       ]
     }

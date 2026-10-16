@@ -67,15 +67,67 @@ from **Actions → Living Post Refresh → Run workflow**.
 3. Add a `## Change log` section with dated bullets.
 4. Add a "Report an outdated step" link to the `outdated-post.yml` issue form
    with the post slug in the title.
-5. Add the post to `feed-config/living-posts.json`.
+5. Add the post to `feed-config/living-posts.json` (see the reference below).
 6. Run `node scripts/living-post-refresh.js plan`, check that it only reports
    items the post does not cover yet, and record a baseline with
    `node scripts/living-post-refresh.js record --plan=<file> --post=<id>`.
 7. Run `node scripts/living-post-refresh.js validate --post=<id>` and
    `npm run test:unit`.
 
+## Configuration reference
+
+Nothing in the script or workflow is specific to HydraFusion: every topic is a
+`posts` entry in `feed-config/living-posts.json`.
+
+| Field | Purpose |
+|-------|---------|
+| `id` | Short identifier, used for the branch `living-post/<id>` and in the state file |
+| `path` | The post's `index.md` |
+| `keywords` | Case-insensitive terms matched against crawler item titles and summaries |
+| `categories` | Crawler categories from `feeds.json` to search for keyword matches |
+| `lookback_days` | How far back crawler items are considered (default 30) |
+| `watch_pages` | Documentation pages whose main content is fingerprinted |
+| `surfaces` | Optional tools whose new versions trigger a review |
+
+Each surface has:
+
+| Field | Purpose |
+|-------|---------|
+| `id` | Key in the state file |
+| `label` | Must match the first column of the post's "Last verified" row |
+| `category` | Crawler category whose item titles announce versions |
+| `version_pattern` | Regex with one capture group for the version, matched against item titles |
+| `release_notes_url` | Required template with `{version}` or `{version_underscore}`. Its host must be in the workflow's `network.allowed` list |
+
+Example for an Azure topic that tracks Azure Updates and Microsoft Learn:
+
+```json
+{
+  "id": "azure-container-apps",
+  "path": "content/posts/YYYY-MM-DD-azure-container-apps-guide/index.md",
+  "keywords": ["Container Apps"],
+  "categories": ["azure", "github"],
+  "watch_pages": ["https://learn.microsoft.com/en-us/azure/container-apps/overview"],
+  "surfaces": []
+}
+```
+
+### Adding a topic with new sources
+
+1. If the topic needs release notes the crawler does not collect yet, add the
+   feed to `feed-config/feeds.json` with a new `Category`. Use
+   `ExcludeTitlePattern` for noisy feeds such as nightly or pre-release tags.
+2. If its watched pages or release notes live on a host the workflow cannot
+   reach, add the host to `network.allowed` in `living-post-refresh.md` and
+   recompile with `gh aw compile living-post-refresh` (pinned `v0.89.10`).
+   A unit test fails until every configured host is allowed.
+3. Follow [Making a post living](#making-a-post-living).
+
 ## Limits
 
+- The workflow refreshes one post per run and opens at most one pull request.
+  With several living posts that change at the same time, the others are
+  picked up by the next scheduled runs.
 - The workflow only sees documented changes. A UI change that no release note
   mentions still needs a reader report through the issue form.
 - The "Last verified" table records which release notes and documentation were

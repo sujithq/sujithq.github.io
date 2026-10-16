@@ -85,6 +85,15 @@ function latestVersion(items, surface) {
   return best;
 }
 
+// {version} is the raw version and {version_underscore} replaces dots, as in VS Code's v1_142 URLs.
+// The template is required so every URL the agent fetches is known in advance and covered by the firewall.
+function releaseNotesUrl(surface, latest) {
+  if (!surface.release_notes_url) throw new UsageError(`Surface ${surface.id} needs a release_notes_url template`);
+  return surface.release_notes_url
+    .replaceAll('{version_underscore}', latest.version.replaceAll('.', '_'))
+    .replaceAll('{version}', latest.version);
+}
+
 // Normalised text of the main content, so markup or script changes do not count as edits.
 function pageFingerprint(html) {
   const main = html.match(/<main[\s\S]*?<\/main>/i);
@@ -144,7 +153,13 @@ function planPost(post, context) {
     if (!latest) continue;
     const reviewed = previous.verified_versions?.[surface.id];
     if (!reviewed || compareVersions(latest.version, reviewed) > 0) {
-      changedVersions.push({ surface: surface.id, label: surface.label, previous: reviewed || null, ...latest });
+      changedVersions.push({
+        surface: surface.id,
+        label: surface.label,
+        previous: reviewed || null,
+        ...latest,
+        release_notes: releaseNotesUrl(surface, latest),
+      });
       nextVersions[surface.id] = latest.version;
     }
   }
@@ -186,6 +201,11 @@ function planPost(post, context) {
 
 async function plan(options, fetcher = fetchFingerprint) {
   const config = readJson(options.config || DEFAULT_CONFIG, { posts: [] });
+  for (const post of config.posts) {
+    for (const surface of post.surfaces || []) {
+      if (!surface.release_notes_url) throw new UsageError(`Post ${post.id}: surface ${surface.id} needs a release_notes_url template`);
+    }
+  }
   const state = readJson(options.state || DEFAULT_STATE, { posts: {} });
   const items = readItems(options.items || DEFAULT_ITEMS);
   const now = options.now ? new Date(options.now) : new Date();
@@ -322,4 +342,4 @@ if (require.main === module) {
     });
 }
 
-module.exports = { plan, planPost, record, validate, latestVersion, compareVersions, pageFingerprint, matchesKeywords, itemText };
+module.exports = { plan, planPost, record, validate, latestVersion, compareVersions, pageFingerprint, matchesKeywords, itemText, releaseNotesUrl };

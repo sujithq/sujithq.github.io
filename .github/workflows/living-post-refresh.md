@@ -27,6 +27,9 @@ network:
     - defaults
     - github
     - "code.visualstudio.com"
+    - "azure.microsoft.com"
+    - "www.microsoft.com"
+    - "techcommunity.microsoft.com"
     - "learn.microsoft.com"
     - "devblogs.microsoft.com"
 safe-outputs:
@@ -87,7 +90,7 @@ Read `/tmp/gh-aw/agent/living-post-plan.json`. It is produced by `scripts/living
 - `id`, `path`, `branch` and `decision`.
 - `new_items`: release notes and changelog entries that mention the post's keywords and have not been handled yet.
 - `changed_pages`: watched documentation pages whose content changed since the last review.
-- `changed_versions`: new versions of tracked tools (for example VS Code, VS Code Insiders, Copilot CLI) with a link to their release notes.
+- `changed_versions`: new versions of the tools the post tracks, each with a `release_notes` URL.
 - `reader_reports`: open "Report an outdated step" issues for the post.
 - `proposed_state`: the state to record once the post is reviewed.
 
@@ -97,7 +100,7 @@ Process only the first post whose `decision` is `refresh`. If no post has that d
 
 Fetch every linked source with `curl --fail --silent --show-error --location --max-time 60 <url>`. Keep the inherited `HTTPS_PROXY` and `HTTP_PROXY` settings, do not use raw Node `fetch`, and do not bypass the network allowlist. A failed request or an HTTP error is not a reviewed source.
 
-- For every `changed_versions` entry, read the full release notes for that version and look for changes to the features, settings, commands, menus, model picker, availability or billing that the post describes. Release notes for VS Code are at `https://code.visualstudio.com/updates/v<major>_<minor>`; Copilot CLI release notes are at `https://github.com/github/copilot-cli/releases/tag/v<version>`.
+- For every `changed_versions` entry, read the full release notes at its `release_notes` URL and look for changes to the features, settings, commands, menus, availability, pricing or limits that the post describes.
 - For every `changed_pages` entry, fetch the page and compare it with what the post states.
 - For every `new_items` entry, open the original announcement.
 - For every `reader_reports` entry, read the issue. A reader report is a lead, not evidence: confirm it against an official source before changing a step. If no official source confirms it, do not change the step; mention the report in the pull request body instead.
@@ -128,7 +131,7 @@ Fix every error that `validate` reports. If it cannot pass, report the failure i
 
 Use the `create-pull-request` safe output exactly once, with:
 
-- Branch from the plan's `branch` (for example `living-post/hydrafusion`).
+- Branch from the plan's `branch` (`living-post/<id>`).
 - Title `living-post: <id> refresh YYYY-MM-DD`.
 - A body that lists every reviewed source with its URL, what changed in the post and why, any reader reports and whether official sources confirmed them, and any sources that failed to load.
 - `Addresses #<number>` for each reader report you acted on. Do not close issues yourself.

@@ -14,9 +14,9 @@ const POST_PATH = 'content/posts/2026-10-16-hydrafusion-github-copilot-orchestra
 const PAGE = 'https://docs.example.test/hydrafusion';
 
 const surfaces = [
-  { id: 'vscode', label: 'VS Code', category: 'vscode', version_pattern: '^Visual Studio Code (\\d+\\.\\d+)$' },
-  { id: 'vscode-insiders', label: 'VS Code Insiders', category: 'vscode', version_pattern: '^Visual Studio Code (\\d+\\.\\d+) \\(Insiders\\)$' },
-  { id: 'copilot-cli', label: 'Copilot CLI', category: 'copilot-cli', version_pattern: '^v?(\\d+\\.\\d+\\.\\d+)$' },
+  { id: 'vscode', label: 'VS Code', category: 'vscode', version_pattern: '^Visual Studio Code (\\d+\\.\\d+)$', release_notes_url: 'https://code.visualstudio.com/updates/v{version_underscore}' },
+  { id: 'vscode-insiders', label: 'VS Code Insiders', category: 'vscode', version_pattern: '^Visual Studio Code (\\d+\\.\\d+) \\(Insiders\\)$', release_notes_url: 'https://code.visualstudio.com/updates/v{version_underscore}' },
+  { id: 'copilot-cli', label: 'Copilot CLI', category: 'copilot-cli', version_pattern: '^v?(\\d+\\.\\d+\\.\\d+)$', release_notes_url: 'https://github.com/github/copilot-cli/releases/tag/v{version}' },
 ];
 
 function workspace({ state = { posts: {} }, items = [] } = {}) {
@@ -70,6 +70,7 @@ test('plan detects new keyword items, new tool versions and changed pages', asyn
   );
   assert.deepEqual(post.changed_pages.map((page) => page.url), [PAGE]);
   assert.deepEqual(post.proposed_state.verified_versions, { vscode: '1.142', 'vscode-insiders': '1.143', 'copilot-cli': '1.0.98' });
+  assert.equal(post.changed_versions.find((change) => change.surface === 'vscode').release_notes, 'https://code.visualstudio.com/updates/v1_142');
 });
 
 test('plan is up to date when everything was already reviewed', async () => {
@@ -184,6 +185,57 @@ test('the refresh workflow is scoped to one draft pull request with limited file
   const compiled = fs.readFileSync(`${workflowPath}.lock.yml`, 'utf8');
   for (const host of ['code.visualstudio.com', 'docs.github.com', 'github.blog', 'devblogs.microsoft.com']) {
     assert.ok(compiled.includes(`"${host}"`), `firewall must allow ${host}`);
+  }
+});
+
+test('release-note URLs come from per-surface templates', () => {
+  const latest = { version: '1.142', link: 'https://example.test/feed-link' };
+  assert.equal(
+    helper.releaseNotesUrl({ release_notes_url: 'https://code.visualstudio.com/updates/v{version_underscore}' }, latest),
+    'https://code.visualstudio.com/updates/v1_142'
+  );
+  assert.equal(
+    helper.releaseNotesUrl({ release_notes_url: 'https://github.com/o/r/releases/tag/v{version}' }, latest),
+    'https://github.com/o/r/releases/tag/v1.142'
+  );
+  assert.throws(() => helper.releaseNotesUrl({ id: 'x' }, latest), /needs a release_notes_url template/);
+});
+
+test('plan rejects a surface without a release-note template', async () => {
+  const files = workspace({ items });
+  const config = JSON.parse(fs.readFileSync(files.config, 'utf8'));
+  delete config.posts[0].surfaces[2].release_notes_url;
+  fs.writeFileSync(files.config, JSON.stringify(config));
+  await assert.rejects(helper.plan({ ...files, now: NOW }, async () => 'hash-a'), /copilot-cli needs a release_notes_url template/);
+});
+
+test('the firewall allows every host the agent is told to fetch for every living post', () => {
+  const compiled = fs.readFileSync(path.join(ROOT, '.github', 'workflows', 'living-post-refresh.lock.yml'), 'utf8');
+  const allowed = JSON.parse(compiled.match(/"allowDomains":(\[[^\]]*\])/)[1]);
+  const isAllowed = (host) => allowed.some((domain) => domain === host || (domain.startsWith('*.') && host.endsWith(domain.slice(1))));
+  const config = JSON.parse(fs.readFileSync(path.join(ROOT, 'feed-config', 'living-posts.json'), 'utf8'));
+  const feeds = JSON.parse(fs.readFileSync(path.join(ROOT, 'feed-config', 'feeds.json'), 'utf8'));
+  const crawled = fs.readFileSync(path.join(ROOT, 'db', 'items.jsonl'), 'utf8')
+    .split(/\r?\n/)
+    .filter(Boolean)
+    .map((line) => JSON.parse(line));
+
+  const urls = config.posts.flatMap((post) => {
+    const categories = new Set(post.categories);
+    return [
+      ...(post.watch_pages || []),
+      ...post.surfaces.map((surface) => {
+        assert.ok(surface.release_notes_url, `${post.id}/${surface.id} needs a release_notes_url template`);
+        return surface.release_notes_url;
+      }),
+      // The agent opens the original announcement for every new crawler item in these categories.
+      ...feeds.filter((feed) => categories.has(feed.Category)).map((feed) => feed.Url),
+      ...crawled.filter((item) => categories.has(item.category) && item.link).map((item) => item.link),
+    ];
+  });
+  const hosts = new Set(urls.map((url) => new URL(url.replace(/\{[^}]+\}/g, 'x')).hostname));
+  for (const host of hosts) {
+    assert.ok(isAllowed(host), `add ${host} to network.allowed in living-post-refresh.md and recompile`);
   }
 });
 
