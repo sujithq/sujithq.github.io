@@ -130,6 +130,13 @@ Example for an Azure topic that tracks Azure Updates and Microsoft Learn:
   picked up by the next scheduled runs.
 - The workflow only sees documented changes. A UI change that no release note
   mentions still needs a reader report through the issue form.
+- Release notes and docs often lag behind the product. A report filed by the
+  repository owner that states the exact labels or menu path and the version
+  counts as first-hand evidence, so the agent updates the step even when no
+  official source mentions the change yet. Reports from anyone else are leads:
+  the agent changes a step only when an official source confirms them. To add
+  detail to an existing report, comment on the issue; the agent reads the
+  comments.
 - The "Last verified" table records which release notes and documentation were
   reviewed. It does not claim that the steps were tested by hand.
 - Tool versions only appear after the crawler has collected the matching

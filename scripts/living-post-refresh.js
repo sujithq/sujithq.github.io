@@ -117,7 +117,7 @@ function postSlug(postPath) {
 }
 
 function planPost(post, context) {
-  const { items, state, now, pageHashes, pageErrors, openPrs, issues } = context;
+  const { items, state, now, pageHashes, pageErrors, openPrs, issues, trustedAuthors } = context;
   const previous = state.posts?.[post.id] || {};
   const handledItems = new Set(previous.handled_item_ids || []);
   const handledIssues = new Set(previous.handled_issue_numbers || []);
@@ -168,7 +168,10 @@ function planPost(post, context) {
   const readerReports = issues
     .filter((issue) => !handledIssues.has(issue.number))
     .filter((issue) => `${issue.title}\n${issue.body || ''}`.toLowerCase().includes(slug))
-    .map((issue) => ({ number: issue.number, title: issue.title, url: issue.url }));
+    .map((issue) => {
+      const author = issue.author?.login || '';
+      return { number: issue.number, title: issue.title, url: issue.url, author, trusted: trustedAuthors.has(author.toLowerCase()) };
+    });
 
   const branch = `living-post/${post.id}`;
   const escapedId = post.id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -216,6 +219,7 @@ async function plan(options, fetcher = fetchFingerprint) {
   if (Number.isNaN(now.getTime())) throw new UsageError(`Invalid --now value: ${options.now}`);
   const openPrs = options['existing-prs'] ? readJson(options['existing-prs'], []) : [];
   const issues = options.issues ? readJson(options.issues, []) : [];
+  const trustedAuthors = new Set(String(options['trusted-authors'] || '').split(',').map((name) => name.trim().toLowerCase()).filter(Boolean));
 
   const pageHashes = {};
   const pageErrors = [];
@@ -232,7 +236,7 @@ async function plan(options, fetcher = fetchFingerprint) {
 
   return {
     generated_at: now.toISOString(),
-    posts: config.posts.map((post) => planPost(post, { items, state, now, pageHashes, pageErrors, openPrs, issues })),
+    posts: config.posts.map((post) => planPost(post, { items, state, now, pageHashes, pageErrors, openPrs, issues, trustedAuthors })),
   };
 }
 
