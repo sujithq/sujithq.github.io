@@ -2,7 +2,7 @@
 title = '🐉 Using HydraFusion Across Copilot Surfaces'
 slug = 'hydrafusion-github-copilot-orchestration'
 date = '2026-10-16 00:00:00+02:00'
-lastmod = '2026-10-16 09:30:00+02:00'
+lastmod = '2026-10-16 09:55:00+02:00'
 draft = false
 tags = [
   "GitHub",
@@ -55,7 +55,7 @@ HydraFusion changes quickly, so this is a living guide. An automated check compa
 | GitHub Changelog | Up to 14 October 2026 | [Changelog](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option) | 2026-10-16 |
 | VS Code | 1.142 | [Release notes](https://code.visualstudio.com/updates/v1_142) and in-product setting descriptions | 2026-10-16 |
 | VS Code Insiders | 1.143 | [Release notes](https://code.visualstudio.com/updates/v1_143) and in-product setting descriptions | 2026-10-16 |
-| Copilot CLI | 1.0.98 | [Release notes](https://github.com/github/copilot-cli/releases/tag/v1.0.98) | 2026-10-16 |
+| Copilot CLI | 1.0.98 | [Release notes](https://github.com/github/copilot-cli/releases/tag/v1.0.98) (prerelease [1.0.99-1](https://github.com/github/copilot-cli/releases/tag/v1.0.99-1) also reviewed) | 2026-10-16 |
 | Copilot app | No separate release notes | Tracked through the GitHub Changelog | 2026-10-16 |
 | Visual Studio | Not supported | [Visual Studio Blog](https://devblogs.microsoft.com/visualstudio/) | 2026-10-16 |
 <!-- living-post:verified:end -->
@@ -80,7 +80,7 @@ A few behaviours are worth calling out:
 - **Lightweight selection**: choosing the pattern adds little time and does not generate any part of the response.
 - **Per-step reasoning**: drafts run with medium reasoning and reviews with high reasoning. **HydraFusion Max** unlocks extra high reasoning.
 - **No fixed model list**: the model mix changes as new models arrive and GitHub re-evaluates performance. You cannot choose which models it uses.
-- **Final answer only**: you can follow the progress of each step, but intermediate drafts are hidden because they may be revised or discarded.
+- **Final answer only**: you can follow the progress of each step, but intermediate drafts are hidden from the final answer because they may be revised or discarded. In Copilot CLI 1.0.99-1 (prerelease) and later, you can expand passes to read their drafts; see [Using HydraFusion in Copilot CLI](#using-hydrafusion-in-copilot-cli).
 - **No context window of its own**: each step runs within the limits of the model running it. The context window shown for HydraFusion is a conservative value based on the smallest limit among its models.
 
 The Critique pattern will feel familiar if you have used the [rubber duck agent](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/rubber-duck) in Copilot CLI, which deliberately runs a critic on a different model from your session model to avoid shared blind spots.
@@ -158,6 +158,16 @@ While HydraFusion works, Copilot CLI shows:
 - How long the task has been running
 
 Press `Esc` to interrupt. When the task completes, the conversation keeps a summary of the execution pattern and its steps, including any warnings.
+
+#### Prerelease: expandable passes (1.0.99-1 and later)
+
+The latest stable release is 1.0.98 and behaves as described above. Copilot CLI 1.0.99-1 is a prerelease, which you can install with `/update prerelease`. According to its [release notes](https://github.com/github/copilot-cli/releases/tag/v1.0.99-1), and as reported by the site owner running that build:
+
+- A pass stays expanded while its review runs, so you can read the draft being reviewed.
+- Passes that were not kept (discarded drafts) stay expandable after the turn, until you switch sessions or resume the session.
+- When you abort a turn with `Esc`, each pass says whether it was kept.
+
+Until this ships in a stable release, treat it as prerelease behaviour. The GitHub Docs page does not describe it yet.
 
 ### Non-interactive use
 
@@ -253,7 +263,7 @@ Keep an eye on the HydraFusion docs page, since the availability list is the aut
 | How to enable | `--experimental` or `/experimental on` | `chat.copilot.hydraFusion.enabled` (defaults to `v2` since 1.142) | Settings > Experimental > HydraFusion | Not applicable |
 | How to select | `/model` or `--model hydrafusion` | Model picker: **HydraFusion**, or **Ensemble** > **High** or **Max** | Model picker | Not applicable |
 | HydraFusion Max | Yes | Yes | Yes | Not applicable |
-| Progress display | Pattern, passes, status, elapsed time | Steps of the execution pattern | Not documented | Not applicable |
+| Progress display | Pattern, passes, status, elapsed time. Prerelease 1.0.99-1 and later: passes can also be expanded to read drafts, including discarded ones | Steps of the execution pattern | Not documented | Not applicable |
 | See models used | `/usage`, `/collect-debug-logs` | Hover over response footer | Hover over response | Not applicable |
 | If missing from picker | Restart, then `/update prerelease` | Check version and setting | Switch to prerelease channel | Not applicable |
 
@@ -303,6 +313,7 @@ Because this is a research preview, GitHub is actively asking for feedback. Shar
 
 ## Change log
 
+- **2026-10-16**: Added the Copilot CLI 1.0.99-1 prerelease behaviour: passes stay expanded during review, discarded passes stay expandable until you switch or resume sessions, and aborted turns show whether each pass was kept. The sources reviewed mention no change to stable 1.0.98 behaviour. Reported in [#543](https://github.com/sujithq/sujithq.github.io/issues/543) and confirmed by the prerelease notes.
 - **2026-10-16**: Updated the VS Code steps for 1.142 and Insiders 1.143. `chat.copilot.hydraFusion.enabled` is now a dropdown that defaults to `v2`, the model picker has a Copilot tab, and with Ensemble turned on HydraFusion runs behind Ensemble's High and Max options instead of appearing by name. Reported in [#536](https://github.com/sujithq/sujithq.github.io/issues/536). Copilot CLI 1.0.98 release notes reviewed with no HydraFusion changes.
 - **2026-10-16**: First published. Added the "Last verified" table and automated release-note checks.
 
