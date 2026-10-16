@@ -2,7 +2,7 @@
 title = '🐉 Using HydraFusion Across Copilot Surfaces'
 slug = 'hydrafusion-github-copilot-orchestration'
 date = '2026-10-16 00:00:00+02:00'
-lastmod = '2026-10-16 07:50:00+02:00'
+lastmod = '2026-10-16 08:35:00+02:00'
 draft = false
 tags = [
   "GitHub",
@@ -53,9 +53,9 @@ HydraFusion changes quickly, so this is a living guide. An automated check compa
 | --- | --- | --- | --- |
 | GitHub Docs | Using HydraFusion (early access) | [Docs](https://docs.github.com/en/early-access/copilot/hydrafusion) | 2026-10-16 |
 | GitHub Changelog | Up to 14 October 2026 | [Changelog](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option) | 2026-10-16 |
-| VS Code | 1.140 | [Release notes](https://code.visualstudio.com/updates/v1_140) | 2026-10-16 |
-| VS Code Insiders | Not yet recorded | [Release notes](https://code.visualstudio.com/updates) | Pending |
-| Copilot CLI | Not yet recorded | [Releases](https://github.com/github/copilot-cli/releases) | Pending |
+| VS Code | 1.142 | [Release notes](https://code.visualstudio.com/updates/v1_142) | 2026-10-16 |
+| VS Code Insiders | 1.143 | [Release notes](https://code.visualstudio.com/updates/v1_143) | 2026-10-16 |
+| Copilot CLI | 1.0.98 | [Release notes](https://github.com/github/copilot-cli/releases/tag/v1.0.98) | 2026-10-16 |
 | Copilot app | No separate release notes | Tracked through the GitHub Changelog | 2026-10-16 |
 | Visual Studio | Not supported | [Visual Studio Blog](https://devblogs.microsoft.com/visualstudio/) | 2026-10-16 |
 <!-- living-post:verified:end -->
@@ -181,7 +181,7 @@ HydraFusion shipped in [VS Code 1.140](https://code.visualstudio.com/updates/v1_
 1. Open the Settings editor with `Ctrl+,` on Windows and Linux or `Cmd+,` on macOS.
 2. Search for `chat.copilot.hydraFusion.enabled` and select the checkbox.
 3. Open Copilot Chat from the chat icon in the title bar.
-4. At the bottom of the chat view, open the current model dropdown and select **HydraFusion** or **HydraFusion Max**.
+4. At the bottom of the chat view, open the current model dropdown and select **HydraFusion** or **HydraFusion Max**. Since VS Code 1.142 the redesigned model picker separates Copilot and bring-your-own-key models into tabs, so look on the **Copilot** tab.
 5. Enter a prompt. The chat view shows each step of the execution pattern as HydraFusion works.
 
 If you manage settings as code, the equivalent `settings.json` entry is:
@@ -274,6 +274,7 @@ Because this is a research preview, GitHub is actively asking for feedback. Shar
 
 ## Change log
 
+- **2026-10-16**: Reviewed VS Code 1.142, VS Code Insiders 1.143, Copilot CLI 1.0.98 and the HydraFusion docs. The enabling steps are unchanged. Noted that the VS Code 1.142 model picker now uses tabs, so HydraFusion is on the Copilot tab.
 - **2026-10-16**: First published. Added the "Last verified" table and automated release-note checks.
 
 ## References
