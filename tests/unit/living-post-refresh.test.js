@@ -101,6 +101,19 @@ test('plan skips a post with an open refresh pull request and reports fetch fail
   assert.deepEqual(post.changed_pages, []);
 });
 
+test('plan matches gh-aw suffixed branches and ignores other post ids', async () => {
+  const files = workspace({ items });
+  const prs = path.join(path.dirname(files.config), 'prs.json');
+  fs.writeFileSync(prs, JSON.stringify([{ number: 8, title: 'Manual edit', headRefName: 'living-post/hydrafusion-cf959529f560152d' }]));
+  const fetchPage = async () => '<main>unchanged</main>';
+  let result = await helper.plan({ ...files, now: NOW, 'existing-prs': prs }, fetchPage);
+  assert.equal(result.posts[0].decision, 'skip-open-pr');
+
+  fs.writeFileSync(prs, JSON.stringify([{ number: 9, title: 'living-post: hydrafusion-max refresh', headRefName: 'living-post/hydrafusion-max-cf959529f560152d' }]));
+  result = await helper.plan({ ...files, now: NOW, 'existing-prs': prs }, fetchPage);
+  assert.notEqual(result.posts[0].decision, 'skip-open-pr');
+});
+
 test('reader reports that name the post slug trigger a refresh once', async () => {
   const state = {
     posts: {

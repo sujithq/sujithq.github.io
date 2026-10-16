@@ -171,7 +171,11 @@ function planPost(post, context) {
     .map((issue) => ({ number: issue.number, title: issue.title, url: issue.url }));
 
   const branch = `living-post/${post.id}`;
-  const openPullRequests = openPrs.filter((pr) => pr.headRefName === branch || pr.title.includes(`living-post: ${post.id}`));
+  const escapedId = post.id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // gh-aw appends a hex suffix to safe-output branch names, for example living-post/hydrafusion-cf959529f560152d.
+  const branchPattern = new RegExp(`^living-post/${escapedId}(-[0-9a-f]{8,})?$`);
+  const titlePattern = new RegExp(`living-post: ${escapedId}(\\s|$)`);
+  const openPullRequests = openPrs.filter((pr) => branchPattern.test(pr.headRefName || '') || titlePattern.test(pr.title || ''));
 
   let decision = 'up-to-date';
   if (openPullRequests.length > 0) decision = 'skip-open-pr';
