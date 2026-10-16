@@ -26,10 +26,9 @@ function parseSeriesAllowlist(envVal) {
 
 function parsePostDate(dateStr) {
   if (!dateStr || typeof dateStr !== 'string') return NaN;
-  // Normalize "YYYY-MM-DD HH:mm:ssZ" -> ISO by inserting 'T'
-  const normalized = dateStr.replace(/^(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2}Z)$/i, '$1T$2');
-  const t = Date.parse(normalized);
-  return t;
+  const match = dateStr.match(/^(\d{4}-\d{2}-\d{2})\s(\d{2}:\d{2}:\d{2})(Z|[+-]\d{2}:\d{2})$/i);
+  if (!match) return NaN;
+  return Date.parse(`${match[1]}T${match[2]}${match[3]}`);
 }
 
 function frontMatterReplaceDraft(source) {
@@ -128,4 +127,8 @@ function main() {
   }
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { parsePostDate };

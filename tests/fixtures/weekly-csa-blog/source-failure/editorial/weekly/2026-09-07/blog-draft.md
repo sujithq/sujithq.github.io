@@ -1,8 +1,8 @@
 +++
 title = 'Governing agentic workloads on Azure'
 slug = 'governing-agentic-workloads'
-date = '2026-09-07 08:00:00Z'
-lastmod = '2026-09-07 08:00:00Z'
+date = '2026-09-07 08:00:00+02:00'
+lastmod = '2026-09-07 08:00:00+02:00'
 draft = true
 tags = ["Azure", "Governance"]
 categories = ["Cloud"]

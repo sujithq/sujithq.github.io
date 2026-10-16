@@ -35,11 +35,11 @@ test('editorial material is not staged under content or static', () => {
 
 test('the weekly workflow may only write editorial packet files', () => {
   const workflow = read('.github/workflows/weekly-csa-blog.md');
-  const allowed = /allowed-files:\n((?:\s+- "[^"]+"\n)+)/.exec(workflow);
+  const allowed = /allowed-files:\r?\n((?:\s+- "[^"]+"\r?\n)+)/.exec(workflow);
   assert.ok(allowed, 'the workflow must restrict writes with allowed-files');
 
   const patterns = allowed[1]
-    .split('\n')
+    .split(/\r?\n/)
     .map((line) => line.replace(/^\s+- "/, '').replace(/"$/, '').trim())
     .filter(Boolean);
 

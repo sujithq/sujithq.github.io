@@ -171,7 +171,7 @@ If research succeeded and candidates qualify but none of them supports a defensi
 Blog draft conventions, matching `.github/instructions/posts.instructions.md`:
 
 - Title of 50 characters or fewer; description of 150 characters or fewer.
-- `date` and `lastmod` in `'YYYY-MM-DD HH:MM:SSZ'` format, using the edition date.
+- `date` and `lastmod` using the explicit Brussels UTC offset that applies at each timestamp (`+02:00` in summer or `+01:00` in winter).
 - `layout = "single"` and `author = "sujith"` with double quotes.
 - Required fields: `title`, `slug`, `date`, `lastmod`, `draft`, `tags`, `categories`, `series`, `layout`, `description`, and `cover` plus `author` under `[params]`.
 - British English, no H1 heading, blank lines around lists and fenced code blocks, language identifiers on code blocks, colons or periods instead of long dashes.

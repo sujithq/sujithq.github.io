@@ -19,7 +19,8 @@ applyTo: "content/posts/*/index.md"
 ## Frontmatter Requirements
 
 ### Critical Format Standards
-- **Date Format**: Use `'YYYY-MM-DD HH:MM:SSZ'` format with 'Z' suffix (not timezone offsets like `+00:00`)
+- **Date Format**: Use an explicit numeric UTC offset: `'YYYY-MM-DD HH:MM:SS+02:00'` in Brussels summer time or `'YYYY-MM-DD HH:MM:SS+01:00'` in Brussels winter time. Choose the offset that applies at the post's local date and time; do not use `Z`, which means UTC.
+- **Site Time Zone**: `Europe/Brussels` is configured in Hugo. Keep the folder date aligned with the Brussels calendar date in front matter.
 - **Current Dates Only**: Folder dates must be current or future - never use past dates for new posts
 - **Quote Consistency**: Use double quotes for `layout = "single"` and `author = "sujith"`
 - **Folder Naming**: Must match date in frontmatter exactly: `YYYY-MM-DD-descriptive-slug`
@@ -32,8 +33,8 @@ Use TOML front matter with at least: `title`, `slug`, `date`, `lastmod`, `draft`
 +++
 title = 'Engaging Title with Emoji (≤50 chars)'
 slug = 'descriptive-slug-matching-folder'
-date = '2025-MM-DD HH:MM:SSZ'
-lastmod = '2025-MM-DD HH:MM:SSZ'
+date = '2026-07-16 09:00:00+02:00'
+lastmod = '2026-07-16 09:00:00+02:00'
 draft = false
 tags = ["Technology", "Specific-Topic"]
 categories = ["Category"]
@@ -126,7 +127,7 @@ Always verify and use latest stable versions:
 - **Issue**: Inconsistent quote styles or date formats
 - **Solution**: Follow the frontmatter standards above
   - Use `"double quotes"` for layout and author
-  - Use `'2025-MM-DD HH:MM:SSZ'` for dates
+  - Use an explicit Brussels UTC offset (`+02:00` in summer or `+01:00` in winter)
   - Ensure blank line before description in params
 
 **Markdown Linting Failures**

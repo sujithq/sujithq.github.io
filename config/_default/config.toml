@@ -2,6 +2,7 @@ locale = "en-us"
 title = "Sujith Quintelier"
 resourceDir = "../resources"
 baseURL = "http://localhost:1313/"
+timeZone = "Europe/Brussels"
 
 # Default behavior: exclude drafts and future posts
 buildDrafts = false

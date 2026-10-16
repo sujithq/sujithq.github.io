@@ -236,8 +236,11 @@ function validateDraft(source, errors) {
   } else if (description.length > 150) {
     errors.push(`blog-draft.md description exceeds 150 characters (${description.length})`);
   }
-  if (typeof data.date === 'string' && !/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}Z$/.test(data.date)) {
-    errors.push('blog-draft.md date must use the YYYY-MM-DD HH:MM:SSZ format');
+  const dateWithOffset = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/;
+  for (const field of ['date', 'lastmod']) {
+    if (typeof data[field] === 'string' && !dateWithOffset.test(data[field])) {
+      errors.push(`blog-draft.md ${field} must use YYYY-MM-DD HH:MM:SS with an explicit UTC offset`);
+    }
   }
   if (parsed.body && /^#\s+/m.test(parsed.body)) {
     errors.push('blog-draft.md must not contain an H1 heading');

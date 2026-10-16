@@ -154,8 +154,8 @@ You have access to the complete blog history and can reference existing posts to
 +++
 title = 'Engaging Title with Emoji (≤50 chars)'
 slug = 'descriptive-slug-matching-folder'
-date = '2025-MM-DD HH:MM:SSZ'
-lastmod = '2025-MM-DD HH:MM:SSZ'
+date = '2026-07-16 09:00:00+02:00'
+lastmod = '2026-07-16 09:00:00+02:00'
 draft = true
 tags = [
   "Azure",
@@ -194,7 +194,7 @@ description = "Concise summary explaining what readers will learn (≤150 chars)
 ```
 
 ### Critical Frontmatter Requirements (Lessons Learned)
-- **Date Format**: Always use `'YYYY-MM-DD HH:MM:SSZ'` format with 'Z' suffix, not timezone offsets
+- **Date Format**: Use an explicit Brussels UTC offset: `+02:00` in summer or `+01:00` in winter. Choose the offset that applies at the post's local date and time.
 - **Current Dates Only**: Folder dates must be current or future - never use past dates for new posts
 - **Draft Status**: Always set `draft = true` - posts should not be published immediately when created
 - **Quote Consistency**: Use double quotes for `layout = "single"` and `author = "sujith"`
@@ -328,7 +328,7 @@ tags = ["CSharp", ".NET", "CI CD"]
 - [ ] Technical accuracy verified against official sources
 - [ ] **Content standards**: Verify compliance with posts.instructions.md
 - [ ] **Date validation**: Folder date is current/future, not past
-- [ ] **Frontmatter format**: Correct date format with 'Z' suffix
+- [ ] **Frontmatter format**: Correct explicit Brussels UTC offset
 - [ ] **Quote consistency**: Double quotes for layout and author fields
 - [ ] **Markdown compliance**: Proper spacing around lists and code blocks
 - [ ] **Taxonomy validation**: No parentheses, ampersands, hash symbols, forward slashes
@@ -355,7 +355,7 @@ tags = ["CSharp", ".NET", "CI CD"]
 
 **Frontmatter Generation Standards**
 - Follow posts.instructions.md for complete technical standards
-- Generate date format as `'YYYY-MM-DD HH:MM:SSZ'` (with Z suffix, not timezone offset)
+- Generate date and lastmod with an explicit Brussels UTC offset (`+02:00` in summer or `+01:00` in winter).
 - Always set `draft = true` - posts should not be published immediately when created
 - Use `"single"` for layout and `"sujith"` for author
 - Ensure blank line before description in params section

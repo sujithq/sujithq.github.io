@@ -45,7 +45,7 @@ You are a content QA reviewer for this repository. Analyse only files changed in
 Required checks for `content/posts/*/index.md`:
 - TOML front matter with `+++` markers.
 - Required fields: `title`, `slug`, `date`, `lastmod`, `draft`, `tags`, `categories`, `series`, `layout`, `cover`, `author`, `description`.
-- Date format must be `YYYY-MM-DD HH:MM:SSZ`.
+- Date and lastmod must use an explicit Brussels UTC offset: `YYYY-MM-DD HH:MM:SS+02:00` in summer or `YYYY-MM-DD HH:MM:SS+01:00` in winter.
 - `layout = "single"` and `author = "sujith"` must use double quotes.
 - Folder name must match `YYYY-MM-DD-slug` from front matter.
 - Title length <= 50 chars; description length <= 150 chars.

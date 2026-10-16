@@ -1,8 +1,8 @@
 +++
 title = '🐉 Using HydraFusion Across Copilot Surfaces'
 slug = 'hydrafusion-github-copilot-orchestration'
-date = '2026-10-16 00:00:00Z'
-lastmod = '2026-10-16 00:00:00Z'
+date = '2026-10-16 00:00:00+02:00'
+lastmod = '2026-10-16 00:00:00+02:00'
 draft = false
 tags = [
   "GitHub",
