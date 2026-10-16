@@ -83,8 +83,8 @@ Nothing in the script or workflow is specific to HydraFusion: every topic is a
 |-------|---------|
 | `id` | Short identifier, used for the branch `living-post/<id>` and in the state file |
 | `path` | The post's `index.md` |
-| `keywords` | Case-insensitive terms matched against crawler item titles and summaries |
-| `categories` | Crawler categories from `feeds.json` to search for keyword matches |
+| `keywords` | Case-insensitive terms matched against crawler item titles and summaries; use `[]` with empty `categories` for documentation-only monitoring |
+| `categories` | Crawler categories from `feeds.json` to search for keyword matches; leave empty with `keywords` when watching documentation pages only |
 | `lookback_days` | How far back crawler items are considered (default 30) |
 | `watch_pages` | Documentation pages whose main content is fingerprinted |
 | `surfaces` | Optional tools whose new versions trigger a review |
