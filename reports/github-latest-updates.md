@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-15
+post_date: 2026-10-16
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1247,3 +1247,4 @@ completed deprecation is shown.
 | 2026-10-15 | [AI Scan for pull requests generally available](https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available) | Generally available | AI Scan for pull requests is now generally available in code scanning. It complements CodeQL by detecting vulnerabilities in pull request changes for languages and frameworks not currently covered by CodeQL. |
 | 2026-10-15 | [Upcoming deprecation of selected GitHub Copilot models in mid-November](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november) | Upcoming deprecation | GitHub will deprecate several Copilot models on November 16, 2026. The change applies across Copilot Chat, inline edits, ask and agent modes, and code completions. |
 | 2026-10-15 | [Download GitHub Code Quality license usage as a CSV](https://github.blog/changelog/2026-10-15-download-github-code-quality-license-usage-as-a-csv) | Update | GitHub Code Quality now lets administrators download a CSV report of license usage to reconcile license counts with internal records. The report lists each active committer covered by the license usage data. |
+| 2026-10-16 | [Multi-repo support and other improvements for GitHub Copilot in Slack and Microsoft Teams](https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates) | Update | GitHub Copilot in Slack and Microsoft Teams now supports multi-repository conversations, letting users work across several repos in one thread. The update also includes model and repository-related improvements. |
