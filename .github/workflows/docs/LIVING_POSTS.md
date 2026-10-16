@@ -141,6 +141,11 @@ Example for an Azure topic that tracks Azure Updates and Microsoft Learn:
   reviewed. It does not claim that the steps were tested by hand.
 - Tool versions only appear after the crawler has collected the matching
   feeds, so the first run after adding a surface reviews its latest release.
+- The agent shell runs without interactive approval. Any command outside the
+  `bash` list in the workflow front matter is denied, including commands
+  chained with an allowed one such as `cd dir; curl url`. If a run reports
+  denied `curl` calls or a missing tool, check which command was chained and
+  either add it to the list or tighten the prompt, then recompile.
 
 ## Later: Markdown release notes and remaining sources
 

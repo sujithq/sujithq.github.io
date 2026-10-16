@@ -21,7 +21,7 @@ sandbox:
 tools:
   github:
     toolsets: [pull_requests, issues]
-  bash: ["curl:*", "node", "cat", "ls", "grep", "head", "tail", "jq", "git"]
+  bash: ["curl:*", "node", "cat", "ls", "grep", "head", "tail", "jq", "git", "cd", "echo", "printf", "sed", "wc", "sort", "uniq", "tr", "mkdir"]
 network:
   allowed:
     - defaults
@@ -99,7 +99,9 @@ Process only the first post whose `decision` is `refresh`. If no post has that d
 
 ### Step 2: Review the official sources
 
-Fetch every linked source with `curl --fail --silent --show-error --location --max-time 60 <url>`. Keep the inherited `HTTPS_PROXY` and `HTTP_PROXY` settings, do not use raw Node `fetch`, and do not bypass the network allowlist. A failed request or an HTTP error is not a reviewed source.
+Fetch every linked source with `curl --fail --silent --show-error --location --max-time 60 -o /tmp/gh-aw/agent/source-<n>.html <url>`, then read the saved file with `grep`, `sed`, `head` or `tail`. Keep the inherited `HTTPS_PROXY` and `HTTP_PROXY` settings, do not use raw Node `fetch`, and do not bypass the network allowlist. A failed request or an HTTP error is not a reviewed source.
+
+The shell runs without interactive approval, so any command outside the allowed list is denied. Only use `curl`, `node`, `cat`, `ls`, `grep`, `head`, `tail`, `jq`, `git`, `cd`, `echo`, `printf`, `sed`, `wc`, `sort`, `uniq`, `tr` and `mkdir`, and prefer one command per call over long chains or loops. Read issues and comments with the GitHub tools, not with `curl` against `api.github.com`. If a fetch is denied, retry it as a single plain `curl` command before reporting it as missing.
 
 - For every `changed_versions` entry, read the full release notes at its `release_notes` URL and look for changes to the features, settings, commands, menus, availability, pricing or limits that the post describes.
 - For every `changed_pages` entry, fetch the page and compare it with what the post states.
