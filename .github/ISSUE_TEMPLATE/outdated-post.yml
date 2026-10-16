@@ -22,8 +22,15 @@ body:
   - type: textarea
     id: difference
     attributes:
-      label: What is different?
-      description: Which step or screenshot no longer matches, and what do you see instead?
+      label: What does the post say?
+      description: The step, setting or screenshot that no longer matches. Quote it or give the heading.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: What do you see now?
+      description: The exact labels, menu path, setting names or command output you see instead, for example "Model picker > Copilot tab shows 'Ensemble' and 'Ensemble Max'; HydraFusion is not listed". You can paste a screenshot here.
     validations:
       required: true
   - type: textarea

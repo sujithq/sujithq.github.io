@@ -129,13 +129,14 @@ test('reader reports that name the post slug trigger a refresh once', async () =
   const issues = path.join(path.dirname(files.config), 'issues.json');
   fs.writeFileSync(issues, JSON.stringify([
     { number: 3, title: '[outdated] hydrafusion-github-copilot-orchestration', body: '', url: 'u3' },
-    { number: 4, title: '[outdated] something', body: 'https://quintelier.dev/posts/2026/10/hydrafusion-github-copilot-orchestration/', url: 'u4' },
+    { number: 4, title: '[outdated] something', body: 'https://quintelier.dev/posts/2026/10/hydrafusion-github-copilot-orchestration/', url: 'u4', author: { login: 'SujithQ' } },
     { number: 5, title: '[outdated] another-post', body: '', url: 'u5' },
+    { number: 6, title: '[outdated] hydrafusion-github-copilot-orchestration', body: '', url: 'u6', author: { login: 'stranger' } },
   ]));
-  const post = (await helper.plan({ ...files, now: NOW, issues }, async () => 'hash-a')).posts[0];
+  const post = (await helper.plan({ ...files, now: NOW, issues, 'trusted-authors': 'sujithq' }, async () => 'hash-a')).posts[0];
   assert.equal(post.decision, 'refresh');
-  assert.deepEqual(post.reader_reports.map((issue) => issue.number), [4]);
-  assert.deepEqual(post.proposed_state.handled_issue_numbers, [3, 4]);
+  assert.deepEqual(post.reader_reports.map((issue) => [issue.number, issue.author, issue.trusted]), [[4, 'SujithQ', true], [6, 'stranger', false]]);
+  assert.deepEqual(post.proposed_state.handled_issue_numbers, [3, 4, 6]);
 });
 
 test('record writes the proposed state for one post', async () => {
