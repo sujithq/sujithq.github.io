@@ -2,7 +2,7 @@
 title = '🐉 Using HydraFusion Across Copilot Surfaces'
 slug = 'hydrafusion-github-copilot-orchestration'
 date = '2026-10-16 00:00:00+02:00'
-lastmod = '2026-10-16 07:50:00+02:00'
+lastmod = '2026-10-16 09:30:00+02:00'
 draft = false
 tags = [
   "GitHub",
@@ -53,9 +53,9 @@ HydraFusion changes quickly, so this is a living guide. An automated check compa
 | --- | --- | --- | --- |
 | GitHub Docs | Using HydraFusion (early access) | [Docs](https://docs.github.com/en/early-access/copilot/hydrafusion) | 2026-10-16 |
 | GitHub Changelog | Up to 14 October 2026 | [Changelog](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option) | 2026-10-16 |
-| VS Code | 1.140 | [Release notes](https://code.visualstudio.com/updates/v1_140) | 2026-10-16 |
-| VS Code Insiders | Not yet recorded | [Release notes](https://code.visualstudio.com/updates) | Pending |
-| Copilot CLI | Not yet recorded | [Releases](https://github.com/github/copilot-cli/releases) | Pending |
+| VS Code | 1.142 | [Release notes](https://code.visualstudio.com/updates/v1_142) and in-product setting descriptions | 2026-10-16 |
+| VS Code Insiders | 1.143 | [Release notes](https://code.visualstudio.com/updates/v1_143) and in-product setting descriptions | 2026-10-16 |
+| Copilot CLI | 1.0.98 | [Release notes](https://github.com/github/copilot-cli/releases/tag/v1.0.98) | 2026-10-16 |
 | Copilot app | No separate release notes | Tracked through the GitHub Changelog | 2026-10-16 |
 | Visual Studio | Not supported | [Visual Studio Blog](https://devblogs.microsoft.com/visualstudio/) | 2026-10-16 |
 <!-- living-post:verified:end -->
@@ -64,7 +64,7 @@ Does a step no longer match what you see in your version? [Report an outdated st
 
 ## What HydraFusion is
 
-HydraFusion is a **runtime model orchestrator** in GitHub Copilot. You select it in the model picker, but it is not a model. For each request, it chooses an execution pattern, the reasoning effort for each step, and the models that run it, then returns a single response.
+HydraFusion is a **runtime model orchestrator** in GitHub Copilot. You select it in the model picker, or in recent VS Code builds reach it through the **Ensemble** options, but it is not a model. For each request, it chooses an execution pattern, the reasoning effort for each step, and the models that run it, then returns a single response.
 
 It currently chooses between three execution patterns:
 
@@ -176,23 +176,51 @@ Two slash commands are useful during the preview:
 
 ## Using HydraFusion in Visual Studio Code
 
-HydraFusion shipped in [VS Code 1.140](https://code.visualstudio.com/updates/v1_140#_hydrafusion-model-orchestration-research-preview) as a research preview. You need **VS Code 1.140 or later**, or VS Code Insiders.
+HydraFusion shipped in [VS Code 1.140](https://code.visualstudio.com/updates/v1_140#_hydrafusion-model-orchestration-research-preview) as a research preview. You need **VS Code 1.140 or later**, or VS Code Insiders. Since VS Code 1.142, where you find HydraFusion in the model picker depends on whether **Ensemble** is turned on.
 
 1. Open the Settings editor with `Ctrl+,` on Windows and Linux or `Cmd+,` on macOS.
-2. Search for `chat.copilot.hydraFusion.enabled` and select the checkbox.
+2. Search for `chat.copilot.hydraFusion.enabled`. In VS Code 1.142 and later this is a dropdown, not a checkbox, and it defaults to `v2`. Leave it on `v2`, or select `true` for the original version. `false` turns HydraFusion off.
 3. Open Copilot Chat from the chat icon in the title bar.
-4. At the bottom of the chat view, open the current model dropdown and select **HydraFusion** or **HydraFusion Max**.
+4. At the bottom of the chat view, open the model picker. Since VS Code 1.142 the redesigned picker separates Copilot and bring-your-own-key models into tabs, so stay on the **Copilot** tab. Then:
+    - **If you see Auto**: HydraFusion is listed after **Auto** as a model of its own. Select it and choose the **Default** or **Max** tier in its details.
+    - **If you see Ensemble instead of Auto**: HydraFusion is no longer listed by name. Ensemble offers **Balance**, **High** and **Max** under "Optimize for". **Max** runs HydraFusion Max. **High** runs HydraFusion only when `chat.copilot.ensemble.intelligenceUsesHydraFusion` is on, otherwise it routes like Auto.
 5. Enter a prompt. The chat view shows each step of the execution pattern as HydraFusion works.
 
-If you manage settings as code, the equivalent `settings.json` entry is:
+To see which models HydraFusion used, hover over the footer of a completed response.
+
+### Ensemble: HydraFusion behind the last two options
+
+Ensemble is a newer way of presenting **Auto**. Instead of a single Auto entry, the picker offers Ensemble with three optimisation levels. VS Code describes Ensemble as routing "based on your task and real-time system health and model performance", and the picker shows a discount for models routed through it. The last two levels are where HydraFusion now lives:
+
+| Ensemble option | What runs |
+| --- | --- |
+| **Balance** | Auto routing that "balances cost/speed and capability based on task complexity" |
+| **High** | HydraFusion v2 when `chat.copilot.ensemble.intelligenceUsesHydraFusion` is on, otherwise Auto's Intelligence routing, which "optimizes for capability" |
+| **Max** | HydraFusion Max (only shown when HydraFusion is available) |
+
+Three settings control what you see:
+
+| Setting | Default | Effect |
+| --- | --- | --- |
+| `chat.copilot.hydraFusion.enabled` | `v2` | Makes HydraFusion available. `v2` plans with per-step reasoning effort and a wider set of models. |
+| `chat.copilot.ensemble.enabled` | `false` | Presents Auto as Ensemble with Balance, High and Max. |
+| `chat.copilot.ensemble.intelligenceUsesHydraFusion` | `false` | With Ensemble on, makes the High option use HydraFusion v2. |
+
+All three are tagged experimental, and GitHub can switch them on or off for you through Copilot experiments. That explains why Ensemble can appear after an update without you changing anything. Changing the Ensemble setting can restart the local Copilot runtime.
+
+If you manage settings as code and want HydraFusion behind both High and Max, use:
 
 ```json
 {
-  "chat.copilot.hydraFusion.enabled": true
+  "chat.copilot.hydraFusion.enabled": "v2",
+  "chat.copilot.ensemble.enabled": true,
+  "chat.copilot.ensemble.intelligenceUsesHydraFusion": true
 }
 ```
 
-To see which models HydraFusion used, hover over the footer of a completed response.
+To keep the classic picker with HydraFusion as a separate entry, set `chat.copilot.ensemble.enabled` to `false`.
+
+Ensemble is not yet covered by the VS Code release notes or the GitHub HydraFusion docs. The details above come from the setting descriptions and model picker text in VS Code 1.142 and VS Code Insiders 1.143, so expect them to change.
 
 ## Using HydraFusion in the GitHub Copilot app
 
@@ -222,8 +250,8 @@ Keep an eye on the HydraFusion docs page, since the availability list is the aut
 | --- | --- | --- | --- | --- |
 | Available | Yes | Yes | Yes | Not listed |
 | Minimum version | Latest (`copilot update`) | 1.140 or Insiders | Latest | Not applicable |
-| How to enable | `--experimental` or `/experimental on` | `chat.copilot.hydraFusion.enabled` | Settings > Experimental > HydraFusion | Not applicable |
-| How to select | `/model` or `--model hydrafusion` | Model dropdown in chat view | Model picker | Not applicable |
+| How to enable | `--experimental` or `/experimental on` | `chat.copilot.hydraFusion.enabled` (defaults to `v2` since 1.142) | Settings > Experimental > HydraFusion | Not applicable |
+| How to select | `/model` or `--model hydrafusion` | Model picker: **HydraFusion**, or **Ensemble** > **High** or **Max** | Model picker | Not applicable |
 | HydraFusion Max | Yes | Yes | Yes | Not applicable |
 | Progress display | Pattern, passes, status, elapsed time | Steps of the execution pattern | Not documented | Not applicable |
 | See models used | `/usage`, `/collect-debug-logs` | Hover over response footer | Hover over response | Not applicable |
@@ -249,7 +277,7 @@ A few practical tips based on the documentation:
 ### HydraFusion does not appear in the model picker
 
 - **Copilot CLI**: confirm experimental features are on and restart after `/experimental on`. If it is still missing, enter `/update prerelease`. Prereleases may be less stable.
-- **VS Code**: confirm you are on 1.140 or later and `chat.copilot.hydraFusion.enabled` is on.
+- **VS Code**: confirm you are on 1.140 or later and `chat.copilot.hydraFusion.enabled` is `v2` or `true`. If the picker shows **Ensemble** instead of **Auto**, HydraFusion is behind Ensemble's **Max** option, and behind **High** when `chat.copilot.ensemble.intelligenceUsesHydraFusion` is on.
 - **Copilot app**: confirm you are on the latest version and HydraFusion is on in **Settings > Experimental**. Switch to the prerelease channel if the setting is missing.
 - **Organisation or enterprise**: ask your administrator whether preview features are enabled, and whether your model policies allow any of the models HydraFusion uses.
 
@@ -266,6 +294,7 @@ Your conversation exceeds HydraFusion's conservative context window. Compact the
 HydraFusion moves Copilot from "choose the best model" to "choose the best way to solve this task". In practice:
 
 - Enable it in **Copilot CLI** with `--experimental`, in **VS Code 1.140+** with `chat.copilot.hydraFusion.enabled`, or in the **Copilot app** under **Settings > Experimental**.
+- In VS Code 1.142 and later, look for it behind **Ensemble** > **High** or **Max** if Auto is presented as Ensemble.
 - Visual Studio is not currently listed as a supported surface.
 - Use it for substantial, well-scoped tasks, and keep **Auto** for everyday prompts.
 - Expect higher credit consumption on multi-pass patterns and review your working tree before committing.
@@ -274,6 +303,7 @@ Because this is a research preview, GitHub is actively asking for feedback. Shar
 
 ## Change log
 
+- **2026-10-16**: Updated the VS Code steps for 1.142 and Insiders 1.143. `chat.copilot.hydraFusion.enabled` is now a dropdown that defaults to `v2`, the model picker has a Copilot tab, and with Ensemble turned on HydraFusion runs behind Ensemble's High and Max options instead of appearing by name. Reported in [#536](https://github.com/sujithq/sujithq.github.io/issues/536). Copilot CLI 1.0.98 release notes reviewed with no HydraFusion changes.
 - **2026-10-16**: First published. Added the "Last verified" table and automated release-note checks.
 
 ## References
