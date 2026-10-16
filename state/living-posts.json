@@ -6,7 +6,8 @@
         "965246603CEEDAE486D82CD1FC8F6C42FE7A4C713173A87B5B7D9E4490B9E5F4"
       ],
       "handled_issue_numbers": [
-        536
+        536,
+        543
       ],
       "page_hashes": {
         "https://docs.github.com/en/early-access/copilot/hydrafusion": "14e887ea65a8f3d03931471d3b86d6171d7c6932e61e5ec15d38bede10f41055"
