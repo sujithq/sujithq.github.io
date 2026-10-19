@@ -4,7 +4,7 @@ const HUGO_STATS_PATH = "./hugo_stats.json";
 const isProd = process.env.HUGO_ENVIRONMENT === "production";
 const hasHugoStats = fs.existsSync(HUGO_STATS_PATH);
 
-const purgecss = require("@fullhuman/postcss-purgecss")({
+const purgecss = require("@fullhuman/postcss-purgecss").default({
   content: ["./hugo_stats.json"],
   defaultExtractor: (content) => {
     let els = { tags: [], classes: [], ids: [] };
