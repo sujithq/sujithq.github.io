@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-16
+post_date: 2026-10-19
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1250,3 +1250,7 @@ completed deprecation is shown.
 | 2026-10-16 | [Multi-repo support and other improvements for GitHub Copilot in Slack and Microsoft Teams](https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates) | Update | GitHub Copilot in Slack and Microsoft Teams now supports multi-repository conversations, letting users work across several repos in one thread. The update also includes model and repository-related improvements. |
 | 2026-10-16 | [Xcode 27 runner image generally available](https://github.blog/changelog/2026-10-15-xcode-27-runner-image-generally-available) | Generally available | GitHub Actions now offers the Xcode 27 runner image as generally available for building and testing Apple apps. It was previously in public preview. |
 | 2026-10-16 | [Open source license compliance generally available](https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available) | Generally available | GitHub Enterprise Cloud now generally available for open source license compliance, with ruleset-based checks to enforce centralized licensing policy across dependencies. |
+| 2026-10-19 | [CodeQL changes for macOS 27, Xcode 27, and Swift 6.4](https://github.blog/changelog/2026-10-19-codeql-changes-for-macos-27-xcode-27-and-swift-6-4) | Update | GitHub updated CodeQL support for macOS 27, Xcode 27, and Swift 6.4 because Apple removed Intel (x86_64) code from some system binaries and libraries that CodeQL uses for build tracing. This affects how CodeQL traces builds on these platforms. |
+| 2026-10-19 | [Some Git over HTTPS may temporarily require authentication](https://github.blog/changelog/2026-10-19-some-git-over-https-may-temporarily-require-authentication) | Update | GitHub says that during periods of unusual traffic, some public repository clones and fetches over HTTPS may temporarily require authentication to protect github.com availability. The change is temporary and only affects some operations when the site is under load. |
+| 2026-10-19 | [GitHub Copilot models deprecated on October 19, 2026](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026) | Deprecated | GitHub deprecated a set of Copilot models on October 19, 2026 across most Copilot experiences, including Chat, inline edits, ask and agent modes, and code completions. The notice says the models are no longer available in those experiences as of that date. |
+| 2026-10-19 | [Copilot model policy API for enterprise, orgs, and teams](https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams) | Update | GitHub added REST API support to retrieve and update Copilot model policies for enterprises, enterprise teams, enterprise apps, and organizations. The change introduces new GET and PATCH endpoints for managing these policies. |

@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-10-16
+post_date: 2026-10-19
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -587,3 +587,5 @@ completed deprecation is shown.
 | 2026-10-14 | [HydraFusion updates and new Max option](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option) | Update | HydraFusion now has an updated model pool and improved orchestration workflows. A new HydraFusion Max option is also available, with both offerings supported in VS Code, the GitHub Copilot app, and GitHub Copilot. |
 | 2026-10-15 | [Upcoming deprecation of selected GitHub Copilot models in mid-November](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november) | Upcoming deprecation | GitHub will deprecate several Copilot models on November 16, 2026. The change applies across Copilot Chat, inline edits, ask and agent modes, and code completions. |
 | 2026-10-16 | [Multi-repo support and other improvements for GitHub Copilot in Slack and Microsoft Teams](https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates) | Update | GitHub Copilot in Slack and Microsoft Teams now supports multi-repository conversations, letting users work across several repos in one thread. The update also includes model and repository-related improvements. |
+| 2026-10-19 | [GitHub Copilot models deprecated on October 19, 2026](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026) | Deprecated | GitHub deprecated a set of Copilot models on October 19, 2026 across most Copilot experiences, including Chat, inline edits, ask and agent modes, and code completions. The notice says the models are no longer available in those experiences as of that date. |
+| 2026-10-19 | [Copilot model policy API for enterprise, orgs, and teams](https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams) | Update | GitHub added REST API support to retrieve and update Copilot model policies for enterprises, enterprise teams, enterprise apps, and organizations. The change introduces new GET and PATCH endpoints for managing these policies. |
