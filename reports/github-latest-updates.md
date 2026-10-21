@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-19
+post_date: 2026-10-20
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1254,3 +1254,8 @@ completed deprecation is shown.
 | 2026-10-19 | [Some Git over HTTPS may temporarily require authentication](https://github.blog/changelog/2026-10-19-some-git-over-https-may-temporarily-require-authentication) | Update | GitHub says that during periods of unusual traffic, some public repository clones and fetches over HTTPS may temporarily require authentication to protect github.com availability. The change is temporary and only affects some operations when the site is under load. |
 | 2026-10-19 | [GitHub Copilot models deprecated on October 19, 2026](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026) | Deprecated | GitHub deprecated a set of Copilot models on October 19, 2026 across most Copilot experiences, including Chat, inline edits, ask and agent modes, and code completions. The notice says the models are no longer available in those experiences as of that date. |
 | 2026-10-19 | [Copilot model policy API for enterprise, orgs, and teams](https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams) | Update | GitHub added REST API support to retrieve and update Copilot model policies for enterprises, enterprise teams, enterprise apps, and organizations. The change introduces new GET and PATCH endpoints for managing these policies. |
+| 2026-10-20 | [Dependabot now supports npm 12, pnpm 11 and 12, and Bun 1.4](https://github.blog/changelog/2026-10-20-dependabot-now-supports-npm-12-pnpm-11-and-12-and-bun-1-4) | Update | Dependabot now supports upgrades to npm 12, pnpm 11 and 12, and Bun 1.4. Projects using these package manager versions can continue receiving Dependabot updates. |
+| 2026-10-20 | [GitHub package firewall in public preview](https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview) | Public preview | GitHub package firewall is now in public preview. It is intended to reduce malware risks during package installation by blocking package-install-time attacks that can steal credentials from CI/CD hosts or developer workstations. |
+| 2026-10-20 | [Dependabot alerts REST API now includes dependency versions](https://github.blog/changelog/2026-10-20-dependabot-alerts-rest-api-now-includes-dependency-versions) | Update | Dependabot alerts REST API responses now include the vulnerable dependency’s version directly. A new `version_requirement` field has been added to each alert’s `dependency` object. |
+| 2026-10-20 | [Updates to GitHub secret scanning](https://github.blog/changelog/2026-10-20-updates-to-github-secret-scanning) | Update | GitHub announced updates to secret scanning, including changes to audit log events and bug fixes. The notice specifically mentions a November 12, 2026 change to the business field in affected secret_scanning_alert.* and secret_scanning_push_protection.bypass audit log events. |
+| 2026-10-20 | [Bulk migrate branch protections to rulesets for a repository](https://github.blog/changelog/2026-10-20-bulk-migrate-branch-protections-to-rulesets-for-a-repository) | Update | GitHub now lets you bulk convert all branch protection rules in a repository into rulesets in one action. This extends the existing one-at-a-time branch protection to ruleset migration. |
