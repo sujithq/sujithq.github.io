@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-20
+post_date: 2026-10-21
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1259,3 +1259,4 @@ completed deprecation is shown.
 | 2026-10-20 | [Dependabot alerts REST API now includes dependency versions](https://github.blog/changelog/2026-10-20-dependabot-alerts-rest-api-now-includes-dependency-versions) | Update | Dependabot alerts REST API responses now include the vulnerable dependency’s version directly. A new `version_requirement` field has been added to each alert’s `dependency` object. |
 | 2026-10-20 | [Updates to GitHub secret scanning](https://github.blog/changelog/2026-10-20-updates-to-github-secret-scanning) | Update | GitHub announced updates to secret scanning, including changes to audit log events and bug fixes. The notice specifically mentions a November 12, 2026 change to the business field in affected secret_scanning_alert.* and secret_scanning_push_protection.bypass audit log events. |
 | 2026-10-20 | [Bulk migrate branch protections to rulesets for a repository](https://github.blog/changelog/2026-10-20-bulk-migrate-branch-protections-to-rulesets-for-a-repository) | Update | GitHub now lets you bulk convert all branch protection rules in a repository into rulesets in one action. This extends the existing one-at-a-time branch protection to ruleset migration. |
+| 2026-10-21 | [GitHub CLI: Opt in to expiring, auto-refreshing OAuth tokens](https://github.blog/changelog/2026-10-21-github-cli-opt-in-to-expiring-auto-refreshing-oauth-tokens) | Update | GitHub CLI now offers a public preview of expiring OAuth credentials that automatically refresh. When enabled, `gh` stores an expiring access token and uses refresh flow to keep it valid. |
