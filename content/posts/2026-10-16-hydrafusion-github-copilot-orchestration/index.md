@@ -2,7 +2,7 @@
 title = '🐉 Using HydraFusion Across Copilot Surfaces'
 slug = 'hydrafusion-github-copilot-orchestration'
 date = '2026-10-16 00:00:00+02:00'
-lastmod = '2026-10-16 09:55:00+02:00'
+lastmod = '2026-10-27 11:45:00+01:00'
 draft = false
 tags = [
   "GitHub",
@@ -51,11 +51,11 @@ HydraFusion changes quickly, so this is a living guide. An automated check compa
 <!-- living-post:verified:start -->
 | Surface | Version reviewed | Source | Reviewed on |
 | --- | --- | --- | --- |
-| GitHub Docs | Using HydraFusion (early access) | [Docs](https://docs.github.com/en/early-access/copilot/hydrafusion) | 2026-10-16 |
+| GitHub Docs | Using HydraFusion (early access) | [Docs](https://docs.github.com/en/early-access/copilot/hydrafusion) | 2026-10-27 |
 | GitHub Changelog | Up to 14 October 2026 | [Changelog](https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option) | 2026-10-16 |
 | VS Code | 1.142 | [Release notes](https://code.visualstudio.com/updates/v1_142) and in-product setting descriptions | 2026-10-16 |
-| VS Code Insiders | 1.143 | [Release notes](https://code.visualstudio.com/updates/v1_143) and in-product setting descriptions | 2026-10-16 |
-| Copilot CLI | 1.0.98 | [Release notes](https://github.com/github/copilot-cli/releases/tag/v1.0.98) (prerelease [1.0.99-1](https://github.com/github/copilot-cli/releases/tag/v1.0.99-1) also reviewed) | 2026-10-16 |
+| VS Code Insiders | 1.144 | [Release notes](https://code.visualstudio.com/updates/v1_144) and in-product setting descriptions | 2026-10-27 |
+| Copilot CLI | 1.0.104 | [Release notes](https://github.com/github/copilot-cli/releases/tag/v1.0.104) ([1.0.101](https://github.com/github/copilot-cli/releases/tag/v1.0.101) and prerelease [1.0.99-1](https://github.com/github/copilot-cli/releases/tag/v1.0.99-1) also reviewed) | 2026-10-27 |
 | Copilot app | No separate release notes | Tracked through the GitHub Changelog | 2026-10-16 |
 | Visual Studio | Not supported | [Visual Studio Blog](https://devblogs.microsoft.com/visualstudio/) | 2026-10-16 |
 <!-- living-post:verified:end -->
@@ -161,7 +161,7 @@ Press `Esc` to interrupt. When the task completes, the conversation keeps a summ
 
 #### Prerelease: expandable passes (1.0.99-1 and later)
 
-The latest stable release is 1.0.98 and behaves as described above. Copilot CLI 1.0.99-1 is a prerelease, which you can install with `/update prerelease`. According to its [release notes](https://github.com/github/copilot-cli/releases/tag/v1.0.99-1), and as reported by the site owner running that build:
+Copilot CLI 1.0.98 behaves as described above, and the 1.0.101 and 1.0.104 release notes do not say whether expandable passes shipped in a stable release. Copilot CLI 1.0.99-1 is a prerelease, which you can install with `/update prerelease`. According to its [release notes](https://github.com/github/copilot-cli/releases/tag/v1.0.99-1), and as reported by the site owner running that build:
 
 - A pass stays expanded while its review runs, so you can read the draft being reviewed.
 - Passes that were not kept (discarded drafts) stay expandable after the turn, until you switch sessions or resume the session.
@@ -313,6 +313,7 @@ Because this is a research preview, GitHub is actively asking for feedback. Shar
 
 ## Change log
 
+- **2026-10-27**: Reviewed the HydraFusion docs, VS Code Insiders 1.144 and Copilot CLI 1.0.101 and 1.0.104. The docs and the VS Code 1.144 release notes mention no change to the steps in this post. Copilot CLI 1.0.101 says switching to HydraFusion compacts only when the routed model needs it, and 1.0.104 says the managed model "fusion" now starts sessions on Auto and applies `fusionTier` settings. Check `/model` after updating.
 - **2026-10-16**: Added the Copilot CLI 1.0.99-1 prerelease behaviour: passes stay expanded during review, discarded passes stay expandable until you switch or resume sessions, and aborted turns show whether each pass was kept. The sources reviewed mention no change to stable 1.0.98 behaviour. Reported in [#543](https://github.com/sujithq/sujithq.github.io/issues/543) and confirmed by the prerelease notes.
 - **2026-10-16**: Updated the VS Code steps for 1.142 and Insiders 1.143. `chat.copilot.hydraFusion.enabled` is now a dropdown that defaults to `v2`, the model picker has a Copilot tab, and with Ensemble turned on HydraFusion runs behind Ensemble's High and Max options instead of appearing by name. Reported in [#536](https://github.com/sujithq/sujithq.github.io/issues/536). Copilot CLI 1.0.98 release notes reviewed with no HydraFusion changes.
 - **2026-10-16**: First published. Added the "Last verified" table and automated release-note checks.
