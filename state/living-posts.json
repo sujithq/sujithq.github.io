@@ -3,21 +3,22 @@
     "hydrafusion": {
       "handled_item_ids": [
         "6181910557802714A00C75E94AC67A61C313F3E9A1C997A8771BA8CC24754E1A",
-        "965246603CEEDAE486D82CD1FC8F6C42FE7A4C713173A87B5B7D9E4490B9E5F4"
+        "965246603CEEDAE486D82CD1FC8F6C42FE7A4C713173A87B5B7D9E4490B9E5F4",
+        "FF967A1811C1E53C60533EAEA30343DCA56D59A4210D3D565CE7D3B118F2749F"
       ],
       "handled_issue_numbers": [
         536,
         543
       ],
       "page_hashes": {
-        "https://docs.github.com/en/early-access/copilot/hydrafusion": "14e887ea65a8f3d03931471d3b86d6171d7c6932e61e5ec15d38bede10f41055"
+        "https://docs.github.com/en/early-access/copilot/hydrafusion": "9aab696d8b60a70c303def17e1f6509258792b4680e63b875eca2c655ca8aa1d"
       },
       "verified_versions": {
         "vscode": "1.142",
-        "vscode-insiders": "1.143",
-        "copilot-cli": "1.0.98"
+        "vscode-insiders": "1.144",
+        "copilot-cli": "1.0.104"
       },
-      "last_checked": "2026-10-16"
+      "last_checked": "2026-10-27"
     },
     "copilot-model-guide": {
       "handled_item_ids": [],
