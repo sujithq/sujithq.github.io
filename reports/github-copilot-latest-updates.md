@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-10-23
+post_date: 2026-10-26
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -594,3 +594,5 @@ completed deprecation is shown.
 | 2026-10-23 | [GitHub Copilot in Visual Studio — September update](https://github.blog/changelog/2026-10-22-github-copilot-in-visual-studio-september-update-2) | Update | GitHub’s September 2026 Visual Studio Copilot update adds pull request exploration in chat, support for choosing the AI model your team uses, and package vulnerability fixes surfaced directly from Visual Studio. |
 | 2026-10-23 | [Turn notifications into code with GitHub Copilot in Teams](https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams) | Update | GitHub introduced a new GitHub app for Microsoft Teams that combines notifications with Copilot, letting teams act on issues and create fixes without leaving the conversation. |
 | 2026-10-23 | [Usage metrics API adds usage from tools like OpenCode](https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode) | Update | The Copilot usage metrics API now includes model usage from additional tools, such as OpenCode, that were not previously reflected in reports. |
+| 2026-10-26 | [GPT-6.1 Terra in GitHub Copilot](https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot) | Update | GPT-6.1 Terra is now generally available in GitHub Copilot. GitHub says it is intended for everyday agentic coding and terminal work, and costs less than GPT-6.1 Sol. |
+| 2026-10-26 | [GitHub Copilot assisted permissions generally available](https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available) | Generally available | GitHub Copilot assisted permissions are now generally available in Copilot CLI, the Copilot app, and Visual Studio Code. The feature lets Copilot request permission before running commands or accessing file system paths. |
