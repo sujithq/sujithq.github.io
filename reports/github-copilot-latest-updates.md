@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-10-26
+post_date: 2026-10-27
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -596,3 +596,4 @@ completed deprecation is shown.
 | 2026-10-23 | [Usage metrics API adds usage from tools like OpenCode](https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode) | Update | The Copilot usage metrics API now includes model usage from additional tools, such as OpenCode, that were not previously reflected in reports. |
 | 2026-10-26 | [GPT-6.1 Terra in GitHub Copilot](https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot) | Update | GPT-6.1 Terra is now generally available in GitHub Copilot. GitHub says it is intended for everyday agentic coding and terminal work, and costs less than GPT-6.1 Sol. |
 | 2026-10-26 | [GitHub Copilot assisted permissions generally available](https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available) | Generally available | GitHub Copilot assisted permissions are now generally available in Copilot CLI, the Copilot app, and Visual Studio Code. The feature lets Copilot request permission before running commands or accessing file system paths. |
+| 2026-10-27 | [GitHub Copilot supports server-to-server authentication](https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication) | Update | GitHub Copilot now supports server-to-server authentication for GitHub Apps installed on organizations, in public preview. This lets services and agents built with the GitHub Copilot SDK make authenticated requests on behalf of an app without user-based auth. |
