@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-10-29
+post_date: 2026-11-02
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1286,3 +1286,5 @@ completed deprecation is shown.
 | 2026-10-28 | [GitHub Copilot app, Universe releases](https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases) | Update | GitHub says work often spans multiple repositories and sessions, and can also involve non-repository artifacts like specs, designs, and assets. The post announces GitHub Copilot app and Universe releases, but the provided excerpt does not include specific feature details. |
 | 2026-10-28 | [Route and orchestrate models with GitHub Copilot Fusion](https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion) | Update | GitHub Copilot Fusion is now generally available. It lets users choose Fusion instead of selecting a model per task, and Copilot will route and orchestrate which models to use automatically. |
 | 2026-10-29 | [Webhook IP ranges added to the Meta API](https://github.blog/changelog/2026-10-29-webhook-ip-ranges-added-to-the-meta-api) | Update | GitHub added IP ranges for webhook deliveries on github.com to the Meta API. The new ranges appear in the `hooks` field, so allowlists for webhook traffic should be updated from the API data. |
+| 2026-11-02 | [pull_request_target blocked by default December 2](https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2) | Update | Starting December 2, 2026, GitHub Actions will block `pull_request_target` events by default in all public repositories unless an applicable Actions event policy explicitly allows them. The enforcement date was changed from a previous schedule. |
+| 2026-11-02 | [Security risk assessments include repository protection status](https://github.blog/changelog/2026-11-02-security-risk-assessments-include-repository-protection-status) | Update | GitHub’s code security risk assessment and secret risk assessment now indicate whether findings are in protected or unprotected repositories. This helps organizations see where to extend security coverage. |
