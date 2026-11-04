@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-11-02
+post_date: 2026-11-04
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1288,3 +1288,10 @@ completed deprecation is shown.
 | 2026-10-29 | [Webhook IP ranges added to the Meta API](https://github.blog/changelog/2026-10-29-webhook-ip-ranges-added-to-the-meta-api) | Update | GitHub added IP ranges for webhook deliveries on github.com to the Meta API. The new ranges appear in the `hooks` field, so allowlists for webhook traffic should be updated from the API data. |
 | 2026-11-02 | [pull_request_target blocked by default December 2](https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2) | Update | Starting December 2, 2026, GitHub Actions will block `pull_request_target` events by default in all public repositories unless an applicable Actions event policy explicitly allows them. The enforcement date was changed from a previous schedule. |
 | 2026-11-02 | [Security risk assessments include repository protection status](https://github.blog/changelog/2026-11-02-security-risk-assessments-include-repository-protection-status) | Update | GitHub’s code security risk assessment and secret risk assessment now indicate whether findings are in protected or unprotected repositories. This helps organizations see where to extend security coverage. |
+| 2026-11-03 | [GitHub Desktop adds short-lived authentication tokens](https://github.blog/changelog/2026-11-02-github-desktop-adds-short-lived-authentication-tokens) | Update | GitHub Desktop 3.6.10+ now supports short-lived, automatically refreshing authentication tokens for eligible accounts. This reduces the time a leaked token remains usable. |
+| 2026-11-03 | [Dependabot now supports Python 3.15](https://github.blog/changelog/2026-11-03-dependabot-now-supports-python-3-15) | Update | Dependabot now supports Python 3.15, so projects can upgrade to that version and continue receiving dependency update alerts and pull requests. The support is available to all github.com users. |
+| 2026-11-03 | [CodeQL 2.27.3 adds Python 3.15 features and JSON data extensions](https://github.blog/changelog/2026-11-03-codeql-2-27-3-adds-python-3-15-features-and-json-data-extensions) | Update | CodeQL 2.27.3 has been released. The update adds support for new Python 3.15 language features and JSON data extensions. |
+| 2026-11-03 | [GitHub Copilot is now available in JetBrains Air](https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air) | Update | GitHub Copilot is now available in JetBrains Air. The integration uses the Agent Client Protocol (ACP) and lets you delegate coding tasks, guide execution, and review results in the IDE. |
+| 2026-11-03 | [Look up a resource’s cost center with the GitHub REST API](https://github.blog/changelog/2026-11-03-look-up-a-resources-cost-center-with-the-github-rest-api) | Update | GitHub REST API now supports looking up the cost center for a user, organization, repository, or enterprise team. This replaces the previous need to enumerate all cost centers to find the matching one. |
+| 2026-11-03 | [Dependabot version updates support Agent Package Manager](https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager) | Update | Dependabot version updates now support Agent Package Manager (APM), allowing automated pull requests to keep AI agent skills, prompts, and instructions current. |
+| 2026-11-04 | [BYOK and enterprise custom models in the Copilot usage API](https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api) | Update | The Copilot usage metrics API now separates bring-your-own-key (BYOK) usage from Copilot-hosted model usage. It also reports on enterprise custom models. |

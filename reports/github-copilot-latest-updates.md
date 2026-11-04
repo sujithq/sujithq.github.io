@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-10-28
+post_date: 2026-11-04
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -606,3 +606,5 @@ completed deprecation is shown.
 | 2026-10-28 | [GitHub Enterprise now includes access to GitHub Copilot](https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot) | Update | GitHub Enterprise now includes GitHub Copilot for every licensed user when purchased through a GitHub or Microsoft account team. This replaces the previous model where Copilot had to be managed separately. |
 | 2026-10-28 | [GitHub Copilot app, Universe releases](https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases) | Update | GitHub says work often spans multiple repositories and sessions, and can also involve non-repository artifacts like specs, designs, and assets. The post announces GitHub Copilot app and Universe releases, but the provided excerpt does not include specific feature details. |
 | 2026-10-28 | [Route and orchestrate models with GitHub Copilot Fusion](https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion) | Update | GitHub Copilot Fusion is now generally available. It lets users choose Fusion instead of selecting a model per task, and Copilot will route and orchestrate which models to use automatically. |
+| 2026-11-03 | [GitHub Copilot is now available in JetBrains Air](https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air) | Update | GitHub Copilot is now available in JetBrains Air. The integration uses the Agent Client Protocol (ACP) and lets you delegate coding tasks, guide execution, and review results in the IDE. |
+| 2026-11-04 | [BYOK and enterprise custom models in the Copilot usage API](https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api) | Update | The Copilot usage metrics API now separates bring-your-own-key (BYOK) usage from Copilot-hosted model usage. It also reports on enterprise custom models. |
