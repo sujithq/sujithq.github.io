@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-11-04
+post_date: 2026-11-06
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -609,3 +609,5 @@ completed deprecation is shown.
 | 2026-11-03 | [GitHub Copilot is now available in JetBrains Air](https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air) | Update | GitHub Copilot is now available in JetBrains Air. The integration uses the Agent Client Protocol (ACP) and lets you delegate coding tasks, guide execution, and review results in the IDE. |
 | 2026-11-04 | [BYOK and enterprise custom models in the Copilot usage API](https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api) | Update | The Copilot usage metrics API now separates bring-your-own-key (BYOK) usage from Copilot-hosted model usage. It also reports on enterprise custom models. |
 | 2026-11-04 | [GitHub Copilot is now available in Xcode’s coding assistant](https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant) | Update | GitHub Copilot is now available in Xcode’s built-in coding assistant as a public preview. The integration lets users access Copilot directly within the native Xcode workflow. |
+| 2026-11-06 | [Usage metrics API flags telemetry and version gaps](https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps) | Update | The Copilot usage metrics API now identifies users who are missing client telemetry or are using IDE/extension versions below the usage metrics minimums. It adds new per-user fields to expose these gaps. |
+| 2026-11-06 | [Usage metrics API adds code review details and addressed rate](https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate) | Update | GitHub’s enterprise and organization repository-level Copilot usage metrics now include code review outcome data. The `repos-1-day` report gains a new `copilot_code_review` object with counts for feedback handling, including an addressed rate. |
