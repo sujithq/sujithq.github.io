@@ -37,7 +37,7 @@ jobs:
       - name: Install and audit JavaScript dependencies
         run: |
           npm ci
-          npm audit --audit-level=low
+          node scripts/audit-npm-dependencies.js
 
       - name: Run unit tests
         run: npm run test:unit
