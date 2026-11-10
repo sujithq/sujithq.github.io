@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-11-07
+post_date: 2026-11-09
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1304,3 +1304,5 @@ completed deprecation is shown.
 | 2026-11-06 | [GitHub Copilot weekly releases — November 2](https://github.blog/changelog/2026-11-06-github-copilot-weekly-releases-november-2) | Update | GitHub Copilot added support for JetBrains Air and Xcode’s coding assistant, and shipped updates for managing pull requests, settings, and agent sessions. The post also mentions an agent merge setup update in the GitHub Copilot app. |
 | 2026-11-06 | [Copilot impact dashboard adds chat and VS Code agent usage](https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage) | Update | GitHub Copilot Impact dashboard’s Agent adoption chart now includes Copilot Chat and the VS Code Agents window, expanding coverage to nine Copilot experiences. This lets admins view engagement across those additional surfaces in the dashboard. |
 | 2026-11-07 | [Copilot code review: API management and review overview updates](https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates) | Update | GitHub Copilot code review settings can now be managed via REST and GraphQL APIs across enterprise, organization, repository, and user scopes. The review overview comment has also been made more compact. |
+| 2026-11-09 | [Secret scanning detects secrets in GitHub Actions workflow logs](https://github.blog/changelog/2026-11-09-secret-scanning-detects-secrets-in-github-actions-workflow-logs) | Update | GitHub secret scanning now detects secrets in GitHub Actions workflow logs. The feature is available in public preview and adds workflow logs to the existing scanning coverage for issues, wikis, discussions, and pull requests. |
+| 2026-11-09 | [Claude Fable 5.2 in GitHub Copilot](https://github.blog/changelog/2026-11-09-claude-fable-5-2-in-github-copilot) | Update | Claude Fable 5.2 is now generally available in GitHub Copilot. GitHub says it is intended for complex, multistep coding tasks across large codebases. |
