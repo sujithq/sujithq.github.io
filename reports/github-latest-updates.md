@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-11-09
+post_date: 2026-11-11
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1306,3 +1306,8 @@ completed deprecation is shown.
 | 2026-11-07 | [Copilot code review: API management and review overview updates](https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates) | Update | GitHub Copilot code review settings can now be managed via REST and GraphQL APIs across enterprise, organization, repository, and user scopes. The review overview comment has also been made more compact. |
 | 2026-11-09 | [Secret scanning detects secrets in GitHub Actions workflow logs](https://github.blog/changelog/2026-11-09-secret-scanning-detects-secrets-in-github-actions-workflow-logs) | Update | GitHub secret scanning now detects secrets in GitHub Actions workflow logs. The feature is available in public preview and adds workflow logs to the existing scanning coverage for issues, wikis, discussions, and pull requests. |
 | 2026-11-09 | [Claude Fable 5.2 in GitHub Copilot](https://github.blog/changelog/2026-11-09-claude-fable-5-2-in-github-copilot) | Update | Claude Fable 5.2 is now generally available in GitHub Copilot. GitHub says it is intended for complex, multistep coding tasks across large codebases. |
+| 2026-11-10 | [A more informative GitHub dashboard](https://github.blog/changelog/2026-11-10-a-more-informative-github-dashboard) | Update | GitHub says the new default dashboard was too space-heavy and showed too little information. This changelog post indicates the dashboard is being adjusted to be more informative and compact. |
+| 2026-11-10 | [Dependabot alerts will pause on inactive repositories](https://github.blog/changelog/2026-11-10-dependabot-alerts-will-pause-on-inactive-repositories) | Update | Starting December 8, 2026, GitHub will pause Dependabot alerts on most repositories that have had no activity for the past year. Existing alerts will be archived rather than deleted, and alerts can be re-enabled if the repository becomes active. |
+| 2026-11-10 | [C++ language server now auto-configures MSBuild builds](https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds) | Update | The Microsoft C++ Language Server for GitHub Copilot CLI now includes its MSBuild compile commands extractor and runs it automatically. This removes the need for an agent to discover and invoke the extractor separately. |
+| 2026-11-10 | [Gemini 4 Carbon in GitHub Copilot](https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot) | Update | Gemini 4 Carbon is now generally available in GitHub Copilot. GitHub says it is intended for complex coding, agentic, and reasoning tasks, with an emphasis on secure code generation. |
+| 2026-11-11 | [GitHub App support for Enterprise Copilot seat management](https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management) | Update | Enterprise GitHub Apps can now use the enterprise-level Copilot seat management APIs. This lets apps manage which users and enterprise teams are assigned Copilot seats. |
