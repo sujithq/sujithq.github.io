@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-11-11
+post_date: 2026-11-12
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1312,3 +1312,6 @@ completed deprecation is shown.
 | 2026-11-10 | [Gemini 4 Carbon in GitHub Copilot](https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot) | Update | Gemini 4 Carbon is now generally available in GitHub Copilot. GitHub says it is intended for complex coding, agentic, and reasoning tasks, with an emphasis on secure code generation. |
 | 2026-11-11 | [GitHub App support for Enterprise Copilot seat management](https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management) | Update | Enterprise GitHub Apps can now use the enterprise-level Copilot seat management APIs. This lets apps manage which users and enterprise teams are assigned Copilot seats. |
 | 2026-11-11 | [Issue types and fields are available for personal accounts](https://github.blog/changelog/2026-11-11-issue-types-and-fields-are-available-for-personal-accounts) | Update | Issue types and issue fields are now generally available for repositories owned by personal accounts. This adds the same planning features previously available elsewhere, letting individual developers and open source maintainers standardize issue tracking. |
+| 2026-11-12 | [Public monitoring alerts now have direct links](https://github.blog/changelog/2026-11-12-public-monitoring-alerts-now-have-direct-links) | Update | Public monitoring alerts in an enterprise’s Public monitoring view now support direct links to individual alerts. Clicking an alert number opens that alert directly. |
+| 2026-11-12 | [Secret scanning detects Cloudflare service tokens](https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare) | Update | GitHub Secret Scanning now detects Cloudflare service tokens in repositories. The new detector covers the Cloudflare Access service token secret type. |
+| 2026-11-12 | [Actions for ARM32 Linux & Windows retirement](https://github.blog/changelog/2026-11-12-actions-for-arm32-linux-windows-retirement) | Update | GitHub Actions will end ARM32 job execution support on hosted Windows and Linux runners on 8 Dec 2026. The change follows the broader Node 20 support retirement. |
