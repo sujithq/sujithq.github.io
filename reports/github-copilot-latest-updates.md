@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub Copilot and Copilot-impacting updates.
-post_date: 2026-11-11
+post_date: 2026-11-13
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -618,3 +618,6 @@ completed deprecation is shown.
 | 2026-11-10 | [C++ language server now auto-configures MSBuild builds](https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds) | Update | The Microsoft C++ Language Server for GitHub Copilot CLI now includes its MSBuild compile commands extractor and runs it automatically. This removes the need for an agent to discover and invoke the extractor separately. |
 | 2026-11-10 | [Gemini 4 Carbon in GitHub Copilot](https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot) | Update | Gemini 4 Carbon is now generally available in GitHub Copilot. GitHub says it is intended for complex coding, agentic, and reasoning tasks, with an emphasis on secure code generation. |
 | 2026-11-11 | [GitHub App support for Enterprise Copilot seat management](https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management) | Update | Enterprise GitHub Apps can now use the enterprise-level Copilot seat management APIs. This lets apps manage which users and enterprise teams are assigned Copilot seats. |
+| 2026-11-13 | [Gemini 4 Hydrogen in GitHub Copilot](https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot) | Update | Gemini 4 Hydrogen is now generally available in GitHub Copilot. GitHub says it is optimized for fast, efficient agentic coding, tool use, and multistep workflows, with improved instruction following. |
+| 2026-11-13 | [GitHub Enterprise Server support in the GitHub Copilot app](https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app) | Update | GitHub Copilot app now supports GitHub Enterprise Server accounts. Users can add a GHES account to access remote repositories, issues, and pull requests from the app. |
+| 2026-11-13 | [Upcoming deprecation of selected GitHub Copilot models in December](https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december) | Upcoming deprecation | GitHub will deprecate selected Copilot models across all Copilot experiences on December 14, 2026. The notice applies to Copilot Chat, inline edits, ask and agent modes, and code completions. |

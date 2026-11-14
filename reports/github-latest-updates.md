@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-11-12
+post_date: 2026-11-13
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1315,3 +1315,7 @@ completed deprecation is shown.
 | 2026-11-12 | [Public monitoring alerts now have direct links](https://github.blog/changelog/2026-11-12-public-monitoring-alerts-now-have-direct-links) | Update | Public monitoring alerts in an enterprise’s Public monitoring view now support direct links to individual alerts. Clicking an alert number opens that alert directly. |
 | 2026-11-12 | [Secret scanning detects Cloudflare service tokens](https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare) | Update | GitHub Secret Scanning now detects Cloudflare service tokens in repositories. The new detector covers the Cloudflare Access service token secret type. |
 | 2026-11-12 | [Actions for ARM32 Linux & Windows retirement](https://github.blog/changelog/2026-11-12-actions-for-arm32-linux-windows-retirement) | Update | GitHub Actions will end ARM32 job execution support on hosted Windows and Linux runners on 8 Dec 2026. The change follows the broader Node 20 support retirement. |
+| 2026-11-13 | [Manage AI Scan for repositories using the REST API](https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api) | Update | GitHub added a public preview REST API for enabling or disabling code scanning’s AI Scan at both the organization and repository levels. The feature introduces a new repository_scan setting. |
+| 2026-11-13 | [Gemini 4 Hydrogen in GitHub Copilot](https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot) | Update | Gemini 4 Hydrogen is now generally available in GitHub Copilot. GitHub says it is optimized for fast, efficient agentic coding, tool use, and multistep workflows, with improved instruction following. |
+| 2026-11-13 | [GitHub Enterprise Server support in the GitHub Copilot app](https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app) | Update | GitHub Copilot app now supports GitHub Enterprise Server accounts. Users can add a GHES account to access remote repositories, issues, and pull requests from the app. |
+| 2026-11-13 | [Upcoming deprecation of selected GitHub Copilot models in December](https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december) | Upcoming deprecation | GitHub will deprecate selected Copilot models across all Copilot experiences on December 14, 2026. The notice applies to Copilot Chat, inline edits, ask and agent modes, and code completions. |
