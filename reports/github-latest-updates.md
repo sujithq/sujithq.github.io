@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-11-17
+post_date: 2026-11-19
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1336,3 +1336,8 @@ completed deprecation is shown.
 | 2026-11-17 | [GitHub Copilot app, Microsoft Ignite releases](https://github.blog/changelog/2026-11-17-github-copilot-app-microsoft-ignite-releases) | Update | GitHub released updates for the Copilot app at Microsoft Ignite, adding support for Azure DevOps repositories, GitHub Enterprise Server, and use in the browser. The post says Copilot is intended to work where you already work. |
 | 2026-11-17 | [GitHub Copilot Fusion updates: more availability, benchmarks, and models](https://github.blog/changelog/2026-11-17-github-copilot-fusion-updates-more-availability-benchmarks-and-models) | Update | GitHub Copilot Fusion is being expanded with additional models, broader availability across Copilot surfaces, and benchmark results published on two public Terminal-Bench leaderboards. The update also gives users more options for comparing Fusion performance. |
 | 2026-11-17 | [OpenAI’s GPT-6.2 Astra and GPT-6.2 Sol now available](https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available) | Update | GPT-6.2 Astra and GPT-6.2 Sol are now generally available in GitHub Copilot. GitHub says both are intended for agentic coding and code review, with stronger coding judgment than earlier GPT-6 models. |
+| 2026-11-18 | [Customize GitHub Copilot for your team](https://github.blog/changelog/2026-11-18-customize-github-copilot-for-your-team) | Update | GitHub Copilot team customizations are now generally available for organization teams. Teams can share Copilot plugins they rely on so members do not need to repeat the same setup. |
+| 2026-11-18 | [Security risk assessments run automatically on GitHub Team](https://github.blog/changelog/2026-11-18-security-risk-assessments-run-automatically-on-github-team) | Update | GitHub now runs security risk assessments automatically for organizations on GitHub Team. Admins and security managers can review free assessment findings to identify exposed credentials and code. |
+| 2026-11-18 | [Gemini 4 Neon in GitHub Copilot](https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot) | Update | Gemini 4 Neon is now generally available in GitHub Copilot. GitHub says it is intended for agentic coding, multistep tool use, and knowledge work. |
+| 2026-11-18 | [Connect Supabase, Box, Calendly, and more to Copilot](https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot) | Update | GitHub added public preview support for connecting eight additional services to Copilot through GitHub-verified MCP servers (connectors). These join the more than 25 services already available. |
+| 2026-11-19 | [Wait for pull request events with GitHub CLI](https://github.blog/changelog/2026-11-18-wait-for-pull-request-events-with-github-cli) | Update | GitHub CLI v2.105.0 adds support for GitHub Event Streams, allowing you to wait for pull request events with a single command instead of polling. The update is aimed at both users and agents monitoring PR changes. |
