@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-11-19
+post_date: 2026-11-20
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1341,3 +1341,7 @@ completed deprecation is shown.
 | 2026-11-18 | [Gemini 4 Neon in GitHub Copilot](https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot) | Update | Gemini 4 Neon is now generally available in GitHub Copilot. GitHub says it is intended for agentic coding, multistep tool use, and knowledge work. |
 | 2026-11-18 | [Connect Supabase, Box, Calendly, and more to Copilot](https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot) | Update | GitHub added public preview support for connecting eight additional services to Copilot through GitHub-verified MCP servers (connectors). These join the more than 25 services already available. |
 | 2026-11-19 | [Wait for pull request events with GitHub CLI](https://github.blog/changelog/2026-11-18-wait-for-pull-request-events-with-github-cli) | Update | GitHub CLI v2.105.0 adds support for GitHub Event Streams, allowing you to wait for pull request events with a single command instead of polling. The update is aimed at both users and agents monitoring PR changes. |
+| 2026-11-19 | [S3 audit log streaming with OpenID Connect expands to GHE.com](https://github.blog/changelog/2026-11-19-s3-audit-log-streaming-with-openid-connect-expands-to-ghe-com) | Update | GitHub Enterprise Cloud with data residency (GHE.com) now supports streaming enterprise audit logs to Amazon S3 using OpenID Connect (OIDC). This brings the same S3 audit log streaming capability previously available on github.com to GHE.com. |
+| 2026-11-19 | [Red Hat Enterprise Linux runner images now generally available](https://github.blog/changelog/2026-11-19-red-hat-enterprise-linux-runner-images-now-generally-available) | Generally available | Red Hat Enterprise Linux 9 and 10 images for GitHub-hosted larger runners are now generally available. They were previously in public preview starting in June 2026. |
+| 2026-11-19 | [Enterprise Live Migrations from Azure DevOps generally available](https://github.blog/changelog/2026-11-19-enterprise-live-migrations-from-azure-devops-generally-available) | Generally available | Enterprise Live Migrations from Azure DevOps Services to GitHub Enterprise Cloud with data residency are now generally available. The feature lets organizations migrate repositories while teams continue working. |
+| 2026-11-20 | [Improvements on the pull request overview in public preview](https://github.blog/changelog/2026-11-19-improvements-on-the-pull-request-overview-in-public-preview) | Public preview | GitHub updated the pull request Overview page in public preview with clearer merge status and more explicit next steps. The changes are based on feedback since the November 5, 2026 preview release. |
