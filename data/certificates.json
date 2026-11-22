@@ -1,8 +1,8 @@
 {
-  "fetchedAt": "2026-11-15T05:28:50.768034Z",
+  "fetchedAt": "2026-11-22T05:42:56.768967Z",
   "summary": {
-    "totalActive": 89,
-    "totalHistorical": 1,
+    "totalActive": 90,
+    "totalHistorical": 2,
     "expiringWithin30Days": 18
   },
   "activeCertificates": [
@@ -12,7 +12,7 @@
       "desc": "Microsoft Certified: Azure AI Engineer Associate",
       "type": "Active",
       "expires": "2027-01-11",
-      "daysUntilExpiry": 57,
+      "daysUntilExpiry": 50,
       "dateEarned": "2021-01-11T14:56:44+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
       "statusCategory": "active"
@@ -23,7 +23,7 @@
       "desc": "Microsoft Certified: Azure Security Engineer Associate",
       "type": "Active",
       "expires": "2027-04-23",
-      "daysUntilExpiry": 159,
+      "daysUntilExpiry": 152,
       "dateEarned": "2020-04-23T14:09:27+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
       "statusCategory": "active"
@@ -34,7 +34,7 @@
       "desc": "Microsoft Certified: Azure Network Engineer Associate",
       "type": "Active",
       "expires": "2027-06-24",
-      "daysUntilExpiry": 221,
+      "daysUntilExpiry": 214,
       "dateEarned": "2022-06-24T10:44:11+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
       "statusCategory": "active"
@@ -45,7 +45,7 @@
       "desc": "Microsoft Certified: Identity and Access Administrator Associate",
       "type": "Active",
       "expires": "2027-07-07",
-      "daysUntilExpiry": 234,
+      "daysUntilExpiry": 227,
       "dateEarned": "2022-07-07T08:57:45+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
       "statusCategory": "active"
@@ -56,7 +56,7 @@
       "desc": "GitHub Copilot",
       "type": "Active",
       "expires": "2027-07-17",
-      "daysUntilExpiry": 244,
+      "daysUntilExpiry": 237,
       "dateEarned": "2025-07-17T07:49:42+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/github-copilot.svg",
       "statusCategory": "active"
@@ -67,7 +67,7 @@
       "desc": "GitHub Certified: Agentic AI Developer",
       "type": "Active",
       "expires": "2027-07-27",
-      "daysUntilExpiry": 254,
+      "daysUntilExpiry": 247,
       "dateEarned": "2026-07-27T15:03:52+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/credentials/images/badges/github-agentic-ai-developer.svg",
       "statusCategory": "active"
@@ -78,7 +78,7 @@
       "desc": "Microsoft Certified: Cybersecurity Architect Expert",
       "type": "Active",
       "expires": "2027-07-28",
-      "daysUntilExpiry": 255,
+      "daysUntilExpiry": 248,
       "dateEarned": "2022-07-28T08:19:51+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg",
       "statusCategory": "active"
@@ -89,7 +89,7 @@
       "desc": "Microsoft Certified: Azure Administrator Associate",
       "type": "Active",
       "expires": "2027-08-06",
-      "daysUntilExpiry": 264,
+      "daysUntilExpiry": 257,
       "dateEarned": "2020-08-06T13:37:51+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
       "statusCategory": "active"
@@ -100,7 +100,7 @@
       "desc": "Microsoft Certified: Azure Solutions Architect Expert",
       "type": "Active",
       "expires": "2027-08-08",
-      "daysUntilExpiry": 266,
+      "daysUntilExpiry": 259,
       "dateEarned": "2020-08-08T23:59:59+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg",
       "statusCategory": "active"
@@ -111,7 +111,7 @@
       "desc": "Microsoft Certified: DevOps Engineer Expert",
       "type": "Active",
       "expires": "2027-08-12",
-      "daysUntilExpiry": 270,
+      "daysUntilExpiry": 263,
       "dateEarned": "2020-08-12T13:41:46+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg",
       "statusCategory": "active"
@@ -122,7 +122,7 @@
       "desc": "Microsoft Certified: Azure Developer Associate",
       "type": "Active",
       "expires": "2027-08-26",
-      "daysUntilExpiry": 284,
+      "daysUntilExpiry": 277,
       "dateEarned": "2020-08-26T13:54:29+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
       "statusCategory": "active"
@@ -133,9 +133,20 @@
       "desc": "Microsoft Certified: Agentic AI Business Solutions Architect Expert",
       "type": "Active",
       "expires": "2027-08-28",
-      "daysUntilExpiry": 286,
+      "daysUntilExpiry": 279,
       "dateEarned": "2026-08-28T07:33:32+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg",
+      "statusCategory": "active"
+    },
+    {
+      "id": "75443G-7E83D4",
+      "code": "GH-100",
+      "desc": "GitHub Administration",
+      "type": "Active",
+      "expires": "2027-09-24",
+      "daysUntilExpiry": 306,
+      "dateEarned": "2023-09-24T11:25:06+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/github-administration.svg",
       "statusCategory": "active"
     },
     {
@@ -144,7 +155,7 @@
       "desc": "GitHub Actions",
       "type": "Active",
       "expires": "2028-02-20",
-      "daysUntilExpiry": 462,
+      "daysUntilExpiry": 455,
       "dateEarned": "2026-02-20T09:26:55+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/github-actions.svg",
       "statusCategory": "active"
@@ -155,7 +166,7 @@
       "desc": "Microsoft Certified: Azure Cosmos DB AI Developer Associate",
       "type": "Active",
       "expires": "2028-03-10",
-      "daysUntilExpiry": 481,
+      "daysUntilExpiry": 474,
       "dateEarned": "2022-03-10T00:00:00+00:00",
       "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
       "statusCategory": "active"
@@ -232,7 +243,7 @@
       "desc": "GitHub Advanced Security",
       "type": "credly",
       "expires": "2027-01-26",
-      "daysUntilExpiry": 71,
+      "daysUntilExpiry": 64,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -265,7 +276,7 @@
       "desc": "Modernizing Enterprise CI/CD with GitHub Actions Delivery Credential",
       "type": "credly",
       "expires": "2027-08-29",
-      "daysUntilExpiry": 286,
+      "daysUntilExpiry": 279,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -276,7 +287,7 @@
       "desc": "AzureDevOps to GitHub Migrations Delivery Credential",
       "type": "credly",
       "expires": "2028-11-18",
-      "daysUntilExpiry": 733,
+      "daysUntilExpiry": 726,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -287,7 +298,7 @@
       "desc": "GitHub Migrations Delivery Credential",
       "type": "credly",
       "expires": "2028-11-18",
-      "daysUntilExpiry": 733,
+      "daysUntilExpiry": 726,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -298,10 +309,10 @@
       "desc": "GitHub Migrations Delivery Credential",
       "type": "credly",
       "expires": "2026-11-18",
-      "daysUntilExpiry": 2,
+      "daysUntilExpiry": 0,
       "dateEarned": null,
       "iconUrl": null,
-      "statusCategory": "active"
+      "statusCategory": "inactive"
     },
     {
       "id": "credly-14",
@@ -397,7 +408,7 @@
       "desc": "GitHub Copilot: Core Skills & Application Delivery Credential",
       "type": "credly",
       "expires": "2027-03-04",
-      "daysUntilExpiry": 108,
+      "daysUntilExpiry": 101,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -408,7 +419,7 @@
       "desc": "GitHub Advanced Security Delivery Credential",
       "type": "credly",
       "expires": "2027-03-04",
-      "daysUntilExpiry": 108,
+      "daysUntilExpiry": 101,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -419,7 +430,7 @@
       "desc": "GitHub Copilot: Deploying and Scaling AI in the Enterprise Delivery Credential",
       "type": "credly",
       "expires": "2027-08-29",
-      "daysUntilExpiry": 286,
+      "daysUntilExpiry": 279,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -771,10 +782,10 @@
       "desc": "AzureDevOps to GitHub Migrations Delivery Credential",
       "type": "credly",
       "expires": "2026-11-18",
-      "daysUntilExpiry": 2,
+      "daysUntilExpiry": 0,
       "dateEarned": null,
       "iconUrl": null,
-      "statusCategory": "active"
+      "statusCategory": "inactive"
     },
     {
       "id": "credly-57",
@@ -947,7 +958,7 @@
       "desc": "Microsoft Pro Badge: GitHub Copilot - Proficient",
       "type": "credly",
       "expires": "2027-04-28",
-      "daysUntilExpiry": 163,
+      "daysUntilExpiry": 156,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -958,7 +969,7 @@
       "desc": "Frontier Transformation Engineer",
       "type": "credly",
       "expires": "2027-09-10",
-      "daysUntilExpiry": 298,
+      "daysUntilExpiry": 291,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -987,6 +998,17 @@
     }
   ],
   "historicalCertificates": [
+    {
+      "id": "6FD7E5-Y8F69D",
+      "code": "GH-500",
+      "desc": "GitHub Advanced Security",
+      "type": "Expired",
+      "expires": "2026-07-26",
+      "daysUntilExpiry": 0,
+      "dateEarned": "2023-07-26T08:34:02+00:00",
+      "iconUrl": "https://learn.microsoft.com/en-us/media/learn/certification/badges/github-advanced-security.svg",
+      "statusCategory": "expiring_soon"
+    },
     {
       "id": "221JC5-885D53",
       "code": "AZ-300",
@@ -1072,7 +1094,7 @@
       "desc": "GitHub Advanced Security",
       "type": "credly",
       "expires": "2027-01-26",
-      "daysUntilExpiry": 71,
+      "daysUntilExpiry": 64,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -1105,7 +1127,7 @@
       "desc": "Modernizing Enterprise CI/CD with GitHub Actions Delivery Credential",
       "type": "credly",
       "expires": "2027-08-29",
-      "daysUntilExpiry": 286,
+      "daysUntilExpiry": 279,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -1116,7 +1138,7 @@
       "desc": "AzureDevOps to GitHub Migrations Delivery Credential",
       "type": "credly",
       "expires": "2028-11-18",
-      "daysUntilExpiry": 733,
+      "daysUntilExpiry": 726,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -1127,7 +1149,7 @@
       "desc": "GitHub Migrations Delivery Credential",
       "type": "credly",
       "expires": "2028-11-18",
-      "daysUntilExpiry": 733,
+      "daysUntilExpiry": 726,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -1138,10 +1160,10 @@
       "desc": "GitHub Migrations Delivery Credential",
       "type": "credly",
       "expires": "2026-11-18",
-      "daysUntilExpiry": 2,
+      "daysUntilExpiry": 0,
       "dateEarned": null,
       "iconUrl": null,
-      "statusCategory": "active"
+      "statusCategory": "inactive"
     },
     {
       "id": "credly-14",
@@ -1237,7 +1259,7 @@
       "desc": "GitHub Copilot: Core Skills & Application Delivery Credential",
       "type": "credly",
       "expires": "2027-03-04",
-      "daysUntilExpiry": 108,
+      "daysUntilExpiry": 101,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -1248,7 +1270,7 @@
       "desc": "GitHub Advanced Security Delivery Credential",
       "type": "credly",
       "expires": "2027-03-04",
-      "daysUntilExpiry": 108,
+      "daysUntilExpiry": 101,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -1259,7 +1281,7 @@
       "desc": "GitHub Copilot: Deploying and Scaling AI in the Enterprise Delivery Credential",
       "type": "credly",
       "expires": "2027-08-29",
-      "daysUntilExpiry": 286,
+      "daysUntilExpiry": 279,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -1611,10 +1633,10 @@
       "desc": "AzureDevOps to GitHub Migrations Delivery Credential",
       "type": "credly",
       "expires": "2026-11-18",
-      "daysUntilExpiry": 2,
+      "daysUntilExpiry": 0,
       "dateEarned": null,
       "iconUrl": null,
-      "statusCategory": "active"
+      "statusCategory": "inactive"
     },
     {
       "id": "credly-57",
@@ -1787,7 +1809,7 @@
       "desc": "Microsoft Pro Badge: GitHub Copilot - Proficient",
       "type": "credly",
       "expires": "2027-04-28",
-      "daysUntilExpiry": 163,
+      "daysUntilExpiry": 156,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
@@ -1798,7 +1820,7 @@
       "desc": "Frontier Transformation Engineer",
       "type": "credly",
       "expires": "2027-09-10",
-      "daysUntilExpiry": 298,
+      "daysUntilExpiry": 291,
       "dateEarned": null,
       "iconUrl": null,
       "statusCategory": "active"
