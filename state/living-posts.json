@@ -11,14 +11,14 @@
         543
       ],
       "page_hashes": {
-        "https://docs.github.com/en/early-access/copilot/hydrafusion": "9aab696d8b60a70c303def17e1f6509258792b4680e63b875eca2c655ca8aa1d"
+        "https://docs.github.com/en/early-access/copilot/hydrafusion": "f2541740765a72ec88e01019ac60cc54af2cc2b4a2d973529d9dba306ffb68fc"
       },
       "verified_versions": {
         "vscode": "1.142",
-        "vscode-insiders": "1.144",
-        "copilot-cli": "1.0.104"
+        "vscode-insiders": "1.146",
+        "copilot-cli": "1.0.108"
       },
-      "last_checked": "2026-10-27"
+      "last_checked": "2026-11-10"
     },
     "copilot-model-guide": {
       "handled_item_ids": [],
