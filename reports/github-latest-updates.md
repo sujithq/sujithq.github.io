@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-11-20
+post_date: 2026-11-23
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1349,3 +1349,7 @@ completed deprecation is shown.
 | 2026-11-20 | [Pin your favorite repositories to your dashboard](https://github.blog/changelog/2026-11-20-pin-your-favorite-repositories-to-your-dashboard) | Update | GitHub added a Favorite repositories section on the Dashboard so you can choose which repositories appear there. If the new dashboard experience is not enabled, the existing Top repositories section stays the same. |
 | 2026-11-20 | [GitHub Enterprise Server 3.23 release candidate](https://github.blog/changelog/2026-11-20-github-enterprise-server-3-23-release-candidate) | Update | GitHub Enterprise Server 3.23 is available as a release candidate. The post says it adds new capabilities across the platform and mentions updates to GitHub Projects, but does not provide specifics in the excerpt. |
 | 2026-11-20 | [Security advisory permissions are now generally available](https://github.blog/changelog/2026-11-20-security-advisory-permissions-are-now-generally-available) | Generally available | GitHub now supports using custom repository roles to grant access for working on repository security advisories, including private vulnerability reports. This removes the need to make users repository administrators just for advisory work. |
+| 2026-11-23 | [Usage reports will include a user ID column starting December 1](https://github.blog/changelog/2026-11-23-usage-reports-will-include-a-user-id-column-starting-december-1) | Update | Starting December 1, 2026, GitHub usage reports that include a username column will also include a user_id column beside it. Columns after username will shift one position to the right. |
+| 2026-11-23 | [Code coverage uploads now flag invalid report formats](https://github.blog/changelog/2026-11-23-code-coverage-uploads-now-flag-invalid-report-formats) | Update | The GitHub Code Quality upload-code-coverage action now validates that uploaded coverage reports are in Cobertura XML format. If the report is in an unsupported format, the upload step now fails. |
+| 2026-11-23 | [Secret scanning reduces false positives for Slack](https://github.blog/changelog/2026-11-23-secret-scanning-reduces-false-positives-for-slack) | Update | GitHub updated secret scanning to reduce false positives for Slack incoming webhook URLs. The detector now excludes certain URLs to cut down on incorrect matches. |
+| 2026-11-23 | [Issue statuses and repository boards are in public preview](https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview) | Public preview | GitHub added more specific issue statuses and repository boards in public preview, giving teams shared context beyond just open or closed. The feature is meant to show where an issue stands and help track work in flight. |
