@@ -12,7 +12,7 @@ tags:
   - changelog
 ai_note: AI assisted summary generated from local JSONL feed data.
 summary: Deduplicated chronological list of GitHub-sourced feature updates.
-post_date: 2026-11-23
+post_date: 2026-11-24
 generated_by: scripts/generate-github-updates-report.js
 ---
 
@@ -1353,3 +1353,4 @@ completed deprecation is shown.
 | 2026-11-23 | [Code coverage uploads now flag invalid report formats](https://github.blog/changelog/2026-11-23-code-coverage-uploads-now-flag-invalid-report-formats) | Update | The GitHub Code Quality upload-code-coverage action now validates that uploaded coverage reports are in Cobertura XML format. If the report is in an unsupported format, the upload step now fails. |
 | 2026-11-23 | [Secret scanning reduces false positives for Slack](https://github.blog/changelog/2026-11-23-secret-scanning-reduces-false-positives-for-slack) | Update | GitHub updated secret scanning to reduce false positives for Slack incoming webhook URLs. The detector now excludes certain URLs to cut down on incorrect matches. |
 | 2026-11-23 | [Issue statuses and repository boards are in public preview](https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview) | Public preview | GitHub added more specific issue statuses and repository boards in public preview, giving teams shared context beyond just open or closed. The feature is meant to show where an issue stands and help track work in flight. |
+| 2026-11-24 | [More predictable notifications on GitHub.com](https://github.blog/changelog/2026-11-24-more-predictable-notifications-on-github-com) | Update | GitHub.com notifications will be migrated starting December 1, 2026, over the course of a week. The change is intended to make subscriptions more predictable, fix unexpected behavior, and support higher activity scale. |
