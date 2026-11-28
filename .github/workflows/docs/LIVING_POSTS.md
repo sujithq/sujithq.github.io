@@ -59,6 +59,16 @@ from **Actions → Living Post Refresh → Run workflow**.
 
 ## Making a post living
 
+The `living-post-onboarding` custom agent in `.github/agents/` does these steps
+for you and opens a draft pull request. Select it in Copilot Chat or assign it
+to a Copilot coding agent task, and name the post:
+
+```text
+Make this post living: content/posts/<folder>/index.md
+```
+
+A GitHub URL to the file also works. To do it by hand:
+
 1. Add `living = true` under `[params]` in the post front matter.
 2. Add a `## Last verified` section with a table between
    `<!-- living-post:verified:start -->` and
