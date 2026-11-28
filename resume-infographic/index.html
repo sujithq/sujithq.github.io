@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujith Quintelier — Resume Infographic</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #0078d4; --blue-dark: #004e8c; --blue-light: #deecf9;
+      --teal: #008272; --gray-100: #f8f9fa; --gray-200: #e9ecef;
+      --gray-400: #ced4da; --gray-600: #6c757d; --gray-800: #343a40;
+      --white: #ffffff; --radius: 8px; --shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--gray-100); color: var(--gray-800); line-height: 1.5; font-size: 14px; }
+    .page { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+    header { background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 60%, var(--teal) 100%); color: var(--white); border-radius: var(--radius); padding: 32px 40px; margin-bottom: 24px; display: flex; align-items: center; gap: 32px; box-shadow: var(--shadow); }
+    .avatar { width: 90px; height: 90px; border-radius: 50%; background: rgba(255,255,255,0.2); border: 3px solid rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 700; flex-shrink: 0; color: var(--white); }
+    .profile-info h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+    .profile-info .role { font-size: 16px; opacity: 0.9; margin-top: 4px; }
+    .profile-info .company { font-size: 15px; opacity: 0.75; margin-top: 2px; }
+    .profile-meta { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .profile-meta a, .profile-meta span { color: rgba(255,255,255,0.88); text-decoration: none; font-size: 13px; display: flex; align-items: center; gap: 5px; }
+    .profile-meta a:hover { color: var(--white); text-decoration: underline; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .col-full { grid-column: 1 / -1; }
+    @media (max-width: 720px) { header { flex-direction: column; align-items: flex-start; padding: 24px; } .grid { grid-template-columns: 1fr; } }
+    .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; }
+    .card h2 { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue-dark); border-bottom: 2px solid var(--blue-light); padding-bottom: 8px; margin-bottom: 16px; }
+    .timeline { list-style: none; }
+    .timeline li { position: relative; padding-left: 20px; padding-bottom: 20px; }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline li::before { content: ""; position: absolute; left: 0; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--blue); border: 2px solid var(--blue-light); }
+    .timeline li::after { content: ""; position: absolute; left: 4px; top: 18px; bottom: 0; width: 2px; background: var(--blue-light); }
+    .timeline li:last-child::after { display: none; }
+    .timeline .job-title { font-weight: 600; font-size: 14px; color: var(--gray-800); }
+    .timeline .job-company { color: var(--blue); font-size: 13px; font-weight: 500; }
+    .timeline .job-meta { font-size: 12px; color: var(--gray-600); margin: 2px 0 4px; }
+    .timeline .job-desc { font-size: 12.5px; color: var(--gray-600); line-height: 1.4; }
+    .cert-group { margin-bottom: 18px; }
+    .cert-group:last-child { margin-bottom: 0; }
+    .cert-group-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; padding: 3px 10px; border-radius: 4px; display: inline-block; }
+    .label-ms { background: #cce4f6; color: var(--blue-dark); }
+    .label-gh { background: #e6e9ec; color: #24292f; }
+    .label-other { background: #e5f4f2; color: var(--teal); }
+    .cert-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .cert-list li { font-size: 12.5px; display: flex; align-items: flex-start; gap: 6px; line-height: 1.35; }
+    .cert-list li::before { content: "✓"; color: var(--blue); font-weight: 700; font-size: 11px; margin-top: 1px; flex-shrink: 0; }
+    .cert-date { color: var(--gray-600); font-size: 11px; white-space: nowrap; margin-left: auto; padding-left: 6px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+    .skill-item { background: var(--blue-light); border-radius: 6px; padding: 10px 12px; text-align: center; }
+    .skill-item .skill-name { font-weight: 600; font-size: 12.5px; color: var(--blue-dark); }
+    .skill-item .skill-area { font-size: 11px; color: var(--gray-600); margin-top: 2px; }
+    .summary-text { font-size: 14px; line-height: 1.7; color: var(--gray-800); }
+    .highlight-stat { display: inline-block; background: var(--blue); color: var(--white); border-radius: 4px; padding: 2px 8px; font-weight: 700; font-size: 13px; margin: 0 2px; }
+    footer { margin-top: 32px; text-align: center; font-size: 11px; color: var(--gray-600); }
+    footer a { color: var(--gray-600); }
+    .mb20 { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="avatar" aria-hidden="true">SQ</div>
+    <div class="profile-info">
+      <h1>Sujith Quintelier</h1>
+      <p class="role">Cloud Solution Architect AI + App Innovation</p>
+      <p class="company">Microsoft &middot; Belgium</p>
+      <nav class="profile-meta" aria-label="Contact and social links">
+        <span>&#128205; Belgium</span>
+        <a href="https://quintelier.dev" target="_blank" rel="noopener noreferrer">&#127760; quintelier.dev</a>
+        <a href="https://www.linkedin.com/in/sujithquintelier" target="_blank" rel="noopener noreferrer">&#128101; linkedin.com/in/sujithquintelier</a>
+        <a href="https://github.com/sujithq" target="_blank" rel="noopener noreferrer">&#128736; github.com/sujithq</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="card mb20" aria-labelledby="summary-heading">
+    <h2 id="summary-heading">Profile Summary</h2>
+    <p class="summary-text">
+      Cloud architect and technology enabler with over <span class="highlight-stat">24+ years</span> of software and cloud experience.
+      Currently at <strong>Microsoft</strong> as Cloud Solution Architect focused on AI + App Innovation,
+      helping enterprise customers accelerate their AI and application modernisation journey using Azure AI services, GitHub, and cloud-native technologies.
+      Deep expertise across <span class="highlight-stat">Azure</span>, <span class="highlight-stat">GitHub</span>,
+      <span class="highlight-stat">DevOps</span>, and <span class="highlight-stat">Platform Engineering</span>,
+      backed by <strong>30+ certifications</strong>. Passionate trainer and community enabler.
+    </p>
+  </section>
+
+  <div class="grid">
+    <section class="card col-full" aria-labelledby="exp-heading">
+      <h2 id="exp-heading">Professional Experience</h2>
+      <ul class="timeline">
+        <li>
+          <div class="job-title">Cloud Solution Architect AI + App Innovation</div>
+          <div class="job-company">Microsoft</div>
+          <div class="job-meta">Jan 2026 &ndash; Present &middot; Belgium</div>
+          <div class="job-desc">Helping customers accelerate AI and application modernisation through solution architecture, technical workshops, proof of concepts, and strategic guidance on Azure AI, GitHub Copilot, and cloud-native technologies.</div>
+        </li>
+        <li>
+          <div class="job-title">Azure Architect | DevOps Enabler | GitHub Enthusiast | Trainer</div>
+          <div class="job-company">Xebia (fka Xpirit)</div>
+          <div class="job-meta">Jun 2023 &ndash; Jan 2026 &middot; Antwerp</div>
+          <div class="job-desc">Delivered Azure, GitHub, DevOps, and Platform Engineering solutions including IDP design, golden paths, and self-service portals. Authorised trainer for GitHub Foundations, Actions, Advanced Security, Copilot, Git, and Azure DevOps.</div>
+        </li>
+        <li>
+          <div class="job-title">Azure Architect</div>
+          <div class="job-company">Ordina</div>
+          <div class="job-meta">Jan 2021 &ndash; Jun 2023 &middot; Mechelen</div>
+          <div class="job-desc">Azure infrastructure architecture, DevOps, governance, security, cost management, and data strategy. Supported Advanced Specializations and Solutions Partner designations. Internal and external trainer (Azure, Kubernetes, DevOps, Cloud Native).</div>
+        </li>
+        <li>
+          <div class="job-title">Cloud Solutions Architect</div>
+          <div class="job-company">Arxus</div>
+          <div class="job-meta">Jul 2019 &ndash; Jan 2021 &middot; Kontich</div>
+          <div class="job-desc">Azure infrastructure, DevOps, PaaS adoption, cost optimisation, and managed services product development. Supported Expert MSP and Advanced Specialization obtainment. Delivered Azure, Kubernetes, and DevOps training.</div>
+        </li>
+        <li>
+          <div class="job-title">Senior Azure Consultant &amp; Senior .NET Developer</div>
+          <div class="job-company">Euricom</div>
+          <div class="job-meta">Nov 2012 &ndash; Jun 2019 &middot; Mechelen</div>
+          <div class="job-desc">Azure architecture design, TCO assessments, PaaS optimisation audits, continuous delivery pipelines, and Agile .NET development focused on immediate business value.</div>
+        </li>
+        <li>
+          <div class="job-title">Senior .NET Developer</div>
+          <div class="job-company">Ordina</div>
+          <div class="job-meta">Dec 2009 &ndash; Oct 2012 &middot; Mechelen</div>
+          <div class="job-desc">Consultancy and enterprise .NET development: Windows Forms, ASP.NET, WPF, WCF, Entity Framework, Silverlight, Windows Phone, SQL Server, Oracle.</div>
+        </li>
+        <li>
+          <div class="job-title">Software Developer</div>
+          <div class="job-company">ICMS (now Knowliah)</div>
+          <div class="job-meta">Dec 2006 &ndash; Dec 2009 &middot; Boortmeerbeek</div>
+          <div class="job-desc">.NET development with Windows Forms, ASP.NET, ADO.NET, SQL Server, Lucene, and Solr for search-intensive applications.</div>
+        </li>
+        <li>
+          <div class="job-title">Software Developer</div>
+          <div class="job-company">Sofico &middot; Sogeti &middot; Info Support &middot; LBCO</div>
+          <div class="job-meta">2000 &ndash; 2006</div>
+          <div class="job-desc">Early career roles in Java/PL-SQL, VB6/ASP, and Magic eDeveloper, building enterprise software and data solutions across multiple Belgian technology firms.</div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card col-full" aria-labelledby="cert-heading">
+      <h2 id="cert-heading">Certifications &amp; Accomplishments</h2>
+
+      <div class="cert-group">
+        <span class="cert-group-label label-ms">Microsoft / Azure</span>
+        <ul class="cert-list">
+          <li><span>Azure Solutions Architect Expert</span><span class="cert-date">2019</span></li>
+          <li><span>DevOps Engineer Expert</span><span class="cert-date">2020</span></li>
+          <li><span>Cybersecurity Architect Expert</span><span class="cert-date">2022</span></li>
+          <li><span>Azure AI Engineer Associate</span><span class="cert-date">2021</span></li>
+          <li><span>Azure Security Engineer Associate</span><span class="cert-date">2020</span></li>
+          <li><span>Azure Administrator Associate</span><span class="cert-date">2020</span></li>
+          <li><span>Azure Developer Associate</span><span class="cert-date">2020</span></li>
+          <li><span>Azure Identity and Access Administrator Associate</span><span class="cert-date">2022</span></li>
+          <li><span>Azure Network Engineer Associate</span><span class="cert-date">2022</span></li>
+          <li><span>Azure Cosmos DB Developer Specialty</span><span class="cert-date">2022</span></li>
+          <li><span>Azure AI Fundamentals</span><span class="cert-date">2024</span></li>
+          <li><span>Azure Fundamentals</span><span class="cert-date">2024</span></li>
+          <li><span>Applied Skills: GitHub Copilot app development</span><span class="cert-date">2025</span></li>
+          <li><span>Applied Skills: Migrate SQL to Azure SQL Database</span><span class="cert-date">2024</span></li>
+          <li><span>Applied Skills: Security through Azure DevOps pipeline</span><span class="cert-date">2024</span></li>
+          <li><span>Applied Skills: Azure AI Vision solution</span><span class="cert-date">2023</span></li>
+          <li><span>Applied Skills: Azure AI Document Intelligence</span><span class="cert-date">2023</span></li>
+          <li><span>Applied Skills: NLP with Azure AI Language</span><span class="cert-date">2023</span></li>
+          <li><span>Applied Skills: Deploy and configure Azure Monitor</span><span class="cert-date">2023</span></li>
+          <li><span>Applied Skills: Secure Azure Files and Blob Storage</span><span class="cert-date">2023</span></li>
+          <li><span>Applied Skills: Azure virtual networking</span><span class="cert-date">2023</span></li>
+          <li><span>Applied Skills: ASP.NET Core web app + API</span><span class="cert-date">2023</span></li>
+          <li><span>Applied Skills: Deploy containers with AKS</span><span class="cert-date">2023</span></li>
+          <li><span>MCSE: Cloud Platform and Infrastructure</span><span class="cert-date">2017</span></li>
+          <li><span>MCSD: App Builder / MCSA: Web Applications</span><span class="cert-date">2016&ndash;2017</span></li>
+        </ul>
+      </div>
+
+      <div class="cert-group">
+        <span class="cert-group-label label-gh">GitHub</span>
+        <ul class="cert-list">
+          <li><span>GitHub Certified Partner: GitHub Copilot</span><span class="cert-date">2025</span></li>
+          <li><span>GitHub Technical Sales Professional</span><span class="cert-date">2025</span></li>
+          <li><span>GitHub Sales Professional + Sales Validation</span><span class="cert-date">2024</span></li>
+          <li><span>GitHub Certified Partner: GitHub Foundations</span><span class="cert-date">2023</span></li>
+          <li><span>GitHub Certified Partner: GitHub Admin</span><span class="cert-date">2023</span></li>
+          <li><span>GitHub Certified Partner: GitHub Advanced Security</span><span class="cert-date">2023</span></li>
+          <li><span>GitHub Certified Partner: GitHub Actions</span><span class="cert-date">2022</span></li>
+          <li><span>GitHub Accreditations (training + migrations)</span><span class="cert-date">2023&ndash;2026</span></li>
+        </ul>
+      </div>
+
+      <div class="cert-group">
+        <span class="cert-group-label label-other">Platform Engineering &amp; Other</span>
+        <ul class="cert-list">
+          <li><span>Platform Engineering Practitioner</span><span class="cert-date">2025&ndash;2026</span></li>
+          <li><span>HashiCorp Certified: Terraform Associate (002 &amp; 003)</span><span class="cert-date">2021</span></li>
+          <li><span>AWS Cloud Quest: Cloud Practitioner</span><span class="cert-date">2023</span></li>
+          <li><span>Linux Foundation: Kubernetes Fundamentals (LFS258)</span><span class="cert-date">2018</span></li>
+          <li><span>Linux Foundation: Kubernetes for Developers (LFD259)</span><span class="cert-date">2018</span></li>
+          <li><span>Security Journey: White, Yellow &amp; Green Belts</span><span class="cert-date">2022</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card col-full" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Key Skills &amp; Technology Focus</h2>
+      <div class="skills-grid">
+        <div class="skill-item"><div class="skill-name">Azure AI Services</div><div class="skill-area">AI &middot; Cognitive</div></div>
+        <div class="skill-item"><div class="skill-name">GitHub Copilot</div><div class="skill-area">AI &middot; Dev Productivity</div></div>
+        <div class="skill-item"><div class="skill-name">Azure Architecture</div><div class="skill-area">Cloud &middot; Design</div></div>
+        <div class="skill-item"><div class="skill-name">GitHub Actions</div><div class="skill-area">CI/CD &middot; Automation</div></div>
+        <div class="skill-item"><div class="skill-name">DevOps</div><div class="skill-area">People &middot; Process &middot; Tools</div></div>
+        <div class="skill-item"><div class="skill-name">Platform Engineering</div><div class="skill-area">IDP &middot; Golden Paths</div></div>
+        <div class="skill-item"><div class="skill-name">Kubernetes / AKS</div><div class="skill-area">Containers &middot; Cloud Native</div></div>
+        <div class="skill-item"><div class="skill-name">Infrastructure as Code</div><div class="skill-area">Terraform &middot; ARM &middot; Bicep</div></div>
+        <div class="skill-item"><div class="skill-name">Security &amp; Compliance</div><div class="skill-area">GHAS &middot; Zero Trust</div></div>
+        <div class="skill-item"><div class="skill-name">Azure Networking</div><div class="skill-area">VNet &middot; Firewall &middot; DNS</div></div>
+        <div class="skill-item"><div class="skill-name">.NET / C#</div><div class="skill-area">Backend Development</div></div>
+        <div class="skill-item"><div class="skill-name">Training &amp; Enablement</div><div class="skill-area">Workshops &middot; Mentoring</div></div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>Generated from public resume data &middot; <a href="https://quintelier.dev/resume">quintelier.dev/resume</a> &middot; Static HTML, no scripts or external resources</p>
+  </footer>
+</div>
+</body>
+</html>

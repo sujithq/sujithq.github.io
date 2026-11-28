@@ -1,0 +1,1 @@
+(()=>{(function(){var t=document.documentElement.getAttribute("data-bs-theme")||"light",e=null;try{e=localStorage.getItem("theme")}catch{e=null}document.documentElement.setAttribute("data-bs-theme",e||t)})();})();
